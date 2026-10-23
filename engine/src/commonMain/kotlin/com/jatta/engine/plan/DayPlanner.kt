@@ -33,14 +33,17 @@ class DayPlanner(
         return DayPlan(interleave(reviews), newItems, postponedReviews = due.size - reviews.size)
     }
 
-    private fun newItems(learner: Learner, today: Int): List<String> =
-        course.topics.asSequence()
+    /** М18: the limit is per day, so items already started today in an earlier session count against it. */
+    private fun newItems(learner: Learner, today: Int): List<String> {
+        val startedToday = learner.progress.values.count { it.firstDay == today }
+        return course.topics.asSequence()
             .filter { gate.isOpen(it, learner, today) }
             .flatMap { course.itemsOf(it.id) }
             .filter { it.id !in learner.progress }
-            .take(config.newItemsPerDay)
+            .take((config.newItemsPerDay - startedToday).coerceAtLeast(0))
             .map { it.id }
             .toList()
+    }
 
     /**
      * Reviews of topics that learners confuse are mixed one by one, so each answer needs telling

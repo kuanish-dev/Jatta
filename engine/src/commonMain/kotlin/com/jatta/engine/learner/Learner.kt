@@ -8,6 +8,8 @@ data class ItemProgress(
     val memory: Memory,
     val lastReviewDay: Int,
     val dueDay: Int,
+    /** Learning day the item was first studied; null when it was known before the course (М23). Counts for М18. */
+    val firstDay: Int? = null,
 )
 
 /** Everything the engine knows about the learner. */

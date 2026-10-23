@@ -43,6 +43,7 @@ import com.jatta.study.store.RecentAnswer
 import com.jatta.study.store.SavedPlacement
 import com.jatta.study.store.SessionStart
 import com.jatta.study.store.toLearner
+import com.jatta.study.store.withFirstDays
 import com.jatta.study.store.withLearner
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
@@ -83,7 +84,7 @@ class StudyController(
     /** Where heavy work such as fitting the memory model runs, off the UI thread. */
     private val background: CoroutineDispatcher = Dispatchers.Default,
 ) {
-    private var saved = store.load()
+    private var saved = store.load().let { if (it.firstDaysRecorded) it else it.withFirstDays(LogReplay.firstStudyDays(store.readLog())) }
     private var learner = saved.toLearner()
     private var engine = engineWith(saved.fsrsParameters)
     private var readingPicker = ReadingPicker(content, engine)
@@ -258,7 +259,7 @@ class StudyController(
         val result = test.result(placementWords, placementGrammar)
         val today = currentDay()
         result.knownItems.forEach { item ->
-            learner = engine.recordGrade(learner, item, Grade.Good, today)
+            learner = engine.placeKnown(learner, item, today)
             // Logged so a replay of the log rebuilds the same memory; calibration doesn't score these.
             store.log(LogEntry(nowMs(), today, item, "Placement", true, 0, Grade.Good.name, false, CheckedBy.Placement.logName))
         }

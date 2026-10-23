@@ -147,6 +147,36 @@ class StudyControllerTest {
         assertEquals(check.reviews + studyConfig.refitAfterReviews, after.nextFitAt)
     }
 
+    /** М18: twelve new items a day, however many sessions it takes. */
+    @Test
+    fun theDailyLimitOfNewItemsHoldsAcrossSessions() {
+        val app = controller()
+        app.startSession()
+        runSessionAnsweringRight(app)
+        app.openHome()
+        assertEquals(0, (app.screen.value as Screen.Home).newItems, "twelve new items were started today already")
+        assertEquals(0, (controller().screen.value as Screen.Home).newItems, "and the limit survives a restart")
+
+        now += day
+        app.openHome()
+        assertEquals(12, (app.screen.value as Screen.Home).newItems)
+    }
+
+    /** A state saved before items kept their first study day gets it from the answer log. */
+    @Test
+    fun anOlderStateLearnsFromTheLogWhatWasStartedToday() {
+        controller().apply {
+            startSession()
+            runSessionAnsweringRight(this)
+        }
+        val store = LearnerStore(dir.absolutePath)
+        val older = store.load().let { state -> state.copy(progress = state.progress.map { it.copy(firstDay = null) }, firstDaysRecorded = false) }
+        store.save(older)
+
+        assertEquals(0, (controller().screen.value as Screen.Home).newItems)
+        assertTrue(store.load().progress.isNotEmpty())
+    }
+
     /** М24: a phrase recognised by ear is then shown as text, to listen to again and repeat. */
     @Test
     fun aPhraseHeardRightIsShownAsTextToRepeat() {

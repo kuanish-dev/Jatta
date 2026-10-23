@@ -38,4 +38,10 @@ class Engine(val course: Course, val config: EngineConfig = EngineConfig()) {
         val progress = memory.review(learner.progress[itemId], itemId, grade, today)
         return learner.copy(progress = learner.progress + (itemId to progress))
     }
+
+    /** М23: an item the placement test found known enters memory today but is not new learning for М18. */
+    fun placeKnown(learner: Learner, itemId: String, today: Int): Learner {
+        val progress = memory.review(null, itemId, Grade.Good, today).copy(firstDay = null)
+        return learner.copy(progress = learner.progress + (itemId to progress))
+    }
 }

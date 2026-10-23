@@ -19,10 +19,16 @@ object LogReplay {
         graded(log).forEach { entry ->
             val previous = state[entry.item]
             onReview(entry, previous)
-            state[entry.item] = memory.review(previous, entry.item, Grade.valueOf(entry.grade!!), entry.day)
+            val next = memory.review(previous, entry.item, Grade.valueOf(entry.grade!!), entry.day)
+            state[entry.item] = if (previous == null && entry.checkedBy == Calibration.PLACEMENT) next.copy(firstDay = null) else next
         }
         return state
     }
+
+    /** The day each item was first studied, leaving out items the placement test found known (М18). */
+    fun firstStudyDays(log: List<LogEntry>): Map<String, Int> = graded(log).groupBy { it.item }
+        .filterValues { it.first().checkedBy != Calibration.PLACEMENT }
+        .mapValues { (_, entries) -> entries.first().day }
 
     /**
      * Review histories to fit the memory model on. Items placed as known by the placement test are left

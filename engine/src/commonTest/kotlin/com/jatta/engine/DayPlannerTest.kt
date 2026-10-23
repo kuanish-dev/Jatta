@@ -2,6 +2,7 @@ package com.jatta.engine
 
 import com.jatta.engine.content.Course
 import com.jatta.engine.content.Topic
+import com.jatta.engine.fsrs.Grade
 import com.jatta.engine.learner.Learner
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -35,6 +36,18 @@ class DayPlannerTest {
     fun newItemsAreLimitedPerDay() {
         val small = Engine(Fixture.course, EngineConfig(newItemsPerDay = 3))
         assertEquals(listOf("w10", "w9", "w8"), small.planDay(Learner(), today).newItems)
+    }
+
+    @Test
+    fun theDailyLimitCountsWhatWasStartedEarlierTheSameDay() {
+        val small = Engine(Fixture.course, EngineConfig(newItemsPerDay = 3))
+        val startedToday = small.recordGrade(Learner(), "w10", Grade.Good, today)
+        assertEquals(listOf("w9", "w8"), small.planDay(startedToday, today).newItems)
+        assertEquals(listOf("w9", "w8", "w7"), small.planDay(startedToday, today + 1).newItems)
+
+        val placed = small.placeKnown(Learner(), "w10", today)
+        assertEquals(listOf("w9", "w8", "w7"), small.planDay(placed, today).newItems, "known before the course is not new learning")
+        assertEquals(null, small.recordGrade(placed, "w10", Grade.Good, today + 2).progress.getValue("w10").firstDay)
     }
 
     @Test

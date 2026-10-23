@@ -14,7 +14,10 @@ class MemoryModel(private val fsrs: Fsrs) {
         } else {
             fsrs.next(previous.memory, today - previous.lastReviewDay, grade)
         }
-        return ItemProgress(itemId, memory, lastReviewDay = today, dueDay = today + fsrs.intervalDays(memory.stability))
+        return ItemProgress(
+            itemId, memory, lastReviewDay = today, dueDay = today + fsrs.intervalDays(memory.stability),
+            firstDay = if (previous == null) today else previous.firstDay,
+        )
     }
 
     /** Probability that the learner recalls the item on [day]. */

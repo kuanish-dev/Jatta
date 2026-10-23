@@ -19,6 +19,8 @@ data class SavedProgress(
     val difficulty: Double,
     val lastReviewDay: Int,
     val dueDay: Int,
+    /** Learning day the item was first studied; null when the placement test found it known (М18, М23). */
+    val firstDay: Int? = null,
 )
 
 /** One recent first answer, for the learner's own speed medians and fatigue baseline. */
@@ -73,6 +75,8 @@ data class SavedState(
     /** М2: FSRS parameters fitted to this learner; null while the defaults are in use. */
     val fsrsParameters: List<Double>? = null,
     val fsrsFit: FitCheck? = null,
+    /** States saved before items kept their first study day get those days once from the answer log. */
+    val firstDaysRecorded: Boolean = false,
 )
 
 /** Every answer as it happened, kept to fit the memory model to this learner later. */
@@ -92,7 +96,7 @@ data class LogEntry(
 
 fun SavedState.toLearner() = Learner(
     progress = progress.associate {
-        it.item to ItemProgress(it.item, Memory(it.stability, it.difficulty), it.lastReviewDay, it.dueDay)
+        it.item to ItemProgress(it.item, Memory(it.stability, it.difficulty), it.lastReviewDay, it.dueDay, it.firstDay)
     },
     ladderShift = ladderShift,
 )
@@ -100,9 +104,16 @@ fun SavedState.toLearner() = Learner(
 /** The saved state with the learner's memory replaced by [learner]; everything else kept. */
 fun SavedState.withLearner(learner: Learner) = copy(
     progress = learner.progress.values
-        .map { SavedProgress(it.itemId, it.memory.stability, it.memory.difficulty, it.lastReviewDay, it.dueDay) }
+        .map { SavedProgress(it.itemId, it.memory.stability, it.memory.difficulty, it.lastReviewDay, it.dueDay, it.firstDay) }
         .sortedBy { it.item },
     ladderShift = learner.ladderShift,
+    firstDaysRecorded = true,
+)
+
+/** An older state with each item's first study day taken from [firstDays], the answer log's record. */
+fun SavedState.withFirstDays(firstDays: Map<String, Int>) = copy(
+    progress = progress.map { it.copy(firstDay = it.firstDay ?: firstDays[it.item]) },
+    firstDaysRecorded = true,
 )
 
 /** Keeps the learner on the device: a JSON snapshot written atomically, plus an append-only answer log. */
