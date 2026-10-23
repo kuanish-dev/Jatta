@@ -2,7 +2,9 @@ package com.jatta.study
 
 import com.jatta.engine.Engine
 import com.jatta.engine.EngineConfig
+import com.jatta.engine.epochMsAt
 import com.jatta.engine.learningDay
+import com.jatta.engine.localMinuteOfDay
 import com.jatta.engine.session.Advice
 import com.jatta.engine.session.Answer
 import com.jatta.engine.session.Baseline
@@ -12,6 +14,7 @@ import com.jatta.engine.session.RestCoach
 import com.jatta.engine.session.Rung
 import com.jatta.engine.session.Session
 import com.jatta.engine.session.Step
+import com.jatta.study.content.ReadingText
 import com.jatta.study.content.StudyCourse
 import com.jatta.study.exercise.AnswerCheck
 import com.jatta.study.exercise.Exercise
@@ -23,12 +26,16 @@ import com.jatta.study.judge.JudgeRequest
 import com.jatta.study.judge.ModelState
 import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.judge.WordDiff
+import com.jatta.study.reading.ReadingPicker
+import com.jatta.study.remind.Reminder
+import com.jatta.study.remind.ReminderScheduler
 import com.jatta.study.store.AiCheck
 import com.jatta.study.store.LearnerStore
 import com.jatta.study.store.LogEntry
 import com.jatta.study.store.RecentAnswer
+import com.jatta.study.store.SessionStart
 import com.jatta.study.store.toLearner
-import com.jatta.study.store.toSaved
+import com.jatta.study.store.withLearner
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -55,17 +62,18 @@ class StudyController(
     private val scope: CoroutineScope,
     private val model: OnDeviceModel? = null,
     private val evalCases: List<EvalCase> = emptyList(),
+    private val texts: List<ReadingText> = emptyList(),
+    private val reminders: ReminderScheduler? = null,
     private val engineConfig: EngineConfig = EngineConfig(),
     private val config: StudyConfig = StudyConfig(),
 ) {
     private val engine = Engine(content.course, engineConfig)
     private val exercises = ExerciseFactory(content)
     private val judge = model?.let { FreeAnswerJudge(it, config) }
+    private val readingPicker = ReadingPicker(content, engine)
 
-    private val saved = store.load()
+    private var saved = store.load()
     private var learner = saved.toLearner()
-    private var recent = saved.recent
-    private var aiCheck = saved.aiCheck
 
     private var modelState = ModelState.Unavailable
     private var downloadedBytes: Long? = null
@@ -87,6 +95,7 @@ class StudyController(
     val screen: StateFlow<Screen> = state.asStateFlow()
 
     init {
+        updateReminder()
         if (model != null) {
             scope.launch {
                 modelState = model.state()
@@ -101,12 +110,16 @@ class StudyController(
         coach = null
         exercise = null
         state.value = home()
+        updateReminder()
     }
 
     fun startSession() {
         today = currentDay()
         session = engine.startSession(engine.planDay(learner, today))
         coach = engine.restCoach(baseline(), nowMs())
+        val start = SessionStart(today, localMinuteOfDay(nowMs(), utcOffsetMinutes()))
+        saved = saved.copy(sessionStarts = (saved.sessionStarts + start).takeLast(config.sessionStartsKept))
+        save()
         firstAnswers.clear()
         pendingAdvice = Advice.Continue
         endedEarly = false
@@ -166,6 +179,19 @@ class StudyController(
     /** Leave in the middle: everything answered so far is already saved. */
     fun stopSession() = openHome()
 
+    /** М11: open the real text offered on the home screen. */
+    fun openReading() {
+        val reading = (state.value as? Screen.Home)?.reading ?: return
+        state.value = Screen.Read(reading)
+    }
+
+    fun finishReading() {
+        val read = state.value as? Screen.Read ?: return
+        saved = saved.copy(readTexts = saved.readTexts + read.reading.text.id)
+        save()
+        openHome()
+    }
+
     fun downloadModel() {
         val model = model ?: return
         modelState = ModelState.Downloading
@@ -193,7 +219,7 @@ class StudyController(
                 testedDone = done
                 refreshHome()
             }
-            aiCheck = AiCheck(
+            val check = AiCheck(
                 agreement = result.agreement,
                 total = result.total,
                 wrongAccepted = result.wrongAccepted,
@@ -202,14 +228,15 @@ class StudyController(
                 enabled = result.agreement >= config.minJudgeAgreement,
             )
             testedDone = null
-            store.save(learner.toSaved(recent, aiCheck))
+            saved = saved.copy(aiCheck = check)
+            save()
             refreshHome()
         }
     }
 
     private fun checkFreeAnswer(text: String, responseMs: Long, task: String?) {
         pendingResponseMs = responseMs
-        val judge = judge?.takeIf { aiCheck?.enabled == true && modelState == ModelState.Ready }
+        val judge = judge?.takeIf { saved.aiCheck?.enabled == true && modelState == ModelState.Ready }
         if (judge == null || task == null) {
             showSelfCheck(text)
             return
@@ -240,8 +267,9 @@ class StudyController(
         outcome.firstGrade?.let { grade ->
             learner = engine.recordGrade(learner, step.itemId, grade, today)
             firstAnswers += correct
-            recent = (recent + RecentAnswer(current.rung.name, correct, responseMs)).takeLast(config.recentAnswersKept)
-            store.save(learner.toSaved(recent, aiCheck))
+            val recent = (saved.recent + RecentAnswer(current.rung.name, correct, responseMs)).takeLast(config.recentAnswersKept)
+            saved = saved.copy(recent = recent)
+            save()
         }
         store.log(
             LogEntry(
@@ -255,7 +283,10 @@ class StudyController(
             is Outcome.Done -> advance(if (checkedBy == CheckedBy.Ai) Banner.CheckedByAi else Banner.Correct)
             is Outcome.Hint -> {
                 shownAtMs = nowMs()
-                state.value = Screen.Question(++questionCounter, current, hint = current.hint, banner = null, remaining = remaining())
+                val confident = engine.grading.isConfidentError(Answer(correct, responseMs), medianMs(current.rung))
+                state.value = Screen.Question(
+                    ++questionCounter, current, hint = current.hint, banner = null, remaining = remaining(), confidentError = confident,
+                )
             }
             Outcome.RetryLater -> advance(Banner.CorrectWithHint)
             Outcome.Reveal -> state.value = Screen.Reveal(current, note = itemNote(current.itemId), remaining = remaining())
@@ -312,8 +343,10 @@ class StudyController(
         if (firstAnswers.size >= config.minAnswersForLadderShift) {
             val accuracy = firstAnswers.count { it }.toDouble() / firstAnswers.size
             learner = learner.copy(ladderShift = engine.ladder.adjustShift(learner.ladderShift, accuracy))
-            store.save(learner.toSaved(recent, aiCheck))
+            save()
         }
+        reminders?.askPermission()
+        updateReminder()
         val after = coach().afterSession(session())
         if (after is Advice.QuietRest) {
             state.value = Screen.Rest(RestKind.Quiet, after.minutes, nowMs() + after.minutes * MS_PER_MINUTE)
@@ -324,6 +357,48 @@ class StudyController(
 
     private fun showDone() {
         state.value = Screen.Done(firstAnswers.size, firstAnswers.count { it }, endedEarly)
+    }
+
+    private fun updateReminder() {
+        reminders?.schedule(nextReminder())
+    }
+
+    /**
+     * М19, М20: one reminder, at the learner's usual study time, on the next day with something to do.
+     * Reviews fall due when the memory model expects forgetting, so the reminder follows the spacing
+     * schedule; the same time every day is the cue that turns study into a habit.
+     */
+    private fun nextReminder(): Reminder? {
+        val now = nowMs()
+        val offset = utcOffsetMinutes()
+        val currentDay = currentDay()
+        val minute = usualStudyMinute()
+        val first = if (saved.sessionStarts.any { it.day == currentDay }) currentDay + 1 else currentDay
+        for (day in first..first + config.reminderLookaheadDays) {
+            val at = epochMsAt(day, minute, offset, engineConfig.dayStartHour)
+            if (at <= now) continue
+            val plan = engine.planDay(learner, day)
+            if (plan.reviews.isEmpty() && plan.newItems.isEmpty()) continue
+            return Reminder(at, reminderText(plan.reviews.size, plan.newItems.size))
+        }
+        return null
+    }
+
+    /** The median start time of recent sessions, so the reminder comes when the learner usually studies. */
+    private fun usualStudyMinute(): Int {
+        val minutes = saved.sessionStarts.map { it.minute.toLong() }
+        return if (minutes.isEmpty()) config.defaultStudyMinute else median(minutes).toInt()
+    }
+
+    private fun reminderText(reviews: Int, newItems: Int) = when {
+        reviews > 0 && newItems > 0 -> "Повторить: $reviews, новое: $newItems"
+        reviews > 0 -> "Пора повторить $reviews — память как раз начинает ослабевать"
+        else -> "Новое на сегодня: $newItems"
+    }
+
+    private fun save() {
+        saved = saved.withLearner(learner)
+        store.save(saved)
     }
 
     private fun refreshHome() {
@@ -342,12 +417,14 @@ class StudyController(
             }
             TopicStatus(topic.title, state, held = items.count { engine.gate.holds(learner.progress[it.id], today) }, total = items.size)
         }
-        val ai = AiStatus(modelState, downloadedBytes, testedDone, evalCases.size, aiCheck)
-        return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai)
+        val ai = AiStatus(modelState, downloadedBytes, testedDone, evalCases.size, saved.aiCheck)
+        val reading = readingPicker.pick(texts, learner, today, saved.readTexts.toSet())
+        return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, reading)
     }
 
     /** The learner's usual accuracy and speed once there is enough history (М16). */
     private fun baseline(): Baseline {
+        val recent = saved.recent
         if (recent.size < config.minAnswersForBaseline) return Baseline.Default
         return Baseline(
             accuracy = recent.count { it.correct }.toDouble() / recent.size,
@@ -357,7 +434,7 @@ class StudyController(
 
     /** The learner's usual speed on this rung, for telling fast from slow answers (М2, М13). */
     private fun medianMs(rung: Rung): Long {
-        val times = recent.filter { it.rung == rung.name }.map { it.responseMs }
+        val times = saved.recent.filter { it.rung == rung.name }.map { it.responseMs }
         return if (times.size >= config.minAnswersForRungMedian) median(times) else config.defaultMedianMs.getValue(rung)
     }
 

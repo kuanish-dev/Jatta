@@ -59,9 +59,21 @@ SOFTWARE.
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). These files keep their own license
 (details in `sources/ngsl/README.md`); they are used only by tests and are not shipped in the app.
 
+### Reading texts — CC BY-SA 4.0 and public domain
+
+`content/en/texts.json` (collected by `scripts/collect_texts.py`) is shipped in the app:
+
+- Passages from [Simple English Wikipedia](https://simple.wikipedia.org), by Simple English Wikipedia
+  contributors, licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Each
+  passage records the exact page revision it comes from; markup and footnote marks were removed. These
+  passages remain under CC BY-SA 4.0, and the app shows the source and license with every text.
+- Passages from public-domain books via [Project Gutenberg](https://www.gutenberg.org): Lewis Carroll,
+  *Alice's Adventures in Wonderland* (1865); *Three Hundred Aesop's Fables*, tr. George Fyler Townsend
+  (1867); L. Frank Baum, *The Wonderful Wizard of Oz* (1900).
+
 ## Libraries the app is built with (not in this repository)
 
-- Kotlin, kotlinx.coroutines, kotlinx.serialization, kotlinx-io, Compose Multiplatform, AndroidX:
+- Kotlin, kotlinx.coroutines, kotlinx.serialization, kotlinx-io, Compose Multiplatform, AndroidX (including WorkManager):
   Apache License 2.0, compatible with GPL-3.0.
 - ML Kit GenAI Prompt API (`com.google.mlkit:genai-prompt`, Gemini Nano on Android): proprietary,
   [ML Kit Terms of Service](https://developers.google.com/ml-kit/terms). Not covered by the GPL;

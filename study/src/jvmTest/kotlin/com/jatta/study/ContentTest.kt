@@ -3,7 +3,10 @@ package com.jatta.study
 import com.jatta.engine.session.Rung
 import com.jatta.study.content.ContentError
 import com.jatta.study.content.ContentLoader
+import com.jatta.engine.EngineConfig
+import com.jatta.engine.content.TextCoverage
 import com.jatta.study.content.KindFile
+import com.jatta.study.content.ReadingTexts
 import com.jatta.study.exercise.Exercise
 import java.io.File
 import com.jatta.study.exercise.ExerciseFactory
@@ -32,6 +35,27 @@ class ContentTest {
         val words = content.items.values.filter { it.kind != KindFile.Rule }
         words.forEach { word ->
             assertEquals(ngsl[word.en.lowercase()], word.rank, "${word.id}: rank must be the NGSL 1.2 rank of \"${word.en}\"")
+        }
+    }
+
+    /** М11: every collected text is credited and passes the engine's coverage check once the course words are known. */
+    @Test
+    fun realTextsAreCreditedAndReadable() {
+        val texts = ReadingTexts.read(File(System.getProperty("contentDir"), "en/texts.json").readText())
+        assertTrue(texts.size >= 50, "only ${texts.size} texts")
+        assertEquals(texts.size, texts.map { it.id }.toSet().size, "duplicate text ids")
+        val coverage = TextCoverage(EngineConfig())
+        val courseForms = content.items.values
+            .filter { it.kind != KindFile.Rule }
+            .flatMap { item -> (listOf(item.en) + item.also + item.examples.mapNotNull { it.gap }).flatMap { coverage.words(it) } }
+            .toSet()
+        texts.forEach { text ->
+            with(text.source) {
+                assertTrue(url.startsWith("https://") && license.isNotBlank() && author.isNotBlank(), "${text.id}: source not credited")
+            }
+            val words = coverage.words(text.text).toSet()
+            assertTrue(words.containsAll(text.rare), "${text.id}: rare words must come from the text")
+            assertTrue(coverage.check(text.text, words - text.rare.toSet() + courseForms).acceptable, "${text.id}: too many unknown words")
         }
     }
 

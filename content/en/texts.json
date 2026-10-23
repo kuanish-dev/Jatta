@@ -1,0 +1,1719 @@
+{
+  "assumedKnown": "NGSL 1.2 ranks 1-2000",
+  "texts": [
+    {
+      "id": "sw-job-1",
+      "title": "Job",
+      "text": "A job is any legal activity that allows an individual to perform a service and in return earn credits they can use to buy things. A job can mean \"some work that has to be done\", for example: there are jobs to be done in the house: washing up, mending things that are broken, etc.",
+      "rare": [
+        "etc",
+        "mending"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Job",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10765573",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-office-1",
+      "title": "Office",
+      "text": "An office is a design phenomenon. It can be a small office such as a bench in the corner of a very small business where the administration work is small. It can also be anything up to and including a large building full of office workers doing large amount of office work.",
+      "rare": [
+        "bench",
+        "phenomenon"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Office",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10932136",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-office-2",
+      "title": "Office",
+      "text": "While offices can be built in almost any location and in almost any building, some modern requirements for offices make this more difficult, such as requirements for light, networking, and security. The primary purpose of an office building is to provide a workplace and working environment primarily for administrative and managerial workers. These workers usually occupy set areas within the office building, and usually are provided with desks, PCs and other equipment they may need within these areas.",
+      "rare": [
+        "administrative",
+        "managerial",
+        "workplace"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Office",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10932136",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-e-mail-1",
+      "title": "E-mail",
+      "text": "First, Alice writes a message to Bob in her e-mail program. Her e-mail program puts the message together along with some other information, such as her email address, the address of the person she is writing to, the time at which she is sending her message, and so on. When it is ready, Alice's mail program sends the message to a central computer called a mail server (or a Mail Transfer Agent) using some rules called the Simple Mail Transfer Protocol.",
+      "rare": [
+        "e",
+        "server"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "E-mail",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10438437",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-computer-1",
+      "title": "Computer",
+      "text": "Computers can be designed to do almost anything with certain information. Computers are used to control large and small machines that, in the past, were controlled by humans. Billions of people have a personal computer at home or at work. They are used for things such as calculation, listening to music, reading, writing, or playing games.",
+      "rare": [
+        "calculation"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Computer",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10973955",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-computer-2",
+      "title": "Computer",
+      "text": "In 1837, Charles Babbage proposed the first general mechanical computer, the Analytical Engine. The Analytical Engine contained an Arithmetic Logic Unit, basic flow control, punched cards, and integrated memory. It is the first general-purpose computer concept that could be used for many things and not only one particular program. However, this computer was never built while Charles Babbage was alive, because he didn't have enough money. In 1910, Henry Babbage, Charles Babbage's youngest son, was able to finish a part of this machine and do basic calculations.",
+      "rare": [
+        "calculations",
+        "mechanical",
+        "punched"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Computer",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10973955",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-computer-3",
+      "title": "Computer",
+      "text": "Before the computer era there were machines that could do the same thing over and over again, like a music box. People began to want to be able to tell their machine to do different things. For example, they wanted to tell the music box to play different music every time. This part of computer history is called the \"history of programmable machines\", which in simple words means \"the history of machines that I can order to do different things if I know how to speak their language.\"",
+      "rare": [
+        "era",
+        "programmable"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Computer",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10973955",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-computer-4",
+      "title": "Computer",
+      "text": "An operating system tells the computer how to understand what jobs it has to do, how to do these jobs, and how to tell people the results. Millions of computers may be using the same operating system, while each computer can have its own application programs to do what its user needs. Using the same operating systems makes it easy to learn how to use computers for new things. A user who needs to use a computer for something different, can learn how to use a new application program. Some operating systems can have simple command lines or a fully user-friendly GUI.",
+      "rare": [],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Computer",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10973955",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-computer-5",
+      "title": "Computer",
+      "text": "One of the most important jobs that computers do for people is helping with communication. Communication is how people share information. Computers have helped people move forward in science, medicine, business, and learning, because they let experts from anywhere in the world work with each other and share information. They also let other people communicate with each other, do their jobs almost anywhere, learn about almost anything, or share their opinions with each other. The Internet is the thing that lets people communicate between their computers. The Internet also allows the computer user to play an Online game.",
+      "rare": [],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Computer",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10973955",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-computer-6",
+      "title": "Computer",
+      "text": "Computers come in different forms, but most of them have a common design. All computers have a CPU. All computers have some kind of data bus which lets them get inputs or output things to the environment. All computers have some form of memory. These are usually chips (integrated circuits) which can hold information.",
+      "rare": [
+        "circuits",
+        "inputs"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Computer",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10973955",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-computer-program-1",
+      "title": "Computer program",
+      "text": "A computer program is a list of instructions that tell a computer what to do. Everything a computer does is done by the instructions of a program. The first computers were made with only one built-in program, but today's computers have memory, which can be used to store many different programs. John von Neumann, a mathematician born in Hungary, came up with this idea in the late 1940s.",
+      "rare": [
+        "john",
+        "mathematician",
+        "von"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Computer program",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10732765",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-computer-program-2",
+      "title": "Computer program",
+      "text": "A computer program is usually stored as a file on the computer's hard drive. The file contains a list of instructions. When the user runs the program, the computer reads the file does what the instructions tell it to do. These instructions can be very simple, like \"add these numbers together\" or \"save these letters\". A computer program is written by a programmer, who combines many of these simple instructions to do complicated things, like talking to the computer's screen and telling it to show a video.",
+      "rare": [
+        "programmer"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Computer program",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10732765",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-software-1",
+      "title": "Software",
+      "text": "Today, software has become an important part of our lives. Software is used everywhere. Software engineers are responsible for producing fault-free software, which has become an essential part of our daily lives. Changeability and conformity are two of the main properties of software design. There are also different processing models for designing software including Build and Fix, Waterfall and Agile software processing design methods.",
+      "rare": [
+        "changeability",
+        "conformity"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Software",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10730468",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-programmer-1",
+      "title": "Programmer",
+      "text": "Programming can be done in many different languages and can look very different but do the same thing. An example of this is the Hello world program. A video game programmer is a person; part of a video game development team in charge of programming the code of a video game.",
+      "rare": [
+        "programmer"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Programmer",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10708027",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-internet-1",
+      "title": "Internet",
+      "text": "The Internet is the world's largest global communication network for computers and other devices. It connects many smaller networks from homes, schools, businesses, and governments. These networks share different kinds of information. The short form of the Internet is \"the Net.\" One of its most popular services is the World Wide Web, which is used by billions of people every day.",
+      "rare": [],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Internet",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11007339",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-internet-2",
+      "title": "Internet",
+      "text": "The Internet was developed in the United States by the Department of Defence Advanced Research Projects Agency (DARPA). The Internet was first connected in October 1969 and was called ARPANET. The World Wide Web was created at CERN in Switzerland in 1990 by a British (UK) scientist named Tim Berners-Lee.",
+      "rare": [],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Internet",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11007339",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-internet-3",
+      "title": "Internet",
+      "text": "The second biggest use of the Internet is to send and receive e-mail. E-mail is private and goes from one user to another. Instant messaging is similar to email, but allows two or more people to chat to each other faster. Some governments think the internet is a bad thing, and block all or part of it. For example, the Chinese government thinks that Wikipedia is bad, so often no one in China can read it or add to it. Another example of the internet being blocked is in North Korea. Some parents and schools block parts of the Internet they think are bad for children to see.",
+      "rare": [
+        "chat",
+        "e",
+        "instant"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Internet",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11007339",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-company-1",
+      "title": "Company",
+      "text": "When a company is created, it becomes its own legal \"person.\" This means the company - not the people in it - is responsible if something goes wrong, as long as the company follows its rules written in its incorporation papers. If a company closes, it might go through a process called liquidation to take care of its final debts and duties.",
+      "rare": [
+        "incorporation",
+        "liquidation"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Company",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11026131",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-company-2",
+      "title": "Company",
+      "text": "Sometimes, companies join together and make a group. These corporate groups often include one big company and smaller ones it owns. A company can be called an \"artificial person\". This means it is not a real human, but it is treated like a person by the law. It is invisible, cannot be touched, and is created by laws made by the government.",
+      "rare": [
+        "artificial",
+        "invisible"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Company",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11026131",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-company-3",
+      "title": "Company",
+      "text": "Company limited by guarantee: This type is usually for clubs, charities, or other groups that aren't trying to make money. The members agree to pay a small amount if the company runs out of money, but they don't own any part of the company or get profits. These are common in England.",
+      "rare": [
+        "charities"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Company",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11026131",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-company-4",
+      "title": "Company",
+      "text": "Company limited by shares: This is the most common type of company for businesses. Each owner (called a shareholder) only risks the amount of money they put in. These companies can be public (with shares sold to the public) or private (owned by just a few people). Company limited by guarantee with share capital: This is a mix of the first two types. It's for non-money-making goals but also has investors who expect some return. This type is no longer used in the UK for new companies, but some still exist.",
+      "rare": [
+        "non",
+        "shareholder"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Company",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11026131",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-company-5",
+      "title": "Company",
+      "text": "Limited liability company (LLC): This company type is allowed in some countries (like the U.S.). It gives limited risk to owners, like a corporation, but is often taxed like a small business. Owners can manage it themselves or choose managers. If an owner dies or goes bankrupt, the company might have to close, depending on local laws.",
+      "rare": [
+        "bankrupt",
+        "liability"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Company",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11026131",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-company-6",
+      "title": "Company",
+      "text": "Statutory companies: These are companies created by a special law. They are less common today. If a company's name ends in \"Ltd\", it means it is a limited company. If it ends in \"PLC\", it is a public limited company, meaning its shares are sold to the public. \"Labor and Employment\". Government Information Library. University of Colorado at Boulder. Archived from the original on 2009-06-12. Retrieved 2009-08-05.",
+      "rare": [
+        "archived",
+        "retrieved",
+        "statutory"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Company",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11026131",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-business-1",
+      "title": "Business",
+      "text": "A business is a place where people work together. In a business, people work to make and sell products or services. Other people buy the products and services. The business owner is the person who hires people for work. A business can earn a profit for the products and services it offers. The word business comes from the word busy, and means doing things. It works on regular basis.",
+      "rare": [],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Business",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10926719",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-business-2",
+      "title": "Business",
+      "text": "Business can also mean the work or current state of a business. A business owner might say: \"I am doing a lot of business\" or \"My business is good\" or \"Business is bad\". The term can also be used in a more general way. As a noun, it can be used, for example, to speak about a broad area of activity.",
+      "rare": [
+        "noun"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Business",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10926719",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-money-1",
+      "title": "Money",
+      "text": "Money, also sometimes called currency, can be defined as anything that people use to buy goods and services. Money is what many people receive for selling their own things or services. There are lots of different kinds of money in the world. Most countries have their own kind of money, such as the United States dollar or the Iranian rial.",
+      "rare": [
+        "currency",
+        "goods",
+        "rial"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Money",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11005355",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-bank-1",
+      "title": "Bank",
+      "text": "A bank is a financial institution where customers can save or borrow money. Banks also invest money to build up their reserve of money. What they do is regulated by laws. Those laws differ in different countries. The people who work at a bank are called bank employees. Certain banks deal directly with the public and are the only ones that a regular person will work with. Other banks deal with investments and international currency trading.",
+      "rare": [
+        "currency",
+        "regulated"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Bank",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10553711",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-bank-2",
+      "title": "Bank",
+      "text": "In most countries, the rules for banks are made by the government acting through laws. A central bank (such as the Bank of England) changes how much money is issued at a particular time. This is a factor in the economy of a country, and the government makes the big decisions. These \"banks of issue\" take in, and issue out, coins and banknotes.",
+      "rare": [
+        "banknotes",
+        "coins"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Bank",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10553711",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-bank-3",
+      "title": "Bank",
+      "text": "Community development bank: regulated banks that provide financial services and credit to under-served markets or populations. Land development bank: The special banks providing long-term loans are called land development banks, in the short, LDB. The history of LDB is quite old. The first LDB was started at Jhang in Punjab in 1920. The main objective of the LDBs is to promote the development of land, agriculture and increase the agricultural production. The LDBs provide long-term finance to members directly through their branches.",
+      "rare": [
+        "agricultural",
+        "agriculture",
+        "regulated"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Bank",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10553711",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-team-1",
+      "title": "Team",
+      "text": "A team is a group of people who have a certain task to complete. In order to meet their target, the members of the group must work well with each other. Successful team - a group of people who tend to meet their target despite barriers. The group members cooperate with each other and take other members' ideas into consideration.",
+      "rare": [
+        "barriers",
+        "cooperate"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Team",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10826516",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-school-1",
+      "title": "School",
+      "text": "A school is an educational learning institution designed to provide classes and learning environment to teach students, usually with help of a teacher or professor. Some senior secondary schools can also be considered as a college. Almost all countries and states have systems of formal education, which is sometimes compulsory or legally required. There are various types of schools or learning programs. Topics such as reading, writing, and mathematics are central to education for children.",
+      "rare": [
+        "compulsory",
+        "legally",
+        "secondary"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "School",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975377",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-school-2",
+      "title": "School",
+      "text": "Most of a student's time is spent in a classroom. This is where 10 to 30 people sit to take part in educational discussion. In the United States, the average number of students per classroom in primary schools is 23.1. The term \"school\" is used for many educational environments - particularly in North America. In North America, a person taking a first degree at a university is often self-described as \"going to school\". In Europe that would never be the case. They would describe themselves as \"going to university\". The style of university education can be so different between countries.",
+      "rare": [
+        "classroom"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "School",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975377",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-school-3",
+      "title": "School",
+      "text": "Some people attend school longer than others. This is because some jobs require more training than others, like for example becoming a doctor takes about 10-14 years of education. For young children, one teacher may teach all subjects. Teachers for older students are more specialized, and they only teach a few subjects. Common subjects taught include science, arts such as music, humanities, like geography and history, and languages.",
+      "rare": [
+        "geography",
+        "humanities",
+        "specialized"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "School",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975377",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-school-4",
+      "title": "School",
+      "text": "Boarding schools are schools where children are sent to live on a school campus without their parents. They are expensive, and so are chosen by parents with means. They are not for the average family. They are usually elite schools with the best teachers that money can buy. Children may even be sent to another country. Switzerland is one of the favoured countries. On the other hand, most Western countries have first-rate boarding schools. In England, many public schools are boarding schools. The term \"public school\" here has a special meaning: it really means \"private school\".",
+      "rare": [
+        "campus",
+        "elite",
+        "switzerland"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "School",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975377",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-university-1",
+      "title": "University",
+      "text": "Not all subjects are offered at universities. Mainly, universities offer courses which are about knowledge. They usually do not offer courses in practical trades. In some cases such as law, where there are both knowledge and practical issues, the university does mainly the theoretical side of the subject. Practical qualifications are done elsewhere.",
+      "rare": [
+        "qualifications",
+        "theoretical"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "University",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11018729",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-book-1",
+      "title": "Book",
+      "text": "A writer of a book is often called an author. Someone who draws the pictures in a book is called an illustrator. Books can have more than one writer or illustrator. A book can be a text that is a part of a larger collection of texts. A section of a text may be published as a book so that it only has one writer or only focuses on one subject area. Books written in this way can be understood without reading whole collection of writings. Examples are the Iliad, Odyssey, Bible, Quran and Torah. Encyclopedias often have separate articles written by different people, and are published as separate volumes. Each volume is a book.",
+      "rare": [
+        "encyclopedias",
+        "illustrator",
+        "published"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Book",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11021983",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-book-2",
+      "title": "Book",
+      "text": "Books may be borrowed from a library or bought from a bookstore. People can make their own books and write in them, and add family photos and drawings. Some books are empty inside, like a diary, an address book, or photo album. These books are meant to be written in. Usually, the word \"book\" means that the pages inside have words, and often pictures.",
+      "rare": [
+        "album",
+        "bookstore",
+        "diary"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Book",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11021983",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-book-3",
+      "title": "Book",
+      "text": "The common cheap supply of paper fed the faster printing machines, and books became cheaper. At the same time, in America, Britain and continental Europe, more people learnt to read. So, in the 19th century, many ordinary people could afford to buy books and could actually read them. Also in the 19th century came public libraries, so poorer people could get access to the best books.",
+      "rare": [
+        "continental",
+        "th"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Book",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11021983",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-library-1",
+      "title": "Library",
+      "text": "A library is a place where many books are kept. Most libraries are public and let people take the books to use in their home. Most libraries let people borrow books for several weeks. Some belong to institutions, for example, companies, churches, schools, and universities. The people who work in libraries are librarians. Librarians are people who take care of the library.",
+      "rare": [
+        "librarians"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Library",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10901378",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-library-2",
+      "title": "Library",
+      "text": "The prime purpose of a library is to provide access to knowledge and information. To fulfil this mission, libraries preserve a valuable record of culture. Then they pass down this to the coming generations. Therefore, they are an essential link between the past, present and future. People use libraries to work. They also use library resources to learn about personal interests. Sometimes, they get recreational media such as films and music. Students use libraries to study.",
+      "rare": [
+        "fulfil",
+        "media",
+        "recreational"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Library",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10901378",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-library-3",
+      "title": "Library",
+      "text": "Libraries help the students to develop good reading and study habits. Public officials use libraries for research and public issues. The libraries provide information and services that are essential for learning and progress. Many places have a public library, where anybody can join if they live in the area. With a library card, people can borrow books and take them home for several weeks. It does not cost money to get a library card at most public libraries.",
+      "rare": [],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Library",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10901378",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-library-4",
+      "title": "Library",
+      "text": "Special libraries are those libraries that are not public libraries or academic libraries. They are usually small. Many times a special library holds books on a particular subject or even a special kind of book. Some special libraries keep just old books or books by Shakespeare. A special library can be owned by a business for use only by that business. For example, Disney World in Orlando has its own library that is not open to the public but for the use of the people who work for the company.",
+      "rare": [],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Library",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10901378",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-coffee-1",
+      "title": "Coffee",
+      "text": "Pressure: The boiling water is forced through the ground coffee by a machine. This type of coffee is called Espresso and the machine is called an \"Espresso machine\" or \"Coffee system\". Espresso machines are often found in cafes and restaurants. Espresso is a very strong coffee that can be used to make other coffee drinks.",
+      "rare": [
+        "boiling",
+        "cafes"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Coffee",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10958734",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-coffee-2",
+      "title": "Coffee",
+      "text": "In some countries, for example, those in northern Europe, people like having coffee parties. At these parties, people have coffee and cake. In many countries, people drink coffee at work; in the United States and England, for example, people drink it in the morning. In other countries, such as Mexico, people drink it in the evening to help them stay awake.",
+      "rare": [
+        "awake",
+        "cake"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Coffee",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10958734",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-coffee-3",
+      "title": "Coffee",
+      "text": "Some studies have looked at the health risks of coffee. In February 2003, there was a study in Denmark of 18,478 women to find out if coffee had an effect on pregnancy and birth. It was found that if a woman drank between four and seven cups of coffee a day, it did not seem to make a big change to the number of babies that were born dead, (stillborn). But the women in the study who drank eight or more cups of coffee a day had three times as much chance of having a stillborn baby.",
+      "rare": [
+        "pregnancy",
+        "stillborn"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Coffee",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10958734",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-sleep-1",
+      "title": "Sleep",
+      "text": "Sleep helps the brain function. The details are not fully understood, but it is important to get enough sleep for the body and the brain to be healthy and to work properly. In general, animals (and people) sleep at periodic intervals, such as once a day. Certain animals send out signals to the others that they will soon go to sleep. Yawning is such a signal.",
+      "rare": [
+        "intervals",
+        "periodic",
+        "yawning"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Sleep",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975894",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-sleep-2",
+      "title": "Sleep",
+      "text": "Both humans and many animals sleep about once a day. Some animals, such as cats, sleep many times a day for short periods up to 15 hours a day (or even longer). When people sleep, they often have dreams. Probably some animals do, too. Not only people sleep, but all mammals and birds, and most fish, reptiles and other animals also too.",
+      "rare": [
+        "mammals",
+        "reptiles"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Sleep",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975894",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-memory-1",
+      "title": "Memory",
+      "text": "Memory is the personal record of past experiences. It is the brain's ability to store information to use later. Memory is studied in sciences known as \"cognitive psychology\". There are two types of memory: short-term and long-term memory, or known as working memory and reference memory. Short-term memory, the ability to keep information in mind for a short time, like remembering a phone number long enough to find a piece of paper.",
+      "rare": [
+        "cognitive",
+        "psychology"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Memory",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10287569",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-learning-1",
+      "title": "Learning",
+      "text": "Learning in human history started long before writing was invented. Early humans learned by watching others, copying what they did, and trying things out until they worked. This helped them survive by learning skills such as making tools, using fire, and hunting together in groups. Archaeologists have found evidence that knowledge was passed on mainly by showing and doing, not by formal teaching. For example, the making of stone tools like the Acheulean hand-axe shows that people built on the skills of earlier generations.",
+      "rare": [
+        "archaeologists",
+        "axe",
+        "invented"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Learning",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10939800",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-learning-2",
+      "title": "Learning",
+      "text": "Behaviorism is one of the earliest ways that scientists tried to understand how people and animals learn. It became popular in the early 1900s and focused only on what could be seen, behavior. Behaviorists believed that learning happens because of things in the environment, not because of thoughts or feelings inside the brain. According to this idea, if something happens around you, it can cause you to act in a certain way. Over time, you learn to respond to these events based on what happens next, whether something good or bad follows your action.",
+      "rare": [
+        "behaviorism",
+        "behaviorists"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Learning",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10939800",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-language-1",
+      "title": "Language",
+      "text": "UNESCO says that 2,500 languages are at risk of becoming extinct. All languages share certain things which separate them from all other kinds of communication. A language has rules which are shared by a community. All human languages are based on sound and hearing, or in the case of sign language, vision. All the basic sound units, or phonemes, have this in common: they can be spoken by the human voice, and heard by the human ear.",
+      "rare": [
+        "extinct",
+        "phonemes",
+        "unesco"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Language",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10885730",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-language-2",
+      "title": "Language",
+      "text": "Mathematics and computer science use created languages called formal languages (like computer programming languages), but these may or may not be 'true' languages. Mathematics itself is seen as a language by many. Some people consider musical notation to be a way of writing the musical language. Chinese is the language with the most native speakers in the world, but it is not really a language. It is a close family of dialects, some of which are as different as Romance languages are from one another.",
+      "rare": [
+        "chinese",
+        "dialects",
+        "notation"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Language",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10885730",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-english-language-1",
+      "title": "English language",
+      "text": "English is a language that started as the language of the Anglo-Saxons, in England. It is in the Germanic language family (the same family as German, Dutch, Swedish and others), but it was influenced a lot by Old French, so many words are similar to words in Romance languages (such as French, Spanish, or Romanian).",
+      "rare": [
+        "english"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "English language",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975486",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-english-language-2",
+      "title": "English language",
+      "text": "English is now the main first-language in America, Canada, Britain, Ireland, Australia, and New Zealand. In total there are about 375 million native speakers in the world, the 3rd most of all languages, behind Chinese and Spanish. However, there are actually more people who speak English as a second language than as their native language. In many countries - like Nigeria, India, Pakistan, and the Philippines - English is used a lot to communicate between people who have different native languages. English is also the main shared language for communicating across the world, such as for science, travel, trade or politics. For this reason about 1.1 billion people speak English as a second language in 2025.",
+      "rare": [
+        "rd"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "English language",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975486",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-english-language-3",
+      "title": "English language",
+      "text": "The closest language to English that is still used today is Frisian, spoken by about 500,000 people living in the Netherlands, Germany and Denmark. It is much like English, and many words are the same. The two languages were even closer before Old English changed to Middle English. Today, speakers of the two languages would not be able to understand each other. Dutch is spoken by over 20 million people, and is more distant from English. The number of speakers of German is even greater, and even more distant. All these languages belong to the same West Germanic family as English.",
+      "rare": [
+        "distant",
+        "dutch"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "English language",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975486",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-english-language-4",
+      "title": "English language",
+      "text": "Many other people came to England later at different times, speaking different languages, and these languages added more words to make today's English. For example, around 800 AD, many Danish and Norse pirates, also called Vikings, came to the country, established Danelaw. So, English got many Norse loanwords. Their languages were Germanic languages, like Old English, but are a little different. They are called the North Germanic languages.",
+      "rare": [
+        "loanwords",
+        "pirates"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "English language",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975486",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-english-language-5",
+      "title": "English language",
+      "text": "When William the Conqueror took over England in 1066 AD, he brought his nobles, who spoke Norman, a language closely related to French. English changed a lot because it was mostly being spoken instead of written for about 300 years. All official documents were written in Norman French. English borrowed many words from Norman at that time, and also began to drop the old word endings. English of this time is called Middle English. Geoffrey Chaucer is a well known writer of Middle English. After more sound changes, Middle English became Modern English.",
+      "rare": [
+        "endings",
+        "geoffrey",
+        "nobles"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "English language",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975486",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-english-language-6",
+      "title": "English language",
+      "text": "English continued to take new words from other languages, for example mainly from French (around 30% to 40% of its words), but also Chinese, Hindi, Urdu, Japanese, Dutch, Spanish, Portuguese, etc. Because scientists from different countries needed to talk to one another, they chose names for scientific things in the languages they all knew: Greek and Latin. Those words came to English also, for example, photography (\"photo-\" means \"light\" and \"-graph\" means \"picture\" or \"writing\", in Greek. A photograph is a picture made using light), or telephone. So, English is made of Old English, Danish, Norse, and French, and has been changed by Latin, Greek, Chinese, Hindi, Japanese, Dutch and Spanish, along with some words from other languages.",
+      "rare": [
+        "etc",
+        "graph",
+        "photography"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "English language",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10975486",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-kazakhstan-1",
+      "title": "Kazakhstan",
+      "text": "Russian people were tired because of World War I. Two revolutions happened in Russia: February and October revolutions. This caused a civil war between Empire White Forces and Bolshevik Red Army. At the time, Kazakh elite (educated people) created Alash Autonomy. They aimed to control its land and people. However, Red Army beat White Army, and Soviet Union got Kazakh land before 1920.",
+      "rare": [
+        "elite",
+        "russian"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Kazakhstan",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10997643",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-kazakhstan-2",
+      "title": "Kazakhstan",
+      "text": "In 1936, Kazakh Soviet Socialist Republic was created. It means that Kazakhstan was not part of Russia anymore, but it was still in the Soviet Union. Since 1949, Soviet Union tested its nuclear bombs in the test site near Semipalatinsk. At least 460 nuclear bombs were tested until 1989. During Soviet period, Baikonur Cosmodrome was built. In 1961 Vostok-1 with Yuri Gagarin (the first person to enter space) was launched from there.",
+      "rare": [
+        "anymore"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Kazakhstan",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10997643",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-kazakhstan-3",
+      "title": "Kazakhstan",
+      "text": "In December 1986, the leader of Kazakh SSR Dinmukhamed Konayev was replaced by Gennady Kolbin, who was not from Kazakhstan. This caused \"Jeltoqsan\" protests in Almaty that started on December 16. People who joined these protests were usually young Kazakhs. The government killed and sent to prison many of the protesters.",
+      "rare": [
+        "protesters"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Kazakhstan",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10997643",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-bus-1",
+      "title": "Bus",
+      "text": "Buses are an important part of public transport in places all over the world. Many people who do not have cars, especially in developing countries, use buses to get around. Buses make it easy for them to get to where they want to go. Buses have many uses, including transport inside towns or cities, transport between towns and cities, transport to schools and tourism. Some privately owned buses are used in political campaigns or to transport musicians.",
+      "rare": [
+        "musicians",
+        "privately",
+        "tourism"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Bus",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10905659",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-bus-2",
+      "title": "Bus",
+      "text": "There are many types of bus. For example: a single decker bus or a double decker bus. A place where people wait for a local bus is called a bus stop. A building where people wait for a long-distance bus or where many buses meet is called a bus station.",
+      "rare": [
+        "decker"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Bus",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10905659",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-train-1",
+      "title": "Train",
+      "text": "The Stockton and Darlington Railway in 1825 showed how a train could be run. The Liverpool and Manchester Railway in 1830 was the first to run passenger trains and freight trains in the way that trains run on most railways today. The use of trains were then to go from country to country over the world, and it was more easy for people and things to get from one place to another place.",
+      "rare": [
+        "freight",
+        "railways"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Train",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10981052",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-train-2",
+      "title": "Train",
+      "text": "The driver or engineer makes sure the train works right, and speeds it up or slows it down. Usually a train needs a driver to make it run well, but a few are run by computer. The guard or conductor makes sure the train goes the right way and tells the driver if he makes a mistake.",
+      "rare": [
+        "conductor"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Train",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10981052",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-hospital-1",
+      "title": "Hospital",
+      "text": "The word hospital originally meant \"a place where people can stay\". There have been hospitals for sick people since ancient times. They were often created and run by religious groups. In the early modern period, hospitals began to be funded by donations from rich people and by governments. Today, hospitals might get money from the government, from charging patients for treatments and check-ups, from patients' health insurance, from people giving to charity or a mixture of those things.",
+      "rare": [
+        "charity",
+        "donations",
+        "mixture"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Hospital",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10667528",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-football-1",
+      "title": "Football",
+      "text": "Every year there is a Football Club Competition called as Champions League. All the qualified big teams take part. At the end, we have one winner who takes the prestigious UEFA trophy. All big players play for their own teams. Some big players who take part every year are Mbappe, Ronaldo, Messi, Pablo, Neymar and many more.",
+      "rare": [
+        "prestigious",
+        "trophy"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Football",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11011808",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-music-1",
+      "title": "Music",
+      "text": "\"Pop\" music is a type of popular music that many people like to listen to. The term \"pop music\" can be used for all kinds of music that was written to be popular. The word \"pop music\" was used from about 1880 onwards, when a type of music called music was popular.",
+      "rare": [
+        "onwards"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Music",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10887830",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-friendship-1",
+      "title": "Friendship",
+      "text": "Friendship means familiarity with and liking of each other's mind. People who are friends talk to each other and spend time together. They trust one another and also help each other when they are in trouble or are hurt. Friends are people that can be looked up to and trusted. Friends usually have similar interests. A friend is one who admires another person.",
+      "rare": [
+        "admires",
+        "familiarity",
+        "friendship"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Friendship",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10900178",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-telephone-1",
+      "title": "Telephone",
+      "text": "There are many different types of telephones. A telephone that can be carried around is called a mobile phone or cell phone. These became popular in the 2000s. Today, it has become common for people to carry mobile phones and in many places it is unusual to not have one. The majority are smartphones, which can be used as computers. Most smartphones today can access the Internet, send text messages, access the GPS to check the user's location, take photos, and more. Some mobile phones can make telephone calls using communications satellites instead of masts on the ground, which means people can make calls from anywhere in the world.",
+      "rare": [
+        "masts",
+        "satellites",
+        "smartphones"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Telephone",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10939880",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-telephone-2",
+      "title": "Telephone",
+      "text": "Most countries have a telephone network. The telephones in one place are connected to a telephone exchange. The exchanges are connected together in a world-wide network. In developing countries, cell phones are used as a cheaper and faster way to connect the countryside to the network. Most telephones have their own number. Today, telephone numbers are about seven to ten digits long. In many countries, part of the telephone number is called the area code. Area codes are used to make sure the numbers are not the same in two different places. Areas have their own area code, and countries have their own country code.",
+      "rare": [
+        "countryside",
+        "digits"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Telephone",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10939880",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-shop-1",
+      "title": "Shop",
+      "text": "A shop or store is a place where people can go to buy items that they need or want. People might go to a shop to buy food, clothes, furniture, jewelry, or many other things. There are loads of shops in the world people can buy their things from. People might also go to a repair shop if something is broken, and they want the shop to fix it. For example, someone might bring a broken bicycle to a bicycle repair shop.",
+      "rare": [
+        "bicycle",
+        "furniture",
+        "jewelry"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Shop",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10650048",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-city-1",
+      "title": "City",
+      "text": "A long history. Although many cities today have only been around for tens or hundreds of years, there are a few which have been so for thousands of years. For example, Athens, Greece was founded in 1000 BC and Rome, Italy has existed since 700 BC. A large population. Cities can have millions of people living in and around them. Among them are Tokyo, Japan, and the Tokyo Metropolis around it, which includes Yokohama and Chiba.",
+      "rare": [
+        "founded"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "City",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10988529",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-city-2",
+      "title": "City",
+      "text": "The sizes of cities can be very different. This depends on the type of city. Cities built hundreds of years ago and which have not changed much are much smaller than modern cities. There are two main reasons. One reason is that old cities often have a city wall, and most of the city is inside it. Another important reason is that the streets in old cities are often narrow. If the city got too big, it was hard for a cart carrying food to get to the marketplace. People in cities need food, and the food always has to come from outside the city.",
+      "rare": [
+        "cart",
+        "marketplace"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "City",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10988529",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-city-3",
+      "title": "City",
+      "text": "Cities that were on a river like London could grow much bigger than cities that were on a mountain like Siena in Italy, because the river made a transport route for carrying food and other goods, as well as for transporting people. London has been changing continually for hundreds of years, while Siena, a significant city in the 1300s, has changed very little in 700 years.",
+      "rare": [
+        "continually",
+        "goods"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "City",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10988529",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-city-4",
+      "title": "City",
+      "text": "Modern cities with modern transport systems can grow very large, because the streets are wide enough for cars, buses, and trucks, and there are often railway lines. In the US, the word \"city\" is often used for towns that are not very big. When the first European people went to America, they named \"city\" to new places. They hoped the places would be great cities in the future. For example, Salt Lake City was the name given to a village of 148 people. When they started building the town, they made street plans and called it Great Salt Lake City (for the nearby Great Salt Lake). Now, 150 years later, it really is a big city.",
+      "rare": [
+        "railway",
+        "trucks"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "City",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10988529",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-city-5",
+      "title": "City",
+      "text": "City streets can be shaped like a grid, or as a \"wheel and spokes\": a set of rings and lines coming out from the center. Streets in some older cities like London are arranged at random, without a pattern. The design of cities is a subject called urban planning. One area of the city might have only shops, and another area might have only factories. Cities have parks, and other public areas like city squares.",
+      "rare": [
+        "grid",
+        "random",
+        "spokes"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "City",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10988529",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-city-6",
+      "title": "City",
+      "text": "Las Vegas, Nevada: all of the Democrats in the US House who represent Nevada are from Las Vegas. Salt Lake City, Utah: the only Democrat representing Utah in the US Congress was elected from a Salt Lake City district. Chicago, Illinois: if it weren't for Chicago, the state of Illinois would be as conservative as Indiana.",
+      "rare": [],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "City",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10988529",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-house-1",
+      "title": "House",
+      "text": "A house is a building that is made for people to live in. It is usually built for a family (parents and their children). It is a \"permanent\" building that is meant to stay standing. It is not easily packed up and carried away like a tent, or moved like a caravan. If people live in the same house for more than a short stay, then they call it their \"home\". Being without a home is called homelessness. Houses are usually numbered. Some are also named.",
+      "rare": [
+        "caravan",
+        "homelessness",
+        "tent"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "House",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10933602",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-house-2",
+      "title": "House",
+      "text": "Houses have a roof to keep off the rain and sun, and walls to keep out the wind and cold. They have window openings to let in light, and a floor. Houses of different places may look different from each other, because of different materials, climate, and styles. If a house is important and historic enough, it can be a museum showcasing how the house's residents lived.",
+      "rare": [
+        "historic",
+        "roof",
+        "showcasing"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "House",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10933602",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-water-1",
+      "title": "Water",
+      "text": "In early human history, people survived by hunting animals and gathering plants. They often moved around and stayed close to sources of water or carried water around. But about 12 000 years ago, during the Neolithic revolution, humans started farming and raising animals. To do this, they needed a steady supply of water. Areas with rich soil and regular water made farming possible. This let people settle in one place and live in larger groups. Water also provided food, like fish and other water animals, and helped people travel using simple boats like canoes.",
+      "rare": [
+        "canoes",
+        "soil",
+        "steady"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Water",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10995353",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-water-2",
+      "title": "Water",
+      "text": "Water laws are rules that help decide how water is shared, used, and protected. These laws are important because water is something that everyone needs. People, farms, businesses, and nature all depend on water. Water laws help figure out who can use water, how much they can use, and what they can use it for. They also try to make sure that water is used fairly and not wasted or polluted. In many places, water is limited, and if it is not managed well, it can run out or get too dirty to use. Water laws are meant to stop problems like this including fights over water. They also help make sure there is enough clean water for things like drinking, growing food, making energy, and protecting the environment.",
+      "rare": [
+        "dirty",
+        "polluted"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Water",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10995353",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-water-3",
+      "title": "Water",
+      "text": "Water is one of the most important resources on Earth. People need it to drink, cook, clean, and grow food. But when there is not enough water, or when it is not shared fairly, it can lead to conflict between people, groups, or even countries. One major cause of water conflict is scarcity. Scarcity means there is not enough water for everyone who needs it. This can happen in dry places where it does not rain much, or in areas where the population is growing quickly and using too much water. When water is limited, people may start to argue or fight over who gets to use it. For example, if two farmers both use the same river to water their crops, but the river starts to dry up, they may blame each other and argue about who should get more water. These kinds of problems can happen between neighborhoods, cities, or even whole countries that share rivers or lakes.",
+      "rare": [
+        "scarcity"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Water",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=10995353",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "sw-dog-1",
+      "title": "Dog",
+      "text": "Dogs are sometimes known as \"human's best friend\" because they are kept as pets, are usually loyal, and like being around humans. Dogs can smell and hear better than humans but cannot see in full color. Due to the structure of their eyes, dogs can see better in low light than humans. They also have a larger field of vision.",
+      "rare": [
+        "loyal",
+        "pets"
+      ],
+      "source": {
+        "name": "Simple English Wikipedia",
+        "work": "Dog",
+        "author": "Simple English Wikipedia contributors",
+        "url": "https://simple.wikipedia.org/w/index.php?oldid=11039055",
+        "license": "CC BY-SA 4.0",
+        "changes": "Отрывок, разметка и ссылки на сноски убраны"
+      }
+    },
+    {
+      "id": "pg11-1",
+      "title": "Alice's Adventures in Wonderland",
+      "text": "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, \"and what is the use of a book,\" thought Alice \"without pictures or conversations?\"",
+      "rare": [
+        "peeped"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Alice's Adventures in Wonderland (1865)",
+        "author": "Lewis Carroll",
+        "url": "https://www.gutenberg.org/ebooks/11",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg11-2",
+      "title": "Alice's Adventures in Wonderland",
+      "text": "In another moment down went Alice after it, never once considering how in the world she was to get out again. The rabbit-hole went straight on like a tunnel for some way, and then dipped suddenly down, so suddenly that Alice had not a moment to think about stopping herself before she found herself falling down a very deep well.",
+      "rare": [
+        "dipped",
+        "rabbit",
+        "tunnel"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Alice's Adventures in Wonderland (1865)",
+        "author": "Lewis Carroll",
+        "url": "https://www.gutenberg.org/ebooks/11",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg11-3",
+      "title": "Alice's Adventures in Wonderland",
+      "text": "There seemed to be no use in waiting by the little door, so she went back to the table, half hoping she might find another key on it, or at any rate a book of rules for shutting people up like telescopes: this time she found a little bottle on it, (\"which certainly was not here before,\" said Alice,) and round the neck of the bottle was a paper label, with the words \"DRINK ME,\" beautifully printed on it in large letters.",
+      "rare": [
+        "beautifully",
+        "shutting",
+        "telescopes"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Alice's Adventures in Wonderland (1865)",
+        "author": "Lewis Carroll",
+        "url": "https://www.gutenberg.org/ebooks/11",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg11-4",
+      "title": "Alice's Adventures in Wonderland",
+      "text": "\"That was a narrow escape!\" said Alice, a good deal frightened at the sudden change, but very glad to find herself still in existence; \"and now for the garden!\" and she ran with all speed back to the little door: but, alas! the little door was shut again, and the little golden key was lying on the glass table as before, \"and things are worse than ever,\" thought the poor child, \"for I never was so small as this before, never! And I declare it's too bad, that it is!\"",
+      "rare": [
+        "alas",
+        "frightened",
+        "golden"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Alice's Adventures in Wonderland (1865)",
+        "author": "Lewis Carroll",
+        "url": "https://www.gutenberg.org/ebooks/11",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg11-5",
+      "title": "Alice's Adventures in Wonderland",
+      "text": "\"Would it be of any use, now,\" thought Alice, \"to speak to this mouse? Everything is so out-of-the-way down here, that I should think very likely it can talk: at any rate, there's no harm in trying.\" So she began: \"O Mouse, do you know the way out of this pool? I am very tired of swimming about here, O Mouse!\" (Alice thought this must be the right way of speaking to a mouse: she had never done such a thing before, but she remembered having seen in her brother's Latin Grammar, \"A mouse - of a mouse - to a mouse - a mouse - O mouse!\") The Mouse looked at her rather inquisitively, and seemed to her to wink with one of its little eyes, but it said nothing.",
+      "rare": [
+        "harm",
+        "inquisitively",
+        "wink"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Alice's Adventures in Wonderland (1865)",
+        "author": "Lewis Carroll",
+        "url": "https://www.gutenberg.org/ebooks/11",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg11-6",
+      "title": "Alice's Adventures in Wonderland",
+      "text": "At last the Mouse, who seemed to be a person of authority among them, called out, \"Sit down, all of you, and listen to me! I'll soon make you dry enough!\" They all sat down at once, in a large ring, with the Mouse in the middle. Alice kept her eyes anxiously fixed on it, for she felt sure she would catch a bad cold if she did not get dry very soon.",
+      "rare": [
+        "alice",
+        "anxiously",
+        "authority"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Alice's Adventures in Wonderland (1865)",
+        "author": "Lewis Carroll",
+        "url": "https://www.gutenberg.org/ebooks/11",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg21-1",
+      "title": "Three Hundred Aesop's Fables",
+      "text": "A BEAR boasted very much of his philanthropy, saying that of all animals he was the most tender in his regard for man, for he had such respect for him that he would not even touch his dead body. A Fox hearing these words said with a smile to the Bear, \"Oh! that you would eat the dead and not the living.\"",
+      "rare": [
+        "boasted",
+        "philanthropy",
+        "tender"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Three Hundred Aesop's Fables (1867)",
+        "author": "Aesop, tr. George Fyler Townsend",
+        "url": "https://www.gutenberg.org/ebooks/21",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg21-2",
+      "title": "Three Hundred Aesop's Fables",
+      "text": "A RIVER carried down in its stream two Pots, one made of earthenware and the other of brass. The Earthen Pot said to the Brass Pot, \"Pray keep at a distance and do not come near me, for if you touch me ever so slightly, I shall be broken in pieces, and besides, I by no means wish to come near you.\"",
+      "rare": [
+        "earthenware",
+        "stream"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Three Hundred Aesop's Fables (1867)",
+        "author": "Aesop, tr. George Fyler Townsend",
+        "url": "https://www.gutenberg.org/ebooks/21",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg21-3",
+      "title": "Three Hundred Aesop's Fables",
+      "text": "A CERTAIN rich man bought in the market a Goose and a Swan. He fed the one for his table and kept the other for the sake of its song. When the time came for killing the Goose, the cook went to get him at night, when it was dark, and he was not able to distinguish one bird from the other. By mistake he caught the Swan instead of the Goose. The Swan, threatened with death, burst forth into song and thus made himself known by his voice, and preserved his life by his melody.",
+      "rare": [
+        "burst",
+        "melody",
+        "sake"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Three Hundred Aesop's Fables (1867)",
+        "author": "Aesop, tr. George Fyler Townsend",
+        "url": "https://www.gutenberg.org/ebooks/21",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg21-4",
+      "title": "Three Hundred Aesop's Fables",
+      "text": "IN THE WINTERTIME, a Dog curled up in as small a space as possible on account of the cold, determined to make himself a house. However when the summer returned again, he lay asleep stretched at his full length and appeared to himself to be of a great size. Now he considered that it would be neither an easy nor a necessary work to make himself such a house as would accommodate him.",
+      "rare": [
+        "accommodate",
+        "asleep",
+        "curled"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Three Hundred Aesop's Fables (1867)",
+        "author": "Aesop, tr. George Fyler Townsend",
+        "url": "https://www.gutenberg.org/ebooks/21",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg21-5",
+      "title": "Three Hundred Aesop's Fables",
+      "text": "A GNAT settled on the horn of a Bull, and sat there a long time. Just as he was about to fly off, he made a buzzing noise, and inquired of the Bull if he would like him to go. The Bull replied, \"I did not know you had come, and I shall not miss you when you go away.\"",
+      "rare": [
+        "buzzing",
+        "horn",
+        "inquired"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "Three Hundred Aesop's Fables (1867)",
+        "author": "Aesop, tr. George Fyler Townsend",
+        "url": "https://www.gutenberg.org/ebooks/21",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg55-1",
+      "title": "The Wonderful Wizard of Oz",
+      "text": "While she stood looking eagerly at the strange and beautiful sights, she noticed coming toward her a group of the queerest people she had ever seen. They were not as big as the grown folk she had always been used to; but neither were they very small. In fact, they seemed about as tall as Dorothy, who was a well-grown child for her age, although they were, so far as looks go, many years older.",
+      "rare": [
+        "eagerly",
+        "queerest"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "The Wonderful Wizard of Oz (1900)",
+        "author": "L. Frank Baum",
+        "url": "https://www.gutenberg.org/ebooks/55",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg55-2",
+      "title": "The Wonderful Wizard of Oz",
+      "text": "But the little woman evidently expected her to answer; so Dorothy said, with hesitation, \"You are very kind, but there must be some mistake. I have not killed anything.\" \"Your house did, anyway,\" replied the little old woman, with a laugh, \"and that is the same thing. See!\" she continued, pointing to the corner of the house. \"There are her two feet, still sticking out from under a block of wood.\"",
+      "rare": [
+        "evidently",
+        "hesitation"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "The Wonderful Wizard of Oz (1900)",
+        "author": "L. Frank Baum",
+        "url": "https://www.gutenberg.org/ebooks/55",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg55-3",
+      "title": "The Wonderful Wizard of Oz",
+      "text": "\"There is nothing to be done,\" said the little woman calmly. \"But who was she?\" asked Dorothy. \"She was the Wicked Witch of the East, as I said,\" answered the little woman. \"She has held all the Munchkins in bondage for many years, making them slave for her night and day. Now they are all set free, and are grateful to you for the favor.\"",
+      "rare": [
+        "bondage",
+        "calmly",
+        "slave"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "The Wonderful Wizard of Oz (1900)",
+        "author": "L. Frank Baum",
+        "url": "https://www.gutenberg.org/ebooks/55",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg55-4",
+      "title": "The Wonderful Wizard of Oz",
+      "text": "\"Who are the Munchkins?\" inquired Dorothy. \"They are the people who live in this land of the East where the Wicked Witch ruled.\" \"Are you a Munchkin?\" asked Dorothy. \"No, but I am their friend, although I live in the land of the North. When they saw the Witch of the East was dead the Munchkins sent a swift messenger to me, and I came at once. I am the Witch of the North.\"",
+      "rare": [
+        "inquired",
+        "messenger",
+        "swift"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "The Wonderful Wizard of Oz (1900)",
+        "author": "L. Frank Baum",
+        "url": "https://www.gutenberg.org/ebooks/55",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg55-5",
+      "title": "The Wonderful Wizard of Oz",
+      "text": "\"What is it?\" asked the little old woman, and looked, and began to laugh. The feet of the dead Witch had disappeared entirely, and nothing was left but the silver shoes. \"She was so old,\" explained the Witch of the North, \"that she dried up quickly in the sun. That is the end of her. But the silver shoes are yours, and you shall have them to wear.\" She reached down and picked up the shoes, and after shaking the dust out of them handed them to Dorothy.",
+      "rare": [
+        "dust",
+        "silver"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "The Wonderful Wizard of Oz (1900)",
+        "author": "L. Frank Baum",
+        "url": "https://www.gutenberg.org/ebooks/55",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    },
+    {
+      "id": "pg55-6",
+      "title": "The Wonderful Wizard of Oz",
+      "text": "\"It is the same at the South,\" said another, \"for I have been there and seen it. The South is the country of the Quadlings.\" \"I am told,\" said the third man, \"that it is the same at the West. And that country, where the Winkies live, is ruled by the Wicked Witch of the West, who would make you her slave if you passed her way.\"",
+      "rare": [
+        "slave"
+      ],
+      "source": {
+        "name": "Project Gutenberg",
+        "work": "The Wonderful Wizard of Oz (1900)",
+        "author": "L. Frank Baum",
+        "url": "https://www.gutenberg.org/ebooks/55",
+        "license": "Public domain",
+        "changes": "Отрывок"
+      }
+    }
+  ]
+}

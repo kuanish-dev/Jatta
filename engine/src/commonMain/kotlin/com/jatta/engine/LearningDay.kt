@@ -11,3 +11,16 @@ fun learningDay(epochMs: Long, utcOffsetMinutes: Int, dayStartHour: Int): Int {
     val shifted = epochMs + utcOffsetMinutes * MS_PER_MINUTE - dayStartHour * 60 * MS_PER_MINUTE
     return shifted.floorDiv(MS_PER_DAY).toInt()
 }
+
+/** Local clock time of a moment, in minutes after midnight. */
+fun localMinuteOfDay(epochMs: Long, utcOffsetMinutes: Int): Int =
+    (epochMs + utcOffsetMinutes * MS_PER_MINUTE).mod(MS_PER_DAY).div(MS_PER_MINUTE).toInt()
+
+/**
+ * The moment of learning day [day] when the local clock shows [minuteOfDay]. Times before
+ * [dayStartHour] belong to the end of the learning day, so they fall on the next calendar date.
+ */
+fun epochMsAt(day: Int, minuteOfDay: Int, utcOffsetMinutes: Int, dayStartHour: Int): Long {
+    val calendarDay = if (minuteOfDay >= dayStartHour * 60) day.toLong() else day + 1L
+    return calendarDay * MS_PER_DAY + minuteOfDay * MS_PER_MINUTE - utcOffsetMinutes * MS_PER_MINUTE
+}

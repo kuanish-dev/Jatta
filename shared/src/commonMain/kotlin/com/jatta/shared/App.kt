@@ -22,20 +22,29 @@ import androidx.compose.ui.unit.dp
 import com.jatta.shared.resources.Res
 import com.jatta.study.StudyController
 import com.jatta.study.content.ContentLoader
+import com.jatta.study.content.ReadingText
+import com.jatta.study.content.ReadingTexts
 import com.jatta.study.content.StudyCourse
 import com.jatta.study.judge.EvalCase
 import com.jatta.study.judge.JudgeEval
 import com.jatta.study.judge.OnDeviceModel
+import com.jatta.study.remind.ReminderScheduler
 import com.jatta.study.store.LearnerStore
 
 private const val CONTENT_DIR = "files/content"
 
 /**
- * The whole app. Platform code passes where to keep the learner's data, the clock, the time zone and
- * the on-device model (null where there is none), so everything below is the same on Android and iOS.
+ * The whole app. Platform code passes where to keep the learner's data, the clock, the time zone, the
+ * on-device model (null where there is none) and reminders, so everything below is the same on Android and iOS.
  */
 @Composable
-fun App(dataDir: String, nowMs: () -> Long, utcOffsetMinutes: () -> Int, model: OnDeviceModel?) {
+fun App(
+    dataDir: String,
+    nowMs: () -> Long,
+    utcOffsetMinutes: () -> Int,
+    model: OnDeviceModel?,
+    reminders: ReminderScheduler?,
+) {
     MaterialTheme(colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()) {
         Surface(Modifier.fillMaxSize()) {
             val scope = rememberCoroutineScope()
@@ -51,6 +60,8 @@ fun App(dataDir: String, nowMs: () -> Long, utcOffsetMinutes: () -> Int, model: 
                         scope = scope,
                         model = model,
                         evalCases = loadEvalCases(),
+                        texts = loadTexts(),
+                        reminders = reminders,
                     )
                 } catch (e: Exception) {
                     failure = e.message ?: e.toString()
@@ -74,6 +85,9 @@ private suspend fun loadCourse(): StudyCourse {
 
 private suspend fun loadEvalCases(): List<EvalCase> =
     JudgeEval.readCases(Res.readBytes("$CONTENT_DIR/eval/free-answers.json").decodeToString())
+
+private suspend fun loadTexts(): List<ReadingText> =
+    ReadingTexts.read(Res.readBytes("$CONTENT_DIR/en/texts.json").decodeToString())
 
 @Composable
 private fun Centered(text: String) {

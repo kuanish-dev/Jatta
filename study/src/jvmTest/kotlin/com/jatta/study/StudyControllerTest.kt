@@ -2,6 +2,9 @@ package com.jatta.study
 
 import com.jatta.engine.EngineConfig
 import com.jatta.engine.learningDay
+import com.jatta.engine.localMinuteOfDay
+import com.jatta.study.content.ReadingText
+import com.jatta.study.content.TextSource
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffKind
 import com.jatta.study.judge.EvalCase
@@ -10,14 +13,26 @@ import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.store.LearnerStore
 import com.jatta.study.store.SavedProgress
 import com.jatta.study.store.SavedState
+import com.jatta.study.remind.Reminder
+import com.jatta.study.remind.ReminderScheduler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import java.io.File
 import kotlin.io.path.createTempDirectory
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
+
+/** Keeps the last scheduled reminder instead of showing it. */
+class RecordingReminders : ReminderScheduler {
+    var last: Reminder? = null
+    var askedPermission = false
+    override fun askPermission() { askedPermission = true }
+    override fun schedule(reminder: Reminder?) { last = reminder }
+}
 
 class StudyControllerTest {
     private val content = RealContent.load()
@@ -25,10 +40,75 @@ class StudyControllerTest {
     private val day = 86_400_000L
     private var now = 1_800_000_000_000L
 
-    private fun controller(model: OnDeviceModel? = null, evalCases: List<EvalCase> = emptyList()) = StudyController(
-        content, LearnerStore(dir.absolutePath), nowMs = { now }, utcOffsetMinutes = { 300 },
+    private val almaty = 300
+    private val reminders = RecordingReminders()
+
+    private fun controller(
+        model: OnDeviceModel? = null,
+        evalCases: List<EvalCase> = emptyList(),
+        texts: List<ReadingText> = emptyList(),
+    ) = StudyController(
+        content, LearnerStore(dir.absolutePath), nowMs = { now }, utcOffsetMinutes = { almaty },
         scope = CoroutineScope(Dispatchers.Unconfined), model = model, evalCases = evalCases,
+        texts = texts, reminders = reminders,
     )
+
+    @Test
+    fun remindersFollowTheScheduleAtTheUsualStudyTime() {
+        val app = controller()
+        // 13:00 in Almaty, nothing studied yet: today at the default 19:00
+        val first = reminders.last!!
+        assertEquals(learningDay(now, almaty, 4), learningDay(first.atMs, almaty, 4))
+        assertEquals(19 * 60, localMinuteOfDay(first.atMs, almaty))
+
+        val startMinute = localMinuteOfDay(now, almaty)
+        app.startSession()
+        runSessionAnsweringRight(app)
+        assertTrue(reminders.askedPermission)
+        // studied today: tomorrow, at the time this session started
+        val next = reminders.last!!
+        assertEquals(learningDay(now, almaty, 4) + 1, learningDay(next.atMs, almaty, 4))
+        assertEquals(startMinute, localMinuteOfDay(next.atMs, almaty))
+        assertEquals("Новое на сегодня: 12", next.text)
+    }
+
+    @Test
+    fun aFastWrongAnswerIsMarkedAsAConfidentError() {
+        val app = controller()
+        app.startSession()
+        while (app.screen.value is Screen.Present) app.presented()
+        val choice = (app.screen.value as Screen.Question).exercise as Exercise.Choice
+        val wrong = (choice.options.indices - choice.correctIndex).first()
+        app.choose(wrong) // answered at once
+        assertTrue((app.screen.value as Screen.Question).confidentError)
+
+        app.choose(wrong)
+        app.continueAfterReveal()
+        while (app.screen.value is Screen.Present) app.presented()
+        val next = (app.screen.value as Screen.Question).exercise as Exercise.Choice
+        now += 9_000 // slower than the usual 5 s for this exercise form
+        app.choose((next.options.indices - next.correctIndex).first())
+        assertFalse((app.screen.value as Screen.Question).confidentError)
+    }
+
+    @Test
+    fun aRealTextIsOfferedOnlyWhenTheLearnerKnowsEnoughOfIt() {
+        val source = TextSource("Test", "Test", "Test", "https://example.org", "CC0", "")
+        val easy = ReadingText("easy", "Easy", "I work in a big office with many people.", rare = emptyList(), source = source)
+        val withDeadline = ReadingText("deadline", "Deadline", "The deadline is near.", rare = listOf("deadline"), source = source)
+        val app = controller(texts = listOf(withDeadline, easy))
+        assertEquals("easy", (app.screen.value as Screen.Home).reading?.text?.id)
+        app.openReading()
+        app.finishReading()
+        assertNull((app.screen.value as Screen.Home).reading, "the other text has an unknown word for a quarter of it")
+
+        val today = learningDay(now, almaty, 4)
+        val store = LearnerStore(dir.absolutePath)
+        store.save(store.load().copy(progress = listOf(SavedProgress("w-deadline", 40.0, 5.0, today, today + 40))))
+        val reading = (controller(texts = listOf(withDeadline, easy)).screen.value as Screen.Home).reading
+        assertEquals("deadline", reading?.text?.id)
+        assertEquals(setOf("deadline"), reading?.courseWords)
+    }
 
     @Test
     fun theModelChecksFreeAnswersOnlyAfterPassingTheAccuracyTest() {
@@ -137,6 +217,7 @@ class StudyControllerTest {
                 is Screen.Reveal -> app.continueAfterReveal()
                 is Screen.Rest -> app.finishRest()
                 is Screen.Home -> error("Unexpected home screen in a session")
+                is Screen.Read -> error("Unexpected reading screen in a session")
             }
         }
         error("The session did not finish")

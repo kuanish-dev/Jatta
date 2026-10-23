@@ -28,4 +28,10 @@ data class StudyConfig(
     val judgeTimeoutMs: Long = 20_000,
     /** М21: share of known verdicts the model must match before it checks answers in lessons. Weak. */
     val minJudgeAgreement: Double = 0.9,
+    /** М19, М20: reminder time until the learner has a usual one, minutes after midnight. Weak. */
+    val defaultStudyMinute: Int = 19 * 60,
+    /** М19, М20: past session starts that set the usual study time. */
+    val sessionStartsKept: Int = 14,
+    /** How far ahead to look for the next day with something to study. */
+    val reminderLookaheadDays: Int = 60,
 )

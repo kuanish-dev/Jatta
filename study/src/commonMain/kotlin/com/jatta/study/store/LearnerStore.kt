@@ -35,12 +35,19 @@ data class AiCheck(
     val enabled: Boolean,
 )
 
+/** When a session started: the learning day and the local clock time in minutes (М19, М20). */
+@Serializable
+data class SessionStart(val day: Int, val minute: Int)
+
 @Serializable
 data class SavedState(
     val progress: List<SavedProgress> = emptyList(),
     val ladderShift: Int = 0,
     val recent: List<RecentAnswer> = emptyList(),
     val aiCheck: AiCheck? = null,
+    val sessionStarts: List<SessionStart> = emptyList(),
+    /** Reading texts already read (М11). */
+    val readTexts: List<String> = emptyList(),
 )
 
 /** Every answer as it happened, kept to fit the memory model to this learner later. */
@@ -65,13 +72,12 @@ fun SavedState.toLearner() = Learner(
     ladderShift = ladderShift,
 )
 
-fun Learner.toSaved(recent: List<RecentAnswer>, aiCheck: AiCheck?) = SavedState(
-    progress = progress.values
+/** The saved state with the learner's memory replaced by [learner]; everything else kept. */
+fun SavedState.withLearner(learner: Learner) = copy(
+    progress = learner.progress.values
         .map { SavedProgress(it.itemId, it.memory.stability, it.memory.difficulty, it.lastReviewDay, it.dueDay) }
         .sortedBy { it.item },
-    ladderShift = ladderShift,
-    recent = recent,
-    aiCheck = aiCheck,
+    ladderShift = learner.ladderShift,
 )
 
 /** Keeps the learner on the device: a JSON snapshot written atomically, plus an append-only answer log. */

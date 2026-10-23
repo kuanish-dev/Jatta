@@ -54,4 +54,14 @@ class SmallPartsTest {
         // 04:30 on 2 January in Almaty is the next learning day
         assertEquals(day20260101 + 1, learningDay(utc(day20260101, 23, 30), almaty, dayStartHour = 4))
     }
+
+    @Test
+    fun reminderTimeLandsOnTheRightDayAndClockTime() {
+        val almaty = 5 * 60
+        for (minute in listOf(0, 3 * 60 + 59, 4 * 60, 19 * 60, 23 * 60 + 59)) {
+            val at = epochMsAt(day = 20_454, minuteOfDay = minute, utcOffsetMinutes = almaty, dayStartHour = 4)
+            assertEquals(20_454, learningDay(at, almaty, dayStartHour = 4), "minute $minute")
+            assertEquals(minute, localMinuteOfDay(at, almaty), "minute $minute")
+        }
+    }
 }

@@ -317,7 +317,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
       <h3>ИИ помогает</h3>
       <ul>
         <li>раскладывает ваши материалы по темам и единицам (вы подтверждаете);</li>
-        <li>заранее генерирует упражнения и тексты из знакомых слов;</li>
+        <li>помогает заранее готовить упражнения (тексты для чтения берутся из настоящих источников);</li>
         <li>проверяет свободные ответы и объясняет ошибки;</li>
         <li>даёт подсказку, а не готовый ответ.</li>
       </ul>
@@ -388,7 +388,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
         <div class="node">
           <span class="step">2 · Ответ</span>
           <h4>Ответ и время</h4>
-          <p>Движок замеряет время ответа. По желанию можно отметить «знал / сомневался / угадал».</p>
+          <p>Движок замеряет время: по скорости видно, насколько вы были уверены.</p>
           <div class="chips"><a href="#m13">М13</a></div>
         </div>
         <span class="arrow" aria-hidden="true"></span>
@@ -514,8 +514,8 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
         <p><a class="cite" href="#ref-norris2000">Norris &amp; Ortega 2000</a> · <a class="cite" href="#ref-goo2015">Goo 2015</a></p>
       </article>
       <article class="mech" id="m11" data-l="a">
-        <div class="mech-head"><span class="mid">М11</span><h4>Тексты из знакомых слов</h4><span class="lvl a">Сильные</span></div>
-        <p><span class="k">Движок:</span> ИИ генерирует тексты и диалоги, в которых 95–98% слов уже есть в вашей модели памяти, плюс 1–3 новых. Покрытие проверяет код, а не ИИ на слово.</p>
+        <div class="mech-head"><span class="mid">М11</span><h4>Настоящие тексты из знакомых слов</h4><span class="lvl a">Сильные</span></div>
+        <p><span class="k">Движок:</span> предлагает отрывки из настоящих источников — Simple English Wikipedia и книг в общественном достоянии (Project Gutenberg). Отрывок показывается, только когда в нём не меньше 95% знакомых слов и не больше 3 новых. Знакомыми считаются первые 2000 слов списка NGSL (осторожная оценка словаря B1) и слова курса, которые уже держатся в памяти, поэтому тексты открываются по мере учёбы. Слова курса в тексте выделены. Покрытие проверяет код.</p>
         <p class="sci"><span class="k">Наука:</span> 95% известных слов в тексте дают минимальное понимание, 98% — уверенное. Сама идея «понятного ввода» Крашена — гипотеза, а вот пороги покрытия измерены.</p>
         <p><a class="cite" href="#ref-laufer2010">Laufer 2010</a> · <a class="cite" href="#ref-hu2000">Hu &amp; Nation 2000</a></p>
       </article>
@@ -532,10 +532,10 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
         <p><a class="cite" href="#ref-li2010">Li 2010</a> · <a class="cite" href="#ref-lyster2010">Lyster &amp; Saito 2010</a> · <a class="cite" href="#ref-pashler2005">Pashler 2005</a></p>
       </article>
       <article class="mech" id="m13" data-l="b">
-        <div class="mech-head"><span class="mid">М13</span><h4>Уверенность в ответе</h4><span class="lvl b">Средние</span></div>
-        <p><span class="k">Движок:</span> необязательный тап «знал / сомневался / угадал». Уверенные ошибки показываются с акцентом, а уверенность входит в оценку для модели памяти.</p>
-        <p class="sci"><span class="k">Наука:</span> ошибки, сделанные с высокой уверенностью, после обратной связи исправляются лучше неуверенных. Это эффект гиперкоррекции.</p>
-        <p><a class="cite" href="#ref-butterfield2001">Butterfield &amp; Metcalfe 2001</a></p>
+        <div class="mech-head"><span class="mid">М13</span><h4>Уверенность по скорости ответа</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> ничего не спрашивает, а читает уверенность по скорости ответа. Быстрый верный ответ — Easy, медленный — Hard. Быстрая ошибка считается уверенной: подсказка к ней помечается особо, чтобы на неё обратили внимание.</p>
+        <p class="sci"><span class="k">Наука:</span> чувство уверенности во многом строится на лёгкости припоминания: быстро пришедший ответ кажется верным. Ошибки, сделанные с высокой уверенностью, после обратной связи исправляются лучше неуверенных — это эффект гиперкоррекции. Скорость как замена вопросу об уверенности — наше допущение, проверяем по журналу ответов.</p>
+        <p><a class="cite" href="#ref-kelley1993">Kelley &amp; Lindsay 1993</a> · <a class="cite" href="#ref-butterfield2001">Butterfield &amp; Metcalfe 2001</a></p>
       </article>
     </div>
   </div>
@@ -578,14 +578,14 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
     <div class="group-head"><h3>Привычка</h3><p>Как заниматься регулярно.</p></div>
     <div class="cards">
       <article class="mech" id="m19" data-l="a">
-        <div class="mech-head"><span class="mid">М19</span><h4>План «когда и где»</h4><span class="lvl a">Сильные</span></div>
-        <p><span class="k">Движок:</span> при настройке ученик задаёт план «если 21:00 и я дома, открываю урок». Напоминание приходит именно в это время.</p>
+        <div class="mech-head"><span class="mid">М19</span><h4>Напоминание «когда»</h4><span class="lvl a">Сильные</span></div>
+        <p><span class="k">Движок:</span> одно напоминание в день, когда по расписанию есть что повторить или выучить. Приходит в то время, когда вы обычно начинаете занятия (по последним занятиям; до первого — в 19:00). Настраивать ничего не нужно: «когда» приложение берёт из ваших же привычек. Работает локально, без сервера.</p>
         <p class="sci"><span class="k">Наука:</span> по мета-анализу 94 проверок такие планы заметно повышают выполнение целей, d ≈ 0,65.</p>
         <p><a class="cite" href="#ref-gollwitzer2006">Gollwitzer &amp; Sheeran 2006</a></p>
       </article>
       <article class="mech" id="m20" data-l="b">
-        <div class="mech-head"><span class="mid">М20</span><h4>Короткое занятие каждый день</h4><span class="lvl b">Средние</span></div>
-        <p><span class="k">Движок:</span> минимальное занятие — 10 минут в одно и то же время. Каждый день понемногу лучше, чем раз в неделю много.</p>
+        <div class="mech-head"><span class="mid">М20</span><h4>Каждый день в одно время</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> напоминание каждый день приходит в одно и то же время — ваше обычное. Каждый день понемногу лучше, чем раз в неделю много.</p>
         <p class="sci"><span class="k">Наука:</span> ежедневное действие становилось автоматическим в среднем примерно за 66 дней, с разбросом от 18 до 254. К этому добавляется польза распределённой практики из М1.</p>
         <p><a class="cite" href="#ref-lally2010">Lally 2010</a></p>
       </article>
@@ -645,6 +645,8 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
         <tr><td>Стоп нового при долге повторов</td><td class="val">&gt; 1,5 дневной нормы</td><td><a href="#m18">М18</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Блок / перерыв</td><td class="val">20–25 / 3–5 мин</td><td><a href="#m14">М14</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Тихий отдых после нового</td><td class="val">5–10 мин</td><td><a href="#m15">М15</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Время напоминания</td><td class="val">обычное, сначала 19:00</td><td><a href="#m19">М19</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Словарь, известный для текстов</td><td class="val">NGSL 1–2000 + курс</td><td><a href="#m11">М11</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Сигнал усталости (10 ответов)</td><td class="val">−15 п.п. и +30% времени</td><td><a href="#m16">М16</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Смена ступени лестницы</td><td class="val">вверх &gt; 95%, вниз &lt; 75%</td><td><a href="#m6">М6</a></td><td><span class="lvl c">Слабые</span></td></tr>
       </tbody>
@@ -687,6 +689,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
     <li id="ref-gollwitzer2006">Gollwitzer, P. M., &amp; Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. <i>Advances in Experimental Social Psychology, 38</i>. <a href="https://www.socmot.uni-konstanz.de/publications/implementation-intentions-and-goal-achievement-meta-analysis-effects-and-processes">uni-konstanz</a></li>
     <li id="ref-goo2015">Goo, J., Granena, G., Yilmaz, Y., &amp; Novella, M. (2015). Implicit and explicit instruction in L2 learning. In P. Rebuschat (Ed.), <i>Implicit and Explicit Learning of Languages</i>. John Benjamins. <a href="https://www.degruyterbrill.com/document/doi/10.1075/sibil.48.18goo/html">degruyter</a></li>
     <li id="ref-hu2000">Hu, M., &amp; Nation, I. S. P. (2000). Unknown vocabulary density and reading comprehension. <i>Reading in a Foreign Language, 13</i>(1).</li>
+    <li id="ref-kelley1993">Kelley, C. M., &amp; Lindsay, D. S. (1993). Remembering mistaken for knowing: Ease of retrieval as a basis for confidence in answers to general knowledge questions. <i>Journal of Memory and Language, 32</i>(1).</li>
     <li id="ref-karpicke2008">Karpicke, J. D., &amp; Roediger, H. L. (2008). The critical importance of retrieval for learning. <i>Science, 319</i>(5865). <a href="https://doi.org/10.1126/science.1152408">doi</a></li>
     <li id="ref-kestin2025">Kestin, G., Miller, K., Klales, A., Milbourne, T., &amp; Ponti, G. (2025). AI tutoring outperforms in-class active learning. <i>Scientific Reports, 15</i>. <a href="https://serl.fas.harvard.edu/publication/ai-tutoring-outperforms-class-active-learning-rct-introducing-novel-research-based">harvard</a></li>
     <li id="ref-kim2022">Kim, S. K., &amp; Webb, S. (2022). The effects of spaced practice on second language learning: A meta-analysis. <i>Language Learning, 72</i>(1). <a href="https://doi.org/10.1111/lang.12479">doi</a></li>
@@ -715,7 +718,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
 </section>
 
 <footer class="wrap">
-  Собрано 23 октября 2026. Уровни доказательности — наша оценка по типу и числу исследований. Часть размеров эффектов взята из аннотаций и обзоров; перед публичной статьёй их стоит сверить с полными текстами.
+  Собрано 23 октября 2026, обновлено в тот же день: М11, М13, М19, М20 описаны так, как они сделаны в приложении. Уровни доказательности — наша оценка по типу и числу исследований. Часть размеров эффектов взята из аннотаций и обзоров; перед публичной статьёй их стоит сверить с полными текстами.
 </footer>
 
 <script>

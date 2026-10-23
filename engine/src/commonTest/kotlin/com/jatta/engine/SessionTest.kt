@@ -2,14 +2,15 @@ package com.jatta.engine
 
 import com.jatta.engine.fsrs.Grade
 import com.jatta.engine.session.Answer
-import com.jatta.engine.session.Confidence
 import com.jatta.engine.session.Grading
 import com.jatta.engine.session.Outcome
 import com.jatta.engine.session.Session
 import com.jatta.engine.session.Step
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
 class SessionTest {
     private val config = EngineConfig()
@@ -72,14 +73,15 @@ class SessionTest {
     }
 
     @Test
-    fun gradesFollowSpeedAndConfidence() {
+    fun confidenceIsReadFromSpeed() {
         val grading = Grading(config)
         assertEquals(Grade.Again, grading.grade(wrong, median))
         assertEquals(Grade.Good, grading.grade(right, median))
         assertEquals(Grade.Hard, grading.grade(Answer(true, 7_300), median))
         assertEquals(Grade.Easy, grading.grade(Answer(true, 2_000), median))
-        assertEquals(Grade.Easy, grading.grade(Answer(true, 2_000, Confidence.Knew), median))
-        assertEquals(Grade.Hard, grading.grade(Answer(true, 2_000, Confidence.Unsure), median))
-        assertEquals(Grade.Hard, grading.grade(Answer(true, 4_000, Confidence.Guessed), median))
+
+        assertTrue(grading.isConfidentError(Answer(false, 2_000), median))
+        assertFalse(grading.isConfidentError(Answer(false, 4_000), median))
+        assertFalse(grading.isConfidentError(Answer(true, 2_000), median))
     }
 }

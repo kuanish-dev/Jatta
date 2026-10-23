@@ -20,5 +20,6 @@ fun MainViewController(model: OnDeviceModel? = null) = ComposeUIViewController {
         nowMs = { (NSDate().timeIntervalSince1970 * 1_000).toLong() },
         utcOffsetMinutes = { (NSTimeZone.localTimeZone.secondsFromGMTForDate(NSDate()) / 60).toInt() },
         model = model,
+        reminders = IosReminders(),
     )
 }

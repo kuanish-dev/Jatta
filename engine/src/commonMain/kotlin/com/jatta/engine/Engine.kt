@@ -10,6 +10,7 @@ import com.jatta.engine.plan.DayPlan
 import com.jatta.engine.plan.DayPlanner
 import com.jatta.engine.plan.TopicGate
 import com.jatta.engine.session.Baseline
+import com.jatta.engine.session.Grading
 import com.jatta.engine.session.Ladder
 import com.jatta.engine.session.RestCoach
 import com.jatta.engine.session.Session
@@ -22,6 +23,7 @@ class Engine(val course: Course, val config: EngineConfig = EngineConfig()) {
     val memory = MemoryModel(Fsrs(config.desiredRetention, config.maximumIntervalDays))
     val gate = TopicGate(course, memory, config)
     val ladder = Ladder(config)
+    val grading = Grading(config)
     val coverage = TextCoverage(config)
     private val planner = DayPlanner(course, memory, gate, config)
 

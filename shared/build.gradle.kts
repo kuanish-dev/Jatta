@@ -38,6 +38,7 @@ kotlin {
         }
         androidMain.dependencies {
             implementation(libs.mlkit.genai.prompt)
+            implementation(libs.androidx.work.runtime)
         }
     }
 }

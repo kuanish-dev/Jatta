@@ -35,12 +35,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.jatta.engine.session.Rung
@@ -55,6 +57,7 @@ import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffKind
 import com.jatta.study.judge.DiffPart
 import com.jatta.study.judge.ModelState
+import com.jatta.study.reading.Reading
 import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
 
@@ -63,6 +66,7 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
     val screen by controller.screen.collectAsState()
     when (val s = screen) {
         is Screen.Home -> HomeScreen(s, controller)
+        is Screen.Read -> ReadScreen(s, controller)
         is Screen.Present -> PresentScreen(s, controller)
         is Screen.Question -> QuestionScreen(s, controller)
         is Screen.Checking -> CheckingScreen(s, controller)
@@ -89,9 +93,63 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
         Text(if (nothingToDo) "На сегодня всё" else "Начать занятие")
     }
     if (nothingToDo) Muted("Новые повторы появятся, когда память начнёт ослабевать.")
+    home.reading?.let { ReadingCard(it, controller::openReading) }
     Text("Темы", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 8.dp))
     home.topics.forEach { TopicRow(it) }
     AiSection(home.ai, controller)
+}
+
+/** М11: a real text the learner can read now. */
+@Composable
+private fun ReadingCard(reading: Reading, onOpen: () -> Unit) {
+    Card(Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text("Почитать", style = MaterialTheme.typography.titleMedium)
+            Text("${reading.text.title} · ${reading.text.source.name}", style = MaterialTheme.typography.bodyLarge)
+            Muted(
+                if (reading.courseWords.isEmpty()) "Почти все слова знакомы" else "Слов из курса: ${reading.courseWords.size}",
+            )
+            OutlinedButton(onOpen) { Text("Читать") }
+        }
+    }
+}
+
+@Composable
+private fun ReadScreen(read: Screen.Read, controller: StudyController) = Page {
+    val reading = read.reading
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Muted("Чтение", Modifier.weight(1f))
+        TextButton(controller::openHome) { Text("Закрыть") }
+    }
+    Text(reading.text.title, style = MaterialTheme.typography.headlineSmall)
+    Text(highlighted(reading.text.text, reading.courseWords), style = MaterialTheme.typography.bodyLarge)
+    if (reading.courseWords.isNotEmpty()) Muted("Выделены слова из курса: встреча в живом тексте закрепляет их.")
+    if (reading.unknownWords.isNotEmpty()) {
+        Muted("Новых слов: ${reading.unknownWords.size} (${reading.unknownWords.sorted().joinToString()}) — попробуйте понять их по контексту.")
+    }
+    val source = reading.text.source
+    Text(
+        buildAnnotatedString {
+            append("Источник: ${source.work} — ${source.author}. ${source.name}, ${source.license}. ${source.changes}. ")
+            withLink(LinkAnnotation.Url(source.url)) { append(source.url) }
+        },
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    Button(controller::finishReading, Modifier.fillMaxWidth()) { Text("Прочитал(а)") }
+}
+
+/** The text with the learner's course words in bold. */
+@Composable
+private fun highlighted(text: String, words: Set<String>) = buildAnnotatedString {
+    val style = SpanStyle(color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+    var at = 0
+    Regex("[A-Za-z]+(?:'[A-Za-z]+)?").findAll(text).forEach { match ->
+        append(text.substring(at, match.range.first))
+        if (match.value.lowercase() in words) withStyle(style) { append(match.value) } else append(match.value)
+        at = match.range.last + 1
+    }
+    append(text.substring(at))
 }
 
 /** State of the on-device model and the accuracy test it must pass before checking answers (М21). */
@@ -176,7 +234,11 @@ private fun PresentScreen(present: Screen.Present, controller: StudyController) 
 private fun QuestionScreen(question: Screen.Question, controller: StudyController) =
     StudyPage(question.remaining, question.banner, controller::stopSession) {
         Muted(rungLabel(question.exercise.rung) + " · " + question.exercise.instruction)
-        question.hint?.let { Note("Не совсем. Подсказка: $it") }
+        question.hint?.let { hint ->
+            // М13: a fast wrong answer was a confident mistake; pointing it out helps it get corrected.
+            val lead = if (question.confidentError) "Ответ быстрый, но неверный — запомните внимательно." else "Не совсем."
+            Note("$lead Подсказка: $hint")
+        }
         when (val exercise = question.exercise) {
             is Exercise.Choice -> {
                 Text(exercise.question, style = MaterialTheme.typography.headlineSmall)

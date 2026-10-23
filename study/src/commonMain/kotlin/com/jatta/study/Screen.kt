@@ -4,6 +4,7 @@ import com.jatta.study.content.ItemFile
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffPart
 import com.jatta.study.judge.ModelState
+import com.jatta.study.reading.Reading
 import com.jatta.study.store.AiCheck
 
 /** What the app shows. The UI only draws these and calls StudyController back. */
@@ -15,7 +16,12 @@ sealed interface Screen {
         val postponed: Int,
         val topics: List<TopicStatus>,
         val ai: AiStatus,
+        /** A real text the learner can read now (М11), or null when none fits yet. */
+        val reading: Reading?,
     ) : Screen
+
+    /** Reading a real text; words met in the course are pointed out (М11). */
+    data class Read(val reading: Reading) : Screen
 
     /** A new item met for the first time; [topicIntro] is set for the first item of a topic (М10). */
     data class Present(
@@ -26,13 +32,17 @@ sealed interface Screen {
         val remaining: Int,
     ) : Screen
 
-    /** [id] makes every shown question distinct, so the UI resets its input. [hint] is set on the second try. */
+    /**
+     * [id] makes every shown question distinct, so the UI resets its input. [hint] is set on the second
+     * try; [confidentError] when the wrong answer came fast, a mistake made with confidence (М13).
+     */
     data class Question(
         val id: Int,
         val exercise: Exercise,
         val hint: String?,
         val banner: Banner?,
         val remaining: Int,
+        val confidentError: Boolean = false,
     ) : Screen
 
     /** The on-device model is checking a free answer. */
