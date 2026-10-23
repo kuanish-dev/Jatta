@@ -16,6 +16,9 @@ sealed interface Exercise {
     /** The right answer, shown on reveal and for self-checking. */
     val answer: String
 
+    /** English to play aloud once the learner has answered: never part of the question's solution beforehand. */
+    val listen: String
+
     /** Pick one option; checked by code. */
     data class Choice(
         override val itemId: String,
@@ -27,6 +30,7 @@ sealed interface Exercise {
         val correctIndex: Int,
         override val hint: String,
         override val answer: String,
+        override val listen: String,
     ) : Exercise
 
     /**
@@ -44,6 +48,7 @@ sealed interface Exercise {
         val openEnded: Boolean,
         override val hint: String,
         override val answer: String,
+        override val listen: String,
         /** The task in English for the on-device model; set when [openEnded]. */
         val judgeTask: String? = null,
     ) : Exercise
@@ -57,6 +62,7 @@ sealed interface Exercise {
         val references: List<String>,
         override val hint: String,
         override val answer: String,
+        override val listen: String,
         /** The task in English for the on-device model. */
         val judgeTask: String,
     ) : Exercise
@@ -69,5 +75,6 @@ sealed interface Exercise {
         val prompt: String,
         override val hint: String,
         override val answer: String,
+        override val listen: String,
     ) : Exercise
 }

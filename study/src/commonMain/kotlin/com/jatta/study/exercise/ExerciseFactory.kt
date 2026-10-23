@@ -33,7 +33,7 @@ class ExerciseFactory(private val content: StudyCourse) {
                 item.id, rung, "Что значит это слово?",
                 question = item.en, translation = null,
                 options = options, correctIndex = options.indexOf(item.ru),
-                hint = item.examples.first().en, answer = item.ru,
+                hint = item.examples.first().en, answer = item.ru, listen = item.en,
             )
         }
         Rung.FillGap -> gapped(item, random)?.let { example ->
@@ -42,20 +42,21 @@ class ExerciseFactory(private val content: StudyCourse) {
                 item.id, rung, "Вставьте слово «${item.ru}»",
                 question = Gap.blank(example.en, gap), translation = example.ru, cue = null,
                 accepted = listOf(gap), openEnded = false,
-                hint = firstLetters(gap), answer = example.en,
+                hint = firstLetters(gap), answer = example.en, listen = example.en,
             )
         }
         Rung.Translate -> Exercise.Typed(
             item.id, rung, "Как это по-английски?",
             question = item.ru, translation = null, cue = null,
             accepted = listOf(item.en) + item.also, openEnded = false,
-            hint = firstLetters(item.en), answer = item.en,
+            hint = firstLetters(item.en), answer = item.en, listen = item.en,
         )
         Rung.Compose -> Exercise.Free(
             item.id, rung, "Напишите своё предложение",
             task = "Со словом «${item.en}» (${item.ru})",
             references = item.examples.map { it.en },
             hint = item.note.ifBlank { item.examples.first().en }, answer = item.examples.first().en,
+            listen = item.examples.first().en,
             judgeTask = "Write an English sentence using the word \"${item.en}\" (${item.ru})",
         )
         Rung.Speak -> speak(item, random)
@@ -69,7 +70,7 @@ class ExerciseFactory(private val content: StudyCourse) {
                 item.id, rung, "Выберите, что подходит",
                 question = Gap.blank(example.en, gap), translation = example.ru,
                 options = options, correctIndex = options.indexOf(gap),
-                hint = item.ru, answer = example.en,
+                hint = item.ru, answer = example.en, listen = example.en,
             )
         }
         Rung.FillGap -> gapped(item, random)?.let { example ->
@@ -77,7 +78,7 @@ class ExerciseFactory(private val content: StudyCourse) {
                 item.id, rung, "Вставьте пропущенное",
                 question = Gap.blank(example.en, example.gap!!), translation = example.ru, cue = example.cue,
                 accepted = listOf(example.gap), openEnded = false,
-                hint = item.ru, answer = example.en,
+                hint = item.ru, answer = example.en, listen = example.en,
             )
         }
         Rung.Translate -> item.examples.random(random).let { example ->
@@ -85,7 +86,7 @@ class ExerciseFactory(private val content: StudyCourse) {
                 item.id, rung, "Переведите на английский",
                 question = example.ru, translation = null, cue = null,
                 accepted = listOf(example.en) + example.also, openEnded = true,
-                hint = item.ru, answer = example.en,
+                hint = item.ru, answer = example.en, listen = example.en,
                 judgeTask = "Translate into English: «${example.ru}»",
             )
         }
@@ -94,6 +95,7 @@ class ExerciseFactory(private val content: StudyCourse) {
             task = item.ru,
             references = item.examples.map { it.en },
             hint = item.note.ifBlank { item.ru }, answer = item.examples.first().en,
+            listen = item.examples.first().en,
             judgeTask = "Write an English sentence using the ${content.topicOf(item.id).title} pattern \"${item.en}\" (${item.ru})",
         )
         Rung.Speak -> speak(item, random)
@@ -104,6 +106,7 @@ class ExerciseFactory(private val content: StudyCourse) {
         return Exercise.Speak(
             item.id, Rung.Speak, "Скажите вслух по-английски",
             prompt = example.ru, hint = if (item.kind == KindFile.Rule) item.ru else item.en, answer = example.en,
+            listen = example.en,
         )
     }
 

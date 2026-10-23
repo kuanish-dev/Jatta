@@ -3,6 +3,7 @@ package com.jatta.study
 import com.jatta.engine.EngineConfig
 import com.jatta.engine.learningDay
 import com.jatta.engine.localMinuteOfDay
+import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.TextSource
 import com.jatta.study.exercise.Exercise
@@ -92,20 +93,25 @@ class StudyControllerTest {
     }
 
     @Test
-    fun aRealTextIsOfferedOnlyWhenTheLearnerKnowsEnoughOfIt() {
+    fun aRealTextIsOfferedAfterTheGrammarAndOnlyWhenTheLearnerKnowsEnoughOfIt() {
         val source = TextSource("Test", "Test", "Test", "https://example.org", "CC0", "")
         val easy = ReadingText("easy", "Easy", "I work in a big office with many people.", rare = emptyList(), source = source)
         val withDeadline = ReadingText("deadline", "Deadline", "The deadline is near.", rare = listOf("deadline"), source = source)
-        val app = controller(texts = listOf(withDeadline, easy))
+        val texts = listOf(withDeadline, easy)
+        assertNull((controller(texts = texts).screen.value as Screen.Home).reading, "no reading before the grammar holds")
+
+        val today = learningDay(now, almaty, 4)
+        val store = LearnerStore(dir.absolutePath)
+        val grammar = content.items.values.filter { it.kind == KindFile.Rule }.map { SavedProgress(it.id, 40.0, 5.0, today, today + 40) }
+        store.save(store.load().copy(progress = grammar))
+        val app = controller(texts = texts)
         assertEquals("easy", (app.screen.value as Screen.Home).reading?.text?.id)
         app.openReading()
         app.finishReading()
         assertNull((app.screen.value as Screen.Home).reading, "the other text has an unknown word for a quarter of it")
 
-        val today = learningDay(now, almaty, 4)
-        val store = LearnerStore(dir.absolutePath)
-        store.save(store.load().copy(progress = listOf(SavedProgress("w-deadline", 40.0, 5.0, today, today + 40))))
-        val reading = (controller(texts = listOf(withDeadline, easy)).screen.value as Screen.Home).reading
+        store.save(store.load().copy(progress = grammar + SavedProgress("w-deadline", 40.0, 5.0, today, today + 40)))
+        val reading = (controller(texts = texts).screen.value as Screen.Home).reading
         assertEquals("deadline", reading?.text?.id)
         assertEquals(setOf("deadline"), reading?.courseWords)
     }

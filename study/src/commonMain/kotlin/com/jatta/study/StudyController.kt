@@ -14,6 +14,7 @@ import com.jatta.engine.session.RestCoach
 import com.jatta.engine.session.Rung
 import com.jatta.engine.session.Session
 import com.jatta.engine.session.Step
+import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.StudyCourse
 import com.jatta.study.exercise.AnswerCheck
@@ -71,6 +72,8 @@ class StudyController(
     private val exercises = ExerciseFactory(content)
     private val judge = model?.let { FreeAnswerJudge(it, config) }
     private val readingPicker = ReadingPicker(content, engine)
+    /** Topics made of rules only: the grammar of the course. */
+    private val grammarTopics = content.topics.values.filter { topic -> topic.items.all { it.kind == KindFile.Rule } }.map { it.id }
 
     private var saved = store.load()
     private var learner = saved.toLearner()
@@ -427,7 +430,9 @@ class StudyController(
             total = content.course.items.size,
         )
         val ai = AiStatus(modelState, downloadedBytes, testedDone, evalCases.size, saved.aiCheck)
-        val reading = readingPicker.pick(texts, learner, today, saved.readTexts.toSet())
+        // М11, the course author's choice: real texts open once all the grammar of the course holds in memory.
+        val grammarHolds = grammarTopics.all { engine.gate.isMastered(it, learner, today) }
+        val reading = if (grammarHolds) readingPicker.pick(texts, learner, today, saved.readTexts.toSet()) else null
         return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, progress, reading)
     }
 

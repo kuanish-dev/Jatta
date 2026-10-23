@@ -21,5 +21,6 @@ fun MainViewController(model: OnDeviceModel? = null) = ComposeUIViewController {
         utcOffsetMinutes = { (NSTimeZone.localTimeZone.secondsFromGMTForDate(NSDate()) / 60).toInt() },
         model = model,
         reminders = IosReminders(),
+        speaker = IosSpeaker(),
     )
 }

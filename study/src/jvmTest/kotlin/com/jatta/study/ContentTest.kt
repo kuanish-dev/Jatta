@@ -65,6 +65,7 @@ class ContentTest {
         for (itemId in content.items.keys) for (rung in Rung.entries) for (seed in 0 until 8) {
             val exercise = factory.build(itemId, rung, seed)
             val where = "$itemId on $rung (seed $seed)"
+            assertTrue(exercise.listen.isNotBlank() && exercise.listen.none { it in 'а'..'я' || it in 'А'..'Я' }, "$where: audio must be English")
             when (exercise) {
                 is Exercise.Choice -> {
                     assertEquals(exercise.options.size, exercise.options.distinct().size, "$where: repeated options")

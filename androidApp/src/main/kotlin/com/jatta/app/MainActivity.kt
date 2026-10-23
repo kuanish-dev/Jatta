@@ -11,6 +11,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import com.jatta.shared.AndroidReminders
+import com.jatta.shared.AndroidSpeaker
 import com.jatta.shared.App
 import com.jatta.shared.GeminiNanoModel
 import java.util.TimeZone
@@ -18,12 +19,14 @@ import java.util.TimeZone
 class MainActivity : ComponentActivity() {
     // The answer needs no handling: without permission Android simply doesn't show reminders.
     private val notificationPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) {}
+    private lateinit var speaker: AndroidSpeaker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // The app is always dark, so system bar icons are always light.
         enableEdgeToEdge(SystemBarStyle.dark(Color.TRANSPARENT), SystemBarStyle.dark(Color.TRANSPARENT))
         super.onCreate(savedInstanceState)
         val reminders = AndroidReminders(applicationContext, askPermission = ::askNotificationPermission)
+        speaker = AndroidSpeaker(this)
         setContent {
             App(
                 dataDir = filesDir.absolutePath,
@@ -31,8 +34,14 @@ class MainActivity : ComponentActivity() {
                 utcOffsetMinutes = { TimeZone.getDefault().getOffset(System.currentTimeMillis()) / 60_000 },
                 model = GeminiNanoModel(),
                 reminders = reminders,
+                speaker = speaker,
             )
         }
+    }
+
+    override fun onDestroy() {
+        speaker.shutdown()
+        super.onDestroy()
     }
 
     /** Android 13+ asks the learner; earlier versions allow notifications by default. */

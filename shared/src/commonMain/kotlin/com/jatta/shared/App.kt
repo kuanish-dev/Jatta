@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -31,7 +32,7 @@ private const val CONTENT_DIR = "files/content"
 
 /**
  * The whole app. Platform code passes where to keep the learner's data, the clock, the time zone, the
- * on-device model (null where there is none) and reminders, so everything below is the same on Android and iOS.
+ * on-device model (null where there is none), reminders and speech, so everything below is the same on Android and iOS.
  */
 @Composable
 fun App(
@@ -40,7 +41,8 @@ fun App(
     utcOffsetMinutes: () -> Int,
     model: OnDeviceModel?,
     reminders: ReminderScheduler?,
-) {
+    speaker: Speaker?,
+) = CompositionLocalProvider(LocalSpeaker provides speaker) {
     JattaTheme {
         val scope = rememberCoroutineScope()
         var controller by remember { mutableStateOf<StudyController?>(null) }
