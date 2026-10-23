@@ -22,8 +22,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var speaker: AndroidSpeaker
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // The app is always dark, so system bar icons are always light.
-        enableEdgeToEdge(SystemBarStyle.dark(Color.TRANSPARENT), SystemBarStyle.dark(Color.TRANSPARENT))
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         val reminders = AndroidReminders(applicationContext, askPermission = ::askNotificationPermission)
         speaker = AndroidSpeaker(this)
@@ -35,6 +34,7 @@ class MainActivity : ComponentActivity() {
                 model = GeminiNanoModel(),
                 reminders = reminders,
                 speaker = speaker,
+                onDarkTheme = ::matchSystemBars,
             )
         }
     }
@@ -42,6 +42,12 @@ class MainActivity : ComponentActivity() {
     override fun onDestroy() {
         speaker.shutdown()
         super.onDestroy()
+    }
+
+    /** Light icons on the dark theme, dark icons on the light one, whatever the phone's own setting. */
+    private fun matchSystemBars(dark: Boolean) {
+        val style = if (dark) SystemBarStyle.dark(Color.TRANSPARENT) else SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT)
+        enableEdgeToEdge(style, style)
     }
 
     /** Android 13+ asks the learner; earlier versions allow notifications by default. */

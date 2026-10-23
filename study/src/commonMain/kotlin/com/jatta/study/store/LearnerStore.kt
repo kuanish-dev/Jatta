@@ -3,6 +3,7 @@ package com.jatta.study.store
 import com.jatta.engine.fsrs.Memory
 import com.jatta.engine.learner.ItemProgress
 import com.jatta.engine.learner.Learner
+import com.jatta.study.ThemeChoice
 import kotlinx.io.buffered
 import kotlinx.io.files.Path
 import kotlinx.io.files.SystemFileSystem
@@ -48,6 +49,7 @@ data class SavedState(
     val sessionStarts: List<SessionStart> = emptyList(),
     /** Reading texts already read (М11). */
     val readTexts: List<String> = emptyList(),
+    val theme: ThemeChoice = ThemeChoice.System,
 )
 
 /** Every answer as it happened, kept to fit the memory model to this learner later. */

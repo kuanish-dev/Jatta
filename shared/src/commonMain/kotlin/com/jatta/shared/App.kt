@@ -1,5 +1,6 @@
 package com.jatta.shared
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -7,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -18,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.jatta.shared.resources.Res
 import com.jatta.study.StudyController
+import com.jatta.study.ThemeChoice
 import com.jatta.study.content.ContentLoader
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.ReadingTexts
@@ -42,11 +45,20 @@ fun App(
     model: OnDeviceModel?,
     reminders: ReminderScheduler?,
     speaker: Speaker?,
+    /** Lets the platform match its system bars to the theme. */
+    onDarkTheme: (Boolean) -> Unit = {},
 ) = CompositionLocalProvider(LocalSpeaker provides speaker) {
-    JattaTheme {
-        val scope = rememberCoroutineScope()
-        var controller by remember { mutableStateOf<StudyController?>(null) }
-        var failure by remember { mutableStateOf<String?>(null) }
+    val scope = rememberCoroutineScope()
+    var controller by remember { mutableStateOf<StudyController?>(null) }
+    var failure by remember { mutableStateOf<String?>(null) }
+    val choice = controller?.theme?.collectAsState()?.value ?: ThemeChoice.System
+    val dark = when (choice) {
+        ThemeChoice.System -> isSystemInDarkTheme()
+        ThemeChoice.Light -> false
+        ThemeChoice.Dark -> true
+    }
+    LaunchedEffect(dark) { onDarkTheme(dark) }
+    JattaTheme(dark) {
         LaunchedEffect(Unit) {
             try {
                 controller = StudyController(

@@ -5,10 +5,10 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -24,9 +25,13 @@ import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
 import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
@@ -35,6 +40,8 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -46,47 +53,108 @@ import com.jatta.shared.resources.exo2
 import com.jatta.shared.resources.jetbrains_mono
 import org.jetbrains.compose.resources.Font
 
-/** Neon on near-black. One look for the app, whatever the system theme. */
+/** The colours of one theme. [glow] is how strongly big numbers glow: strong on black, faint on white. */
+@Immutable
+data class NeonPalette(
+    val void: Color,
+    val panel: Color,
+    val panelHigh: Color,
+    val line: Color,
+    val cyan: Color,
+    val magenta: Color,
+    val acid: Color,
+    val danger: Color,
+    val text: Color,
+    val muted: Color,
+    val gridAlpha: Float,
+    val glow: Float,
+    val isDark: Boolean,
+)
+
+/** Neon on near-black. */
+val DarkNeon = NeonPalette(
+    void = Color(0xFF07070D),
+    panel = Color(0xFF0E0E19),
+    panelHigh = Color(0xFF161627),
+    line = Color(0xFF26264A),
+    cyan = Color(0xFF00E5FF),
+    magenta = Color(0xFFFF2E88),
+    acid = Color(0xFFF5E500),
+    danger = Color(0xFFFF3B5C),
+    text = Color(0xFFE6E6F0),
+    muted = Color(0xFF9A9AB8),
+    gridAlpha = 0.045f,
+    glow = 0.7f,
+    isDark = true,
+)
+
+/**
+ * The same look on cool white. Pure neon is unreadable on white, so the accents are deeper shades
+ * of the same hues, dark enough for text.
+ */
+val LightNeon = NeonPalette(
+    void = Color(0xFFF2F4F8),
+    panel = Color(0xFFFFFFFF),
+    panelHigh = Color(0xFFE3E6EF),
+    line = Color(0xFFC9CDDD),
+    cyan = Color(0xFF007C99),
+    magenta = Color(0xFFC8005F),
+    acid = Color(0xFF8A6D00),
+    danger = Color(0xFFC81E3A),
+    text = Color(0xFF12121C),
+    muted = Color(0xFF555A75),
+    gridAlpha = 0.07f,
+    glow = 0.22f,
+    isDark = false,
+)
+
+val LocalNeon = staticCompositionLocalOf { DarkNeon }
+
+/** The current theme's colours, so screens can write `Neon.Cyan` in either theme. */
 object Neon {
-    val Void = Color(0xFF07070D)
-    val Panel = Color(0xFF0E0E19)
-    val PanelHigh = Color(0xFF161627)
-    val Line = Color(0xFF26264A)
-    val Cyan = Color(0xFF00E5FF)
-    val Magenta = Color(0xFFFF2E88)
-    val Acid = Color(0xFFF5E500)
-    val Danger = Color(0xFFFF3B5C)
-    val Text = Color(0xFFE6E6F0)
-    val Muted = Color(0xFF9A9AB8)
+    val Void: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.void
+    val Panel: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.panel
+    val PanelHigh: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.panelHigh
+    val Line: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.line
+    val Cyan: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.cyan
+    val Magenta: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.magenta
+    val Acid: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.acid
+    val Danger: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.danger
+    val Text: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.text
+    val Muted: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.muted
 }
 
-private val colors = darkColorScheme(
-    primary = Neon.Cyan,
-    onPrimary = Color(0xFF001418),
-    primaryContainer = Color(0xFF00313A),
-    onPrimaryContainer = Neon.Cyan,
-    secondary = Neon.Magenta,
-    onSecondary = Color(0xFF1A0010),
-    secondaryContainer = Color(0xFF241030),
-    onSecondaryContainer = Color(0xFFFFC7E4),
-    tertiary = Neon.Acid,
-    onTertiary = Color(0xFF141200),
-    error = Neon.Danger,
-    onError = Color(0xFF1A0006),
-    background = Neon.Void,
-    onBackground = Neon.Text,
-    surface = Neon.Void,
-    onSurface = Neon.Text,
-    surfaceVariant = Neon.PanelHigh,
-    onSurfaceVariant = Neon.Muted,
-    surfaceContainerLowest = Neon.Void,
-    surfaceContainerLow = Neon.Panel,
-    surfaceContainer = Neon.Panel,
-    surfaceContainerHigh = Neon.PanelHigh,
-    surfaceContainerHighest = Neon.PanelHigh,
-    outline = Color(0xFF1F7A8C),
-    outlineVariant = Neon.Line,
-)
+private fun colorScheme(p: NeonPalette): ColorScheme {
+    val base = if (p.isDark) darkColorScheme() else lightColorScheme()
+    val onAccent = if (p.isDark) Color(0xFF00141A) else Color.White
+    return base.copy(
+        primary = p.cyan,
+        onPrimary = onAccent,
+        primaryContainer = p.panelHigh,
+        onPrimaryContainer = p.cyan,
+        secondary = p.magenta,
+        onSecondary = onAccent,
+        secondaryContainer = p.panelHigh,
+        onSecondaryContainer = p.text,
+        tertiary = p.acid,
+        onTertiary = onAccent,
+        error = p.danger,
+        onError = onAccent,
+        background = p.void,
+        onBackground = p.text,
+        surface = p.void,
+        onSurface = p.text,
+        surfaceVariant = p.panelHigh,
+        onSurfaceVariant = p.muted,
+        surfaceContainerLowest = p.void,
+        surfaceContainerLow = p.panel,
+        surfaceContainer = p.panel,
+        surfaceContainerHigh = p.panelHigh,
+        surfaceContainerHighest = p.panelHigh,
+        outline = p.cyan.copy(alpha = 0.6f),
+        outlineVariant = p.line,
+    )
+}
 
 /** Chamfered corners, the cyberpunk panel shape: two opposite corners cut. */
 val ChamferSmall = CutCornerShape(topStart = 8.dp, bottomEnd = 8.dp)
@@ -134,21 +202,21 @@ private fun typography(): Typography {
     )
 }
 
-/** The app's theme with a faint grid behind every screen. */
+/** The app's theme, dark or light, with a faint grid behind every screen. */
 @Composable
-fun JattaTheme(content: @Composable () -> Unit) {
-    MaterialTheme(colorScheme = colors, typography = typography(), shapes = shapes) {
-        CompositionLocalProvider(LocalContentColor provides Neon.Text) {
-            Box(Modifier.fillMaxSize().background(Neon.Void).drawBehind { drawGrid() }) {
+fun JattaTheme(dark: Boolean, content: @Composable () -> Unit) {
+    val palette = if (dark) DarkNeon else LightNeon
+    MaterialTheme(colorScheme = colorScheme(palette), typography = typography(), shapes = shapes) {
+        CompositionLocalProvider(LocalNeon provides palette, LocalContentColor provides palette.text) {
+            Box(Modifier.fillMaxSize().background(palette.void).drawBehind { drawGrid(palette.cyan.copy(alpha = palette.gridAlpha)) }) {
                 content()
             }
         }
     }
 }
 
-private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawGrid() {
+private fun DrawScope.drawGrid(line: Color) {
     val step = 28.dp.toPx()
-    val line = Neon.Cyan.copy(alpha = 0.045f)
     var x = 0f
     while (x < size.width) {
         drawLine(line, Offset(x, 0f), Offset(x, size.height))
@@ -203,13 +271,14 @@ fun Label(text: String, color: Color = Neon.Muted, modifier: Modifier = Modifier
 @Composable
 fun NeonBar(fraction: Float, modifier: Modifier = Modifier, segments: Int = 0, height: Dp = 10.dp, dim: Boolean = false) {
     val animated by animateFloatAsState(fraction.coerceIn(0f, 1f))
-    val fill = if (dim) Brush.horizontalGradient(listOf(Neon.Muted, Neon.Muted)) else null
+    val track = Neon.PanelHigh
+    val colors = if (dim) listOf(Neon.Muted, Neon.Muted) else listOf(Neon.Cyan, Neon.Magenta)
     Canvas(modifier.fillMaxWidth().height(height + 6.dp)) {
         val top = 3.dp.toPx()
         val h = height.toPx()
-        val gradient = fill ?: Brush.horizontalGradient(listOf(Neon.Cyan, Neon.Magenta), startX = 0f, endX = size.width)
+        val gradient = Brush.horizontalGradient(colors, startX = 0f, endX = size.width)
         if (segments <= 1) {
-            drawPath(chamfered(0f, top, size.width, h), Neon.PanelHigh)
+            drawPath(chamfered(0f, top, size.width, h), track)
             val width = size.width * animated
             if (width > 0f) {
                 drawRect(gradient, Offset(0f, top - 3.dp.toPx()), Size(width, h + 6.dp.toPx()), alpha = 0.18f)
@@ -221,7 +290,7 @@ fun NeonBar(fraction: Float, modifier: Modifier = Modifier, segments: Int = 0, h
             val filled = animated * segments
             for (i in 0 until segments) {
                 val x = i * (segment + gap)
-                drawRect(Neon.PanelHigh, Offset(x, top), Size(segment, h))
+                drawRect(track, Offset(x, top), Size(segment, h))
                 val part = (filled - i).coerceIn(0f, 1f)
                 if (part > 0f) {
                     if (!dim) drawRect(gradient, Offset(x, top - 2.dp.toPx()), Size(segment * part, h + 4.dp.toPx()), alpha = 0.2f)
@@ -248,5 +317,6 @@ private fun chamfered(x: Float, y: Float, width: Float, height: Float): Path {
 /** Big glowing number in the monospace face. */
 @Composable
 fun NeonNumber(text: String, color: Color = Neon.Cyan, style: TextStyle = MaterialTheme.typography.displaySmall) {
-    Text(text, style = style.copy(shadow = androidx.compose.ui.graphics.Shadow(color.copy(alpha = 0.7f), blurRadius = 18f)), color = color)
+    val glow = LocalNeon.current.glow
+    Text(text, style = style.copy(shadow = Shadow(color.copy(alpha = glow), blurRadius = 18f)), color = color)
 }

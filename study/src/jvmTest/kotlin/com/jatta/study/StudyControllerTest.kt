@@ -74,6 +74,18 @@ class StudyControllerTest {
     }
 
     @Test
+    fun theThemeChoiceCyclesAndIsKept() {
+        val app = controller()
+        assertEquals(ThemeChoice.System, app.theme.value)
+        app.cycleTheme()
+        assertEquals(ThemeChoice.Light, app.theme.value)
+        assertEquals(ThemeChoice.Light, controller().theme.value, "the choice survives a restart")
+        app.cycleTheme()
+        app.cycleTheme()
+        assertEquals(ThemeChoice.System, app.theme.value)
+    }
+
+    @Test
     fun aFastWrongAnswerIsMarkedAsAConfidentError() {
         val app = controller()
         app.startSession()

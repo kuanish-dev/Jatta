@@ -77,6 +77,10 @@ class StudyController(
 
     private var saved = store.load()
     private var learner = saved.toLearner()
+    private val themeState = MutableStateFlow(saved.theme)
+
+    /** The learner's choice of look; the UI decides what System means on its platform. */
+    val theme: StateFlow<ThemeChoice> = themeState.asStateFlow()
 
     private var modelState = ModelState.Unavailable
     private var downloadedBytes: Long? = null
@@ -184,6 +188,14 @@ class StudyController(
 
     /** Leave in the middle: everything answered so far is already saved. */
     fun stopSession() = openHome()
+
+    /** System → Light → Dark → System. */
+    fun cycleTheme() {
+        val next = ThemeChoice.entries[(saved.theme.ordinal + 1) % ThemeChoice.entries.size]
+        saved = saved.copy(theme = next)
+        save()
+        themeState.value = next
+    }
 
     /** М11: open the real text offered on the home screen. */
     fun openReading() {

@@ -51,6 +51,7 @@ import com.jatta.study.RestKind
 import com.jatta.study.Screen
 import com.jatta.study.Steps
 import com.jatta.study.StudyController
+import com.jatta.study.ThemeChoice
 import com.jatta.study.TopicState
 import com.jatta.study.TopicStatus
 import com.jatta.study.content.KindFile
@@ -81,7 +82,18 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
 
 @Composable
 private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
-    Label("Jatta // заучивай", color = Neon.Cyan)
+    val theme by controller.theme.collectAsState()
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Label("Jatta // заучивай", color = Neon.Cyan, modifier = Modifier.weight(1f))
+        TextButton(controller::cycleTheme) {
+            val name = when (theme) {
+                ThemeChoice.System -> "система"
+                ThemeChoice.Light -> "светлая"
+                ThemeChoice.Dark -> "тёмная"
+            }
+            Label("Тема: $name")
+        }
+    }
     Text(home.courseTitle, style = MaterialTheme.typography.headlineMedium)
     ProgressPanel(home.progress)
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
