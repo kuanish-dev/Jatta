@@ -9,7 +9,7 @@ plugins {
 
 kotlin {
     android {
-        namespace = "com.langengine.shared"
+        namespace = "com.jatta.shared"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
         compilerOptions {
@@ -49,7 +49,7 @@ val syncContent = tasks.register<Sync>("syncContent") {
 }
 
 compose.resources {
-    packageOfResClass = "com.langengine.shared.resources"
+    packageOfResClass = "com.jatta.shared.resources"
     customDirectory(
         sourceSetName = "commonMain",
         directoryProvider = layout.dir(syncContent.map { it.destinationDir.parentFile.parentFile }),

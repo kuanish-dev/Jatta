@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "lang-engine"
+rootProject.name = "jatta"
 
 include(":engine")
 include(":study")

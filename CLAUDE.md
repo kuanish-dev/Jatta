@@ -1,6 +1,6 @@
-# lang-engine
+# Jatta
 
-ИИ-учебник английского на Kotlin Multiplatform (Android + iOS), без сервера.
+Jatta (каз. «заучивай») — ИИ-учебник английского на Kotlin Multiplatform (Android + iOS), без сервера.
 Научная основа и механики М1–М22: `docs/mechanics.html` (опубликовано: https://claude.ai/artifact/1rr8HKEgen5H7N3BP9XS3j).
 
 Лицензия: GPL-3.0-or-later (`LICENSE`) с дополнительным разрешением по пункту 7 GPL на связывание с Google ML Kit. Текст разрешения и чужой код/данные — в `THIRD_PARTY_NOTICES.md`: при заимствовании кода или данных добавлять туда источник и лицензию. Новую закрытую библиотеку без отдельного разрешения не подключать.

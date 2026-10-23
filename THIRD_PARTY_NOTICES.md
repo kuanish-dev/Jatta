@@ -1,10 +1,10 @@
 # Licenses
 
-lang-engine is free software: you can redistribute it and/or modify it under the terms of the
+Jatta is free software: you can redistribute it and/or modify it under the terms of the
 GNU General Public License as published by the Free Software Foundation, either version 3 of the
 License, or (at your option) any later version (SPDX: `GPL-3.0-or-later`). See [LICENSE](LICENSE).
 
-Copyright (C) 2026 the lang-engine authors.
+Copyright (C) 2026 the Jatta authors.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
 even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -25,7 +25,7 @@ about including the library's source is left out because ML Kit's source is not 
 
 ### py-fsrs 6.3.2 — MIT
 
-`engine/src/commonMain/kotlin/com/langengine/engine/fsrs/Fsrs.kt` is a Kotlin port of the FSRS-6
+`engine/src/commonMain/kotlin/com/jatta/engine/fsrs/Fsrs.kt` is a Kotlin port of the FSRS-6
 scheduler and its default parameters from [py-fsrs](https://github.com/open-spaced-repetition/py-fsrs).
 `scripts/fsrs_vectors.py` uses py-fsrs to produce the test vectors.
 
