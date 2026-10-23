@@ -22,9 +22,12 @@ kotlin {
     }
 }
 
-// JVM tests check the real course files in content/
+// JVM tests check the real course files in content/ against the word lists in sources/
 val contentDir: String = rootProject.layout.projectDirectory.dir("content").asFile.absolutePath
+val sourcesDir: String = rootProject.layout.projectDirectory.dir("sources").asFile.absolutePath
 tasks.named<Test>("jvmTest") {
     systemProperty("contentDir", contentDir)
+    systemProperty("sourcesDir", sourcesDir)
     inputs.dir(contentDir)
+    inputs.dir(sourcesDir)
 }

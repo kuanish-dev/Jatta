@@ -1,0 +1,45 @@
+{
+  "id": "second-conditional",
+  "title": "Условные предложения: воображаемые (2-й тип)",
+  "intro": "If + Past Simple, would + глагол — нереальная или маловероятная ситуация сейчас или в будущем: If I had more time, I would learn Rust. Форма прошедшая, а смысл настоящий. Если ситуация вполне реальна, нужен 1-й тип.",
+  "requires": ["first-conditional"],
+  "confusableWith": ["first-conditional"],
+  "items": [
+    {
+      "id": "c2-form",
+      "kind": "rule",
+      "en": "If + Past, would + verb",
+      "ru": "If + прошедшее время, would + глагол",
+      "note": "If I had more time, I would learn Rust. В части с if — Past Simple, would там не ставим.",
+      "examples": [
+        { "en": "If I had more time, I would learn Rust.", "ru": "Будь у меня больше времени, я бы выучил Rust.", "gap": "had", "cue": "have", "wrong": ["have", "would have", "will have"] },
+        { "en": "If we used a cache, the app would be faster.", "ru": "Если бы мы использовали кэш, приложение было бы быстрее.", "gap": "would be", "cue": "be", "wrong": ["will be", "is", "would being"] },
+        { "en": "What would you do if you lost your job?", "ru": "Что бы ты делал, если бы потерял работу?", "gap": "lost", "cue": "lose", "wrong": ["lose", "would lose", "will lose"] }
+      ]
+    },
+    {
+      "id": "c2-were",
+      "kind": "rule",
+      "en": "If I were you …",
+      "ru": "If I were you — совет «на твоём месте»",
+      "note": "Советуют так: If I were you, I would… В этой конструкции were — для всех лиц.",
+      "examples": [
+        { "en": "If I were you, I would ask for a raise.", "ru": "На твоём месте я бы попросил прибавку.", "gap": "were", "cue": "be", "wrong": ["am", "will be", "would be"] },
+        { "en": "If I were you, I wouldn't sign this contract.", "ru": "На твоём месте я бы не подписывал этот договор.", "gap": "wouldn't sign", "cue": "not sign", "wrong": ["won't sign", "don't sign", "wouldn't signed"] },
+        { "en": "If she were here, she would know the answer.", "ru": "Будь она здесь, она бы знала ответ.", "gap": "were", "cue": "be", "wrong": ["is", "will be", "be"] }
+      ]
+    },
+    {
+      "id": "c2-vs-c1",
+      "kind": "rule",
+      "en": "real or imagined",
+      "ru": "Реально возможно → 1-й тип, воображаемое → 2-й тип",
+      "note": "If the client agrees, we'll start — вполне возможно. If I won a million, I'd travel — только представляем. Выбор зависит от того, насколько ситуация реальна.",
+      "examples": [
+        { "en": "If I won the lottery, I would quit my job.", "ru": "Если бы я выиграл в лотерею, я бы уволился.", "gap": "won", "cue": "win", "wrong": ["win", "will win", "would win"] },
+        { "en": "If the client agrees, we will start on Monday.", "ru": "Если клиент согласится, начнём в понедельник.", "gap": "agrees", "cue": "agree", "wrong": ["agreed", "would agree", "will agree"] },
+        { "en": "If I lived in London, I would speak English every day.", "ru": "Если бы я жил в Лондоне, я бы говорил по-английски каждый день.", "gap": "would speak", "cue": "speak", "wrong": ["will speak", "speak", "would spoke"] }
+      ]
+    }
+  ]
+}

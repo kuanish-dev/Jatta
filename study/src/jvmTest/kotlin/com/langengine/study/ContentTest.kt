@@ -3,7 +3,9 @@ package com.langengine.study
 import com.langengine.engine.session.Rung
 import com.langengine.study.content.ContentError
 import com.langengine.study.content.ContentLoader
+import com.langengine.study.content.KindFile
 import com.langengine.study.exercise.Exercise
+import java.io.File
 import com.langengine.study.exercise.ExerciseFactory
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -15,8 +17,22 @@ class ContentTest {
 
     @Test
     fun realCourseLoads() {
-        assertEquals(listOf("work-words", "past-simple", "present-perfect"), content.course.topics.map { it.id })
-        assertEquals(22, content.items.size)
+        assertEquals(9, content.course.topics.size)
+        assertEquals(60, content.items.size)
+    }
+
+    /** М8: a word's rank is its NGSL 1.2 rank, and a word missing from NGSL has no rank. */
+    @Test
+    fun wordRanksComeFromNgsl() {
+        val ngsl = mutableMapOf<String, Int>()
+        File(System.getProperty("sourcesDir"), "ngsl/NGSL_12_stats.csv").readLines().drop(1).forEach { line ->
+            val (lemma, rank) = line.split(',')
+            ngsl.getOrPut(lemma.lowercase()) { rank.toInt() }
+        }
+        val words = content.items.values.filter { it.kind != KindFile.Rule }
+        words.forEach { word ->
+            assertEquals(ngsl[word.en.lowercase()], word.rank, "${word.id}: rank must be the NGSL 1.2 rank of \"${word.en}\"")
+        }
     }
 
     @Test

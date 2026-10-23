@@ -1,0 +1,56 @@
+{
+  "id": "passive",
+  "title": "Пассивный залог",
+  "intro": "Пассив нужен, когда важно действие, а не тот, кто его сделал: be + третья форма глагола. The app is used by millions. The bug was fixed yesterday. Кто сделал — через by, если это важно. По-русски часто передаётся безличной фразой: «баг исправили».",
+  "requires": ["present-perfect"],
+  "items": [
+    {
+      "id": "pv-present",
+      "kind": "rule",
+      "en": "is/are + V3",
+      "ru": "Пассив в настоящем: is/are + третья форма",
+      "note": "This library is used in many projects. Is — для одного, are — для многих.",
+      "examples": [
+        { "en": "This library is used in many projects.", "ru": "Эта библиотека используется во многих проектах.", "gap": "is used", "cue": "use", "wrong": ["is use", "uses", "are used"] },
+        { "en": "All the data is stored on our servers.", "ru": "Все данные хранятся на наших серверах.", "gap": "is stored", "cue": "store", "wrong": ["stores", "is store", "is storing"] },
+        { "en": "These reports are checked every week.", "ru": "Эти отчёты проверяют каждую неделю.", "gap": "are checked", "cue": "check", "wrong": ["is checked", "are check", "check"] }
+      ]
+    },
+    {
+      "id": "pv-past",
+      "kind": "rule",
+      "en": "was/were + V3",
+      "ru": "Пассив в прошлом: was/were + третья форма",
+      "note": "The bug was fixed yesterday. The tests were written by a new developer.",
+      "examples": [
+        { "en": "The bug was fixed yesterday.", "ru": "Баг исправили вчера.", "gap": "was fixed", "cue": "fix", "wrong": ["fixed", "was fix", "were fixed"] },
+        { "en": "The tests were written by a new developer.", "ru": "Тесты написал новый разработчик.", "gap": "were written", "cue": "write", "wrong": ["was written", "were wrote", "wrote"] },
+        { "en": "I was invited to the final interview.", "ru": "Меня пригласили на финальное собеседование.", "gap": "was invited", "cue": "invite", "wrong": ["invited", "was invite", "am invite"] }
+      ]
+    },
+    {
+      "id": "pv-perfect",
+      "kind": "rule",
+      "en": "has/have been + V3",
+      "ru": "Пассив в Present Perfect: has/have been + третья форма",
+      "note": "Результат сейчас: The release has been delayed. Three new features have been added.",
+      "examples": [
+        { "en": "The release has been delayed.", "ru": "Релиз отложили.", "gap": "has been delayed", "cue": "delay", "wrong": ["has delayed", "has been delay", "have been delayed"] },
+        { "en": "Your request has been approved.", "ru": "Ваш запрос одобрен.", "gap": "has been approved", "cue": "approve", "wrong": ["has approved", "has been approve", "have been approved"] },
+        { "en": "Three new features have been added.", "ru": "Добавлены три новые функции.", "gap": "have been added", "cue": "add", "wrong": ["has been added", "have added", "have been add"] }
+      ]
+    },
+    {
+      "id": "pv-modal",
+      "kind": "rule",
+      "en": "can/must/should be + V3",
+      "ru": "Пассив с модальными глаголами: can/must/should be + третья форма",
+      "note": "This must be done by Friday. The meeting can be moved. После модального глагола — be без to.",
+      "examples": [
+        { "en": "This must be done by Friday.", "ru": "Это нужно сделать к пятнице.", "gap": "must be done", "cue": "must / do", "wrong": ["must done", "must be do", "must to be done"] },
+        { "en": "The meeting can be moved to Tuesday.", "ru": "Встречу можно перенести на вторник.", "gap": "can be moved", "cue": "can / move", "wrong": ["can moved", "can be move", "can to be moved"] },
+        { "en": "Passwords should never be shared.", "ru": "Пароли нельзя никому передавать.", "gap": "should never be shared", "cue": "should / never / share", "wrong": ["should never share", "should never be share", "should never shared"] }
+      ]
+    }
+  ]
+}

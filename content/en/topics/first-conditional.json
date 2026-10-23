@@ -1,0 +1,44 @@
+{
+  "id": "first-conditional",
+  "title": "Условные предложения: реальные (1-й тип)",
+  "intro": "If + настоящее время, will + глагол — реальная ситуация в будущем: If it rains, we'll stay at home. В части с if — настоящее время, хотя по-русски там будущее.",
+  "requires": ["future-forms"],
+  "items": [
+    {
+      "id": "c1-form",
+      "kind": "rule",
+      "en": "If + Present, will + verb",
+      "ru": "If + настоящее время, will + глагол",
+      "note": "If we hire another developer, we'll finish on time. В части с if will не ставим.",
+      "examples": [
+        { "en": "If we hire another developer, we'll finish on time.", "ru": "Если мы наймём ещё одного разработчика, мы успеем в срок.", "gap": "hire", "cue": "hire", "wrong": ["will hire", "hired", "would hire"] },
+        { "en": "If the tests fail, the build will stop.", "ru": "Если тесты упадут, сборка остановится.", "gap": "will stop", "cue": "stop", "wrong": ["would stop", "stopped", "stops will"] },
+        { "en": "You'll miss the bus if you don't hurry.", "ru": "Ты опоздаешь на автобус, если не поторопишься.", "gap": "don't hurry", "cue": "not hurry", "wrong": ["won't hurry", "didn't hurry", "not hurry"] }
+      ]
+    },
+    {
+      "id": "c1-imperative",
+      "kind": "rule",
+      "en": "If + Present, do …",
+      "ru": "If + настоящее время, а дальше просьба или совет",
+      "note": "If you find a bug, write to me. If you have questions, ask the team lead. Здесь тоже в части с if — настоящее время.",
+      "examples": [
+        { "en": "If you find a bug, write to me.", "ru": "Если найдёшь баг, напиши мне.", "gap": "find", "cue": "find", "wrong": ["will find", "found", "finding"] },
+        { "en": "If you have any questions, ask the team lead.", "ru": "Если будут вопросы, спроси тимлида.", "gap": "have", "cue": "have", "wrong": ["will have", "had", "having"] },
+        { "en": "Call me if the server goes down.", "ru": "Позвони мне, если сервер упадёт.", "gap": "goes", "cue": "go", "wrong": ["will go", "went", "going"] }
+      ]
+    },
+    {
+      "id": "c1-unless",
+      "kind": "rule",
+      "en": "unless = if not",
+      "ru": "unless — «если не»",
+      "note": "Unless заменяет if … not: We'll start at ten unless the client is late. После unless тоже настоящее время.",
+      "examples": [
+        { "en": "We'll start at ten unless the client is late.", "ru": "Начнём в десять, если клиент не опоздает.", "gap": "unless", "cue": "если не", "wrong": ["if", "until", "when"] },
+        { "en": "I won't merge it unless you approve it.", "ru": "Я не буду это мёржить, пока ты не одобришь.", "gap": "unless", "cue": "пока не", "wrong": ["if", "when", "because"] },
+        { "en": "Unless we fix this bug, users will complain.", "ru": "Если мы не исправим этот баг, пользователи будут жаловаться.", "gap": "Unless", "cue": "если не", "wrong": ["If", "When", "Until"] }
+      ]
+    }
+  ]
+}

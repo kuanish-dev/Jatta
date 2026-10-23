@@ -1,0 +1,55 @@
+{
+  "id": "future-forms",
+  "title": "Будущее: will, going to, Present Continuous",
+  "intro": "У будущего в английском несколько форм. will — решение в момент речи, обещание или прогноз. going to — план или намерение, которое уже есть. Present Continuous — договорённость на конкретное время. После when, after, as soon as будущее выражают настоящим временем.",
+  "items": [
+    {
+      "id": "ff-will",
+      "kind": "rule",
+      "en": "I'll …",
+      "ru": "will — решение в момент речи, обещание, прогноз",
+      "note": "Решаем прямо сейчас или обещаем: I'll send it now. I'll help you. Прогноз-мнение: I think it will rain.",
+      "examples": [
+        { "en": "The phone is ringing. I'll answer it.", "ru": "Телефон звонит. Я отвечу.", "gap": "I'll answer", "cue": "I / answer", "wrong": ["I answer", "I going to answer", "I'm answer"] },
+        { "en": "Don't worry, I'll fix the bug today.", "ru": "Не переживай, я сегодня исправлю баг.", "gap": "I'll fix", "cue": "I / fix", "wrong": ["I'll fixing", "I'm fix", "I fixing"] },
+        { "en": "I think it will rain tomorrow.", "ru": "Думаю, завтра будет дождь.", "gap": "will rain", "cue": "rain", "wrong": ["rains", "will raining", "is rain"], "also": ["I think it's going to rain tomorrow."] }
+      ]
+    },
+    {
+      "id": "ff-going-to",
+      "kind": "rule",
+      "en": "be going to …",
+      "ru": "going to — план, который уже есть",
+      "note": "Решение принято заранее: I'm going to learn Kotlin this year. Ещё прогноз по видимым признакам: Look at the sky, it's going to rain.",
+      "examples": [
+        { "en": "I'm going to change jobs next year.", "ru": "В следующем году я собираюсь сменить работу.", "gap": "going to change", "cue": "change", "wrong": ["going change", "going to changing", "go to change"] },
+        { "en": "We're going to rewrite this module in Kotlin.", "ru": "Мы собираемся переписать этот модуль на Kotlin.", "gap": "going to rewrite", "cue": "rewrite", "wrong": ["going rewrite", "going to rewriting", "go to rewrite"] },
+        { "en": "Look at those clouds. It's going to rain.", "ru": "Посмотри на эти тучи. Сейчас пойдёт дождь.", "gap": "going to rain", "cue": "rain", "wrong": ["going rain", "go to rain", "going to raining"] }
+      ]
+    },
+    {
+      "id": "ff-arrangement",
+      "kind": "rule",
+      "en": "I'm meeting … on Friday",
+      "ru": "Present Continuous — договорённость на конкретное время",
+      "note": "Уже договорились, и это стоит в календаре: I'm meeting the client on Friday. We're flying to Astana on Monday.",
+      "examples": [
+        { "en": "I'm meeting the client on Friday.", "ru": "В пятницу у меня встреча с клиентом.", "gap": "I'm meeting", "cue": "I / meet", "wrong": ["I'm meet", "I meeting", "I'm meeted"] },
+        { "en": "We're flying to Astana next Monday.", "ru": "В следующий понедельник мы летим в Астану.", "gap": "We're flying", "cue": "we / fly", "wrong": ["We're fly", "We flying", "We're flew"] },
+        { "en": "What are you doing this weekend?", "ru": "Что ты делаешь на этих выходных?", "gap": "are you doing", "cue": "you / do", "wrong": ["do you doing", "are you do", "you are doing"] }
+      ]
+    },
+    {
+      "id": "ff-time-clauses",
+      "kind": "rule",
+      "en": "when / after / as soon as + Present",
+      "ru": "После when, after, as soon as — настоящее время, не will",
+      "note": "В придаточных времени будущее выражают настоящим: I'll call you when I finish — а не when I will finish. По-русски там будущее, отсюда частая ошибка.",
+      "examples": [
+        { "en": "I'll call you when I finish the report.", "ru": "Я позвоню тебе, когда закончу отчёт.", "gap": "finish", "cue": "finish", "wrong": ["will finish", "finished", "am finish"] },
+        { "en": "We'll deploy as soon as the tests pass.", "ru": "Задеплоим, как только пройдут тесты.", "gap": "pass", "cue": "pass", "wrong": ["will pass", "passed", "are pass"] },
+        { "en": "Send me the file after you check it.", "ru": "Пришли мне файл после того, как проверишь его.", "gap": "check", "cue": "check", "wrong": ["will check", "checked", "are check"] }
+      ]
+    }
+  ]
+}

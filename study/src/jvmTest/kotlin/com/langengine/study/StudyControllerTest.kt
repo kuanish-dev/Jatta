@@ -77,7 +77,7 @@ class StudyControllerTest {
 
         app.startSession()
         val first = app.screen.value as Screen.Present
-        assertEquals("w-colleague", first.item.id)
+        assertEquals("w-experience", first.item.id) // most frequent work word in NGSL
         assertNotNull(first.topicIntro)
 
         val done = runSessionAnsweringRight(app)
@@ -98,7 +98,7 @@ class StudyControllerTest {
         val again = controller()
         val home = again.screen.value as Screen.Home
         assertEquals(12, home.reviews)
-        assertEquals(5, home.newItems)
+        assertEquals(12, home.newItems)
         assertEquals(TopicState.Locked, home.topics.last().state)
     }
 
@@ -121,7 +121,7 @@ class StudyControllerTest {
         assertEquals(0.212, LearnerStore(dir.absolutePath).load().progress.single().stability)
 
         app.continueAfterReveal()
-        assertEquals("w-task", (app.screen.value as Screen.Present).item.id)
+        assertEquals("w-responsible", (app.screen.value as Screen.Present).item.id)
     }
 
     private fun runSessionAnsweringRight(app: StudyController): Screen.Done {

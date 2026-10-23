@@ -8,6 +8,7 @@
       "kind": "word",
       "en": "colleague",
       "ru": "коллега",
+      "rank": 1251,
       "note": "Ударение на первый слог: COL-league.",
       "examples": [
         { "en": "My colleague helped me with the report.", "ru": "Коллега помог мне с отчётом.", "gap": "colleague" },
@@ -30,6 +31,7 @@
       "kind": "word",
       "en": "salary",
       "ru": "зарплата",
+      "rank": 1816,
       "note": "Salary — фиксированная зарплата за месяц или год; оплата за часы — wage.",
       "examples": [
         { "en": "She asked for a higher salary.", "ru": "Она попросила зарплату побольше.", "gap": "salary" },
@@ -41,6 +43,7 @@
       "kind": "word",
       "en": "schedule",
       "ru": "расписание, график",
+      "rank": 1240,
       "note": "Британское произношение — SHED-yool, американское — SKED-jool.",
       "examples": [
         { "en": "My schedule is very busy this week.", "ru": "На этой неделе у меня очень плотный график.", "gap": "schedule" },
@@ -52,6 +55,7 @@
       "kind": "word",
       "en": "task",
       "ru": "задача",
+      "rank": 854,
       "note": "Complete a task — выполнить задачу.",
       "examples": [
         { "en": "I have three tasks for today.", "ru": "На сегодня у меня три задачи.", "gap": "tasks" },
@@ -63,6 +67,7 @@
       "kind": "word",
       "en": "experience",
       "ru": "опыт",
+      "rank": 264,
       "note": "«Опыт работы» — неисчисляемое: much experience, а не experiences.",
       "examples": [
         { "en": "She has five years of experience in banking.", "ru": "У неё пять лет опыта в банковской сфере.", "gap": "experience" },
@@ -74,6 +79,7 @@
       "kind": "word",
       "en": "skill",
       "ru": "навык",
+      "rank": 685,
       "note": "Soft skills — гибкие навыки, hard skills — профессиональные.",
       "examples": [
         { "en": "Communication is an important skill.", "ru": "Общение — важный навык.", "gap": "skill" },
@@ -85,6 +91,7 @@
       "kind": "word",
       "en": "improve",
       "ru": "улучшать",
+      "rank": 508,
       "note": "Improve something — улучшить что-то; improve at something — стать лучше в чём-то.",
       "examples": [
         { "en": "We need to improve our process.", "ru": "Нам нужно улучшить наш процесс.", "gap": "improve" },
@@ -96,6 +103,7 @@
       "kind": "word",
       "en": "responsible",
       "ru": "ответственный (за)",
+      "rank": 1082,
       "note": "Be responsible for something — отвечать за что-то: I'm responsible for testing.",
       "examples": [
         { "en": "I'm responsible for the mobile app.", "ru": "Я отвечаю за мобильное приложение.", "gap": "responsible" },
@@ -107,6 +115,7 @@
       "kind": "word",
       "en": "hire",
       "ru": "нанимать (на работу)",
+      "rank": 1514,
       "also": ["employ"],
       "note": "Hire someone — нанять кого-то. Близкий синоним — employ.",
       "examples": [
@@ -130,6 +139,7 @@
       "kind": "word",
       "en": "promotion",
       "ru": "повышение (в должности)",
+      "rank": 2444,
       "note": "Get a promotion — получить повышение.",
       "examples": [
         { "en": "She got a promotion after two years.", "ru": "Через два года она получила повышение.", "gap": "promotion" },

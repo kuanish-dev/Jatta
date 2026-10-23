@@ -1,0 +1,151 @@
+{
+  "id": "project-words",
+  "title": "Слова: проекты и сроки",
+  "intro": "Слова для разговора о проектах, задачах и сроках. Порядок — по частоте в английском (список NGSL): сначала самые нужные.",
+  "items": [
+    {
+      "id": "w-require",
+      "kind": "word",
+      "en": "require",
+      "ru": "требовать, нуждаться",
+      "rank": 402,
+      "note": "Require официальнее, чем need. Be required to do — быть обязанным что-то сделать.",
+      "examples": [
+        { "en": "This task requires more time.", "ru": "Эта задача требует больше времени.", "gap": "requires" },
+        { "en": "All employees are required to complete the training.", "ru": "Все сотрудники обязаны пройти обучение.", "gap": "required" }
+      ]
+    },
+    {
+      "id": "w-risk",
+      "kind": "word",
+      "en": "risk",
+      "ru": "риск",
+      "rank": 545,
+      "note": "Take a risk — рискнуть; at risk — под угрозой.",
+      "examples": [
+        { "en": "There is a risk that we will miss the deadline.", "ru": "Есть риск, что мы сорвём срок.", "gap": "risk" },
+        { "en": "The whole release is at risk.", "ru": "Весь релиз под угрозой.", "gap": "risk" }
+      ]
+    },
+    {
+      "id": "w-effort",
+      "kind": "word",
+      "en": "effort",
+      "ru": "усилие, усилия",
+      "rank": 577,
+      "note": "Make an effort — постараться, приложить усилия.",
+      "examples": [
+        { "en": "The project took a lot of effort.", "ru": "Проект потребовал много усилий.", "gap": "effort" },
+        { "en": "Please make an effort to be on time.", "ru": "Пожалуйста, постарайся приходить вовремя.", "gap": "effort" }
+      ]
+    },
+    {
+      "id": "w-feature",
+      "kind": "word",
+      "en": "feature",
+      "ru": "функция (продукта), особенность",
+      "rank": 635,
+      "note": "В IT feature — функциональность продукта: a new feature.",
+      "examples": [
+        { "en": "We added a new feature to the app.", "ru": "Мы добавили в приложение новую функцию.", "gap": "feature" },
+        { "en": "Users really like this feature.", "ru": "Пользователям очень нравится эта функция.", "gap": "feature" }
+      ]
+    },
+    {
+      "id": "w-achieve",
+      "kind": "word",
+      "en": "achieve",
+      "ru": "достигать",
+      "rank": 746,
+      "note": "Achieve a goal / a result — без предлога: achieve success, а не achieve to success.",
+      "examples": [
+        { "en": "We achieved our goal this quarter.", "ru": "В этом квартале мы достигли цели.", "gap": "achieved" },
+        { "en": "It's hard to achieve good results without tests.", "ru": "Без тестов трудно добиться хороших результатов.", "gap": "achieve" }
+      ]
+    },
+    {
+      "id": "w-release",
+      "kind": "word",
+      "en": "release",
+      "ru": "выпускать; релиз",
+      "rank": 786,
+      "note": "Release — и глагол (выпустить), и существительное (релиз): the next release.",
+      "examples": [
+        { "en": "We will release the new version on Monday.", "ru": "Мы выпустим новую версию в понедельник.", "gap": "release" },
+        { "en": "The next release includes three bug fixes.", "ru": "В следующий релиз входят три исправления ошибок.", "gap": "release" }
+      ]
+    },
+    {
+      "id": "w-goal",
+      "kind": "word",
+      "en": "goal",
+      "ru": "цель",
+      "rank": 856,
+      "note": "Set a goal — поставить цель; reach или achieve a goal — достичь её.",
+      "examples": [
+        { "en": "Our main goal is to make the app faster.", "ru": "Наша главная цель — сделать приложение быстрее.", "gap": "goal" },
+        { "en": "Let's set clear goals for the next sprint.", "ru": "Давайте поставим чёткие цели на следующий спринт.", "gap": "goals" }
+      ]
+    },
+    {
+      "id": "w-estimate",
+      "kind": "word",
+      "en": "estimate",
+      "ru": "оценивать; оценка",
+      "rank": 999,
+      "note": "Глагол произносится ES-ti-mate [-мейт], существительное — ES-ti-mat [-мэт].",
+      "examples": [
+        { "en": "Can you estimate how long this will take?", "ru": "Можешь оценить, сколько это займёт?", "gap": "estimate" },
+        { "en": "My first estimate was too optimistic.", "ru": "Моя первая оценка была слишком оптимистичной.", "gap": "estimate" }
+      ]
+    },
+    {
+      "id": "w-budget",
+      "kind": "word",
+      "en": "budget",
+      "ru": "бюджет",
+      "rank": 1016,
+      "note": "On budget — в рамках бюджета, over budget — с превышением бюджета.",
+      "examples": [
+        { "en": "We don't have the budget for a new designer.", "ru": "У нас нет бюджета на нового дизайнера.", "gap": "budget" },
+        { "en": "The project finished on time and on budget.", "ru": "Проект закончили вовремя и в рамках бюджета.", "gap": "budget" }
+      ]
+    },
+    {
+      "id": "w-deliver",
+      "kind": "word",
+      "en": "deliver",
+      "ru": "сдавать (результат), доставлять",
+      "rank": 1064,
+      "note": "В работе deliver — сдать результат: deliver a project, deliver on time.",
+      "examples": [
+        { "en": "The team delivered the project on time.", "ru": "Команда сдала проект вовремя.", "gap": "delivered" },
+        { "en": "We can't deliver all the features by Friday.", "ru": "Мы не успеем сделать все функции к пятнице.", "gap": "deliver" }
+      ]
+    },
+    {
+      "id": "w-delay",
+      "kind": "word",
+      "en": "delay",
+      "ru": "задержка; откладывать",
+      "rank": 1310,
+      "note": "Delay — и глагол, и существительное: a two-week delay — задержка на две недели.",
+      "examples": [
+        { "en": "There was a two-week delay because of the bug.", "ru": "Из-за бага была задержка на две недели.", "gap": "delay" },
+        { "en": "We had to delay the launch.", "ru": "Нам пришлось отложить запуск.", "gap": "delay" }
+      ]
+    },
+    {
+      "id": "w-priority",
+      "kind": "word",
+      "en": "priority",
+      "ru": "приоритет",
+      "rank": 1793,
+      "note": "Top priority — главный приоритет; prioritize — расставлять приоритеты.",
+      "examples": [
+        { "en": "Security is our top priority.", "ru": "Безопасность — наш главный приоритет.", "gap": "priority" },
+        { "en": "We need to discuss the priorities for next week.", "ru": "Нам нужно обсудить приоритеты на следующую неделю.", "gap": "priorities" }
+      ]
+    }
+  ]
+}

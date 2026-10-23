@@ -1,0 +1,151 @@
+{
+  "id": "meeting-words",
+  "title": "Слова: общение и встречи",
+  "intro": "Слова для встреч, созвонов и переписки. Порядок — по частоте в английском (список NGSL). В примечаниях — частые ошибки русскоязычных.",
+  "items": [
+    {
+      "id": "w-suggest",
+      "kind": "word",
+      "en": "suggest",
+      "ru": "предлагать",
+      "rank": 329,
+      "note": "Suggest doing или suggest that…: I suggest meeting tomorrow. Сказать suggest to do нельзя.",
+      "examples": [
+        { "en": "I suggest meeting on Thursday.", "ru": "Предлагаю встретиться в четверг.", "gap": "suggest" },
+        { "en": "She suggested that we use a different library.", "ru": "Она предложила использовать другую библиотеку.", "gap": "suggested" }
+      ]
+    },
+    {
+      "id": "w-decision",
+      "kind": "word",
+      "en": "decision",
+      "ru": "решение",
+      "rank": 449,
+      "note": "Make a decision — принять решение, а не do a decision.",
+      "examples": [
+        { "en": "We need to make a decision today.", "ru": "Нам нужно принять решение сегодня.", "gap": "decision" },
+        { "en": "It was a difficult decision for the team.", "ru": "Для команды это было трудное решение.", "gap": "decision" }
+      ]
+    },
+    {
+      "id": "w-mention",
+      "kind": "word",
+      "en": "mention",
+      "ru": "упоминать",
+      "rank": 564,
+      "note": "Mention something — без предлога: he mentioned the problem, а не mentioned about.",
+      "examples": [
+        { "en": "He mentioned the problem at the meeting.", "ru": "Он упомянул проблему на встрече.", "gap": "mentioned" },
+        { "en": "Don't forget to mention the new deadline.", "ru": "Не забудь упомянуть новый срок.", "gap": "mention" }
+      ]
+    },
+    {
+      "id": "w-discuss",
+      "kind": "word",
+      "en": "discuss",
+      "ru": "обсуждать",
+      "rank": 605,
+      "note": "Discuss something — без about: discuss the plan, а не discuss about the plan.",
+      "examples": [
+        { "en": "Let's discuss this after lunch.", "ru": "Давайте обсудим это после обеда.", "gap": "discuss" },
+        { "en": "We discussed the design for an hour.", "ru": "Мы обсуждали дизайн целый час.", "gap": "discussed" }
+      ]
+    },
+    {
+      "id": "w-opinion",
+      "kind": "word",
+      "en": "opinion",
+      "ru": "мнение",
+      "rank": 656,
+      "note": "In my opinion — по моему мнению, а не on my opinion.",
+      "examples": [
+        { "en": "In my opinion, the first option is better.", "ru": "По-моему, первый вариант лучше.", "gap": "opinion" },
+        { "en": "Can I ask your opinion about this?", "ru": "Можно узнать твоё мнение об этом?", "gap": "opinion" }
+      ]
+    },
+    {
+      "id": "w-argue",
+      "kind": "word",
+      "en": "argue",
+      "ru": "спорить; доказывать",
+      "rank": 740,
+      "note": "Argue with someone about something — спорить с кем-то о чём-то; argue that… — утверждать, что…",
+      "examples": [
+        { "en": "They argued about the release date.", "ru": "Они спорили о дате релиза.", "gap": "argued" },
+        { "en": "I don't want to argue with you.", "ru": "Я не хочу с тобой спорить.", "gap": "argue" }
+      ]
+    },
+    {
+      "id": "w-attend",
+      "kind": "word",
+      "en": "attend",
+      "ru": "присутствовать, посещать",
+      "rank": 820,
+      "note": "Attend a meeting — без предлога: attend the meeting, а не attend to the meeting.",
+      "examples": [
+        { "en": "Ten people attended the meeting.", "ru": "На встрече было десять человек.", "gap": "attended" },
+        { "en": "I can't attend the call tomorrow.", "ru": "Я не смогу быть на созвоне завтра.", "gap": "attend" }
+      ]
+    },
+    {
+      "id": "w-propose",
+      "kind": "word",
+      "en": "propose",
+      "ru": "предлагать (официально)",
+      "rank": 877,
+      "note": "Propose — предложить план или идею, официальнее, чем suggest: propose a solution.",
+      "examples": [
+        { "en": "I propose a different solution.", "ru": "Я предлагаю другое решение.", "gap": "propose" },
+        { "en": "The manager proposed a new schedule.", "ru": "Менеджер предложил новый график.", "gap": "proposed" }
+      ]
+    },
+    {
+      "id": "w-recommend",
+      "kind": "word",
+      "en": "recommend",
+      "ru": "рекомендовать, советовать",
+      "rank": 1007,
+      "note": "Recommend doing или recommend that… — как suggest. Пишется с одной c и двумя m.",
+      "examples": [
+        { "en": "I recommend reading the documentation first.", "ru": "Советую сначала прочитать документацию.", "gap": "recommend" },
+        { "en": "Which library would you recommend?", "ru": "Какую библиотеку ты бы посоветовал?", "gap": "recommend" }
+      ]
+    },
+    {
+      "id": "w-request",
+      "kind": "word",
+      "en": "request",
+      "ru": "запрос, просьба; просить",
+      "rank": 1011,
+      "note": "Глагол — без for: request access. Существительное — с for: a request for access.",
+      "examples": [
+        { "en": "I sent a request for access to the server.", "ru": "Я отправил запрос на доступ к серверу.", "gap": "request" },
+        { "en": "The client requested a few changes.", "ru": "Клиент попросил внести несколько изменений.", "gap": "requested" }
+      ]
+    },
+    {
+      "id": "w-confirm",
+      "kind": "word",
+      "en": "confirm",
+      "ru": "подтверждать",
+      "rank": 1206,
+      "note": "Can you confirm…? — вежливо попросить подтвердить.",
+      "examples": [
+        { "en": "Can you confirm the meeting time?", "ru": "Можешь подтвердить время встречи?", "gap": "confirm" },
+        { "en": "She confirmed that the bug is fixed.", "ru": "Она подтвердила, что баг исправлен.", "gap": "confirmed" }
+      ]
+    },
+    {
+      "id": "w-remind",
+      "kind": "word",
+      "en": "remind",
+      "ru": "напоминать",
+      "rank": 1459,
+      "note": "Remind someone to do something или about something. Не путать с remember — помнить самому.",
+      "examples": [
+        { "en": "Please remind me to call the client.", "ru": "Пожалуйста, напомни мне позвонить клиенту.", "gap": "remind" },
+        { "en": "He reminded us about the deadline.", "ru": "Он напомнил нам о сроке.", "gap": "reminded" }
+      ]
+    }
+  ]
+}
