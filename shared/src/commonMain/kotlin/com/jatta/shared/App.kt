@@ -1,14 +1,10 @@
 package com.jatta.shared
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -45,34 +41,32 @@ fun App(
     model: OnDeviceModel?,
     reminders: ReminderScheduler?,
 ) {
-    MaterialTheme(colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()) {
-        Surface(Modifier.fillMaxSize()) {
-            val scope = rememberCoroutineScope()
-            var controller by remember { mutableStateOf<StudyController?>(null) }
-            var failure by remember { mutableStateOf<String?>(null) }
-            LaunchedEffect(Unit) {
-                try {
-                    controller = StudyController(
-                        content = loadCourse(),
-                        store = LearnerStore(dataDir),
-                        nowMs = nowMs,
-                        utcOffsetMinutes = utcOffsetMinutes,
-                        scope = scope,
-                        model = model,
-                        evalCases = loadEvalCases(),
-                        texts = loadTexts(),
-                        reminders = reminders,
-                    )
-                } catch (e: Exception) {
-                    failure = e.message ?: e.toString()
-                }
+    JattaTheme {
+        val scope = rememberCoroutineScope()
+        var controller by remember { mutableStateOf<StudyController?>(null) }
+        var failure by remember { mutableStateOf<String?>(null) }
+        LaunchedEffect(Unit) {
+            try {
+                controller = StudyController(
+                    content = loadCourse(),
+                    store = LearnerStore(dataDir),
+                    nowMs = nowMs,
+                    utcOffsetMinutes = utcOffsetMinutes,
+                    scope = scope,
+                    model = model,
+                    evalCases = loadEvalCases(),
+                    texts = loadTexts(),
+                    reminders = reminders,
+                )
+            } catch (e: Exception) {
+                failure = e.message ?: e.toString()
             }
-            val ready = controller
-            when {
-                ready != null -> StudyScreens(ready, nowMs)
-                failure != null -> Centered("Не удалось открыть курс:\n$failure")
-                else -> Centered("Загрузка…")
-            }
+        }
+        val ready = controller
+        when {
+            ready != null -> StudyScreens(ready, nowMs)
+            failure != null -> Centered("Не удалось открыть курс:\n$failure")
+            else -> Centered("Загрузка…")
         }
     }
 }

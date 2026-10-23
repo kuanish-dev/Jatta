@@ -71,6 +71,15 @@ SOFTWARE.
   *Alice's Adventures in Wonderland* (1865); *Three Hundred Aesop's Fables*, tr. George Fyler Townsend
   (1867); L. Frank Baum, *The Wonderful Wizard of Oz* (1900).
 
+### Fonts — SIL Open Font License 1.1
+
+`shared/src/commonMain/composeResources/font/` holds Exo 2 (Copyright 2013 The Exo 2 Project Authors,
+https://github.com/googlefonts/Exo-2.0) and JetBrains Mono (Copyright 2020 The JetBrains Mono Project
+Authors, https://github.com/JetBrains/JetBrainsMono), both licensed under the
+[SIL Open Font License 1.1](https://openfontlicense.org). The license texts ship with the app in
+`shared/src/commonMain/composeResources/files/licenses/`. The fonts are bundled as separate works and
+keep their own license; they are not covered by the GPL.
+
 ## Libraries the app is built with (not in this repository)
 
 - Kotlin, kotlinx.coroutines, kotlinx.serialization, kotlinx-io, Compose Multiplatform, AndroidX (including WorkManager):

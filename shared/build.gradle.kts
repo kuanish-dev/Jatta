@@ -43,16 +43,18 @@ kotlin {
     }
 }
 
-// The course lives in content/ at the repository root; the app gets a copy as Compose resources.
-val syncContent = tasks.register<Sync>("syncContent") {
-    from(rootProject.layout.projectDirectory.dir("content"))
-    into(layout.buildDirectory.dir("courseResources/files/content"))
+// Compose resources = this module's own (fonts, licenses) plus a copy of the course from content/
+// at the repository root, merged into one directory.
+val syncResources = tasks.register<Sync>("syncResources") {
+    from(layout.projectDirectory.dir("src/commonMain/composeResources"))
+    from(rootProject.layout.projectDirectory.dir("content")) { into("files/content") }
+    into(layout.buildDirectory.dir("appResources"))
 }
 
 compose.resources {
     packageOfResClass = "com.jatta.shared.resources"
     customDirectory(
         sourceSetName = "commonMain",
-        directoryProvider = layout.dir(syncContent.map { it.destinationDir.parentFile.parentFile }),
+        directoryProvider = layout.dir(syncResources.map { it.destinationDir }),
     )
 }

@@ -87,6 +87,7 @@ class StudyController(
     private var pendingResponseMs = 0L
     private var pendingAdvice: Advice = Advice.Continue
     private var questionCounter = 0
+    private var stepsDone = 0
     private var checkToken = 0
     private val firstAnswers = mutableListOf<Boolean>()
     private var endedEarly = false
@@ -121,6 +122,7 @@ class StudyController(
         saved = saved.copy(sessionStarts = (saved.sessionStarts + start).takeLast(config.sessionStartsKept))
         save()
         firstAnswers.clear()
+        stepsDone = 0
         pendingAdvice = Advice.Continue
         endedEarly = false
         showCurrent(banner = null)
@@ -129,6 +131,7 @@ class StudyController(
     /** The learner has read the new item. */
     fun presented() {
         session().presented()
+        stepsDone++
         showCurrent(banner = null)
     }
 
@@ -243,7 +246,7 @@ class StudyController(
         }
         val current = exercise ?: error("No exercise on screen")
         val token = ++checkToken
-        state.value = Screen.Checking(remaining())
+        state.value = Screen.Checking(steps())
         scope.launch {
             val judgment = withTimeoutOrNull(config.judgeTimeoutMs) { judge.judge(JudgeRequest(task, current.answer, text)) }
             if (token != checkToken || state.value !is Screen.Checking) return@launch // the learner left meanwhile
@@ -254,7 +257,7 @@ class StudyController(
                     exercise = current,
                     diff = WordDiff.parts(text, judgment.corrected!!),
                     note = itemNote(current.itemId),
-                    remaining = remaining(),
+                    steps = steps(),
                 )
             }
         }
@@ -264,6 +267,7 @@ class StudyController(
         val current = exercise ?: error("No exercise on screen")
         val step = session().current as Step.Recall
         val outcome = session().answer(Answer(correct, responseMs), medianMs(current.rung))
+        stepsDone++
         outcome.firstGrade?.let { grade ->
             learner = engine.recordGrade(learner, step.itemId, grade, today)
             firstAnswers += correct
@@ -285,16 +289,16 @@ class StudyController(
                 shownAtMs = nowMs()
                 val confident = engine.grading.isConfidentError(Answer(correct, responseMs), medianMs(current.rung))
                 state.value = Screen.Question(
-                    ++questionCounter, current, hint = current.hint, banner = null, remaining = remaining(), confidentError = confident,
+                    ++questionCounter, current, hint = current.hint, banner = null, steps = steps(), confidentError = confident,
                 )
             }
             Outcome.RetryLater -> advance(Banner.CorrectWithHint)
-            Outcome.Reveal -> state.value = Screen.Reveal(current, note = itemNote(current.itemId), remaining = remaining())
+            Outcome.Reveal -> state.value = Screen.Reveal(current, note = itemNote(current.itemId), steps = steps())
         }
     }
 
     private fun showSelfCheck(response: String?) {
-        state.value = Screen.SelfCheck(exercise ?: error("No exercise on screen"), response, remaining())
+        state.value = Screen.SelfCheck(exercise ?: error("No exercise on screen"), response, steps())
     }
 
     /** Next step, unless the rest coach asked for a break or the end (М14, М16). */
@@ -325,7 +329,7 @@ class StudyController(
                     topicTitle = topic.title,
                     topicIntro = topic.intro.takeIf { firstOfTopic && it.isNotBlank() },
                     banner = banner,
-                    remaining = remaining(),
+                    steps = steps(),
                 )
             }
             is Step.Recall -> {
@@ -333,7 +337,7 @@ class StudyController(
                 val built = exercises.build(step.itemId, rung, seed = step.itemId.hashCode() * 31 + today + questionCounter)
                 exercise = built
                 shownAtMs = nowMs()
-                state.value = Screen.Question(++questionCounter, built, hint = null, banner = banner, remaining = remaining())
+                state.value = Screen.Question(++questionCounter, built, hint = null, banner = banner, steps = steps())
             }
         }
     }
@@ -417,9 +421,14 @@ class StudyController(
             }
             TopicStatus(topic.title, state, held = items.count { engine.gate.holds(learner.progress[it.id], today) }, total = items.size)
         }
+        val progress = CourseProgress(
+            held = topics.sumOf { it.held },
+            met = content.course.items.count { it.id in learner.progress },
+            total = content.course.items.size,
+        )
         val ai = AiStatus(modelState, downloadedBytes, testedDone, evalCases.size, saved.aiCheck)
         val reading = readingPicker.pick(texts, learner, today, saved.readTexts.toSet())
-        return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, reading)
+        return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, progress, reading)
     }
 
     /** The learner's usual accuracy and speed once there is enough history (М16). */
@@ -453,7 +462,7 @@ class StudyController(
 
     private fun elapsedMs() = nowMs() - shownAtMs
 
-    private fun remaining() = session().remainingSteps
+    private fun steps() = Steps(stepsDone, session().remainingSteps)
 
     private fun session() = session ?: error("No session running")
 

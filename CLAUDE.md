@@ -8,7 +8,8 @@ Jatta (каз. «заучивай») — ИИ-учебник английско�
 ## Модули
 - `engine` — чистое ядро: FSRS, план дня, очередь занятия, лестница, отдых. Без часов, базы, сети и платформенных API.
 - `study` — всё вокруг движка без UI: формат и загрузка контента, упражнения, проверка ответов, хранение прогресса (`LearnerStore`, JSON + журнал `answers.jsonl`), ход занятия (`StudyController` → `Screen`), проверка свободных ответов моделью (`judge/`).
-- `shared` — интерфейс на Compose Multiplatform. Только рисует `Screen` и вызывает `StudyController`.
+- `shared` — интерфейс на Compose Multiplatform. Только рисует `Screen` и вызывает `StudyController`. Оформление — `Theme.kt`: киберпанк, всегда тёмная тема (неон на почти чёрном, скошенные углы, сетка), компоненты `NeonButton`, `Panel`, `Label`, `NeonBar`. Шрифты Exo 2 и JetBrains Mono (OFL, с кириллицей) в `src/commonMain/composeResources/font/`; эта папка склеивается с `content/` задачей `syncResources`.
+- Индикаторы: на главной «Память» = сколько единиц держится в памяти (вспомнятся завтра с вероятностью ≥ 85%), а не «пройдено»; у тем — то же по теме; в занятии — шаги (`Steps`), полоса только растёт.
 - `androidApp` — `MainActivity`. iOS: `MainViewController()` в `shared/iosMain`, Xcode-проект появится после установки Xcode.
 
 ## Контент
