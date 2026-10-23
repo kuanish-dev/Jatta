@@ -1,0 +1,710 @@
+{
+  "id": "phrases-work",
+  "title": "Фразы на слух: работа и учёба",
+  "intro": "Настоящие голоса носителей языка с Tatoeba. Сначала послушайте и повторите вслух, потом узнавайте фразу на слух, ловите слова и записывайте её целиком.",
+  "items": [
+    {
+      "id": "ph-10476996",
+      "kind": "phrase",
+      "en": "A native speaker corrected my mistakes.",
+      "ru": "Носитель языка исправил мои ошибки.",
+      "examples": [
+        {
+          "en": "A native speaker corrected my mistakes.",
+          "ru": "Носитель языка исправил мои ошибки.",
+          "gap": "native"
+        }
+      ],
+      "audio": {
+        "file": "ph-10476996.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10476996"
+      }
+    },
+    {
+      "id": "ph-697205",
+      "kind": "phrase",
+      "en": "Are you studying or working?",
+      "ru": "Ты учишься или работаешь?",
+      "examples": [
+        {
+          "en": "Are you studying or working?",
+          "ru": "Ты учишься или работаешь?",
+          "gap": "studying"
+        }
+      ],
+      "audio": {
+        "file": "ph-697205.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/697205"
+      }
+    },
+    {
+      "id": "ph-54088",
+      "kind": "phrase",
+      "en": "At a rough estimate, I would say the job will take two weeks.",
+      "ru": "По приблизительной оценке, работа займёт две недели.",
+      "examples": [
+        {
+          "en": "At a rough estimate, I would say the job will take two weeks.",
+          "ru": "По приблизительной оценке, работа займёт две недели.",
+          "gap": "estimate"
+        }
+      ],
+      "audio": {
+        "file": "ph-54088.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/54088"
+      }
+    },
+    {
+      "id": "ph-10548110",
+      "kind": "phrase",
+      "en": "At this stage, I cannot say anything.",
+      "ru": "На нынешней стадии я ничего не могу сказать.",
+      "examples": [
+        {
+          "en": "At this stage, I cannot say anything.",
+          "ru": "На нынешней стадии я ничего не могу сказать.",
+          "gap": "stage"
+        }
+      ],
+      "audio": {
+        "file": "ph-10548110.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10548110"
+      }
+    },
+    {
+      "id": "ph-10696176",
+      "kind": "phrase",
+      "en": "Can you check whether they can be trusted?",
+      "ru": "Ты можешь уточнить, можно ли им доверять?",
+      "examples": [
+        {
+          "en": "Can you check whether they can be trusted?",
+          "ru": "Ты можешь уточнить, можно ли им доверять?",
+          "gap": "trusted"
+        }
+      ],
+      "audio": {
+        "file": "ph-10696176.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10696176"
+      }
+    },
+    {
+      "id": "ph-11821643",
+      "kind": "phrase",
+      "en": "Could you explain to me the meaning of this sentence?",
+      "ru": "Ты не мог бы объяснить мне смысл этого предложения?",
+      "examples": [
+        {
+          "en": "Could you explain to me the meaning of this sentence?",
+          "ru": "Ты не мог бы объяснить мне смысл этого предложения?",
+          "gap": "sentence"
+        }
+      ],
+      "audio": {
+        "file": "ph-11821643.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11821643"
+      }
+    },
+    {
+      "id": "ph-12796335",
+      "kind": "phrase",
+      "en": "Do you think we'll make it in time?",
+      "ru": "Думаешь, мы успеем вовремя?",
+      "examples": [
+        {
+          "en": "Do you think we'll make it in time?",
+          "ru": "Думаешь, мы успеем вовремя?",
+          "gap": "time"
+        }
+      ],
+      "audio": {
+        "file": "ph-12796335.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12796335"
+      }
+    },
+    {
+      "id": "ph-4758493",
+      "kind": "phrase",
+      "en": "Does she have experience?",
+      "ru": "У неё есть опыт?",
+      "examples": [
+        {
+          "en": "Does she have experience?",
+          "ru": "У неё есть опыт?",
+          "gap": "experience"
+        }
+      ],
+      "audio": {
+        "file": "ph-4758493.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/4758493"
+      }
+    },
+    {
+      "id": "ph-9279923",
+      "kind": "phrase",
+      "en": "Even native speakers make grammar mistakes all the time.",
+      "ru": "Даже носители языка постоянно делают грамматические ошибки.",
+      "examples": [
+        {
+          "en": "Even native speakers make grammar mistakes all the time.",
+          "ru": "Даже носители языка постоянно делают грамматические ошибки.",
+          "gap": "grammar"
+        }
+      ],
+      "audio": {
+        "file": "ph-9279923.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/9279923"
+      }
+    },
+    {
+      "id": "ph-12289152",
+      "kind": "phrase",
+      "en": "Everything has already been done.",
+      "ru": "Всё уже сделано.",
+      "examples": [
+        {
+          "en": "Everything has already been done.",
+          "ru": "Всё уже сделано.",
+          "gap": "Everything"
+        }
+      ],
+      "audio": {
+        "file": "ph-12289152.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12289152"
+      }
+    },
+    {
+      "id": "ph-298195",
+      "kind": "phrase",
+      "en": "He failed to come up to our expectations.",
+      "ru": "Он не смог оправдать наших надежд.",
+      "examples": [
+        {
+          "en": "He failed to come up to our expectations.",
+          "ru": "Он не смог оправдать наших надежд.",
+          "gap": "expectations"
+        }
+      ],
+      "audio": {
+        "file": "ph-298195.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/298195"
+      }
+    },
+    {
+      "id": "ph-4157305",
+      "kind": "phrase",
+      "en": "He is considered to be a highly qualified employee.",
+      "ru": "Его считают высококвалифицированным работником.",
+      "examples": [
+        {
+          "en": "He is considered to be a highly qualified employee.",
+          "ru": "Его считают высококвалифицированным работником.",
+          "gap": "qualified"
+        }
+      ],
+      "audio": {
+        "file": "ph-4157305.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/4157305"
+      }
+    },
+    {
+      "id": "ph-297989",
+      "kind": "phrase",
+      "en": "He works under me.",
+      "ru": "Он работает под моим началом.",
+      "examples": [
+        {
+          "en": "He works under me.",
+          "ru": "Он работает под моим началом.",
+          "gap": "under"
+        }
+      ],
+      "audio": {
+        "file": "ph-297989.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/297989"
+      }
+    },
+    {
+      "id": "ph-4115821",
+      "kind": "phrase",
+      "en": "How much time have we got left?",
+      "ru": "Сколько у нас осталось времени?",
+      "examples": [
+        {
+          "en": "How much time have we got left?",
+          "ru": "Сколько у нас осталось времени?",
+          "gap": "left"
+        }
+      ],
+      "audio": {
+        "file": "ph-4115821.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/4115821"
+      }
+    },
+    {
+      "id": "ph-255260",
+      "kind": "phrase",
+      "en": "I am so busy that I can't help you.",
+      "ru": "Я так занят, что не могу вам помочь.",
+      "examples": [
+        {
+          "en": "I am so busy that I can't help you.",
+          "ru": "Я так занят, что не могу вам помочь.",
+          "gap": "busy"
+        }
+      ],
+      "audio": {
+        "file": "ph-255260.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/255260"
+      }
+    },
+    {
+      "id": "ph-9165326",
+      "kind": "phrase",
+      "en": "I cannot accept these conditions.",
+      "ru": "Я не могу принять эти условия.",
+      "examples": [
+        {
+          "en": "I cannot accept these conditions.",
+          "ru": "Я не могу принять эти условия.",
+          "gap": "accept"
+        }
+      ],
+      "audio": {
+        "file": "ph-9165326.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/9165326"
+      }
+    },
+    {
+      "id": "ph-57973",
+      "kind": "phrase",
+      "en": "I don't know what this word means. I'll look it up in the dictionary.",
+      "ru": "Я не знаю, что значит это слово. Я поищу его в словаре.",
+      "examples": [
+        {
+          "en": "I don't know what this word means. I'll look it up in the dictionary.",
+          "ru": "Я не знаю, что значит это слово. Я поищу его в словаре.",
+          "gap": "dictionary"
+        }
+      ],
+      "audio": {
+        "file": "ph-57973.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/57973"
+      }
+    },
+    {
+      "id": "ph-11364658",
+      "kind": "phrase",
+      "en": "I don't live to work. I work to live.",
+      "ru": "Я не живу для работы, а работаю для жизни.",
+      "examples": [
+        {
+          "en": "I don't live to work. I work to live.",
+          "ru": "Я не живу для работы, а работаю для жизни.",
+          "gap": "live"
+        }
+      ],
+      "audio": {
+        "file": "ph-11364658.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11364658"
+      }
+    },
+    {
+      "id": "ph-253673",
+      "kind": "phrase",
+      "en": "I have been working for this newspaper for 4 years.",
+      "ru": "Я работаю в этой газете 4 года.",
+      "examples": [
+        {
+          "en": "I have been working for this newspaper for 4 years.",
+          "ru": "Я работаю в этой газете 4 года.",
+          "gap": "newspaper"
+        }
+      ],
+      "audio": {
+        "file": "ph-253673.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/253673"
+      }
+    },
+    {
+      "id": "ph-10172679",
+      "kind": "phrase",
+      "en": "I need more speaking practice.",
+      "ru": "Мне нужно больше разговорной практики.",
+      "examples": [
+        {
+          "en": "I need more speaking practice.",
+          "ru": "Мне нужно больше разговорной практики.",
+          "gap": "practice"
+        }
+      ],
+      "audio": {
+        "file": "ph-10172679.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10172679"
+      }
+    },
+    {
+      "id": "ph-7908290",
+      "kind": "phrase",
+      "en": "I'm busy until four.",
+      "ru": "До четырёх я занят.",
+      "examples": [
+        {
+          "en": "I'm busy until four.",
+          "ru": "До четырёх я занят.",
+          "gap": "four"
+        }
+      ],
+      "audio": {
+        "file": "ph-7908290.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/7908290"
+      }
+    },
+    {
+      "id": "ph-8898749",
+      "kind": "phrase",
+      "en": "I've been working here for 3 months.",
+      "ru": "Я работаю здесь уже три месяца.",
+      "examples": [
+        {
+          "en": "I've been working here for 3 months.",
+          "ru": "Я работаю здесь уже три месяца.",
+          "gap": "months"
+        }
+      ],
+      "audio": {
+        "file": "ph-8898749.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/8898749"
+      }
+    },
+    {
+      "id": "ph-30866",
+      "kind": "phrase",
+      "en": "If it had not been for your help, I couldn't have completed the work.",
+      "ru": "Если бы не твоя помощь, я бы не смог завершить работу.",
+      "examples": [
+        {
+          "en": "If it had not been for your help, I couldn't have completed the work.",
+          "ru": "Если бы не твоя помощь, я бы не смог завершить работу.",
+          "gap": "completed"
+        }
+      ],
+      "audio": {
+        "file": "ph-30866.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/30866"
+      }
+    },
+    {
+      "id": "ph-2201",
+      "kind": "phrase",
+      "en": "If you do not have this program, you can download it now.",
+      "ru": "Если у вас нет этой программы, вы можете загрузить ее прямо сейчас.",
+      "examples": [
+        {
+          "en": "If you do not have this program, you can download it now.",
+          "ru": "Если у вас нет этой программы, вы можете загрузить ее прямо сейчас.",
+          "gap": "download"
+        }
+      ],
+      "audio": {
+        "file": "ph-2201.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/2201"
+      }
+    },
+    {
+      "id": "ph-263921",
+      "kind": "phrase",
+      "en": "If you have a minute, I'd like to talk to you about some problems.",
+      "ru": "Если у тебя есть минута, мне бы хотелось поговорить с тобой о некоторых проблемах.",
+      "examples": [
+        {
+          "en": "If you have a minute, I'd like to talk to you about some problems.",
+          "ru": "Если у тебя есть минута, мне бы хотелось поговорить с тобой о некоторых проблемах.",
+          "gap": "minute"
+        }
+      ],
+      "audio": {
+        "file": "ph-263921.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/263921"
+      }
+    },
+    {
+      "id": "ph-248709",
+      "kind": "phrase",
+      "en": "It looks as though we shall have to go without a holiday this year.",
+      "ru": "Похоже, что нам придётся обойтись без отпуска в этом году.",
+      "examples": [
+        {
+          "en": "It looks as though we shall have to go without a holiday this year.",
+          "ru": "Похоже, что нам придётся обойтись без отпуска в этом году.",
+          "gap": "holiday"
+        }
+      ],
+      "audio": {
+        "file": "ph-248709.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/248709"
+      }
+    },
+    {
+      "id": "ph-486976",
+      "kind": "phrase",
+      "en": "Let's think about the worst that could happen.",
+      "ru": "Давай подумаем, что может произойти в худшем случае.",
+      "examples": [
+        {
+          "en": "Let's think about the worst that could happen.",
+          "ru": "Давай подумаем, что может произойти в худшем случае.",
+          "gap": "worst"
+        }
+      ],
+      "audio": {
+        "file": "ph-486976.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/486976"
+      }
+    },
+    {
+      "id": "ph-22449",
+      "kind": "phrase",
+      "en": "Please remind me of the time of the meeting.",
+      "ru": "Пожалуйста, напомните мне время встречи.",
+      "examples": [
+        {
+          "en": "Please remind me of the time of the meeting.",
+          "ru": "Пожалуйста, напомните мне время встречи.",
+          "gap": "remind"
+        }
+      ],
+      "audio": {
+        "file": "ph-22449.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/22449"
+      }
+    },
+    {
+      "id": "ph-19138",
+      "kind": "phrase",
+      "en": "Teaching demands a lot of patience.",
+      "ru": "Преподавание требует большого терпения.",
+      "examples": [
+        {
+          "en": "Teaching demands a lot of patience.",
+          "ru": "Преподавание требует большого терпения.",
+          "gap": "patience"
+        }
+      ],
+      "audio": {
+        "file": "ph-19138.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/19138"
+      }
+    },
+    {
+      "id": "ph-12183737",
+      "kind": "phrase",
+      "en": "The matter is being investigated.",
+      "ru": "Дело расследуется.",
+      "examples": [
+        {
+          "en": "The matter is being investigated.",
+          "ru": "Дело расследуется.",
+          "gap": "investigated"
+        }
+      ],
+      "audio": {
+        "file": "ph-12183737.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12183737"
+      }
+    },
+    {
+      "id": "ph-305174",
+      "kind": "phrase",
+      "en": "Their contract is to run out at the end of this month.",
+      "ru": "Их контракт заканчивается в конце этого месяца.",
+      "examples": [
+        {
+          "en": "Their contract is to run out at the end of this month.",
+          "ru": "Их контракт заканчивается в конце этого месяца.",
+          "gap": "contract"
+        }
+      ],
+      "audio": {
+        "file": "ph-305174.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/305174"
+      }
+    },
+    {
+      "id": "ph-252320",
+      "kind": "phrase",
+      "en": "We did not expect him to finish the task in so short a time.",
+      "ru": "Мы не ожидали, что он выполнит задание за такое короткое время.",
+      "examples": [
+        {
+          "en": "We did not expect him to finish the task in so short a time.",
+          "ru": "Мы не ожидали, что он выполнит задание за такое короткое время.",
+          "gap": "task"
+        }
+      ],
+      "audio": {
+        "file": "ph-252320.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/252320"
+      }
+    },
+    {
+      "id": "ph-11718940",
+      "kind": "phrase",
+      "en": "What is the solution?",
+      "ru": "Каково решение?",
+      "examples": [
+        {
+          "en": "What is the solution?",
+          "ru": "Каково решение?",
+          "gap": "solution"
+        }
+      ],
+      "audio": {
+        "file": "ph-11718940.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11718940"
+      }
+    },
+    {
+      "id": "ph-749406",
+      "kind": "phrase",
+      "en": "When did the error occur?",
+      "ru": "Когда произошла ошибка?",
+      "examples": [
+        {
+          "en": "When did the error occur?",
+          "ru": "Когда произошла ошибка?",
+          "gap": "error"
+        }
+      ],
+      "audio": {
+        "file": "ph-749406.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/749406"
+      }
+    },
+    {
+      "id": "ph-70815",
+      "kind": "phrase",
+      "en": "Without your support, we probably won't be able to put this plan into practice.",
+      "ru": "Без вашей поддержки мы, скорее всего, не сможем осуществить этот план.",
+      "examples": [
+        {
+          "en": "Without your support, we probably won't be able to put this plan into practice.",
+          "ru": "Без вашей поддержки мы, скорее всего, не сможем осуществить этот план.",
+          "gap": "support"
+        }
+      ],
+      "audio": {
+        "file": "ph-70815.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/70815"
+      }
+    },
+    {
+      "id": "ph-242091",
+      "kind": "phrase",
+      "en": "You are supposed to hand in the homework by the end of the week.",
+      "ru": "Вы должны сдать домашнее задание до конца недели.",
+      "examples": [
+        {
+          "en": "You are supposed to hand in the homework by the end of the week.",
+          "ru": "Вы должны сдать домашнее задание до конца недели.",
+          "gap": "homework"
+        }
+      ],
+      "audio": {
+        "file": "ph-242091.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/242091"
+      }
+    },
+    {
+      "id": "ph-240468",
+      "kind": "phrase",
+      "en": "You should not confuse business with personal affairs.",
+      "ru": "Не надо путать бизнес с личными делами.",
+      "examples": [
+        {
+          "en": "You should not confuse business with personal affairs.",
+          "ru": "Не надо путать бизнес с личными делами.",
+          "gap": "confuse"
+        }
+      ],
+      "audio": {
+        "file": "ph-240468.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/240468"
+      }
+    }
+  ]
+}

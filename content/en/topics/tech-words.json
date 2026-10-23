@@ -1,0 +1,500 @@
+{
+  "id": "tech-words",
+  "title": "Слова: телефон, почта, компьютер",
+  "intro": "Как говорить о технике и переписке по-английски.",
+  "items": [
+    {
+      "id": "w-charge",
+      "kind": "word",
+      "en": "charge",
+      "ru": "заряжать; брать плату",
+      "rank": 498,
+      "note": "Charge a phone — зарядить телефон. The bank charges a fee — банк берёт комиссию.",
+      "examples": [
+        {
+          "en": "I need to charge my phone.",
+          "ru": "Мне нужно зарядить телефон.",
+          "gap": "charge"
+        },
+        {
+          "en": "My laptop isn't charging.",
+          "ru": "Мой ноутбук не заряжается.",
+          "gap": "charging"
+        }
+      ]
+    },
+    {
+      "id": "w-data",
+      "kind": "word",
+      "en": "data",
+      "ru": "данные",
+      "rank": 556,
+      "note": "Обычно неисчисляемое: the data is ready. Mobile data — мобильный интернет.",
+      "examples": [
+        {
+          "en": "We collect data about our users.",
+          "ru": "Мы собираем данные о пользователях.",
+          "gap": "data"
+        },
+        {
+          "en": "I've run out of mobile data.",
+          "ru": "У меня закончился мобильный интернет.",
+          "gap": "data"
+        }
+      ]
+    },
+    {
+      "id": "w-link",
+      "kind": "word",
+      "en": "link",
+      "ru": "ссылка",
+      "rank": 770,
+      "note": "Send a link — отправить ссылку, click on the link — нажать на ссылку.",
+      "examples": [
+        {
+          "en": "Can you send me the link?",
+          "ru": "Можешь прислать мне ссылку?",
+          "gap": "link"
+        },
+        {
+          "en": "Click on the link below.",
+          "ru": "Нажмите на ссылку ниже.",
+          "gap": "link"
+        }
+      ]
+    },
+    {
+      "id": "w-file",
+      "kind": "word",
+      "en": "file",
+      "ru": "файл",
+      "rank": 835,
+      "note": "Open, save, attach a file — открыть, сохранить, прикрепить файл.",
+      "examples": [
+        {
+          "en": "I can't open this file.",
+          "ru": "Я не могу открыть этот файл.",
+          "gap": "file"
+        },
+        {
+          "en": "Save the file before you close it.",
+          "ru": "Сохрани файл, прежде чем закрыть.",
+          "gap": "file"
+        }
+      ]
+    },
+    {
+      "id": "w-network",
+      "kind": "word",
+      "en": "network",
+      "ru": "сеть",
+      "rank": 847,
+      "note": "Social network — соцсеть, a Wi-Fi network — сеть Wi-Fi.",
+      "examples": [
+        {
+          "en": "The network is down again.",
+          "ru": "Сеть опять не работает.",
+          "gap": "network"
+        },
+        {
+          "en": "Connect to the office network.",
+          "ru": "Подключись к офисной сети.",
+          "gap": "network"
+        }
+      ]
+    },
+    {
+      "id": "w-search",
+      "kind": "word",
+      "en": "search",
+      "ru": "искать; поиск",
+      "rank": 889,
+      "note": "Search for something — искать что-то. Search bar — строка поиска.",
+      "examples": [
+        {
+          "en": "I searched for the answer online.",
+          "ru": "Я поискал ответ в интернете.",
+          "gap": "searched"
+        },
+        {
+          "en": "Use the search bar at the top.",
+          "ru": "Воспользуйтесь строкой поиска вверху.",
+          "gap": "search"
+        }
+      ]
+    },
+    {
+      "id": "w-screen",
+      "kind": "word",
+      "en": "screen",
+      "ru": "экран",
+      "rank": 957,
+      "note": "Touch screen — сенсорный экран. Share your screen — показать свой экран на созвоне.",
+      "examples": [
+        {
+          "en": "The screen on my phone is broken.",
+          "ru": "У меня разбит экран телефона.",
+          "gap": "screen"
+        },
+        {
+          "en": "Can you share your screen?",
+          "ru": "Можешь показать свой экран?",
+          "gap": "screen"
+        }
+      ]
+    },
+    {
+      "id": "w-print",
+      "kind": "word",
+      "en": "print",
+      "ru": "печатать",
+      "rank": 1100,
+      "note": "Print out — распечатать, printer — принтер.",
+      "examples": [
+        {
+          "en": "Could you print this document for me?",
+          "ru": "Можешь распечатать мне этот документ?",
+          "gap": "print"
+        },
+        {
+          "en": "I printed two copies.",
+          "ru": "Я распечатал две копии.",
+          "gap": "printed"
+        }
+      ]
+    },
+    {
+      "id": "w-reply",
+      "kind": "word",
+      "en": "reply",
+      "ru": "ответить; ответ",
+      "rank": 1108,
+      "note": "Reply to an email — ответить на письмо, с to. Reply all — ответить всем.",
+      "examples": [
+        {
+          "en": "She hasn't replied to my message yet.",
+          "ru": "Она ещё не ответила на моё сообщение.",
+          "gap": "replied"
+        },
+        {
+          "en": "Thanks for your quick reply.",
+          "ru": "Спасибо за быстрый ответ.",
+          "gap": "reply"
+        }
+      ]
+    },
+    {
+      "id": "w-forward",
+      "kind": "word",
+      "en": "forward",
+      "ru": "переслать",
+      "rank": 452,
+      "note": "Forward an email — переслать письмо. Ещё forward — «вперёд».",
+      "examples": [
+        {
+          "en": "I'll forward you his email.",
+          "ru": "Я перешлю тебе его письмо.",
+          "gap": "forward"
+        },
+        {
+          "en": "Please forward this message to the team.",
+          "ru": "Пожалуйста, перешли это сообщение команде.",
+          "gap": "forward"
+        }
+      ]
+    },
+    {
+      "id": "w-connect",
+      "kind": "word",
+      "en": "connect",
+      "ru": "подключить(ся), соединить",
+      "rank": 1264,
+      "note": "Connect to the internet — подключиться к интернету.",
+      "examples": [
+        {
+          "en": "I can't connect to the Wi-Fi.",
+          "ru": "Не могу подключиться к Wi-Fi.",
+          "gap": "connect"
+        },
+        {
+          "en": "Connect the printer to your laptop.",
+          "ru": "Подключи принтер к ноутбуку.",
+          "gap": "Connect"
+        }
+      ]
+    },
+    {
+      "id": "w-signal",
+      "kind": "word",
+      "en": "signal",
+      "ru": "сигнал, связь",
+      "rank": 1502,
+      "note": "There's no signal here — здесь нет связи.",
+      "examples": [
+        {
+          "en": "There's no signal in the basement.",
+          "ru": "В подвале нет связи.",
+          "gap": "signal"
+        },
+        {
+          "en": "The signal is weak, I can't hear you.",
+          "ru": "Связь плохая, я тебя не слышу.",
+          "gap": "signal"
+        }
+      ]
+    },
+    {
+      "id": "w-device",
+      "kind": "word",
+      "en": "device",
+      "ru": "устройство",
+      "rank": 1525,
+      "note": "Device — любое устройство: телефон, планшет, ноутбук.",
+      "examples": [
+        {
+          "en": "You can use the app on any device.",
+          "ru": "Приложением можно пользоваться на любом устройстве.",
+          "gap": "device"
+        },
+        {
+          "en": "Please turn off all electronic devices.",
+          "ru": "Пожалуйста, выключите все электронные устройства.",
+          "gap": "devices"
+        }
+      ]
+    },
+    {
+      "id": "w-attach",
+      "kind": "word",
+      "en": "attach",
+      "ru": "прикрепить",
+      "rank": 1742,
+      "note": "Attach a file to an email — прикрепить файл к письму. Вложение — attachment.",
+      "examples": [
+        {
+          "en": "I've attached the report.",
+          "ru": "Я прикрепил отчёт.",
+          "gap": "attached"
+        },
+        {
+          "en": "Don't forget to attach your CV.",
+          "ru": "Не забудь прикрепить резюме.",
+          "gap": "attach"
+        }
+      ]
+    },
+    {
+      "id": "w-online",
+      "kind": "word",
+      "en": "online",
+      "ru": "в интернете, онлайн",
+      "rank": 1794,
+      "note": "Buy online — покупать в интернете, be online — быть в сети.",
+      "examples": [
+        {
+          "en": "I do most of my shopping online.",
+          "ru": "Почти все покупки я делаю в интернете.",
+          "gap": "online"
+        },
+        {
+          "en": "Is she online now?",
+          "ru": "Она сейчас в сети?",
+          "gap": "online"
+        }
+      ]
+    },
+    {
+      "id": "w-install",
+      "kind": "word",
+      "en": "install",
+      "ru": "установить (программу)",
+      "rank": 1924,
+      "note": "Install an app, a program — установить приложение, программу.",
+      "examples": [
+        {
+          "en": "I installed the new version yesterday.",
+          "ru": "Вчера я установил новую версию.",
+          "gap": "installed"
+        },
+        {
+          "en": "You need to install this app first.",
+          "ru": "Сначала нужно установить это приложение.",
+          "gap": "install"
+        }
+      ]
+    },
+    {
+      "id": "w-update",
+      "kind": "word",
+      "en": "update",
+      "ru": "обновить; обновление",
+      "rank": 1933,
+      "note": "Ударение: глагол upDATE, существительное UPdate.",
+      "examples": [
+        {
+          "en": "Your phone needs an update.",
+          "ru": "Твоему телефону нужно обновление.",
+          "gap": "update"
+        },
+        {
+          "en": "I'll update the document tonight.",
+          "ru": "Я обновлю документ вечером.",
+          "gap": "update"
+        }
+      ]
+    },
+    {
+      "id": "w-button",
+      "kind": "word",
+      "en": "button",
+      "ru": "кнопка",
+      "rank": 2285,
+      "note": "Press, click the button — нажать кнопку.",
+      "examples": [
+        {
+          "en": "Press the red button to stop.",
+          "ru": "Нажми красную кнопку, чтобы остановить.",
+          "gap": "button"
+        },
+        {
+          "en": "Click the Send button.",
+          "ru": "Нажми кнопку «Отправить».",
+          "gap": "button"
+        }
+      ]
+    },
+    {
+      "id": "w-battery",
+      "kind": "word",
+      "en": "battery",
+      "ru": "аккумулятор, батарейка",
+      "note": "My battery is low, dead — у меня садится, сел телефон.",
+      "examples": [
+        {
+          "en": "My battery is almost dead.",
+          "ru": "У меня почти сел телефон.",
+          "gap": "battery"
+        },
+        {
+          "en": "The battery lasts two days.",
+          "ru": "Аккумулятора хватает на два дня.",
+          "gap": "battery"
+        }
+      ]
+    },
+    {
+      "id": "w-download",
+      "kind": "word",
+      "en": "download",
+      "ru": "скачать",
+      "note": "Download from the internet — скачать из интернета. Наоборот — upload.",
+      "examples": [
+        {
+          "en": "You can download the app for free.",
+          "ru": "Приложение можно скачать бесплатно.",
+          "gap": "download"
+        },
+        {
+          "en": "The file is still downloading.",
+          "ru": "Файл ещё скачивается.",
+          "gap": "downloading"
+        }
+      ]
+    },
+    {
+      "id": "w-upload",
+      "kind": "word",
+      "en": "upload",
+      "ru": "загрузить (в сеть)",
+      "note": "Upload a photo, a file — загрузить фото, файл в интернет.",
+      "examples": [
+        {
+          "en": "I uploaded the photos to the cloud.",
+          "ru": "Я загрузил фотографии в облако.",
+          "gap": "uploaded"
+        },
+        {
+          "en": "Upload your CV here.",
+          "ru": "Загрузите своё резюме сюда.",
+          "gap": "Upload"
+        }
+      ]
+    },
+    {
+      "id": "w-password",
+      "kind": "word",
+      "en": "password",
+      "ru": "пароль",
+      "note": "Enter, change, forget a password — ввести, сменить, забыть пароль.",
+      "examples": [
+        {
+          "en": "I forgot my password again.",
+          "ru": "Я опять забыл пароль.",
+          "gap": "password"
+        },
+        {
+          "en": "Choose a strong password.",
+          "ru": "Выберите надёжный пароль.",
+          "gap": "password"
+        }
+      ]
+    },
+    {
+      "id": "w-delete",
+      "kind": "word",
+      "en": "delete",
+      "ru": "удалить",
+      "note": "Delete a file, a message — удалить файл, сообщение.",
+      "examples": [
+        {
+          "en": "Did you delete my email?",
+          "ru": "Ты удалил моё письмо?",
+          "gap": "delete"
+        },
+        {
+          "en": "I deleted the old photos.",
+          "ru": "Я удалил старые фотографии.",
+          "gap": "deleted"
+        }
+      ]
+    },
+    {
+      "id": "w-laptop",
+      "kind": "word",
+      "en": "laptop",
+      "ru": "ноутбук",
+      "note": "Laptop — ноутбук, desktop — настольный компьютер.",
+      "examples": [
+        {
+          "en": "I work on my laptop at home.",
+          "ru": "Дома я работаю на ноутбуке.",
+          "gap": "laptop"
+        },
+        {
+          "en": "Bring your laptop to the meeting.",
+          "ru": "Возьми ноутбук на встречу.",
+          "gap": "laptop"
+        }
+      ]
+    },
+    {
+      "id": "w-app",
+      "kind": "word",
+      "en": "app",
+      "ru": "приложение",
+      "note": "App — сокращение от application.",
+      "examples": [
+        {
+          "en": "There's an app for that.",
+          "ru": "Для этого есть приложение.",
+          "gap": "app"
+        },
+        {
+          "en": "This app helps me learn English.",
+          "ru": "Это приложение помогает мне учить английский.",
+          "gap": "app"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "id": "modals-obligation",
+  "title": "Must, have to, should",
+  "intro": "Модальные глаголы говорят, что нужно, нельзя или стоит делать. После must и should — глагол без to: you must go, you should go. Have to — с to: you have to go.",
+  "items": [
+    {
+      "id": "mod-must",
+      "kind": "rule",
+      "en": "must",
+      "ru": "must — должен: сам так решил или это очень важно",
+      "note": "I must call my mum. You must wear a seat belt. После must — глагол без to.",
+      "examples": [
+        {
+          "en": "I must finish this today.",
+          "ru": "Я должен закончить это сегодня.",
+          "gap": "must finish",
+          "cue": "finish",
+          "wrong": [
+            "must to finish",
+            "must finishing",
+            "musts finish"
+          ]
+        },
+        {
+          "en": "You must be careful on the road.",
+          "ru": "На дороге нужно быть осторожным.",
+          "gap": "must be",
+          "cue": "be",
+          "wrong": [
+            "must to be",
+            "must being",
+            "must are"
+          ]
+        },
+        {
+          "en": "Passengers must show their tickets.",
+          "ru": "Пассажиры обязаны показать билеты.",
+          "gap": "must show",
+          "cue": "show",
+          "wrong": [
+            "must to show",
+            "must showing",
+            "musts show"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod-have-to",
+      "kind": "rule",
+      "en": "have to",
+      "ru": "have to — приходится: так требуют правила или обстоятельства",
+      "note": "I have to get up at six for work. She has to wear a uniform. Прошедшее время — had to.",
+      "examples": [
+        {
+          "en": "I have to get up at six every day.",
+          "ru": "Мне приходится вставать в шесть каждый день.",
+          "gap": "have to",
+          "cue": "приходится",
+          "wrong": [
+            "must to",
+            "has to",
+            "having to"
+          ]
+        },
+        {
+          "en": "She has to wear a uniform at work.",
+          "ru": "На работе ей приходится носить форму.",
+          "gap": "has to",
+          "cue": "приходится",
+          "wrong": [
+            "have to",
+            "must to",
+            "is to have"
+          ]
+        },
+        {
+          "en": "We had to wait for two hours.",
+          "ru": "Нам пришлось ждать два часа.",
+          "gap": "had to",
+          "cue": "пришлось",
+          "wrong": [
+            "must",
+            "have to",
+            "musted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod-dont-have-to",
+      "kind": "rule",
+      "en": "don't have to / mustn't",
+      "ru": "don't have to — не обязательно; mustn't — нельзя",
+      "note": "You don't have to come — можешь не приходить. You mustn't smoke here — здесь курить нельзя.",
+      "examples": [
+        {
+          "en": "You don't have to come if you're busy.",
+          "ru": "Можешь не приходить, если занят.",
+          "gap": "don't have to",
+          "cue": "не обязательно",
+          "wrong": [
+            "mustn't",
+            "don't must",
+            "haven't to"
+          ]
+        },
+        {
+          "en": "You mustn't use your phone during the exam.",
+          "ru": "Во время экзамена пользоваться телефоном нельзя.",
+          "gap": "mustn't",
+          "cue": "нельзя",
+          "wrong": [
+            "don't have to",
+            "haven't to",
+            "don't must"
+          ]
+        },
+        {
+          "en": "It's Saturday, so I don't have to work.",
+          "ru": "Сегодня суббота, так что мне не нужно работать.",
+          "gap": "don't have to",
+          "cue": "не нужно",
+          "wrong": [
+            "mustn't",
+            "haven't to",
+            "don't must"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mod-should",
+      "kind": "rule",
+      "en": "should",
+      "ru": "should — стоит, следует: совет",
+      "note": "You should see a doctor — тебе стоит сходить к врачу. Shouldn't — не стоит.",
+      "examples": [
+        {
+          "en": "You should see a doctor.",
+          "ru": "Тебе стоит сходить к врачу.",
+          "gap": "should see",
+          "cue": "see",
+          "wrong": [
+            "should to see",
+            "should seeing",
+            "shoulds see"
+          ]
+        },
+        {
+          "en": "You shouldn't work so late.",
+          "ru": "Не стоит работать так допоздна.",
+          "gap": "shouldn't work",
+          "cue": "work",
+          "wrong": [
+            "shouldn't to work",
+            "don't should work",
+            "shouldn't working"
+          ]
+        },
+        {
+          "en": "What should I do?",
+          "ru": "Что мне делать?",
+          "gap": "should I do",
+          "cue": "I / do",
+          "wrong": [
+            "should I to do",
+            "do I should",
+            "I should do"
+          ]
+        }
+      ]
+    }
+  ]
+}

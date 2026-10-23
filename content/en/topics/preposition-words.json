@@ -1,0 +1,482 @@
+{
+  "id": "preposition-words",
+  "title": "Слова с предлогами",
+  "intro": "Глаголы и прилагательные, которые требуют своего предлога. Учите их вместе с предлогом: depend on, interested in.",
+  "items": [
+    {
+      "id": "c-depend-on",
+      "kind": "phrase",
+      "en": "depend on",
+      "ru": "зависеть от",
+      "note": "It depends — смотря как. It depends on the weather — зависит от погоды.",
+      "examples": [
+        {
+          "en": "It depends on the weather.",
+          "ru": "Это зависит от погоды.",
+          "gap": "depends on"
+        },
+        {
+          "en": "Our plans depend on the budget.",
+          "ru": "Наши планы зависят от бюджета.",
+          "gap": "depend on"
+        }
+      ]
+    },
+    {
+      "id": "c-rely-on",
+      "kind": "phrase",
+      "en": "rely on",
+      "ru": "полагаться на",
+      "note": "Rely on someone — полагаться на кого-то. Reliable — надёжный.",
+      "examples": [
+        {
+          "en": "You can rely on me.",
+          "ru": "Ты можешь на меня положиться.",
+          "gap": "rely on"
+        },
+        {
+          "en": "We rely on our clients' feedback.",
+          "ru": "Мы полагаемся на отзывы клиентов.",
+          "gap": "rely on"
+        }
+      ]
+    },
+    {
+      "id": "c-interested-in",
+      "kind": "phrase",
+      "en": "interested in",
+      "ru": "интересоваться",
+      "note": "Be interested in + существительное или -ing: interested in learning.",
+      "examples": [
+        {
+          "en": "I'm interested in photography.",
+          "ru": "Я интересуюсь фотографией.",
+          "gap": "interested in"
+        },
+        {
+          "en": "Are you interested in working with us?",
+          "ru": "Вам интересно поработать с нами?",
+          "gap": "interested in"
+        }
+      ]
+    },
+    {
+      "id": "c-good-at",
+      "kind": "phrase",
+      "en": "good at",
+      "ru": "хорошо уметь, хорошо даётся",
+      "note": "Good at something или -ing. Bad at — плохо даётся.",
+      "examples": [
+        {
+          "en": "She is good at maths.",
+          "ru": "Ей хорошо даётся математика.",
+          "gap": "good at"
+        },
+        {
+          "en": "I'm not good at remembering names.",
+          "ru": "Я плохо запоминаю имена.",
+          "gap": "good at"
+        }
+      ]
+    },
+    {
+      "id": "c-afraid-of",
+      "kind": "phrase",
+      "en": "afraid of",
+      "ru": "бояться",
+      "note": "Afraid of + существительное или -ing.",
+      "examples": [
+        {
+          "en": "Are you afraid of dogs?",
+          "ru": "Ты боишься собак?",
+          "gap": "afraid of"
+        },
+        {
+          "en": "He is afraid of making mistakes.",
+          "ru": "Он боится ошибиться.",
+          "gap": "afraid of"
+        }
+      ]
+    },
+    {
+      "id": "c-apply-for",
+      "kind": "phrase",
+      "en": "apply for",
+      "ru": "подавать заявку на",
+      "note": "Apply for a job, a visa — подать заявку на работу, на визу. Apply to a company — в компанию.",
+      "examples": [
+        {
+          "en": "I applied for a new job.",
+          "ru": "Я подал заявку на новую работу.",
+          "gap": "applied for"
+        },
+        {
+          "en": "You need to apply for a visa.",
+          "ru": "Тебе нужно подать на визу.",
+          "gap": "apply for"
+        }
+      ]
+    },
+    {
+      "id": "c-agree-with",
+      "kind": "phrase",
+      "en": "agree with",
+      "ru": "соглашаться с",
+      "note": "Agree with someone — соглашаться с кем-то. Agree on something — договориться о чём-то.",
+      "examples": [
+        {
+          "en": "I agree with you.",
+          "ru": "Я с тобой согласен.",
+          "gap": "agree with"
+        },
+        {
+          "en": "She doesn't agree with the plan.",
+          "ru": "Она не согласна с планом.",
+          "gap": "agree with"
+        }
+      ]
+    },
+    {
+      "id": "c-look-forward-to",
+      "kind": "phrase",
+      "en": "look forward to",
+      "ru": "ждать с нетерпением",
+      "note": "После to — существительное или -ing: I look forward to hearing from you.",
+      "examples": [
+        {
+          "en": "I'm looking forward to the weekend.",
+          "ru": "Жду не дождусь выходных.",
+          "gap": "looking forward to"
+        },
+        {
+          "en": "We look forward to hearing from you.",
+          "ru": "Ждём вашего ответа.",
+          "gap": "look forward to"
+        }
+      ]
+    },
+    {
+      "id": "c-worry-about",
+      "kind": "phrase",
+      "en": "worry about",
+      "ru": "беспокоиться о",
+      "note": "Don't worry about it — не беспокойся об этом.",
+      "examples": [
+        {
+          "en": "Don't worry about the money.",
+          "ru": "Не волнуйся насчёт денег.",
+          "gap": "worry about"
+        },
+        {
+          "en": "She worries about her son.",
+          "ru": "Она беспокоится о сыне.",
+          "gap": "worries about"
+        }
+      ]
+    },
+    {
+      "id": "c-belong-to",
+      "kind": "phrase",
+      "en": "belong to",
+      "ru": "принадлежать",
+      "note": "Belong to someone — принадлежать кому-то.",
+      "examples": [
+        {
+          "en": "Who does this bag belong to?",
+          "ru": "Чья это сумка?",
+          "gap": "belong to"
+        },
+        {
+          "en": "This car belongs to my father.",
+          "ru": "Эта машина принадлежит моему отцу.",
+          "gap": "belongs to"
+        }
+      ]
+    },
+    {
+      "id": "c-laugh-at",
+      "kind": "phrase",
+      "en": "laugh at",
+      "ru": "смеяться над",
+      "note": "Laugh at someone — смеяться над кем-то. Laugh with — смеяться вместе.",
+      "examples": [
+        {
+          "en": "Everyone laughed at his joke.",
+          "ru": "Все смеялись над его шуткой.",
+          "gap": "laughed at"
+        },
+        {
+          "en": "Don't laugh at me!",
+          "ru": "Не смейся надо мной!",
+          "gap": "laugh at"
+        }
+      ]
+    },
+    {
+      "id": "c-focus-on",
+      "kind": "phrase",
+      "en": "focus on",
+      "ru": "сосредоточиться на",
+      "note": "Focus on something — сосредоточиться на чём-то.",
+      "examples": [
+        {
+          "en": "Let's focus on the main problem.",
+          "ru": "Давай сосредоточимся на главной проблеме.",
+          "gap": "focus on"
+        },
+        {
+          "en": "I can't focus on my work.",
+          "ru": "Не могу сосредоточиться на работе.",
+          "gap": "focus on"
+        }
+      ]
+    },
+    {
+      "id": "c-succeed-in",
+      "kind": "phrase",
+      "en": "succeed in",
+      "ru": "преуспеть в, суметь",
+      "note": "Succeed in + -ing: succeed in finding — суметь найти.",
+      "examples": [
+        {
+          "en": "She succeeded in finding a new job.",
+          "ru": "Ей удалось найти новую работу.",
+          "gap": "succeeded in"
+        },
+        {
+          "en": "Few people succeed in business without help.",
+          "ru": "Мало кто добивается успеха в бизнесе без помощи.",
+          "gap": "succeed in"
+        }
+      ]
+    },
+    {
+      "id": "c-insist-on",
+      "kind": "phrase",
+      "en": "insist on",
+      "ru": "настаивать на",
+      "note": "Insist on + -ing: He insisted on paying — он настоял на том, чтобы заплатить.",
+      "examples": [
+        {
+          "en": "He insisted on paying for dinner.",
+          "ru": "Он настоял на том, чтобы заплатить за ужин.",
+          "gap": "insisted on"
+        },
+        {
+          "en": "They insist on a meeting today.",
+          "ru": "Они настаивают на встрече сегодня.",
+          "gap": "insist on"
+        }
+      ]
+    },
+    {
+      "id": "c-pay-for",
+      "kind": "phrase",
+      "en": "pay for",
+      "ru": "платить за",
+      "note": "Pay for something — платить за что-то. Pay someone — платить кому-то.",
+      "examples": [
+        {
+          "en": "Who paid for the tickets?",
+          "ru": "Кто заплатил за билеты?",
+          "gap": "paid for"
+        },
+        {
+          "en": "I'll pay for the coffee.",
+          "ru": "Я заплачу за кофе.",
+          "gap": "pay for"
+        }
+      ]
+    },
+    {
+      "id": "c-deal-with",
+      "kind": "phrase",
+      "en": "deal with",
+      "ru": "иметь дело с, разбираться с",
+      "note": "Deal with a problem — разобраться с проблемой. Формы: deal — dealt — dealt.",
+      "examples": [
+        {
+          "en": "I'll deal with it tomorrow.",
+          "ru": "Я разберусь с этим завтра.",
+          "gap": "deal with"
+        },
+        {
+          "en": "She deals with customers every day.",
+          "ru": "Она каждый день работает с клиентами.",
+          "gap": "deals with"
+        }
+      ]
+    },
+    {
+      "id": "c-consist-of",
+      "kind": "phrase",
+      "en": "consist of",
+      "ru": "состоять из",
+      "note": "Без is и без -ing: The team consists of five people.",
+      "examples": [
+        {
+          "en": "The team consists of five people.",
+          "ru": "Команда состоит из пяти человек.",
+          "gap": "consists of"
+        },
+        {
+          "en": "The test consists of two parts.",
+          "ru": "Тест состоит из двух частей.",
+          "gap": "consists of"
+        }
+      ]
+    },
+    {
+      "id": "c-aware-of",
+      "kind": "phrase",
+      "en": "aware of",
+      "ru": "знать о, осознавать",
+      "note": "Be aware of something — знать о чём-то, понимать что-то.",
+      "examples": [
+        {
+          "en": "Are you aware of the risks?",
+          "ru": "Ты осознаёшь риски?",
+          "gap": "aware of"
+        },
+        {
+          "en": "I wasn't aware of the problem.",
+          "ru": "Я не знал об этой проблеме.",
+          "gap": "aware of"
+        }
+      ]
+    },
+    {
+      "id": "c-similar-to",
+      "kind": "phrase",
+      "en": "similar to",
+      "ru": "похожий на",
+      "note": "Similar to something — похожий на что-то. The same as — такой же, как.",
+      "examples": [
+        {
+          "en": "Your idea is similar to mine.",
+          "ru": "Твоя идея похожа на мою.",
+          "gap": "similar to"
+        },
+        {
+          "en": "This word is similar to the Russian one.",
+          "ru": "Это слово похоже на русское.",
+          "gap": "similar to"
+        }
+      ]
+    },
+    {
+      "id": "c-famous-for",
+      "kind": "phrase",
+      "en": "famous for",
+      "ru": "знаменитый чем-то",
+      "note": "Famous for something — известен чем-то.",
+      "examples": [
+        {
+          "en": "The city is famous for its parks.",
+          "ru": "Город славится своими парками.",
+          "gap": "famous for"
+        },
+        {
+          "en": "Italy is famous for its food.",
+          "ru": "Италия знаменита своей кухней.",
+          "gap": "famous for"
+        }
+      ]
+    },
+    {
+      "id": "c-fond-of",
+      "kind": "phrase",
+      "en": "fond of",
+      "ru": "любить, питать слабость к",
+      "note": "Be fond of something, someone — любить; мягче, чем love.",
+      "examples": [
+        {
+          "en": "I'm very fond of my grandmother.",
+          "ru": "Я очень люблю свою бабушку.",
+          "gap": "fond of"
+        },
+        {
+          "en": "She is fond of cooking.",
+          "ru": "Она любит готовить.",
+          "gap": "fond of"
+        }
+      ]
+    },
+    {
+      "id": "c-keen-on",
+      "kind": "phrase",
+      "en": "keen on",
+      "ru": "увлекаться; очень хотеть",
+      "note": "Be keen on something или -ing — увлекаться, очень хотеть. Чаще у британцев.",
+      "examples": [
+        {
+          "en": "He's keen on football.",
+          "ru": "Он увлекается футболом.",
+          "gap": "keen on"
+        },
+        {
+          "en": "I'm not keen on the idea.",
+          "ru": "Мне не очень нравится эта идея.",
+          "gap": "keen on"
+        }
+      ]
+    },
+    {
+      "id": "c-result-in",
+      "kind": "phrase",
+      "en": "result in",
+      "ru": "приводить к",
+      "note": "Result in something — привести к последствию. Result from — быть следствием.",
+      "examples": [
+        {
+          "en": "The mistake resulted in a big loss.",
+          "ru": "Ошибка привела к большим убыткам.",
+          "gap": "resulted in"
+        },
+        {
+          "en": "Bad planning can result in delays.",
+          "ru": "Плохое планирование может привести к задержкам.",
+          "gap": "result in"
+        }
+      ]
+    },
+    {
+      "id": "c-approve-of",
+      "kind": "phrase",
+      "en": "approve of",
+      "ru": "одобрять",
+      "note": "Approve of something — одобрять. Approve a plan — утвердить план, без of.",
+      "examples": [
+        {
+          "en": "My parents don't approve of my job.",
+          "ru": "Родители не одобряют мою работу.",
+          "gap": "approve of"
+        },
+        {
+          "en": "Do you approve of the new rules?",
+          "ru": "Ты одобряешь новые правила?",
+          "gap": "approve of"
+        }
+      ]
+    },
+    {
+      "id": "c-look-after",
+      "kind": "phrase",
+      "en": "look after",
+      "ru": "присматривать, заботиться",
+      "note": "Look after someone — заботиться, присматривать. Look for — искать.",
+      "examples": [
+        {
+          "en": "Can you look after my cat this weekend?",
+          "ru": "Присмотришь за моей кошкой в выходные?",
+          "gap": "look after"
+        },
+        {
+          "en": "She looks after her old parents.",
+          "ru": "Она заботится о пожилых родителях.",
+          "gap": "looks after"
+        }
+      ]
+    }
+  ]
+}

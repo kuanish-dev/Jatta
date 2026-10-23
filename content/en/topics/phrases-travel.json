@@ -1,0 +1,653 @@
+{
+  "id": "phrases-travel",
+  "title": "Фразы на слух: поездки",
+  "intro": "Настоящие голоса носителей языка с Tatoeba. Сначала послушайте и повторите вслух, потом узнавайте фразу на слух, ловите слова и записывайте её целиком.",
+  "items": [
+    {
+      "id": "ph-1526516",
+      "kind": "phrase",
+      "en": "Ask him when the next plane will be.",
+      "ru": "Спросите его, когда следующий самолёт.",
+      "examples": [
+        {
+          "en": "Ask him when the next plane will be.",
+          "ru": "Спросите его, когда следующий самолёт.",
+          "gap": "plane"
+        }
+      ],
+      "audio": {
+        "file": "ph-1526516.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/1526516"
+      }
+    },
+    {
+      "id": "ph-10697303",
+      "kind": "phrase",
+      "en": "Do you have any family or friends who you could stay with?",
+      "ru": "У тебя есть родственники или друзья, у которых ты мог бы остановиться?",
+      "examples": [
+        {
+          "en": "Do you have any family or friends who you could stay with?",
+          "ru": "У тебя есть родственники или друзья, у которых ты мог бы остановиться?",
+          "gap": "stay"
+        }
+      ],
+      "audio": {
+        "file": "ph-10697303.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10697303"
+      }
+    },
+    {
+      "id": "ph-13264438",
+      "kind": "phrase",
+      "en": "Does the 30 bus come here?",
+      "ru": "Тридцатый автобус здесь останавливается?",
+      "examples": [
+        {
+          "en": "Does the 30 bus come here?",
+          "ru": "Тридцатый автобус здесь останавливается?",
+          "gap": "bus"
+        }
+      ],
+      "audio": {
+        "file": "ph-13264438.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/13264438"
+      }
+    },
+    {
+      "id": "ph-26615",
+      "kind": "phrase",
+      "en": "Fasten your seat belt when you drive.",
+      "ru": "Пристёгивайся, когда ведёшь машину.",
+      "examples": [
+        {
+          "en": "Fasten your seat belt when you drive.",
+          "ru": "Пристёгивайся, когда ведёшь машину.",
+          "gap": "Fasten"
+        }
+      ],
+      "audio": {
+        "file": "ph-26615.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/26615"
+      }
+    },
+    {
+      "id": "ph-11779030",
+      "kind": "phrase",
+      "en": "Have you ever been to Budapest?",
+      "ru": "Ты когда-нибудь был в Будапеште?",
+      "examples": [
+        {
+          "en": "Have you ever been to Budapest?",
+          "ru": "Ты когда-нибудь был в Будапеште?",
+          "gap": "ever"
+        }
+      ],
+      "audio": {
+        "file": "ph-11779030.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11779030"
+      }
+    },
+    {
+      "id": "ph-300245",
+      "kind": "phrase",
+      "en": "He will stay in Tokyo for several weeks.",
+      "ru": "Он пробудет в Токио несколько недель.",
+      "examples": [
+        {
+          "en": "He will stay in Tokyo for several weeks.",
+          "ru": "Он пробудет в Токио несколько недель.",
+          "gap": "several"
+        }
+      ],
+      "audio": {
+        "file": "ph-300245.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/300245"
+      }
+    },
+    {
+      "id": "ph-66917",
+      "kind": "phrase",
+      "en": "He'll have an accident one of these days if he keeps driving like that.",
+      "ru": "В ближайшие дни он попадёт в аварию, если будет продолжать так ездить.",
+      "examples": [
+        {
+          "en": "He'll have an accident one of these days if he keeps driving like that.",
+          "ru": "В ближайшие дни он попадёт в аварию, если будет продолжать так ездить.",
+          "gap": "accident"
+        }
+      ],
+      "audio": {
+        "file": "ph-66917.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/66917"
+      }
+    },
+    {
+      "id": "ph-13013049",
+      "kind": "phrase",
+      "en": "He's looking for a double room.",
+      "ru": "Он ищет двухместный номер.",
+      "examples": [
+        {
+          "en": "He's looking for a double room.",
+          "ru": "Он ищет двухместный номер.",
+          "gap": "double"
+        }
+      ],
+      "audio": {
+        "file": "ph-13013049.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/13013049"
+      }
+    },
+    {
+      "id": "ph-257670",
+      "kind": "phrase",
+      "en": "I failed to catch the last bus, and came home by taxi.",
+      "ru": "Я не успел на последний автобус и приехал домой на такси.",
+      "examples": [
+        {
+          "en": "I failed to catch the last bus, and came home by taxi.",
+          "ru": "Я не успел на последний автобус и приехал домой на такси.",
+          "gap": "taxi"
+        }
+      ],
+      "audio": {
+        "file": "ph-257670.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/257670"
+      }
+    },
+    {
+      "id": "ph-324743",
+      "kind": "phrase",
+      "en": "I'm going to leave one night early.",
+      "ru": "Я собираюсь уехать на одну ночь раньше.",
+      "examples": [
+        {
+          "en": "I'm going to leave one night early.",
+          "ru": "Я собираюсь уехать на одну ночь раньше.",
+          "gap": "night"
+        }
+      ],
+      "audio": {
+        "file": "ph-324743.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/324743"
+      }
+    },
+    {
+      "id": "ph-283301",
+      "kind": "phrase",
+      "en": "If he had been a little more careful, the accident would have been avoided.",
+      "ru": "Если бы он был немного осторожнее, аварии можно было бы избежать.",
+      "examples": [
+        {
+          "en": "If he had been a little more careful, the accident would have been avoided.",
+          "ru": "Если бы он был немного осторожнее, аварии можно было бы избежать.",
+          "gap": "careful"
+        }
+      ],
+      "audio": {
+        "file": "ph-283301.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/283301"
+      }
+    },
+    {
+      "id": "ph-273612",
+      "kind": "phrase",
+      "en": "It is necessary that we make a reservation in advance.",
+      "ru": "Нам необходимо забронировать место заранее.",
+      "examples": [
+        {
+          "en": "It is necessary that we make a reservation in advance.",
+          "ru": "Нам необходимо забронировать место заранее.",
+          "gap": "reservation"
+        }
+      ],
+      "audio": {
+        "file": "ph-273612.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/273612"
+      }
+    },
+    {
+      "id": "ph-272445",
+      "kind": "phrase",
+      "en": "It's dangerous for you to cross the street when the light is red.",
+      "ru": "Опасно переходить улицу на красный свет.",
+      "examples": [
+        {
+          "en": "It's dangerous for you to cross the street when the light is red.",
+          "ru": "Опасно переходить улицу на красный свет.",
+          "gap": "dangerous"
+        }
+      ],
+      "audio": {
+        "file": "ph-272445.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/272445"
+      }
+    },
+    {
+      "id": "ph-10696137",
+      "kind": "phrase",
+      "en": "Prepare your identity card.",
+      "ru": "Приготовьте удостоверение личности.",
+      "examples": [
+        {
+          "en": "Prepare your identity card.",
+          "ru": "Приготовьте удостоверение личности.",
+          "gap": "identity"
+        }
+      ],
+      "audio": {
+        "file": "ph-10696137.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10696137"
+      }
+    },
+    {
+      "id": "ph-312216",
+      "kind": "phrase",
+      "en": "She hasn't come here yet. I am afraid she may have lost her way.",
+      "ru": "Она еще не пришла. Боюсь, она могла заблудиться.",
+      "examples": [
+        {
+          "en": "She hasn't come here yet. I am afraid she may have lost her way.",
+          "ru": "Она еще не пришла. Боюсь, она могла заблудиться.",
+          "gap": "afraid"
+        }
+      ],
+      "audio": {
+        "file": "ph-312216.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/312216"
+      }
+    },
+    {
+      "id": "ph-312708",
+      "kind": "phrase",
+      "en": "She hurried to the station only to miss the train.",
+      "ru": "Она спешила на вокзал, но всё равно опоздала на поезд.",
+      "examples": [
+        {
+          "en": "She hurried to the station only to miss the train.",
+          "ru": "Она спешила на вокзал, но всё равно опоздала на поезд.",
+          "gap": "hurried"
+        }
+      ],
+      "audio": {
+        "file": "ph-312708.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/312708"
+      }
+    },
+    {
+      "id": "ph-247686",
+      "kind": "phrase",
+      "en": "The purpose of our trip is to visit friends and see some tourist spots.",
+      "ru": "Цель нашего путешествия - навестить друзей и посетить некоторые туристические места.",
+      "examples": [
+        {
+          "en": "The purpose of our trip is to visit friends and see some tourist spots.",
+          "ru": "Цель нашего путешествия - навестить друзей и посетить некоторые туристические места.",
+          "gap": "tourist"
+        }
+      ],
+      "audio": {
+        "file": "ph-247686.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/247686"
+      }
+    },
+    {
+      "id": "ph-275807",
+      "kind": "phrase",
+      "en": "The train was delayed on account of a heavy snow.",
+      "ru": "Поезд был задержан из-за сильного снега.",
+      "examples": [
+        {
+          "en": "The train was delayed on account of a heavy snow.",
+          "ru": "Поезд был задержан из-за сильного снега.",
+          "gap": "snow"
+        }
+      ],
+      "audio": {
+        "file": "ph-275807.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/275807"
+      }
+    },
+    {
+      "id": "ph-12720134",
+      "kind": "phrase",
+      "en": "There's the bus.",
+      "ru": "Вот автобус.",
+      "examples": [
+        {
+          "en": "There's the bus.",
+          "ru": "Вот автобус.",
+          "gap": "bus"
+        }
+      ],
+      "audio": {
+        "file": "ph-12720134.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12720134"
+      }
+    },
+    {
+      "id": "ph-7962407",
+      "kind": "phrase",
+      "en": "They missed the bus.",
+      "ru": "Они опоздали на автобус.",
+      "examples": [
+        {
+          "en": "They missed the bus.",
+          "ru": "Они опоздали на автобус.",
+          "gap": "bus"
+        }
+      ],
+      "audio": {
+        "file": "ph-7962407.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/7962407"
+      }
+    },
+    {
+      "id": "ph-242261",
+      "kind": "phrase",
+      "en": "This morning the weather was so bad that I had to take a taxi.",
+      "ru": "Сегодня утром погода была настолько плохой, что мне пришлось взять такси.",
+      "examples": [
+        {
+          "en": "This morning the weather was so bad that I had to take a taxi.",
+          "ru": "Сегодня утром погода была настолько плохой, что мне пришлось взять такси.",
+          "gap": "taxi"
+        }
+      ],
+      "audio": {
+        "file": "ph-242261.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/242261"
+      }
+    },
+    {
+      "id": "ph-280495",
+      "kind": "phrase",
+      "en": "Watch out for cars when you cross the street.",
+      "ru": "Остерегайтесь машин, когда переходите улицу.",
+      "examples": [
+        {
+          "en": "Watch out for cars when you cross the street.",
+          "ru": "Остерегайтесь машин, когда переходите улицу.",
+          "gap": "cross"
+        }
+      ],
+      "audio": {
+        "file": "ph-280495.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/280495"
+      }
+    },
+    {
+      "id": "ph-73045",
+      "kind": "phrase",
+      "en": "We have a single for 50 dollars per night.",
+      "ru": "У нас есть одноместный номер по цене в 50 долларов за ночь.",
+      "examples": [
+        {
+          "en": "We have a single for 50 dollars per night.",
+          "ru": "У нас есть одноместный номер по цене в 50 долларов за ночь.",
+          "gap": "single"
+        }
+      ],
+      "audio": {
+        "file": "ph-73045.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/73045"
+      }
+    },
+    {
+      "id": "ph-326183",
+      "kind": "phrase",
+      "en": "We have to allow for the delay of the train.",
+      "ru": "Надо учесть, что поезд может задержаться.",
+      "examples": [
+        {
+          "en": "We have to allow for the delay of the train.",
+          "ru": "Надо учесть, что поезд может задержаться.",
+          "gap": "delay"
+        }
+      ],
+      "audio": {
+        "file": "ph-326183.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/326183"
+      }
+    },
+    {
+      "id": "ph-278856",
+      "kind": "phrase",
+      "en": "Weather permitting, we are going to get to the top of the mountain tomorrow.",
+      "ru": "Если позволит погода, то завтра мы заберёмся на вершину горы.",
+      "examples": [
+        {
+          "en": "Weather permitting, we are going to get to the top of the mountain tomorrow.",
+          "ru": "Если позволит погода, то завтра мы заберёмся на вершину горы.",
+          "gap": "permitting"
+        }
+      ],
+      "audio": {
+        "file": "ph-278856.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/278856"
+      }
+    },
+    {
+      "id": "ph-283264",
+      "kind": "phrase",
+      "en": "When he arrived at the bus stop, the bus was already out of sight.",
+      "ru": "Когда он пришёл на автобусную остановку, автобус уже скрылся из виду.",
+      "examples": [
+        {
+          "en": "When he arrived at the bus stop, the bus was already out of sight.",
+          "ru": "Когда он пришёл на автобусную остановку, автобус уже скрылся из виду.",
+          "gap": "sight"
+        }
+      ],
+      "audio": {
+        "file": "ph-283264.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/283264"
+      }
+    },
+    {
+      "id": "ph-687656",
+      "kind": "phrase",
+      "en": "Where is the nearest metro station?",
+      "ru": "Где ближайшая станция метро?",
+      "examples": [
+        {
+          "en": "Where is the nearest metro station?",
+          "ru": "Где ближайшая станция метро?",
+          "gap": "metro"
+        }
+      ],
+      "audio": {
+        "file": "ph-687656.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/687656"
+      }
+    },
+    {
+      "id": "ph-8723253",
+      "kind": "phrase",
+      "en": "Whose documents are these?",
+      "ru": "Чьи это документы?",
+      "examples": [
+        {
+          "en": "Whose documents are these?",
+          "ru": "Чьи это документы?",
+          "gap": "documents"
+        }
+      ],
+      "audio": {
+        "file": "ph-8723253.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/8723253"
+      }
+    },
+    {
+      "id": "ph-10696169",
+      "kind": "phrase",
+      "en": "You can charge your phone there.",
+      "ru": "Там вы можете зарядить свой телефон.",
+      "examples": [
+        {
+          "en": "You can charge your phone there.",
+          "ru": "Там вы можете зарядить свой телефон.",
+          "gap": "charge"
+        }
+      ],
+      "audio": {
+        "file": "ph-10696169.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10696169"
+      }
+    },
+    {
+      "id": "ph-279618",
+      "kind": "phrase",
+      "en": "You had better not climb such high mountains in winter.",
+      "ru": "Лучше не пытайся покорить такие горы зимой.",
+      "examples": [
+        {
+          "en": "You had better not climb such high mountains in winter.",
+          "ru": "Лучше не пытайся покорить такие горы зимой.",
+          "gap": "climb"
+        }
+      ],
+      "audio": {
+        "file": "ph-279618.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/279618"
+      }
+    },
+    {
+      "id": "ph-12271585",
+      "kind": "phrase",
+      "en": "You haven't forgotten anything?",
+      "ru": "Ничего не забыл?",
+      "examples": [
+        {
+          "en": "You haven't forgotten anything?",
+          "ru": "Ничего не забыл?",
+          "gap": "forgotten"
+        }
+      ],
+      "audio": {
+        "file": "ph-12271585.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12271585"
+      }
+    },
+    {
+      "id": "ph-16523",
+      "kind": "phrase",
+      "en": "You needn't have taken a taxi.",
+      "ru": "Вам не нужно было брать такси.",
+      "examples": [
+        {
+          "en": "You needn't have taken a taxi.",
+          "ru": "Вам не нужно было брать такси.",
+          "gap": "taxi"
+        }
+      ],
+      "audio": {
+        "file": "ph-16523.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/16523"
+      }
+    },
+    {
+      "id": "ph-8945367",
+      "kind": "phrase",
+      "en": "You will definitely like it here.",
+      "ru": "Вам здесь непременно понравится.",
+      "examples": [
+        {
+          "en": "You will definitely like it here.",
+          "ru": "Вам здесь непременно понравится.",
+          "gap": "definitely"
+        }
+      ],
+      "audio": {
+        "file": "ph-8945367.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/8945367"
+      }
+    },
+    {
+      "id": "ph-1488834",
+      "kind": "phrase",
+      "en": "You'd better hurry, or you'll miss the train.",
+      "ru": "Лучше поторопись, а не то опоздаешь на поезд.",
+      "examples": [
+        {
+          "en": "You'd better hurry, or you'll miss the train.",
+          "ru": "Лучше поторопись, а не то опоздаешь на поезд.",
+          "gap": "hurry"
+        }
+      ],
+      "audio": {
+        "file": "ph-1488834.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/1488834"
+      }
+    }
+  ]
+}

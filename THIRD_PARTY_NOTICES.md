@@ -28,6 +28,8 @@ about including the library's source is left out because ML Kit's source is not 
 `engine/src/commonMain/kotlin/com/jatta/engine/fsrs/Fsrs.kt` is a Kotlin port of the FSRS-6
 scheduler and its default parameters from [py-fsrs](https://github.com/open-spaced-repetition/py-fsrs).
 `scripts/fsrs_vectors.py` uses py-fsrs to produce the test vectors.
+`engine/src/commonMain/kotlin/com/jatta/engine/fsrs/FsrsOptimizer.kt` follows the py-fsrs optimizer,
+and `scripts/fsrs_optimizer_vectors.py` uses it to produce the optimizer test vectors.
 
 ```
 MIT License
@@ -73,6 +75,21 @@ bands) is shipped in the app and remains under CC BY-SA 4.0.
 - Passages from public-domain books via [Project Gutenberg](https://www.gutenberg.org): Lewis Carroll,
   *Alice's Adventures in Wonderland* (1865); *Three Hundred Aesop's Fables*, tr. George Fyler Townsend
   (1867); L. Frank Baum, *The Wonderful Wizard of Oz* (1900).
+
+### Listening phrases — Tatoeba, CC BY 2.0 FR, CC BY 4.0 and CC BY-SA 4.0
+
+`content/en/topics/phrases-*.json` and `content/en/audio/` (built by `scripts/collect_phrases.py` from the
+hand-picked list in `sources/tatoeba/phrases.json`) are shipped in the app:
+
+- English sentences and their Russian translations from [Tatoeba](https://tatoeba.org), licensed under
+  [CC BY 2.0 FR](https://creativecommons.org/licenses/by/2.0/fr/). Every phrase links to its sentence page
+  (`audio.source`), which names the authors and translators. Some Russian translations were edited
+  (the list is in `sources/tatoeba/phrases.json`, field `translations`).
+- Recordings by Tatoeba members who are native English speakers, each under the license its author chose:
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) or [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+  Every phrase records the author (`audio.by`) and the license (`audio.license`), and the app shows both
+  with the phrase. The recordings were trimmed of silence at both ends, brought to one loudness and
+  converted to AAC; the CC BY-SA recordings remain under CC BY-SA 4.0.
 
 ### Fonts — SIL Open Font License 1.1
 

@@ -1,0 +1,181 @@
+{
+  "id": "narrative-tenses",
+  "title": "Past Continuous и Past Perfect",
+  "intro": "Чтобы рассказывать о прошлом, кроме Past Simple нужны ещё два времени. Past Continuous — действие шло в какой-то момент прошлого: I was working. Past Perfect — случилось раньше другого прошлого: I had left.",
+  "requires": [
+    "past-simple"
+  ],
+  "confusableWith": [
+    "past-simple"
+  ],
+  "items": [
+    {
+      "id": "nt-past-continuous",
+      "kind": "rule",
+      "en": "was/were + V-ing",
+      "ru": "Past Continuous: was/were + -ing — шло в момент прошлого",
+      "note": "I was working at 8 pm yesterday. Was — для I, he, she, it, were — для you, we, they.",
+      "examples": [
+        {
+          "en": "At eight o'clock I was having dinner.",
+          "ru": "В восемь я ужинал.",
+          "gap": "was having",
+          "cue": "have",
+          "wrong": [
+            "were having",
+            "was have",
+            "am having"
+          ]
+        },
+        {
+          "en": "They were working on the project all evening.",
+          "ru": "Весь вечер они работали над проектом.",
+          "gap": "were working",
+          "cue": "work",
+          "wrong": [
+            "was working",
+            "were work",
+            "are working"
+          ]
+        },
+        {
+          "en": "What were you doing at nine?",
+          "ru": "Что ты делал в девять?",
+          "gap": "were you doing",
+          "cue": "you / do",
+          "wrong": [
+            "did you doing",
+            "was you doing",
+            "were you do"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nt-interrupted",
+      "kind": "rule",
+      "en": "when / while",
+      "ru": "Длинное действие (Past Continuous) прервало короткое (Past Simple)",
+      "note": "I was driving when the phone rang. While + длинное действие: While I was cooking, she called.",
+      "examples": [
+        {
+          "en": "I was driving to work when my phone rang.",
+          "ru": "Я ехал на работу, когда зазвонил телефон.",
+          "gap": "was driving",
+          "cue": "drive",
+          "wrong": [
+            "have driven",
+            "was drive",
+            "am driving"
+          ]
+        },
+        {
+          "en": "She called while I was cooking.",
+          "ru": "Она позвонила, пока я готовил.",
+          "gap": "was cooking",
+          "cue": "cook",
+          "wrong": [
+            "cooked",
+            "am cooking",
+            "was cook"
+          ]
+        },
+        {
+          "en": "We were having a meeting when the lights went out.",
+          "ru": "У нас шла встреча, когда погас свет.",
+          "gap": "went out",
+          "cue": "go out",
+          "wrong": [
+            "were going out",
+            "goes out",
+            "have gone out"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nt-past-perfect",
+      "kind": "rule",
+      "en": "had + V3",
+      "ru": "Past Perfect: had + V3 — случилось раньше другого прошлого",
+      "note": "When I arrived, the meeting had already started: встреча началась раньше, чем я пришёл.",
+      "examples": [
+        {
+          "en": "When I arrived, the meeting had already started.",
+          "ru": "Когда я пришёл, встреча уже началась.",
+          "gap": "had already started",
+          "cue": "already / start",
+          "wrong": [
+            "has already started",
+            "have already started",
+            "had already start"
+          ]
+        },
+        {
+          "en": "She had never seen the sea before that trip.",
+          "ru": "До той поездки она никогда не видела моря.",
+          "gap": "had never seen",
+          "cue": "never / see",
+          "wrong": [
+            "has never seen",
+            "had never saw",
+            "have never seen"
+          ]
+        },
+        {
+          "en": "I realised that I had left my keys at home.",
+          "ru": "Я понял, что оставил ключи дома.",
+          "gap": "had left",
+          "cue": "leave",
+          "wrong": [
+            "have left",
+            "had leave",
+            "has left"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nt-by-the-time",
+      "kind": "rule",
+      "en": "by the time / before / after",
+      "ru": "By the time, before, after — частые спутники Past Perfect",
+      "note": "By the time we got there, the shop had closed: к тому времени, как мы добрались, магазин уже закрылся.",
+      "examples": [
+        {
+          "en": "By the time we got to the station, the train had left.",
+          "ru": "К тому времени, как мы добрались до вокзала, поезд уже ушёл.",
+          "gap": "had left",
+          "cue": "leave",
+          "wrong": [
+            "has left",
+            "have left",
+            "had leave"
+          ]
+        },
+        {
+          "en": "After she had finished the report, she went home.",
+          "ru": "Закончив отчёт, она пошла домой.",
+          "gap": "had finished",
+          "cue": "finish",
+          "wrong": [
+            "has finished",
+            "had finish",
+            "have finished"
+          ]
+        },
+        {
+          "en": "He had worked there for ten years before he became a manager.",
+          "ru": "Он проработал там десять лет, прежде чем стал менеджером.",
+          "gap": "had worked",
+          "cue": "work",
+          "wrong": [
+            "has worked",
+            "had work",
+            "have worked"
+          ]
+        }
+      ]
+    }
+  ]
+}

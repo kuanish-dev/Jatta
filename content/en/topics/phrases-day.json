@@ -1,0 +1,710 @@
+{
+  "id": "phrases-day",
+  "title": "Фразы на слух: день за днём",
+  "intro": "Настоящие голоса носителей языка с Tatoeba. Сначала послушайте и повторите вслух, потом узнавайте фразу на слух, ловите слова и записывайте её целиком.",
+  "items": [
+    {
+      "id": "ph-12248050",
+      "kind": "phrase",
+      "en": "As always, she was late.",
+      "ru": "Она, как всегда, опоздала.",
+      "examples": [
+        {
+          "en": "As always, she was late.",
+          "ru": "Она, как всегда, опоздала.",
+          "gap": "always"
+        }
+      ],
+      "audio": {
+        "file": "ph-12248050.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12248050"
+      }
+    },
+    {
+      "id": "ph-317809",
+      "kind": "phrase",
+      "en": "As I was tired, I went to bed.",
+      "ru": "Я устал и пошёл спать.",
+      "examples": [
+        {
+          "en": "As I was tired, I went to bed.",
+          "ru": "Я устал и пошёл спать.",
+          "gap": "tired"
+        }
+      ],
+      "audio": {
+        "file": "ph-317809.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/317809"
+      }
+    },
+    {
+      "id": "ph-6672446",
+      "kind": "phrase",
+      "en": "As soon as the alarm rings I need to get up.",
+      "ru": "Как только звенит будильник, мне нужно вставать.",
+      "examples": [
+        {
+          "en": "As soon as the alarm rings I need to get up.",
+          "ru": "Как только звенит будильник, мне нужно вставать.",
+          "gap": "alarm"
+        }
+      ],
+      "audio": {
+        "file": "ph-6672446.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/6672446"
+      }
+    },
+    {
+      "id": "ph-11742033",
+      "kind": "phrase",
+      "en": "Call me if it rains.",
+      "ru": "Позвони мне, если пойдет дождь.",
+      "examples": [
+        {
+          "en": "Call me if it rains.",
+          "ru": "Позвони мне, если пойдет дождь.",
+          "gap": "rains"
+        }
+      ],
+      "audio": {
+        "file": "ph-11742033.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11742033"
+      }
+    },
+    {
+      "id": "ph-12935866",
+      "kind": "phrase",
+      "en": "Do you want to go anywhere tonight?",
+      "ru": "Хочешь вечером куда-нибудь пойти?",
+      "examples": [
+        {
+          "en": "Do you want to go anywhere tonight?",
+          "ru": "Хочешь вечером куда-нибудь пойти?",
+          "gap": "anywhere"
+        }
+      ],
+      "audio": {
+        "file": "ph-12935866.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12935866"
+      }
+    },
+    {
+      "id": "ph-460213",
+      "kind": "phrase",
+      "en": "Every day, it's getting hotter and hotter.",
+      "ru": "С каждым днём становится всё жарче.",
+      "examples": [
+        {
+          "en": "Every day, it's getting hotter and hotter.",
+          "ru": "С каждым днём становится всё жарче.",
+          "gap": "hotter"
+        }
+      ],
+      "audio": {
+        "file": "ph-460213.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/460213"
+      }
+    },
+    {
+      "id": "ph-11385338",
+      "kind": "phrase",
+      "en": "Good thing I didn't drop it.",
+      "ru": "Хорошо, что я не уронил его.",
+      "examples": [
+        {
+          "en": "Good thing I didn't drop it.",
+          "ru": "Хорошо, что я не уронил его.",
+          "gap": "drop"
+        }
+      ],
+      "audio": {
+        "file": "ph-11385338.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11385338"
+      }
+    },
+    {
+      "id": "ph-297659",
+      "kind": "phrase",
+      "en": "He rang me up at midnight.",
+      "ru": "Он позвонил мне в полночь.",
+      "examples": [
+        {
+          "en": "He rang me up at midnight.",
+          "ru": "Он позвонил мне в полночь.",
+          "gap": "midnight"
+        }
+      ],
+      "audio": {
+        "file": "ph-297659.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/297659"
+      }
+    },
+    {
+      "id": "ph-290935",
+      "kind": "phrase",
+      "en": "He wasn't watching TV then.",
+      "ru": "Он тогда не смотрел телевизор.",
+      "examples": [
+        {
+          "en": "He wasn't watching TV then.",
+          "ru": "Он тогда не смотрел телевизор.",
+          "gap": "watching"
+        }
+      ],
+      "audio": {
+        "file": "ph-290935.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/290935"
+      }
+    },
+    {
+      "id": "ph-10605968",
+      "kind": "phrase",
+      "en": "I almost forgot that it was her birthday.",
+      "ru": "Я чуть не забыл, что у неё день рождения.",
+      "examples": [
+        {
+          "en": "I almost forgot that it was her birthday.",
+          "ru": "Я чуть не забыл, что у неё день рождения.",
+          "gap": "birthday"
+        }
+      ],
+      "audio": {
+        "file": "ph-10605968.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/10605968"
+      }
+    },
+    {
+      "id": "ph-245842",
+      "kind": "phrase",
+      "en": "I always got up early in my childhood.",
+      "ru": "В детстве я всегда рано вставал.",
+      "examples": [
+        {
+          "en": "I always got up early in my childhood.",
+          "ru": "В детстве я всегда рано вставал.",
+          "gap": "childhood"
+        }
+      ],
+      "audio": {
+        "file": "ph-245842.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/245842"
+      }
+    },
+    {
+      "id": "ph-7023619",
+      "kind": "phrase",
+      "en": "I might have forgotten my keys.",
+      "ru": "Я мог забыть свои ключи.",
+      "examples": [
+        {
+          "en": "I might have forgotten my keys.",
+          "ru": "Я мог забыть свои ключи.",
+          "gap": "keys"
+        }
+      ],
+      "audio": {
+        "file": "ph-7023619.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/7023619"
+      }
+    },
+    {
+      "id": "ph-10539135",
+      "kind": "phrase",
+      "en": "I really had a good time at her party.",
+      "ru": "Я действительно хорошо провёл время на её вечеринке.",
+      "examples": [
+        {
+          "en": "I really had a good time at her party.",
+          "ru": "Я действительно хорошо провёл время на её вечеринке.",
+          "gap": "party"
+        }
+      ],
+      "audio": {
+        "file": "ph-10539135.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10539135"
+      }
+    },
+    {
+      "id": "ph-262050",
+      "kind": "phrase",
+      "en": "I waited half an hour for my friend, but he didn't turn up.",
+      "ru": "Я полчаса ждал своего друга, но он так и не появился.",
+      "examples": [
+        {
+          "en": "I waited half an hour for my friend, but he didn't turn up.",
+          "ru": "Я полчаса ждал своего друга, но он так и не появился.",
+          "gap": "waited"
+        }
+      ],
+      "audio": {
+        "file": "ph-262050.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/262050"
+      }
+    },
+    {
+      "id": "ph-18673",
+      "kind": "phrase",
+      "en": "I'm a regular at a restaurant in this neighborhood. Let's have lunch there today.",
+      "ru": "Я завсегдатай одного ресторана поблизости. Давай сегодня пообедаем там.",
+      "examples": [
+        {
+          "en": "I'm a regular at a restaurant in this neighborhood. Let's have lunch there today.",
+          "ru": "Я завсегдатай одного ресторана поблизости. Давай сегодня пообедаем там.",
+          "gap": "neighborhood"
+        }
+      ],
+      "audio": {
+        "file": "ph-18673.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/18673"
+      }
+    },
+    {
+      "id": "ph-13971628",
+      "kind": "phrase",
+      "en": "If it rains, we will stay home.",
+      "ru": "Если будет дождь, останемся дома.",
+      "examples": [
+        {
+          "en": "If it rains, we will stay home.",
+          "ru": "Если будет дождь, останемся дома.",
+          "gap": "rains"
+        }
+      ],
+      "audio": {
+        "file": "ph-13971628.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/13971628"
+      }
+    },
+    {
+      "id": "ph-282992",
+      "kind": "phrase",
+      "en": "It is strange that he is not here. He always comes at this time.",
+      "ru": "Странно, что его здесь нет. Он всегда приходит в это время.",
+      "examples": [
+        {
+          "en": "It is strange that he is not here. He always comes at this time.",
+          "ru": "Странно, что его здесь нет. Он всегда приходит в это время.",
+          "gap": "strange"
+        }
+      ],
+      "audio": {
+        "file": "ph-282992.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/282992"
+      }
+    },
+    {
+      "id": "ph-30093",
+      "kind": "phrase",
+      "en": "It's a nice day, isn't it? Why not go out for a walk?",
+      "ru": "Хороший день, не правда ли? Почему бы нам не прогуляться?",
+      "examples": [
+        {
+          "en": "It's a nice day, isn't it? Why not go out for a walk?",
+          "ru": "Хороший день, не правда ли? Почему бы нам не прогуляться?",
+          "gap": "walk"
+        }
+      ],
+      "audio": {
+        "file": "ph-30093.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/30093"
+      }
+    },
+    {
+      "id": "ph-242894",
+      "kind": "phrase",
+      "en": "It's rather cold today, but I think it'll be fairly warm tomorrow.",
+      "ru": "Сегодня холодновато, но завтра, думаю, будет довольно тепло.",
+      "examples": [
+        {
+          "en": "It's rather cold today, but I think it'll be fairly warm tomorrow.",
+          "ru": "Сегодня холодновато, но завтра, думаю, будет довольно тепло.",
+          "gap": "fairly"
+        }
+      ],
+      "audio": {
+        "file": "ph-242894.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/242894"
+      }
+    },
+    {
+      "id": "ph-53166",
+      "kind": "phrase",
+      "en": "Jack isn't here. He may have missed his usual bus.",
+      "ru": "Джека здесь нет. Возможно, он опоздал на свой обычный автобус.",
+      "examples": [
+        {
+          "en": "Jack isn't here. He may have missed his usual bus.",
+          "ru": "Джека здесь нет. Возможно, он опоздал на свой обычный автобус.",
+          "gap": "missed"
+        }
+      ],
+      "audio": {
+        "file": "ph-53166.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/53166"
+      }
+    },
+    {
+      "id": "ph-1669",
+      "kind": "phrase",
+      "en": "Life is what happens to you while you're busy making other plans.",
+      "ru": "Жизнь — то, что с тобой случается, пока ты занят другими делами.",
+      "examples": [
+        {
+          "en": "Life is what happens to you while you're busy making other plans.",
+          "ru": "Жизнь — то, что с тобой случается, пока ты занят другими делами.",
+          "gap": "busy"
+        }
+      ],
+      "audio": {
+        "file": "ph-1669.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/1669"
+      }
+    },
+    {
+      "id": "ph-68384",
+      "kind": "phrase",
+      "en": "Look at those black clouds. It is going to rain.",
+      "ru": "Посмотри на эти чёрные тучи. Сейчас пойдёт дождь.",
+      "examples": [
+        {
+          "en": "Look at those black clouds. It is going to rain.",
+          "ru": "Посмотри на эти чёрные тучи. Сейчас пойдёт дождь.",
+          "gap": "clouds"
+        }
+      ],
+      "audio": {
+        "file": "ph-68384.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/68384"
+      }
+    },
+    {
+      "id": "ph-320824",
+      "kind": "phrase",
+      "en": "Mother gets up earlier than anybody else in my family.",
+      "ru": "Мать встаёт раньше, чем все остальные в моей семье.",
+      "examples": [
+        {
+          "en": "Mother gets up earlier than anybody else in my family.",
+          "ru": "Мать встаёт раньше, чем все остальные в моей семье.",
+          "gap": "anybody"
+        }
+      ],
+      "audio": {
+        "file": "ph-320824.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/320824"
+      }
+    },
+    {
+      "id": "ph-250362",
+      "kind": "phrase",
+      "en": "My TV set is almost 15 years old, but it still has a good picture.",
+      "ru": "Моему телевизору почти 15 лет, но он по-прежнему показывает хорошую картинку.",
+      "examples": [
+        {
+          "en": "My TV set is almost 15 years old, but it still has a good picture.",
+          "ru": "Моему телевизору почти 15 лет, но он по-прежнему показывает хорошую картинку.",
+          "gap": "picture"
+        }
+      ],
+      "audio": {
+        "file": "ph-250362.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/250362"
+      }
+    },
+    {
+      "id": "ph-12982255",
+      "kind": "phrase",
+      "en": "No one writes letters by hand anymore.",
+      "ru": "Письма от руки уже никто не пишет.",
+      "examples": [
+        {
+          "en": "No one writes letters by hand anymore.",
+          "ru": "Письма от руки уже никто не пишет.",
+          "gap": "anymore"
+        }
+      ],
+      "audio": {
+        "file": "ph-12982255.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12982255"
+      }
+    },
+    {
+      "id": "ph-246745",
+      "kind": "phrase",
+      "en": "She had already gone to bed when I phoned her at 11:00 p.m.",
+      "ru": "Когда я позвонил ей в одиннадцать вечера, она уже легла спать.",
+      "examples": [
+        {
+          "en": "She had already gone to bed when I phoned her at 11:00 p.m.",
+          "ru": "Когда я позвонил ей в одиннадцать вечера, она уже легла спать.",
+          "gap": "bed"
+        }
+      ],
+      "audio": {
+        "file": "ph-246745.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/246745"
+      }
+    },
+    {
+      "id": "ph-312402",
+      "kind": "phrase",
+      "en": "She would often come late for school.",
+      "ru": "Она часто опаздывала в школу.",
+      "examples": [
+        {
+          "en": "She would often come late for school.",
+          "ru": "Она часто опаздывала в школу.",
+          "gap": "would"
+        }
+      ],
+      "audio": {
+        "file": "ph-312402.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/312402"
+      }
+    },
+    {
+      "id": "ph-1264665",
+      "kind": "phrase",
+      "en": "That's the reason she's late.",
+      "ru": "Вот почему она опоздала.",
+      "examples": [
+        {
+          "en": "That's the reason she's late.",
+          "ru": "Вот почему она опоздала.",
+          "gap": "reason"
+        }
+      ],
+      "audio": {
+        "file": "ph-1264665.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/1264665"
+      }
+    },
+    {
+      "id": "ph-278897",
+      "kind": "phrase",
+      "en": "The weather forecast said that it would rain this afternoon, but it didn't.",
+      "ru": "В прогнозе погоды было сказано, что после обеда будет дождь, но его не было.",
+      "examples": [
+        {
+          "en": "The weather forecast said that it would rain this afternoon, but it didn't.",
+          "ru": "В прогнозе погоды было сказано, что после обеда будет дождь, но его не было.",
+          "gap": "forecast"
+        }
+      ],
+      "audio": {
+        "file": "ph-278897.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/278897"
+      }
+    },
+    {
+      "id": "ph-11707859",
+      "kind": "phrase",
+      "en": "There's no bad weather, only bad clothing.",
+      "ru": "Не бывает плохой погоды, бывает плохая одежда.",
+      "examples": [
+        {
+          "en": "There's no bad weather, only bad clothing.",
+          "ru": "Не бывает плохой погоды, бывает плохая одежда.",
+          "gap": "clothing"
+        }
+      ],
+      "audio": {
+        "file": "ph-11707859.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11707859"
+      }
+    },
+    {
+      "id": "ph-21575",
+      "kind": "phrase",
+      "en": "Though he lives within a stone's throw of the school, he is often late.",
+      "ru": "Хотя он и живёт в двух шагах от школы, он часто опаздывает.",
+      "examples": [
+        {
+          "en": "Though he lives within a stone's throw of the school, he is often late.",
+          "ru": "Хотя он и живёт в двух шагах от школы, он часто опаздывает.",
+          "gap": "throw"
+        }
+      ],
+      "audio": {
+        "file": "ph-21575.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/21575"
+      }
+    },
+    {
+      "id": "ph-5107330",
+      "kind": "phrase",
+      "en": "Tomorrow I'll be at home all day.",
+      "ru": "Завтра я весь день дома.",
+      "examples": [
+        {
+          "en": "Tomorrow I'll be at home all day.",
+          "ru": "Завтра я весь день дома.",
+          "gap": "Tomorrow"
+        }
+      ],
+      "audio": {
+        "file": "ph-5107330.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/5107330"
+      }
+    },
+    {
+      "id": "ph-35868",
+      "kind": "phrase",
+      "en": "We were caught in a shower and got wet to the skin.",
+      "ru": "Мы попали под ливень и промокли до нитки.",
+      "examples": [
+        {
+          "en": "We were caught in a shower and got wet to the skin.",
+          "ru": "Мы попали под ливень и промокли до нитки.",
+          "gap": "shower"
+        }
+      ],
+      "audio": {
+        "file": "ph-35868.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/35868"
+      }
+    },
+    {
+      "id": "ph-13034745",
+      "kind": "phrase",
+      "en": "What are you going to wear tonight?",
+      "ru": "Что ты вечером наденешь?",
+      "examples": [
+        {
+          "en": "What are you going to wear tonight?",
+          "ru": "Что ты вечером наденешь?",
+          "gap": "tonight"
+        }
+      ],
+      "audio": {
+        "file": "ph-13034745.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/13034745"
+      }
+    },
+    {
+      "id": "ph-245846",
+      "kind": "phrase",
+      "en": "When I was a child, I used to go to the seashore every summer.",
+      "ru": "В детстве я каждое лето ездил на море.",
+      "examples": [
+        {
+          "en": "When I was a child, I used to go to the seashore every summer.",
+          "ru": "В детстве я каждое лето ездил на море.",
+          "gap": "seashore"
+        }
+      ],
+      "audio": {
+        "file": "ph-245846.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/245846"
+      }
+    },
+    {
+      "id": "ph-29748",
+      "kind": "phrase",
+      "en": "While listening to the radio, I fell asleep.",
+      "ru": "Слушая радио, я заснул.",
+      "examples": [
+        {
+          "en": "While listening to the radio, I fell asleep.",
+          "ru": "Слушая радио, я заснул.",
+          "gap": "asleep"
+        }
+      ],
+      "audio": {
+        "file": "ph-29748.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/29748"
+      }
+    },
+    {
+      "id": "ph-8886675",
+      "kind": "phrase",
+      "en": "You've just taken a shower.",
+      "ru": "Ты только что принял душ.",
+      "examples": [
+        {
+          "en": "You've just taken a shower.",
+          "ru": "Ты только что принял душ.",
+          "gap": "shower"
+        }
+      ],
+      "audio": {
+        "file": "ph-8886675.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/8886675"
+      }
+    }
+  ]
+}

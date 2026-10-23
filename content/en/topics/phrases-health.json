@@ -1,0 +1,691 @@
+{
+  "id": "phrases-health",
+  "title": "Фразы на слух: здоровье и дом",
+  "intro": "Настоящие голоса носителей языка с Tatoeba. Сначала послушайте и повторите вслух, потом узнавайте фразу на слух, ловите слова и записывайте её целиком.",
+  "items": [
+    {
+      "id": "ph-69901",
+      "kind": "phrase",
+      "en": "All you have to do is sit down here and answer the doctor's questions.",
+      "ru": "Всё, что тебе нужно сделать, - это сесть здесь и ответить на вопросы доктора.",
+      "examples": [
+        {
+          "en": "All you have to do is sit down here and answer the doctor's questions.",
+          "ru": "Всё, что тебе нужно сделать, - это сесть здесь и ответить на вопросы доктора.",
+          "gap": "sit"
+        }
+      ],
+      "audio": {
+        "file": "ph-69901.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/69901"
+      }
+    },
+    {
+      "id": "ph-246924",
+      "kind": "phrase",
+      "en": "As far as I know, he is one of the best doctors in town.",
+      "ru": "Насколько я знаю, он один из лучших врачей в городе.",
+      "examples": [
+        {
+          "en": "As far as I know, he is one of the best doctors in town.",
+          "ru": "Насколько я знаю, он один из лучших врачей в городе.",
+          "gap": "doctors"
+        }
+      ],
+      "audio": {
+        "file": "ph-246924.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/246924"
+      }
+    },
+    {
+      "id": "ph-9392600",
+      "kind": "phrase",
+      "en": "Did something happen with your leg?",
+      "ru": "У тебя что-то с ногой?",
+      "examples": [
+        {
+          "en": "Did something happen with your leg?",
+          "ru": "У тебя что-то с ногой?",
+          "gap": "leg"
+        }
+      ],
+      "audio": {
+        "file": "ph-9392600.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/9392600"
+      }
+    },
+    {
+      "id": "ph-10696178",
+      "kind": "phrase",
+      "en": "Do you suffer from diseases that require medication?",
+      "ru": "Страдаете ли вы заболеваниями, требующими приема лекарств?",
+      "examples": [
+        {
+          "en": "Do you suffer from diseases that require medication?",
+          "ru": "Страдаете ли вы заболеваниями, требующими приема лекарств?",
+          "gap": "medication"
+        }
+      ],
+      "audio": {
+        "file": "ph-10696178.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10696178"
+      }
+    },
+    {
+      "id": "ph-319116",
+      "kind": "phrase",
+      "en": "Father has given up smoking for his health.",
+      "ru": "Отец бросил курить из-за своего здоровья.",
+      "examples": [
+        {
+          "en": "Father has given up smoking for his health.",
+          "ru": "Отец бросил курить из-за своего здоровья.",
+          "gap": "smoking"
+        }
+      ],
+      "audio": {
+        "file": "ph-319116.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/319116"
+      }
+    },
+    {
+      "id": "ph-288282",
+      "kind": "phrase",
+      "en": "He has been ill in bed for four days.",
+      "ru": "Он уже четыре дня лежит в постели больной.",
+      "examples": [
+        {
+          "en": "He has been ill in bed for four days.",
+          "ru": "Он уже четыре дня лежит в постели больной.",
+          "gap": "ill"
+        }
+      ],
+      "audio": {
+        "file": "ph-288282.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/288282"
+      }
+    },
+    {
+      "id": "ph-303112",
+      "kind": "phrase",
+      "en": "He seems to be ill.",
+      "ru": "Он, похоже, болен.",
+      "examples": [
+        {
+          "en": "He seems to be ill.",
+          "ru": "Он, похоже, болен.",
+          "gap": "ill"
+        }
+      ],
+      "audio": {
+        "file": "ph-303112.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/303112"
+      }
+    },
+    {
+      "id": "ph-7646927",
+      "kind": "phrase",
+      "en": "He sleeps like a baby.",
+      "ru": "Он спит как младенец.",
+      "examples": [
+        {
+          "en": "He sleeps like a baby.",
+          "ru": "Он спит как младенец.",
+          "gap": "baby"
+        }
+      ],
+      "audio": {
+        "file": "ph-7646927.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/7646927"
+      }
+    },
+    {
+      "id": "ph-283535",
+      "kind": "phrase",
+      "en": "His absence was due to illness.",
+      "ru": "Он отсутствовал из-за болезни.",
+      "examples": [
+        {
+          "en": "His absence was due to illness.",
+          "ru": "Он отсутствовал из-за болезни.",
+          "gap": "illness"
+        }
+      ],
+      "audio": {
+        "file": "ph-283535.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/283535"
+      }
+    },
+    {
+      "id": "ph-287455",
+      "kind": "phrase",
+      "en": "His room is always in good order.",
+      "ru": "Его комната всегда в порядке.",
+      "examples": [
+        {
+          "en": "His room is always in good order.",
+          "ru": "Его комната всегда в порядке.",
+          "gap": "room"
+        }
+      ],
+      "audio": {
+        "file": "ph-287455.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/287455"
+      }
+    },
+    {
+      "id": "ph-260367",
+      "kind": "phrase",
+      "en": "I advised him to give up smoking, but he would not listen to me.",
+      "ru": "Я советовал ему бросить курить, но он не послушал меня.",
+      "examples": [
+        {
+          "en": "I advised him to give up smoking, but he would not listen to me.",
+          "ru": "Я советовал ему бросить курить, но он не послушал меня.",
+          "gap": "advised"
+        }
+      ],
+      "audio": {
+        "file": "ph-260367.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/260367"
+      }
+    },
+    {
+      "id": "ph-261586",
+      "kind": "phrase",
+      "en": "I caught a cold. That is why I could not attend the meeting yesterday.",
+      "ru": "Я простудился. Поэтому не смог участвовать во вчерашнем совещании.",
+      "examples": [
+        {
+          "en": "I caught a cold. That is why I could not attend the meeting yesterday.",
+          "ru": "Я простудился. Поэтому не смог участвовать во вчерашнем совещании.",
+          "gap": "cold"
+        }
+      ],
+      "audio": {
+        "file": "ph-261586.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/261586"
+      }
+    },
+    {
+      "id": "ph-11504466",
+      "kind": "phrase",
+      "en": "I had a tooth pulled a week ago.",
+      "ru": "Неделю назад мне выдернули зуб.",
+      "examples": [
+        {
+          "en": "I had a tooth pulled a week ago.",
+          "ru": "Неделю назад мне выдернули зуб.",
+          "gap": "tooth"
+        }
+      ],
+      "audio": {
+        "file": "ph-11504466.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11504466"
+      }
+    },
+    {
+      "id": "ph-6091539",
+      "kind": "phrase",
+      "en": "I regularly run in the park.",
+      "ru": "Я регулярно бегаю в парке.",
+      "examples": [
+        {
+          "en": "I regularly run in the park.",
+          "ru": "Я регулярно бегаю в парке.",
+          "gap": "regularly"
+        }
+      ],
+      "audio": {
+        "file": "ph-6091539.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/6091539"
+      }
+    },
+    {
+      "id": "ph-322298",
+      "kind": "phrase",
+      "en": "I'm glad to hear that your sister is out of danger after her operation.",
+      "ru": "Я рад слышать, что после операции ваша сестра вне опасности.",
+      "examples": [
+        {
+          "en": "I'm glad to hear that your sister is out of danger after her operation.",
+          "ru": "Я рад слышать, что после операции ваша сестра вне опасности.",
+          "gap": "danger"
+        }
+      ],
+      "audio": {
+        "file": "ph-322298.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/322298"
+      }
+    },
+    {
+      "id": "ph-239003",
+      "kind": "phrase",
+      "en": "It goes without saying that nothing is more important than health.",
+      "ru": "Само собой разумеется, что нет ничего важнее здоровья.",
+      "examples": [
+        {
+          "en": "It goes without saying that nothing is more important than health.",
+          "ru": "Само собой разумеется, что нет ничего важнее здоровья.",
+          "gap": "health"
+        }
+      ],
+      "audio": {
+        "file": "ph-239003.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/239003"
+      }
+    },
+    {
+      "id": "ph-10696123",
+      "kind": "phrase",
+      "en": "It hurts when I touch it.",
+      "ru": "Больно, когда я трогаю.",
+      "examples": [
+        {
+          "en": "It hurts when I touch it.",
+          "ru": "Больно, когда я трогаю.",
+          "gap": "hurts"
+        }
+      ],
+      "audio": {
+        "file": "ph-10696123.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10696123"
+      }
+    },
+    {
+      "id": "ph-28894",
+      "kind": "phrase",
+      "en": "It will be three months before our house is completed.",
+      "ru": "Ещё три месяца, и наш дом будет готов.",
+      "examples": [
+        {
+          "en": "It will be three months before our house is completed.",
+          "ru": "Ещё три месяца, и наш дом будет готов.",
+          "gap": "completed"
+        }
+      ],
+      "audio": {
+        "file": "ph-28894.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/28894"
+      }
+    },
+    {
+      "id": "ph-264454",
+      "kind": "phrase",
+      "en": "It'll cure itself naturally.",
+      "ru": "Само заживёт.",
+      "examples": [
+        {
+          "en": "It'll cure itself naturally.",
+          "ru": "Само заживёт.",
+          "gap": "cure"
+        }
+      ],
+      "audio": {
+        "file": "ph-264454.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/264454"
+      }
+    },
+    {
+      "id": "ph-267360",
+      "kind": "phrase",
+      "en": "Let me see your wound.",
+      "ru": "Дай мне осмотреть твою рану.",
+      "examples": [
+        {
+          "en": "Let me see your wound.",
+          "ru": "Дай мне осмотреть твою рану.",
+          "gap": "wound"
+        }
+      ],
+      "audio": {
+        "file": "ph-267360.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/267360"
+      }
+    },
+    {
+      "id": "ph-241756",
+      "kind": "phrase",
+      "en": "Our current house is too small, so we decided to move.",
+      "ru": "Наш теперешний дом слишком маленький, так что мы решили переехать.",
+      "examples": [
+        {
+          "en": "Our current house is too small, so we decided to move.",
+          "ru": "Наш теперешний дом слишком маленький, так что мы решили переехать.",
+          "gap": "current"
+        }
+      ],
+      "audio": {
+        "file": "ph-241756.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/241756"
+      }
+    },
+    {
+      "id": "ph-12855423",
+      "kind": "phrase",
+      "en": "Pass me the towel, please.",
+      "ru": "Подай мне полотенце, пожалуйста.",
+      "examples": [
+        {
+          "en": "Pass me the towel, please.",
+          "ru": "Подай мне полотенце, пожалуйста.",
+          "gap": "towel"
+        }
+      ],
+      "audio": {
+        "file": "ph-12855423.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12855423"
+      }
+    },
+    {
+      "id": "ph-66455",
+      "kind": "phrase",
+      "en": "Please put the chair away. It is in the way.",
+      "ru": "Отодвинь, пожалуйста, стул, а то он на проходе стоит.",
+      "examples": [
+        {
+          "en": "Please put the chair away. It is in the way.",
+          "ru": "Отодвинь, пожалуйста, стул, а то он на проходе стоит.",
+          "gap": "chair"
+        }
+      ],
+      "audio": {
+        "file": "ph-66455.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/66455"
+      }
+    },
+    {
+      "id": "ph-5651252",
+      "kind": "phrase",
+      "en": "Please, wash your hands.",
+      "ru": "Вымой руки, пожалуйста.",
+      "examples": [
+        {
+          "en": "Please, wash your hands.",
+          "ru": "Вымой руки, пожалуйста.",
+          "gap": "wash"
+        }
+      ],
+      "audio": {
+        "file": "ph-5651252.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/5651252"
+      }
+    },
+    {
+      "id": "ph-2086",
+      "kind": "phrase",
+      "en": "She got sick this weekend.",
+      "ru": "Она на выходных заболела.",
+      "examples": [
+        {
+          "en": "She got sick this weekend.",
+          "ru": "Она на выходных заболела.",
+          "gap": "sick"
+        }
+      ],
+      "audio": {
+        "file": "ph-2086.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/2086"
+      }
+    },
+    {
+      "id": "ph-1890766",
+      "kind": "phrase",
+      "en": "She had to share a bedroom with her sister.",
+      "ru": "Ей пришлось делить комнату с сестрой.",
+      "examples": [
+        {
+          "en": "She had to share a bedroom with her sister.",
+          "ru": "Ей пришлось делить комнату с сестрой.",
+          "gap": "bedroom"
+        }
+      ],
+      "audio": {
+        "file": "ph-1890766.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/1890766"
+      }
+    },
+    {
+      "id": "ph-313769",
+      "kind": "phrase",
+      "en": "She is afraid of falling ill again.",
+      "ru": "Она боится снова заболеть.",
+      "examples": [
+        {
+          "en": "She is afraid of falling ill again.",
+          "ru": "Она боится снова заболеть.",
+          "gap": "ill"
+        }
+      ],
+      "audio": {
+        "file": "ph-313769.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/313769"
+      }
+    },
+    {
+      "id": "ph-316070",
+      "kind": "phrase",
+      "en": "She put on dark glasses to protect her eyes from the sun.",
+      "ru": "Она надела тёмные очки, чтоб защитить глаза от солнца.",
+      "examples": [
+        {
+          "en": "She put on dark glasses to protect her eyes from the sun.",
+          "ru": "Она надела тёмные очки, чтоб защитить глаза от солнца.",
+          "gap": "sun"
+        }
+      ],
+      "audio": {
+        "file": "ph-316070.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/316070"
+      }
+    },
+    {
+      "id": "ph-313453",
+      "kind": "phrase",
+      "en": "She quit school for health reasons.",
+      "ru": "Она бросила школу по состоянию здоровья.",
+      "examples": [
+        {
+          "en": "She quit school for health reasons.",
+          "ru": "Она бросила школу по состоянию здоровья.",
+          "gap": "quit"
+        }
+      ],
+      "audio": {
+        "file": "ph-313453.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/313453"
+      }
+    },
+    {
+      "id": "ph-308676",
+      "kind": "phrase",
+      "en": "She values health above wealth.",
+      "ru": "Здоровье она ценит больше богатства.",
+      "examples": [
+        {
+          "en": "She values health above wealth.",
+          "ru": "Здоровье она ценит больше богатства.",
+          "gap": "wealth"
+        }
+      ],
+      "audio": {
+        "file": "ph-308676.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/308676"
+      }
+    },
+    {
+      "id": "ph-12904675",
+      "kind": "phrase",
+      "en": "The door doesn't open.",
+      "ru": "Дверь не открывается.",
+      "examples": [
+        {
+          "en": "The door doesn't open.",
+          "ru": "Дверь не открывается.",
+          "gap": "door"
+        }
+      ],
+      "audio": {
+        "file": "ph-12904675.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12904675"
+      }
+    },
+    {
+      "id": "ph-278307",
+      "kind": "phrase",
+      "en": "The pain was such that I was not able to sleep.",
+      "ru": "Боль была настолько сильной, что я не мог спать.",
+      "examples": [
+        {
+          "en": "The pain was such that I was not able to sleep.",
+          "ru": "Боль была настолько сильной, что я не мог спать.",
+          "gap": "pain"
+        }
+      ],
+      "audio": {
+        "file": "ph-278307.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/278307"
+      }
+    },
+    {
+      "id": "ph-757518",
+      "kind": "phrase",
+      "en": "The stomach pains are gone.",
+      "ru": "Боли в желудке прошли.",
+      "examples": [
+        {
+          "en": "The stomach pains are gone.",
+          "ru": "Боли в желудке прошли.",
+          "gap": "stomach"
+        }
+      ],
+      "audio": {
+        "file": "ph-757518.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/757518"
+      }
+    },
+    {
+      "id": "ph-12927462",
+      "kind": "phrase",
+      "en": "What are these pills for?",
+      "ru": "От чего эти таблетки?",
+      "examples": [
+        {
+          "en": "What are these pills for?",
+          "ru": "От чего эти таблетки?",
+          "gap": "pills"
+        }
+      ],
+      "audio": {
+        "file": "ph-12927462.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12927462"
+      }
+    },
+    {
+      "id": "ph-322740",
+      "kind": "phrase",
+      "en": "You had better turn off the light before you go to sleep.",
+      "ru": "Лучше бы ты выключил свет перед тем, как ложиться спать.",
+      "examples": [
+        {
+          "en": "You had better turn off the light before you go to sleep.",
+          "ru": "Лучше бы ты выключил свет перед тем, как ложиться спать.",
+          "gap": "sleep"
+        }
+      ],
+      "audio": {
+        "file": "ph-322740.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/322740"
+      }
+    },
+    {
+      "id": "ph-263594",
+      "kind": "phrase",
+      "en": "You must keep your teeth clean.",
+      "ru": "Надо следить за чистотой зубов.",
+      "examples": [
+        {
+          "en": "You must keep your teeth clean.",
+          "ru": "Надо следить за чистотой зубов.",
+          "gap": "teeth"
+        }
+      ],
+      "audio": {
+        "file": "ph-263594.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/263594"
+      }
+    }
+  ]
+}

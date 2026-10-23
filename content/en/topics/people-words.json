@@ -1,0 +1,498 @@
+{
+  "id": "people-words",
+  "title": "Слова: люди и характер",
+  "intro": "Каким бывает человек и как он себя ведёт. Слова идут от частых к редким.",
+  "items": [
+    {
+      "id": "w-character",
+      "kind": "word",
+      "en": "character",
+      "ru": "характер; персонаж",
+      "rank": 693,
+      "note": "Strong character — сильный характер. A character in a book — персонаж.",
+      "examples": [
+        {
+          "en": "She has a strong character.",
+          "ru": "У неё сильный характер.",
+          "gap": "character"
+        },
+        {
+          "en": "The main character of the film is a teacher.",
+          "ru": "Главный герой фильма — учитель.",
+          "gap": "character"
+        }
+      ]
+    },
+    {
+      "id": "w-honest",
+      "kind": "word",
+      "en": "honest",
+      "ru": "честный",
+      "rank": 2035,
+      "note": "Буква h не читается, поэтому an honest man. To be honest — честно говоря.",
+      "examples": [
+        {
+          "en": "To be honest, I don't like the idea.",
+          "ru": "Честно говоря, мне не нравится эта идея.",
+          "gap": "honest"
+        },
+        {
+          "en": "He is an honest person.",
+          "ru": "Он честный человек.",
+          "gap": "honest"
+        }
+      ]
+    },
+    {
+      "id": "w-trust",
+      "kind": "word",
+      "en": "trust",
+      "ru": "доверять; доверие",
+      "rank": 1075,
+      "note": "Trust someone — доверять кому-то, без предлога.",
+      "examples": [
+        {
+          "en": "I trust my colleagues.",
+          "ru": "Я доверяю своим коллегам.",
+          "gap": "trust"
+        },
+        {
+          "en": "You can trust her with the keys.",
+          "ru": "Ей можно доверить ключи.",
+          "gap": "trust"
+        }
+      ]
+    },
+    {
+      "id": "w-patient",
+      "kind": "word",
+      "en": "patient",
+      "ru": "терпеливый",
+      "rank": 589,
+      "note": "Be patient with someone — быть терпеливым к кому-то. Существительное patient — пациент.",
+      "examples": [
+        {
+          "en": "Be patient, the results will come.",
+          "ru": "Наберись терпения, результаты будут.",
+          "gap": "patient"
+        },
+        {
+          "en": "She is very patient with her students.",
+          "ru": "Она очень терпелива со своими учениками.",
+          "gap": "patient"
+        }
+      ]
+    },
+    {
+      "id": "w-personality",
+      "kind": "word",
+      "en": "personality",
+      "ru": "личность, характер",
+      "rank": 1652,
+      "note": "Personality — каким человек кажется другим: a friendly personality.",
+      "examples": [
+        {
+          "en": "He has a great personality.",
+          "ru": "Он очень приятный человек.",
+          "gap": "personality"
+        },
+        {
+          "en": "Our personalities are very different.",
+          "ru": "У нас очень разные характеры.",
+          "gap": "personalities"
+        }
+      ]
+    },
+    {
+      "id": "w-polite",
+      "kind": "word",
+      "en": "polite",
+      "ru": "вежливый",
+      "note": "Противоположность — impolite или rude.",
+      "examples": [
+        {
+          "en": "It's polite to say thank you.",
+          "ru": "Говорить «спасибо» — вежливо.",
+          "gap": "polite"
+        },
+        {
+          "en": "The staff were very polite.",
+          "ru": "Персонал был очень вежлив.",
+          "gap": "polite"
+        }
+      ]
+    },
+    {
+      "id": "w-respect",
+      "kind": "word",
+      "en": "respect",
+      "ru": "уважать; уважение",
+      "rank": 681,
+      "note": "Respect someone — уважать кого-то.",
+      "examples": [
+        {
+          "en": "I respect your decision.",
+          "ru": "Я уважаю твоё решение.",
+          "gap": "respect"
+        },
+        {
+          "en": "Everyone in the team respects her.",
+          "ru": "Её уважают все в команде.",
+          "gap": "respects"
+        }
+      ]
+    },
+    {
+      "id": "w-rude",
+      "kind": "word",
+      "en": "rude",
+      "ru": "грубый, невежливый",
+      "note": "Rude to someone — грубый с кем-то. It's rude to... — невежливо...",
+      "examples": [
+        {
+          "en": "Don't be rude to your sister.",
+          "ru": "Не груби сестре.",
+          "gap": "rude"
+        },
+        {
+          "en": "It's rude to interrupt people.",
+          "ru": "Перебивать людей невежливо.",
+          "gap": "rude"
+        }
+      ]
+    },
+    {
+      "id": "w-behave",
+      "kind": "word",
+      "en": "behave",
+      "ru": "вести себя",
+      "rank": 2248,
+      "note": "Behave well, badly — вести себя хорошо, плохо. Behave yourself! — Веди себя прилично!",
+      "examples": [
+        {
+          "en": "He behaved very strangely at the party.",
+          "ru": "На вечеринке он вёл себя очень странно.",
+          "gap": "behaved"
+        },
+        {
+          "en": "The children behaved well today.",
+          "ru": "Сегодня дети вели себя хорошо.",
+          "gap": "behaved"
+        }
+      ]
+    },
+    {
+      "id": "w-generous",
+      "kind": "word",
+      "en": "generous",
+      "ru": "щедрый",
+      "note": "Generous with something — щедрый на что-то.",
+      "examples": [
+        {
+          "en": "It's very generous of you.",
+          "ru": "Это очень щедро с твоей стороны.",
+          "gap": "generous"
+        },
+        {
+          "en": "My uncle is generous with his time.",
+          "ru": "Мой дядя не жалеет для других своего времени.",
+          "gap": "generous"
+        }
+      ]
+    },
+    {
+      "id": "w-admire",
+      "kind": "word",
+      "en": "admire",
+      "ru": "восхищаться",
+      "rank": 2347,
+      "note": "Admire someone for something — восхищаться кем-то за что-то.",
+      "examples": [
+        {
+          "en": "I admire her courage.",
+          "ru": "Я восхищаюсь её смелостью.",
+          "gap": "admire"
+        },
+        {
+          "en": "Everyone admired his work.",
+          "ru": "Все восхищались его работой.",
+          "gap": "admired"
+        }
+      ]
+    },
+    {
+      "id": "w-confident",
+      "kind": "word",
+      "en": "confident",
+      "ru": "уверенный (в себе)",
+      "rank": 2218,
+      "note": "Confident that... — уверенный, что... Confidence — уверенность.",
+      "examples": [
+        {
+          "en": "She feels confident before the interview.",
+          "ru": "Перед собеседованием она чувствует себя уверенно.",
+          "gap": "confident"
+        },
+        {
+          "en": "I'm confident that we will win.",
+          "ru": "Я уверен, что мы победим.",
+          "gap": "confident"
+        }
+      ]
+    },
+    {
+      "id": "w-reliable",
+      "kind": "word",
+      "en": "reliable",
+      "ru": "надёжный",
+      "rank": 2512,
+      "note": "A reliable person, car, source — надёжный человек, машина, источник.",
+      "examples": [
+        {
+          "en": "He is a reliable colleague.",
+          "ru": "Он надёжный коллега.",
+          "gap": "reliable"
+        },
+        {
+          "en": "This car is old but reliable.",
+          "ru": "Эта машина старая, но надёжная.",
+          "gap": "reliable"
+        }
+      ]
+    },
+    {
+      "id": "w-mood",
+      "kind": "word",
+      "en": "mood",
+      "ru": "настроение",
+      "rank": 2066,
+      "note": "In a good, bad mood — в хорошем, плохом настроении.",
+      "examples": [
+        {
+          "en": "The boss is in a bad mood today.",
+          "ru": "У начальника сегодня плохое настроение.",
+          "gap": "mood"
+        },
+        {
+          "en": "I'm not in the mood for jokes.",
+          "ru": "Мне не до шуток.",
+          "gap": "mood"
+        }
+      ]
+    },
+    {
+      "id": "w-calm",
+      "kind": "word",
+      "en": "calm",
+      "ru": "спокойный",
+      "rank": 1964,
+      "note": "Stay calm — сохранять спокойствие, calm down — успокоиться.",
+      "examples": [
+        {
+          "en": "Stay calm and listen to me.",
+          "ru": "Сохраняй спокойствие и послушай меня.",
+          "gap": "calm"
+        },
+        {
+          "en": "She was calm during the whole meeting.",
+          "ru": "Она была спокойна всю встречу.",
+          "gap": "calm"
+        }
+      ]
+    },
+    {
+      "id": "w-sensitive",
+      "kind": "word",
+      "en": "sensitive",
+      "ru": "чувствительный, ранимый",
+      "rank": 2077,
+      "note": "Sensitive — легко ранимый. Не путайте с sensible — разумный.",
+      "examples": [
+        {
+          "en": "He is very sensitive to criticism.",
+          "ru": "Он очень болезненно воспринимает критику.",
+          "gap": "sensitive"
+        },
+        {
+          "en": "Be careful, it's a sensitive topic.",
+          "ru": "Осторожно, это деликатная тема.",
+          "gap": "sensitive"
+        }
+      ]
+    },
+    {
+      "id": "w-sensible",
+      "kind": "word",
+      "en": "sensible",
+      "ru": "разумный, здравомыслящий",
+      "note": "Sensible — разумный, а вовсе не «сенсибельный»: a sensible decision.",
+      "examples": [
+        {
+          "en": "That sounds like a sensible plan.",
+          "ru": "Звучит как разумный план.",
+          "gap": "sensible"
+        },
+        {
+          "en": "She is a sensible person and won't panic.",
+          "ru": "Она разумный человек и не станет паниковать.",
+          "gap": "sensible"
+        }
+      ]
+    },
+    {
+      "id": "w-creative",
+      "kind": "word",
+      "en": "creative",
+      "ru": "творческий",
+      "rank": 2209,
+      "note": "Creative ideas, creative thinking — творческие идеи, творческое мышление.",
+      "examples": [
+        {
+          "en": "We need a creative solution.",
+          "ru": "Нам нужно творческое решение.",
+          "gap": "creative"
+        },
+        {
+          "en": "She works in a creative team.",
+          "ru": "Она работает в творческой команде.",
+          "gap": "creative"
+        }
+      ]
+    },
+    {
+      "id": "w-curious",
+      "kind": "word",
+      "en": "curious",
+      "ru": "любопытный",
+      "rank": 2543,
+      "note": "Curious about something — интересоваться чем-то.",
+      "examples": [
+        {
+          "en": "Children are curious about everything.",
+          "ru": "Детям всё интересно.",
+          "gap": "curious"
+        },
+        {
+          "en": "I'm curious to know what happened.",
+          "ru": "Мне любопытно, что случилось.",
+          "gap": "curious"
+        }
+      ]
+    },
+    {
+      "id": "w-ambitious",
+      "kind": "word",
+      "en": "ambitious",
+      "ru": "амбициозный, честолюбивый",
+      "note": "An ambitious plan — амбициозный план.",
+      "examples": [
+        {
+          "en": "She is ambitious and works hard.",
+          "ru": "Она амбициозна и много работает.",
+          "gap": "ambitious"
+        },
+        {
+          "en": "This is a very ambitious project.",
+          "ru": "Это очень амбициозный проект.",
+          "gap": "ambitious"
+        }
+      ]
+    },
+    {
+      "id": "w-lazy",
+      "kind": "word",
+      "en": "lazy",
+      "ru": "ленивый",
+      "rank": 2802,
+      "note": "Противоположность — hard-working.",
+      "examples": [
+        {
+          "en": "Don't be lazy, help me.",
+          "ru": "Не ленись, помоги мне.",
+          "gap": "lazy"
+        },
+        {
+          "en": "I feel lazy on Sundays.",
+          "ru": "По воскресеньям мне лень что-либо делать.",
+          "gap": "lazy"
+        }
+      ]
+    },
+    {
+      "id": "w-shy",
+      "kind": "word",
+      "en": "shy",
+      "ru": "застенчивый",
+      "note": "Don't be shy — не стесняйся.",
+      "examples": [
+        {
+          "en": "Don't be shy, ask your question.",
+          "ru": "Не стесняйся, задавай вопрос.",
+          "gap": "shy"
+        },
+        {
+          "en": "He was shy as a child.",
+          "ru": "В детстве он был застенчивым.",
+          "gap": "shy"
+        }
+      ]
+    },
+    {
+      "id": "w-selfish",
+      "kind": "word",
+      "en": "selfish",
+      "ru": "эгоистичный",
+      "note": "Selfish — думающий только о себе.",
+      "examples": [
+        {
+          "en": "That was a selfish thing to do.",
+          "ru": "Это был эгоистичный поступок.",
+          "gap": "selfish"
+        },
+        {
+          "en": "Don't be so selfish.",
+          "ru": "Не будь таким эгоистом.",
+          "gap": "selfish"
+        }
+      ]
+    },
+    {
+      "id": "w-stubborn",
+      "kind": "word",
+      "en": "stubborn",
+      "ru": "упрямый",
+      "note": "Stubborn as a mule — упрямый как осёл.",
+      "examples": [
+        {
+          "en": "My brother is very stubborn.",
+          "ru": "Мой брат очень упрямый.",
+          "gap": "stubborn"
+        },
+        {
+          "en": "Don't be stubborn, listen to her.",
+          "ru": "Не упрямься, послушай её.",
+          "gap": "stubborn"
+        }
+      ]
+    },
+    {
+      "id": "w-modest",
+      "kind": "word",
+      "en": "modest",
+      "ru": "скромный",
+      "note": "Modest — и о человеке, и о размере: a modest salary.",
+      "examples": [
+        {
+          "en": "He is modest about his success.",
+          "ru": "Он скромно говорит о своём успехе.",
+          "gap": "modest"
+        },
+        {
+          "en": "They live in a modest flat.",
+          "ru": "Они живут в скромной квартире.",
+          "gap": "modest"
+        }
+      ]
+    }
+  ]
+}

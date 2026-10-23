@@ -1,0 +1,634 @@
+{
+  "id": "phrases-money",
+  "title": "Фразы на слух: деньги и покупки",
+  "intro": "Настоящие голоса носителей языка с Tatoeba. Сначала послушайте и повторите вслух, потом узнавайте фразу на слух, ловите слова и записывайте её целиком.",
+  "items": [
+    {
+      "id": "ph-41542",
+      "kind": "phrase",
+      "en": "All of a sudden, I remembered that I couldn't pay for so many books.",
+      "ru": "Вдруг я вспомнил, что не могу себе позволить купить так много книг.",
+      "examples": [
+        {
+          "en": "All of a sudden, I remembered that I couldn't pay for so many books.",
+          "ru": "Вдруг я вспомнил, что не могу себе позволить купить так много книг.",
+          "gap": "sudden"
+        }
+      ],
+      "audio": {
+        "file": "ph-41542.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/41542"
+      }
+    },
+    {
+      "id": "ph-38051",
+      "kind": "phrase",
+      "en": "By the way, do you have any spare batteries?",
+      "ru": "Кстати, у вас есть запасные батарейки?",
+      "examples": [
+        {
+          "en": "By the way, do you have any spare batteries?",
+          "ru": "Кстати, у вас есть запасные батарейки?",
+          "gap": "batteries"
+        }
+      ],
+      "audio": {
+        "file": "ph-38051.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/38051"
+      }
+    },
+    {
+      "id": "ph-325557",
+      "kind": "phrase",
+      "en": "Can you work out the total cost of the trip?",
+      "ru": "Вы можете рассчитать общую стоимость поездки?",
+      "examples": [
+        {
+          "en": "Can you work out the total cost of the trip?",
+          "ru": "Вы можете рассчитать общую стоимость поездки?",
+          "gap": "trip"
+        }
+      ],
+      "audio": {
+        "file": "ph-325557.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/325557"
+      }
+    },
+    {
+      "id": "ph-265884",
+      "kind": "phrase",
+      "en": "Could you exchange it with a different one?",
+      "ru": "Можете заменить его на другой?",
+      "examples": [
+        {
+          "en": "Could you exchange it with a different one?",
+          "ru": "Можете заменить его на другой?",
+          "gap": "exchange"
+        }
+      ],
+      "audio": {
+        "file": "ph-265884.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/265884"
+      }
+    },
+    {
+      "id": "ph-32515",
+      "kind": "phrase",
+      "en": "Could you knock down the price if I buy two?",
+      "ru": "А вы сбавите цену, если я куплю две?",
+      "examples": [
+        {
+          "en": "Could you knock down the price if I buy two?",
+          "ru": "А вы сбавите цену, если я куплю две?",
+          "gap": "price"
+        }
+      ],
+      "audio": {
+        "file": "ph-32515.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/32515"
+      }
+    },
+    {
+      "id": "ph-8303340",
+      "kind": "phrase",
+      "en": "Did you lose your purse?",
+      "ru": "Ты потеряла сумочку?",
+      "examples": [
+        {
+          "en": "Did you lose your purse?",
+          "ru": "Ты потеряла сумочку?",
+          "gap": "purse"
+        }
+      ],
+      "audio": {
+        "file": "ph-8303340.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/8303340"
+      }
+    },
+    {
+      "id": "ph-11765272",
+      "kind": "phrase",
+      "en": "Do you need a lot of money?",
+      "ru": "Вам нужно много денег?",
+      "examples": [
+        {
+          "en": "Do you need a lot of money?",
+          "ru": "Вам нужно много денег?",
+          "gap": "money"
+        }
+      ],
+      "audio": {
+        "file": "ph-11765272.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11765272"
+      }
+    },
+    {
+      "id": "ph-2266287",
+      "kind": "phrase",
+      "en": "He got rich quickly.",
+      "ru": "Он быстро разбогател.",
+      "examples": [
+        {
+          "en": "He got rich quickly.",
+          "ru": "Он быстро разбогател.",
+          "gap": "rich"
+        }
+      ],
+      "audio": {
+        "file": "ph-2266287.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/2266287"
+      }
+    },
+    {
+      "id": "ph-715082",
+      "kind": "phrase",
+      "en": "He went bankrupt.",
+      "ru": "Он обанкротился.",
+      "examples": [
+        {
+          "en": "He went bankrupt.",
+          "ru": "Он обанкротился.",
+          "gap": "bankrupt"
+        }
+      ],
+      "audio": {
+        "file": "ph-715082.m4a",
+        "by": "amychang",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/715082"
+      }
+    },
+    {
+      "id": "ph-313296",
+      "kind": "phrase",
+      "en": "Her lack of money kept her from going with me.",
+      "ru": "Нехватка денег не позволяла ей поехать со мной.",
+      "examples": [
+        {
+          "en": "Her lack of money kept her from going with me.",
+          "ru": "Нехватка денег не позволяла ей поехать со мной.",
+          "gap": "lack"
+        }
+      ],
+      "audio": {
+        "file": "ph-313296.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/313296"
+      }
+    },
+    {
+      "id": "ph-249954",
+      "kind": "phrase",
+      "en": "I can't afford to buy a used car, much less a new one.",
+      "ru": "Я не могу позволить себе купить подержанную машину, а тем более новую.",
+      "examples": [
+        {
+          "en": "I can't afford to buy a used car, much less a new one.",
+          "ru": "Я не могу позволить себе купить подержанную машину, а тем более новую.",
+          "gap": "afford"
+        }
+      ],
+      "audio": {
+        "file": "ph-249954.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/249954"
+      }
+    },
+    {
+      "id": "ph-73215",
+      "kind": "phrase",
+      "en": "I don't have a cent, let alone a dollar.",
+      "ru": "У меня нет ни цента, не говоря уже о долларе.",
+      "examples": [
+        {
+          "en": "I don't have a cent, let alone a dollar.",
+          "ru": "У меня нет ни цента, не говоря уже о долларе.",
+          "gap": "dollar"
+        }
+      ],
+      "audio": {
+        "file": "ph-73215.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/73215"
+      }
+    },
+    {
+      "id": "ph-13573071",
+      "kind": "phrase",
+      "en": "I entered the wrong PIN.",
+      "ru": "Я ввёл не тот пин-код.",
+      "examples": [
+        {
+          "en": "I entered the wrong PIN.",
+          "ru": "Я ввёл не тот пин-код.",
+          "gap": "entered"
+        }
+      ],
+      "audio": {
+        "file": "ph-13573071.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/13573071"
+      }
+    },
+    {
+      "id": "ph-256553",
+      "kind": "phrase",
+      "en": "I have put aside one fourth of my salary for the last three years.",
+      "ru": "В течение трёх лет я откладываю четверть своей зарплаты.",
+      "examples": [
+        {
+          "en": "I have put aside one fourth of my salary for the last three years.",
+          "ru": "В течение трёх лет я откладываю четверть своей зарплаты.",
+          "gap": "fourth"
+        }
+      ],
+      "audio": {
+        "file": "ph-256553.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/256553"
+      }
+    },
+    {
+      "id": "ph-284531",
+      "kind": "phrase",
+      "en": "I owe him 1,000 dollars.",
+      "ru": "Я должен ему тысячу долларов.",
+      "examples": [
+        {
+          "en": "I owe him 1,000 dollars.",
+          "ru": "Я должен ему тысячу долларов.",
+          "gap": "owe"
+        }
+      ],
+      "audio": {
+        "file": "ph-284531.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/284531"
+      }
+    },
+    {
+      "id": "ph-730310",
+      "kind": "phrase",
+      "en": "I would like to pay with cash.",
+      "ru": "Я бы хотел заплатить наличными.",
+      "examples": [
+        {
+          "en": "I would like to pay with cash.",
+          "ru": "Я бы хотел заплатить наличными.",
+          "gap": "cash"
+        }
+      ],
+      "audio": {
+        "file": "ph-730310.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/730310"
+      }
+    },
+    {
+      "id": "ph-3891546",
+      "kind": "phrase",
+      "en": "I'm waiting for my turn.",
+      "ru": "Я жду своей очереди.",
+      "examples": [
+        {
+          "en": "I'm waiting for my turn.",
+          "ru": "Я жду своей очереди.",
+          "gap": "waiting"
+        }
+      ],
+      "audio": {
+        "file": "ph-3891546.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/3891546"
+      }
+    },
+    {
+      "id": "ph-12912496",
+      "kind": "phrase",
+      "en": "In this life, nothing is free.",
+      "ru": "В этой жизни нет ничего бесплатного.",
+      "examples": [
+        {
+          "en": "In this life, nothing is free.",
+          "ru": "В этой жизни нет ничего бесплатного.",
+          "gap": "free"
+        }
+      ],
+      "audio": {
+        "file": "ph-12912496.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12912496"
+      }
+    },
+    {
+      "id": "ph-54645",
+      "kind": "phrase",
+      "en": "It takes a lot of money to keep up such a big house.",
+      "ru": "На поддержание такого большого дома в порядке уходит много денег.",
+      "examples": [
+        {
+          "en": "It takes a lot of money to keep up such a big house.",
+          "ru": "На поддержание такого большого дома в порядке уходит много денег.",
+          "gap": "money"
+        }
+      ],
+      "audio": {
+        "file": "ph-54645.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/54645"
+      }
+    },
+    {
+      "id": "ph-7774443",
+      "kind": "phrase",
+      "en": "My balance is negative.",
+      "ru": "У меня отрицательный баланс.",
+      "examples": [
+        {
+          "en": "My balance is negative.",
+          "ru": "У меня отрицательный баланс.",
+          "gap": "negative"
+        }
+      ],
+      "audio": {
+        "file": "ph-7774443.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/7774443"
+      }
+    },
+    {
+      "id": "ph-72612",
+      "kind": "phrase",
+      "en": "Please transfer 450 dollars to my account.",
+      "ru": "Пожалуйста, переведите на мой счёт четыреста пятьдесят долларов.",
+      "examples": [
+        {
+          "en": "Please transfer 450 dollars to my account.",
+          "ru": "Пожалуйста, переведите на мой счёт четыреста пятьдесят долларов.",
+          "gap": "transfer"
+        }
+      ],
+      "audio": {
+        "file": "ph-72612.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/72612"
+      }
+    },
+    {
+      "id": "ph-11515455",
+      "kind": "phrase",
+      "en": "She asked for more and more money.",
+      "ru": "Она просила всё больше и больше денег.",
+      "examples": [
+        {
+          "en": "She asked for more and more money.",
+          "ru": "Она просила всё больше и больше денег.",
+          "gap": "money"
+        }
+      ],
+      "audio": {
+        "file": "ph-11515455.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11515455"
+      }
+    },
+    {
+      "id": "ph-313833",
+      "kind": "phrase",
+      "en": "She didn't go shopping yesterday, did she?",
+      "ru": "Она не ходила по магазинам вчера, не так ли?",
+      "examples": [
+        {
+          "en": "She didn't go shopping yesterday, did she?",
+          "ru": "Она не ходила по магазинам вчера, не так ли?",
+          "gap": "yesterday"
+        }
+      ],
+      "audio": {
+        "file": "ph-313833.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/313833"
+      }
+    },
+    {
+      "id": "ph-4309028",
+      "kind": "phrase",
+      "en": "She has huge debts.",
+      "ru": "У неё огромные долги.",
+      "examples": [
+        {
+          "en": "She has huge debts.",
+          "ru": "У неё огромные долги.",
+          "gap": "debts"
+        }
+      ],
+      "audio": {
+        "file": "ph-4309028.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/4309028"
+      }
+    },
+    {
+      "id": "ph-2184077",
+      "kind": "phrase",
+      "en": "She loves shopping.",
+      "ru": "Она обожает ходить по магазинам.",
+      "examples": [
+        {
+          "en": "She loves shopping.",
+          "ru": "Она обожает ходить по магазинам.",
+          "gap": "shopping"
+        }
+      ],
+      "audio": {
+        "file": "ph-2184077.m4a",
+        "by": "amychang",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/2184077"
+      }
+    },
+    {
+      "id": "ph-272093",
+      "kind": "phrase",
+      "en": "That's including taxes.",
+      "ru": "Это включая налоги.",
+      "examples": [
+        {
+          "en": "That's including taxes.",
+          "ru": "Это включая налоги.",
+          "gap": "taxes"
+        }
+      ],
+      "audio": {
+        "file": "ph-272093.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/272093"
+      }
+    },
+    {
+      "id": "ph-12014657",
+      "kind": "phrase",
+      "en": "The bag was not closed.",
+      "ru": "Сумка была не закрыта.",
+      "examples": [
+        {
+          "en": "The bag was not closed.",
+          "ru": "Сумка была не закрыта.",
+          "gap": "bag"
+        }
+      ],
+      "audio": {
+        "file": "ph-12014657.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12014657"
+      }
+    },
+    {
+      "id": "ph-244268",
+      "kind": "phrase",
+      "en": "The financial situation is getting worse week by week.",
+      "ru": "Финансовое положение ухудшается с каждой неделей.",
+      "examples": [
+        {
+          "en": "The financial situation is getting worse week by week.",
+          "ru": "Финансовое положение ухудшается с каждой неделей.",
+          "gap": "financial"
+        }
+      ],
+      "audio": {
+        "file": "ph-244268.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/244268"
+      }
+    },
+    {
+      "id": "ph-8561085",
+      "kind": "phrase",
+      "en": "To earn money, you have to work.",
+      "ru": "Чтобы заработать деньги, надо работать.",
+      "examples": [
+        {
+          "en": "To earn money, you have to work.",
+          "ru": "Чтобы заработать деньги, надо работать.",
+          "gap": "earn"
+        }
+      ],
+      "audio": {
+        "file": "ph-8561085.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/8561085"
+      }
+    },
+    {
+      "id": "ph-273950",
+      "kind": "phrase",
+      "en": "What a nice car you have! You must have paid a lot for it.",
+      "ru": "Какая классная машина! Должно быть, ты отдал за неё кучу денег!",
+      "examples": [
+        {
+          "en": "What a nice car you have! You must have paid a lot for it.",
+          "ru": "Какая классная машина! Должно быть, ты отдал за неё кучу денег!",
+          "gap": "paid"
+        }
+      ],
+      "audio": {
+        "file": "ph-273950.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/273950"
+      }
+    },
+    {
+      "id": "ph-32845",
+      "kind": "phrase",
+      "en": "You should always save money for a rainy day.",
+      "ru": "Всегда стоит иметь немного денег на черный день.",
+      "examples": [
+        {
+          "en": "You should always save money for a rainy day.",
+          "ru": "Всегда стоит иметь немного денег на черный день.",
+          "gap": "rainy"
+        }
+      ],
+      "audio": {
+        "file": "ph-32845.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/32845"
+      }
+    },
+    {
+      "id": "ph-282520",
+      "kind": "phrase",
+      "en": "You will be better off buying a new one than trying to fix it.",
+      "ru": "Вам лучше купить новую, чем пытаться починить эту.",
+      "examples": [
+        {
+          "en": "You will be better off buying a new one than trying to fix it.",
+          "ru": "Вам лучше купить новую, чем пытаться починить эту.",
+          "gap": "fix"
+        }
+      ],
+      "audio": {
+        "file": "ph-282520.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/282520"
+      }
+    },
+    {
+      "id": "ph-279326",
+      "kind": "phrase",
+      "en": "I searched in my pocket for a coin to make a phone call.",
+      "ru": "Я искал в кармане монету, чтобы позвонить.",
+      "examples": [
+        {
+          "en": "I searched in my pocket for a coin to make a phone call.",
+          "ru": "Я искал в кармане монету, чтобы позвонить.",
+          "gap": "coin"
+        }
+      ],
+      "audio": {
+        "file": "ph-279326.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/279326"
+      }
+    }
+  ]
+}

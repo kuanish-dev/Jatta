@@ -1,0 +1,502 @@
+{
+  "id": "health-words",
+  "title": "Слова: здоровье",
+  "intro": "Самочувствие, болезни, врачи и спорт. Слова идут от частых к редким.",
+  "items": [
+    {
+      "id": "w-rest",
+      "kind": "word",
+      "en": "rest",
+      "ru": "отдых; отдыхать",
+      "rank": 528,
+      "note": "Have, take a rest — отдохнуть. The rest — остальное.",
+      "examples": [
+        {
+          "en": "You need some rest.",
+          "ru": "Тебе нужно отдохнуть.",
+          "gap": "rest"
+        },
+        {
+          "en": "The doctor told me to rest for a few days.",
+          "ru": "Врач велел мне несколько дней отдыхать.",
+          "gap": "rest"
+        }
+      ]
+    },
+    {
+      "id": "w-fit",
+      "kind": "word",
+      "en": "fit",
+      "ru": "в хорошей форме; подходить",
+      "rank": 700,
+      "note": "Keep fit — поддерживать форму. Fit — ещё и «подходить по размеру».",
+      "examples": [
+        {
+          "en": "She goes to the gym to keep fit.",
+          "ru": "Она ходит в спортзал, чтобы держать себя в форме.",
+          "gap": "fit"
+        },
+        {
+          "en": "I'm not as fit as I used to be.",
+          "ru": "Я уже не в той форме, что раньше.",
+          "gap": "fit"
+        }
+      ]
+    },
+    {
+      "id": "w-treatment",
+      "kind": "word",
+      "en": "treatment",
+      "ru": "лечение",
+      "rank": 811,
+      "note": "Get treatment — лечиться.",
+      "examples": [
+        {
+          "en": "The treatment took three months.",
+          "ru": "Лечение заняло три месяца.",
+          "gap": "treatment"
+        },
+        {
+          "en": "He is getting treatment for his back.",
+          "ru": "Он лечит спину.",
+          "gap": "treatment"
+        }
+      ]
+    },
+    {
+      "id": "w-disease",
+      "kind": "word",
+      "en": "disease",
+      "ru": "болезнь (заболевание)",
+      "rank": 906,
+      "note": "Disease — конкретное заболевание: heart disease. Illness — состояние болезни.",
+      "examples": [
+        {
+          "en": "Heart disease is very common.",
+          "ru": "Болезни сердца очень распространены.",
+          "gap": "disease"
+        },
+        {
+          "en": "This disease is easy to treat.",
+          "ru": "Эту болезнь легко лечить.",
+          "gap": "disease"
+        }
+      ]
+    },
+    {
+      "id": "w-exercise",
+      "kind": "word",
+      "en": "exercise",
+      "ru": "физическая нагрузка, зарядка",
+      "rank": 917,
+      "note": "Do exercise — заниматься спортом. В этом значении неисчисляемое.",
+      "examples": [
+        {
+          "en": "I try to do some exercise every day.",
+          "ru": "Я стараюсь каждый день немного заниматься спортом.",
+          "gap": "exercise"
+        },
+        {
+          "en": "Regular exercise helps you sleep better.",
+          "ru": "Регулярные упражнения помогают лучше спать.",
+          "gap": "exercise"
+        }
+      ]
+    },
+    {
+      "id": "w-weight",
+      "kind": "word",
+      "en": "weight",
+      "ru": "вес",
+      "rank": 978,
+      "note": "Lose weight — похудеть, put on weight — поправиться.",
+      "examples": [
+        {
+          "en": "He has lost a lot of weight.",
+          "ru": "Он сильно похудел.",
+          "gap": "weight"
+        },
+        {
+          "en": "What's your weight?",
+          "ru": "Сколько ты весишь?",
+          "gap": "weight"
+        }
+      ]
+    },
+    {
+      "id": "w-stress",
+      "kind": "word",
+      "en": "stress",
+      "ru": "стресс",
+      "rank": 1044,
+      "note": "Under stress — в стрессе. Stressful — напряжённый.",
+      "examples": [
+        {
+          "en": "I'm under a lot of stress at work.",
+          "ru": "У меня на работе сильный стресс.",
+          "gap": "stress"
+        },
+        {
+          "en": "Sport helps me deal with stress.",
+          "ru": "Спорт помогает мне справляться со стрессом.",
+          "gap": "stress"
+        }
+      ]
+    },
+    {
+      "id": "w-pain",
+      "kind": "word",
+      "en": "pain",
+      "ru": "боль",
+      "rank": 1150,
+      "note": "I have a pain in my back — у меня болит спина. Painful — болезненный.",
+      "examples": [
+        {
+          "en": "I have a pain in my back.",
+          "ru": "У меня болит спина.",
+          "gap": "pain"
+        },
+        {
+          "en": "Take this medicine if the pain gets worse.",
+          "ru": "Прими это лекарство, если боль усилится.",
+          "gap": "pain"
+        }
+      ]
+    },
+    {
+      "id": "w-healthy",
+      "kind": "word",
+      "en": "healthy",
+      "ru": "здоровый, полезный",
+      "rank": 1362,
+      "note": "Healthy food — полезная еда. A healthy lifestyle — здоровый образ жизни.",
+      "examples": [
+        {
+          "en": "I try to eat healthy food.",
+          "ru": "Я стараюсь есть полезную еду.",
+          "gap": "healthy"
+        },
+        {
+          "en": "Walking is a healthy habit.",
+          "ru": "Ходить пешком — полезная привычка.",
+          "gap": "healthy"
+        }
+      ]
+    },
+    {
+      "id": "w-hurt",
+      "kind": "word",
+      "en": "hurt",
+      "ru": "болеть; ушибить",
+      "rank": 1421,
+      "note": "My leg hurts — у меня болит нога. I hurt my leg — я ушиб ногу. Формы: hurt — hurt — hurt.",
+      "examples": [
+        {
+          "en": "My head hurts.",
+          "ru": "У меня болит голова.",
+          "gap": "hurts"
+        },
+        {
+          "en": "He hurt his knee playing football.",
+          "ru": "Он ушиб колено, играя в футбол.",
+          "gap": "hurt"
+        }
+      ]
+    },
+    {
+      "id": "w-temperature",
+      "kind": "word",
+      "en": "temperature",
+      "ru": "температура",
+      "rank": 1452,
+      "note": "Have a temperature — температурить. Take someone's temperature — измерить температуру.",
+      "examples": [
+        {
+          "en": "The child has a high temperature.",
+          "ru": "У ребёнка высокая температура.",
+          "gap": "temperature"
+        },
+        {
+          "en": "The nurse took my temperature.",
+          "ru": "Медсестра измерила мне температуру.",
+          "gap": "temperature"
+        }
+      ]
+    },
+    {
+      "id": "w-recover",
+      "kind": "word",
+      "en": "recover",
+      "ru": "выздоравливать, восстанавливаться",
+      "rank": 1631,
+      "note": "Recover from an illness — оправиться после болезни.",
+      "examples": [
+        {
+          "en": "She is recovering from the flu.",
+          "ru": "Она выздоравливает после гриппа.",
+          "gap": "recovering"
+        },
+        {
+          "en": "It took him a month to recover.",
+          "ru": "Ему понадобился месяц, чтобы восстановиться.",
+          "gap": "recover"
+        }
+      ]
+    },
+    {
+      "id": "w-sick",
+      "kind": "word",
+      "en": "sick",
+      "ru": "больной; тошнит",
+      "rank": 1716,
+      "note": "Call in sick — сказаться больным. Feel sick — тошнить. Ill — то же, чаще у британцев.",
+      "examples": [
+        {
+          "en": "He called in sick today.",
+          "ru": "Сегодня он сказался больным.",
+          "gap": "sick"
+        },
+        {
+          "en": "I feel sick after that fish.",
+          "ru": "Меня тошнит после той рыбы.",
+          "gap": "sick"
+        }
+      ]
+    },
+    {
+      "id": "w-medicine",
+      "kind": "word",
+      "en": "medicine",
+      "ru": "лекарство; медицина",
+      "rank": 1761,
+      "note": "Take medicine — принимать лекарство, а не «пить».",
+      "examples": [
+        {
+          "en": "Did you take your medicine?",
+          "ru": "Ты принял лекарство?",
+          "gap": "medicine"
+        },
+        {
+          "en": "She studies medicine at university.",
+          "ru": "Она изучает медицину в университете.",
+          "gap": "medicine"
+        }
+      ]
+    },
+    {
+      "id": "w-injury",
+      "kind": "word",
+      "en": "injury",
+      "ru": "травма",
+      "rank": 1801,
+      "note": "A serious injury — серьёзная травма. Injure — травмировать.",
+      "examples": [
+        {
+          "en": "He missed the game because of an injury.",
+          "ru": "Он пропустил игру из-за травмы.",
+          "gap": "injury"
+        },
+        {
+          "en": "Nobody had serious injuries.",
+          "ru": "Ни у кого не было серьёзных травм.",
+          "gap": "injuries"
+        }
+      ]
+    },
+    {
+      "id": "w-appointment",
+      "kind": "word",
+      "en": "appointment",
+      "ru": "запись (к врачу), встреча",
+      "rank": 1839,
+      "note": "Make an appointment — записаться на приём.",
+      "examples": [
+        {
+          "en": "I have a doctor's appointment at three.",
+          "ru": "В три у меня приём у врача.",
+          "gap": "appointment"
+        },
+        {
+          "en": "I'd like to make an appointment.",
+          "ru": "Я хотел бы записаться на приём.",
+          "gap": "appointment"
+        }
+      ]
+    },
+    {
+      "id": "w-diet",
+      "kind": "word",
+      "en": "diet",
+      "ru": "питание, рацион; диета",
+      "rank": 1847,
+      "note": "Be on a diet — сидеть на диете. A balanced diet — сбалансированное питание.",
+      "examples": [
+        {
+          "en": "She is on a diet.",
+          "ru": "Она на диете.",
+          "gap": "diet"
+        },
+        {
+          "en": "A healthy diet includes fruit and vegetables.",
+          "ru": "В здоровое питание входят фрукты и овощи.",
+          "gap": "diet"
+        }
+      ]
+    },
+    {
+      "id": "w-illness",
+      "kind": "word",
+      "en": "illness",
+      "ru": "болезнь",
+      "rank": 1938,
+      "note": "Illness — период или состояние болезни: after a long illness.",
+      "examples": [
+        {
+          "en": "He returned to work after a long illness.",
+          "ru": "Он вернулся на работу после долгой болезни.",
+          "gap": "illness"
+        },
+        {
+          "en": "Stress can cause illness.",
+          "ru": "Стресс может вызвать болезнь.",
+          "gap": "illness"
+        }
+      ]
+    },
+    {
+      "id": "w-symptom",
+      "kind": "word",
+      "en": "symptom",
+      "ru": "симптом",
+      "rank": 2071,
+      "note": "What are your symptoms? — Что вас беспокоит?",
+      "examples": [
+        {
+          "en": "What are your symptoms?",
+          "ru": "Какие у вас симптомы?",
+          "gap": "symptoms"
+        },
+        {
+          "en": "A high temperature is a common symptom of flu.",
+          "ru": "Высокая температура — частый симптом гриппа.",
+          "gap": "symptom"
+        }
+      ]
+    },
+    {
+      "id": "w-cough",
+      "kind": "word",
+      "en": "cough",
+      "ru": "кашель; кашлять",
+      "rank": 2774,
+      "note": "Произносится [kɒf]. Have a cough — кашлять.",
+      "examples": [
+        {
+          "en": "I've had a cough for a week.",
+          "ru": "Я кашляю уже неделю.",
+          "gap": "cough"
+        },
+        {
+          "en": "He was coughing all night.",
+          "ru": "Он кашлял всю ночь.",
+          "gap": "coughing"
+        }
+      ]
+    },
+    {
+      "id": "w-fever",
+      "kind": "word",
+      "en": "fever",
+      "ru": "жар",
+      "note": "Have a fever — температурить. Британцы чаще говорят have a temperature.",
+      "examples": [
+        {
+          "en": "She has a fever and a headache.",
+          "ru": "У неё жар и болит голова.",
+          "gap": "fever"
+        },
+        {
+          "en": "The fever went down in the morning.",
+          "ru": "К утру жар спал.",
+          "gap": "fever"
+        }
+      ]
+    },
+    {
+      "id": "w-headache",
+      "kind": "word",
+      "en": "headache",
+      "ru": "головная боль",
+      "note": "Have a headache — болит голова. Так же toothache — зубная боль.",
+      "examples": [
+        {
+          "en": "I have a terrible headache.",
+          "ru": "У меня ужасно болит голова.",
+          "gap": "headache"
+        },
+        {
+          "en": "Loud music gives me a headache.",
+          "ru": "От громкой музыки у меня болит голова.",
+          "gap": "headache"
+        }
+      ]
+    },
+    {
+      "id": "w-prescription",
+      "kind": "word",
+      "en": "prescription",
+      "ru": "рецепт (врача)",
+      "note": "Prescription — рецепт на лекарство. Recipe — рецепт блюда.",
+      "examples": [
+        {
+          "en": "You can't buy this medicine without a prescription.",
+          "ru": "Это лекарство не продаётся без рецепта.",
+          "gap": "prescription"
+        },
+        {
+          "en": "The doctor gave me a prescription.",
+          "ru": "Врач выписал мне рецепт.",
+          "gap": "prescription"
+        }
+      ]
+    },
+    {
+      "id": "w-heal",
+      "kind": "word",
+      "en": "heal",
+      "ru": "заживать",
+      "note": "Heal — о ранах и травмах: the cut healed quickly.",
+      "examples": [
+        {
+          "en": "The wound healed quickly.",
+          "ru": "Рана быстро зажила.",
+          "gap": "healed"
+        },
+        {
+          "en": "Time heals everything.",
+          "ru": "Время лечит всё.",
+          "gap": "heals"
+        }
+      ]
+    },
+    {
+      "id": "w-cure",
+      "kind": "word",
+      "en": "cure",
+      "ru": "вылечить; средство от болезни",
+      "note": "Cure — вылечить полностью. A cure for something — средство от чего-то.",
+      "examples": [
+        {
+          "en": "There is no cure for the common cold.",
+          "ru": "От простуды нет лекарства.",
+          "gap": "cure"
+        },
+        {
+          "en": "The doctors cured her.",
+          "ru": "Врачи её вылечили.",
+          "gap": "cured"
+        }
+      ]
+    }
+  ]
+}

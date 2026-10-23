@@ -71,6 +71,9 @@ sealed interface Screen {
     /** The learner compares a free answer with the model answer and says whether it was right. */
     data class SelfCheck(val exercise: Exercise, val response: String?, val steps: Steps) : Screen
 
+    /** М24: right by ear — now the text and its meaning, the voice again, and a moment to repeat it aloud. */
+    data class Heard(val exercise: Exercise, val translation: String, val banner: Banner, val steps: Steps) : Screen
+
     /** Wrong after the hint: the answer and a short explanation (М12). */
     data class Reveal(val exercise: Exercise, val note: String, val steps: Steps) : Screen
 

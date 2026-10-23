@@ -1,0 +1,178 @@
+{
+  "id": "reported-speech",
+  "title": "Косвенная речь",
+  "intro": "Когда пересказываем чужие слова после said, told, asked, время обычно сдвигается на шаг в прошлое: «I am tired» → She said she was tired.",
+  "requires": [
+    "narrative-tenses"
+  ],
+  "items": [
+    {
+      "id": "rep-backshift",
+      "kind": "rule",
+      "en": "said (that) + время в прошлое",
+      "ru": "После said время сдвигается в прошлое: am → was, work → worked, have done → had done",
+      "note": "«I am busy» → He said (that) he was busy. «I work here» → She said she worked there.",
+      "examples": [
+        {
+          "en": "He said that he was busy.",
+          "ru": "Он сказал, что занят.",
+          "gap": "was",
+          "cue": "«I am busy»",
+          "wrong": [
+            "is being",
+            "be",
+            "were"
+          ]
+        },
+        {
+          "en": "She said she worked in a bank.",
+          "ru": "Она сказала, что работает в банке.",
+          "gap": "worked",
+          "cue": "«I work in a bank»",
+          "wrong": [
+            "working",
+            "has work",
+            "work"
+          ]
+        },
+        {
+          "en": "They said they had finished the project.",
+          "ru": "Они сказали, что закончили проект.",
+          "gap": "had finished",
+          "cue": "«We have finished»",
+          "wrong": [
+            "has finished",
+            "had finish",
+            "finishing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rep-would",
+      "kind": "rule",
+      "en": "will → would, can → could",
+      "ru": "will → would, can → could",
+      "note": "«I will call you» → He said he would call me. «I can help» → She said she could help.",
+      "examples": [
+        {
+          "en": "He said he would call me later.",
+          "ru": "Он сказал, что позвонит мне позже.",
+          "gap": "would",
+          "cue": "«I will call you»",
+          "wrong": [
+            "will to",
+            "is",
+            "had"
+          ]
+        },
+        {
+          "en": "She said she could help us.",
+          "ru": "Она сказала, что может нам помочь.",
+          "gap": "could",
+          "cue": "«I can help you»",
+          "wrong": [
+            "would can",
+            "is able",
+            "cans"
+          ]
+        },
+        {
+          "en": "They told us the shop would open at nine.",
+          "ru": "Нам сказали, что магазин откроется в девять.",
+          "gap": "would",
+          "cue": "«The shop will open at nine»",
+          "wrong": [
+            "will to",
+            "is",
+            "has"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rep-told",
+      "kind": "rule",
+      "en": "told someone / said",
+      "ru": "tell — кому-то: told me; say — без «кому»: said that",
+      "note": "He told me (that)... — He said (that)... «Said me» — ошибка.",
+      "examples": [
+        {
+          "en": "She told me that she was leaving.",
+          "ru": "Она сказала мне, что уходит.",
+          "gap": "told",
+          "cue": "сказала мне",
+          "wrong": [
+            "said",
+            "says",
+            "talked"
+          ]
+        },
+        {
+          "en": "He said that the meeting was cancelled.",
+          "ru": "Он сказал, что встречу отменили.",
+          "gap": "said",
+          "cue": "сказал",
+          "wrong": [
+            "told",
+            "tell",
+            "spoke"
+          ]
+        },
+        {
+          "en": "The doctor told him to rest.",
+          "ru": "Врач велел ему отдыхать.",
+          "gap": "told",
+          "cue": "велел ему",
+          "wrong": [
+            "said",
+            "says",
+            "spoke"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rep-questions",
+      "kind": "rule",
+      "en": "asked where I lived",
+      "ru": "Вопрос в косвенной речи — с порядком слов утверждения и без do/did",
+      "note": "«Where do you live?» → She asked where I lived. «Are you ready?» → He asked if I was ready.",
+      "examples": [
+        {
+          "en": "She asked where I lived.",
+          "ru": "Она спросила, где я живу.",
+          "gap": "where I lived",
+          "cue": "«Where do you live?»",
+          "wrong": [
+            "where do I live",
+            "where did I live",
+            "where lived I"
+          ]
+        },
+        {
+          "en": "He asked if I was ready.",
+          "ru": "Он спросил, готов ли я.",
+          "gap": "if I was ready",
+          "cue": "«Are you ready?»",
+          "wrong": [
+            "if was I ready",
+            "am I ready",
+            "was I ready"
+          ]
+        },
+        {
+          "en": "They asked me what time it was.",
+          "ru": "Они спросили меня, который час.",
+          "gap": "what time it was",
+          "cue": "«What time is it?»",
+          "wrong": [
+            "what time was it",
+            "what time is it",
+            "what was time"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -26,6 +26,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -57,6 +58,7 @@ import com.jatta.study.ThemeChoice
 import com.jatta.study.TopicState
 import com.jatta.study.TopicStatus
 import com.jatta.study.calibration.CalibrationVerdict
+import com.jatta.study.content.AudioFile
 import com.jatta.study.content.KindFile
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffKind
@@ -64,6 +66,7 @@ import com.jatta.study.judge.DiffPart
 import com.jatta.study.judge.ModelState
 import com.jatta.study.reading.Reading
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 @Composable
@@ -81,6 +84,7 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
         is Screen.Checking -> CheckingScreen(s, controller)
         is Screen.Judged -> JudgedScreen(s, controller)
         is Screen.SelfCheck -> SelfCheckScreen(s, controller)
+        is Screen.Heard -> HeardScreen(s, controller)
         is Screen.Reveal -> RevealScreen(s, controller)
         is Screen.Rest -> RestScreen(s, nowMs, controller::finishRest)
         is Screen.Done -> DoneScreen(s, controller::openHome)
@@ -359,21 +363,27 @@ private fun PresentScreen(present: Screen.Present, controller: StudyController) 
         present.topicIntro?.let { Note(it) }
         val item = present.item
         val isWord = item.kind != KindFile.Rule
-        if (isWord) SpeakOnShow(item.id, item.en)
+        val audio = item.audio
+        if (isWord) SpeakOnShow(item.id, item.en, audio?.file)
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(item.en, Modifier.weight(1f), style = MaterialTheme.typography.headlineMedium, color = Neon.Cyan)
-            if (isWord) ListenButton(item.en, "▶ СЛУШАТЬ")
+            if (isWord) ListenButton(item.en, "▶ СЛУШАТЬ", audio?.file)
         }
         Text(item.ru, style = MaterialTheme.typography.titleMedium)
         if (item.note.isNotBlank()) Muted(item.note)
-        Panel(Modifier.fillMaxWidth()) {
-            item.examples.forEach { example ->
-                Row {
-                    Column(Modifier.weight(1f)) {
-                        Text(example.en, style = MaterialTheme.typography.bodyLarge)
-                        Muted(example.ru)
+        if (audio != null) {
+            Note(SHADOWING)
+            Credit(audio)
+        } else {
+            Panel(Modifier.fillMaxWidth()) {
+                item.examples.forEach { example ->
+                    Row {
+                        Column(Modifier.weight(1f)) {
+                            Text(example.en, style = MaterialTheme.typography.bodyLarge)
+                            Muted(example.ru)
+                        }
+                        ListenButton(example.en)
                     }
-                    ListenButton(example.en)
                 }
             }
         }
@@ -389,14 +399,22 @@ private fun QuestionScreen(question: Screen.Question, controller: StudyControlle
             val lead = if (question.confidentError) "Ответ быстрый, но неверный — запомните внимательно." else "Не совсем."
             Note("$lead Подсказка: $hint")
         }
-        when (val exercise = question.exercise) {
+        val exercise = question.exercise
+        if (exercise.byEar) {
+            // М24: the recording is the question itself.
+            SpeakOnShow(question.id, exercise.listen, exercise.recording)
+            ListenButton(exercise.listen, "▶ ПОСЛУШАТЬ ЕЩЁ", exercise.recording)
+        }
+        when (exercise) {
             is Exercise.Choice -> {
                 // An English word to recognise is played at once; a sentence with a gap would give the answer away.
                 val spoken = exercise.question == exercise.listen
                 if (spoken) SpeakOnShow(question.id, exercise.listen)
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(exercise.question, Modifier.weight(1f), style = MaterialTheme.typography.headlineSmall)
-                    if (spoken) ListenButton(exercise.listen)
+                if (exercise.question.isNotEmpty()) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(exercise.question, Modifier.weight(1f), style = MaterialTheme.typography.headlineSmall)
+                        if (spoken) ListenButton(exercise.listen)
+                    }
                 }
                 exercise.translation?.let { Muted(it) }
                 exercise.options.forEachIndexed { index, option ->
@@ -404,7 +422,7 @@ private fun QuestionScreen(question: Screen.Question, controller: StudyControlle
                 }
             }
             is Exercise.Typed -> {
-                Text(exercise.question, style = MaterialTheme.typography.headlineSmall)
+                if (exercise.question.isNotEmpty()) Text(exercise.question, style = MaterialTheme.typography.headlineSmall)
                 exercise.translation?.let { Muted(it) }
                 exercise.cue?.let { Label("($it)", color = Neon.Acid) }
                 AnswerField(question.id, singleLine = true, onSubmit = controller::submitText)
@@ -502,7 +520,7 @@ private fun SelfCheckScreen(check: Screen.SelfCheck, controller: StudyController
         Panel(Modifier.fillMaxWidth()) {
             references.forEach { Text(it, style = MaterialTheme.typography.bodyLarge, color = Neon.Cyan) }
         }
-        ListenButton(check.exercise.listen, "▶ СЛУШАТЬ ОБРАЗЕЦ")
+        ListenButton(check.exercise.listen, "▶ СЛУШАТЬ ОБРАЗЕЦ", check.exercise.recording)
         Muted("Смысл и грамматика верны — значит верно, даже если слова другие.")
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             NeonButton({ controller.judgeSelf(true) }, Modifier.weight(1f)) { Text("ВЕРНО") }
@@ -510,13 +528,45 @@ private fun SelfCheckScreen(check: Screen.SelfCheck, controller: StudyController
         }
     }
 
+/** М24: the phrase just heard right, to listen to again and repeat aloud. */
+@Composable
+private fun HeardScreen(heard: Screen.Heard, controller: StudyController) =
+    StudyPage(heard.steps, heard.banner, controller::stopSession) {
+        Label("Что звучало", color = Neon.Acid)
+        Text(heard.exercise.answer, style = MaterialTheme.typography.headlineSmall, color = Neon.Cyan)
+        Muted(heard.translation)
+        ListenButton(heard.exercise.listen, "▶ ПОСЛУШАТЬ ЕЩЁ", heard.exercise.recording)
+        Note(SHADOWING)
+        NeonButton(controller::continueAfterHeard, Modifier.fillMaxWidth()) { Text("ДАЛЬШЕ") }
+    }
+
+private const val SHADOWING = "Повторите вслух за диктором 2–3 раза: тот же темп, ударения и паузы."
+
+/** Who recorded a phrase and under which license, as the license asks. */
+@Composable
+private fun Credit(audio: AudioFile) {
+    Text(
+        buildAnnotatedString {
+            withLink(LinkAnnotation.Url(audio.source, TextLinkStyles(SpanStyle(textDecoration = TextDecoration.Underline)))) {
+                append("Голос: ${audio.by} · ${audio.license} · Tatoeba")
+            }
+        },
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+}
+
 @Composable
 private fun RevealScreen(reveal: Screen.Reveal, controller: StudyController) =
     StudyPage(reveal.steps, banner = null, onStop = controller::stopSession) {
         Label("Правильный ответ", color = Neon.Danger)
-        SpeakOnShow(reveal, reveal.exercise.listen)
+        SpeakOnShow(reveal, reveal.exercise.listen, reveal.exercise.recording)
         Text(reveal.exercise.answer, style = MaterialTheme.typography.headlineSmall, color = Neon.Cyan)
-        ListenButton(reveal.exercise.listen, if (reveal.exercise.listen == reveal.exercise.answer) "▶ СЛУШАТЬ" else "▶ ${reveal.exercise.listen}")
+        ListenButton(
+            reveal.exercise.listen,
+            if (reveal.exercise.listen == reveal.exercise.answer) "▶ СЛУШАТЬ" else "▶ ${reveal.exercise.listen}",
+            reveal.exercise.recording,
+        )
         Note(reveal.note)
         Muted("Вернёмся к этому в конце занятия.")
         NeonButton(controller::continueAfterReveal, Modifier.fillMaxWidth()) { Text("ДАЛЬШЕ") }
@@ -672,20 +722,21 @@ private fun Page(content: @Composable ColumnScope.() -> Unit) {
     }
 }
 
-/** Plays English aloud; nothing is drawn where the platform has no speech. */
+/** Plays English aloud, in the real voice of [recording] when there is one; nothing is drawn without a speaker. */
 @Composable
-private fun ListenButton(text: String, label: String = "▶") {
+private fun ListenButton(text: String, label: String = "▶", recording: String? = null) {
     val speaker = LocalSpeaker.current ?: return
-    TextButton({ speaker.speak(text) }) {
+    val scope = rememberCoroutineScope()
+    TextButton({ scope.launch { speaker.say(text, recording) } }) {
         Text(label, style = MaterialTheme.typography.labelLarge, color = Neon.Cyan)
     }
 }
 
 /** Plays [text] once when a screen with this [key] appears. */
 @Composable
-private fun SpeakOnShow(key: Any, text: String) {
+private fun SpeakOnShow(key: Any, text: String, recording: String? = null) {
     val speaker = LocalSpeaker.current
-    LaunchedEffect(key) { speaker?.speak(text) }
+    LaunchedEffect(key) { speaker?.say(text, recording) }
 }
 
 @Composable

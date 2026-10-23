@@ -52,6 +52,19 @@ data class ItemFile(
     /** One or two lines shown when the item is presented and after a wrong answer (М10, М12). */
     val note: String = "",
     val examples: List<ExampleFile> = emptyList(),
+    /** A real voice saying [en]; the item is then studied by ear (М24). */
+    val audio: AudioFile? = null,
+)
+
+/** A recording in content/<language>/audio/, credited on screen as its license asks. */
+@Serializable
+data class AudioFile(
+    val file: String,
+    /** Who recorded it. */
+    val by: String,
+    val license: String,
+    /** Where the sentence, its translation and the recording come from. */
+    val source: String,
 )
 
 @Serializable

@@ -1,0 +1,729 @@
+{
+  "id": "phrases-talk",
+  "title": "Фразы на слух: разговор",
+  "intro": "Настоящие голоса носителей языка с Tatoeba. Сначала послушайте и повторите вслух, потом узнавайте фразу на слух, ловите слова и записывайте её целиком.",
+  "items": [
+    {
+      "id": "ph-10064927",
+      "kind": "phrase",
+      "en": "Are you sure you want to?",
+      "ru": "Ты уверен, что хочешь?",
+      "examples": [
+        {
+          "en": "Are you sure you want to?",
+          "ru": "Ты уверен, что хочешь?",
+          "gap": "sure"
+        }
+      ],
+      "audio": {
+        "file": "ph-10064927.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10064927"
+      }
+    },
+    {
+      "id": "ph-11184128",
+      "kind": "phrase",
+      "en": "But that's none of my business.",
+      "ru": "Но это не моё дело.",
+      "examples": [
+        {
+          "en": "But that's none of my business.",
+          "ru": "Но это не моё дело.",
+          "gap": "none"
+        }
+      ],
+      "audio": {
+        "file": "ph-11184128.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11184128"
+      }
+    },
+    {
+      "id": "ph-39320",
+      "kind": "phrase",
+      "en": "But you will write, won't you?",
+      "ru": "Но ты ведь будешь писать, да?",
+      "examples": [
+        {
+          "en": "But you will write, won't you?",
+          "ru": "Но ты ведь будешь писать, да?",
+          "gap": "write"
+        }
+      ],
+      "audio": {
+        "file": "ph-39320.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/39320"
+      }
+    },
+    {
+      "id": "ph-8923520",
+      "kind": "phrase",
+      "en": "Did you say ninety or nineteen?",
+      "ru": "Ты сказал девяносто или девятнадцать?",
+      "examples": [
+        {
+          "en": "Did you say ninety or nineteen?",
+          "ru": "Ты сказал девяносто или девятнадцать?",
+          "gap": "nineteen"
+        }
+      ],
+      "audio": {
+        "file": "ph-8923520.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/8923520"
+      }
+    },
+    {
+      "id": "ph-268459",
+      "kind": "phrase",
+      "en": "Don't pull my leg!",
+      "ru": "Не разыгрывай меня!",
+      "examples": [
+        {
+          "en": "Don't pull my leg!",
+          "ru": "Не разыгрывай меня!",
+          "gap": "leg"
+        }
+      ],
+      "audio": {
+        "file": "ph-268459.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/268459"
+      }
+    },
+    {
+      "id": "ph-13022675",
+      "kind": "phrase",
+      "en": "Don't say sorry.",
+      "ru": "Не извиняйся.",
+      "examples": [
+        {
+          "en": "Don't say sorry.",
+          "ru": "Не извиняйся.",
+          "gap": "sorry"
+        }
+      ],
+      "audio": {
+        "file": "ph-13022675.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/13022675"
+      }
+    },
+    {
+      "id": "ph-11069553",
+      "kind": "phrase",
+      "en": "Don't worry, we still have a chance.",
+      "ru": "Не волнуйся, у нас всё ещё есть шанс.",
+      "examples": [
+        {
+          "en": "Don't worry, we still have a chance.",
+          "ru": "Не волнуйся, у нас всё ещё есть шанс.",
+          "gap": "worry"
+        }
+      ],
+      "audio": {
+        "file": "ph-11069553.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11069553"
+      }
+    },
+    {
+      "id": "ph-250787",
+      "kind": "phrase",
+      "en": "From my point of view, it would be better to wait a little longer.",
+      "ru": "На мой взгляд, лучше было бы ещё немного подождать.",
+      "examples": [
+        {
+          "en": "From my point of view, it would be better to wait a little longer.",
+          "ru": "На мой взгляд, лучше было бы ещё немного подождать.",
+          "gap": "wait"
+        }
+      ],
+      "audio": {
+        "file": "ph-250787.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/250787"
+      }
+    },
+    {
+      "id": "ph-10762089",
+      "kind": "phrase",
+      "en": "Her arguments don't convince me.",
+      "ru": "Её аргументы меня не убеждают.",
+      "examples": [
+        {
+          "en": "Her arguments don't convince me.",
+          "ru": "Её аргументы меня не убеждают.",
+          "gap": "convince"
+        }
+      ],
+      "audio": {
+        "file": "ph-10762089.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/10762089"
+      }
+    },
+    {
+      "id": "ph-287625",
+      "kind": "phrase",
+      "en": "His name was on the tip of my tongue, but I couldn't remember it.",
+      "ru": "Его имя вертелось у меня на языке, но я не мог вспомнить его.",
+      "examples": [
+        {
+          "en": "His name was on the tip of my tongue, but I couldn't remember it.",
+          "ru": "Его имя вертелось у меня на языке, но я не мог вспомнить его.",
+          "gap": "tongue"
+        }
+      ],
+      "audio": {
+        "file": "ph-287625.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/287625"
+      }
+    },
+    {
+      "id": "ph-240200",
+      "kind": "phrase",
+      "en": "How about a cup of tea or something, if you aren't in a hurry?",
+      "ru": "Как насчет чашки чая или еще чего-нибудь, если ты не торопишься?",
+      "examples": [
+        {
+          "en": "How about a cup of tea or something, if you aren't in a hurry?",
+          "ru": "Как насчет чашки чая или еще чего-нибудь, если ты не торопишься?",
+          "gap": "hurry"
+        }
+      ],
+      "audio": {
+        "file": "ph-240200.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/240200"
+      }
+    },
+    {
+      "id": "ph-249719",
+      "kind": "phrase",
+      "en": "I am pleased to help you if I can.",
+      "ru": "Я с удовольствием помогу вам, если смогу.",
+      "examples": [
+        {
+          "en": "I am pleased to help you if I can.",
+          "ru": "Я с удовольствием помогу вам, если смогу.",
+          "gap": "pleased"
+        }
+      ],
+      "audio": {
+        "file": "ph-249719.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/249719"
+      }
+    },
+    {
+      "id": "ph-261258",
+      "kind": "phrase",
+      "en": "I can hardly understand what she says.",
+      "ru": "Я едва понимаю, что она говорит.",
+      "examples": [
+        {
+          "en": "I can hardly understand what she says.",
+          "ru": "Я едва понимаю, что она говорит.",
+          "gap": "hardly"
+        }
+      ],
+      "audio": {
+        "file": "ph-261258.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/261258"
+      }
+    },
+    {
+      "id": "ph-9942009",
+      "kind": "phrase",
+      "en": "I don't understand what he means.",
+      "ru": "Я не понимаю, что он имеет в виду.",
+      "examples": [
+        {
+          "en": "I don't understand what he means.",
+          "ru": "Я не понимаю, что он имеет в виду.",
+          "gap": "means"
+        }
+      ],
+      "audio": {
+        "file": "ph-9942009.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/9942009"
+      }
+    },
+    {
+      "id": "ph-270979",
+      "kind": "phrase",
+      "en": "I haven't seen you for ages. Do you remember when I saw you last?",
+      "ru": "Давно тебя не видел. Ты помнишь, когда я последний раз тебя видел?",
+      "examples": [
+        {
+          "en": "I haven't seen you for ages. Do you remember when I saw you last?",
+          "ru": "Давно тебя не видел. Ты помнишь, когда я последний раз тебя видел?",
+          "gap": "remember"
+        }
+      ],
+      "audio": {
+        "file": "ph-270979.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/270979"
+      }
+    },
+    {
+      "id": "ph-260726",
+      "kind": "phrase",
+      "en": "I politely turned down his offer and hung up.",
+      "ru": "Я вежливо отказался от его предложения и повесил трубку.",
+      "examples": [
+        {
+          "en": "I politely turned down his offer and hung up.",
+          "ru": "Я вежливо отказался от его предложения и повесил трубку.",
+          "gap": "politely"
+        }
+      ],
+      "audio": {
+        "file": "ph-260726.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/260726"
+      }
+    },
+    {
+      "id": "ph-13718427",
+      "kind": "phrase",
+      "en": "I told you all this would happen.",
+      "ru": "Я вам всем говорил, что так будет.",
+      "examples": [
+        {
+          "en": "I told you all this would happen.",
+          "ru": "Я вам всем говорил, что так будет.",
+          "gap": "happen"
+        }
+      ],
+      "audio": {
+        "file": "ph-13718427.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/13718427"
+      }
+    },
+    {
+      "id": "ph-257404",
+      "kind": "phrase",
+      "en": "I'd like to make it clear that I will not change my mind.",
+      "ru": "Я хотел бы сразу сказать, что своего мнения я не изменю.",
+      "examples": [
+        {
+          "en": "I'd like to make it clear that I will not change my mind.",
+          "ru": "Я хотел бы сразу сказать, что своего мнения я не изменю.",
+          "gap": "clear"
+        }
+      ],
+      "audio": {
+        "file": "ph-257404.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/257404"
+      }
+    },
+    {
+      "id": "ph-242275",
+      "kind": "phrase",
+      "en": "I'm looking forward to meeting with you the next time I visit your town.",
+      "ru": "Я с нетерпением жду нашей встречи, когда я в следующий раз приеду в твой город.",
+      "examples": [
+        {
+          "en": "I'm looking forward to meeting with you the next time I visit your town.",
+          "ru": "Я с нетерпением жду нашей встречи, когда я в следующий раз приеду в твой город.",
+          "gap": "forward"
+        }
+      ],
+      "audio": {
+        "file": "ph-242275.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/242275"
+      }
+    },
+    {
+      "id": "ph-2654243",
+      "kind": "phrase",
+      "en": "I'm not bothering you?",
+      "ru": "Я вам не мешаю?",
+      "examples": [
+        {
+          "en": "I'm not bothering you?",
+          "ru": "Я вам не мешаю?",
+          "gap": "bothering"
+        }
+      ],
+      "audio": {
+        "file": "ph-2654243.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/2654243"
+      }
+    },
+    {
+      "id": "ph-52423",
+      "kind": "phrase",
+      "en": "I'm sorry. It was just a slip of the tongue.",
+      "ru": "Извините. Это была просто оговорка.",
+      "examples": [
+        {
+          "en": "I'm sorry. It was just a slip of the tongue.",
+          "ru": "Извините. Это была просто оговорка.",
+          "gap": "tongue"
+        }
+      ],
+      "audio": {
+        "file": "ph-52423.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/52423"
+      }
+    },
+    {
+      "id": "ph-249716",
+      "kind": "phrase",
+      "en": "If there's anything I can do for you, don't hesitate to let me know.",
+      "ru": "Если я что-то могу сделать для вас, не стесняйтесь, дайте мне знать.",
+      "examples": [
+        {
+          "en": "If there's anything I can do for you, don't hesitate to let me know.",
+          "ru": "Если я что-то могу сделать для вас, не стесняйтесь, дайте мне знать.",
+          "gap": "hesitate"
+        }
+      ],
+      "audio": {
+        "file": "ph-249716.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/249716"
+      }
+    },
+    {
+      "id": "ph-51077",
+      "kind": "phrase",
+      "en": "It is kind of you to say so.",
+      "ru": "Очень любезно с вашей стороны.",
+      "examples": [
+        {
+          "en": "It is kind of you to say so.",
+          "ru": "Очень любезно с вашей стороны.",
+          "gap": "kind"
+        }
+      ],
+      "audio": {
+        "file": "ph-51077.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/51077"
+      }
+    },
+    {
+      "id": "ph-11496841",
+      "kind": "phrase",
+      "en": "It will be my pleasure.",
+      "ru": "С удовольствием.",
+      "examples": [
+        {
+          "en": "It will be my pleasure.",
+          "ru": "С удовольствием.",
+          "gap": "pleasure"
+        }
+      ],
+      "audio": {
+        "file": "ph-11496841.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/11496841"
+      }
+    },
+    {
+      "id": "ph-1575116",
+      "kind": "phrase",
+      "en": "Leave me out of this!",
+      "ru": "Избавь меня от этого!",
+      "examples": [
+        {
+          "en": "Leave me out of this!",
+          "ru": "Избавь меня от этого!",
+          "gap": "Leave"
+        }
+      ],
+      "audio": {
+        "file": "ph-1575116.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/1575116"
+      }
+    },
+    {
+      "id": "ph-72130",
+      "kind": "phrase",
+      "en": "Oh, take your time. I'm in no hurry.",
+      "ru": "О, не нужно спешить. Я не тороплюсь.",
+      "examples": [
+        {
+          "en": "Oh, take your time. I'm in no hurry.",
+          "ru": "О, не нужно спешить. Я не тороплюсь.",
+          "gap": "hurry"
+        }
+      ],
+      "audio": {
+        "file": "ph-72130.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/72130"
+      }
+    },
+    {
+      "id": "ph-10627962",
+      "kind": "phrase",
+      "en": "Put yourself in my shoes. What would you have done?",
+      "ru": "Поставь себя на моё место. Что бы ты сделал?",
+      "examples": [
+        {
+          "en": "Put yourself in my shoes. What would you have done?",
+          "ru": "Поставь себя на моё место. Что бы ты сделал?",
+          "gap": "shoes"
+        }
+      ],
+      "audio": {
+        "file": "ph-10627962.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/10627962"
+      }
+    },
+    {
+      "id": "ph-327103",
+      "kind": "phrase",
+      "en": "Thank you for all you did for me that time.",
+      "ru": "Спасибо за всё, что ты сделал для меня тогда.",
+      "examples": [
+        {
+          "en": "Thank you for all you did for me that time.",
+          "ru": "Спасибо за всё, что ты сделал для меня тогда.",
+          "gap": "Thank"
+        }
+      ],
+      "audio": {
+        "file": "ph-327103.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/327103"
+      }
+    },
+    {
+      "id": "ph-4678282",
+      "kind": "phrase",
+      "en": "That is not what I said at all.",
+      "ru": "Я вовсе не так сказал.",
+      "examples": [
+        {
+          "en": "That is not what I said at all.",
+          "ru": "Я вовсе не так сказал.",
+          "gap": "said"
+        }
+      ],
+      "audio": {
+        "file": "ph-4678282.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/4678282"
+      }
+    },
+    {
+      "id": "ph-40890",
+      "kind": "phrase",
+      "en": "The line is busy now. Please hold the line.",
+      "ru": "Линия сейчас занята. Пожалуйста, не вешайте трубку.",
+      "examples": [
+        {
+          "en": "The line is busy now. Please hold the line.",
+          "ru": "Линия сейчас занята. Пожалуйста, не вешайте трубку.",
+          "gap": "busy"
+        }
+      ],
+      "audio": {
+        "file": "ph-40890.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/40890"
+      }
+    },
+    {
+      "id": "ph-10645130",
+      "kind": "phrase",
+      "en": "Then let's exchange phone numbers.",
+      "ru": "Давай тогда обменяемся телефонами.",
+      "examples": [
+        {
+          "en": "Then let's exchange phone numbers.",
+          "ru": "Давай тогда обменяемся телефонами.",
+          "gap": "exchange"
+        }
+      ],
+      "audio": {
+        "file": "ph-10645130.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/10645130"
+      }
+    },
+    {
+      "id": "ph-40003",
+      "kind": "phrase",
+      "en": "What do you say to going out for a short walk?",
+      "ru": "Что ты скажешь на то, чтобы выйти и немного прогуляться?",
+      "examples": [
+        {
+          "en": "What do you say to going out for a short walk?",
+          "ru": "Что ты скажешь на то, чтобы выйти и немного прогуляться?",
+          "gap": "short"
+        }
+      ],
+      "audio": {
+        "file": "ph-40003.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/40003"
+      }
+    },
+    {
+      "id": "ph-1090282",
+      "kind": "phrase",
+      "en": "What he said could possibly be true.",
+      "ru": "То, что он сказал, возможно, является правдой.",
+      "examples": [
+        {
+          "en": "What he said could possibly be true.",
+          "ru": "То, что он сказал, возможно, является правдой.",
+          "gap": "possibly"
+        }
+      ],
+      "audio": {
+        "file": "ph-1090282.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/1090282"
+      }
+    },
+    {
+      "id": "ph-18060",
+      "kind": "phrase",
+      "en": "You can talk until you're blue in the face, but you'll never convince me.",
+      "ru": "Можешь говорить до посинения, ты всё равно меня не убедишь.",
+      "examples": [
+        {
+          "en": "You can talk until you're blue in the face, but you'll never convince me.",
+          "ru": "Можешь говорить до посинения, ты всё равно меня не убедишь.",
+          "gap": "convince"
+        }
+      ],
+      "audio": {
+        "file": "ph-18060.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/18060"
+      }
+    },
+    {
+      "id": "ph-41822",
+      "kind": "phrase",
+      "en": "You don't have to tell it to me if you don't want to.",
+      "ru": "Можешь мне этого не говорить, если не хочешь.",
+      "examples": [
+        {
+          "en": "You don't have to tell it to me if you don't want to.",
+          "ru": "Можешь мне этого не говорить, если не хочешь.",
+          "gap": "tell"
+        }
+      ],
+      "audio": {
+        "file": "ph-41822.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/41822"
+      }
+    },
+    {
+      "id": "ph-8937075",
+      "kind": "phrase",
+      "en": "That is not entirely wrong.",
+      "ru": "Это не совсем неправильно.",
+      "examples": [
+        {
+          "en": "That is not entirely wrong.",
+          "ru": "Это не совсем неправильно.",
+          "gap": "entirely"
+        }
+      ],
+      "audio": {
+        "file": "ph-8937075.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/8937075"
+      }
+    },
+    {
+      "id": "ph-284182",
+      "kind": "phrase",
+      "en": "There is no need to take his advice if you don't want to.",
+      "ru": "Нет необходимости следовать его совету, если ты не хочешь.",
+      "examples": [
+        {
+          "en": "There is no need to take his advice if you don't want to.",
+          "ru": "Нет необходимости следовать его совету, если ты не хочешь.",
+          "gap": "advice"
+        }
+      ],
+      "audio": {
+        "file": "ph-284182.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/284182"
+      }
+    },
+    {
+      "id": "ph-3454449",
+      "kind": "phrase",
+      "en": "I've gotta go.",
+      "ru": "Мне пора.",
+      "examples": [
+        {
+          "en": "I've gotta go.",
+          "ru": "Мне пора.",
+          "gap": "gotta"
+        }
+      ],
+      "audio": {
+        "file": "ph-3454449.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/3454449"
+      }
+    }
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "id": "money-words",
+  "title": "Слова: деньги",
+  "intro": "Доходы и расходы, счета, долги и покупки. Слова идут от частых к редким.",
+  "items": [
+    {
+      "id": "w-account",
+      "kind": "word",
+      "en": "account",
+      "ru": "счёт (в банке)",
+      "rank": 436,
+      "note": "Bank account — банковский счёт. Account — ещё и учётная запись в приложении.",
+      "examples": [
+        {
+          "en": "I opened a new bank account last week.",
+          "ru": "На прошлой неделе я открыл новый банковский счёт.",
+          "gap": "account"
+        },
+        {
+          "en": "The money is already in your account.",
+          "ru": "Деньги уже на вашем счёте.",
+          "gap": "account"
+        }
+      ]
+    },
+    {
+      "id": "w-save",
+      "kind": "word",
+      "en": "save",
+      "ru": "копить, экономить",
+      "rank": 566,
+      "note": "Save money — копить деньги, save time — экономить время. Save a file — сохранить файл.",
+      "examples": [
+        {
+          "en": "We are saving for a new car.",
+          "ru": "Мы копим на новую машину.",
+          "gap": "saving"
+        },
+        {
+          "en": "You can save a lot if you cook at home.",
+          "ru": "Можно много сэкономить, если готовить дома.",
+          "gap": "save"
+        }
+      ]
+    },
+    {
+      "id": "w-tax",
+      "kind": "word",
+      "en": "tax",
+      "ru": "налог",
+      "rank": 787,
+      "note": "Pay taxes — платить налоги. Before tax, after tax — до и после вычета налогов.",
+      "examples": [
+        {
+          "en": "How much tax do you pay?",
+          "ru": "Сколько налогов ты платишь?",
+          "gap": "tax"
+        },
+        {
+          "en": "The price includes tax.",
+          "ru": "Налог входит в цену.",
+          "gap": "tax"
+        }
+      ]
+    },
+    {
+      "id": "w-worth",
+      "kind": "word",
+      "en": "worth",
+      "ru": "стоящий; стоимостью",
+      "rank": 816,
+      "note": "Be worth + сумма — стоить столько. Be worth + -ing — стоит того: It's worth trying.",
+      "examples": [
+        {
+          "en": "This old watch is worth a lot of money.",
+          "ru": "Эти старые часы стоят больших денег.",
+          "gap": "worth"
+        },
+        {
+          "en": "The film is worth watching.",
+          "ru": "Этот фильм стоит посмотреть.",
+          "gap": "worth"
+        }
+      ]
+    },
+    {
+      "id": "w-bill",
+      "kind": "word",
+      "en": "bill",
+      "ru": "счёт (к оплате)",
+      "rank": 888,
+      "note": "Bill — счёт в ресторане, за свет, за телефон. В американском английском — ещё и банкнота.",
+      "examples": [
+        {
+          "en": "Can we have the bill, please?",
+          "ru": "Можно нам счёт, пожалуйста?",
+          "gap": "bill"
+        },
+        {
+          "en": "I forgot to pay the electricity bill.",
+          "ru": "Я забыл оплатить счёт за электричество.",
+          "gap": "bill"
+        }
+      ]
+    },
+    {
+      "id": "w-profit",
+      "kind": "word",
+      "en": "profit",
+      "ru": "прибыль",
+      "rank": 900,
+      "note": "Make a profit — получить прибыль. Противоположность — loss, убыток.",
+      "examples": [
+        {
+          "en": "The company made a profit this year.",
+          "ru": "В этом году компания получила прибыль.",
+          "gap": "profit"
+        },
+        {
+          "en": "They sold the house at a profit.",
+          "ru": "Они продали дом с выгодой.",
+          "gap": "profit"
+        }
+      ]
+    },
+    {
+      "id": "w-income",
+      "kind": "word",
+      "en": "income",
+      "ru": "доход",
+      "rank": 920,
+      "note": "Income — все деньги, которые приходят: зарплата, аренда, проценты.",
+      "examples": [
+        {
+          "en": "Her income has doubled since she changed jobs.",
+          "ru": "Её доход удвоился с тех пор, как она сменила работу.",
+          "gap": "income"
+        },
+        {
+          "en": "Rent takes a third of our income.",
+          "ru": "Аренда съедает треть нашего дохода.",
+          "gap": "income"
+        }
+      ]
+    },
+    {
+      "id": "w-earn",
+      "kind": "word",
+      "en": "earn",
+      "ru": "зарабатывать",
+      "rank": 926,
+      "note": "Earn money, earn a living — зарабатывать на жизнь. Win — выиграть, а не заработать.",
+      "examples": [
+        {
+          "en": "He earns more than his father did.",
+          "ru": "Он зарабатывает больше, чем его отец.",
+          "gap": "earns"
+        },
+        {
+          "en": "She earned enough to travel for a year.",
+          "ru": "Она заработала достаточно, чтобы год путешествовать.",
+          "gap": "earned"
+        }
+      ]
+    },
+    {
+      "id": "w-purchase",
+      "kind": "word",
+      "en": "purchase",
+      "ru": "покупка; покупать",
+      "rank": 1002,
+      "note": "Purchase — официальное слово вместо buy: в договорах, на сайтах, в чеках.",
+      "examples": [
+        {
+          "en": "Keep the receipt as proof of purchase.",
+          "ru": "Сохраните чек как доказательство покупки.",
+          "gap": "purchase"
+        },
+        {
+          "en": "You can purchase tickets online.",
+          "ru": "Билеты можно купить онлайн.",
+          "gap": "purchase"
+        }
+      ]
+    },
+    {
+      "id": "w-payment",
+      "kind": "word",
+      "en": "payment",
+      "ru": "платёж, оплата",
+      "rank": 1268,
+      "note": "Make a payment — внести платёж. Monthly payment — ежемесячный платёж.",
+      "examples": [
+        {
+          "en": "The first payment is due on Monday.",
+          "ru": "Первый платёж нужно внести в понедельник.",
+          "gap": "payment"
+        },
+        {
+          "en": "We accept payment by card.",
+          "ru": "Мы принимаем оплату картой.",
+          "gap": "payment"
+        }
+      ]
+    },
+    {
+      "id": "w-cash",
+      "kind": "word",
+      "en": "cash",
+      "ru": "наличные",
+      "rank": 1339,
+      "note": "Pay in cash — платить наличными, pay by card — картой.",
+      "examples": [
+        {
+          "en": "Do you have any cash on you?",
+          "ru": "У тебя есть с собой наличные?",
+          "gap": "cash"
+        },
+        {
+          "en": "I paid in cash.",
+          "ru": "Я заплатил наличными.",
+          "gap": "cash"
+        }
+      ]
+    },
+    {
+      "id": "w-invest",
+      "kind": "word",
+      "en": "invest",
+      "ru": "вкладывать, инвестировать",
+      "rank": 1366,
+      "note": "Invest in something — вкладывать во что-то: invest in a company, invest time in learning.",
+      "examples": [
+        {
+          "en": "He invested all his savings in the business.",
+          "ru": "Он вложил все свои сбережения в бизнес.",
+          "gap": "invested"
+        },
+        {
+          "en": "It's worth investing time in good habits.",
+          "ru": "В хорошие привычки стоит вкладывать время.",
+          "gap": "investing"
+        }
+      ]
+    },
+    {
+      "id": "w-fee",
+      "kind": "word",
+      "en": "fee",
+      "ru": "плата, комиссия (за услугу)",
+      "rank": 1479,
+      "note": "Fee — плата за услугу: bank fee, entrance fee, legal fees.",
+      "examples": [
+        {
+          "en": "The bank charges a small fee for each transfer.",
+          "ru": "Банк берёт небольшую комиссию за каждый перевод.",
+          "gap": "fee"
+        },
+        {
+          "en": "The entrance fee is ten dollars.",
+          "ru": "Плата за вход — десять долларов.",
+          "gap": "fee"
+        }
+      ]
+    },
+    {
+      "id": "w-afford",
+      "kind": "word",
+      "en": "afford",
+      "ru": "позволить себе (по деньгам)",
+      "rank": 1488,
+      "note": "Почти всегда с can: I can't afford a new phone. Can you afford to buy a flat?",
+      "examples": [
+        {
+          "en": "We can't afford a holiday this year.",
+          "ru": "В этом году мы не можем позволить себе отпуск.",
+          "gap": "afford"
+        },
+        {
+          "en": "Can you afford to buy a flat?",
+          "ru": "Ты можешь позволить себе купить квартиру?",
+          "gap": "afford"
+        }
+      ]
+    },
+    {
+      "id": "w-expense",
+      "kind": "word",
+      "en": "expense",
+      "ru": "расход, затрата",
+      "rank": 1531,
+      "note": "Expenses — расходы. At someone's expense — за чей-то счёт.",
+      "examples": [
+        {
+          "en": "Food is our biggest expense.",
+          "ru": "Еда — наша самая большая статья расходов.",
+          "gap": "expense"
+        },
+        {
+          "en": "The company pays all travel expenses.",
+          "ru": "Компания оплачивает все командировочные расходы.",
+          "gap": "expenses"
+        }
+      ]
+    },
+    {
+      "id": "w-rent",
+      "kind": "word",
+      "en": "rent",
+      "ru": "аренда; снимать (жильё)",
+      "rank": 1566,
+      "note": "Rent a flat — снимать квартиру, pay the rent — платить за аренду.",
+      "examples": [
+        {
+          "en": "We rent a small flat near the centre.",
+          "ru": "Мы снимаем небольшую квартиру рядом с центром.",
+          "gap": "rent"
+        },
+        {
+          "en": "The rent is due at the end of the month.",
+          "ru": "За аренду нужно заплатить в конце месяца.",
+          "gap": "rent"
+        }
+      ]
+    },
+    {
+      "id": "w-loan",
+      "kind": "word",
+      "en": "loan",
+      "ru": "кредит, заём",
+      "rank": 1576,
+      "note": "Take out a loan — взять кредит, pay back a loan — вернуть кредит.",
+      "examples": [
+        {
+          "en": "They took out a loan to buy a house.",
+          "ru": "Они взяли кредит на покупку дома.",
+          "gap": "loan"
+        },
+        {
+          "en": "He paid back the loan in three years.",
+          "ru": "Он вернул кредит за три года.",
+          "gap": "loan"
+        }
+      ]
+    },
+    {
+      "id": "w-debt",
+      "kind": "word",
+      "en": "debt",
+      "ru": "долг",
+      "rank": 1624,
+      "note": "Буква b не читается: [det]. Be in debt — быть в долгах, pay off a debt — расплатиться с долгом.",
+      "examples": [
+        {
+          "en": "He is still in debt.",
+          "ru": "Он всё ещё в долгах.",
+          "gap": "debt"
+        },
+        {
+          "en": "It took her five years to pay off the debt.",
+          "ru": "Ей понадобилось пять лет, чтобы расплатиться с долгом.",
+          "gap": "debt"
+        }
+      ]
+    },
+    {
+      "id": "w-discount",
+      "kind": "word",
+      "en": "discount",
+      "ru": "скидка",
+      "rank": 1660,
+      "note": "A 20% discount — скидка 20%. Get a discount — получить скидку.",
+      "examples": [
+        {
+          "en": "Students get a ten percent discount.",
+          "ru": "Студенты получают скидку десять процентов.",
+          "gap": "discount"
+        },
+        {
+          "en": "Can you give me a discount?",
+          "ru": "Можете сделать мне скидку?",
+          "gap": "discount"
+        }
+      ]
+    },
+    {
+      "id": "w-borrow",
+      "kind": "word",
+      "en": "borrow",
+      "ru": "брать в долг, одалживать у кого-то",
+      "rank": 1880,
+      "note": "Borrow from someone — брать у кого-то. Не путайте с lend — давать в долг.",
+      "examples": [
+        {
+          "en": "Can I borrow your pen?",
+          "ru": "Можно одолжить у тебя ручку?",
+          "gap": "borrow"
+        },
+        {
+          "en": "She borrowed money from her parents.",
+          "ru": "Она заняла деньги у родителей.",
+          "gap": "borrowed"
+        }
+      ]
+    },
+    {
+      "id": "w-owe",
+      "kind": "word",
+      "en": "owe",
+      "ru": "быть должным",
+      "rank": 2053,
+      "note": "Owe someone something: I owe you ten dollars — я должен тебе десять долларов.",
+      "examples": [
+        {
+          "en": "How much do I owe you?",
+          "ru": "Сколько я тебе должен?",
+          "gap": "owe"
+        },
+        {
+          "en": "He still owes the bank a lot of money.",
+          "ru": "Он всё ещё должен банку много денег.",
+          "gap": "owes"
+        }
+      ]
+    },
+    {
+      "id": "w-wealth",
+      "kind": "word",
+      "en": "wealth",
+      "ru": "богатство",
+      "rank": 2187,
+      "note": "Wealth — богатство, состояние. Wealthy — богатый.",
+      "examples": [
+        {
+          "en": "Health is more important than wealth.",
+          "ru": "Здоровье важнее богатства.",
+          "gap": "wealth"
+        },
+        {
+          "en": "Most of his wealth came from property.",
+          "ru": "Большая часть его состояния — от недвижимости.",
+          "gap": "wealth"
+        }
+      ]
+    },
+    {
+      "id": "w-lend",
+      "kind": "word",
+      "en": "lend",
+      "ru": "давать в долг, одалживать кому-то",
+      "rank": 2305,
+      "note": "Lend someone something: Can you lend me some money? Формы: lend — lent — lent.",
+      "examples": [
+        {
+          "en": "Could you lend me twenty dollars?",
+          "ru": "Не одолжишь мне двадцать долларов?",
+          "gap": "lend"
+        },
+        {
+          "en": "I lent him my car for the weekend.",
+          "ru": "Я одолжил ему машину на выходные.",
+          "gap": "lent"
+        }
+      ]
+    },
+    {
+      "id": "w-receipt",
+      "kind": "word",
+      "en": "receipt",
+      "ru": "чек, квитанция",
+      "note": "Буква p не читается: [rɪˈsiːt].",
+      "examples": [
+        {
+          "en": "Could I have a receipt, please?",
+          "ru": "Можно мне чек, пожалуйста?",
+          "gap": "receipt"
+        },
+        {
+          "en": "Keep the receipt in case you want to return it.",
+          "ru": "Сохрани чек на случай, если захочешь вернуть покупку.",
+          "gap": "receipt"
+        }
+      ]
+    },
+    {
+      "id": "w-refund",
+      "kind": "word",
+      "en": "refund",
+      "ru": "возврат денег",
+      "note": "Get a refund — получить деньги назад, ask for a refund — потребовать вернуть деньги.",
+      "examples": [
+        {
+          "en": "I'd like a refund, please.",
+          "ru": "Я хотел бы вернуть деньги.",
+          "gap": "refund"
+        },
+        {
+          "en": "They gave me a full refund.",
+          "ru": "Мне вернули всю сумму.",
+          "gap": "refund"
+        }
+      ]
+    }
+  ]
+}

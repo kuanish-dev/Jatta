@@ -147,6 +147,40 @@ class StudyControllerTest {
         assertEquals(check.reviews + studyConfig.refitAfterReviews, after.nextFitAt)
     }
 
+    /** М24: a phrase recognised by ear is then shown as text, to listen to again and repeat. */
+    @Test
+    fun aPhraseHeardRightIsShownAsTextToRepeat() {
+        val app = controller()
+        app.startSession()
+        runSessionAnsweringRight(app)
+        now += day
+        app.openHome()
+        app.startSession()
+        repeat(300) {
+            now += 3_000
+            when (val screen = app.screen.value) {
+                is Screen.Present -> app.presented()
+                is Screen.Question -> {
+                    val exercise = screen.exercise
+                    answerRight(app, exercise)
+                    if (exercise.byEar) {
+                        val heard = app.screen.value as Screen.Heard
+                        assertEquals(exercise.answer, heard.exercise.answer)
+                        assertEquals(content.items.getValue(exercise.itemId).ru, heard.translation)
+                        assertEquals(exercise.recording, heard.exercise.recording)
+                        app.continueAfterHeard()
+                        assertFalse(app.screen.value is Screen.Heard)
+                        return
+                    }
+                }
+                is Screen.SelfCheck -> app.judgeSelf(true)
+                is Screen.Rest -> app.finishRest()
+                else -> error("Unexpected screen: $screen")
+            }
+        }
+        error("No phrase by ear in the second session")
+    }
+
     @Test
     fun remindersFollowTheScheduleAtTheUsualStudyTime() {
         val app = controller()
@@ -290,7 +324,8 @@ class StudyControllerTest {
         val home = again.screen.value as Screen.Home
         assertEquals(12, home.reviews)
         assertEquals(12, home.newItems)
-        assertEquals(TopicState.Locked, home.topics.last().state)
+        // the passive waits until the Present Perfect holds
+        assertEquals(TopicState.Locked, home.topics.single { it.title == content.topics.getValue("passive").title }.state)
     }
 
     @Test
@@ -326,6 +361,7 @@ class StudyControllerTest {
                 is Screen.Judged -> app.acceptCorrection()
                 is Screen.Checking -> error("No model in this test")
                 is Screen.Reveal -> app.continueAfterReveal()
+                is Screen.Heard -> app.continueAfterHeard()
                 is Screen.Rest -> app.finishRest()
                 is Screen.Home -> error("Unexpected home screen in a session")
                 is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,

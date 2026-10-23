@@ -20,8 +20,37 @@ class ContentTest {
 
     @Test
     fun realCourseLoads() {
-        assertEquals(9, content.course.topics.size)
-        assertEquals(60, content.items.size)
+        assertEquals(28, content.course.topics.size)
+        assertEquals(506, content.items.size)
+    }
+
+    /** М24: every recorded phrase has its file, a free license and its source, and is studied by ear. */
+    @Test
+    fun recordedPhrasesAreCreditedAndStudiedByEar() {
+        val recorded = content.items.values.filter { it.audio != null }
+        assertEquals(251, recorded.size)
+        val audioDir = File(System.getProperty("contentDir"), "en/audio")
+        val factory = ExerciseFactory(content)
+        recorded.forEach { item ->
+            val audio = item.audio!!
+            assertTrue(File(audioDir, audio.file).length() > 1_000, "${item.id}: no recording ${audio.file}")
+            assertTrue(audio.license in setOf("CC BY 4.0", "CC BY-SA 4.0"), "${item.id}: license ${audio.license}")
+            assertTrue(audio.source.startsWith("https://tatoeba.org/sentences/show/"), "${item.id}: source ${audio.source}")
+            val recognize = factory.build(item.id, Rung.Recognize, seed = 1) as Exercise.Choice
+            assertTrue(recognize.question.isEmpty(), "${item.id}: the text would give the sound away")
+            val gap = factory.build(item.id, Rung.FillGap, seed = 1) as Exercise.Typed
+            assertTrue("___" in gap.question)
+            val dictation = factory.build(item.id, Rung.Translate, seed = 1) as Exercise.Typed
+            assertTrue(dictation.question.isEmpty() && dictation.accepted.first() == item.en)
+            listOf(recognize, gap, dictation).forEach {
+                assertTrue(it.byEar, "${item.id} on ${it.rung} is not by ear")
+                assertEquals(audio.file, it.recording)
+            }
+            val speak = factory.build(item.id, Rung.Speak, seed = 1)
+            assertTrue(!speak.byEar && speak.recording == audio.file, "${item.id}: the spoken answer is compared with the voice")
+        }
+        val files = audioDir.listFiles()!!.filter { it.extension == "m4a" }.map { it.name }.toSet()
+        assertEquals(recorded.map { it.audio!!.file }.toSet(), files, "every recording belongs to a phrase")
     }
 
     /** М8: a word's rank is its NGSL 1.2 rank, and a word missing from NGSL has no rank. */

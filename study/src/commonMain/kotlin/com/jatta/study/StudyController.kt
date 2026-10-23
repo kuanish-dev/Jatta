@@ -12,7 +12,6 @@ import com.jatta.engine.session.Baseline
 import com.jatta.engine.session.BreakReason
 import com.jatta.engine.session.Outcome
 import com.jatta.engine.session.RestCoach
-import com.jatta.engine.session.Rung
 import com.jatta.engine.session.Session
 import com.jatta.engine.session.Step
 import com.jatta.study.calibration.Calibration
@@ -196,6 +195,12 @@ class StudyController(
     fun disputeCorrection() = answer(true, pendingResponseMs, CheckedBy.AiDisputed)
 
     fun continueAfterReveal() = advance(banner = null)
+
+    /** The learner has listened again and repeated the phrase. */
+    fun continueAfterHeard() {
+        val heard = state.value as? Screen.Heard ?: return
+        advance(heard.banner)
+    }
 
     fun finishRest() {
         val rest = state.value as Screen.Rest
@@ -405,12 +410,12 @@ class StudyController(
     private fun answer(correct: Boolean, responseMs: Long, checkedBy: CheckedBy) {
         val current = exercise ?: error("No exercise on screen")
         val step = session().current as Step.Recall
-        val outcome = session().answer(Answer(correct, responseMs), medianMs(current.rung))
+        val outcome = session().answer(Answer(correct, responseMs), medianMs(current))
         stepsDone++
         outcome.firstGrade?.let { grade ->
             learner = engine.recordGrade(learner, step.itemId, grade, today)
             firstAnswers += correct
-            val recent = (saved.recent + RecentAnswer(current.rung.name, correct, responseMs)).takeLast(config.recentAnswersKept)
+            val recent = (saved.recent + RecentAnswer(speedKey(current), correct, responseMs)).takeLast(config.recentAnswersKept)
             saved = saved.copy(recent = recent)
             save()
         }
@@ -423,16 +428,25 @@ class StudyController(
         pendingAdvice = stronger(pendingAdvice, coach().onAnswer(Answer(correct, responseMs), nowMs()))
 
         when (outcome) {
-            is Outcome.Done -> advance(if (checkedBy == CheckedBy.Ai) Banner.CheckedByAi else Banner.Correct)
+            is Outcome.Done -> afterRight(current, if (checkedBy == CheckedBy.Ai) Banner.CheckedByAi else Banner.Correct)
             is Outcome.Hint -> {
                 shownAtMs = nowMs()
-                val confident = engine.grading.isConfidentError(Answer(correct, responseMs), medianMs(current.rung))
+                val confident = engine.grading.isConfidentError(Answer(correct, responseMs), medianMs(current))
                 state.value = Screen.Question(
                     ++questionCounter, current, hint = current.hint, banner = null, steps = steps(), confidentError = confident,
                 )
             }
-            Outcome.RetryLater -> advance(Banner.CorrectWithHint)
+            Outcome.RetryLater -> afterRight(current, Banner.CorrectWithHint)
             Outcome.Reveal -> state.value = Screen.Reveal(current, note = itemNote(current.itemId), steps = steps())
+        }
+    }
+
+    /** М24: a phrase heard right is shown as text, to replay and repeat aloud, before moving on. */
+    private fun afterRight(exercise: Exercise, banner: Banner) {
+        if (exercise.byEar) {
+            state.value = Screen.Heard(exercise, content.items.getValue(exercise.itemId).ru, banner, steps())
+        } else {
+            advance(banner)
         }
     }
 
@@ -584,10 +598,15 @@ class StudyController(
         )
     }
 
-    /** The learner's usual speed on this rung, for telling fast from slow answers (М2, М13). */
-    private fun medianMs(rung: Rung): Long {
-        val times = saved.recent.filter { it.rung == rung.name }.map { it.responseMs }
-        return if (times.size >= config.minAnswersForRungMedian) median(times) else config.defaultMedianMs.getValue(rung)
+    /** Answers by ear include the recording, so they keep their own usual speed (М13, М24). */
+    private fun speedKey(exercise: Exercise) = exercise.rung.name + if (exercise.byEar) "-ear" else ""
+
+    /** The learner's usual speed on this kind of exercise, for telling fast from slow answers (М2, М13). */
+    private fun medianMs(exercise: Exercise): Long {
+        val times = saved.recent.filter { it.rung == speedKey(exercise) }.map { it.responseMs }
+        if (times.size >= config.minAnswersForRungMedian) return median(times)
+        val usual = config.defaultMedianMs.getValue(exercise.rung)
+        return if (exercise.byEar) usual + config.listeningExtraMs else usual
     }
 
     private fun itemNote(itemId: String): String {

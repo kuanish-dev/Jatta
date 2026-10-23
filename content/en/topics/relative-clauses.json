@@ -1,0 +1,175 @@
+{
+  "id": "relative-clauses",
+  "title": "Who, which, that, where, whose",
+  "intro": "Придаточные определительные поясняют, о ком или о чём речь: the man who called, the app which I use. Who — о людях, which — о вещах, that — о тех и других.",
+  "items": [
+    {
+      "id": "rel-who-which",
+      "kind": "rule",
+      "en": "who / which / that",
+      "ru": "who — о людях, which — о вещах, that — о тех и других",
+      "note": "The colleague who helped me... The app which I use... В разговоре вместо обоих часто that.",
+      "examples": [
+        {
+          "en": "The woman who called you is my boss.",
+          "ru": "Женщина, которая тебе звонила, — моя начальница.",
+          "gap": "who",
+          "cue": "о человеке",
+          "wrong": [
+            "which",
+            "where",
+            "whose"
+          ]
+        },
+        {
+          "en": "This is the app which I use for work.",
+          "ru": "Вот приложение, которым я пользуюсь для работы.",
+          "gap": "which",
+          "cue": "о вещи",
+          "wrong": [
+            "who",
+            "where",
+            "whose"
+          ]
+        },
+        {
+          "en": "I need a laptop that is light.",
+          "ru": "Мне нужен лёгкий ноутбук.",
+          "gap": "that",
+          "cue": "о вещи",
+          "wrong": [
+            "who",
+            "where",
+            "what"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rel-where-whose",
+      "kind": "rule",
+      "en": "where / whose",
+      "ru": "where — где, о месте; whose — чей",
+      "note": "The office where I work... The man whose car was stolen...",
+      "examples": [
+        {
+          "en": "This is the office where I work.",
+          "ru": "Вот офис, где я работаю.",
+          "gap": "where",
+          "cue": "о месте",
+          "wrong": [
+            "which",
+            "who",
+            "whose"
+          ]
+        },
+        {
+          "en": "That's the man whose car was stolen.",
+          "ru": "Вот мужчина, у которого угнали машину.",
+          "gap": "whose",
+          "cue": "чей",
+          "wrong": [
+            "who",
+            "who's",
+            "which"
+          ]
+        },
+        {
+          "en": "I remember the café where we first met.",
+          "ru": "Я помню кафе, где мы впервые встретились.",
+          "gap": "where",
+          "cue": "о месте",
+          "wrong": [
+            "which",
+            "who",
+            "what"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rel-commas",
+      "kind": "rule",
+      "en": "commas: who / which",
+      "ru": "С запятыми — дополнительные сведения; там нельзя that",
+      "note": "My brother, who lives in London, is a doctor. В таком придаточном нельзя that.",
+      "examples": [
+        {
+          "en": "My brother, who lives in London, is a doctor.",
+          "ru": "Мой брат, который живёт в Лондоне, врач.",
+          "gap": "who",
+          "cue": "о человеке, с запятыми",
+          "wrong": [
+            "that",
+            "which",
+            "whose"
+          ]
+        },
+        {
+          "en": "Almaty, which is the largest city in Kazakhstan, has beautiful mountains.",
+          "ru": "Вокруг Алматы, самого большого города Казахстана, красивые горы.",
+          "gap": "which",
+          "cue": "о вещи, с запятыми",
+          "wrong": [
+            "that",
+            "who",
+            "where"
+          ]
+        },
+        {
+          "en": "Our manager, who is very kind, helped me a lot.",
+          "ru": "Наш менеджер, очень добрый человек, мне очень помог.",
+          "gap": "who",
+          "cue": "о человеке, с запятыми",
+          "wrong": [
+            "that",
+            "which",
+            "whose"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rel-omit",
+      "kind": "rule",
+      "en": "the book (that) I read",
+      "ru": "Если who, which, that — дополнение, его можно опустить",
+      "note": "The book (that) I bought — that можно опустить. The man who called — нельзя: who здесь подлежащее.",
+      "examples": [
+        {
+          "en": "The film we watched yesterday was great.",
+          "ru": "Фильм, который мы вчера смотрели, был отличный.",
+          "gap": "we watched",
+          "cue": "watch",
+          "wrong": [
+            "what we watched",
+            "we watching",
+            "which watched"
+          ]
+        },
+        {
+          "en": "Is this the book you wanted?",
+          "ru": "Это та книга, которую ты хотел?",
+          "gap": "you wanted",
+          "cue": "want",
+          "wrong": [
+            "what you wanted",
+            "you want it",
+            "which wanted"
+          ]
+        },
+        {
+          "en": "The people I work with are friendly.",
+          "ru": "Люди, с которыми я работаю, дружелюбные.",
+          "gap": "I work with",
+          "cue": "work with",
+          "wrong": [
+            "I work with them",
+            "which I work",
+            "who work with"
+          ]
+        }
+      ]
+    }
+  ]
+}

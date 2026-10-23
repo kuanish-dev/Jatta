@@ -19,6 +19,12 @@ sealed interface Exercise {
     /** English to play aloud once the learner has answered: never part of the question's solution beforehand. */
     val listen: String
 
+    /** A real voice saying [listen], played instead of speech synthesis: a file of the course's audio folder. */
+    val recording: String?
+
+    /** Done by ear (М24): the recording is the question and plays as soon as the exercise appears. */
+    val byEar: Boolean
+
     /** Pick one option; checked by code. */
     data class Choice(
         override val itemId: String,
@@ -31,6 +37,8 @@ sealed interface Exercise {
         override val hint: String,
         override val answer: String,
         override val listen: String,
+        override val recording: String? = null,
+        override val byEar: Boolean = false,
     ) : Exercise
 
     /**
@@ -51,6 +59,8 @@ sealed interface Exercise {
         override val listen: String,
         /** The task in English for the on-device model; set when [openEnded]. */
         val judgeTask: String? = null,
+        override val recording: String? = null,
+        override val byEar: Boolean = false,
     ) : Exercise
 
     /** Write an own sentence; judged by the on-device model when there is one, otherwise by the learner. */
@@ -65,6 +75,8 @@ sealed interface Exercise {
         override val listen: String,
         /** The task in English for the on-device model. */
         val judgeTask: String,
+        override val recording: String? = null,
+        override val byEar: Boolean = false,
     ) : Exercise
 
     /** Say the sentence aloud, then compare with the model answer. */
@@ -76,5 +88,7 @@ sealed interface Exercise {
         override val hint: String,
         override val answer: String,
         override val listen: String,
+        override val recording: String? = null,
+        override val byEar: Boolean = false,
     ) : Exercise
 }

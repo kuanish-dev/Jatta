@@ -32,7 +32,7 @@ import com.jatta.study.placement.PlacementFile
 import com.jatta.study.remind.ReminderScheduler
 import com.jatta.study.store.LearnerStore
 
-private const val CONTENT_DIR = "files/content"
+internal const val CONTENT_DIR = "files/content"
 
 /**
  * The whole app. Platform code passes where to keep the learner's data, the clock, the time zone, the

@@ -1,0 +1,691 @@
+{
+  "id": "phrases-people",
+  "title": "Фразы на слух: люди и чувства",
+  "intro": "Настоящие голоса носителей языка с Tatoeba. Сначала послушайте и повторите вслух, потом узнавайте фразу на слух, ловите слова и записывайте её целиком.",
+  "items": [
+    {
+      "id": "ph-264013",
+      "kind": "phrase",
+      "en": "Can't you ever be punctual? I have been waiting here for one hour.",
+      "ru": "Ты не можешь хоть раз прийти вовремя? Я ждала тебя целый час.",
+      "examples": [
+        {
+          "en": "Can't you ever be punctual? I have been waiting here for one hour.",
+          "ru": "Ты не можешь хоть раз прийти вовремя? Я ждала тебя целый час.",
+          "gap": "punctual"
+        }
+      ],
+      "audio": {
+        "file": "ph-264013.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/264013"
+      }
+    },
+    {
+      "id": "ph-298871",
+      "kind": "phrase",
+      "en": "He acknowledged his fault.",
+      "ru": "Он признал свою вину.",
+      "examples": [
+        {
+          "en": "He acknowledged his fault.",
+          "ru": "Он признал свою вину.",
+          "gap": "fault"
+        }
+      ],
+      "audio": {
+        "file": "ph-298871.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/298871"
+      }
+    },
+    {
+      "id": "ph-8723295",
+      "kind": "phrase",
+      "en": "He didn't understand the joke at all.",
+      "ru": "Он вовсе не понял шутки.",
+      "examples": [
+        {
+          "en": "He didn't understand the joke at all.",
+          "ru": "Он вовсе не понял шутки.",
+          "gap": "joke"
+        }
+      ],
+      "audio": {
+        "file": "ph-8723295.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/8723295"
+      }
+    },
+    {
+      "id": "ph-303570",
+      "kind": "phrase",
+      "en": "He is the man you can rely on.",
+      "ru": "Он человек, на которого можно положиться.",
+      "examples": [
+        {
+          "en": "He is the man you can rely on.",
+          "ru": "Он человек, на которого можно положиться.",
+          "gap": "rely"
+        }
+      ],
+      "audio": {
+        "file": "ph-303570.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/303570"
+      }
+    },
+    {
+      "id": "ph-293251",
+      "kind": "phrase",
+      "en": "He often gets worked up over little things.",
+      "ru": "Он часто волнуется из-за мелочей.",
+      "examples": [
+        {
+          "en": "He often gets worked up over little things.",
+          "ru": "Он часто волнуется из-за мелочей.",
+          "gap": "worked"
+        }
+      ],
+      "audio": {
+        "file": "ph-293251.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/293251"
+      }
+    },
+    {
+      "id": "ph-283229",
+      "kind": "phrase",
+      "en": "He told us such a funny story that we all laughed.",
+      "ru": "Он рассказал нам такую смешную историю, что мы все смеялись.",
+      "examples": [
+        {
+          "en": "He told us such a funny story that we all laughed.",
+          "ru": "Он рассказал нам такую смешную историю, что мы все смеялись.",
+          "gap": "funny"
+        }
+      ],
+      "audio": {
+        "file": "ph-283229.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/283229"
+      }
+    },
+    {
+      "id": "ph-3926945",
+      "kind": "phrase",
+      "en": "He's not used to it.",
+      "ru": "Он к этому не привык.",
+      "examples": [
+        {
+          "en": "He's not used to it.",
+          "ru": "Он к этому не привык.",
+          "gap": "used"
+        }
+      ],
+      "audio": {
+        "file": "ph-3926945.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/3926945"
+      }
+    },
+    {
+      "id": "ph-309251",
+      "kind": "phrase",
+      "en": "Her words gave me hope.",
+      "ru": "Её слова меня обнадёжили.",
+      "examples": [
+        {
+          "en": "Her words gave me hope.",
+          "ru": "Её слова меня обнадёжили.",
+          "gap": "hope"
+        }
+      ],
+      "audio": {
+        "file": "ph-309251.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/309251"
+      }
+    },
+    {
+      "id": "ph-283071",
+      "kind": "phrase",
+      "en": "His decision to stay there was a surprise to all of us.",
+      "ru": "Его решение остаться было для всех нас сюрпризом.",
+      "examples": [
+        {
+          "en": "His decision to stay there was a surprise to all of us.",
+          "ru": "Его решение остаться было для всех нас сюрпризом.",
+          "gap": "surprise"
+        }
+      ],
+      "audio": {
+        "file": "ph-283071.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/283071"
+      }
+    },
+    {
+      "id": "ph-286819",
+      "kind": "phrase",
+      "en": "His new film is disappointing.",
+      "ru": "Его новый фильм разочаровывает.",
+      "examples": [
+        {
+          "en": "His new film is disappointing.",
+          "ru": "Его новый фильм разочаровывает.",
+          "gap": "disappointing"
+        }
+      ],
+      "audio": {
+        "file": "ph-286819.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/286819"
+      }
+    },
+    {
+      "id": "ph-256671",
+      "kind": "phrase",
+      "en": "I am proud of never being late for school.",
+      "ru": "Я горжусь тем, что никогда не опаздываю в школу.",
+      "examples": [
+        {
+          "en": "I am proud of never being late for school.",
+          "ru": "Я горжусь тем, что никогда не опаздываю в школу.",
+          "gap": "proud"
+        }
+      ],
+      "audio": {
+        "file": "ph-256671.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/256671"
+      }
+    },
+    {
+      "id": "ph-10649651",
+      "kind": "phrase",
+      "en": "I didn't have the heart to tell her the truth.",
+      "ru": "Я не решился сказать ей правду.",
+      "examples": [
+        {
+          "en": "I didn't have the heart to tell her the truth.",
+          "ru": "Я не решился сказать ей правду.",
+          "gap": "truth"
+        }
+      ],
+      "audio": {
+        "file": "ph-10649651.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/10649651"
+      }
+    },
+    {
+      "id": "ph-316950",
+      "kind": "phrase",
+      "en": "I don't think she takes after her mother.",
+      "ru": "Мне не кажется, что она похожа на мать.",
+      "examples": [
+        {
+          "en": "I don't think she takes after her mother.",
+          "ru": "Мне не кажется, что она похожа на мать.",
+          "gap": "takes"
+        }
+      ],
+      "audio": {
+        "file": "ph-316950.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/316950"
+      }
+    },
+    {
+      "id": "ph-1420762",
+      "kind": "phrase",
+      "en": "I haven't heard from her since then.",
+      "ru": "С тех пор я ничего о ней не слышал.",
+      "examples": [
+        {
+          "en": "I haven't heard from her since then.",
+          "ru": "С тех пор я ничего о ней не слышал.",
+          "gap": "since"
+        }
+      ],
+      "audio": {
+        "file": "ph-1420762.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/1420762"
+      }
+    },
+    {
+      "id": "ph-9593201",
+      "kind": "phrase",
+      "en": "I wish you would stop making fun of me.",
+      "ru": "Хоть бы ты перестал надо мной смеяться.",
+      "examples": [
+        {
+          "en": "I wish you would stop making fun of me.",
+          "ru": "Хоть бы ты перестал надо мной смеяться.",
+          "gap": "fun"
+        }
+      ],
+      "audio": {
+        "file": "ph-9593201.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/9593201"
+      }
+    },
+    {
+      "id": "ph-29869",
+      "kind": "phrase",
+      "en": "I'd like to be left alone for a while, if you don't mind.",
+      "ru": "Я бы хотел некоторое время побыть один, если вы не против.",
+      "examples": [
+        {
+          "en": "I'd like to be left alone for a while, if you don't mind.",
+          "ru": "Я бы хотел некоторое время побыть один, если вы не против.",
+          "gap": "alone"
+        }
+      ],
+      "audio": {
+        "file": "ph-29869.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/29869"
+      }
+    },
+    {
+      "id": "ph-273679",
+      "kind": "phrase",
+      "en": "I'm so happy for you.",
+      "ru": "Я так за вас рад!",
+      "examples": [
+        {
+          "en": "I'm so happy for you.",
+          "ru": "Я так за вас рад!",
+          "gap": "happy"
+        }
+      ],
+      "audio": {
+        "file": "ph-273679.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/273679"
+      }
+    },
+    {
+      "id": "ph-2020617",
+      "kind": "phrase",
+      "en": "I'm worried about her.",
+      "ru": "Я переживаю за неё.",
+      "examples": [
+        {
+          "en": "I'm worried about her.",
+          "ru": "Я переживаю за неё.",
+          "gap": "worried"
+        }
+      ],
+      "audio": {
+        "file": "ph-2020617.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/2020617"
+      }
+    },
+    {
+      "id": "ph-250029",
+      "kind": "phrase",
+      "en": "I've had my ups and downs, but I've always managed to pull myself together.",
+      "ru": "У меня были взлёты и падения, но мне всегда удавалось взять себя в руки.",
+      "examples": [
+        {
+          "en": "I've had my ups and downs, but I've always managed to pull myself together.",
+          "ru": "У меня были взлёты и падения, но мне всегда удавалось взять себя в руки.",
+          "gap": "pull"
+        }
+      ],
+      "audio": {
+        "file": "ph-250029.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/250029"
+      }
+    },
+    {
+      "id": "ph-12269606",
+      "kind": "phrase",
+      "en": "It's clear that painting isn't my thing.",
+      "ru": "Ясно, что рисование - это не моё.",
+      "examples": [
+        {
+          "en": "It's clear that painting isn't my thing.",
+          "ru": "Ясно, что рисование - это не моё.",
+          "gap": "painting"
+        }
+      ],
+      "audio": {
+        "file": "ph-12269606.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12269606"
+      }
+    },
+    {
+      "id": "ph-12143546",
+      "kind": "phrase",
+      "en": "It's not his fault.",
+      "ru": "Это не его вина.",
+      "examples": [
+        {
+          "en": "It's not his fault.",
+          "ru": "Это не его вина.",
+          "gap": "fault"
+        }
+      ],
+      "audio": {
+        "file": "ph-12143546.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12143546"
+      }
+    },
+    {
+      "id": "ph-320624",
+      "kind": "phrase",
+      "en": "My mother is always finding fault with me.",
+      "ru": "Мать постоянно ко мне придирается.",
+      "examples": [
+        {
+          "en": "My mother is always finding fault with me.",
+          "ru": "Мать постоянно ко мне придирается.",
+          "gap": "fault"
+        }
+      ],
+      "audio": {
+        "file": "ph-320624.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/320624"
+      }
+    },
+    {
+      "id": "ph-313527",
+      "kind": "phrase",
+      "en": "She broke the window on purpose.",
+      "ru": "Она нарочно разбила окно.",
+      "examples": [
+        {
+          "en": "She broke the window on purpose.",
+          "ru": "Она нарочно разбила окно.",
+          "gap": "purpose"
+        }
+      ],
+      "audio": {
+        "file": "ph-313527.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/313527"
+      }
+    },
+    {
+      "id": "ph-10614186",
+      "kind": "phrase",
+      "en": "She didn't even apologize.",
+      "ru": "Она даже не извинилась.",
+      "examples": [
+        {
+          "en": "She didn't even apologize.",
+          "ru": "Она даже не извинилась.",
+          "gap": "apologize"
+        }
+      ],
+      "audio": {
+        "file": "ph-10614186.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/10614186"
+      }
+    },
+    {
+      "id": "ph-308751",
+      "kind": "phrase",
+      "en": "She has a lot of faults. Still, I like her.",
+      "ru": "У неё много недостатков. Тем не менее, она мне нравится.",
+      "examples": [
+        {
+          "en": "She has a lot of faults. Still, I like her.",
+          "ru": "У неё много недостатков. Тем не менее, она мне нравится.",
+          "gap": "faults"
+        }
+      ],
+      "audio": {
+        "file": "ph-308751.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/308751"
+      }
+    },
+    {
+      "id": "ph-979271",
+      "kind": "phrase",
+      "en": "She is upset.",
+      "ru": "Она расстроена.",
+      "examples": [
+        {
+          "en": "She is upset.",
+          "ru": "Она расстроена.",
+          "gap": "upset"
+        }
+      ],
+      "audio": {
+        "file": "ph-979271.m4a",
+        "by": "amychang",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/979271"
+      }
+    },
+    {
+      "id": "ph-3456911",
+      "kind": "phrase",
+      "en": "She looks familiar.",
+      "ru": "Она мне кажется знакомой.",
+      "examples": [
+        {
+          "en": "She looks familiar.",
+          "ru": "Она мне кажется знакомой.",
+          "gap": "familiar"
+        }
+      ],
+      "audio": {
+        "file": "ph-3456911.m4a",
+        "by": "amychang",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/3456911"
+      }
+    },
+    {
+      "id": "ph-313139",
+      "kind": "phrase",
+      "en": "She pulled herself together and started to talk again.",
+      "ru": "Она взяла себя в руки и снова заговорила.",
+      "examples": [
+        {
+          "en": "She pulled herself together and started to talk again.",
+          "ru": "Она взяла себя в руки и снова заговорила.",
+          "gap": "herself"
+        }
+      ],
+      "audio": {
+        "file": "ph-313139.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/313139"
+      }
+    },
+    {
+      "id": "ph-670441",
+      "kind": "phrase",
+      "en": "She seems excited.",
+      "ru": "Похоже, она взволнована.",
+      "examples": [
+        {
+          "en": "She seems excited.",
+          "ru": "Похоже, она взволнована.",
+          "gap": "excited"
+        }
+      ],
+      "audio": {
+        "file": "ph-670441.m4a",
+        "by": "amychang",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/670441"
+      }
+    },
+    {
+      "id": "ph-272986",
+      "kind": "phrase",
+      "en": "The teacher was disappointed at my answer.",
+      "ru": "Учитель был огорчён моим ответом.",
+      "examples": [
+        {
+          "en": "The teacher was disappointed at my answer.",
+          "ru": "Учитель был огорчён моим ответом.",
+          "gap": "disappointed"
+        }
+      ],
+      "audio": {
+        "file": "ph-272986.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/272986"
+      }
+    },
+    {
+      "id": "ph-36030",
+      "kind": "phrase",
+      "en": "What a wonderful morning! I feel on top of the world.",
+      "ru": "Какое чудесное утро! Я чувствую себя на седьмом небе.",
+      "examples": [
+        {
+          "en": "What a wonderful morning! I feel on top of the world.",
+          "ru": "Какое чудесное утро! Я чувствую себя на седьмом небе.",
+          "gap": "wonderful"
+        }
+      ],
+      "audio": {
+        "file": "ph-36030.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/36030"
+      }
+    },
+    {
+      "id": "ph-250323",
+      "kind": "phrase",
+      "en": "Whatever you say about me, say it to my face, not behind my back.",
+      "ru": "Что бы ты там ни говорил обо мне, говори мне это в лицо, а не за спиной.",
+      "examples": [
+        {
+          "en": "Whatever you say about me, say it to my face, not behind my back.",
+          "ru": "Что бы ты там ни говорил обо мне, говори мне это в лицо, а не за спиной.",
+          "gap": "Whatever"
+        }
+      ],
+      "audio": {
+        "file": "ph-250323.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/250323"
+      }
+    },
+    {
+      "id": "ph-54287",
+      "kind": "phrase",
+      "en": "Which of your parents do you think you take after?",
+      "ru": "Как думаете, на кого из родителей вы похожи?",
+      "examples": [
+        {
+          "en": "Which of your parents do you think you take after?",
+          "ru": "Как думаете, на кого из родителей вы похожи?",
+          "gap": "parents"
+        }
+      ],
+      "audio": {
+        "file": "ph-54287.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/54287"
+      }
+    },
+    {
+      "id": "ph-12855436",
+      "kind": "phrase",
+      "en": "You constantly make excuses.",
+      "ru": "Ты постоянно оправдываешься.",
+      "examples": [
+        {
+          "en": "You constantly make excuses.",
+          "ru": "Ты постоянно оправдываешься.",
+          "gap": "constantly"
+        }
+      ],
+      "audio": {
+        "file": "ph-12855436.m4a",
+        "by": "rul",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/12855436"
+      }
+    },
+    {
+      "id": "ph-3911540",
+      "kind": "phrase",
+      "en": "You must be very proud of her.",
+      "ru": "Ты, наверное, очень ей гордишься.",
+      "examples": [
+        {
+          "en": "You must be very proud of her.",
+          "ru": "Ты, наверное, очень ей гордишься.",
+          "gap": "proud"
+        }
+      ],
+      "audio": {
+        "file": "ph-3911540.m4a",
+        "by": "Them",
+        "license": "CC BY 4.0",
+        "source": "https://tatoeba.org/sentences/show/3911540"
+      }
+    },
+    {
+      "id": "ph-246434",
+      "kind": "phrase",
+      "en": "You never listen, no matter how many times I tell you.",
+      "ru": "Ты никогда не слушаешь, сколько бы раз я не повторял.",
+      "examples": [
+        {
+          "en": "You never listen, no matter how many times I tell you.",
+          "ru": "Ты никогда не слушаешь, сколько бы раз я не повторял.",
+          "gap": "listen"
+        }
+      ],
+      "audio": {
+        "file": "ph-246434.m4a",
+        "by": "Auride",
+        "license": "CC BY-SA 4.0",
+        "source": "https://tatoeba.org/sentences/show/246434"
+      }
+    }
+  ]
+}

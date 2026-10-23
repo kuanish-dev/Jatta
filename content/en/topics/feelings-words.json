@@ -1,0 +1,493 @@
+{
+  "id": "feelings-words",
+  "title": "Слова: чувства",
+  "intro": "Что мы чувствуем и как об этом сказать. Окончание -ed — о чувствах человека, -ing — о том, что их вызывает: bored — boring.",
+  "items": [
+    {
+      "id": "w-emotion",
+      "kind": "word",
+      "en": "emotion",
+      "ru": "эмоция, чувство",
+      "rank": 1783,
+      "note": "Show your emotions — показывать свои чувства.",
+      "examples": [
+        {
+          "en": "He doesn't show his emotions.",
+          "ru": "Он не показывает своих чувств.",
+          "gap": "emotions"
+        },
+        {
+          "en": "Her voice was full of emotion.",
+          "ru": "Её голос был полон чувства.",
+          "gap": "emotion"
+        }
+      ]
+    },
+    {
+      "id": "w-upset",
+      "kind": "word",
+      "en": "upset",
+      "ru": "расстроенный; расстроить",
+      "rank": 2025,
+      "note": "Be upset about something — расстроиться из-за чего-то.",
+      "examples": [
+        {
+          "en": "She was upset about the news.",
+          "ru": "Она расстроилась из-за новостей.",
+          "gap": "upset"
+        },
+        {
+          "en": "Don't be upset, it's not your fault.",
+          "ru": "Не расстраивайся, ты не виноват.",
+          "gap": "upset"
+        }
+      ]
+    },
+    {
+      "id": "w-encourage",
+      "kind": "word",
+      "en": "encourage",
+      "ru": "поддерживать, побуждать",
+      "rank": 912,
+      "note": "Encourage someone to do something — побуждать кого-то что-то сделать.",
+      "examples": [
+        {
+          "en": "My parents encouraged me to study abroad.",
+          "ru": "Родители поддержали меня в желании учиться за границей.",
+          "gap": "encouraged"
+        },
+        {
+          "en": "We encourage everyone to ask questions.",
+          "ru": "Мы призываем всех задавать вопросы.",
+          "gap": "encourage"
+        }
+      ]
+    },
+    {
+      "id": "w-proud",
+      "kind": "word",
+      "en": "proud",
+      "ru": "гордый",
+      "rank": 1890,
+      "note": "Proud of someone, something — гордиться кем-то, чем-то.",
+      "examples": [
+        {
+          "en": "I'm proud of you.",
+          "ru": "Я горжусь тобой.",
+          "gap": "proud"
+        },
+        {
+          "en": "She was proud of her work.",
+          "ru": "Она гордилась своей работой.",
+          "gap": "proud"
+        }
+      ]
+    },
+    {
+      "id": "w-complain",
+      "kind": "word",
+      "en": "complain",
+      "ru": "жаловаться",
+      "rank": 1495,
+      "note": "Complain about something — жаловаться на что-то, complain to someone — кому-то.",
+      "examples": [
+        {
+          "en": "He always complains about the weather.",
+          "ru": "Он вечно жалуется на погоду.",
+          "gap": "complains"
+        },
+        {
+          "en": "We complained to the manager.",
+          "ru": "Мы пожаловались менеджеру.",
+          "gap": "complained"
+        }
+      ]
+    },
+    {
+      "id": "w-nervous",
+      "kind": "word",
+      "en": "nervous",
+      "ru": "взволнованный, нервничающий",
+      "rank": 2078,
+      "note": "Nervous about something — нервничать из-за чего-то.",
+      "examples": [
+        {
+          "en": "I'm nervous about the exam.",
+          "ru": "Я нервничаю из-за экзамена.",
+          "gap": "nervous"
+        },
+        {
+          "en": "She looked nervous before her speech.",
+          "ru": "Перед выступлением она выглядела взволнованной.",
+          "gap": "nervous"
+        }
+      ]
+    },
+    {
+      "id": "w-cope",
+      "kind": "word",
+      "en": "cope",
+      "ru": "справляться",
+      "rank": 1901,
+      "note": "Cope with something — справляться с чем-то: cope with stress.",
+      "examples": [
+        {
+          "en": "How do you cope with stress?",
+          "ru": "Как ты справляешься со стрессом?",
+          "gap": "cope"
+        },
+        {
+          "en": "She coped well with the new job.",
+          "ru": "Она хорошо справилась с новой работой.",
+          "gap": "coped"
+        }
+      ]
+    },
+    {
+      "id": "w-grateful",
+      "kind": "word",
+      "en": "grateful",
+      "ru": "благодарный",
+      "rank": 1977,
+      "note": "Grateful to someone for something — благодарен кому-то за что-то.",
+      "examples": [
+        {
+          "en": "I'm grateful for your help.",
+          "ru": "Я благодарен за твою помощь.",
+          "gap": "grateful"
+        },
+        {
+          "en": "We are very grateful to our team.",
+          "ru": "Мы очень благодарны нашей команде.",
+          "gap": "grateful"
+        }
+      ]
+    },
+    {
+      "id": "w-apologize",
+      "kind": "word",
+      "en": "apologize",
+      "ru": "извиняться",
+      "rank": 2301,
+      "note": "Apologize to someone for something — извиниться перед кем-то за что-то. Британцы пишут и apologise.",
+      "examples": [
+        {
+          "en": "I apologize for the delay.",
+          "ru": "Прошу прощения за задержку.",
+          "gap": "apologize"
+        },
+        {
+          "en": "He apologized to everyone.",
+          "ru": "Он извинился перед всеми.",
+          "gap": "apologized"
+        }
+      ]
+    },
+    {
+      "id": "w-anxious",
+      "kind": "word",
+      "en": "anxious",
+      "ru": "тревожный, обеспокоенный",
+      "rank": 2666,
+      "note": "Anxious about something — тревожиться о чём-то.",
+      "examples": [
+        {
+          "en": "She felt anxious about the future.",
+          "ru": "Она тревожилась о будущем.",
+          "gap": "anxious"
+        },
+        {
+          "en": "Waiting makes me anxious.",
+          "ru": "Ожидание меня тревожит.",
+          "gap": "anxious"
+        }
+      ]
+    },
+    {
+      "id": "w-regret",
+      "kind": "word",
+      "en": "regret",
+      "ru": "сожалеть; сожаление",
+      "rank": 2391,
+      "note": "Regret + -ing: I regret saying that — жалею, что сказал это.",
+      "examples": [
+        {
+          "en": "I regret not learning English earlier.",
+          "ru": "Жалею, что не начал учить английский раньше.",
+          "gap": "regret"
+        },
+        {
+          "en": "You won't regret it.",
+          "ru": "Ты не пожалеешь.",
+          "gap": "regret"
+        }
+      ]
+    },
+    {
+      "id": "w-scared",
+      "kind": "word",
+      "en": "scared",
+      "ru": "испуганный",
+      "note": "Scared of something — бояться чего-то.",
+      "examples": [
+        {
+          "en": "I'm scared of flying.",
+          "ru": "Я боюсь летать.",
+          "gap": "scared"
+        },
+        {
+          "en": "Don't be scared, the dog is friendly.",
+          "ru": "Не бойся, собака дружелюбная.",
+          "gap": "scared"
+        }
+      ]
+    },
+    {
+      "id": "w-relieved",
+      "kind": "word",
+      "en": "relieved",
+      "ru": "испытывающий облегчение",
+      "note": "I'm relieved — у меня отлегло. Relief — облегчение.",
+      "examples": [
+        {
+          "en": "I was relieved to hear the news.",
+          "ru": "Я с облегчением услышал эту новость.",
+          "gap": "relieved"
+        },
+        {
+          "en": "She looked relieved after the exam.",
+          "ru": "После экзамена ей явно стало легче.",
+          "gap": "relieved"
+        }
+      ]
+    },
+    {
+      "id": "w-disappointed",
+      "kind": "word",
+      "en": "disappointed",
+      "ru": "разочарованный",
+      "note": "I'm disappointed — я разочарован. The film is disappointing — фильм разочаровывает.",
+      "examples": [
+        {
+          "en": "I was disappointed with the results.",
+          "ru": "Я был разочарован результатами.",
+          "gap": "disappointed"
+        },
+        {
+          "en": "Don't be disappointed, try again.",
+          "ru": "Не расстраивайся, попробуй ещё раз.",
+          "gap": "disappointed"
+        }
+      ]
+    },
+    {
+      "id": "w-embarrassed",
+      "kind": "word",
+      "en": "embarrassed",
+      "ru": "смущённый",
+      "note": "Embarrassed — мне неловко. Две r и две s.",
+      "examples": [
+        {
+          "en": "I felt embarrassed when I forgot his name.",
+          "ru": "Мне стало неловко, когда я забыл его имя.",
+          "gap": "embarrassed"
+        },
+        {
+          "en": "Don't be embarrassed, everyone makes mistakes.",
+          "ru": "Не смущайся, все ошибаются.",
+          "gap": "embarrassed"
+        }
+      ]
+    },
+    {
+      "id": "w-annoyed",
+      "kind": "word",
+      "en": "annoyed",
+      "ru": "раздражённый",
+      "note": "Annoyed with someone, about something. Annoying — раздражающий.",
+      "examples": [
+        {
+          "en": "She was annoyed with me for being late.",
+          "ru": "Она злилась на меня за опоздание.",
+          "gap": "annoyed"
+        },
+        {
+          "en": "I get annoyed when people are late.",
+          "ru": "Меня раздражает, когда люди опаздывают.",
+          "gap": "annoyed"
+        }
+      ]
+    },
+    {
+      "id": "w-confused",
+      "kind": "word",
+      "en": "confused",
+      "ru": "сбитый с толку",
+      "note": "I'm confused — я запутался. Confusing — запутанный, о вещах.",
+      "examples": [
+        {
+          "en": "I'm confused, can you explain again?",
+          "ru": "Я запутался, можешь объяснить ещё раз?",
+          "gap": "confused"
+        },
+        {
+          "en": "The students looked confused.",
+          "ru": "Студенты выглядели растерянными.",
+          "gap": "confused"
+        }
+      ]
+    },
+    {
+      "id": "w-excited",
+      "kind": "word",
+      "en": "excited",
+      "ru": "взволнованный (радостно)",
+      "note": "Excited about something — в предвкушении. Exciting — захватывающий.",
+      "examples": [
+        {
+          "en": "The kids are excited about the trip.",
+          "ru": "Дети в предвкушении поездки.",
+          "gap": "excited"
+        },
+        {
+          "en": "I'm so excited to see you!",
+          "ru": "Я так рад тебя видеть!",
+          "gap": "excited"
+        }
+      ]
+    },
+    {
+      "id": "w-bored",
+      "kind": "word",
+      "en": "bored",
+      "ru": "скучающий",
+      "note": "I'm bored — мне скучно. I'm boring — я скучный человек!",
+      "examples": [
+        {
+          "en": "I'm bored, let's go out.",
+          "ru": "Мне скучно, пойдём куда-нибудь.",
+          "gap": "bored"
+        },
+        {
+          "en": "He got bored at the lecture.",
+          "ru": "На лекции ему стало скучно.",
+          "gap": "bored"
+        }
+      ]
+    },
+    {
+      "id": "w-exhausted",
+      "kind": "word",
+      "en": "exhausted",
+      "ru": "измотанный",
+      "note": "Exhausted — очень уставший, сильнее, чем tired.",
+      "examples": [
+        {
+          "en": "I'm exhausted after the long flight.",
+          "ru": "Я вымотан после долгого перелёта.",
+          "gap": "exhausted"
+        },
+        {
+          "en": "She was exhausted but happy.",
+          "ru": "Она устала, но была счастлива.",
+          "gap": "exhausted"
+        }
+      ]
+    },
+    {
+      "id": "w-amazed",
+      "kind": "word",
+      "en": "amazed",
+      "ru": "поражённый, изумлённый",
+      "note": "Amazed at, by something. Amazing — потрясающий.",
+      "examples": [
+        {
+          "en": "I was amazed by the view.",
+          "ru": "Вид меня поразил.",
+          "gap": "amazed"
+        },
+        {
+          "en": "We were amazed at how fast she learned.",
+          "ru": "Мы поражались, как быстро она учится.",
+          "gap": "amazed"
+        }
+      ]
+    },
+    {
+      "id": "w-frustrated",
+      "kind": "word",
+      "en": "frustrated",
+      "ru": "раздосадованный",
+      "note": "Frustrated — когда что-то не получается и это злит.",
+      "examples": [
+        {
+          "en": "I get frustrated when my computer is slow.",
+          "ru": "Меня злит, когда компьютер тормозит.",
+          "gap": "frustrated"
+        },
+        {
+          "en": "He felt frustrated with his progress.",
+          "ru": "Он был недоволен своими успехами.",
+          "gap": "frustrated"
+        }
+      ]
+    },
+    {
+      "id": "w-lonely",
+      "kind": "word",
+      "en": "lonely",
+      "ru": "одинокий (о чувстве)",
+      "note": "Lonely — одиноко, это чувство. Alone — один, это факт.",
+      "examples": [
+        {
+          "en": "She felt lonely in the new city.",
+          "ru": "В новом городе ей было одиноко.",
+          "gap": "lonely"
+        },
+        {
+          "en": "He lives alone but he isn't lonely.",
+          "ru": "Он живёт один, но ему не одиноко.",
+          "gap": "lonely"
+        }
+      ]
+    },
+    {
+      "id": "w-jealous",
+      "kind": "word",
+      "en": "jealous",
+      "ru": "завидующий; ревнивый",
+      "note": "Jealous of someone — завидовать кому-то или ревновать.",
+      "examples": [
+        {
+          "en": "I'm jealous of your holiday.",
+          "ru": "Завидую твоему отпуску.",
+          "gap": "jealous"
+        },
+        {
+          "en": "He gets jealous when she talks to other men.",
+          "ru": "Он ревнует, когда она разговаривает с другими мужчинами.",
+          "gap": "jealous"
+        }
+      ]
+    },
+    {
+      "id": "w-satisfied",
+      "kind": "word",
+      "en": "satisfied",
+      "ru": "довольный",
+      "note": "Satisfied with something — доволен чем-то.",
+      "examples": [
+        {
+          "en": "Are you satisfied with the service?",
+          "ru": "Вы довольны обслуживанием?",
+          "gap": "satisfied"
+        },
+        {
+          "en": "The client was satisfied with our work.",
+          "ru": "Клиент остался доволен нашей работой.",
+          "gap": "satisfied"
+        }
+      ]
+    }
+  ]
+}

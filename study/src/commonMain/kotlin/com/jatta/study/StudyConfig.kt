@@ -18,6 +18,8 @@ data class StudyConfig(
         Rung.Compose to 30_000,
         Rung.Speak to 10_000,
     ),
+    /** М13, М24: more usual answer time by ear, where the recording plays first, until there is history. Weak. */
+    val listeningExtraMs: Long = 4_000,
     /** First answers in a session needed before the ladder may shift (М6). */
     val minAnswersForLadderShift: Int = 15,
     /** М22: a correction may change at most this share of the learner's words, otherwise it is a rewrite. */

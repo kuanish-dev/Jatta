@@ -1,0 +1,500 @@
+{
+  "id": "travel-words",
+  "title": "Слова: поездки и транспорт",
+  "intro": "Билеты, рейсы, вокзалы и гостиницы. Слова идут от частых к редким.",
+  "items": [
+    {
+      "id": "w-miss",
+      "kind": "word",
+      "en": "miss",
+      "ru": "опоздать на; пропустить",
+      "rank": 645,
+      "note": "Miss the bus, the train, a flight — опоздать на автобус, поезд, рейс. Успеть — catch.",
+      "examples": [
+        {
+          "en": "Hurry up or we'll miss the train.",
+          "ru": "Поторопись, а то опоздаем на поезд.",
+          "gap": "miss"
+        },
+        {
+          "en": "I missed my flight because of the traffic.",
+          "ru": "Я опоздал на рейс из-за пробок.",
+          "gap": "missed"
+        }
+      ]
+    },
+    {
+      "id": "w-board",
+      "kind": "word",
+      "en": "board",
+      "ru": "сесть на борт; посадка",
+      "rank": 741,
+      "note": "Board a plane, a train — сесть в самолёт, в поезд. Boarding pass — посадочный талон.",
+      "examples": [
+        {
+          "en": "Passengers can board the plane now.",
+          "ru": "Пассажиры уже могут садиться в самолёт.",
+          "gap": "board"
+        },
+        {
+          "en": "We boarded the train just in time.",
+          "ru": "Мы сели в поезд как раз вовремя.",
+          "gap": "boarded"
+        }
+      ]
+    },
+    {
+      "id": "w-trip",
+      "kind": "word",
+      "en": "trip",
+      "ru": "поездка",
+      "rank": 825,
+      "note": "Trip — поездка туда и обратно: a business trip, a day trip. Journey — сам путь.",
+      "examples": [
+        {
+          "en": "How was your business trip?",
+          "ru": "Как прошла командировка?",
+          "gap": "trip"
+        },
+        {
+          "en": "We went on a day trip to the mountains.",
+          "ru": "Мы съездили на день в горы.",
+          "gap": "trip"
+        }
+      ]
+    },
+    {
+      "id": "w-seat",
+      "kind": "word",
+      "en": "seat",
+      "ru": "место (сидячее)",
+      "rank": 852,
+      "note": "Window seat, aisle seat — место у окна, у прохода. Is this seat taken? — Это место занято?",
+      "examples": [
+        {
+          "en": "Is this seat free?",
+          "ru": "Это место свободно?",
+          "gap": "seat"
+        },
+        {
+          "en": "I booked a window seat.",
+          "ru": "Я забронировал место у окна.",
+          "gap": "seat"
+        }
+      ]
+    },
+    {
+      "id": "w-guide",
+      "kind": "word",
+      "en": "guide",
+      "ru": "гид; путеводитель",
+      "rank": 1146,
+      "note": "Tour guide — экскурсовод, guidebook — путеводитель.",
+      "examples": [
+        {
+          "en": "Our guide spoke excellent English.",
+          "ru": "Наш гид отлично говорил по-английски.",
+          "gap": "guide"
+        },
+        {
+          "en": "The guide showed us the old town.",
+          "ru": "Гид показал нам старый город.",
+          "gap": "guide"
+        }
+      ]
+    },
+    {
+      "id": "w-flight",
+      "kind": "word",
+      "en": "flight",
+      "ru": "рейс, полёт",
+      "rank": 1219,
+      "note": "Book a flight — забронировать рейс. The flight is delayed — рейс задерживается.",
+      "examples": [
+        {
+          "en": "My flight leaves at six in the morning.",
+          "ru": "Мой рейс вылетает в шесть утра.",
+          "gap": "flight"
+        },
+        {
+          "en": "The flight was cancelled because of the storm.",
+          "ru": "Рейс отменили из-за грозы.",
+          "gap": "flight"
+        }
+      ]
+    },
+    {
+      "id": "w-traffic",
+      "kind": "word",
+      "en": "traffic",
+      "ru": "движение (на дорогах)",
+      "rank": 1225,
+      "note": "Heavy traffic, a traffic jam — пробка. Неисчисляемое: никакого «a traffic».",
+      "examples": [
+        {
+          "en": "The traffic is terrible this morning.",
+          "ru": "Сегодня утром ужасные пробки.",
+          "gap": "traffic"
+        },
+        {
+          "en": "We got stuck in traffic for an hour.",
+          "ru": "Мы час простояли в пробке.",
+          "gap": "traffic"
+        }
+      ]
+    },
+    {
+      "id": "w-ticket",
+      "kind": "word",
+      "en": "ticket",
+      "ru": "билет",
+      "rank": 1249,
+      "note": "A one-way ticket — билет в одну сторону, a return ticket — туда и обратно.",
+      "examples": [
+        {
+          "en": "I bought a return ticket to Almaty.",
+          "ru": "Я купил билет туда и обратно до Алматы.",
+          "gap": "ticket"
+        },
+        {
+          "en": "Have your tickets ready, please.",
+          "ru": "Приготовьте, пожалуйста, билеты.",
+          "gap": "tickets"
+        }
+      ]
+    },
+    {
+      "id": "w-route",
+      "kind": "word",
+      "en": "route",
+      "ru": "маршрут",
+      "rank": 1410,
+      "note": "Произносится [ruːt]. The fastest route — самый быстрый маршрут.",
+      "examples": [
+        {
+          "en": "Which route is the fastest?",
+          "ru": "Какой маршрут самый быстрый?",
+          "gap": "route"
+        },
+        {
+          "en": "The bus changed its route.",
+          "ru": "Автобус поменял маршрут.",
+          "gap": "route"
+        }
+      ]
+    },
+    {
+      "id": "w-border",
+      "kind": "word",
+      "en": "border",
+      "ru": "граница",
+      "rank": 1473,
+      "note": "Cross the border — пересечь границу.",
+      "examples": [
+        {
+          "en": "We crossed the border at night.",
+          "ru": "Мы пересекли границу ночью.",
+          "gap": "border"
+        },
+        {
+          "en": "There was a long queue at the border.",
+          "ru": "На границе была длинная очередь.",
+          "gap": "border"
+        }
+      ]
+    },
+    {
+      "id": "w-tourist",
+      "kind": "word",
+      "en": "tourist",
+      "ru": "турист",
+      "rank": 1486,
+      "note": "Tourist attraction — достопримечательность, tourist office — справочное бюро для туристов.",
+      "examples": [
+        {
+          "en": "The city is full of tourists in summer.",
+          "ru": "Летом город полон туристов.",
+          "gap": "tourists"
+        },
+        {
+          "en": "Is there a tourist office near here?",
+          "ru": "Здесь рядом есть бюро для туристов?",
+          "gap": "tourist"
+        }
+      ]
+    },
+    {
+      "id": "w-journey",
+      "kind": "word",
+      "en": "journey",
+      "ru": "путь, поездка",
+      "rank": 1621,
+      "note": "Journey — само передвижение. How was your journey? — Как доехал?",
+      "examples": [
+        {
+          "en": "The journey took six hours.",
+          "ru": "Дорога заняла шесть часов.",
+          "gap": "journey"
+        },
+        {
+          "en": "Have a safe journey!",
+          "ru": "Счастливого пути!",
+          "gap": "journey"
+        }
+      ]
+    },
+    {
+      "id": "w-passenger",
+      "kind": "word",
+      "en": "passenger",
+      "ru": "пассажир",
+      "rank": 1695,
+      "note": "Ударение на первый слог: PAS-sen-ger.",
+      "examples": [
+        {
+          "en": "All passengers must show their passports.",
+          "ru": "Все пассажиры должны показать паспорта.",
+          "gap": "passengers"
+        },
+        {
+          "en": "The bus can carry fifty passengers.",
+          "ru": "Автобус вмещает пятьдесят пассажиров.",
+          "gap": "passengers"
+        }
+      ]
+    },
+    {
+      "id": "w-abroad",
+      "kind": "word",
+      "en": "abroad",
+      "ru": "за границей, за границу",
+      "rank": 1883,
+      "note": "Без предлога: go abroad, live abroad, study abroad. «To abroad» — ошибка.",
+      "examples": [
+        {
+          "en": "She wants to study abroad.",
+          "ru": "Она хочет учиться за границей.",
+          "gap": "abroad"
+        },
+        {
+          "en": "Have you ever worked abroad?",
+          "ru": "Ты когда-нибудь работал за границей?",
+          "gap": "abroad"
+        }
+      ]
+    },
+    {
+      "id": "w-accommodation",
+      "kind": "word",
+      "en": "accommodation",
+      "ru": "жильё (в поездке)",
+      "rank": 1903,
+      "note": "В британском английском неисчисляемое: accommodation is expensive. Две c и две m.",
+      "examples": [
+        {
+          "en": "The price includes flights and accommodation.",
+          "ru": "В цену входят перелёт и проживание.",
+          "gap": "accommodation"
+        },
+        {
+          "en": "It's hard to find cheap accommodation in summer.",
+          "ru": "Летом трудно найти дешёвое жильё.",
+          "gap": "accommodation"
+        }
+      ]
+    },
+    {
+      "id": "w-arrival",
+      "kind": "word",
+      "en": "arrival",
+      "ru": "прибытие",
+      "rank": 2058,
+      "note": "Arrivals — зона прилёта в аэропорту, departures — вылета. On arrival — по прибытии.",
+      "examples": [
+        {
+          "en": "The arrival time is twenty to eleven.",
+          "ru": "Время прибытия — без двадцати одиннадцать.",
+          "gap": "arrival"
+        },
+        {
+          "en": "Call me on arrival.",
+          "ru": "Позвони мне по прибытии.",
+          "gap": "arrival"
+        }
+      ]
+    },
+    {
+      "id": "w-platform",
+      "kind": "word",
+      "en": "platform",
+      "ru": "платформа",
+      "rank": 2171,
+      "note": "Which platform does the train leave from? — С какой платформы отходит поезд?",
+      "examples": [
+        {
+          "en": "The train leaves from platform four.",
+          "ru": "Поезд отправляется с четвёртой платформы.",
+          "gap": "platform"
+        },
+        {
+          "en": "We waited on the platform for twenty minutes.",
+          "ru": "Мы ждали на платформе двадцать минут.",
+          "gap": "platform"
+        }
+      ]
+    },
+    {
+      "id": "w-cancel",
+      "kind": "word",
+      "en": "cancel",
+      "ru": "отменить",
+      "rank": 2390,
+      "note": "Cancel a flight, a meeting, an order. Прошедшее: cancelled (брит.), canceled (амер.).",
+      "examples": [
+        {
+          "en": "They cancelled the flight because of fog.",
+          "ru": "Рейс отменили из-за тумана.",
+          "gap": "cancelled"
+        },
+        {
+          "en": "I need to cancel my reservation.",
+          "ru": "Мне нужно отменить бронь.",
+          "gap": "cancel"
+        }
+      ]
+    },
+    {
+      "id": "w-luggage",
+      "kind": "word",
+      "en": "luggage",
+      "ru": "багаж",
+      "note": "Неисчисляемое: much luggage, a piece of luggage. Американцы чаще говорят baggage.",
+      "examples": [
+        {
+          "en": "How much luggage can I take?",
+          "ru": "Сколько багажа я могу взять?",
+          "gap": "luggage"
+        },
+        {
+          "en": "Don't leave your luggage unattended.",
+          "ru": "Не оставляйте багаж без присмотра.",
+          "gap": "luggage"
+        }
+      ]
+    },
+    {
+      "id": "w-departure",
+      "kind": "word",
+      "en": "departure",
+      "ru": "отправление, вылет",
+      "note": "Departure board — табло отправлений, departure lounge — зал вылета.",
+      "examples": [
+        {
+          "en": "Check the departure time on the board.",
+          "ru": "Проверь время отправления на табло.",
+          "gap": "departure"
+        },
+        {
+          "en": "Our departure was delayed by two hours.",
+          "ru": "Наш вылет задержали на два часа.",
+          "gap": "departure"
+        }
+      ]
+    },
+    {
+      "id": "w-destination",
+      "kind": "word",
+      "en": "destination",
+      "ru": "пункт назначения; направление",
+      "note": "A popular destination — популярное место для поездок.",
+      "examples": [
+        {
+          "en": "We reached our destination late at night.",
+          "ru": "Мы добрались до места назначения поздно ночью.",
+          "gap": "destination"
+        },
+        {
+          "en": "Turkey is a popular holiday destination.",
+          "ru": "Турция — популярное направление для отдыха.",
+          "gap": "destination"
+        }
+      ]
+    },
+    {
+      "id": "w-crowded",
+      "kind": "word",
+      "en": "crowded",
+      "ru": "переполненный (людьми)",
+      "note": "Crowded — где много людей: a crowded bus, a crowded street. Crowd — толпа.",
+      "examples": [
+        {
+          "en": "The metro is always crowded in the morning.",
+          "ru": "Утром в метро всегда толпа.",
+          "gap": "crowded"
+        },
+        {
+          "en": "The beach was too crowded for us.",
+          "ru": "На пляже было слишком много народу.",
+          "gap": "crowded"
+        }
+      ]
+    },
+    {
+      "id": "w-reservation",
+      "kind": "word",
+      "en": "reservation",
+      "ru": "бронь",
+      "note": "Make a reservation — забронировать. I have a reservation — у меня бронь. Британцы говорят и booking.",
+      "examples": [
+        {
+          "en": "I'd like to make a reservation for two.",
+          "ru": "Я хотел бы забронировать столик на двоих.",
+          "gap": "reservation"
+        },
+        {
+          "en": "We have a reservation under the name Smith.",
+          "ru": "У нас бронь на фамилию Смит.",
+          "gap": "reservation"
+        }
+      ]
+    },
+    {
+      "id": "w-passport",
+      "kind": "word",
+      "en": "passport",
+      "ru": "паспорт (заграничный)",
+      "note": "Passport control — паспортный контроль. Renew a passport — продлить паспорт.",
+      "examples": [
+        {
+          "en": "Don't forget your passport!",
+          "ru": "Не забудь паспорт!",
+          "gap": "passport"
+        },
+        {
+          "en": "My passport expires next year.",
+          "ru": "Срок моего паспорта истекает в следующем году.",
+          "gap": "passport"
+        }
+      ]
+    },
+    {
+      "id": "w-commute",
+      "kind": "word",
+      "en": "commute",
+      "ru": "дорога на работу; ездить на работу",
+      "note": "Commute — регулярная дорога между домом и работой: My commute takes an hour.",
+      "examples": [
+        {
+          "en": "I commute to work by bus.",
+          "ru": "Я езжу на работу на автобусе.",
+          "gap": "commute"
+        },
+        {
+          "en": "My daily commute takes forty minutes.",
+          "ru": "Дорога на работу занимает у меня сорок минут.",
+          "gap": "commute"
+        }
+      ]
+    }
+  ]
+}

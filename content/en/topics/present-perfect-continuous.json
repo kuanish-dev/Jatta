@@ -1,0 +1,181 @@
+{
+  "id": "present-perfect-continuous",
+  "title": "Present Perfect Continuous",
+  "intro": "Present Perfect Continuous — have/has been + -ing. Говорит, как долго что-то идёт до сих пор или чем человек был занят до этой минуты: I've been waiting for an hour.",
+  "requires": [
+    "present-perfect"
+  ],
+  "confusableWith": [
+    "present-perfect"
+  ],
+  "items": [
+    {
+      "id": "ppc-form",
+      "kind": "rule",
+      "en": "have/has been + V-ing",
+      "ru": "Форма: have/has been + -ing",
+      "note": "I have been working, she has been studying. В разговоре: I've been, she's been.",
+      "examples": [
+        {
+          "en": "I have been learning English for two years.",
+          "ru": "Я учу английский два года.",
+          "gap": "have been learning",
+          "cue": "learn",
+          "wrong": [
+            "am learning",
+            "has been learning",
+            "have been learn"
+          ]
+        },
+        {
+          "en": "She has been working here since March.",
+          "ru": "Она работает здесь с марта.",
+          "gap": "has been working",
+          "cue": "work",
+          "wrong": [
+            "is working",
+            "have been working",
+            "has been work"
+          ]
+        },
+        {
+          "en": "How long have you been waiting?",
+          "ru": "Сколько ты уже ждёшь?",
+          "gap": "have you been waiting",
+          "cue": "you / wait",
+          "wrong": [
+            "are you waiting",
+            "has you been waiting",
+            "have you been wait"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ppc-for-since",
+      "kind": "rule",
+      "en": "for / since",
+      "ru": "for — сколько времени, since — с какого момента",
+      "note": "For two hours, for a week; since Monday, since 2020, since I was a child.",
+      "examples": [
+        {
+          "en": "We have been living here for five years.",
+          "ru": "Мы живём здесь пять лет.",
+          "gap": "for",
+          "cue": "сколько времени",
+          "wrong": [
+            "since",
+            "during",
+            "from"
+          ]
+        },
+        {
+          "en": "It has been raining since the morning.",
+          "ru": "Дождь идёт с утра.",
+          "gap": "since",
+          "cue": "с какого момента",
+          "wrong": [
+            "for",
+            "from",
+            "during"
+          ]
+        },
+        {
+          "en": "He has been studying for three hours.",
+          "ru": "Он занимается уже три часа.",
+          "gap": "for",
+          "cue": "сколько времени",
+          "wrong": [
+            "since",
+            "during",
+            "ago"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ppc-result",
+      "kind": "rule",
+      "en": "I've been running",
+      "ru": "Недавнее занятие видно по следам: устал, испачкался, промок",
+      "note": "You look tired. — I've been working all day. Why are your hands dirty? — I've been fixing my bike.",
+      "examples": [
+        {
+          "en": "You look tired. — I've been working all day.",
+          "ru": "Ты выглядишь уставшим. — Я весь день работал.",
+          "gap": "I've been working",
+          "cue": "work",
+          "wrong": [
+            "I'm working",
+            "I've been work",
+            "I was work"
+          ]
+        },
+        {
+          "en": "Why are your eyes red? Have you been crying?",
+          "ru": "Почему у тебя красные глаза? Ты плакала?",
+          "gap": "Have you been crying",
+          "cue": "you / cry",
+          "wrong": [
+            "Do you cry",
+            "Did you cried",
+            "Have you cry"
+          ]
+        },
+        {
+          "en": "The ground is wet. It has been raining.",
+          "ru": "Земля мокрая. Шёл дождь.",
+          "gap": "has been raining",
+          "cue": "rain",
+          "wrong": [
+            "rains",
+            "has rain",
+            "have been raining"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ppc-vs-pp",
+      "kind": "rule",
+      "en": "how long — how many",
+      "ru": "Как долго — Continuous; сколько сделано — Present Perfect",
+      "note": "I've been writing emails all morning (как долго) — I've written ten emails (сколько, результат).",
+      "examples": [
+        {
+          "en": "I've been writing emails all morning.",
+          "ru": "Я всё утро пишу письма.",
+          "gap": "I've been writing",
+          "cue": "write",
+          "wrong": [
+            "I've written",
+            "I'm write",
+            "I've been write"
+          ]
+        },
+        {
+          "en": "I've written ten emails today.",
+          "ru": "Сегодня я написал десять писем.",
+          "gap": "I've written",
+          "cue": "write",
+          "wrong": [
+            "I've been writing",
+            "I've write",
+            "I'm writing"
+          ]
+        },
+        {
+          "en": "How many books have you read this year?",
+          "ru": "Сколько книг ты прочитал в этом году?",
+          "gap": "have you read",
+          "cue": "you / read",
+          "wrong": [
+            "have you been reading",
+            "has you read",
+            "are you reading"
+          ]
+        }
+      ]
+    }
+  ]
+}

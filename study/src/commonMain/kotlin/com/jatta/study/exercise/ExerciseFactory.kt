@@ -23,8 +23,48 @@ class ExerciseFactory(private val content: StudyCourse) {
             ?: error("Item $itemId has no material for any exercise")
     }
 
-    private fun build(item: ItemFile, rung: Rung, random: Random): Exercise? =
-        if (item.kind == KindFile.Rule) ruleExercise(item, rung, random) else wordExercise(item, rung, random)
+    private fun build(item: ItemFile, rung: Rung, random: Random): Exercise? = when {
+        item.audio != null -> recordedExercise(item, item.audio.file, rung, random)
+        item.kind == KindFile.Rule -> ruleExercise(item, rung, random)
+        else -> wordExercise(item, rung, random)
+    }
+
+    /**
+     * М24: a recorded phrase is studied by ear: understand it, catch a word, write it all down, then say
+     * it from its meaning and compare with the voice. There is no free composition for a phrase.
+     */
+    private fun recordedExercise(item: ItemFile, recording: String, rung: Rung, random: Random): Exercise? = when (rung) {
+        Rung.Recognize -> {
+            val options = (listOf(item.ru) + otherWords(item).map { it.ru }.distinct().shuffled(random).take(3)).shuffled(random)
+            Exercise.Choice(
+                item.id, rung, "Послушайте: что это значит?",
+                question = "", translation = null,
+                options = options, correctIndex = options.indexOf(item.ru),
+                hint = item.en, answer = item.en, listen = item.en, recording = recording, byEar = true,
+            )
+        }
+        Rung.FillGap -> gapped(item, random)?.let { example ->
+            val gap = example.gap!!
+            Exercise.Typed(
+                item.id, rung, "Послушайте и впишите пропущенное слово",
+                question = Gap.blank(example.en, gap), translation = null, cue = null,
+                accepted = listOf(gap), openEnded = false,
+                hint = firstLetters(gap), answer = example.en, listen = example.en, recording = recording, byEar = true,
+            )
+        }
+        Rung.Translate -> Exercise.Typed(
+            item.id, rung, "Послушайте и запишите фразу целиком",
+            question = "", translation = null, cue = null,
+            accepted = listOf(item.en) + item.also, openEnded = false,
+            hint = item.ru, answer = item.en, listen = item.en, recording = recording, byEar = true,
+        )
+        Rung.Compose -> null
+        Rung.Speak -> Exercise.Speak(
+            item.id, rung, "Скажите вслух по-английски",
+            prompt = item.ru, hint = item.en.split(' ').take(2).joinToString(" ") + " …", answer = item.en,
+            listen = item.en, recording = recording,
+        )
+    }
 
     private fun wordExercise(item: ItemFile, rung: Rung, random: Random): Exercise? = when (rung) {
         Rung.Recognize -> {

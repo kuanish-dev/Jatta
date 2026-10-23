@@ -66,6 +66,10 @@ object ContentLoader {
                 add("$where: a wrong option equals the answer \"$gap\"")
             }
         }
+        item.audio?.let { audio ->
+            if (!audio.file.endsWith(".m4a")) add("$where: recording ${audio.file} is not an .m4a file")
+            if (item.examples.none { it.gap != null }) add("$where: a recorded item needs an example with a gap to catch by ear")
+        }
         if (item.kind == KindFile.Rule) {
             if (item.examples.none { it.gap != null }) add("$where: a rule needs examples with a gap")
             if (item.examples.none { it.gap != null && it.wrong.size >= 2 }) {
