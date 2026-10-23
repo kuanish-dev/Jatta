@@ -66,8 +66,10 @@ Jatta (каз. «заучивай») — ИИ-учебник английско�
 export JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
 ./gradlew :engine:jvmTest :study:jvmTest
 ./gradlew :androidApp:assembleDebug
+./gradlew :androidApp:assembleRelease
 ./gradlew :shared:compileKotlinIosSimulatorArm64
 ```
+Релиз: `assembleRelease` — R8 со сжатием, подпись отладочным ключом (ставится из файла, как Drop Tuner). ML Kit создаёт свои компоненты через рефлексию — в `androidApp/proguard-rules.pro` он сохранён целиком; без этого Gemini Nano молча ломается, а на эмуляторе этого не видно. Релизная сборка не отладочная: `run-as` в её данные не пускает. В GitHub-релиз кладём `Jatta.apk`, тег `vX.Y`, описание на русском.
 Эмулятор: `$SDK/emulator/emulator -avd droptuner -no-audio` (SDK в `/opt/homebrew/share/android-commandlinetools`), затем `adb install -r androidApp/build/outputs/apk/debug/androidApp-debug.apk`.
 
 ## Окружение
