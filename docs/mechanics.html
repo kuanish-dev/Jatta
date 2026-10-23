@@ -330,7 +330,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
   <div class="section-head">
     <div class="eyebrow">Схема</div>
     <h2>Как движок ведёт ученика</h2>
-    <p class="muted" style="max-width:70ch">Метки М1–М22 ведут к описанию механики ниже.</p>
+    <p class="muted" style="max-width:70ch">Метки М1–М23 ведут к описанию механики ниже.</p>
   </div>
 
   <div class="diagram">
@@ -428,7 +428,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
 <section class="wrap rule-top" id="mechanics">
   <div class="section-head">
     <div class="eyebrow">Механики</div>
-    <h2>22 правила движка и их основания</h2>
+    <h2>23 правила движка и их основания</h2>
   </div>
   <div class="filters" role="group" aria-label="Фильтр по уровню доказательности">
     <button type="button" id="f-all" data-f="all" aria-pressed="true">Все</button>
@@ -518,6 +518,12 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
         <p><span class="k">Движок:</span> предлагает отрывки из настоящих источников — Simple English Wikipedia и книг в общественном достоянии (Project Gutenberg). Отрывок показывается, только когда в нём не меньше 95% знакомых слов и не больше 3 новых. Знакомыми считаются первые 2000 слов списка NGSL (осторожная оценка словаря B1) и слова курса, которые уже держатся в памяти, поэтому тексты открываются по мере учёбы. Слова курса в тексте выделены. Покрытие проверяет код. Чтение открывается, когда вся грамматика курса держится в памяти — так решил автор курса.</p>
         <p class="sci"><span class="k">Наука:</span> 95% известных слов в тексте дают минимальное понимание, 98% — уверенное. Сама идея «понятного ввода» Крашена — гипотеза, а вот пороги покрытия измерены.</p>
         <p><a class="cite" href="#ref-laufer2010">Laufer 2010</a> · <a class="cite" href="#ref-hu2000">Hu &amp; Nation 2000</a></p>
+      </article>
+      <article class="mech" id="m23" data-l="b">
+        <div class="mech-head"><span class="mid">М23</span><h4>Вступительный тест уровня</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> перед первым занятием — 60 слов «знаю / не знаю» из шести полос частотности NGSL (12 из них не существуют) и по два вопроса на каждую тему грамматики. Доля «знаю» в полосе поправляется на угадывание: (попадания − ложные) / (1 − ложные). Знакомое сразу попадает в память и приходит на проверку через пару дней, так что ошибка теста стоит одного повтора, а не пробела в курсе. Тест можно пропустить и начать с нуля.</p>
+        <p class="sci"><span class="k">Наука:</span> тест «знаю / не знаю» с несуществующими словами предложили Meara и Buxton; на той же идее построен LexTALE, который хорошо предсказывает словарный запас. Более поздняя проверка LexTALE нашла лишь умеренную связь с общим уровнем, поэтому результат — оценка словаря частых слов, а не точный уровень. Единой лучшей формулы поправки на угадывание нет. Уровень по словарю: B1 — около 3000 частых слов. Пропуск освоенного — тот же принцип, что обучение до освоения (М7).</p>
+        <p><a class="cite" href="#ref-meara1987">Meara &amp; Buxton 1987</a> · <a class="cite" href="#ref-lemhofer2012">Lemhöfer &amp; Broersma 2012</a> · <a class="cite" href="#ref-puig2023">Puig-Mayenco 2023</a> · <a class="cite" href="#ref-milton2010">Milton 2010</a></p>
       </article>
     </div>
   </div>
@@ -646,6 +652,8 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
         <tr><td>Блок / перерыв</td><td class="val">20–25 / 3–5 мин</td><td><a href="#m14">М14</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Тихий отдых после нового</td><td class="val">5–10 мин</td><td><a href="#m15">М15</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Время напоминания</td><td class="val">обычное, сначала 19:00</td><td><a href="#m19">М19</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Полоса частотности считается знакомой</td><td class="val">≥ 85% с поправкой</td><td><a href="#m23">М23</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Порог ложных «знаю» в тесте уровня</td><td class="val">25%</td><td><a href="#m23">М23</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Словарь, известный для текстов</td><td class="val">NGSL 1–2000 + курс</td><td><a href="#m11">М11</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Сигнал усталости (10 ответов)</td><td class="val">−15 п.п. и +30% времени</td><td><a href="#m16">М16</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Смена ступени лестницы</td><td class="val">вверх &gt; 95%, вниз &lt; 75%</td><td><a href="#m6">М6</a></td><td><span class="lvl c">Слабые</span></td></tr>
@@ -696,15 +704,19 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
     <li id="ref-kulik1990">Kulik, C.-L. C., Kulik, J. A., &amp; Bangert-Drowns, R. L. (1990). Effectiveness of mastery learning programs: A meta-analysis. <i>Review of Educational Research, 60</i>(2).</li>
     <li id="ref-lally2010">Lally, P., van Jaarsveld, C. H. M., Potts, H. W. W., &amp; Wardle, J. (2010). How are habits formed: Modelling habit formation in the real world. <i>European Journal of Social Psychology, 40</i>(6).</li>
     <li id="ref-laufer2010">Laufer, B., &amp; Ravenhorst-Kalovski, G. C. (2010). Lexical threshold revisited: Lexical text coverage, learners’ vocabulary size and reading comprehension. <i>Reading in a Foreign Language, 22</i>(1).</li>
+    <li id="ref-lemhofer2012">Lemhöfer, K., &amp; Broersma, M. (2012). Introducing LexTALE: A quick and valid Lexical Test for Advanced Learners of English. <i>Behavior Research Methods, 44</i>(2). <a href="https://forms.mpi.nl/node/44908">mpi.nl</a></li>
     <li id="ref-li2010">Li, S. (2010). The effectiveness of corrective feedback in SLA: A meta-analysis. <i>Language Learning, 60</i>(2).</li>
     <li id="ref-lyster2010">Lyster, R., &amp; Saito, K. (2010). Oral feedback in classroom SLA: A meta-analysis. <i>Studies in Second Language Acquisition, 32</i>(2).</li>
     <li id="ref-mazza2016">Mazza, S., et al. (2016). Relearn faster and retain longer: Along with practice, sleep makes perfect. <i>Psychological Science, 27</i>(10). <a href="https://doi.org/10.1177/0956797616659930">doi</a></li>
+    <li id="ref-meara1987">Meara, P., &amp; Buxton, B. (1987). An alternative to multiple choice vocabulary tests. <i>Language Testing, 4</i>(2). <a href="https://www.lextutor.ca/rand/meara_buxton.pdf">lextutor</a></li>
+    <li id="ref-milton2010">Milton, J. (2010). The development of vocabulary breadth across the CEFR levels. In I. Bartning, M. Martin &amp; I. Vedder (Eds.), <i>Communicative proficiency and linguistic development</i> (EUROSLA Monographs 1).</li>
     <li id="ref-morris1977">Morris, C. D., Bransford, J. D., &amp; Franks, J. J. (1977). Levels of processing versus transfer appropriate processing. <i>Journal of Verbal Learning and Verbal Behavior, 16</i>(5).</li>
     <li id="ref-nation2006">Nation, I. S. P. (2006). How large a vocabulary is needed for reading and listening? <i>Canadian Modern Language Review, 63</i>(1).</li>
     <li id="ref-norris2000">Norris, J. M., &amp; Ortega, L. (2000). Effectiveness of L2 instruction: A research synthesis and quantitative meta-analysis. <i>Language Learning, 50</i>(3).</li>
     <li id="ref-pan2019">Pan, S. C., Tajran, J., Lovelett, J., Osuna, J., &amp; Rickard, T. C. (2019). Does interleaved practice enhance foreign language learning? The effects of training schedule on Spanish verb conjugation skills. <i>Journal of Educational Psychology, 111</i>(7).</li>
     <li id="ref-pashler2005">Pashler, H., Cepeda, N. J., Wixted, J. T., &amp; Rohrer, D. (2005). When does feedback facilitate learning of words? <i>Journal of Experimental Psychology: Learning, Memory, and Cognition, 31</i>(1).</li>
     <li id="ref-pashler2008">Pashler, H., McDaniel, M., Rohrer, D., &amp; Bjork, R. (2008). Learning styles: Concepts and evidence. <i>Psychological Science in the Public Interest, 9</i>(3). <a href="https://doi.org/10.1111/j.1539-6053.2009.01038.x">doi</a></li>
+    <li id="ref-puig2023">Puig-Mayenco, E., et al. (2023). Частичная репликация LexTALE на учениках с родным испанским и китайским. <i>Linguistic Approaches to Bilingualism</i>. <a href="https://ira.lib.polyu.edu.hk/handle/10397/97162">polyu</a></li>
     <li id="ref-rawson2022">Rawson, K. A., &amp; Dunlosky, J. (2022). Successive relearning: An underexplored but potent technique for obtaining and maintaining knowledge. <i>Current Directions in Psychological Science</i>. <a href="https://journals.sagepub.com/doi/full/10.1177/09637214221100484">sagepub</a></li>
     <li id="ref-rohrer2005">Rohrer, D., Taylor, K., Pashler, H., Wixted, J. T., &amp; Cepeda, N. J. (2005). The effect of overlearning on long-term retention. <i>Applied Cognitive Psychology, 19</i>(3). <a href="https://doi.org/10.1002/acp.1083">doi</a></li>
     <li id="ref-rowland2014">Rowland, C. A. (2014). The effect of testing versus restudy on retention: A meta-analytic review of the testing effect. <i>Psychological Bulletin, 140</i>(6). <a href="https://doi.org/10.1037/a0037559">doi</a></li>

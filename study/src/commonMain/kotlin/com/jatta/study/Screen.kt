@@ -4,6 +4,7 @@ import com.jatta.study.content.ItemFile
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffPart
 import com.jatta.study.judge.ModelState
+import com.jatta.study.placement.PlacementResult
 import com.jatta.study.reading.Reading
 import com.jatta.study.store.AiCheck
 
@@ -17,9 +18,22 @@ sealed interface Screen {
         val topics: List<TopicStatus>,
         val ai: AiStatus,
         val progress: CourseProgress,
+        /** The placement test's vocabulary estimate, if the learner took it (М23). */
+        val vocabulary: VocabularyEstimate?,
         /** A real text the learner can read now (М11), or null when none fits yet. */
         val reading: Reading?,
     ) : Screen
+
+    /** М23: before the first lesson, the offer to find where the course should start. */
+    data class PlacementIntro(val words: Int, val questions: Int) : Screen
+
+    /** М23: do you know this word? Some of them don't exist. */
+    data class PlacementWord(val word: String, val steps: Steps) : Screen
+
+    /** М23: a grammar question of the placement test; [id] keeps consecutive questions distinct. */
+    data class PlacementGrammar(val id: Int, val exercise: Exercise.Choice, val steps: Steps) : Screen
+
+    data class PlacementDone(val result: PlacementResult) : Screen
 
     /** Reading a real text; words met in the course are pointed out (М11). */
     data class Read(val reading: Reading) : Screen
@@ -70,6 +84,9 @@ sealed interface Screen {
 data class Steps(val done: Int, val remaining: Int) {
     val fraction: Float get() = if (done + remaining == 0) 1f else done.toFloat() / (done + remaining)
 }
+
+/** М23: about [words] of the [total] most frequent English words are known. */
+data class VocabularyEstimate(val words: Int, val total: Int)
 
 /** М1, М2: how much of the course holds in memory now (recall tomorrow ≥ 85%), not merely how much was seen. */
 data class CourseProgress(val held: Int, val met: Int, val total: Int)

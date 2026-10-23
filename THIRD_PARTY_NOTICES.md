@@ -59,6 +59,9 @@ SOFTWARE.
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). These files keep their own license
 (details in `sources/ngsl/README.md`); they are used only by tests and are not shipped in the app.
 
+The placement test word list `content/en/placement.json` (48 words sampled from NGSL 1.2 frequency
+bands) is shipped in the app and remains under CC BY-SA 4.0.
+
 ### Reading texts — CC BY-SA 4.0 and public domain
 
 `content/en/texts.json` (collected by `scripts/collect_texts.py`) is shipped in the app:

@@ -6,6 +6,7 @@ import com.jatta.engine.localMinuteOfDay
 import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.TextSource
+import com.jatta.study.placement.PlacementFile
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffKind
 import com.jatta.study.judge.EvalCase
@@ -48,11 +49,45 @@ class StudyControllerTest {
         model: OnDeviceModel? = null,
         evalCases: List<EvalCase> = emptyList(),
         texts: List<ReadingText> = emptyList(),
+        placement: PlacementFile? = null,
     ) = StudyController(
         content, LearnerStore(dir.absolutePath), nowMs = { now }, utcOffsetMinutes = { almaty },
         scope = CoroutineScope(Dispatchers.Unconfined), model = model, evalCases = evalCases,
-        texts = texts, reminders = reminders,
+        texts = texts, reminders = reminders, placementFile = placement,
     )
+
+    private val placementFile = PlacementFile.read(File(System.getProperty("contentDir"), "en/placement.json").readText())
+
+    @Test
+    fun aNewLearnerIsOfferedThePlacementTestAndMaySkipIt() {
+        val app = controller(placement = placementFile)
+        assertTrue(app.screen.value is Screen.PlacementIntro)
+        app.skipPlacement()
+        assertEquals(12, (app.screen.value as Screen.Home).newItems)
+        assertTrue(controller(placement = placementFile).screen.value is Screen.Home, "the test is offered once")
+    }
+
+    @Test
+    fun whatThePlacementTestFindsKnownStartsInMemory() {
+        val app = controller(placement = placementFile)
+        app.startPlacement()
+        while (true) {
+            when (val screen = app.screen.value) {
+                // knows every real word and no pseudoword
+                is Screen.PlacementWord -> app.answerPlacementWord(screen.word !in placementFile.pseudowords)
+                is Screen.PlacementGrammar -> app.answerPlacementGrammar(screen.exercise.correctIndex)
+                else -> break
+            }
+        }
+        val done = app.screen.value as Screen.PlacementDone
+        assertEquals(2809, done.result.estimatedWords)
+        app.openHome()
+        val home = app.screen.value as Screen.Home
+        assertEquals(VocabularyEstimate(2809, 2809), home.vocabulary)
+        assertEquals(done.result.knownItems.size, home.progress.held)
+        // words outside NGSL still have to be learned
+        assertTrue(home.newItems > 0)
+    }
 
     @Test
     fun remindersFollowTheScheduleAtTheUsualStudyTime() {
@@ -235,7 +270,8 @@ class StudyControllerTest {
                 is Screen.Reveal -> app.continueAfterReveal()
                 is Screen.Rest -> app.finishRest()
                 is Screen.Home -> error("Unexpected home screen in a session")
-                is Screen.Read -> error("Unexpected reading screen in a session")
+                is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone ->
+                    error("Unexpected screen in a session: $screen")
             }
         }
         error("The session did not finish")

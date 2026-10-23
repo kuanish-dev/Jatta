@@ -5,6 +5,7 @@ import com.jatta.engine.EngineConfig
 import com.jatta.engine.epochMsAt
 import com.jatta.engine.learningDay
 import com.jatta.engine.localMinuteOfDay
+import com.jatta.engine.fsrs.Grade
 import com.jatta.engine.session.Advice
 import com.jatta.engine.session.Answer
 import com.jatta.engine.session.Baseline
@@ -27,6 +28,8 @@ import com.jatta.study.judge.JudgeRequest
 import com.jatta.study.judge.ModelState
 import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.judge.WordDiff
+import com.jatta.study.placement.Placement
+import com.jatta.study.placement.PlacementFile
 import com.jatta.study.reading.ReadingPicker
 import com.jatta.study.remind.Reminder
 import com.jatta.study.remind.ReminderScheduler
@@ -34,6 +37,7 @@ import com.jatta.study.store.AiCheck
 import com.jatta.study.store.LearnerStore
 import com.jatta.study.store.LogEntry
 import com.jatta.study.store.RecentAnswer
+import com.jatta.study.store.SavedPlacement
 import com.jatta.study.store.SessionStart
 import com.jatta.study.store.toLearner
 import com.jatta.study.store.withLearner
@@ -65,6 +69,7 @@ class StudyController(
     private val evalCases: List<EvalCase> = emptyList(),
     private val texts: List<ReadingText> = emptyList(),
     private val reminders: ReminderScheduler? = null,
+    placementFile: PlacementFile? = null,
     private val engineConfig: EngineConfig = EngineConfig(),
     private val config: StudyConfig = StudyConfig(),
 ) {
@@ -72,6 +77,7 @@ class StudyController(
     private val exercises = ExerciseFactory(content)
     private val judge = model?.let { FreeAnswerJudge(it, config) }
     private val readingPicker = ReadingPicker(content, engine)
+    private val placement = placementFile?.let { Placement(content, it, config) }
     /** Topics made of rules only: the grammar of the course. */
     private val grammarTopics = content.topics.values.filter { topic -> topic.items.all { it.kind == KindFile.Rule } }.map { it.id }
 
@@ -95,11 +101,13 @@ class StudyController(
     private var pendingAdvice: Advice = Advice.Continue
     private var questionCounter = 0
     private var stepsDone = 0
+    private val placementWords = mutableMapOf<String, Boolean>()
+    private val placementGrammar = mutableListOf<Boolean>()
     private var checkToken = 0
     private val firstAnswers = mutableListOf<Boolean>()
     private var endedEarly = false
 
-    private val state = MutableStateFlow<Screen>(home())
+    private val state = MutableStateFlow(if (needsPlacement()) placementIntro() else home())
     val screen: StateFlow<Screen> = state.asStateFlow()
 
     init {
@@ -188,6 +196,62 @@ class StudyController(
 
     /** Leave in the middle: everything answered so far is already saved. */
     fun stopSession() = openHome()
+
+    /** М23: start the placement test. */
+    fun startPlacement() {
+        placementWords.clear()
+        placementGrammar.clear()
+        showPlacementStep()
+    }
+
+    /** Start from the beginning of the course instead. */
+    fun skipPlacement() {
+        saved = saved.copy(placement = SavedPlacement(skipped = true))
+        save()
+        openHome()
+    }
+
+    fun answerPlacementWord(known: Boolean) {
+        val screen = state.value as? Screen.PlacementWord ?: return
+        placementWords[screen.word] = known
+        showPlacementStep()
+    }
+
+    fun answerPlacementGrammar(index: Int) {
+        val screen = state.value as? Screen.PlacementGrammar ?: return
+        placementGrammar += index == screen.exercise.correctIndex
+        showPlacementStep()
+    }
+
+    private fun showPlacementStep() {
+        val test = placement ?: return
+        val done = placementWords.size + placementGrammar.size
+        val steps = Steps(done, test.words.size + test.grammar.size - done)
+        state.value = when {
+            placementWords.size < test.words.size -> Screen.PlacementWord(test.words[placementWords.size].word, steps)
+            placementGrammar.size < test.grammar.size ->
+                Screen.PlacementGrammar(done, test.grammar[placementGrammar.size].exercise, steps)
+            else -> finishPlacement(test)
+        }
+    }
+
+    /** Known items start with a fresh memory, so the scheduler checks them within days. */
+    private fun finishPlacement(test: Placement): Screen {
+        val result = test.result(placementWords, placementGrammar)
+        val today = currentDay()
+        result.knownItems.forEach { learner = engine.recordGrade(learner, it, Grade.Good, today) }
+        saved = saved.copy(placement = SavedPlacement(result.estimatedWords, result.totalWords))
+        save()
+        updateReminder()
+        return Screen.PlacementDone(result)
+    }
+
+    private fun needsPlacement() = placement != null && saved.placement == null && learner.progress.isEmpty()
+
+    private fun placementIntro(): Screen {
+        val test = placement ?: error("No placement test")
+        return Screen.PlacementIntro(test.words.size, test.grammar.size)
+    }
 
     /** System → Light → Dark → System. */
     fun cycleTheme() {
@@ -445,7 +509,8 @@ class StudyController(
         // М11, the course author's choice: real texts open once all the grammar of the course holds in memory.
         val grammarHolds = grammarTopics.all { engine.gate.isMastered(it, learner, today) }
         val reading = if (grammarHolds) readingPicker.pick(texts, learner, today, saved.readTexts.toSet()) else null
-        return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, progress, reading)
+        val vocabulary = saved.placement?.let { p -> p.estimatedWords?.let { VocabularyEstimate(it, p.totalWords ?: 0) } }
+        return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, progress, vocabulary, reading)
     }
 
     /** The learner's usual accuracy and speed once there is enough history (М16). */

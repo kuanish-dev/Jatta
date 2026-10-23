@@ -28,6 +28,7 @@ import com.jatta.study.content.StudyCourse
 import com.jatta.study.judge.EvalCase
 import com.jatta.study.judge.JudgeEval
 import com.jatta.study.judge.OnDeviceModel
+import com.jatta.study.placement.PlacementFile
 import com.jatta.study.remind.ReminderScheduler
 import com.jatta.study.store.LearnerStore
 
@@ -71,6 +72,7 @@ fun App(
                     evalCases = loadEvalCases(),
                     texts = loadTexts(),
                     reminders = reminders,
+                    placementFile = PlacementFile.read(Res.readBytes("$CONTENT_DIR/en/placement.json").decodeToString()),
                 )
             } catch (e: Exception) {
                 failure = e.message ?: e.toString()

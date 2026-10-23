@@ -1,0 +1,103 @@
+{
+  "source": "NGSL 1.2 (CC BY-SA 4.0), bands of frequency rank",
+  "bands": [
+    {
+      "from": 1,
+      "to": 500,
+      "words": [
+        "experience",
+        "allow",
+        "suggest",
+        "type",
+        "require",
+        "sometimes",
+        "choose",
+        "decision"
+      ]
+    },
+    {
+      "from": 501,
+      "to": 1000,
+      "words": [
+        "improve",
+        "risk",
+        "mention",
+        "effort",
+        "exactly",
+        "cold",
+        "disease",
+        "easily"
+      ]
+    },
+    {
+      "from": 1001,
+      "to": 1500,
+      "words": [
+        "recommend",
+        "request",
+        "budget",
+        "deliver",
+        "repeat",
+        "bomb",
+        "sight",
+        "shoe"
+      ]
+    },
+    {
+      "from": 1501,
+      "to": 2000,
+      "words": [
+        "hire",
+        "brand",
+        "import",
+        "variable",
+        "priority",
+        "salary",
+        "minority",
+        "origin"
+      ]
+    },
+    {
+      "from": 2001,
+      "to": 2500,
+      "words": [
+        "beside",
+        "depression",
+        "platform",
+        "album",
+        "alarm",
+        "dealer",
+        "promotion",
+        "march"
+      ]
+    },
+    {
+      "from": 2501,
+      "to": 2809,
+      "words": [
+        "forever",
+        "trigger",
+        "golden",
+        "vessel",
+        "server",
+        "registration",
+        "attachment",
+        "insure"
+      ]
+    }
+  ],
+  "pseudowords": [
+    "plimp",
+    "drust",
+    "marbish",
+    "slonder",
+    "gorvent",
+    "pellick",
+    "vonter",
+    "cradish",
+    "fendle",
+    "spratch",
+    "bralt",
+    "clember"
+  ]
+}

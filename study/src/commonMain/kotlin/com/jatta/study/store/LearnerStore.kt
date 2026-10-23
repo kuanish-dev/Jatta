@@ -36,6 +36,10 @@ data class AiCheck(
     val enabled: Boolean,
 )
 
+/** The placement test's outcome; [skipped] when the learner chose to start from the beginning (М23). */
+@Serializable
+data class SavedPlacement(val estimatedWords: Int? = null, val totalWords: Int? = null, val skipped: Boolean = false)
+
 /** When a session started: the learning day and the local clock time in minutes (М19, М20). */
 @Serializable
 data class SessionStart(val day: Int, val minute: Int)
@@ -50,6 +54,7 @@ data class SavedState(
     /** Reading texts already read (М11). */
     val readTexts: List<String> = emptyList(),
     val theme: ThemeChoice = ThemeChoice.System,
+    val placement: SavedPlacement? = null,
 )
 
 /** Every answer as it happened, kept to fit the memory model to this learner later. */

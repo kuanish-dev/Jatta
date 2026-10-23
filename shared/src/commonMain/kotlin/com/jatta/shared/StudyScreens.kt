@@ -39,6 +39,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
@@ -69,6 +70,10 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
     when (val s = screen) {
         is Screen.Home -> HomeScreen(s, controller)
         is Screen.Read -> ReadScreen(s, controller)
+        is Screen.PlacementIntro -> PlacementIntroScreen(s, controller)
+        is Screen.PlacementWord -> PlacementWordScreen(s, controller)
+        is Screen.PlacementGrammar -> PlacementGrammarScreen(s, controller)
+        is Screen.PlacementDone -> PlacementDoneScreen(s, controller)
         is Screen.Present -> PresentScreen(s, controller)
         is Screen.Question -> QuestionScreen(s, controller)
         is Screen.Checking -> CheckingScreen(s, controller)
@@ -95,6 +100,7 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
         }
     }
     Text(home.courseTitle, style = MaterialTheme.typography.headlineMedium)
+    home.vocabulary?.let { Muted("Словарь при старте: ≈ ${it.words} из ${it.total} самых частых слов (${levelOf(it.words)})") }
     ProgressPanel(home.progress)
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         Stat("Повторить", home.reviews, Neon.Acid, Modifier.weight(1f))
@@ -113,6 +119,93 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
     home.topics.forEach { TopicRow(it) }
     if (home.topics.any { it.state == TopicState.Locked }) Muted("Закрытые темы откроются, когда темы до них будут держаться в памяти.")
     AiSection(home.ai, controller)
+}
+
+/** М23: before the first lesson, offer to find where the course should start. */
+@Composable
+private fun PlacementIntroScreen(intro: Screen.PlacementIntro, controller: StudyController) = Page {
+    Label("Jatta // уровень", color = Neon.Cyan)
+    Text("С чего начнём?", style = MaterialTheme.typography.headlineMedium)
+    Text(
+        "Короткий тест покажет, что вы уже знаете, и курс начнётся с вашего уровня: " +
+            "${intro.words} слов «знаю / не знаю» и ${intro.questions} вопросов по грамматике, около 5 минут.",
+        style = MaterialTheme.typography.bodyLarge,
+    )
+    Note(
+        "Некоторых слов в тесте не существует: так тест учитывает угадывание. Всё, что тест отметит знакомым, " +
+            "придёт на проверку через пару дней, поэтому ошибка теста ничего не сломает.",
+    )
+    NeonButton(controller::startPlacement, Modifier.fillMaxWidth()) { Text("ПРОЙТИ ТЕСТ") }
+    NeonOutlinedButton(controller::skipPlacement, Modifier.fillMaxWidth()) { Text("НАЧАТЬ С НУЛЯ") }
+}
+
+@Composable
+private fun PlacementWordScreen(probe: Screen.PlacementWord, controller: StudyController) = PlacementPage(probe.steps) {
+    Label("Слова // знаете, что значит?", color = Neon.Magenta)
+    Text(
+        probe.word,
+        Modifier.fillMaxWidth().padding(vertical = 24.dp),
+        style = MaterialTheme.typography.headlineLarge,
+        color = Neon.Cyan,
+        textAlign = TextAlign.Center,
+    )
+    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        NeonButton({ controller.answerPlacementWord(true) }, Modifier.weight(1f)) { Text("ЗНАЮ") }
+        NeonOutlinedButton({ controller.answerPlacementWord(false) }, Modifier.weight(1f)) { Text("НЕ ЗНАЮ") }
+    }
+    Muted("«Знаю» — можете сказать, что оно значит. Сомневаетесь — «не знаю».")
+}
+
+@Composable
+private fun PlacementGrammarScreen(probe: Screen.PlacementGrammar, controller: StudyController) = PlacementPage(probe.steps) {
+    Label("Грамматика // " + probe.exercise.instruction, color = Neon.Magenta)
+    Text(probe.exercise.question, style = MaterialTheme.typography.headlineSmall)
+    probe.exercise.translation?.let { Muted(it) }
+    probe.exercise.options.forEachIndexed { index, option ->
+        NeonOutlinedButton({ controller.answerPlacementGrammar(index) }, Modifier.fillMaxWidth()) { Text(option) }
+    }
+}
+
+@Composable
+private fun PlacementDoneScreen(done: Screen.PlacementDone, controller: StudyController) = Page {
+    val result = done.result
+    Label("Результат", color = Neon.Acid)
+    Panel(Modifier.fillMaxWidth(), accent = Neon.Cyan.copy(alpha = 0.5f)) {
+        Label("Словарь")
+        NeonNumber("≈ ${result.estimatedWords}")
+        Muted("из ${result.totalWords} самых частых слов английского · ${levelOf(result.estimatedWords)}")
+        NeonBar(result.estimatedWords.toFloat() / result.totalWords, segments = 24, height = 12.dp)
+    }
+    if (!result.reliable) {
+        Note("Вы отметили много несуществующих слов, поэтому отдельным ответам «знаю» тест не доверяет: слова курса начнутся с начала.")
+    }
+    val units = plural(result.knownItems.size, "единица", "единицы", "единиц")
+    Muted("Отмечено знакомым: ${result.knownItems.size} $units курса. Они придут на проверку через пару дней; что забыто, вернётся в учёбу.")
+    if (result.knownTopics.isNotEmpty()) Muted("Грамматика, которую вы знаете: ${result.knownTopics.joinToString()}.")
+    Muted("Уровень оценён по словарю (Milton 2010: A2 ≈ 1500–2500 частых слов, B1 ≈ 3000). Тест меряет 2800 самых частых слов, выше B1 он не различает.")
+    NeonButton(controller::openHome, Modifier.fillMaxWidth()) { Text("К КУРСУ") }
+}
+
+/** Placement steps: a progress bar, no way out but finishing or the back of the phone. */
+@Composable
+private fun PlacementPage(steps: Steps, content: @Composable ColumnScope.() -> Unit) = Page {
+    Label("Тест уровня · ${steps.done + 1}/${steps.done + steps.remaining}", color = Neon.Cyan)
+    NeonBar(steps.fraction, height = 6.dp)
+    content()
+}
+
+/** Russian noun form for a count: 1 единица, 3 единицы, 5 единиц, 21 единица. */
+private fun plural(n: Int, one: String, few: String, many: String) = when {
+    n % 10 == 1 && n % 100 != 11 -> one
+    n % 10 in 2..4 && n % 100 !in 12..14 -> few
+    else -> many
+}
+
+/** A rough level from vocabulary size, after Milton (2010); the test can't tell levels above B1 apart. */
+private fun levelOf(words: Int) = when {
+    words < 1500 -> "около A1"
+    words < 2750 -> "около A2"
+    else -> "B1 или выше"
 }
 
 /** М1, М2: the course in memory: items that would still be recalled tomorrow, out of all items. */

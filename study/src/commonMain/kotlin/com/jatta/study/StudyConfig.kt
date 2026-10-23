@@ -34,4 +34,10 @@ data class StudyConfig(
     val sessionStartsKept: Int = 14,
     /** How far ahead to look for the next day with something to study. */
     val reminderLookaheadDays: Int = 60,
+    /** М23: a frequency band counts as known from this corrected share of known words. Weak. */
+    val placementKnownBandShare: Double = 0.85,
+    /** М23: above this share of "known" pseudowords, single yes answers are not trusted. Weak. */
+    val placementMaxFalseAlarms: Double = 0.25,
+    /** М23: choice questions per grammar topic; all right places the topic as known. */
+    val placementQuestionsPerTopic: Int = 2,
 )
