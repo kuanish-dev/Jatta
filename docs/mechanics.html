@@ -1,0 +1,736 @@
+<title>Механики ИИ-учебника</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
+<style>
+/* Layout: одна колонка-«учебник», широкие вставки для схем; карточки механик в две колонки, на телефоне в одну */
+:root {
+  --bg: #f3f5f9;
+  --surface: #ffffff;
+  --ink: #131b26;
+  --muted: #586374;
+  --line: #d8dde6;
+  --accent: #2a44c2;
+  --accent-soft: #e5e9fb;
+  --mark: #f2c014;
+  --curve-grey: #a2abb9;
+  --a: #1d7148;
+  --a-bg: #e1f2e8;
+  --b: #8c5a00;
+  --b-bg: #faefd6;
+  --c: #5b5f72;
+  --c-bg: #eaecf2;
+  --err: #a33a2a;
+  --err-bg: #fbe9e5;
+  --display: "Literata", Georgia, "Times New Roman", serif;
+  --body: "Golos Text", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e131a; --surface: #161d27; --ink: #e6ebf2; --muted: #9ba7b8; --line: #2a3443;
+    --accent: #93a6ff; --accent-soft: #1e2748; --mark: #ffd33d; --curve-grey: #5f6a7b;
+    --a: #74d3a1; --a-bg: #133022; --b: #f0b54d; --b-bg: #33270d; --c: #aeb4c6; --c-bg: #232b38;
+    --err: #ff9b88; --err-bg: #3a1e19;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e131a; --surface: #161d27; --ink: #e6ebf2; --muted: #9ba7b8; --line: #2a3443;
+  --accent: #93a6ff; --accent-soft: #1e2748; --mark: #ffd33d; --curve-grey: #5f6a7b;
+  --a: #74d3a1; --a-bg: #133022; --b: #f0b54d; --b-bg: #33270d; --c: #aeb4c6; --c-bg: #232b38;
+  --err: #ff9b88; --err-bg: #3a1e19;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+section.wrap { padding-block: 44px; }
+.rule-top { border-top: 1px solid var(--line); }
+
+h1, h2, h3, h4 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.3rem); line-height: 1.08; font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; font-weight: 700; }
+h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 700; }
+h4 { font-size: 1.02rem; line-height: 1.3; font-weight: 500; }
+p { margin: 0; }
+.eyebrow {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+}
+.prose { max-width: 66ch; display: grid; gap: 12px; }
+.lead { font-size: 1.125rem; color: var(--ink); }
+.muted { color: var(--muted); }
+.section-head { display: grid; gap: 10px; margin-bottom: 24px; }
+
+/* Hero */
+.hero { padding-block: 48px 36px; display: grid; gap: 22px; }
+.chart-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  padding: 18px 18px 14px; display: grid; gap: 10px; min-width: 0;
+}
+.chart-scroll { overflow-x: auto; }
+.chart-scroll svg { display: block; width: 100%; min-width: 520px; height: auto; }
+.ax { stroke: var(--line); stroke-width: 1; }
+.grid-l { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+.target { stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 5 4; }
+.c-blue { stroke: var(--accent); stroke-width: 2.6; fill: none; stroke-linejoin: round; }
+.c-grey { stroke: var(--curve-grey); stroke-width: 2.2; fill: none; }
+.dot { fill: var(--mark); stroke: var(--ink); stroke-width: 1.2; }
+.tick { fill: var(--muted); font: 11px var(--mono); }
+.note { fill: var(--ink); font: 12px var(--body); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.sw { width: 22px; height: 0; border-top: 3px solid var(--accent); display: inline-block; }
+.sw.grey { border-top-color: var(--curve-grey); }
+.sw.dash { border-top: 2px dashed var(--muted); }
+.sw-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--mark); border: 1px solid var(--ink); display: inline-block; }
+figcaption { font-size: 13px; color: var(--muted); max-width: 80ch; }
+
+.levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px; }
+.level-item { display: grid; gap: 6px; align-content: start; }
+.level-item p { font-size: 14px; color: var(--muted); }
+
+.lvl {
+  display: inline-block; font: 500 12px/1 var(--mono); letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 5px 8px; border-radius: 5px; white-space: nowrap; justify-self: start;
+}
+.lvl.a { color: var(--a); background: var(--a-bg); }
+.lvl.b { color: var(--b); background: var(--b-bg); }
+.lvl.c { color: var(--c); background: var(--c-bg); }
+
+/* Principle */
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 16px; }
+.pane { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 10px; align-content: start; }
+.pane.code { border-color: var(--accent); }
+.pane ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+
+/* Flow diagram A */
+.diagram { display: grid; gap: 12px; }
+.diagram-title { font: 500 13px var(--mono); color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.flow {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
+  align-items: stretch; gap: 8px;
+}
+.node {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px;
+  display: grid; gap: 8px; align-content: start; min-width: 0;
+}
+.node .step { font: 500 11px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.node p { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+.arrow { align-self: center; color: var(--accent); font-size: 20px; line-height: 1; }
+.arrow::before { content: "→"; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; }
+.chips a {
+  font: 500 12px/1 var(--mono); padding: 4px 6px; border-radius: 4px; text-decoration: none;
+  background: var(--accent-soft); color: var(--accent);
+}
+.chips a:hover { text-decoration: underline; }
+.return {
+  border: 1px dashed var(--accent); border-radius: 10px; padding: 10px 14px; color: var(--accent);
+  font-size: 14px; text-align: center;
+}
+@media (max-width: 880px) {
+  .flow { grid-template-columns: minmax(0,1fr); }
+  .arrow { justify-self: center; }
+  .arrow::before { content: "↓"; }
+}
+
+/* Loop diagram B */
+.loop { display: grid; gap: 10px; }
+.seq { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr); gap: 8px; align-items: stretch; }
+@media (max-width: 760px) {
+  .seq { grid-template-columns: minmax(0,1fr); }
+  .seq .arrow { justify-self: center; }
+  .seq .arrow::before { content: "↓"; }
+}
+.fork { display: grid; grid-template-columns: minmax(0,1fr); gap: 8px; }
+.lane {
+  display: grid; grid-template-columns: 92px minmax(0,1fr); gap: 12px; align-items: center;
+  border-radius: 10px; padding: 12px 14px; border: 1px solid var(--line); background: var(--surface);
+}
+.lane-label { font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: 0.05em; }
+.lane.ok .lane-label { color: var(--a); }
+.lane.err .lane-label { color: var(--err); }
+.lane.ok { box-shadow: inset 4px 0 0 var(--a); }
+.lane.err { box-shadow: inset 4px 0 0 var(--err); }
+.pills { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 4px; align-items: center; }
+.pills li { font-size: 13.5px; padding: 5px 10px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
+.pills li + li::before { content: "→"; color: var(--muted); margin-right: 8px; margin-left: -2px; }
+.pills li + li { border: 0; background: none; padding-left: 0; }
+.pills li + li span { display: inline-block; padding: 5px 10px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
+@media (max-width: 560px) {
+  .lane { grid-template-columns: minmax(0,1fr); gap: 8px; }
+}
+.monitor {
+  display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between;
+  background: var(--c-bg); border-radius: 10px; padding: 12px 14px; font-size: 14px;
+}
+.monitor p { min-width: 0; flex: 1 1 320px; }
+
+/* Mechanics */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.filters button {
+  font: 500 13px var(--body); padding: 7px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.group { display: grid; gap: 14px; padding-top: 28px; }
+.group-head { display: grid; gap: 4px; }
+.group-head p { color: var(--muted); font-size: 14.5px; max-width: 70ch; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 14px; }
+.mech {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px;
+  display: grid; gap: 10px; align-content: start; min-width: 0; scroll-margin-top: 16px;
+}
+.mech:target { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.mech-head { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 10px; align-items: baseline; }
+.mid { font: 500 13px var(--mono); color: var(--accent); }
+.mech p { font-size: 14.5px; }
+.mech .k { font-weight: 600; }
+.mech .sci { color: var(--muted); }
+.cite { font-size: 13px; white-space: nowrap; }
+.params-inline { font: 13px var(--mono); color: var(--ink); background: var(--bg); border-radius: 6px; padding: 8px 10px; }
+
+/* Myths */
+.myths { display: grid; gap: 10px; }
+.myth {
+  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px;
+  padding: 14px 0; border-top: 1px solid var(--line); font-size: 14.5px;
+}
+.myth:first-child { border-top: 0; }
+.myth .m { font-family: var(--display); font-size: 1.02rem; font-weight: 500; text-decoration: line-through; text-decoration-color: var(--err); text-decoration-thickness: 2px; }
+.myth .d { color: var(--muted); }
+.myth .w { font-weight: 500; }
+.myth-head { font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); border-top: 0; padding-bottom: 0; }
+@media (max-width: 720px) {
+  .myth { grid-template-columns: minmax(0,1fr); gap: 4px; }
+  .myth-head { display: none; }
+}
+
+/* Params table */
+.table-scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+td.val { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Check */
+.checks { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; max-width: 72ch; }
+
+/* Sources */
+.refs { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 14px; max-width: 90ch; }
+.refs li { padding-left: 1.4em; text-indent: -1.4em; scroll-margin-top: 16px; }
+.refs li:target { background: var(--accent-soft); border-radius: 4px; }
+.refs a { word-break: break-word; }
+footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+
+<header class="wrap hero">
+  <div class="eyebrow">Проект · ИИ-учебник для языков · научная основа</div>
+  <h1>Механики ИИ-учебника</h1>
+  <div class="prose">
+    <p class="lead">Что учить, когда повторять, сколько давать нового и когда отдыхать, решает движок по правилам из исследований памяти и изучения языков. ИИ делает упражнения из ваших материалов, проверяет ответы и объясняет ошибки.</p>
+    <p class="muted">У каждой механики ниже три части: правило для движка, исследование, на котором оно стоит, и насколько это доказано.</p>
+  </div>
+
+  <figure class="chart-card" style="margin:0">
+    <div class="chart-scroll">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Кривые забывания: без повторений через 30 дней остаётся около 35 процентов, с повторениями по расписанию память держится не ниже 90 процентов, а интервалы растут 1, 3, 8, 18 дней">
+        <line class="grid-l" x1="48" y1="20" x2="620" y2="20"/>
+        <line class="grid-l" x1="48" y1="162.9" x2="620" y2="162.9"/>
+        <line class="target" x1="48" y1="48.6" x2="620" y2="48.6"/>
+        <line class="ax" x1="48" y1="220" x2="620" y2="220"/>
+        <line class="ax" x1="48" y1="20" x2="48" y2="220"/>
+        <text class="tick" x="42" y="24" text-anchor="end">100%</text>
+        <text class="tick" x="42" y="52" text-anchor="end">90%</text>
+        <text class="tick" x="42" y="167" text-anchor="end">50%</text>
+        <text class="tick" x="42" y="224" text-anchor="end">30%</text>
+        <text class="tick" x="48" y="238" text-anchor="middle">0</text>
+        <text class="tick" x="67.1" y="238" text-anchor="middle">1</text>
+        <text class="tick" x="124.3" y="238" text-anchor="middle">4</text>
+        <text class="tick" x="276.8" y="238" text-anchor="middle">12</text>
+        <text class="tick" x="620" y="238" text-anchor="end">30</text>
+        <text class="tick" x="334" y="256" text-anchor="middle">дни после первого изучения</text>
+        <path class="c-grey" d="M48.0,20.0 L52.8,28.0 L57.5,35.4 L62.3,42.2 L67.1,48.6 L71.8,54.5 L76.6,60.0 L81.4,65.1 L86.1,70.0 L90.9,74.6 L95.7,78.9 L100.4,83.0 L105.2,86.8 L110.0,90.5 L114.7,94.0 L119.5,97.3 L124.3,100.5 L129.0,103.5 L133.8,106.4 L138.6,109.2 L143.3,111.9 L148.1,114.4 L152.9,116.9 L157.6,119.3 L162.4,121.6 L167.2,123.8 L171.9,125.9 L176.7,128.0 L181.5,129.9 L186.2,131.9 L191.0,133.7 L195.8,135.5 L200.5,137.3 L205.3,138.9 L210.1,140.6 L214.8,142.2 L219.6,143.7 L224.4,145.2 L229.1,146.7 L233.9,148.1 L238.7,149.5 L243.4,150.9 L248.2,152.2 L253.0,153.5 L257.7,154.7 L262.5,155.9 L267.3,157.1 L272.0,158.3 L276.8,159.4 L281.6,160.5 L286.3,161.6 L291.1,162.7 L295.9,163.7 L300.6,164.7 L305.4,165.7 L310.2,166.7 L314.9,167.7 L319.7,168.6 L324.5,169.5 L329.2,170.4 L334.0,171.3 L338.8,172.2 L343.5,173.0 L348.3,173.8 L353.1,174.7 L357.8,175.5 L362.6,176.2 L367.4,177.0 L372.1,177.8 L376.9,178.5 L381.7,179.3 L386.4,180.0 L391.2,180.7 L396.0,181.4 L400.7,182.1 L405.5,182.7 L410.3,183.4 L415.0,184.1 L419.8,184.7 L424.6,185.3 L429.3,186.0 L434.1,186.6 L438.9,187.2 L443.6,187.8 L448.4,188.3 L453.2,188.9 L457.9,189.5 L462.7,190.0 L467.5,190.6 L472.2,191.1 L477.0,191.7 L481.8,192.2 L486.5,192.7 L491.3,193.2 L496.1,193.8 L500.8,194.3 L505.6,194.7 L510.4,195.2 L515.1,195.7 L519.9,196.2 L524.7,196.7 L529.4,197.1 L534.2,197.6 L539.0,198.0 L543.7,198.5 L548.5,198.9 L553.3,199.4 L558.0,199.8 L562.8,200.2 L567.6,200.6 L572.3,201.0 L577.1,201.5 L581.9,201.9 L586.6,202.3 L591.4,202.7 L596.2,203.0 L600.9,203.4 L605.7,203.8 L610.5,204.2 L615.2,204.6 L620.0,204.9"/>
+        <path class="c-blue" d="M48.0,20.0 L49.0,21.7 L49.9,23.3 L50.9,24.9 L51.8,26.5 L52.8,28.0 L53.7,29.6 L54.7,31.1 L55.6,32.5 L56.6,34.0 L57.5,35.4 L58.5,36.8 L59.4,38.2 L60.4,39.6 L61.3,40.9 L62.3,42.2 L63.3,43.5 L64.2,44.8 L65.2,46.1 L66.1,47.3 L67.1,48.6 L67.1,20.0 L69.9,21.7 L72.8,23.3 L75.6,24.9 L78.5,26.5 L81.4,28.0 L84.2,29.6 L87.1,31.1 L89.9,32.5 L92.8,34.0 L95.7,35.4 L98.5,36.8 L101.4,38.2 L104.2,39.6 L107.1,40.9 L110.0,42.2 L112.8,43.5 L115.7,44.8 L118.5,46.1 L121.4,47.3 L124.3,48.6 L124.3,20.0 L131.9,21.7 L139.5,23.3 L147.1,24.9 L154.8,26.5 L162.4,28.0 L170.0,29.6 L177.7,31.1 L185.3,32.5 L192.9,34.0 L200.5,35.4 L208.2,36.8 L215.8,38.2 L223.4,39.6 L231.0,40.9 L238.7,42.2 L246.3,43.5 L253.9,44.8 L261.5,46.1 L269.2,47.3 L276.8,48.6 L276.8,20.0 L294.0,21.7 L311.1,23.3 L328.3,24.9 L345.4,26.5 L362.6,28.0 L379.8,29.6 L396.9,31.1 L414.1,32.5 L431.2,34.0 L448.4,35.4 L465.6,36.8 L482.7,38.2 L499.9,39.6 L517.0,40.9 L534.2,42.2 L551.4,43.5 L568.5,44.8 L585.7,46.1 L602.8,47.3 L620.0,48.6"/>
+        <circle class="dot" cx="67.1" cy="48.6" r="5"/>
+        <circle class="dot" cx="124.3" cy="48.6" r="5"/>
+        <circle class="dot" cx="276.8" cy="48.6" r="5"/>
+        <circle class="dot" cx="620" cy="48.6" r="5"/>
+        <text class="note" x="330" y="82" text-anchor="middle">интервалы растут: 1 → 3 → 8 → 18 дней</text>
+        <text class="note" x="612" y="194" text-anchor="end">без повторов через месяц ≈ 35%</text>
+      </svg>
+    </div>
+    <div class="legend">
+      <span><i class="sw"></i>с повторами по расписанию</span>
+      <span><i class="sw grey"></i>без повторов</span>
+      <span><i class="sw-dot"></i>повтор</span>
+      <span><i class="sw dash"></i>цель: 90% вероятности вспомнить</span>
+    </div>
+    <figcaption>Иллюстрация по формуле забывания FSRS с условными параметрами. Повтор назначается, когда вероятность вспомнить падает до цели. После каждого повтора память становится стабильнее, и следующий интервал длиннее.</figcaption>
+  </figure>
+
+  <div class="levels" aria-label="Уровни доказательности">
+    <div class="level-item"><span class="lvl a">Сильные</span><p>Мета-анализы и многократные повторения результата. Делаем как есть.</p></div>
+    <div class="level-item"><span class="lvl b">Средние</span><p>Несколько экспериментов или одно крупное рандомизированное исследование. Делаем, следим за данными.</p></div>
+    <div class="level-item"><span class="lvl c">Слабые</span><p>Одиночные исследования, модели или наша эвристика. Делаем как настраиваемый параметр.</p></div>
+  </div>
+</header>
+
+<section class="wrap rule-top" id="principle">
+  <div class="section-head">
+    <div class="eyebrow">Главное правило</div>
+    <h2>Расписание считает код, ИИ работает с языком</h2>
+  </div>
+  <div class="split">
+    <div class="pane code">
+      <h3>Движок решает</h3>
+      <ul>
+        <li>что повторить сегодня и в каком порядке;</li>
+        <li>сколько нового можно добавить;</li>
+        <li>когда открыть следующую тему;</li>
+        <li>когда сделать перерыв и когда закончить занятие.</li>
+      </ul>
+      <p class="muted">Это детерминированный код: одинаковые данные дают одинаковое решение, его можно покрыть тестами и подогнать по вашей истории ответов.</p>
+    </div>
+    <div class="pane">
+      <h3>ИИ помогает</h3>
+      <ul>
+        <li>раскладывает ваши материалы по темам и единицам (вы подтверждаете);</li>
+        <li>заранее генерирует упражнения и тексты из знакомых слов;</li>
+        <li>проверяет свободные ответы и объясняет ошибки;</li>
+        <li>даёт подсказку, а не готовый ответ.</li>
+      </ul>
+      <p class="muted">Языковая модель не хранит надёжно состояние памяти ученика и отвечает по-разному на один и тот же вопрос. А неограниченный доступ к ИИ в эксперименте ухудшил результат на экзамене (<a class="cite" href="#ref-bastani2025">Bastani 2025</a>).</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap rule-top" id="scheme">
+  <div class="section-head">
+    <div class="eyebrow">Схема</div>
+    <h2>Как движок ведёт ученика</h2>
+    <p class="muted" style="max-width:70ch">Метки М1–М22 ведут к описанию механики ниже.</p>
+  </div>
+
+  <div class="diagram">
+    <div class="diagram-title">Один день</div>
+    <div class="flow">
+      <div class="node">
+        <span class="step">Контент</span>
+        <h4>Граф тем</h4>
+        <p>Темы и порядок «сначала это, потом то». Слова по частоте. Связи «путается с».</p>
+        <div class="chips"><a href="#m7">М7</a><a href="#m8">М8</a><a href="#m10">М10</a></div>
+      </div>
+      <span class="arrow" aria-hidden="true"></span>
+      <div class="node">
+        <span class="step">Модель памяти</span>
+        <h4>Состояние каждой единицы</h4>
+        <p>Стабильность, сложность и вероятность вспомнить сегодня для каждого слова и правила.</p>
+        <div class="chips"><a href="#m1">М1</a><a href="#m2">М2</a></div>
+      </div>
+      <span class="arrow" aria-hidden="true"></span>
+      <div class="node">
+        <span class="step">План дня</span>
+        <h4>Повторы, потом новое</h4>
+        <p>Сначала то, что пора повторить. Новое, только если основы освоены и нет долга. Похожие темы вперемешку.</p>
+        <div class="chips"><a href="#m7">М7</a><a href="#m9">М9</a><a href="#m18">М18</a><a href="#m20">М20</a></div>
+      </div>
+      <span class="arrow" aria-hidden="true"></span>
+      <div class="node">
+        <span class="step">Занятие</span>
+        <h4>Блоки по 20–25 минут</h4>
+        <p>Упражнения по лестнице сложности, ошибки возвращаются в очередь, ИИ проверяет и объясняет.</p>
+        <div class="chips"><a href="#m3">М3</a><a href="#m4">М4</a><a href="#m5">М5</a><a href="#m6">М6</a><a href="#m11">М11</a><a href="#m21">М21</a></div>
+      </div>
+      <span class="arrow" aria-hidden="true"></span>
+      <div class="node">
+        <span class="step">Отдых</span>
+        <h4>Перерывы и сон</h4>
+        <p>Короткие перерывы по расписанию, тихий отдых после нового, первый повтор после ночи.</p>
+        <div class="chips"><a href="#m14">М14</a><a href="#m15">М15</a><a href="#m17">М17</a></div>
+      </div>
+    </div>
+    <div class="return">↺ Каждый ответ обновляет модель памяти, и на следующий день план считается заново</div>
+  </div>
+
+  <div class="diagram" style="margin-top:36px">
+    <div class="diagram-title">Одно упражнение внутри занятия</div>
+    <div class="loop">
+      <div class="seq">
+        <div class="node">
+          <span class="step">1 · Задание</span>
+          <h4>Вспомнить без подсказки</h4>
+          <p>Ступень зависит от того, насколько прочно единица уже держится.</p>
+          <div class="chips"><a href="#m3">М3</a><a href="#m5">М5</a></div>
+        </div>
+        <span class="arrow" aria-hidden="true"></span>
+        <div class="node">
+          <span class="step">2 · Ответ</span>
+          <h4>Ответ и время</h4>
+          <p>Движок замеряет время ответа. По желанию можно отметить «знал / сомневался / угадал».</p>
+          <div class="chips"><a href="#m13">М13</a></div>
+        </div>
+        <span class="arrow" aria-hidden="true"></span>
+        <div class="node">
+          <span class="step">3 · Проверка</span>
+          <h4>Код, потом ИИ</h4>
+          <p>Слова и формы проверяет код. Свободные ответы проверяет ИИ, с минимальными правками.</p>
+          <div class="chips"><a href="#m22">М22</a></div>
+        </div>
+      </div>
+      <div class="fork">
+        <div class="lane ok">
+          <span class="lane-label">Верно</span>
+          <ol class="pills">
+            <li>Оценка Good или Easy по скорости и уверенности</li>
+            <li><span>Единица уходит до следующего повтора</span></li>
+          </ol>
+        </div>
+        <div class="lane err">
+          <span class="lane-label">Ошибка</span>
+          <ol class="pills">
+            <li>Подсказка, а не ответ</li>
+            <li><span>Вторая попытка</span></li>
+            <li><span>Не вышло: ответ и объяснение в 1–2 строки</span></li>
+            <li><span>Оценка Again, в конец очереди до верного ответа</span></li>
+          </ol>
+        </div>
+      </div>
+      <div class="monitor">
+        <p><b>Монитор усталости</b> смотрит на последние 10 ответов. Точность упала и ответы замедлились: перерыв. Повторилось после перерыва: занятие окончено, остаток переносится.</p>
+        <div class="chips"><a href="#m12">М12</a><a href="#m14">М14</a><a href="#m16">М16</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap rule-top" id="mechanics">
+  <div class="section-head">
+    <div class="eyebrow">Механики</div>
+    <h2>22 правила движка и их основания</h2>
+  </div>
+  <div class="filters" role="group" aria-label="Фильтр по уровню доказательности">
+    <button type="button" id="f-all" data-f="all" aria-pressed="true">Все</button>
+    <button type="button" id="f-a" data-f="a" aria-pressed="false">Сильные</button>
+    <button type="button" id="f-b" data-f="b" aria-pressed="false">Средние</button>
+    <button type="button" id="f-c" data-f="c" aria-pressed="false">Слабые</button>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>Память и расписание</h3><p>Когда повторять каждую единицу.</p></div>
+    <div class="cards">
+      <article class="mech" id="m1" data-l="a">
+        <div class="mech-head"><span class="mid">М1</span><h4>Интервальные повторения</h4><span class="lvl a">Сильные</span></div>
+        <p><span class="k">Движок:</span> у каждой единицы (слово, правило, фраза) есть дата следующего повтора. Повторяем, когда память ослабевает, и интервалы растут: день, несколько дней, недели, месяцы.</p>
+        <p class="sci"><span class="k">Наука:</span> один из самых воспроизводимых эффектов в психологии памяти, мета-анализ 317 экспериментов. Лучший интервал зависит от того, как долго нужно помнить: около 20–40% этого срока, если помнить неделю, и 5–10%, если год. Для иностранных языков польза подтверждена отдельным мета-анализом 37 исследований.</p>
+        <p><a class="cite" href="#ref-cepeda2006">Cepeda 2006</a> · <a class="cite" href="#ref-cepeda2008">Cepeda 2008</a> · <a class="cite" href="#ref-kim2022">Kim &amp; Webb 2022</a></p>
+      </article>
+      <article class="mech" id="m2" data-l="a">
+        <div class="mech-head"><span class="mid">М2</span><h4>Модель памяти FSRS</h4><span class="lvl a">Сильные</span></div>
+        <p><span class="k">Движок:</span> для каждой единицы три числа: стабильность (сколько дней держится память), сложность и вероятность вспомнить сегодня. Повтор, когда вероятность падает до цели (старт: 90%). Когда накопятся сотни ответов, параметры подгоняются под вас.</p>
+        <p class="params-inline">Оценка по первой попытке дня: Again — ошибка · Hard — верно, но медленно или «сомневался» · Good — верно · Easy — верно, быстро и «знал»</p>
+        <p class="sci"><span class="k">Наука:</span> обучаемые модели предсказывают забывание точнее фиксированных схем. На данных Duolingo такая модель почти вдвое снизила ошибку прогноза по сравнению с системой Лейтнера. FSRS построен на модели «сложность, стабильность, вероятность вспомнить» и в открытом бенчмарке на данных Anki точнее SM-2. Это доказательства точности прогноза, а не эксперименты на результатах учёбы.</p>
+        <p><a class="cite" href="#ref-settles2016">Settles &amp; Meeder 2016</a> · <a class="cite" href="#ref-ye2022">Ye 2022</a> · <a class="cite" href="#ref-srsbench">srs-benchmark</a></p>
+      </article>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>Занятие</h3><p>Как устроено каждое упражнение.</p></div>
+    <div class="cards">
+      <article class="mech" id="m3" data-l="a">
+        <div class="mech-head"><span class="mid">М3</span><h4>Активное припоминание</h4><span class="lvl a">Сильные</span></div>
+        <p><span class="k">Движок:</span> каждое упражнение заставляет достать ответ из памяти: вспомнить слово, собрать фразу, ответить на вопрос. Режима «просто перечитать» нет.</p>
+        <p class="sci"><span class="k">Наука:</span> проверять себя полезнее, чем перечитывать: g ≈ 0,50 в одном мета-анализе и g ≈ 0,61 в другом. В эксперименте со словами суахили долговременную память определяли повторные попытки вспомнить, а не повторное чтение. Обзор методов учёбы ставит самопроверку и распределённую практику на первое место.</p>
+        <p><a class="cite" href="#ref-rowland2014">Rowland 2014</a> · <a class="cite" href="#ref-adesope2017">Adesope 2017</a> · <a class="cite" href="#ref-karpicke2008">Karpicke &amp; Roediger 2008</a> · <a class="cite" href="#ref-dunlosky2013">Dunlosky 2013</a></p>
+      </article>
+      <article class="mech" id="m4" data-l="a">
+        <div class="mech-head"><span class="mid">М4</span><h4>До одного верного ответа, без зубрёжки</h4><span class="lvl a">Сильные</span></div>
+        <p><span class="k">Движок:</span> ошибочная единица возвращается в конец очереди, пока не будет верного ответа без подсказки. После этого она уходит до следующего повтора. Повторять одно слово 10 раз подряд движок не даёт.</p>
+        <p class="sci"><span class="k">Наука:</span> метод последовательного переучивания. По одному верному ответу в трёх разнесённых сессиях дал 68% через неделю, а три ответа за одну сессию дали 26%. Лишние повторы в один день дают выигрыш через неделю, но он исчезает примерно к четырём неделям.</p>
+        <p><a class="cite" href="#ref-rawson2022">Rawson &amp; Dunlosky 2022</a> · <a class="cite" href="#ref-rohrer2005">Rohrer 2005</a></p>
+      </article>
+      <article class="mech" id="m5" data-l="b">
+        <div class="mech-head"><span class="mid">М5</span><h4>Лестница: от узнавания к речи</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> единица проходит ступени: узнать среди вариантов, вставить в пропуск, перевести, составить свою фразу, сказать на время. Ступень растёт вместе со стабильностью памяти.</p>
+        <p class="sci"><span class="k">Наука:</span> память лучше срабатывает в том виде, в каком её тренировали. Узнавание слова и умение самому его употребить — разные знания, второе нужно тренировать отдельно. Теория освоения навыков описывает путь от знания правила к автоматизму через практику.</p>
+        <p><a class="cite" href="#ref-morris1977">Morris 1977</a> · <a class="cite" href="#ref-webb2009">Webb 2009</a> · <a class="cite" href="#ref-dekeyser2007">DeKeyser 2007</a></p>
+      </article>
+      <article class="mech" id="m6" data-l="c">
+        <div class="mech-head"><span class="mid">М6</span><h4>Точность около 85–90%</h4><span class="lvl c">Слабые</span></div>
+        <p><span class="k">Движок:</span> если точность на ступени выше 95%, ступень повышается; ниже 75% — понижается. Для повторов эту роль играет целевое удержание в М2.</p>
+        <p class="sci"><span class="k">Наука:</span> «желательные трудности»: практика, которая даётся с усилием, часто лучше для долгой памяти. Известное «правило 85%» выведено для машинного обучения и моделей обучения животных, для людей оно не доказано. Поэтому это параметр, а не закон.</p>
+        <p><a class="cite" href="#ref-bjork1994">Bjork 1994</a> · <a class="cite" href="#ref-wilson2019">Wilson 2019</a></p>
+      </article>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>Порядок материала</h3><p>Что давать и в какой последовательности.</p></div>
+    <div class="cards">
+      <article class="mech" id="m7" data-l="b">
+        <div class="mech-head"><span class="mid">М7</span><h4>Граф тем и порог освоения</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> темы связаны отношением «сначала это, потом то». Новая тема открывается, когда 85% единиц темы-основы держатся в памяти на уровне цели.</p>
+        <p class="sci"><span class="k">Наука:</span> обучение до освоения (mastery learning) в мета-анализе 108 сравнений дало устойчивый положительный эффект. Порог 85% — инженерный выбор, проверим его на данных.</p>
+        <p><a class="cite" href="#ref-kulik1990">Kulik 1990</a></p>
+      </article>
+      <article class="mech" id="m8" data-l="a">
+        <div class="mech-head"><span class="mid">М8</span><h4>Сначала частотные слова</h4><span class="lvl a">Сильные</span></div>
+        <p><span class="k">Движок:</span> новые слова идут по частотному списку языка, самые частые первыми. Редкие слова — только если они нужны в теме.</p>
+        <p class="sci"><span class="k">Наука:</span> небольшое число частотных слов покрывает большую часть любого текста. Чтобы читать без словаря, нужно знать 95–98% слов текста. Для английского 98% — это примерно 6–9 тысяч семей слов, в зависимости от оценки.</p>
+        <p><a class="cite" href="#ref-nation2006">Nation 2006</a> · <a class="cite" href="#ref-laufer2010">Laufer 2010</a></p>
+      </article>
+      <article class="mech" id="m9" data-l="b">
+        <div class="mech-head"><span class="mid">М9</span><h4>Перемешивание похожих тем</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> новая тема вводится блоком. В повторах похожие и легко путаемые темы (времена, предлоги, падежи) перемешиваются, чтобы учиться их различать. Для этого в графе есть связь «путается с».</p>
+        <p class="sci"><span class="k">Наука:</span> по мета-анализу перемешивание в среднем даёт g = 0,42, и эффект сильнее для похожих категорий. Для иностранного языка (испанские прошедшие времена) перемешивание помогло, но только когда практика шла в нескольких сессиях, а не в одной.</p>
+        <p><a class="cite" href="#ref-brunmair2019">Brunmair &amp; Richter 2019</a> · <a class="cite" href="#ref-pan2019">Pan 2019</a></p>
+      </article>
+      <article class="mech" id="m10" data-l="b">
+        <div class="mech-head"><span class="mid">М10</span><h4>Явное правило, потом практика</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> грамматика вводится коротким явным правилом с примерами и сразу переходит в практику. Если нужно, ИИ объясняет правило ещё раз, другими словами.</p>
+        <p class="sci"><span class="k">Наука:</span> мета-анализы находят, что явное обучение грамматике эффективнее неявного, и обновлённый синтез это подтвердил. Методологию первого мета-анализа критиковали, поэтому уровень средний.</p>
+        <p><a class="cite" href="#ref-norris2000">Norris &amp; Ortega 2000</a> · <a class="cite" href="#ref-goo2015">Goo 2015</a></p>
+      </article>
+      <article class="mech" id="m11" data-l="a">
+        <div class="mech-head"><span class="mid">М11</span><h4>Тексты из знакомых слов</h4><span class="lvl a">Сильные</span></div>
+        <p><span class="k">Движок:</span> ИИ генерирует тексты и диалоги, в которых 95–98% слов уже есть в вашей модели памяти, плюс 1–3 новых. Покрытие проверяет код, а не ИИ на слово.</p>
+        <p class="sci"><span class="k">Наука:</span> 95% известных слов в тексте дают минимальное понимание, 98% — уверенное. Сама идея «понятного ввода» Крашена — гипотеза, а вот пороги покрытия измерены.</p>
+        <p><a class="cite" href="#ref-laufer2010">Laufer 2010</a> · <a class="cite" href="#ref-hu2000">Hu &amp; Nation 2000</a></p>
+      </article>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>Обратная связь</h3><p>Что происходит после ответа.</p></div>
+    <div class="cards">
+      <article class="mech" id="m12" data-l="b">
+        <div class="mech-head"><span class="mid">М12</span><h4>Сначала подсказка, потом ответ</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> после ошибки даёт подсказку (первая буква, правило, вопрос «какое здесь время?») и вторую попытку. Если снова ошибка, показывает правильный ответ и объяснение в одну-две строки.</p>
+        <p class="sci"><span class="k">Наука:</span> исправление ошибок при изучении языка работает, это показывают мета-анализы. В классе подсказки, после которых ученик исправляется сам, эффективнее, чем когда учитель просто произносит верный вариант. Обратная связь особенно важна именно после ошибок.</p>
+        <p><a class="cite" href="#ref-li2010">Li 2010</a> · <a class="cite" href="#ref-lyster2010">Lyster &amp; Saito 2010</a> · <a class="cite" href="#ref-pashler2005">Pashler 2005</a></p>
+      </article>
+      <article class="mech" id="m13" data-l="b">
+        <div class="mech-head"><span class="mid">М13</span><h4>Уверенность в ответе</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> необязательный тап «знал / сомневался / угадал». Уверенные ошибки показываются с акцентом, а уверенность входит в оценку для модели памяти.</p>
+        <p class="sci"><span class="k">Наука:</span> ошибки, сделанные с высокой уверенностью, после обратной связи исправляются лучше неуверенных. Это эффект гиперкоррекции.</p>
+        <p><a class="cite" href="#ref-butterfield2001">Butterfield &amp; Metcalfe 2001</a></p>
+      </article>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>Отдых и нагрузка</h3><p>Когда остановиться и сколько брать.</p></div>
+    <div class="cards">
+      <article class="mech" id="m14" data-l="c">
+        <div class="mech-head"><span class="mid">М14</span><h4>Перерывы по расписанию</h4><span class="lvl c">Слабые</span></div>
+        <p><span class="k">Движок:</span> занятие делится на блоки по 20–25 минут с перерывом 3–5 минут. Перерыв предлагает движок, а не ученик «когда устанет».</p>
+        <p class="sci"><span class="k">Наука:</span> у студентов с фиксированными перерывами было меньше усталости и выше мотивация при том же объёме сделанного, чем у тех, кто отдыхал по желанию. Повторное исследование 2025 года этого преимущества не нашло, поэтому длины блоков — настройка.</p>
+        <p><a class="cite" href="#ref-biwer2023">Biwer 2023</a></p>
+      </article>
+      <article class="mech" id="m15" data-l="c">
+        <div class="mech-head"><span class="mid">М15</span><h4>Тихий отдых после нового</h4><span class="lvl c">Слабые</span></div>
+        <p><span class="k">Движок:</span> после блока новых слов показывает экран «5–10 минут без телефона и без нового материала».</p>
+        <p class="sci"><span class="k">Наука:</span> 10 минут спокойного бодрствования после заучивания улучшили память даже через неделю. Выборка маленькая и только из пожилых людей, проверяем на себе.</p>
+        <p><a class="cite" href="#ref-dewar2012">Dewar 2012</a></p>
+      </article>
+      <article class="mech" id="m16" data-l="c">
+        <div class="mech-head"><span class="mid">М16</span><h4>Монитор усталости</h4><span class="lvl c">Слабые</span></div>
+        <p><span class="k">Движок:</span> следит за последними 10 ответами. Если точность на 15 п.п. ниже вашей обычной и время ответа выросло на 30%, предлагает перерыв. Если после перерыва картина повторяется, занятие окончено, остаток переносится.</p>
+        <p class="sci"><span class="k">Наука:</span> то, что внимание падает при долгой однообразной работе, известно давно, но прямых исследований такого правила для приложений нет. Пороги — наша эвристика, калибруем по вашим логам.</p>
+      </article>
+      <article class="mech" id="m17" data-l="b">
+        <div class="mech-head"><span class="mid">М17</span><h4>Сон между занятиями</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> первый повтор новой единицы — не раньше следующего дня, после сна. Если занятий два в день, новое лучше давать вечером, а повторять утром.</p>
+        <p class="sci"><span class="k">Наука:</span> те, кто учил слова вечером и повторял утром после сна, переучили их вдвое быстрее (около 3 попыток против 6) и лучше помнили через неделю и через полгода, чем те, кто учил утром и повторял вечером. Роль сна в закреплении памяти хорошо описана в обзорах.</p>
+        <p><a class="cite" href="#ref-mazza2016">Mazza 2016</a> · <a class="cite" href="#ref-diekelmann2010">Diekelmann &amp; Born 2010</a></p>
+      </article>
+      <article class="mech" id="m18" data-l="c">
+        <div class="mech-head"><span class="mid">М18</span><h4>Лимит нового и долг повторов</h4><span class="lvl c">Слабые</span></div>
+        <p><span class="k">Движок:</span> 10–15 новых единиц в день. Если просроченных повторов больше полутора дневных норм, новое не даётся, пока долг не разобран. Пропущенный день не наказывается: долг распределяется на несколько дней.</p>
+        <p class="sci"><span class="k">Наука:</span> каждая новая единица добавляет повторы на месяцы вперёд, это следует из самой модели памяти. Конкретные лимиты — практика приложений с интервальными повторениями, а не эксперимент.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>Привычка</h3><p>Как заниматься регулярно.</p></div>
+    <div class="cards">
+      <article class="mech" id="m19" data-l="a">
+        <div class="mech-head"><span class="mid">М19</span><h4>План «когда и где»</h4><span class="lvl a">Сильные</span></div>
+        <p><span class="k">Движок:</span> при настройке ученик задаёт план «если 21:00 и я дома, открываю урок». Напоминание приходит именно в это время.</p>
+        <p class="sci"><span class="k">Наука:</span> по мета-анализу 94 проверок такие планы заметно повышают выполнение целей, d ≈ 0,65.</p>
+        <p><a class="cite" href="#ref-gollwitzer2006">Gollwitzer &amp; Sheeran 2006</a></p>
+      </article>
+      <article class="mech" id="m20" data-l="b">
+        <div class="mech-head"><span class="mid">М20</span><h4>Короткое занятие каждый день</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> минимальное занятие — 10 минут в одно и то же время. Каждый день понемногу лучше, чем раз в неделю много.</p>
+        <p class="sci"><span class="k">Наука:</span> ежедневное действие становилось автоматическим в среднем примерно за 66 дней, с разбросом от 18 до 254. К этому добавляется польза распределённой практики из М1.</p>
+        <p><a class="cite" href="#ref-lally2010">Lally 2010</a></p>
+      </article>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-head"><h3>ИИ</h3><p>Границы для языковой модели.</p></div>
+    <div class="cards">
+      <article class="mech" id="m21" data-l="b">
+        <div class="mech-head"><span class="mid">М21</span><h4>ИИ не решает за ученика</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> ИИ не показывает ответ до попытки и не выполняет задание за ученика. Он работает по жёсткой инструкции: подсказка вместо решения.</p>
+        <p class="sci"><span class="k">Наука:</span> в эксперименте почти с тысячей школьников обычный GPT-4 улучшил результаты на тренировке, но на экзамене без ИИ они упали на 17%. Версия-репетитор с ограничениями этого вреда не дала. В Гарварде хорошо спроектированный ИИ-репетитор дал больше знаний за меньшее время, чем активное занятие в аудитории.</p>
+        <p><a class="cite" href="#ref-bastani2025">Bastani 2025</a> · <a class="cite" href="#ref-kestin2025">Kestin 2025</a></p>
+      </article>
+      <article class="mech" id="m22" data-l="b">
+        <div class="mech-head"><span class="mid">М22</span><h4>Проверка с минимальными правками</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> слова и формы проверяет код: точное совпадение и список допустимых вариантов. ИИ проверяет только свободные ответы и по инструкции «минимальные правки»: исправляет ошибки, но не переписывает фразу «красивее».</p>
+        <p class="sci"><span class="k">Наука:</span> ChatGPT исправляет грамматику гладко, но чаще других систем правит лишнее. Лишние правки сбивают ученика: непонятно, где была настоящая ошибка.</p>
+        <p><a class="cite" href="#ref-fang2023">Fang 2023</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="wrap rule-top" id="myths">
+  <div class="section-head">
+    <div class="eyebrow">Чего не делаем</div>
+    <h2>Популярное, но без доказательств</h2>
+  </div>
+  <div class="myths">
+    <div class="myth myth-head"><span>Идея</span><span>Что говорят данные</span><span>Что делаем мы</span></div>
+    <div class="myth"><span class="m">Подстройка под «визуалов» и «аудиалов»</span><span class="d">Проверка исследований не нашла пользы от подстройки обучения под «стиль» (<a class="cite" href="#ref-pashler2008">Pashler 2008</a>).</span><span class="w">Не подстраиваемся под стиль.</span></div>
+    <div class="myth"><span class="m">Перечитать и выделить маркером</span><span class="d">Низкая польза по обзору методов учёбы (<a class="cite" href="#ref-dunlosky2013">Dunlosky 2013</a>).</span><span class="w">Только припоминание (М3).</span></div>
+    <div class="myth"><span class="m">Повторить 10 раз подряд</span><span class="d">Выигрыш исчезает за несколько недель (<a class="cite" href="#ref-rohrer2005">Rohrer 2005</a>).</span><span class="w">До одного верного ответа (М4).</span></div>
+    <div class="myth"><span class="m">Стрики и очки как основа мотивации</span><span class="d">Эффект геймификации умеренный и сильно зависит от дизайна (<a class="cite" href="#ref-sailer2020">Sailer &amp; Homner 2020</a>).</span><span class="w">Можно добавить позже, не в ядре.</span></div>
+    <div class="myth"><span class="m">ИИ сам составляет расписание</span><span class="d">Модель не хранит надёжно состояние памяти, а без ограничений ИИ вредит учёбе (<a class="cite" href="#ref-bastani2025">Bastani 2025</a>).</span><span class="w">Расписание считает код (М1, М2).</span></div>
+  </div>
+</section>
+
+<section class="wrap rule-top" id="params">
+  <div class="section-head">
+    <div class="eyebrow">Стартовые настройки</div>
+    <h2>Параметры движка</h2>
+    <p class="muted" style="max-width:70ch">Значения для первой версии. Параметры со слабой доказательностью подгоняем по вашей истории ответов.</p>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Параметр</th><th>Старт</th><th>Механика</th><th>Уровень</th></tr></thead>
+      <tbody>
+        <tr><td>Цель удержания при повторах</td><td class="val">90%</td><td><a href="#m2">М2</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Критерий внутри занятия</td><td class="val">1 верный ответ</td><td><a href="#m4">М4</a></td><td><span class="lvl a">Сильные</span></td></tr>
+        <tr><td>Первый повтор нового</td><td class="val">после ночи</td><td><a href="#m17">М17</a></td><td><span class="lvl b">Средние</span></td></tr>
+        <tr><td>Порог открытия темы</td><td class="val">85% основы</td><td><a href="#m7">М7</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Покрытие текстов известными словами</td><td class="val">≥ 95%, цель 98%</td><td><a href="#m11">М11</a></td><td><span class="lvl a">Сильные</span></td></tr>
+        <tr><td>Новых единиц в день</td><td class="val">10–15</td><td><a href="#m18">М18</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Стоп нового при долге повторов</td><td class="val">&gt; 1,5 дневной нормы</td><td><a href="#m18">М18</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Блок / перерыв</td><td class="val">20–25 / 3–5 мин</td><td><a href="#m14">М14</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Тихий отдых после нового</td><td class="val">5–10 мин</td><td><a href="#m15">М15</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Сигнал усталости (10 ответов)</td><td class="val">−15 п.п. и +30% времени</td><td><a href="#m16">М16</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Смена ступени лестницы</td><td class="val">вверх &gt; 95%, вниз &lt; 75%</td><td><a href="#m6">М6</a></td><td><span class="lvl c">Слабые</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="wrap rule-top" id="check">
+  <div class="section-head">
+    <div class="eyebrow">Проверка на себе</div>
+    <h2>Как поймём, что работает</h2>
+  </div>
+  <ul class="checks">
+    <li>Каждый ответ пишется в лог: что спросили, что ответили, сколько думали и какую вероятность вспомнить предсказывала модель.</li>
+    <li>Если модель говорит «90%», а вы вспоминаете 80%, оптимизатор FSRS подгоняет параметры под вашу историю.</li>
+    <li>Раз в неделю короткая контрольная по случайным старым единицам: реальное удержание против прогноза.</li>
+    <li>Параметры со слабой доказательностью меняем по этим данным, а не по ощущениям.</li>
+  </ul>
+</section>
+
+<section class="wrap rule-top" id="sources">
+  <div class="section-head">
+    <div class="eyebrow">Источники</div>
+    <h2>Исследования</h2>
+  </div>
+  <ul class="refs">
+    <li id="ref-adesope2017">Adesope, O. O., Trevisan, D. A., &amp; Sundararajan, N. (2017). Rethinking the use of tests: A meta-analysis of practice testing. <i>Review of Educational Research, 87</i>(3). <a href="https://journals.sagepub.com/doi/10.3102/0034654316689306">sagepub</a></li>
+    <li id="ref-bastani2025">Bastani, H., et al. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. <i>PNAS, 122</i>(26). <a href="https://doi.org/10.1073/pnas.2422633122">doi</a></li>
+    <li id="ref-biwer2023">Biwer, F., Wiradhany, W., oude Egbrink, M. G. A., &amp; de Bruin, A. B. H. (2023). Understanding effort regulation: Comparing “Pomodoro” breaks and self-regulated breaks. <i>British Journal of Educational Psychology</i>. <a href="https://pubmed.ncbi.nlm.nih.gov/36859717/">pubmed</a></li>
+    <li id="ref-bjork1994">Bjork, R. A. (1994). Memory and metamemory considerations in the training of human beings. In J. Metcalfe &amp; A. Shimamura (Eds.), <i>Metacognition</i>. MIT Press.</li>
+    <li id="ref-brunmair2019">Brunmair, M., &amp; Richter, T. (2019). Similarity matters: A meta-analysis of interleaved learning and its moderators. <i>Psychological Bulletin, 145</i>(11). <a href="https://doi.org/10.1037/bul0000209">doi</a></li>
+    <li id="ref-butterfield2001">Butterfield, B., &amp; Metcalfe, J. (2001). Errors committed with high confidence are hypercorrected. <i>Journal of Experimental Psychology: Learning, Memory, and Cognition, 27</i>(6).</li>
+    <li id="ref-cepeda2006">Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., &amp; Rohrer, D. (2006). Distributed practice in verbal recall tasks: A review and quantitative synthesis. <i>Psychological Bulletin, 132</i>(3). <a href="https://doi.org/10.1037/0033-2909.132.3.354">doi</a></li>
+    <li id="ref-cepeda2008">Cepeda, N. J., Vul, E., Rohrer, D., Wixted, J. T., &amp; Pashler, H. (2008). Spacing effects in learning: A temporal ridgeline of optimal retention. <i>Psychological Science, 19</i>(11). <a href="https://pubmed.ncbi.nlm.nih.gov/19076480/">pubmed</a></li>
+    <li id="ref-dekeyser2007">DeKeyser, R. (2007). Skill acquisition theory. In B. VanPatten &amp; J. Williams (Eds.), <i>Theories in Second Language Acquisition</i>. Erlbaum.</li>
+    <li id="ref-dewar2012">Dewar, M., Alber, J., Butler, C., Cowan, N., &amp; Della Sala, S. (2012). Brief wakeful resting boosts new memories over the long term. <i>Psychological Science, 23</i>(9). <a href="https://researchportal.hw.ac.uk/en/publications/brief-wakeful-resting-boosts-new-memories-over-the-long-term/">hw.ac.uk</a></li>
+    <li id="ref-diekelmann2010">Diekelmann, S., &amp; Born, J. (2010). The memory function of sleep. <i>Nature Reviews Neuroscience, 11</i>. <a href="https://doi.org/10.1038/nrn2762">doi</a></li>
+    <li id="ref-dunlosky2013">Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., &amp; Willingham, D. T. (2013). Improving students’ learning with effective learning techniques. <i>Psychological Science in the Public Interest, 14</i>(1). <a href="https://doi.org/10.1177/1529100612453266">doi</a></li>
+    <li id="ref-fang2023">Fang, T., et al. (2023). Is ChatGPT a highly fluent grammatical error correction system? A comprehensive evaluation. <i>arXiv:2304.01746</i>. <a href="https://arxiv.org/abs/2304.01746">arxiv</a></li>
+    <li id="ref-gollwitzer2006">Gollwitzer, P. M., &amp; Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. <i>Advances in Experimental Social Psychology, 38</i>. <a href="https://www.socmot.uni-konstanz.de/publications/implementation-intentions-and-goal-achievement-meta-analysis-effects-and-processes">uni-konstanz</a></li>
+    <li id="ref-goo2015">Goo, J., Granena, G., Yilmaz, Y., &amp; Novella, M. (2015). Implicit and explicit instruction in L2 learning. In P. Rebuschat (Ed.), <i>Implicit and Explicit Learning of Languages</i>. John Benjamins. <a href="https://www.degruyterbrill.com/document/doi/10.1075/sibil.48.18goo/html">degruyter</a></li>
+    <li id="ref-hu2000">Hu, M., &amp; Nation, I. S. P. (2000). Unknown vocabulary density and reading comprehension. <i>Reading in a Foreign Language, 13</i>(1).</li>
+    <li id="ref-karpicke2008">Karpicke, J. D., &amp; Roediger, H. L. (2008). The critical importance of retrieval for learning. <i>Science, 319</i>(5865). <a href="https://doi.org/10.1126/science.1152408">doi</a></li>
+    <li id="ref-kestin2025">Kestin, G., Miller, K., Klales, A., Milbourne, T., &amp; Ponti, G. (2025). AI tutoring outperforms in-class active learning. <i>Scientific Reports, 15</i>. <a href="https://serl.fas.harvard.edu/publication/ai-tutoring-outperforms-class-active-learning-rct-introducing-novel-research-based">harvard</a></li>
+    <li id="ref-kim2022">Kim, S. K., &amp; Webb, S. (2022). The effects of spaced practice on second language learning: A meta-analysis. <i>Language Learning, 72</i>(1). <a href="https://doi.org/10.1111/lang.12479">doi</a></li>
+    <li id="ref-kulik1990">Kulik, C.-L. C., Kulik, J. A., &amp; Bangert-Drowns, R. L. (1990). Effectiveness of mastery learning programs: A meta-analysis. <i>Review of Educational Research, 60</i>(2).</li>
+    <li id="ref-lally2010">Lally, P., van Jaarsveld, C. H. M., Potts, H. W. W., &amp; Wardle, J. (2010). How are habits formed: Modelling habit formation in the real world. <i>European Journal of Social Psychology, 40</i>(6).</li>
+    <li id="ref-laufer2010">Laufer, B., &amp; Ravenhorst-Kalovski, G. C. (2010). Lexical threshold revisited: Lexical text coverage, learners’ vocabulary size and reading comprehension. <i>Reading in a Foreign Language, 22</i>(1).</li>
+    <li id="ref-li2010">Li, S. (2010). The effectiveness of corrective feedback in SLA: A meta-analysis. <i>Language Learning, 60</i>(2).</li>
+    <li id="ref-lyster2010">Lyster, R., &amp; Saito, K. (2010). Oral feedback in classroom SLA: A meta-analysis. <i>Studies in Second Language Acquisition, 32</i>(2).</li>
+    <li id="ref-mazza2016">Mazza, S., et al. (2016). Relearn faster and retain longer: Along with practice, sleep makes perfect. <i>Psychological Science, 27</i>(10). <a href="https://doi.org/10.1177/0956797616659930">doi</a></li>
+    <li id="ref-morris1977">Morris, C. D., Bransford, J. D., &amp; Franks, J. J. (1977). Levels of processing versus transfer appropriate processing. <i>Journal of Verbal Learning and Verbal Behavior, 16</i>(5).</li>
+    <li id="ref-nation2006">Nation, I. S. P. (2006). How large a vocabulary is needed for reading and listening? <i>Canadian Modern Language Review, 63</i>(1).</li>
+    <li id="ref-norris2000">Norris, J. M., &amp; Ortega, L. (2000). Effectiveness of L2 instruction: A research synthesis and quantitative meta-analysis. <i>Language Learning, 50</i>(3).</li>
+    <li id="ref-pan2019">Pan, S. C., Tajran, J., Lovelett, J., Osuna, J., &amp; Rickard, T. C. (2019). Does interleaved practice enhance foreign language learning? The effects of training schedule on Spanish verb conjugation skills. <i>Journal of Educational Psychology, 111</i>(7).</li>
+    <li id="ref-pashler2005">Pashler, H., Cepeda, N. J., Wixted, J. T., &amp; Rohrer, D. (2005). When does feedback facilitate learning of words? <i>Journal of Experimental Psychology: Learning, Memory, and Cognition, 31</i>(1).</li>
+    <li id="ref-pashler2008">Pashler, H., McDaniel, M., Rohrer, D., &amp; Bjork, R. (2008). Learning styles: Concepts and evidence. <i>Psychological Science in the Public Interest, 9</i>(3). <a href="https://doi.org/10.1111/j.1539-6053.2009.01038.x">doi</a></li>
+    <li id="ref-rawson2022">Rawson, K. A., &amp; Dunlosky, J. (2022). Successive relearning: An underexplored but potent technique for obtaining and maintaining knowledge. <i>Current Directions in Psychological Science</i>. <a href="https://journals.sagepub.com/doi/full/10.1177/09637214221100484">sagepub</a></li>
+    <li id="ref-rohrer2005">Rohrer, D., Taylor, K., Pashler, H., Wixted, J. T., &amp; Cepeda, N. J. (2005). The effect of overlearning on long-term retention. <i>Applied Cognitive Psychology, 19</i>(3). <a href="https://doi.org/10.1002/acp.1083">doi</a></li>
+    <li id="ref-rowland2014">Rowland, C. A. (2014). The effect of testing versus restudy on retention: A meta-analytic review of the testing effect. <i>Psychological Bulletin, 140</i>(6). <a href="https://doi.org/10.1037/a0037559">doi</a></li>
+    <li id="ref-sailer2020">Sailer, M., &amp; Homner, L. (2020). The gamification of learning: A meta-analysis. <i>Educational Psychology Review, 32</i>.</li>
+    <li id="ref-settles2016">Settles, B., &amp; Meeder, B. (2016). A trainable spaced repetition model for language learning. <i>ACL 2016</i>. <a href="https://aclanthology.org/P16-1174/">acl</a></li>
+    <li id="ref-srsbench">Open Spaced Repetition. srs-benchmark: сравнение алгоритмов интервальных повторений на данных Anki. <a href="https://github.com/open-spaced-repetition/srs-benchmark">github</a></li>
+    <li id="ref-webb2009">Webb, S. (2009). The effects of receptive and productive learning of word pairs on vocabulary knowledge. <i>RELC Journal, 40</i>(3).</li>
+    <li id="ref-wilson2019">Wilson, R. C., Shenhav, A., Straccia, M., &amp; Cohen, J. D. (2019). The Eighty Five Percent Rule for optimal learning. <i>Nature Communications, 10</i>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6831579">pmc</a></li>
+    <li id="ref-ye2022">Ye, J., Su, J., &amp; Cao, Y. (2022). A stochastic shortest path algorithm for optimizing spaced repetition scheduling. <i>KDD ’22</i>. <a href="https://doi.org/10.1145/3534678.3539081">doi</a></li>
+  </ul>
+</section>
+
+<footer class="wrap">
+  Собрано 23 октября 2026. Уровни доказательности — наша оценка по типу и числу исследований. Часть размеров эффектов взята из аннотаций и обзоров; перед публичной статьёй их стоит сверить с полными текстами.
+</footer>
+
+<script>
+(function () {
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.filters button'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.mech'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('#mechanics .group'));
+  function apply(f) {
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.f === f)); });
+    cards.forEach(function (c) { c.hidden = f !== 'all' && c.dataset.l !== f; });
+    groups.forEach(function (g) { g.hidden = !g.querySelector('.mech:not([hidden])'); });
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.f); }); });
+  document.querySelectorAll('a[href^="#m"]').forEach(function (a) {
+    a.addEventListener('click', function () { apply('all'); });
+  });
+})();
+</script>
