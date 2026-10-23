@@ -44,6 +44,8 @@ sealed interface Exercise {
         val openEnded: Boolean,
         override val hint: String,
         override val answer: String,
+        /** The task in English for the on-device model; set when [openEnded]. */
+        val judgeTask: String? = null,
     ) : Exercise
 
     /** Write an own sentence; judged by the on-device model when there is one, otherwise by the learner. */
@@ -55,6 +57,8 @@ sealed interface Exercise {
         val references: List<String>,
         override val hint: String,
         override val answer: String,
+        /** The task in English for the on-device model. */
+        val judgeTask: String,
     ) : Exercise
 
     /** Say the sentence aloud, then compare with the model answer. */

@@ -16,36 +16,60 @@ import com.langengine.study.content.StudyCourse
 import com.langengine.study.exercise.AnswerCheck
 import com.langengine.study.exercise.Exercise
 import com.langengine.study.exercise.ExerciseFactory
+import com.langengine.study.judge.EvalCase
+import com.langengine.study.judge.FreeAnswerJudge
+import com.langengine.study.judge.JudgeEval
+import com.langengine.study.judge.JudgeRequest
+import com.langengine.study.judge.ModelState
+import com.langengine.study.judge.OnDeviceModel
+import com.langengine.study.judge.WordDiff
+import com.langengine.study.store.AiCheck
 import com.langengine.study.store.LearnerStore
 import com.langengine.study.store.LogEntry
 import com.langengine.study.store.RecentAnswer
 import com.langengine.study.store.toLearner
 import com.langengine.study.store.toSaved
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 
 private const val MS_PER_MINUTE = 60_000L
 
+/** Who decided whether an answer was right; kept in the answer log. */
+private enum class CheckedBy(val logName: String) { Code("code"), Self("self"), Ai("ai"), AiDisputed("ai-disputed") }
+
 /**
  * Runs the app around the engine: plans the day, walks the session queue, turns steps into exercises,
- * saves every graded answer at once, and follows the rest coach. Platform code supplies the clock,
- * the time zone and the storage directory.
+ * saves every graded answer at once, and follows the rest coach. Free answers go to the on-device model
+ * only after it has passed the accuracy test (М21); otherwise the learner compares with the model answer.
+ * Platform code supplies the clock, the time zone, the storage directory and the model.
  */
 class StudyController(
     private val content: StudyCourse,
     private val store: LearnerStore,
     private val nowMs: () -> Long,
     private val utcOffsetMinutes: () -> Int,
+    private val scope: CoroutineScope,
+    private val model: OnDeviceModel? = null,
+    private val evalCases: List<EvalCase> = emptyList(),
     private val engineConfig: EngineConfig = EngineConfig(),
     private val config: StudyConfig = StudyConfig(),
 ) {
     private val engine = Engine(content.course, engineConfig)
     private val exercises = ExerciseFactory(content)
+    private val judge = model?.let { FreeAnswerJudge(it, config) }
 
     private val saved = store.load()
     private var learner = saved.toLearner()
     private var recent = saved.recent
+    private var aiCheck = saved.aiCheck
+
+    private var modelState = ModelState.Unavailable
+    private var downloadedBytes: Long? = null
+    private var testedDone: Int? = null
 
     private var today = 0
     private var session: Session? = null
@@ -55,13 +79,24 @@ class StudyController(
     private var pendingResponseMs = 0L
     private var pendingAdvice: Advice = Advice.Continue
     private var questionCounter = 0
+    private var checkToken = 0
     private val firstAnswers = mutableListOf<Boolean>()
     private var endedEarly = false
 
     private val state = MutableStateFlow<Screen>(home())
     val screen: StateFlow<Screen> = state.asStateFlow()
 
+    init {
+        if (model != null) {
+            scope.launch {
+                modelState = model.state()
+                refreshHome()
+            }
+        }
+    }
+
     fun openHome() {
+        checkToken++
         session = null
         coach = null
         exercise = null
@@ -86,26 +121,35 @@ class StudyController(
 
     fun choose(index: Int) {
         val choice = exercise as Exercise.Choice
-        answer(index == choice.correctIndex, elapsedMs())
+        answer(index == choice.correctIndex, elapsedMs(), CheckedBy.Code)
     }
 
     fun submitText(text: String) {
         val responseMs = elapsedMs()
         when (val current = exercise) {
             is Exercise.Typed -> when {
-                AnswerCheck.matches(text, current.accepted) -> answer(true, responseMs)
-                current.openEnded -> selfCheck(text, responseMs)
-                else -> answer(false, responseMs)
+                AnswerCheck.matches(text, current.accepted) -> answer(true, responseMs, CheckedBy.Code)
+                current.openEnded -> checkFreeAnswer(text, responseMs, current.judgeTask)
+                else -> answer(false, responseMs, CheckedBy.Code)
             }
-            is Exercise.Free -> selfCheck(text, responseMs)
+            is Exercise.Free -> checkFreeAnswer(text, responseMs, current.judgeTask)
             else -> error("No typed answer expected for $current")
         }
     }
 
     /** The learner has said the sentence aloud and wants to compare. */
-    fun showSpokenAnswer() = selfCheck(response = null, responseMs = elapsedMs())
+    fun showSpokenAnswer() {
+        pendingResponseMs = elapsedMs()
+        showSelfCheck(response = null)
+    }
 
-    fun judgeSelf(correct: Boolean) = answer(correct, pendingResponseMs)
+    fun judgeSelf(correct: Boolean) = answer(correct, pendingResponseMs, CheckedBy.Self)
+
+    /** The learner accepts the model's correction. */
+    fun acceptCorrection() = answer(false, pendingResponseMs, CheckedBy.Ai)
+
+    /** The learner is sure the model was wrong; logged separately to watch the model's accuracy. */
+    fun disputeCorrection() = answer(true, pendingResponseMs, CheckedBy.AiDisputed)
 
     fun continueAfterReveal() = advance(banner = null)
 
@@ -122,7 +166,74 @@ class StudyController(
     /** Leave in the middle: everything answered so far is already saved. */
     fun stopSession() = openHome()
 
-    private fun answer(correct: Boolean, responseMs: Long) {
+    fun downloadModel() {
+        val model = model ?: return
+        modelState = ModelState.Downloading
+        downloadedBytes = 0
+        refreshHome()
+        scope.launch {
+            val ready = model.download { bytes ->
+                downloadedBytes = bytes
+                refreshHome()
+            }
+            downloadedBytes = null
+            modelState = if (ready) ModelState.Ready else model.state()
+            refreshHome()
+        }
+    }
+
+    /** М21, "test first, then trust": the model checks lessons only if it matches enough known verdicts. */
+    fun testModel() {
+        val judge = judge ?: return
+        if (testedDone != null || evalCases.isEmpty()) return
+        testedDone = 0
+        refreshHome()
+        scope.launch {
+            val result = JudgeEval.run(judge, evalCases) { done ->
+                testedDone = done
+                refreshHome()
+            }
+            aiCheck = AiCheck(
+                agreement = result.agreement,
+                total = result.total,
+                wrongAccepted = result.wrongAccepted,
+                rightRejected = result.rightRejected,
+                unusable = result.unusable,
+                enabled = result.agreement >= config.minJudgeAgreement,
+            )
+            testedDone = null
+            store.save(learner.toSaved(recent, aiCheck))
+            refreshHome()
+        }
+    }
+
+    private fun checkFreeAnswer(text: String, responseMs: Long, task: String?) {
+        pendingResponseMs = responseMs
+        val judge = judge?.takeIf { aiCheck?.enabled == true && modelState == ModelState.Ready }
+        if (judge == null || task == null) {
+            showSelfCheck(text)
+            return
+        }
+        val current = exercise ?: error("No exercise on screen")
+        val token = ++checkToken
+        state.value = Screen.Checking(remaining())
+        scope.launch {
+            val judgment = withTimeoutOrNull(config.judgeTimeoutMs) { judge.judge(JudgeRequest(task, current.answer, text)) }
+            if (token != checkToken || state.value !is Screen.Checking) return@launch // the learner left meanwhile
+            when {
+                judgment == null -> showSelfCheck(text)
+                judgment.correct -> answer(true, responseMs, CheckedBy.Ai)
+                else -> state.value = Screen.Judged(
+                    exercise = current,
+                    diff = WordDiff.parts(text, judgment.corrected!!),
+                    note = itemNote(current.itemId),
+                    remaining = remaining(),
+                )
+            }
+        }
+    }
+
+    private fun answer(correct: Boolean, responseMs: Long, checkedBy: CheckedBy) {
         val current = exercise ?: error("No exercise on screen")
         val step = session().current as Step.Recall
         val outcome = session().answer(Answer(correct, responseMs), medianMs(current.rung))
@@ -130,15 +241,18 @@ class StudyController(
             learner = engine.recordGrade(learner, step.itemId, grade, today)
             firstAnswers += correct
             recent = (recent + RecentAnswer(current.rung.name, correct, responseMs)).takeLast(config.recentAnswersKept)
-            store.save(learner.toSaved(recent))
+            store.save(learner.toSaved(recent, aiCheck))
         }
         store.log(
-            LogEntry(nowMs(), today, step.itemId, current.rung.name, correct, responseMs, outcome.firstGrade?.name, step.withHint),
+            LogEntry(
+                nowMs(), today, step.itemId, current.rung.name, correct, responseMs,
+                outcome.firstGrade?.name, step.withHint, checkedBy.logName,
+            ),
         )
         pendingAdvice = stronger(pendingAdvice, coach().onAnswer(Answer(correct, responseMs), nowMs()))
 
         when (outcome) {
-            is Outcome.Done -> advance(Banner.Correct)
+            is Outcome.Done -> advance(if (checkedBy == CheckedBy.Ai) Banner.CheckedByAi else Banner.Correct)
             is Outcome.Hint -> {
                 shownAtMs = nowMs()
                 state.value = Screen.Question(++questionCounter, current, hint = current.hint, banner = null, remaining = remaining())
@@ -148,9 +262,8 @@ class StudyController(
         }
     }
 
-    private fun selfCheck(response: String?, responseMs: Long) {
-        pendingResponseMs = responseMs
-        state.value = Screen.SelfCheck(exercise!!, response, remaining())
+    private fun showSelfCheck(response: String?) {
+        state.value = Screen.SelfCheck(exercise ?: error("No exercise on screen"), response, remaining())
     }
 
     /** Next step, unless the rest coach asked for a break or the end (М14, М16). */
@@ -199,7 +312,7 @@ class StudyController(
         if (firstAnswers.size >= config.minAnswersForLadderShift) {
             val accuracy = firstAnswers.count { it }.toDouble() / firstAnswers.size
             learner = learner.copy(ladderShift = engine.ladder.adjustShift(learner.ladderShift, accuracy))
-            store.save(learner.toSaved(recent))
+            store.save(learner.toSaved(recent, aiCheck))
         }
         val after = coach().afterSession(session())
         if (after is Advice.QuietRest) {
@@ -211,6 +324,10 @@ class StudyController(
 
     private fun showDone() {
         state.value = Screen.Done(firstAnswers.size, firstAnswers.count { it }, endedEarly)
+    }
+
+    private fun refreshHome() {
+        if (state.value is Screen.Home) state.value = home()
     }
 
     private fun home(): Screen.Home {
@@ -225,7 +342,8 @@ class StudyController(
             }
             TopicStatus(topic.title, state, held = items.count { engine.gate.holds(learner.progress[it.id], today) }, total = items.size)
         }
-        return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics)
+        val ai = AiStatus(modelState, downloadedBytes, testedDone, evalCases.size, aiCheck)
+        return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai)
     }
 
     /** The learner's usual accuracy and speed once there is enough history (М16). */

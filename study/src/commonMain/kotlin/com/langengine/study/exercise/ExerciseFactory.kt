@@ -56,6 +56,7 @@ class ExerciseFactory(private val content: StudyCourse) {
             task = "Со словом «${item.en}» (${item.ru})",
             references = item.examples.map { it.en },
             hint = item.note.ifBlank { item.examples.first().en }, answer = item.examples.first().en,
+            judgeTask = "Write an English sentence using the word \"${item.en}\" (${item.ru})",
         )
         Rung.Speak -> speak(item, random)
     }
@@ -85,6 +86,7 @@ class ExerciseFactory(private val content: StudyCourse) {
                 question = example.ru, translation = null, cue = null,
                 accepted = listOf(example.en) + example.also, openEnded = true,
                 hint = item.ru, answer = example.en,
+                judgeTask = "Translate into English: «${example.ru}»",
             )
         }
         Rung.Compose -> Exercise.Free(
@@ -92,6 +94,7 @@ class ExerciseFactory(private val content: StudyCourse) {
             task = item.ru,
             references = item.examples.map { it.en },
             hint = item.note.ifBlank { item.ru }, answer = item.examples.first().en,
+            judgeTask = "Write an English sentence using the ${content.topicOf(item.id).title} pattern \"${item.en}\" (${item.ru})",
         )
         Rung.Speak -> speak(item, random)
     }

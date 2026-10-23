@@ -2,6 +2,9 @@ package com.langengine.study
 
 import com.langengine.study.content.ItemFile
 import com.langengine.study.exercise.Exercise
+import com.langengine.study.judge.DiffPart
+import com.langengine.study.judge.ModelState
+import com.langengine.study.store.AiCheck
 
 /** What the app shows. The UI only draws these and calls StudyController back. */
 sealed interface Screen {
@@ -11,6 +14,7 @@ sealed interface Screen {
         val newItems: Int,
         val postponed: Int,
         val topics: List<TopicStatus>,
+        val ai: AiStatus,
     ) : Screen
 
     /** A new item met for the first time; [topicIntro] is set for the first item of a topic (М10). */
@@ -31,6 +35,12 @@ sealed interface Screen {
         val remaining: Int,
     ) : Screen
 
+    /** The on-device model is checking a free answer. */
+    data class Checking(val remaining: Int) : Screen
+
+    /** The model found a mistake: what changed, and the course's explanation (М12, М22). */
+    data class Judged(val exercise: Exercise, val diff: List<DiffPart>, val note: String, val remaining: Int) : Screen
+
     /** The learner compares a free answer with the model answer and says whether it was right. */
     data class SelfCheck(val exercise: Exercise, val response: String?, val remaining: Int) : Screen
 
@@ -42,7 +52,18 @@ sealed interface Screen {
     data class Done(val answered: Int, val rightFirstTime: Int, val endedEarly: Boolean) : Screen
 }
 
-enum class Banner { Correct, CorrectWithHint }
+/** The on-device model as the home screen shows it. */
+data class AiStatus(
+    val model: ModelState,
+    /** Bytes downloaded while the model is downloading. */
+    val downloadedBytes: Long?,
+    /** Cases checked so far while the accuracy test runs. */
+    val testedDone: Int?,
+    val testTotal: Int,
+    val lastTest: AiCheck?,
+)
+
+enum class Banner { Correct, CheckedByAi, CorrectWithHint }
 
 enum class RestKind { Scheduled, Fatigue, Quiet }
 

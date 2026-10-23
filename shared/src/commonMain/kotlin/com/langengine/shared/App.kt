@@ -14,6 +14,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,23 +23,35 @@ import com.langengine.shared.resources.Res
 import com.langengine.study.StudyController
 import com.langengine.study.content.ContentLoader
 import com.langengine.study.content.StudyCourse
+import com.langengine.study.judge.EvalCase
+import com.langengine.study.judge.JudgeEval
+import com.langengine.study.judge.OnDeviceModel
 import com.langengine.study.store.LearnerStore
 
-private const val COURSE_DIR = "files/content/en"
+private const val CONTENT_DIR = "files/content"
 
 /**
- * The whole app. Platform code passes where to keep the learner's data, the clock and the time zone,
- * so everything below is the same on Android and iOS.
+ * The whole app. Platform code passes where to keep the learner's data, the clock, the time zone and
+ * the on-device model (null where there is none), so everything below is the same on Android and iOS.
  */
 @Composable
-fun App(dataDir: String, nowMs: () -> Long, utcOffsetMinutes: () -> Int) {
+fun App(dataDir: String, nowMs: () -> Long, utcOffsetMinutes: () -> Int, model: OnDeviceModel?) {
     MaterialTheme(colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()) {
         Surface(Modifier.fillMaxSize()) {
+            val scope = rememberCoroutineScope()
             var controller by remember { mutableStateOf<StudyController?>(null) }
             var failure by remember { mutableStateOf<String?>(null) }
             LaunchedEffect(Unit) {
                 try {
-                    controller = StudyController(loadCourse(), LearnerStore(dataDir), nowMs, utcOffsetMinutes)
+                    controller = StudyController(
+                        content = loadCourse(),
+                        store = LearnerStore(dataDir),
+                        nowMs = nowMs,
+                        utcOffsetMinutes = utcOffsetMinutes,
+                        scope = scope,
+                        model = model,
+                        evalCases = loadEvalCases(),
+                    )
                 } catch (e: Exception) {
                     failure = e.message ?: e.toString()
                 }
@@ -54,10 +67,13 @@ fun App(dataDir: String, nowMs: () -> Long, utcOffsetMinutes: () -> Int) {
 }
 
 private suspend fun loadCourse(): StudyCourse {
-    val courseFile = ContentLoader.readCourseFile(Res.readBytes("$COURSE_DIR/course.json").decodeToString())
-    val topics = courseFile.topics.associateWith { Res.readBytes("$COURSE_DIR/topics/$it.json").decodeToString() }
+    val courseFile = ContentLoader.readCourseFile(Res.readBytes("$CONTENT_DIR/en/course.json").decodeToString())
+    val topics = courseFile.topics.associateWith { Res.readBytes("$CONTENT_DIR/en/topics/$it.json").decodeToString() }
     return ContentLoader.load(courseFile, topics)
 }
+
+private suspend fun loadEvalCases(): List<EvalCase> =
+    JudgeEval.readCases(Res.readBytes("$CONTENT_DIR/eval/free-answers.json").decodeToString())
 
 @Composable
 private fun Centered(text: String) {

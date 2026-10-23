@@ -1,0 +1,29 @@
+{
+  "cases": [
+    { "task": "Write an English sentence using the word \"deadline\" (срок (дедлайн))", "reference": "The deadline is on Friday.", "response": "We have a tight deadline this month.", "correct": true },
+    { "task": "Translate into English: «Вчера я работал допоздна.»", "reference": "I worked late yesterday.", "response": "I was working late yesterday.", "correct": true },
+    { "task": "Translate into English: «Она закончила отчёт в понедельник.»", "reference": "She finished the report on Monday.", "response": "She completed the report on Monday.", "correct": true },
+    { "task": "Write an English sentence using the word \"colleague\" (коллега)", "reference": "My colleague helped me with the report.", "response": "My colleagues are very friendly.", "correct": true },
+    { "task": "Write an English sentence using the word \"salary\" (зарплата)", "reference": "She asked for a higher salary.", "response": "My salary is not very high.", "correct": true },
+    { "task": "Translate into English: «Ты отправил письмо?»", "reference": "Did you send the email?", "response": "Did you send the letter?", "correct": true },
+    { "task": "Write an English sentence using the Present Perfect pattern \"ever, never\" (Опыт в жизни: ever / never)", "reference": "I have never worked from home.", "response": "I have never been to Japan.", "correct": true },
+    { "task": "Translate into English: «Я работаю здесь три года.»", "reference": "I have worked here for three years.", "response": "I've been working here for three years.", "correct": true },
+    { "task": "Write an English sentence using the word \"improve\" (улучшать)", "reference": "We need to improve our process.", "response": "I want to improve my speaking.", "correct": true },
+    { "task": "Translate into English: «Они мне не перезвонили.»", "reference": "They didn't call me back.", "response": "They never called me back.", "correct": true },
+    { "task": "Write an English sentence using the word \"hire\" (нанимать (на работу))", "reference": "The company plans to hire ten people.", "response": "Our company hired three new designers.", "correct": true },
+    { "task": "Translate into English: «Я уже отправил файл.»", "reference": "I have already sent the file.", "response": "I have sent the file already.", "correct": true },
+
+    { "task": "Translate into English: «Вчера я работал допоздна.»", "reference": "I worked late yesterday.", "response": "I have worked late yesterday.", "correct": false },
+    { "task": "Translate into English: «Я не видел твоё сообщение.»", "reference": "I didn't see your message.", "response": "I didn't saw your message.", "correct": false },
+    { "task": "Translate into English: «Ты отправил письмо?»", "reference": "Did you send the email?", "response": "Did you sent the email?", "correct": false },
+    { "task": "Translate into English: «Я работаю здесь три года.»", "reference": "I have worked here for three years.", "response": "I work here since three years.", "correct": false },
+    { "task": "Translate into English: «Она живёт в Алматы с 2021 года.»", "reference": "She has lived in Almaty since 2021.", "response": "She lives in Almaty since 2021.", "correct": false },
+    { "task": "Write an English sentence using the word \"experience\" (опыт)", "reference": "She has five years of experience in banking.", "response": "I have many experiences in banking.", "correct": false },
+    { "task": "Write an English sentence using the word \"responsible\" (ответственный (за))", "reference": "I'm responsible for the mobile app.", "response": "I am responsible of the mobile app.", "correct": false },
+    { "task": "Translate into English: «Мы поехали в офис на автобусе.»", "reference": "We went to the office by bus.", "response": "We goed to the office by bus.", "correct": false },
+    { "task": "Write an English sentence using the word \"colleague\" (коллега)", "reference": "My colleague helped me with the report.", "response": "My colleague are very helpful.", "correct": false },
+    { "task": "Translate into English: «Ты когда-нибудь был в Лондоне?»", "reference": "Have you ever been to London?", "response": "Did you ever been to London?", "correct": false },
+    { "task": "Translate into English: «Когда ты начал работать на этой работе?»", "reference": "When did you start this job?", "response": "When have you started this job?", "correct": false },
+    { "task": "Write an English sentence using the word \"deadline\" (срок (дедлайн))", "reference": "The deadline is on Friday.", "response": "The deadline are on Friday.", "correct": false }
+  ]
+}

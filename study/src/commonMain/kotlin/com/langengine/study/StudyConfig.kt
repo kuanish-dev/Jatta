@@ -20,4 +20,12 @@ data class StudyConfig(
     ),
     /** First answers in a session needed before the ladder may shift (М6). */
     val minAnswersForLadderShift: Int = 15,
+    /** М22: a correction may change at most this share of the learner's words, otherwise it is a rewrite. */
+    val judgeMaxEditShare: Double = 0.4,
+    /** М22: but at least this many words, so short sentences can still be fixed. */
+    val judgeMinEditsAllowed: Int = 3,
+    /** How long to wait for the on-device model before falling back to self-check. */
+    val judgeTimeoutMs: Long = 20_000,
+    /** М21: share of known verdicts the model must match before it checks answers in lessons. Weak. */
+    val minJudgeAgreement: Double = 0.9,
 )

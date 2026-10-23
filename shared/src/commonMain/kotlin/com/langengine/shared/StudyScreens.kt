@@ -16,6 +16,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -34,11 +35,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.langengine.engine.session.Rung
+import com.langengine.study.AiStatus
 import com.langengine.study.Banner
 import com.langengine.study.RestKind
 import com.langengine.study.Screen
@@ -46,15 +52,21 @@ import com.langengine.study.StudyController
 import com.langengine.study.TopicState
 import com.langengine.study.TopicStatus
 import com.langengine.study.exercise.Exercise
+import com.langengine.study.judge.DiffKind
+import com.langengine.study.judge.DiffPart
+import com.langengine.study.judge.ModelState
 import kotlinx.coroutines.delay
+import kotlin.math.roundToInt
 
 @Composable
 fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
     val screen by controller.screen.collectAsState()
     when (val s = screen) {
-        is Screen.Home -> HomeScreen(s, controller::startSession)
+        is Screen.Home -> HomeScreen(s, controller)
         is Screen.Present -> PresentScreen(s, controller)
         is Screen.Question -> QuestionScreen(s, controller)
+        is Screen.Checking -> CheckingScreen(s, controller)
+        is Screen.Judged -> JudgedScreen(s, controller)
         is Screen.SelfCheck -> SelfCheckScreen(s, controller)
         is Screen.Reveal -> RevealScreen(s, controller)
         is Screen.Rest -> RestScreen(s, nowMs, controller::finishRest)
@@ -63,7 +75,7 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
 }
 
 @Composable
-private fun HomeScreen(home: Screen.Home, onStart: () -> Unit) = Page {
+private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
     Text(home.courseTitle, style = MaterialTheme.typography.headlineSmall)
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         Stat("Повторить", home.reviews, Modifier.weight(1f))
@@ -73,12 +85,49 @@ private fun HomeScreen(home: Screen.Home, onStart: () -> Unit) = Page {
         Muted("Ещё ${home.postponed} повт. перенесено на следующие дни, чтобы не перегружать сегодняшний.")
     }
     val nothingToDo = home.reviews + home.newItems == 0
-    Button(onStart, Modifier.fillMaxWidth(), enabled = !nothingToDo) {
+    Button(controller::startSession, Modifier.fillMaxWidth(), enabled = !nothingToDo) {
         Text(if (nothingToDo) "На сегодня всё" else "Начать занятие")
     }
     if (nothingToDo) Muted("Новые повторы появятся, когда память начнёт ослабевать.")
     Text("Темы", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 8.dp))
     home.topics.forEach { TopicRow(it) }
+    AiSection(home.ai, controller)
+}
+
+/** State of the on-device model and the accuracy test it must pass before checking answers (М21). */
+@Composable
+private fun AiSection(ai: AiStatus, controller: StudyController) {
+    Text("Проверка свободных ответов", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 8.dp))
+    val test = ai.lastTest
+    when {
+        ai.model == ModelState.Unavailable ->
+            Muted("На этом устройстве нет встроенной модели. Свободные ответы вы сверяете с образцом сами.")
+        ai.model == ModelState.Downloadable -> {
+            Muted("Можно скачать Gemini Nano — модель Google, которая работает на телефоне без интернета.")
+            OutlinedButton(controller::downloadModel) { Text("Скачать модель") }
+        }
+        ai.model == ModelState.Downloading ->
+            Muted("Модель скачивается" + (ai.downloadedBytes?.let { ": ${it / 1_000_000} МБ" } ?: "…"))
+        ai.testedDone != null ->
+            Muted("Проверяю точность модели: ${ai.testedDone} из ${ai.testTotal}")
+        test == null -> {
+            Muted("Модель готова. Прежде чем доверить ей ответы, проверим её на ${ai.testTotal} фразах с известным ответом.")
+            OutlinedButton(controller::testModel) { Text("Проверить точность") }
+        }
+        else -> {
+            Muted(
+                "Совпала с эталоном: ${(test.agreement * 100).roundToInt()}% из ${test.total}. " +
+                    "Пропустила ошибок: ${test.wrongAccepted}, придралась к верным: ${test.rightRejected}, " +
+                    "ответила не по формату: ${test.unusable}.",
+            )
+            Text(
+                if (test.enabled) "Модель проверяет свободные ответы" else "Ниже порога 90% — свободные ответы сверяете сами",
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.Medium,
+            )
+            OutlinedButton(controller::testModel) { Text("Проверить ещё раз") }
+        }
+    }
 }
 
 @Composable
@@ -176,6 +225,44 @@ private fun AnswerField(id: Int, singleLine: Boolean, onSubmit: (String) -> Unit
 }
 
 @Composable
+private fun CheckingScreen(checking: Screen.Checking, controller: StudyController) =
+    StudyPage(checking.remaining, banner = null, onStop = controller::stopSession) {
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
+            CircularProgressIndicator()
+            Text("Модель на телефоне проверяет ответ…", style = MaterialTheme.typography.bodyLarge)
+        }
+    }
+
+@Composable
+private fun JudgedScreen(judged: Screen.Judged, controller: StudyController) =
+    StudyPage(judged.remaining, banner = null, onStop = controller::stopSession) {
+        Text("Модель нашла ошибку", style = MaterialTheme.typography.titleMedium)
+        Muted("Ваш вариант")
+        Text(diffText(judged.diff, shown = DiffKind.Removed), style = MaterialTheme.typography.bodyLarge)
+        Muted("Исправлено")
+        Text(diffText(judged.diff, shown = DiffKind.Added), style = MaterialTheme.typography.bodyLarge)
+        Note(judged.note)
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            Button(controller::acceptCorrection, Modifier.weight(1f)) { Text("Понятно") }
+            OutlinedButton(controller::disputeCorrection, Modifier.weight(1f)) { Text("Модель ошиблась") }
+        }
+    }
+
+/** One side of the correction: unchanged words plus either the removed or the added ones, highlighted. */
+@Composable
+private fun diffText(parts: List<DiffPart>, shown: DiffKind) = buildAnnotatedString {
+    val highlight = if (shown == DiffKind.Removed) {
+        SpanStyle(color = MaterialTheme.colorScheme.error, textDecoration = TextDecoration.LineThrough)
+    } else {
+        SpanStyle(color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+    }
+    parts.filter { it.kind == DiffKind.Same || it.kind == shown }.forEachIndexed { index, part ->
+        if (index > 0) append(' ')
+        if (part.kind == DiffKind.Same) append(part.text) else withStyle(highlight) { append(part.text) }
+    }
+}
+
+@Composable
 private fun SelfCheckScreen(check: Screen.SelfCheck, controller: StudyController) =
     StudyPage(check.remaining, banner = null, onStop = controller::stopSession) {
         Text("Сравните с образцом", style = MaterialTheme.typography.titleMedium)
@@ -244,6 +331,7 @@ private fun StudyPage(remaining: Int, banner: Banner?, onStop: () -> Unit, conte
     }
     when (banner) {
         Banner.Correct -> Text("✓ Верно", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Medium)
+        Banner.CheckedByAi -> Text("✓ Верно — проверила модель на телефоне", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Medium)
         Banner.CorrectWithHint -> Text("Верно с подсказкой — вернёмся к этому в конце", color = MaterialTheme.colorScheme.primary)
         null -> Unit
     }

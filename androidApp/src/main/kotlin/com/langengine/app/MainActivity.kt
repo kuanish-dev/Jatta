@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.langengine.shared.App
+import com.langengine.shared.GeminiNanoModel
 import java.util.TimeZone
 
 class MainActivity : ComponentActivity() {
@@ -16,6 +17,7 @@ class MainActivity : ComponentActivity() {
                 dataDir = filesDir.absolutePath,
                 nowMs = System::currentTimeMillis,
                 utcOffsetMinutes = { TimeZone.getDefault().getOffset(System.currentTimeMillis()) / 60_000 },
+                model = GeminiNanoModel(),
             )
         }
     }

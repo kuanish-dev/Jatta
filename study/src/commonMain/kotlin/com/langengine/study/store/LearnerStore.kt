@@ -24,11 +24,23 @@ data class SavedProgress(
 @Serializable
 data class RecentAnswer(val rung: String, val correct: Boolean, val responseMs: Long)
 
+/** Result of the last accuracy test of the on-device model; [enabled] once it agrees often enough (М21). */
+@Serializable
+data class AiCheck(
+    val agreement: Double,
+    val total: Int,
+    val wrongAccepted: Int,
+    val rightRejected: Int,
+    val unusable: Int,
+    val enabled: Boolean,
+)
+
 @Serializable
 data class SavedState(
     val progress: List<SavedProgress> = emptyList(),
     val ladderShift: Int = 0,
     val recent: List<RecentAnswer> = emptyList(),
+    val aiCheck: AiCheck? = null,
 )
 
 /** Every answer as it happened, kept to fit the memory model to this learner later. */
@@ -42,6 +54,8 @@ data class LogEntry(
     val responseMs: Long,
     val grade: String?,
     val withHint: Boolean,
+    /** Who decided right or wrong: code, self, ai, or ai-disputed when the learner overruled the model. */
+    val checkedBy: String? = null,
 )
 
 fun SavedState.toLearner() = Learner(
@@ -51,12 +65,13 @@ fun SavedState.toLearner() = Learner(
     ladderShift = ladderShift,
 )
 
-fun Learner.toSaved(recent: List<RecentAnswer>) = SavedState(
+fun Learner.toSaved(recent: List<RecentAnswer>, aiCheck: AiCheck?) = SavedState(
     progress = progress.values
         .map { SavedProgress(it.itemId, it.memory.stability, it.memory.difficulty, it.lastReviewDay, it.dueDay) }
         .sortedBy { it.item },
     ladderShift = ladderShift,
     recent = recent,
+    aiCheck = aiCheck,
 )
 
 /** Keeps the learner on the device: a JSON snapshot written atomically, plus an append-only answer log. */
