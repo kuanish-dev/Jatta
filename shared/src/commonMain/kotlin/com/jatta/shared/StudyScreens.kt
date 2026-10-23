@@ -55,6 +55,7 @@ import com.jatta.study.StudyController
 import com.jatta.study.ThemeChoice
 import com.jatta.study.TopicState
 import com.jatta.study.TopicStatus
+import com.jatta.study.calibration.CalibrationVerdict
 import com.jatta.study.content.KindFile
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffKind
@@ -82,6 +83,7 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
         is Screen.Reveal -> RevealScreen(s, controller)
         is Screen.Rest -> RestScreen(s, nowMs, controller::finishRest)
         is Screen.Done -> DoneScreen(s, controller::openHome)
+        is Screen.Calibration -> CalibrationScreen(s, controller::openHome)
     }
 }
 
@@ -118,6 +120,7 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
     Label("Темы · в памяти / всего", modifier = Modifier.padding(top = 8.dp))
     home.topics.forEach { TopicRow(it) }
     if (home.topics.any { it.state == TopicState.Locked }) Muted("Закрытые темы откроются, когда темы до них будут держаться в памяти.")
+    TextButton(controller::openCalibration) { Label("Точность прогноза памяти →", color = Neon.Cyan) }
     AiSection(home.ai, controller)
 }
 
@@ -556,6 +559,56 @@ private fun DoneScreen(done: Screen.Done, onHome: () -> Unit) = Page {
     }
     NeonButton(onHome, Modifier.fillMaxWidth()) { Text("НА ГЛАВНУЮ") }
 }
+
+/** М2: what the memory model promised against what the learner recalled, from the answer log. */
+@Composable
+private fun CalibrationScreen(screen: Screen.Calibration, onHome: () -> Unit) = Page {
+    val report = screen.report
+    Label("Точность прогноза", color = Neon.Cyan)
+    Text("Прогноз против факта", style = MaterialTheme.typography.headlineMedium)
+    if (report.reviews > 0) {
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            Panel(Modifier.weight(1f), accent = Neon.Cyan.copy(alpha = 0.45f)) {
+                NeonNumber(percent(report.predicted), color = Neon.Cyan)
+                Label("Обещала модель")
+            }
+            Panel(Modifier.weight(1f), accent = Neon.Acid.copy(alpha = 0.45f)) {
+                NeonNumber(percent(report.actual), color = Neon.Acid)
+                Label("Вы вспомнили")
+            }
+        }
+        val reviews = plural(report.reviews, "повтору", "повторам", "повторам")
+        Muted("По ${report.reviews} $reviews. С учётом случайности факт лежит между ${percent(report.low)} и ${percent(report.high)}.")
+    }
+    Note(
+        when (report.verdict) {
+            CalibrationVerdict.TooFewReviews ->
+                "Повторов пока ${report.reviews} из ${report.minReviews}: на таком числе разница может быть случайной, вывода нет."
+            CalibrationVerdict.Accurate -> "Модель предсказывает вашу память точно: прогноз попадает в погрешность."
+            CalibrationVerdict.Overestimates -> "Вы вспоминаете реже, чем обещает модель: для вас интервалы между повторами длинноваты."
+            CalibrationVerdict.Underestimates -> "Вы вспоминаете чаще, чем обещает модель: для вас повторы можно ставить реже."
+        },
+    )
+    if (report.bins.size > 1) {
+        Label("По уровню прогноза · вспомнили · повторов", modifier = Modifier.padding(top = 8.dp))
+        report.bins.forEach { bin ->
+            Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("прогноз ${percent(bin.from)}–${percent(bin.to)}", Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge)
+                    Label("${percent(bin.actual)} · ${bin.count}", color = Neon.Acid)
+                }
+                NeonBar(bin.actual.toFloat(), segments = 20, height = 5.dp)
+            }
+        }
+    }
+    Muted(
+        "Каждый повтор — проверка прогноза: перед ним модель знает, с какой вероятностью вы вспомните, после — вспомнили ли. " +
+            "Отдельные контрольные не нужны. Первые встречи со словом и знакомое по тесту уровня не считаются.",
+    )
+    NeonButton(onHome, Modifier.fillMaxWidth()) { Text("НА ГЛАВНУЮ") }
+}
+
+private fun percent(share: Double) = "${(share * 100).roundToInt()}%"
 
 /** Session screens: the step counter and a neon bar of how far the session has got. */
 @Composable

@@ -1,0 +1,85 @@
+package com.jatta.study.calibration
+
+import com.jatta.engine.fsrs.Grade
+import com.jatta.engine.learner.ItemProgress
+import com.jatta.engine.memory.MemoryModel
+import com.jatta.study.StudyConfig
+import com.jatta.study.store.LogEntry
+import kotlin.math.sqrt
+
+enum class CalibrationVerdict { TooFewReviews, Accurate, Overestimates, Underestimates }
+
+/** Reviews whose predicted recall fell between [from] and [to]. */
+data class CalibrationBin(val from: Double, val to: Double, val count: Int, val predicted: Double, val actual: Double)
+
+data class CalibrationReport(
+    val reviews: Int,
+    /** Mean recall the model predicted for these reviews. */
+    val predicted: Double,
+    /** Share actually recalled, with its 95% interval [low]..[high]. */
+    val actual: Double,
+    val low: Double,
+    val high: Double,
+    val bins: List<CalibrationBin>,
+    val verdict: CalibrationVerdict,
+    /** Reviews needed before there is a verdict. */
+    val minReviews: Int,
+)
+
+/**
+ * How well the memory model predicts this learner (М2), from the answer log alone.
+ *
+ * The log is replayed through the model: before each review the model's recall prediction is known,
+ * after it whether the learner recalled. Every scheduled review is a test with a known prediction,
+ * so no extra questions are needed; extra early reviews would barely strengthen memory and would
+ * change what they measure. Models of memory are evaluated the same way on review histories
+ * (srs-benchmark). Items placed as known by the placement test (М23) are replayed but not scored.
+ */
+object Calibration {
+    private val edges = listOf(0.0, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0)
+
+    fun of(log: List<LogEntry>, memory: MemoryModel, config: StudyConfig): CalibrationReport {
+        val state = mutableMapOf<String, ItemProgress>()
+        val scored = mutableListOf<Pair<Double, Boolean>>()
+        log.filter { it.grade != null }.sortedBy { it.atMs }.forEach { entry ->
+            val previous = state[entry.item]
+            if (previous != null && entry.checkedBy != PLACEMENT) scored += memory.recallOn(previous, entry.day) to entry.correct
+            state[entry.item] = memory.review(previous, entry.item, Grade.valueOf(entry.grade!!), entry.day)
+        }
+
+        val n = scored.size
+        val predicted = if (n == 0) 0.0 else scored.sumOf { it.first } / n
+        val recalled = scored.count { it.second }
+        val actual = if (n == 0) 0.0 else recalled.toDouble() / n
+        val (low, high) = wilson(recalled, n)
+        val verdict = when {
+            n < config.minReviewsForCalibration -> CalibrationVerdict.TooFewReviews
+            predicted > high -> CalibrationVerdict.Overestimates
+            predicted < low -> CalibrationVerdict.Underestimates
+            else -> CalibrationVerdict.Accurate
+        }
+        val bins = edges.zipWithNext().mapNotNull { (from, to) ->
+            val inBin = scored.filter { it.first >= from && (it.first < to || to == 1.0) }
+            if (inBin.isEmpty()) null else CalibrationBin(
+                from, to, inBin.size,
+                predicted = inBin.sumOf { it.first } / inBin.size,
+                actual = inBin.count { it.second }.toDouble() / inBin.size,
+            )
+        }
+        return CalibrationReport(n, predicted, actual, low, high, bins, verdict, config.minReviewsForCalibration)
+    }
+
+    /** 95% Wilson score interval for [k] successes out of [n]; sound for small samples and shares near 1. */
+    private fun wilson(k: Int, n: Int): Pair<Double, Double> {
+        if (n == 0) return 0.0 to 1.0
+        val z = 1.96
+        val p = k.toDouble() / n
+        val denominator = 1 + z * z / n
+        val center = (p + z * z / (2 * n)) / denominator
+        val half = z * sqrt(p * (1 - p) / n + z * z / (4.0 * n * n)) / denominator
+        return (center - half).coerceAtLeast(0.0) to (center + half).coerceAtMost(1.0)
+    }
+
+    /** checkedBy of log entries written for items placed as known by the placement test. */
+    const val PLACEMENT = "placement"
+}

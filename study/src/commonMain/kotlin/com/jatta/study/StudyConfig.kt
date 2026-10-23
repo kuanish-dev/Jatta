@@ -40,4 +40,6 @@ data class StudyConfig(
     val placementMaxFalseAlarms: Double = 0.25,
     /** М23: choice questions per grammar topic; all right places the topic as known. */
     val placementQuestionsPerTopic: Int = 2,
+    /** М2: reviews needed before judging how well the memory model predicts the learner. Weak. */
+    val minReviewsForCalibration: Int = 30,
 )

@@ -15,6 +15,7 @@ import com.jatta.engine.session.RestCoach
 import com.jatta.engine.session.Rung
 import com.jatta.engine.session.Session
 import com.jatta.engine.session.Step
+import com.jatta.study.calibration.Calibration
 import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.StudyCourse
@@ -51,7 +52,9 @@ import kotlinx.coroutines.withTimeoutOrNull
 private const val MS_PER_MINUTE = 60_000L
 
 /** Who decided whether an answer was right; kept in the answer log. */
-private enum class CheckedBy(val logName: String) { Code("code"), Self("self"), Ai("ai"), AiDisputed("ai-disputed") }
+private enum class CheckedBy(val logName: String) {
+    Code("code"), Self("self"), Ai("ai"), AiDisputed("ai-disputed"), Placement(Calibration.PLACEMENT),
+}
 
 /**
  * Runs the app around the engine: plans the day, walks the session queue, turns steps into exercises,
@@ -239,7 +242,11 @@ class StudyController(
     private fun finishPlacement(test: Placement): Screen {
         val result = test.result(placementWords, placementGrammar)
         val today = currentDay()
-        result.knownItems.forEach { learner = engine.recordGrade(learner, it, Grade.Good, today) }
+        result.knownItems.forEach { item ->
+            learner = engine.recordGrade(learner, item, Grade.Good, today)
+            // Logged so a replay of the log rebuilds the same memory; calibration doesn't score these.
+            store.log(LogEntry(nowMs(), today, item, "Placement", true, 0, Grade.Good.name, false, CheckedBy.Placement.logName))
+        }
         saved = saved.copy(placement = SavedPlacement(result.estimatedWords, result.totalWords))
         save()
         updateReminder()
@@ -251,6 +258,11 @@ class StudyController(
     private fun placementIntro(): Screen {
         val test = placement ?: error("No placement test")
         return Screen.PlacementIntro(test.words.size, test.grammar.size)
+    }
+
+    /** М2: compare what the model predicted with what the learner recalled, from the answer log. */
+    fun openCalibration() {
+        state.value = Screen.Calibration(Calibration.of(store.readLog(), engine.memory, config))
     }
 
     /** System → Light → Dark → System. */

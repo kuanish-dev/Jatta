@@ -87,6 +87,18 @@ class StudyControllerTest {
         assertEquals(done.result.knownItems.size, home.progress.held)
         // words outside NGSL still have to be learned
         assertTrue(home.newItems > 0)
+
+        // placed items are in the log, so a replay rebuilds them, but they are not scored
+        app.openCalibration()
+        assertEquals(0, (app.screen.value as Screen.Calibration).report.reviews)
+        now += 3 * day
+        app.openHome()
+        app.startSession()
+        runSessionAnsweringRight(app)
+        app.openCalibration()
+        val report = (app.screen.value as Screen.Calibration).report
+        assertTrue(report.reviews > 0, "placed items came back for review")
+        assertEquals(1.0, report.actual)
     }
 
     @Test
@@ -270,7 +282,8 @@ class StudyControllerTest {
                 is Screen.Reveal -> app.continueAfterReveal()
                 is Screen.Rest -> app.finishRest()
                 is Screen.Home -> error("Unexpected home screen in a session")
-                is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone ->
+                is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
+                is Screen.Calibration ->
                     error("Unexpected screen in a session: $screen")
             }
         }

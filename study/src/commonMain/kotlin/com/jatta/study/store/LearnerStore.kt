@@ -68,7 +68,7 @@ data class LogEntry(
     val responseMs: Long,
     val grade: String?,
     val withHint: Boolean,
-    /** Who decided right or wrong: code, self, ai, or ai-disputed when the learner overruled the model. */
+    /** Who decided right or wrong: code, self, ai, ai-disputed when the learner overruled the model, or placement. */
     val checkedBy: String? = null,
 )
 
@@ -110,6 +110,16 @@ class LearnerStore(directory: String) {
         SystemFileSystem.createDirectories(dir)
         SystemFileSystem.sink(tempPath).buffered().use { it.writeString(json.encodeToString(state)) }
         SystemFileSystem.atomicMove(tempPath, statePath)
+    }
+
+    /** The answer log, oldest first; a line that can't be read is skipped. */
+    fun readLog(): List<LogEntry> {
+        if (!SystemFileSystem.exists(logPath)) return emptyList()
+        val text = SystemFileSystem.source(logPath).buffered().use { it.readString() }
+        return text.lineSequence()
+            .filter { it.isNotBlank() }
+            .mapNotNull { runCatching { json.decodeFromString<LogEntry>(it) }.getOrNull() }
+            .toList()
     }
 
     fun log(entry: LogEntry) {

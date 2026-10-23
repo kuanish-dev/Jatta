@@ -1,5 +1,6 @@
 package com.jatta.study
 
+import com.jatta.study.calibration.CalibrationReport
 import com.jatta.study.content.ItemFile
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffPart
@@ -75,6 +76,9 @@ sealed interface Screen {
     data class Rest(val kind: RestKind, val minutes: Int, val untilMs: Long) : Screen
 
     data class Done(val answered: Int, val rightFirstTime: Int, val endedEarly: Boolean) : Screen
+
+    /** М2: how well the memory model has predicted this learner so far. */
+    data class Calibration(val report: CalibrationReport) : Screen
 }
 
 /**
