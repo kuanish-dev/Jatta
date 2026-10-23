@@ -1,0 +1,67 @@
+{
+  "id": "past-simple",
+  "title": "Past Simple",
+  "intro": "Past Simple — действие закончилось в прошлом, и обычно понятно когда: yesterday, last week, in 2022. Правильные глаголы получают -ed, у неправильных своя вторая форма. В отрицаниях и вопросах работает did, а глагол возвращается в начальную форму.",
+  "items": [
+    {
+      "id": "ps-regular",
+      "kind": "rule",
+      "en": "worked, finished",
+      "ru": "Правильные глаголы: глагол + -ed",
+      "note": "К правильным глаголам добавляем -ed: work → worked, finish → finished. Форма одна для всех лиц.",
+      "examples": [
+        { "en": "I worked late yesterday.", "ru": "Вчера я работал допоздна.", "gap": "worked", "cue": "work", "wrong": ["work", "works", "working"], "also": ["Yesterday I worked late."] },
+        { "en": "She finished the report on Monday.", "ru": "Она закончила отчёт в понедельник.", "gap": "finished", "cue": "finish", "wrong": ["finish", "finishes", "finishing"], "also": ["On Monday she finished the report."] },
+        { "en": "We started the project last month.", "ru": "Мы начали проект в прошлом месяце.", "gap": "started", "cue": "start", "wrong": ["start", "starts", "starting"], "also": ["Last month we started the project."] }
+      ]
+    },
+    {
+      "id": "ps-irregular",
+      "kind": "rule",
+      "en": "went, had, took",
+      "ru": "Неправильные глаголы: вторая форма",
+      "note": "У неправильных глаголов своя форма прошедшего времени, её надо запомнить: go → went, have → had, take → took.",
+      "examples": [
+        { "en": "We went to the office by bus.", "ru": "Мы поехали в офис на автобусе.", "gap": "went", "cue": "go", "wrong": ["goed", "go", "gone"], "also": ["We took the bus to the office."] },
+        { "en": "I had a meeting at ten.", "ru": "У меня была встреча в десять.", "gap": "had", "cue": "have", "wrong": ["have", "haved", "has"], "also": ["I had a meeting at 10.", "I had a meeting at ten o'clock."] },
+        { "en": "He took a day off last Friday.", "ru": "В прошлую пятницу он взял выходной.", "gap": "took", "cue": "take", "wrong": ["taked", "take", "taken"], "also": ["Last Friday he took a day off."] }
+      ]
+    },
+    {
+      "id": "ps-negative",
+      "kind": "rule",
+      "en": "didn't + verb",
+      "ru": "Отрицание: didn't + начальная форма",
+      "note": "В отрицании ставим didn't, а глагол возвращается в начальную форму: I didn't go, а не I didn't went.",
+      "examples": [
+        { "en": "I didn't see your message.", "ru": "Я не видел твоё сообщение.", "gap": "didn't see", "cue": "not see", "wrong": ["didn't saw", "not saw", "don't saw"] },
+        { "en": "They didn't call me back.", "ru": "Они мне не перезвонили.", "gap": "didn't call", "cue": "not call", "wrong": ["didn't called", "not called", "doesn't called"] },
+        { "en": "She didn't like the new schedule.", "ru": "Ей не понравился новый график.", "gap": "didn't like", "cue": "not like", "wrong": ["didn't liked", "not liked", "don't liked"] }
+      ]
+    },
+    {
+      "id": "ps-question",
+      "kind": "rule",
+      "en": "Did + subject + verb?",
+      "ru": "Вопрос: Did … + начальная форма",
+      "note": "Вопрос начинается с Did, а глагол стоит в начальной форме: Did you go? What did she say?",
+      "examples": [
+        { "en": "Did you send the email?", "ru": "Ты отправил письмо?", "gap": "Did you send", "cue": "you / send", "wrong": ["Did you sent", "Do you sent", "Were you send"] },
+        { "en": "Did they hire a new manager?", "ru": "Они наняли нового менеджера?", "gap": "Did they hire", "cue": "they / hire", "wrong": ["Did they hired", "Do they hired", "Were they hire"] },
+        { "en": "What did he say?", "ru": "Что он сказал?", "gap": "did he say", "cue": "he / say", "wrong": ["did he said", "does he said", "was he say"] }
+      ]
+    },
+    {
+      "id": "ps-markers",
+      "kind": "rule",
+      "en": "yesterday, last week, ago",
+      "ru": "Названо законченное время → Past Simple",
+      "note": "Если названо законченное время (yesterday, last week, two years ago, in 2022), нужен Past Simple, даже когда по-русски хочется сказать иначе.",
+      "examples": [
+        { "en": "I met him two years ago.", "ru": "Я познакомился с ним два года назад.", "gap": "met", "cue": "meet", "wrong": ["have met", "meet", "meeted"] },
+        { "en": "She left the company in 2022.", "ru": "Она ушла из компании в 2022 году.", "gap": "left", "cue": "leave", "wrong": ["has left", "leaved", "leaves"] },
+        { "en": "We spoke yesterday.", "ru": "Мы говорили вчера.", "gap": "spoke", "cue": "speak", "wrong": ["have spoken", "speaked", "speak"], "also": ["We talked yesterday.", "Yesterday we spoke.", "Yesterday we talked."] }
+      ]
+    }
+  ]
+}

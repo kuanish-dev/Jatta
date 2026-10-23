@@ -16,3 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "lang-engine"
 
 include(":engine")
+include(":study")
+include(":shared")
+include(":androidApp")

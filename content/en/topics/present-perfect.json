@@ -1,0 +1,69 @@
+{
+  "id": "present-perfect",
+  "title": "Present Perfect",
+  "intro": "Present Perfect — have/has + третья форма глагола. Нужен, когда важен результат сейчас, опыт в жизни или период, который ещё не закончился. Если названо законченное время (yesterday, in 2022), это уже Past Simple.",
+  "requires": ["past-simple"],
+  "confusableWith": ["past-simple"],
+  "items": [
+    {
+      "id": "pp-form",
+      "kind": "rule",
+      "en": "have/has + V3",
+      "ru": "Форма: have/has + третья форма глагола",
+      "note": "I have finished, she has written. Has — для he, she, it, have — для остальных.",
+      "examples": [
+        { "en": "I have finished the report.", "ru": "Я закончил отчёт (он готов).", "gap": "have finished", "cue": "finish", "wrong": ["has finished", "have finish", "am finished"], "also": ["I've finished the report."] },
+        { "en": "She has written three emails today.", "ru": "Сегодня она написала три письма.", "gap": "has written", "cue": "write", "wrong": ["have written", "has wrote", "has write"] },
+        { "en": "They have hired two new developers.", "ru": "Они наняли двух новых разработчиков.", "gap": "have hired", "cue": "hire", "wrong": ["has hired", "have hire", "are hired"] }
+      ]
+    },
+    {
+      "id": "pp-experience",
+      "kind": "rule",
+      "en": "ever, never",
+      "ru": "Опыт в жизни: ever / never",
+      "note": "Говорим об опыте, не называя, когда это было: Have you ever been to London? I have never worked from home.",
+      "examples": [
+        { "en": "Have you ever been to London?", "ru": "Ты когда-нибудь был в Лондоне?", "gap": "Have you ever been", "cue": "you / ever / be", "wrong": ["Did you ever been", "Have you ever went", "Has you ever been"] },
+        { "en": "I have never worked from home.", "ru": "Я никогда не работал из дома.", "gap": "have never worked", "cue": "never / work", "wrong": ["have never work", "has never worked", "have never working"] },
+        { "en": "She has never missed a deadline.", "ru": "Она ни разу не сорвала срок.", "gap": "has never missed", "cue": "never / miss", "wrong": ["have never missed", "has never miss", "has never missing"] }
+      ]
+    },
+    {
+      "id": "pp-already-yet",
+      "kind": "rule",
+      "en": "already, yet, just",
+      "ru": "already — уже, yet — уже/ещё, just — только что",
+      "note": "already — «уже» в утверждении; yet — «уже» в вопросе и «ещё» в отрицании, ставится в конце; just — «только что».",
+      "examples": [
+        { "en": "I have already sent the file.", "ru": "Я уже отправил файл.", "gap": "already", "cue": "уже", "wrong": ["yet", "still", "ever"] },
+        { "en": "Have you finished yet?", "ru": "Ты уже закончил?", "gap": "yet", "cue": "уже", "wrong": ["still", "just", "since"] },
+        { "en": "He has just left the office.", "ru": "Он только что ушёл из офиса.", "gap": "just", "cue": "только что", "wrong": ["yet", "ever", "since"] }
+      ]
+    },
+    {
+      "id": "pp-since-for",
+      "kind": "rule",
+      "en": "since, for",
+      "ru": "for — как долго, since — с какого момента",
+      "note": "for three years — сколько времени, since 2021 — с какого момента. Период ещё не закончился, поэтому Present Perfect, хотя по-русски настоящее время.",
+      "examples": [
+        { "en": "I have worked here for three years.", "ru": "Я работаю здесь три года.", "gap": "for", "wrong": ["since", "during", "from"], "also": ["I've worked here for three years.", "I have been working here for three years."] },
+        { "en": "She has lived in Almaty since 2021.", "ru": "Она живёт в Алматы с 2021 года.", "gap": "since", "wrong": ["for", "from", "during"], "also": ["She's lived in Almaty since 2021.", "She has been living in Almaty since 2021."] },
+        { "en": "We have known each other since school.", "ru": "Мы знаем друг друга со школы.", "gap": "since", "wrong": ["for", "from", "during"] }
+      ]
+    },
+    {
+      "id": "pp-vs-ps",
+      "kind": "rule",
+      "en": "Present Perfect or Past Simple",
+      "ru": "Названо законченное время или вопрос When → Past Simple",
+      "note": "When? yesterday? in 2022? — Past Simple. Опыт, результат сейчас, незаконченный период (How long…?) — Present Perfect.",
+      "examples": [
+        { "en": "I lost my keys yesterday.", "ru": "Вчера я потерял ключи.", "gap": "lost", "cue": "lose", "wrong": ["have lost", "has lost", "lose"], "also": ["Yesterday I lost my keys."] },
+        { "en": "When did you start this job?", "ru": "Когда ты начал работать на этой работе?", "gap": "did you start", "cue": "you / start", "wrong": ["have you started", "did you started", "have you start"] },
+        { "en": "How long have you known him?", "ru": "Как давно ты его знаешь?", "gap": "have you known", "cue": "you / know", "wrong": ["do you know", "have you knew", "are you knowing"] }
+      ]
+    }
+  ]
+}
