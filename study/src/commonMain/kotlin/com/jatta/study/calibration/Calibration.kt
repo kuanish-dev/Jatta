@@ -1,7 +1,5 @@
 package com.jatta.study.calibration
 
-import com.jatta.engine.fsrs.Grade
-import com.jatta.engine.learner.ItemProgress
 import com.jatta.engine.memory.MemoryModel
 import com.jatta.study.StudyConfig
 import com.jatta.study.store.LogEntry
@@ -39,12 +37,9 @@ object Calibration {
     private val edges = listOf(0.0, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0)
 
     fun of(log: List<LogEntry>, memory: MemoryModel, config: StudyConfig): CalibrationReport {
-        val state = mutableMapOf<String, ItemProgress>()
         val scored = mutableListOf<Pair<Double, Boolean>>()
-        log.filter { it.grade != null }.sortedBy { it.atMs }.forEach { entry ->
-            val previous = state[entry.item]
+        LogReplay.progress(log, memory) { entry, previous ->
             if (previous != null && entry.checkedBy != PLACEMENT) scored += memory.recallOn(previous, entry.day) to entry.correct
-            state[entry.item] = memory.review(previous, entry.item, Grade.valueOf(entry.grade!!), entry.day)
         }
 
         val n = scored.size

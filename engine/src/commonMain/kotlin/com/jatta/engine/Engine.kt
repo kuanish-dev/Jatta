@@ -20,7 +20,7 @@ import com.jatta.engine.session.Session
  * and the time of each answer, and stores what comes back.
  */
 class Engine(val course: Course, val config: EngineConfig = EngineConfig()) {
-    val memory = MemoryModel(Fsrs(config.desiredRetention, config.maximumIntervalDays))
+    val memory = MemoryModel(Fsrs(config.desiredRetention, config.maximumIntervalDays, config.fsrsParameters))
     val gate = TopicGate(course, memory, config)
     val ladder = Ladder(config)
     val grading = Grading(config)

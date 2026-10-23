@@ -16,6 +16,9 @@ import com.jatta.engine.session.Rung
 import com.jatta.engine.session.Session
 import com.jatta.engine.session.Step
 import com.jatta.study.calibration.Calibration
+import com.jatta.study.calibration.FitResult
+import com.jatta.study.calibration.LogReplay
+import com.jatta.study.calibration.PersonalFit
 import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.StudyCourse
@@ -42,11 +45,14 @@ import com.jatta.study.store.SavedPlacement
 import com.jatta.study.store.SessionStart
 import com.jatta.study.store.toLearner
 import com.jatta.study.store.withLearner
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 
 private const val MS_PER_MINUTE = 60_000L
@@ -75,17 +81,21 @@ class StudyController(
     placementFile: PlacementFile? = null,
     private val engineConfig: EngineConfig = EngineConfig(),
     private val config: StudyConfig = StudyConfig(),
+    /** Where heavy work such as fitting the memory model runs, off the UI thread. */
+    private val background: CoroutineDispatcher = Dispatchers.Default,
 ) {
-    private val engine = Engine(content.course, engineConfig)
+    private var saved = store.load()
+    private var learner = saved.toLearner()
+    private var engine = engineWith(saved.fsrsParameters)
+    private var readingPicker = ReadingPicker(content, engine)
+    private val personalFit = PersonalFit(engineConfig, config)
+    private var fitting = false
     private val exercises = ExerciseFactory(content)
     private val judge = model?.let { FreeAnswerJudge(it, config) }
-    private val readingPicker = ReadingPicker(content, engine)
     private val placement = placementFile?.let { Placement(content, it, config) }
     /** Topics made of rules only: the grammar of the course. */
     private val grammarTopics = content.topics.values.filter { topic -> topic.items.all { it.kind == KindFile.Rule } }.map { it.id }
 
-    private var saved = store.load()
-    private var learner = saved.toLearner()
     private val themeState = MutableStateFlow(saved.theme)
 
     /** The learner's choice of look; the UI decides what System means on its platform. */
@@ -262,8 +272,46 @@ class StudyController(
 
     /** М2: compare what the model predicted with what the learner recalled, from the answer log. */
     fun openCalibration() {
-        state.value = Screen.Calibration(Calibration.of(store.readLog(), engine.memory, config))
+        val log = store.readLog()
+        val fit = FitStatus(
+            personal = saved.fsrsParameters != null,
+            reviews = personalFit.reviews(log),
+            nextFitAt = personalFit.nextFitAt(saved.fsrsFit),
+            last = saved.fsrsFit,
+        )
+        state.value = Screen.Calibration(Calibration.of(log, engine.memory, config), fit)
     }
+
+    /** М2: fit the memory model to the learner's log once enough new reviews have come in. */
+    private fun fitMemoryIfDue() {
+        val log = store.readLog()
+        if (fitting || !personalFit.isDue(log, saved.fsrsFit)) return
+        fitting = true
+        val current = engine.config.fsrsParameters
+        val day = currentDay()
+        scope.launch {
+            val result = withContext(background) { personalFit.run(log, current, day) }
+            fitting = false
+            if (result != null) adoptFit(result)
+        }
+    }
+
+    /** Adopted parameters rebuild every logged item's memory, so schedules follow the better model. */
+    private fun adoptFit(result: FitResult) {
+        saved = saved.copy(fsrsFit = result.check)
+        result.parameters?.let { parameters ->
+            saved = saved.copy(fsrsParameters = parameters)
+            engine = engineWith(parameters)
+            readingPicker = ReadingPicker(content, engine)
+            learner = learner.copy(progress = learner.progress + LogReplay.progress(store.readLog(), engine.memory))
+        }
+        save()
+        updateReminder()
+        refreshHome()
+    }
+
+    private fun engineWith(parameters: List<Double>?) =
+        Engine(content.course, parameters?.let { engineConfig.copy(fsrsParameters = it) } ?: engineConfig)
 
     /** System → Light → Dark → System. */
     fun cycleTheme() {
@@ -442,6 +490,7 @@ class StudyController(
         }
         reminders?.askPermission()
         updateReminder()
+        fitMemoryIfDue()
         val after = coach().afterSession(session())
         if (after is Advice.QuietRest) {
             state.value = Screen.Rest(RestKind.Quiet, after.minutes, nowMs() + after.minutes * MS_PER_MINUTE)

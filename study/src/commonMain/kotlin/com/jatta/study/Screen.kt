@@ -8,6 +8,7 @@ import com.jatta.study.judge.ModelState
 import com.jatta.study.placement.PlacementResult
 import com.jatta.study.reading.Reading
 import com.jatta.study.store.AiCheck
+import com.jatta.study.store.FitCheck
 
 /** What the app shows. The UI only draws these and calls StudyController back. */
 sealed interface Screen {
@@ -77,8 +78,8 @@ sealed interface Screen {
 
     data class Done(val answered: Int, val rightFirstTime: Int, val endedEarly: Boolean) : Screen
 
-    /** М2: how well the memory model has predicted this learner so far. */
-    data class Calibration(val report: CalibrationReport) : Screen
+    /** М2: how well the memory model has predicted this learner so far, and its fit to the learner. */
+    data class Calibration(val report: CalibrationReport, val fit: FitStatus) : Screen
 }
 
 /**
@@ -113,3 +114,9 @@ enum class RestKind { Scheduled, Fatigue, Quiet }
 enum class TopicState { Locked, Open, Mastered }
 
 data class TopicStatus(val title: String, val state: TopicState, val held: Int, val total: Int)
+
+/**
+ * М2: whether the memory model runs on [personal] parameters, the reviews it can be fitted on so far,
+ * the count at which the next fit runs, and how the last fit did on reviews it had not seen.
+ */
+data class FitStatus(val personal: Boolean, val reviews: Int, val nextFitAt: Int, val last: FitCheck?)

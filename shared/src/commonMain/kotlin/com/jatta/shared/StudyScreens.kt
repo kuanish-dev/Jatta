@@ -48,6 +48,7 @@ import com.jatta.engine.session.Rung
 import com.jatta.study.AiStatus
 import com.jatta.study.Banner
 import com.jatta.study.CourseProgress
+import com.jatta.study.FitStatus
 import com.jatta.study.RestKind
 import com.jatta.study.Screen
 import com.jatta.study.Steps
@@ -605,10 +606,42 @@ private fun CalibrationScreen(screen: Screen.Calibration, onHome: () -> Unit) = 
         "Каждый повтор — проверка прогноза: перед ним модель знает, с какой вероятностью вы вспомните, после — вспомнили ли. " +
             "Отдельные контрольные не нужны. Первые встречи со словом и знакомое по тесту уровня не считаются.",
     )
+    FitPanel(screen.fit)
     NeonButton(onHome, Modifier.fillMaxWidth()) { Text("НА ГЛАВНУЮ") }
 }
 
+/** М2: whose parameters the memory model runs on, and how the last fit did on reviews it had not seen. */
+@Composable
+private fun FitPanel(fit: FitStatus) {
+    Panel(Modifier.fillMaxWidth(), accent = Neon.Magenta.copy(alpha = 0.5f)) {
+        Label("Параметры памяти", color = Neon.Magenta)
+        Text(if (fit.personal) "Подогнаны под вас" else "Стандартные FSRS", style = MaterialTheme.typography.titleMedium)
+        val last = fit.last
+        if (last == null) {
+            Muted("Подобраны на большом наборе повторов Anki. Под вашу память их подгонят, когда наберётся ${fit.nextFitAt} повторов: сейчас ${fit.reviews}.")
+            NeonBar((fit.reviews.toFloat() / fit.nextFitAt).coerceAtMost(1f), segments = 20, height = 6.dp)
+        } else {
+            Muted(
+                "Последняя подгонка — по ${last.reviews} повторам. Последние ${last.heldOut} из них она не видела, " +
+                    "и на них ошибка прогноза: прежние параметры ${decimals(last.currentLoss)}, подогнанные ${decimals(last.fittedLoss)} " +
+                    "(log loss, меньше — лучше).",
+            )
+            Muted(if (last.adopted) "Подогнанные предсказали лучше и приняты." else "Подогнанные не предсказали лучше, поэтому оставлены прежние.")
+            Muted("Следующая подгонка — на ${fit.nextFitAt} повторах.")
+        }
+        if (fit.personal) {
+            Muted("Сравнение прогноза и факта выше включает повторы, на которых параметры подгоняли; честная проверка — на отложенных.")
+        }
+    }
+}
+
 private fun percent(share: Double) = "${(share * 100).roundToInt()}%"
+
+/** Three decimals without platform formatting: 0.432. */
+private fun decimals(value: Double): String {
+    val thousandths = (value * 1000).roundToInt()
+    return "${thousandths / 1000}.${(thousandths % 1000).toString().padStart(3, '0')}"
+}
 
 /** Session screens: the step counter and a neon bar of how far the session has got. */
 @Composable

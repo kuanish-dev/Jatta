@@ -40,6 +40,21 @@ data class AiCheck(
 @Serializable
 data class SavedPlacement(val estimatedWords: Int? = null, val totalWords: Int? = null, val skipped: Boolean = false)
 
+/**
+ * The last fit of the memory model to the learner (М2): how many reviews it had, how many of the latest
+ * were kept out to test it, the log loss on those with the parameters in use and with the fitted ones,
+ * and whether the fitted ones were adopted.
+ */
+@Serializable
+data class FitCheck(
+    val day: Int,
+    val reviews: Int,
+    val heldOut: Int,
+    val currentLoss: Double,
+    val fittedLoss: Double,
+    val adopted: Boolean,
+)
+
 /** When a session started: the learning day and the local clock time in minutes (М19, М20). */
 @Serializable
 data class SessionStart(val day: Int, val minute: Int)
@@ -55,6 +70,9 @@ data class SavedState(
     val readTexts: List<String> = emptyList(),
     val theme: ThemeChoice = ThemeChoice.System,
     val placement: SavedPlacement? = null,
+    /** М2: FSRS parameters fitted to this learner; null while the defaults are in use. */
+    val fsrsParameters: List<Double>? = null,
+    val fsrsFit: FitCheck? = null,
 )
 
 /** Every answer as it happened, kept to fit the memory model to this learner later. */

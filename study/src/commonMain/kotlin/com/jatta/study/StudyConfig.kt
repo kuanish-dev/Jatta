@@ -42,4 +42,8 @@ data class StudyConfig(
     val placementQuestionsPerTopic: Int = 2,
     /** М2: reviews needed before judging how well the memory model predicts the learner. Weak. */
     val minReviewsForCalibration: Int = 30,
+    /** М2: latest share of reviews kept out of fitting the memory model, to test the fit on. Weak. */
+    val fitHoldoutShare: Double = 0.2,
+    /** М2: new reviews after which the memory model is fitted again. Weak. */
+    val refitAfterReviews: Int = 512,
 )

@@ -1,8 +1,11 @@
 package com.jatta.study
 
+import com.jatta.engine.Engine
 import com.jatta.engine.EngineConfig
+import com.jatta.engine.learner.Learner
 import com.jatta.engine.learningDay
 import com.jatta.engine.localMinuteOfDay
+import com.jatta.study.calibration.LogReplay
 import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.TextSource
@@ -15,6 +18,7 @@ import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.store.LearnerStore
 import com.jatta.study.store.SavedProgress
 import com.jatta.study.store.SavedState
+import com.jatta.study.store.withLearner
 import com.jatta.study.remind.Reminder
 import com.jatta.study.remind.ReminderScheduler
 import kotlinx.coroutines.CoroutineScope
@@ -50,10 +54,13 @@ class StudyControllerTest {
         evalCases: List<EvalCase> = emptyList(),
         texts: List<ReadingText> = emptyList(),
         placement: PlacementFile? = null,
+        engineConfig: EngineConfig = EngineConfig(),
+        config: StudyConfig = StudyConfig(),
     ) = StudyController(
         content, LearnerStore(dir.absolutePath), nowMs = { now }, utcOffsetMinutes = { almaty },
         scope = CoroutineScope(Dispatchers.Unconfined), model = model, evalCases = evalCases,
         texts = texts, reminders = reminders, placementFile = placement,
+        engineConfig = engineConfig, config = config, background = Dispatchers.Unconfined,
     )
 
     private val placementFile = PlacementFile.read(File(System.getProperty("contentDir"), "en/placement.json").readText())
@@ -99,6 +106,45 @@ class StudyControllerTest {
         val report = (app.screen.value as Screen.Calibration).report
         assertTrue(report.reviews > 0, "placed items came back for review")
         assertEquals(1.0, report.actual)
+    }
+
+    @Test
+    fun afterASessionTheMemoryModelIsFittedToTheLogAndMemoryRebuilt() {
+        // small batches so a short history is enough to fit on
+        val engineConfig = EngineConfig(optimizerBatchReviews = 64)
+        val studyConfig = StudyConfig(refitAfterReviews = 64)
+        val today = learningDay(now, almaty, 4)
+        val history = SimulatedLog.of(
+            content.course.items.take(48).map { it.id }, lastDay = today - 1, seed = 1,
+            truth = SimulatedLog.fastForgetter, firstDay = today - 150,
+        )
+        val store = LearnerStore(dir.absolutePath)
+        history.forEach(store::log)
+        store.save(SavedState().withLearner(Learner(LogReplay.progress(history, Engine(content.course).memory))))
+
+        val app = controller(engineConfig = engineConfig, config = studyConfig)
+        app.openCalibration()
+        val before = (app.screen.value as Screen.Calibration).fit
+        assertFalse(before.personal)
+        assertNull(before.last)
+        assertTrue(before.reviews >= before.nextFitAt, "enough reviews for the first fit")
+
+        app.openHome()
+        app.startSession()
+        runSessionAnsweringRight(app)
+
+        val saved = store.load()
+        val check = assertNotNull(saved.fsrsFit)
+        assertTrue(check.adopted)
+        val parameters = assertNotNull(saved.fsrsParameters)
+        val rebuilt = LogReplay.progress(store.readLog(), Engine(content.course, engineConfig.copy(fsrsParameters = parameters)).memory)
+        saved.progress.forEach { assertEquals(rebuilt.getValue(it.item).memory.stability, it.stability, "memory of ${it.item} follows the fit") }
+
+        app.openCalibration()
+        val after = (app.screen.value as Screen.Calibration).fit
+        assertTrue(after.personal)
+        assertEquals(check, after.last)
+        assertEquals(check.reviews + studyConfig.refitAfterReviews, after.nextFitAt)
     }
 
     @Test

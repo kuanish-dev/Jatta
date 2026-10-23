@@ -1,5 +1,7 @@
 package com.jatta.engine
 
+import com.jatta.engine.fsrs.Fsrs
+
 /**
  * Every tunable number of the engine in one place.
  *
@@ -11,6 +13,16 @@ data class EngineConfig(
     val desiredRetention: Double = 0.90,
     /** М2: upper bound for any interval. */
     val maximumIntervalDays: Int = 36_500,
+    /** М2: FSRS-6 parameters: the defaults until the optimizer fits the learner's own. */
+    val fsrsParameters: List<Double> = Fsrs.DEFAULT_PARAMETERS,
+    /** М2: passes of the FSRS optimizer over the reviews. As in py-fsrs 6.3.2. */
+    val optimizerEpochs: Int = 5,
+    /** М2: reviews per optimizer step, and the fewest reviews worth fitting. As in py-fsrs 6.3.2. */
+    val optimizerBatchReviews: Int = 512,
+    /** М2: Adam learning rate at the start of the cosine schedule. As in py-fsrs 6.3.2. */
+    val optimizerLearningRate: Double = 0.04,
+    /** М2: only the first reviews of each item are used for fitting. As in py-fsrs 6.3.2. */
+    val optimizerMaxReviewsPerItem: Int = 64,
     /** М7: an item "holds" when its recall probability tomorrow is at least this. Weak. */
     val heldRecall: Double = 0.85,
     /** М7: share of a topic's items that must hold before topics built on it open. Weak. */
