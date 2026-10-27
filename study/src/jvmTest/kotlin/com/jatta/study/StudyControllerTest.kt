@@ -433,6 +433,35 @@ class StudyControllerTest {
         assertEquals(content.course.itemsOf("present-perfect").size, closed.newToday, "its new items fit in today's limit")
     }
 
+    /** М27: on the first opening of a day, yesterday's results and the streak, once; the first study of the day extends it. */
+    @Test
+    fun eachDayOpensWithYesterdaysSummaryAndTheStreak() {
+        controller().apply { startSession() }.also { runSessionAnsweringRight(it) }
+        now += day
+
+        val app = controller()
+        val summary = app.screen.value as Screen.DailySummary
+        val yesterday = summary.yesterday!!
+        assertEquals(12, yesterday.newItems)
+        assertEquals(yesterday.answered, yesterday.newItems + yesterday.reviews)
+        assertTrue(yesterday.minutes >= 1)
+        assertEquals(1, summary.streak.days)
+        assertFalse(summary.streak.studiedToday)
+        app.closeSummary()
+        assertEquals(1, (app.screen.value as Screen.Home).streak.days)
+        assertTrue(controller().screen.value is Screen.Home, "once a day")
+
+        app.startSession()
+        val done = runSessionAnsweringRight(app)
+        assertTrue(done.streakGrew)
+        assertEquals(2, done.streak)
+
+        now += 3 * day
+        val later = controller().screen.value as Screen.DailySummary
+        assertNull(later.yesterday)
+        assertEquals(0, later.streak.days, "two days with something to study were missed")
+    }
+
     @Test
     fun firstDayIntroducesTheFirstWordsAndSavesThem() {
         val app = controller()
@@ -461,6 +490,7 @@ class StudyControllerTest {
 
         now += 2 * day
         val again = controller()
+        again.closeSummary()
         val home = again.screen.value as Screen.Home
         assertEquals(12, home.reviews)
         assertEquals(12, home.newItems)
@@ -508,7 +538,8 @@ class StudyControllerTest {
                 is Screen.Rest -> app.finishRest()
                 is Screen.Home -> error("Unexpected home screen in a session")
                 is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
-                is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated, is Screen.Topic ->
+                is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated, is Screen.Topic,
+                is Screen.DailySummary ->
                     error("Unexpected screen in a session: $screen")
             }
         }

@@ -331,7 +331,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
   <div class="section-head">
     <div class="eyebrow">Схема</div>
     <h2>Как движок ведёт ученика</h2>
-    <p class="muted" style="max-width:70ch">Метки М1–М26 ведут к описанию механики ниже.</p>
+    <p class="muted" style="max-width:70ch">Метки М1–М27 ведут к описанию механики ниже.</p>
   </div>
 
   <div class="diagram">
@@ -429,7 +429,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
 <section class="wrap rule-top" id="mechanics">
   <div class="section-head">
     <div class="eyebrow">Механики</div>
-    <h2>26 правил движка и их основания</h2>
+    <h2>27 правил движка и их основания</h2>
   </div>
   <div class="filters" role="group" aria-label="Фильтр по уровню доказательности">
     <button type="button" id="f-all" data-f="all" aria-pressed="true">Все</button>
@@ -614,6 +614,12 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
         <p class="sci"><span class="k">Наука:</span> ежедневное действие становилось автоматическим в среднем примерно за 66 дней, с разбросом от 18 до 254. К этому добавляется польза распределённой практики из М1.</p>
         <p><a class="cite" href="#ref-lally2010">Lally 2010</a></p>
       </article>
+      <article class="mech" id="m27" data-l="b">
+        <div class="mech-head"><span class="mid">М27</span><h4>Итоги вчера и серия</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> раз в день, при первом открытии, — итоги вчерашнего дня: сколько ответов, сколько с первого раза, новых, повторов, переводов и минут. Рядом серия — сколько дней подряд вы занимались — и полоса недели. День без занятий рвёт серию, только если было что учить: день без повторов и нового — это отдых. Первое занятие дня продлевает серию. Серия ни на что в плане не влияет, а за пропуск приложение не ругает.</p>
+        <p class="sci"><span class="k">Наука:</span> регулярно видеть свой прогресс помогает дойти до цели: в мета-анализе экспериментов наблюдение за продвижением заметно повышало достижение цели, сильнее — когда результаты записаны и видны. Привычка складывается из ежедневного повторения в одном контексте. А эффект очков и серий умеренный и зависит от дизайна, поэтому серия здесь — добавка, а не основа.</p>
+        <p><a class="cite" href="#ref-harkin2016">Harkin 2016</a> · <a class="cite" href="#ref-lally2010">Lally 2010</a> · <a class="cite" href="#ref-sailer2020">Sailer &amp; Homner 2020</a></p>
+      </article>
     </div>
   </div>
 
@@ -646,7 +652,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
     <div class="myth"><span class="m">Подстройка под «визуалов» и «аудиалов»</span><span class="d">Проверка исследований не нашла пользы от подстройки обучения под «стиль» (<a class="cite" href="#ref-pashler2008">Pashler 2008</a>).</span><span class="w">Не подстраиваемся под стиль.</span></div>
     <div class="myth"><span class="m">Перечитать и выделить маркером</span><span class="d">Низкая польза по обзору методов учёбы (<a class="cite" href="#ref-dunlosky2013">Dunlosky 2013</a>).</span><span class="w">Только припоминание (М3).</span></div>
     <div class="myth"><span class="m">Повторить 10 раз подряд</span><span class="d">Выигрыш исчезает за несколько недель (<a class="cite" href="#ref-rohrer2005">Rohrer 2005</a>).</span><span class="w">До одного верного ответа (М4).</span></div>
-    <div class="myth"><span class="m">Стрики и очки как основа мотивации</span><span class="d">Эффект геймификации умеренный и сильно зависит от дизайна (<a class="cite" href="#ref-sailer2020">Sailer &amp; Homner 2020</a>).</span><span class="w">Можно добавить позже, не в ядре.</span></div>
+    <div class="myth"><span class="m">Стрики и очки как основа мотивации</span><span class="d">Эффект геймификации умеренный и сильно зависит от дизайна (<a class="cite" href="#ref-sailer2020">Sailer &amp; Homner 2020</a>).</span><span class="w">Серия есть, но вне ядра: план дня от неё не зависит (М27).</span></div>
     <div class="myth"><span class="m">ИИ сам составляет расписание</span><span class="d">Модель не хранит надёжно состояние памяти, а без ограничений ИИ вредит учёбе (<a class="cite" href="#ref-bastani2025">Bastani 2025</a>).</span><span class="w">Расписание считает код (М1, М2).</span></div>
   </div>
 </section>
@@ -724,6 +730,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
     <li id="ref-fang2023">Fang, T., et al. (2023). Is ChatGPT a highly fluent grammatical error correction system? A comprehensive evaluation. <i>arXiv:2304.01746</i>. <a href="https://arxiv.org/abs/2304.01746">arxiv</a></li>
     <li id="ref-gollwitzer2006">Gollwitzer, P. M., &amp; Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. <i>Advances in Experimental Social Psychology, 38</i>. <a href="https://www.socmot.uni-konstanz.de/publications/implementation-intentions-and-goal-achievement-meta-analysis-effects-and-processes">uni-konstanz</a></li>
     <li id="ref-goo2015">Goo, J., Granena, G., Yilmaz, Y., &amp; Novella, M. (2015). Implicit and explicit instruction in L2 learning. In P. Rebuschat (Ed.), <i>Implicit and Explicit Learning of Languages</i>. John Benjamins. <a href="https://www.degruyterbrill.com/document/doi/10.1075/sibil.48.18goo/html">degruyter</a></li>
+    <li id="ref-harkin2016">Harkin, B., Webb, T. L., Chang, B. P. I., Prestwich, A., Conner, M., Kellar, I., Benn, Y., &amp; Sheeran, P. (2016). Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. <i>Psychological Bulletin, 142</i>(2), 198–229. <a href="https://doi.org/10.1037/bul0000025">doi</a></li>
     <li id="ref-hu2000">Hu, M., &amp; Nation, I. S. P. (2000). Unknown vocabulary density and reading comprehension. <i>Reading in a Foreign Language, 13</i>(1).</li>
     <li id="ref-hamada2016">Hamada, Y. (2016). Shadowing: Who benefits and how? Uncovering a booming EFL teaching technique for listening comprehension. <i>Language Teaching Research, 20</i>(1), 35–52.</li>
     <li id="ref-kelley1993">Kelley, C. M., &amp; Lindsay, D. S. (1993). Remembering mistaken for knowing: Ease of retrieval as a basis for confidence in answers to general knowledge questions. <i>Journal of Memory and Language, 32</i>(1).</li>
@@ -766,7 +773,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
 </section>
 
 <footer class="wrap">
-  Собрано 23 октября 2026, обновлено в тот же день: М11, М13, М19, М20 описаны так, как они сделаны в приложении. 27 октября добавлены М25 — перевод фраз с мягкой проверкой по смыслу — и М26 — любая тема вне плана. Уровни доказательности — наша оценка по типу и числу исследований. Часть размеров эффектов взята из аннотаций и обзоров; перед публичной статьёй их стоит сверить с полными текстами.
+  Собрано 23 октября 2026, обновлено в тот же день: М11, М13, М19, М20 описаны так, как они сделаны в приложении. 27 октября добавлены М25 — перевод фраз с мягкой проверкой по смыслу — М26 — любая тема вне плана — и М27 — итоги вчера и серия. Уровни доказательности — наша оценка по типу и числу исследований. Часть размеров эффектов взята из аннотаций и обзоров; перед публичной статьёй их стоит сверить с полными текстами.
 </footer>
 
 <script>

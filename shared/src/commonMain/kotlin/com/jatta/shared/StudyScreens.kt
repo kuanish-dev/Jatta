@@ -76,6 +76,7 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
     when (val s = screen) {
         is Screen.Home -> HomeScreen(s, controller)
         is Screen.Read -> ReadScreen(s, controller)
+        is Screen.DailySummary -> DailySummaryScreen(s, controller::closeSummary)
         is Screen.Topic -> TopicScreen(s, controller)
         is Screen.PlacementIntro -> PlacementIntroScreen(s, controller)
         is Screen.PlacementWord -> PlacementWordScreen(s, controller)
@@ -111,6 +112,7 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
         }
     }
     Text(home.courseTitle, style = MaterialTheme.typography.headlineMedium)
+    StreakChip(home.streak)
     home.vocabulary?.let { Muted("Словарь при старте: ≈ ${it.words} из ${it.total} самых частых слов (${levelOf(it.words)})") }
     ProgressPanel(home.progress)
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -207,7 +209,7 @@ private fun PlacementPage(steps: Steps, content: @Composable ColumnScope.() -> U
 }
 
 /** Russian noun form for a count: 1 единица, 3 единицы, 5 единиц, 21 единица. */
-private fun plural(n: Int, one: String, few: String, many: String) = when {
+internal fun plural(n: Int, one: String, few: String, many: String) = when {
     n % 10 == 1 && n % 100 != 11 -> one
     n % 10 in 2..4 && n % 100 !in 12..14 -> few
     else -> many
@@ -640,6 +642,11 @@ private fun DoneScreen(done: Screen.Done, onHome: () -> Unit) = Page {
             Label("Перевод фраз")
             NeonNumber("${done.translatedRight}/${done.translated}", color = Neon.Cyan)
         }
+    }
+    // М27: the first study of the day extends the streak, and that moment gets the burst.
+    if (done.streakGrew) {
+        Label("Серия продлена", color = Neon.Magenta, modifier = Modifier.align(Alignment.CenterHorizontally))
+        StreakBurst(done.streak, grew = true, modifier = Modifier.align(Alignment.CenterHorizontally))
     }
     NeonButton(onHome, Modifier.fillMaxWidth()) { Text("НА ГЛАВНУЮ") }
 }

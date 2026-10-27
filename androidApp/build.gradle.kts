@@ -13,8 +13,8 @@ android {
         applicationId = "com.jatta.app"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 5
-        versionName = "0.5"
+        versionCode = 6
+        versionName = "0.6"
         // Phones are ARM. LiteRT-LM (Gemma) ships only 64-bit builds; 32-bit phones still get the app without it.
         ndk {
             abiFilters += listOf("arm64-v8a", "armeabi-v7a")

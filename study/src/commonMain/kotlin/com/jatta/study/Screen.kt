@@ -6,6 +6,8 @@ import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffPart
 import com.jatta.study.judge.ModelState
 import com.jatta.study.placement.PlacementResult
+import com.jatta.study.progress.DaySummary
+import com.jatta.study.progress.Streak
 import com.jatta.study.reading.Reading
 import com.jatta.study.store.AiCheck
 import com.jatta.study.store.FitCheck
@@ -25,7 +27,15 @@ sealed interface Screen {
         val vocabulary: VocabularyEstimate?,
         /** A real text the learner can read now (М11), or null when none fits yet. */
         val reading: Reading?,
+        /** М27: days in a row without a missed day. */
+        val streak: Streak,
     ) : Screen
+
+    /**
+     * М27: once a day, on the first opening, what yesterday brought ([yesterday] is null when there was no study;
+     * [restDay] — then there was nothing to study either) and the streak.
+     */
+    data class DailySummary(val yesterday: DaySummary?, val restDay: Boolean, val streak: Streak) : Screen
 
     /** М23: before the first lesson, the offer to find where the course should start. */
     data class PlacementIntro(val words: Int, val questions: Int) : Screen
@@ -110,13 +120,15 @@ sealed interface Screen {
         val steps: Steps,
     ) : Screen
 
-    /** [translated] sentences at the end, [translatedRight] of them right (М25). */
+    /** [translated] sentences at the end, [translatedRight] of them right (М25); [streakGrew] when this was today's first study (М27). */
     data class Done(
         val answered: Int,
         val rightFirstTime: Int,
         val endedEarly: Boolean,
         val translated: Int = 0,
         val translatedRight: Int = 0,
+        val streak: Int = 0,
+        val streakGrew: Boolean = false,
     ) : Screen
 
     /** М2: how well the memory model has predicted this learner so far, and its fit to the learner. */

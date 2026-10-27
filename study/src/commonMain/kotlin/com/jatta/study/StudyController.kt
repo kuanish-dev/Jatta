@@ -6,6 +6,7 @@ import com.jatta.engine.epochMsAt
 import com.jatta.engine.learningDay
 import com.jatta.engine.localMinuteOfDay
 import com.jatta.engine.fsrs.Grade
+import com.jatta.engine.learner.Learner
 import com.jatta.engine.plan.DayPlan
 import com.jatta.engine.session.Advice
 import com.jatta.engine.session.Answer
@@ -35,6 +36,9 @@ import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.judge.WordDiff
 import com.jatta.study.placement.Placement
 import com.jatta.study.placement.PlacementFile
+import com.jatta.study.progress.DailyProgress
+import com.jatta.study.progress.DayMark
+import com.jatta.study.progress.Streak
 import com.jatta.study.reading.ReadingPicker
 import com.jatta.study.remind.Reminder
 import com.jatta.study.remind.ReminderScheduler
@@ -142,14 +146,17 @@ class StudyController(
     private var translatedRight = 0
     private var pendingTranslation: PendingTranslation? = null
 
-    private val state = MutableStateFlow(if (needsPlacement()) placementIntro() else home())
+    private var streakCache: Pair<Int, Streak>? = null
+    private var streakBefore: Streak? = null
+
+    private val state = MutableStateFlow(if (needsPlacement()) placementIntro() else dailySummary() ?: home())
     val screen: StateFlow<Screen> = state.asStateFlow()
 
     init {
         updateReminder()
         if (model != null) {
             scope.launch {
-                modelState = model.state()
+                modelState = withContext(background) { model.state() }
                 refreshHome()
                 // A download started earlier may still run in the background: follow its progress.
                 if (modelState == ModelState.Downloading) followDownload(model)
@@ -162,6 +169,7 @@ class StudyController(
         session = null
         coach = null
         exercise = null
+        streakCache = null
         state.value = home()
         updateReminder()
     }
@@ -198,7 +206,42 @@ class StudyController(
         begin(engine.planTopic(learner, topic.topic.id, today))
     }
 
+    /** М27: the summary has been seen; it comes back tomorrow. */
+    fun closeSummary() {
+        saved = saved.copy(lastSummaryDay = currentDay())
+        save()
+        openHome()
+    }
+
+    /** М27: on the first opening of a day, yesterday's results and the streak; null before any day of study is over. */
+    private fun dailySummary(): Screen.DailySummary? {
+        today = currentDay()
+        if (saved.lastSummaryDay == today) return null
+        val log = store.readLog()
+        val translations = store.readTranslations()
+        if (DailyProgress.studiedDays(log, translations).none { it < today }) return null
+        val yesterday = DailyProgress.summary(log, translations, today - 1)
+        val streak = currentStreak()
+        val restDay = yesterday == null && streak.week[streak.week.size - 2] == DayMark.Rest
+        return Screen.DailySummary(yesterday, restDay, streak)
+    }
+
+    /** М27: kept until something is studied; a day counts as rest when the memory of that day had nothing due or new. */
+    private fun currentStreak(): Streak {
+        val day = currentDay()
+        streakCache?.let { (cached, streak) -> if (cached == day) return streak }
+        val log = store.readLog()
+        val studied = DailyProgress.studiedDays(log, store.readTranslations())
+        val streak = DailyProgress.streak(studied, day) { past ->
+            val plan = engine.planDay(Learner(LogReplay.progress(log.filter { it.day < past }, engine.memory)), past)
+            plan.reviews.isEmpty() && plan.newItems.isEmpty()
+        }
+        streakCache = day to streak
+        return streak
+    }
+
     private fun begin(plan: DayPlan) {
+        streakBefore = currentStreak()
         session = engine.startSession(plan)
         coach = engine.restCoach(baseline(), nowMs())
         val start = SessionStart(today, localMinuteOfDay(nowMs(), utcOffsetMinutes()))
@@ -684,7 +727,13 @@ class StudyController(
     }
 
     private fun showDone() {
-        state.value = Screen.Done(firstAnswers.size, firstAnswers.count { it }, endedEarly, translations.size, translatedRight)
+        streakCache = null
+        val streak = currentStreak()
+        state.value = Screen.Done(
+            firstAnswers.size, firstAnswers.count { it }, endedEarly, translations.size, translatedRight,
+            streak = streak.days,
+            streakGrew = streak.studiedToday && streakBefore?.studiedToday == false,
+        )
     }
 
     private fun updateReminder() {
@@ -756,7 +805,10 @@ class StudyController(
         val grammarHolds = grammarTopics.all { engine.gate.isMastered(it, learner, today) }
         val reading = if (grammarHolds) readingPicker.pick(texts, learner, today, saved.readTexts.toSet()) else null
         val vocabulary = saved.placement?.let { p -> p.estimatedWords?.let { VocabularyEstimate(it, p.totalWords ?: 0) } }
-        return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, progress, vocabulary, reading)
+        return Screen.Home(
+            content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, progress, vocabulary, reading,
+            streak = currentStreak(),
+        )
     }
 
     private fun topicStatuses(): List<TopicStatus> = content.course.topics.map { topic ->

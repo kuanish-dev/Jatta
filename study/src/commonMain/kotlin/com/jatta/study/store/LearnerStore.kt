@@ -82,6 +82,8 @@ data class SavedState(
     val fsrsFit: FitCheck? = null,
     /** States saved before items kept their first study day get those days once from the answer log. */
     val firstDaysRecorded: Boolean = false,
+    /** М27: the learning day the summary of the day before was last shown. */
+    val lastSummaryDay: Int? = null,
 )
 
 /** Every answer as it happened, kept to fit the memory model to this learner later. */

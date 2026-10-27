@@ -31,6 +31,8 @@ import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.placement.PlacementFile
 import com.jatta.study.remind.ReminderScheduler
 import com.jatta.study.store.LearnerStore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import com.jatta.study.translate.SentencesFile
 
 internal const val CONTENT_DIR = "files/content"
@@ -63,7 +65,9 @@ fun App(
     JattaTheme(dark) {
         LaunchedEffect(Unit) {
             try {
-                controller = StudyController(
+                // Reading the course and replaying the log take seconds: off the main thread, so the first screen animates.
+                controller = withContext(Dispatchers.Default) {
+                    StudyController(
                     content = loadCourse(),
                     store = LearnerStore(dataDir),
                     nowMs = nowMs,
@@ -76,7 +80,8 @@ fun App(
                     sentences = SentencesFile.read(Res.readBytes("$CONTENT_DIR/en/sentences.json").decodeToString()),
                     reminders = reminders,
                     placementFile = PlacementFile.read(Res.readBytes("$CONTENT_DIR/en/placement.json").decodeToString()),
-                )
+                    )
+                }
             } catch (e: Exception) {
                 failure = e.message ?: e.toString()
             }
