@@ -13,8 +13,18 @@ android {
         applicationId = "com.jatta.app"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 3
-        versionName = "0.3"
+        versionCode = 4
+        versionName = "0.4"
+        // Phones are ARM. LiteRT-LM (Gemma) ships only 64-bit builds; 32-bit phones still get the app without it.
+        ndk {
+            abiFilters += listOf("arm64-v8a", "armeabi-v7a")
+        }
+    }
+    // The APK is downloaded from GitHub: compressed native libraries make it much smaller.
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
     }
     buildTypes {
         release {

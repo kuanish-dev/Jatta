@@ -11,11 +11,13 @@ import kotlin.coroutines.cancellation.CancellationException
 
 /**
  * Gemini Nano through ML Kit's Prompt API. It runs inside the AICore system app, only on supported
- * phones; anywhere else (an emulator, an older phone) it reports Unavailable and lessons fall back
- * to self-checking.
+ * phones; anywhere else (an emulator, an older phone) it reports Unavailable and [PhoneModel] uses Gemma instead.
  */
 class GeminiNanoModel : OnDeviceModel {
     private val model by lazy { Generation.getClient() }
+
+    override val name = "Gemini Nano"
+    override val downloadBytes: Long? = null
 
     override suspend fun state(): ModelState = guarded(ModelState.Unavailable) {
         when (model.checkStatus()) {

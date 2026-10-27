@@ -113,6 +113,12 @@ keep their own license; they are not covered by the GPL.
 
 - Kotlin, kotlinx.coroutines, kotlinx.serialization, kotlinx-io, Compose Multiplatform, AndroidX (including WorkManager):
   Apache License 2.0, compatible with GPL-3.0.
+- LiteRT-LM (`com.google.ai.edge.litertlm:litertlm-android`, runs Gemma 4 on phones without Gemini Nano):
+  Apache License 2.0, compatible with GPL-3.0. Its license and third-party notices ship with the app in
+  `shared/src/commonMain/composeResources/files/licenses/litert-lm/`. It brings Gson and kotlin-reflect
+  (Apache License 2.0). `litertlm-jvm` is used only by tests on a computer.
+- Gemma 4 E2B (`litert-community/gemma-4-E2B-it-litert-lm` on Hugging Face, by Google): Apache License 2.0.
+  The model is not in this repository or the APK; the app downloads it on the learner's request.
 - ML Kit GenAI Prompt API (`com.google.mlkit:genai-prompt`, Gemini Nano on Android): proprietary,
   [ML Kit Terms of Service](https://developers.google.com/ml-kit/terms). Not covered by the GPL;
   the additional permission above allows conveying Android builds that include it.

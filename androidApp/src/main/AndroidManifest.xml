@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Only to download the model that checks answers, once -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- Android 11+ hides other apps by default; the text-to-speech engine must be declared to bind to it. -->
     <queries>
@@ -14,6 +16,9 @@
         android:label="Jatta"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        <!-- LiteRT-LM runs Gemma on the GPU through OpenCL where the phone has it, otherwise on the CPU -->
+        <uses-native-library android:name="libvndksupport.so" android:required="false" />
+        <uses-native-library android:name="libOpenCL.so" android:required="false" />
         <!-- configChanges keeps a running session alive on rotation and theme switches -->
         <activity
             android:name=".MainActivity"

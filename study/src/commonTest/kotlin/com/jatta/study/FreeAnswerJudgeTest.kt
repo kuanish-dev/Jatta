@@ -104,6 +104,8 @@ class FreeAnswerJudgeTest {
 
 /** A stand-in for the on-device model that replies with whatever the test wants. */
 class ReplyingModel(private val reply: (String) -> String?) : OnDeviceModel {
+    override val name = "Test model"
+    override val downloadBytes: Long? = null
     override suspend fun state() = ModelState.Ready
     override suspend fun download(onProgress: (Long) -> Unit) = true
     override suspend fun generate(prompt: String) = reply(prompt)

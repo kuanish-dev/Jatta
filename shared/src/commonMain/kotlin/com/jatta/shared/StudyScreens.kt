@@ -320,6 +320,8 @@ private fun highlighted(text: String, words: Set<String>) = buildAnnotatedString
     append(text.substring(at))
 }
 
+private fun megabytes(bytes: Long) = "${bytes / 1_000_000} МБ"
+
 /** State of the on-device model and the accuracy test it must pass before checking answers (М21). */
 @Composable
 private fun AiSection(ai: AiStatus, controller: StudyController) {
@@ -328,19 +330,27 @@ private fun AiSection(ai: AiStatus, controller: StudyController) {
     val testedDone = ai.testedDone
     when {
         ai.model == ModelState.Unavailable ->
-            Muted("На этом устройстве нет встроенной модели. Свободные ответы вы сверяете с образцом сами.")
+            Muted("На этом устройстве модели нет: ей нужно от 6 ГБ памяти. Свободные ответы вы сверяете с образцом сами.")
         ai.model == ModelState.Downloadable -> {
-            Muted("Можно скачать Gemini Nano — модель Google, которая работает на телефоне без интернета.")
-            NeonOutlinedButton(controller::downloadModel) { Text("СКАЧАТЬ МОДЕЛЬ") }
+            val size = ai.downloadTotalBytes?.let { " (${megabytes(it)}, лучше по Wi-Fi)" }.orEmpty()
+            Muted("Можно скачать ${ai.modelName}$size — модель Google, которая проверяет ответы на телефоне без интернета.")
+            if (ai.downloadFailed) {
+                Label("Не скачалось: проверьте интернет и свободное место. Продолжит с того же места.", color = Neon.Danger)
+            }
+            NeonOutlinedButton(controller::downloadModel) { Text(if (ai.downloadFailed) "СКАЧАТЬ ДАЛЬШЕ" else "СКАЧАТЬ МОДЕЛЬ") }
         }
-        ai.model == ModelState.Downloading ->
-            Muted("Модель скачивается" + (ai.downloadedBytes?.let { ": ${it / 1_000_000} МБ" } ?: "…"))
+        ai.model == ModelState.Downloading -> {
+            val done = ai.downloadedBytes
+            val total = ai.downloadTotalBytes
+            Muted("${ai.modelName} скачивается" + (done?.let { ": ${megabytes(it)}" + (total?.let { " из ${megabytes(it)}" }.orEmpty()) } ?: "…"))
+            if (done != null && total != null) NeonBar(done.toFloat() / total, height = 4.dp)
+        }
         testedDone != null -> {
             Muted("Проверяю точность модели: $testedDone из ${ai.testTotal}")
             NeonBar(testedDone.toFloat() / ai.testTotal, height = 4.dp)
         }
         test == null -> {
-            Muted("Модель готова. Прежде чем доверить ей ответы, проверим её на ${ai.testTotal} фразах с известным ответом.")
+            Muted("${ai.modelName} готова. Прежде чем доверить ей ответы, проверим её на ${ai.testTotal} фразах с известным ответом.")
             NeonOutlinedButton(controller::testModel) { Text("ПРОВЕРИТЬ ТОЧНОСТЬ") }
         }
         else -> {

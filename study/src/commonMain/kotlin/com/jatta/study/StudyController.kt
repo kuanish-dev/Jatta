@@ -118,6 +118,7 @@ class StudyController(
 
     private var modelState = ModelState.Unavailable
     private var downloadedBytes: Long? = null
+    private var downloadFailed = false
     private var testedDone: Int? = null
 
     private var today = 0
@@ -459,6 +460,7 @@ class StudyController(
                 refreshHome()
             }
             downloadedBytes = null
+            downloadFailed = !ready
             modelState = if (ready) ModelState.Ready else model.state()
             refreshHome()
         }
@@ -706,7 +708,16 @@ class StudyController(
             met = content.course.items.count { it.id in learner.progress },
             total = content.course.items.size,
         )
-        val ai = AiStatus(modelState, downloadedBytes, testedDone, evalCases.size + modelTranslationCases.size, saved.aiCheck)
+        val ai = AiStatus(
+            model = modelState,
+            modelName = model?.name,
+            downloadTotalBytes = model?.downloadBytes,
+            downloadedBytes = downloadedBytes,
+            downloadFailed = downloadFailed,
+            testedDone = testedDone,
+            testTotal = evalCases.size + modelTranslationCases.size,
+            lastTest = saved.aiCheck,
+        )
         // М11, the course author's choice: real texts open once all the grammar of the course holds in memory.
         val grammarHolds = grammarTopics.all { engine.gate.isMastered(it, learner, today) }
         val reading = if (grammarHolds) readingPicker.pick(texts, learner, today, saved.readTexts.toSet()) else null

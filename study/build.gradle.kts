@@ -19,6 +19,10 @@ kotlin {
             implementation(libs.kotlin.test)
             implementation(libs.kotlinx.coroutines.test)
         }
+        jvmTest.dependencies {
+            // М21: runs the phone's model file on this computer to measure it (LiteRtEvalTest).
+            implementation(libs.litertlm.jvm)
+        }
     }
 }
 
@@ -30,8 +34,10 @@ tasks.named<Test>("jvmTest") {
     systemProperty("sourcesDir", sourcesDir)
     inputs.dir(contentDir)
     inputs.dir(sourcesDir)
-    // OllamaEvalTest measures a local model only when one is named: -PollamaModel=gemma4:e2b
-    val ollamaModel = providers.gradleProperty("ollamaModel").orElse("")
-    systemProperty("ollamaModel", ollamaModel.get())
-    inputs.property("ollamaModel", ollamaModel)
+    // LocalModelEvalTest measures a local model only when one is named: -PollamaModel=gemma4:e2b or -PlitertModel=<file>
+    for (name in listOf("ollamaModel", "litertModel")) {
+        val value = providers.gradleProperty(name).orElse("")
+        systemProperty(name, value.get().let { if (it.isEmpty() || it.startsWith("/")) it else rootProject.file(it).path })
+        inputs.property(name, value)
+    }
 }

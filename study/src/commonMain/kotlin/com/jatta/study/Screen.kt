@@ -125,8 +125,14 @@ data class CourseProgress(val held: Int, val met: Int, val total: Int)
 /** The on-device model as the home screen shows it. */
 data class AiStatus(
     val model: ModelState,
+    /** "Gemma 4 E2B"; null when the platform has no model. */
+    val modelName: String?,
+    /** The size of a download the app makes itself. */
+    val downloadTotalBytes: Long?,
     /** Bytes downloaded while the model is downloading. */
     val downloadedBytes: Long?,
+    /** The last download stopped short; another try continues where it stopped. */
+    val downloadFailed: Boolean,
     /** Cases checked so far while the accuracy test runs. */
     val testedDone: Int?,
     val testTotal: Int,

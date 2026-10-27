@@ -14,6 +14,8 @@ import com.jatta.shared.AndroidReminders
 import com.jatta.shared.AndroidSpeaker
 import com.jatta.shared.App
 import com.jatta.shared.GeminiNanoModel
+import com.jatta.shared.GemmaModel
+import com.jatta.shared.PhoneModel
 import java.util.TimeZone
 
 class MainActivity : ComponentActivity() {
@@ -31,7 +33,7 @@ class MainActivity : ComponentActivity() {
                 dataDir = filesDir.absolutePath,
                 nowMs = System::currentTimeMillis,
                 utcOffsetMinutes = { TimeZone.getDefault().getOffset(System.currentTimeMillis()) / 60_000 },
-                model = GeminiNanoModel(),
+                model = PhoneModel(GeminiNanoModel(), GemmaModel(applicationContext)),
                 reminders = reminders,
                 speaker = speaker,
                 onDarkTheme = ::matchSystemBars,
