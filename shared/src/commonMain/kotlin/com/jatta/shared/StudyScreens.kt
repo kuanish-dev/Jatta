@@ -1,14 +1,18 @@
 package com.jatta.shared
 
-import androidx.compose.foundation.clickable
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
@@ -19,7 +23,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -53,7 +56,6 @@ import com.jatta.study.CourseProgress
 import com.jatta.study.FitStatus
 import com.jatta.study.RestKind
 import com.jatta.study.Screen
-import com.jatta.study.Steps
 import com.jatta.study.StudyController
 import com.jatta.study.ThemeChoice
 import com.jatta.study.TopicState
@@ -66,17 +68,18 @@ import com.jatta.study.judge.DiffKind
 import com.jatta.study.judge.DiffPart
 import com.jatta.study.judge.ModelState
 import com.jatta.study.reading.Reading
+import com.jatta.study.store.AiCheck
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 @Composable
-fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
-    val screen by controller.screen.collectAsState()
+internal fun ScreenContent(screen: Screen, controller: StudyController, nowMs: () -> Long) {
     when (val s = screen) {
         is Screen.Home -> HomeScreen(s, controller)
         is Screen.Read -> ReadScreen(s, controller)
         is Screen.DailySummary -> DailySummaryScreen(s, controller::closeSummary)
+        is Screen.Progress -> ProgressScreen(s.report, controller::openHome)
         is Screen.Topic -> TopicScreen(s, controller)
         is Screen.PlacementIntro -> PlacementIntroScreen(s, controller)
         is Screen.PlacementWord -> PlacementWordScreen(s, controller)
@@ -102,40 +105,42 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
     val theme by controller.theme.collectAsState()
     Row(verticalAlignment = Alignment.CenterVertically) {
         Label("Jatta // заучивай", color = Neon.Cyan, modifier = Modifier.weight(1f))
-        TextButton(controller::cycleTheme) {
+        NeonTextButton(controller::cycleTheme) {
             val name = when (theme) {
                 ThemeChoice.System -> "система"
                 ThemeChoice.Light -> "светлая"
                 ThemeChoice.Dark -> "тёмная"
             }
-            Label("Тема: $name")
+            Label("Тема: ")
+            RollingText(name.uppercase(), MaterialTheme.typography.labelMedium, Neon.Muted)
         }
     }
     Text(home.courseTitle, style = MaterialTheme.typography.headlineMedium)
-    StreakChip(home.streak)
+    StreakChip(home.streak, controller::openProgress)
     home.vocabulary?.let { Muted("Словарь при старте: ≈ ${it.words} из ${it.total} самых частых слов (${levelOf(it.words)})") }
     ProgressPanel(home.progress)
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-        Stat("Повторить", home.reviews, Neon.Acid, Modifier.weight(1f))
-        Stat("Новое", home.newItems, Neon.Magenta, Modifier.weight(1f))
+        Stat("Повторить", home.reviews, Neon.Acid, Modifier.weight(1f).appear(1))
+        Stat("Новое", home.newItems, Neon.Magenta, Modifier.weight(1f).appear(2))
     }
     if (home.postponed > 0) {
         Muted("Ещё ${home.postponed} повт. перенесено на следующие дни, чтобы не перегружать сегодняшний.")
     }
     val nothingToDo = home.reviews + home.newItems == 0
-    NeonButton(controller::startSession, Modifier.fillMaxWidth(), enabled = !nothingToDo) {
+    val call = if (nothingToDo) Modifier else Modifier.pulse(scaleBy = 0.025f)
+    NeonButton(controller::startSession, Modifier.fillMaxWidth().appear(3).then(call), enabled = !nothingToDo) {
         Text(if (nothingToDo) "НА СЕГОДНЯ ВСЁ" else "НАЧАТЬ ЗАНЯТИЕ")
     }
     if (nothingToDo) Muted("Новые повторы появятся, когда память начнёт ослабевать.")
     home.reading?.let { ReadingCard(it, controller::openReading) }
     Label("Темы · в памяти / всего", modifier = Modifier.padding(top = 8.dp))
-    home.topics.forEach { topic -> TopicRow(topic) { controller.openTopic(topic.id) } }
+    home.topics.forEachIndexed { index, topic -> TopicRow(topic, index) { controller.openTopic(topic.id) } }
     Muted("Любую тему можно пройти отдельно: нажмите на неё. Закрытые темы сами откроются, когда темы до них будут держаться в памяти.")
-    TextButton(controller::openCalibration) { Label("Точность прогноза памяти →", color = Neon.Cyan) }
+    NeonTextButton(controller::openProgress) { Label("Мой прогресс →", color = Neon.Cyan) }
+    NeonTextButton(controller::openCalibration) { Label("Точность прогноза памяти →", color = Neon.Cyan) }
     AiSection(home.ai, controller)
 }
 
-/** М23: before the first lesson, offer to find where the course should start. */
 @Composable
 private fun PlacementIntroScreen(intro: Screen.PlacementIntro, controller: StudyController) = Page {
     Label("Jatta // уровень", color = Neon.Cyan)
@@ -154,29 +159,29 @@ private fun PlacementIntroScreen(intro: Screen.PlacementIntro, controller: Study
 }
 
 @Composable
-private fun PlacementWordScreen(probe: Screen.PlacementWord, controller: StudyController) = PlacementPage(probe.steps) {
+private fun PlacementWordScreen(probe: Screen.PlacementWord, controller: StudyController) = Page {
     Label("Слова // знаете, что значит?", color = Neon.Magenta)
     Text(
         probe.word,
-        Modifier.fillMaxWidth().padding(vertical = 24.dp),
+        Modifier.fillMaxWidth().padding(vertical = 24.dp).pop(),
         style = MaterialTheme.typography.headlineLarge,
         color = Neon.Cyan,
         textAlign = TextAlign.Center,
     )
     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-        NeonButton({ controller.answerPlacementWord(true) }, Modifier.weight(1f)) { Text("ЗНАЮ") }
-        NeonOutlinedButton({ controller.answerPlacementWord(false) }, Modifier.weight(1f)) { Text("НЕ ЗНАЮ") }
+        NeonButton({ controller.answerPlacementWord(true) }, Modifier.weight(1f).appear(1)) { Text("ЗНАЮ") }
+        NeonOutlinedButton({ controller.answerPlacementWord(false) }, Modifier.weight(1f).appear(2)) { Text("НЕ ЗНАЮ") }
     }
     Muted("«Знаю» — можете сказать, что оно значит. Сомневаетесь — «не знаю».")
 }
 
 @Composable
-private fun PlacementGrammarScreen(probe: Screen.PlacementGrammar, controller: StudyController) = PlacementPage(probe.steps) {
+private fun PlacementGrammarScreen(probe: Screen.PlacementGrammar, controller: StudyController) = Page {
     Label("Грамматика // " + probe.exercise.instruction, color = Neon.Magenta)
     Text(probe.exercise.question, style = MaterialTheme.typography.headlineSmall)
     probe.exercise.translation?.let { Muted(it) }
     probe.exercise.options.forEachIndexed { index, option ->
-        NeonOutlinedButton({ controller.answerPlacementGrammar(index) }, Modifier.fillMaxWidth()) { Text(option) }
+        NeonOutlinedButton({ controller.answerPlacementGrammar(index) }, Modifier.fillMaxWidth().appear(index + 1)) { Text(option) }
     }
 }
 
@@ -184,9 +189,9 @@ private fun PlacementGrammarScreen(probe: Screen.PlacementGrammar, controller: S
 private fun PlacementDoneScreen(done: Screen.PlacementDone, controller: StudyController) = Page {
     val result = done.result
     Label("Результат", color = Neon.Acid)
-    Panel(Modifier.fillMaxWidth(), accent = Neon.Cyan.copy(alpha = 0.5f)) {
+    Panel(Modifier.fillMaxWidth().appear(1), accent = Neon.Cyan.copy(alpha = 0.5f)) {
         Label("Словарь")
-        NeonNumber("≈ ${result.estimatedWords}")
+        NeonNumber("≈ ${countUp(result.estimatedWords, durationMs = 1400)}")
         Muted("из ${result.totalWords} самых частых слов английского · ${levelOf(result.estimatedWords)}")
         NeonBar(result.estimatedWords.toFloat() / result.totalWords, segments = 24, height = 12.dp)
     }
@@ -200,40 +205,29 @@ private fun PlacementDoneScreen(done: Screen.PlacementDone, controller: StudyCon
     NeonButton(controller::openHome, Modifier.fillMaxWidth()) { Text("К КУРСУ") }
 }
 
-/** Placement steps: a progress bar, no way out but finishing or the back of the phone. */
-@Composable
-private fun PlacementPage(steps: Steps, content: @Composable ColumnScope.() -> Unit) = Page {
-    Label("Тест уровня · ${steps.done + 1}/${steps.done + steps.remaining}", color = Neon.Cyan)
-    NeonBar(steps.fraction, height = 6.dp)
-    content()
-}
-
-/** Russian noun form for a count: 1 единица, 3 единицы, 5 единиц, 21 единица. */
 internal fun plural(n: Int, one: String, few: String, many: String) = when {
     n % 10 == 1 && n % 100 != 11 -> one
     n % 10 in 2..4 && n % 100 !in 12..14 -> few
     else -> many
 }
 
-/** A rough level from vocabulary size, after Milton (2010); the test can't tell levels above B1 apart. */
 private fun levelOf(words: Int) = when {
     words < 1500 -> "около A1"
     words < 2750 -> "около A2"
     else -> "B1 или выше"
 }
 
-/** М1, М2: the course in memory: items that would still be recalled tomorrow, out of all items. */
 @Composable
 private fun ProgressPanel(progress: CourseProgress) {
     val fraction = if (progress.total == 0) 0f else progress.held.toFloat() / progress.total
-    Panel(Modifier.fillMaxWidth(), accent = Neon.Cyan.copy(alpha = 0.5f)) {
+    Panel(Modifier.fillMaxWidth().appear(), accent = Neon.Cyan.copy(alpha = 0.5f)) {
         Row(verticalAlignment = Alignment.Bottom) {
             Column(Modifier.weight(1f)) {
                 Label("Память")
-                NeonNumber("${progress.held}/${progress.total}")
+                NeonNumber("${countUp(progress.held)}/${progress.total}")
             }
             Text(
-                "${(fraction * 100).roundToInt()}%",
+                "${countUp((fraction * 100).roundToInt())}%",
                 style = MaterialTheme.typography.titleLarge.copy(fontFamily = MaterialTheme.typography.labelLarge.fontFamily),
                 color = Neon.Magenta,
             )
@@ -246,21 +240,20 @@ private fun ProgressPanel(progress: CourseProgress) {
 @Composable
 private fun Stat(label: String, value: Int, color: Color, modifier: Modifier) {
     Panel(modifier, accent = color.copy(alpha = 0.45f)) {
-        NeonNumber(value.toString(), color = color, style = MaterialTheme.typography.headlineLarge.copy(fontFamily = MaterialTheme.typography.displaySmall.fontFamily))
+        NeonNumber(countUp(value).toString(), color = color, style = MaterialTheme.typography.headlineLarge.copy(fontFamily = MaterialTheme.typography.displaySmall.fontFamily))
         Label(label)
     }
 }
 
 @Composable
-private fun TopicRow(topic: TopicStatus, onOpen: () -> Unit) {
+private fun TopicRow(topic: TopicStatus, index: Int, onOpen: () -> Unit) {
     val fraction = if (topic.total == 0) 0f else topic.held.toFloat() / topic.total
     val (status, color) = when (topic.state) {
         TopicState.Locked -> "закрыта" to Neon.Muted
         TopicState.Open -> "${topic.held}/${topic.total}" to Neon.Cyan
         TopicState.Mastered -> "✓ ${topic.held}/${topic.total}" to Neon.Acid
     }
-    // М26: any topic opens, to go through it outside the plan of the day.
-    Column(Modifier.fillMaxWidth().clickable(onClick = onOpen), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+    Column(Modifier.fillMaxWidth().appear(index).pressable(onOpen), verticalArrangement = Arrangement.spacedBy(2.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(topic.title, Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Medium)
             Label(status, color = color)
@@ -269,10 +262,9 @@ private fun TopicRow(topic: TopicStatus, onOpen: () -> Unit) {
     }
 }
 
-/** М11: a real text the learner can read now. */
 @Composable
 private fun ReadingCard(reading: Reading, onOpen: () -> Unit) {
-    Panel(Modifier.fillMaxWidth(), accent = Neon.Magenta.copy(alpha = 0.5f)) {
+    Panel(Modifier.fillMaxWidth().appear(4), accent = Neon.Magenta.copy(alpha = 0.5f)) {
         Label("Почитать", color = Neon.Magenta)
         Text(reading.text.title, style = MaterialTheme.typography.titleMedium)
         Muted(
@@ -286,12 +278,9 @@ private fun ReadingCard(reading: Reading, onOpen: () -> Unit) {
 @Composable
 private fun ReadScreen(read: Screen.Read, controller: StudyController) = Page {
     val reading = read.reading
-    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        Label("Чтение", color = Neon.Magenta, modifier = Modifier.weight(1f))
-        TextButton(controller::openHome) { Text("ЗАКРЫТЬ") }
-    }
+    BackBar("Чтение", Neon.Magenta, controller::openHome)
     Text(reading.text.title, style = MaterialTheme.typography.headlineSmall)
-    Panel(Modifier.fillMaxWidth()) {
+    Panel(Modifier.fillMaxWidth().appear(1)) {
         Text(highlighted(reading.text.text, reading.courseWords), style = MaterialTheme.typography.bodyLarge)
     }
     if (reading.courseWords.isNotEmpty()) Muted("Выделены слова из курса: встреча в живом тексте закрепляет их.")
@@ -312,7 +301,6 @@ private fun ReadScreen(read: Screen.Read, controller: StudyController) = Page {
     NeonButton(controller::finishReading, Modifier.fillMaxWidth()) { Text("ПРОЧИТАЛ(А)") }
 }
 
-/** The text with the learner's course words in neon. */
 @Composable
 private fun highlighted(text: String, words: Set<String>) = buildAnnotatedString {
     val style = SpanStyle(color = Neon.Cyan, fontWeight = FontWeight.Bold)
@@ -327,63 +315,92 @@ private fun highlighted(text: String, words: Set<String>) = buildAnnotatedString
 
 private fun megabytes(bytes: Long) = "${bytes / 1_000_000} МБ"
 
-/** State of the on-device model and the accuracy test it must pass before checking answers (М21). */
+private enum class AiPhase { Unavailable, Downloadable, Downloading, Testing, Untested, Tested }
+
+private fun AiStatus.phase() = when {
+    model == ModelState.Unavailable -> AiPhase.Unavailable
+    model == ModelState.Downloadable -> AiPhase.Downloadable
+    model == ModelState.Downloading -> AiPhase.Downloading
+    testedDone != null -> AiPhase.Testing
+    lastTest == null -> AiPhase.Untested
+    else -> AiPhase.Tested
+}
+
 @Composable
 private fun AiSection(ai: AiStatus, controller: StudyController) {
     Label("Проверка свободных ответов", modifier = Modifier.padding(top = 8.dp))
-    val test = ai.lastTest
-    val testedDone = ai.testedDone
-    when {
-        ai.model == ModelState.Unavailable ->
-            Muted("На этом устройстве модель для проверки не работает: ей не хватает памяти или она здесь не запускается. Свободные ответы вы сверяете с образцом сами.")
-        ai.model == ModelState.Downloadable -> {
-            val size = ai.downloadTotalBytes?.let { " (${megabytes(it)}, лучше по Wi-Fi)" }.orEmpty()
-            Muted("Можно скачать ${ai.modelName}$size — модель Google, которая проверяет ответы на телефоне без интернета.")
-            if (ai.downloadFailed) {
-                Label("Не скачалось: проверьте интернет и свободное место. Продолжит с того же места.", color = Neon.Danger)
-            }
-            NeonOutlinedButton(controller::downloadModel) { Text(if (ai.downloadFailed) "СКАЧАТЬ ДАЛЬШЕ" else "СКАЧАТЬ МОДЕЛЬ") }
-        }
-        ai.model == ModelState.Downloading -> {
-            val done = ai.downloadedBytes
-            val total = ai.downloadTotalBytes
-            Muted("${ai.modelName} скачивается" + (done?.let { ": ${megabytes(it)}" + (total?.let { " из ${megabytes(it)}" }.orEmpty()) } ?: "…"))
-            if (done != null && total != null) NeonBar(done.toFloat() / total, height = 4.dp)
-        }
-        testedDone != null -> {
-            Muted("Проверяю точность модели: $testedDone из ${ai.testTotal}")
-            NeonBar(testedDone.toFloat() / ai.testTotal, height = 4.dp)
-        }
-        test == null -> {
-            Muted("${ai.modelName} готова. Прежде чем доверить ей ответы, проверим её на ${ai.testTotal} фразах с известным ответом.")
-            NeonOutlinedButton(controller::testModel) { Text("ПРОВЕРИТЬ ТОЧНОСТЬ") }
-        }
-        else -> {
-            Muted(
-                "Совпала с эталоном: ${(test.agreement * 100).roundToInt()}% из ${test.total}. " +
-                    "Пропустила ошибок: ${test.wrongAccepted}, придралась к верным: ${test.rightRejected}, " +
-                    "ответила не по формату: ${test.unusable}.",
-            )
-            Label(
-                if (test.enabled) "Модель проверяет свободные ответы" else "Ниже порога 90% — сверяете сами",
-                color = if (test.enabled) Neon.Cyan else Neon.Magenta,
-            )
-            // М25: translations are judged leniently and have their own test.
-            test.translationAgreement?.let { agreement ->
-                Muted("Переводы фраз: совпала ${(agreement * 100).roundToInt()}%.")
-                Label(
-                    if (test.translationsEnabled) "Модель проверяет и переводы" else "Переводы ниже порога — сверяете сами",
-                    color = if (test.translationsEnabled) Neon.Cyan else Neon.Magenta,
-                )
-            }
-            NeonOutlinedButton(controller::testModel) { Text("ПРОВЕРИТЬ ЕЩЁ РАЗ") }
-        }
+    AnimatedContent(
+        ai,
+        contentKey = { it.phase() },
+        transitionSpec = { (fadeIn() + slideInVertically { it / 4 }) togetherWith fadeOut() },
+    ) { status ->
+        Column(verticalArrangement = Arrangement.spacedBy(14.dp)) { AiBody(status, controller) }
     }
 }
 
 @Composable
+private fun AiBody(ai: AiStatus, controller: StudyController) {
+    when (ai.phase()) {
+        AiPhase.Unavailable ->
+            Muted("На этом устройстве модель для проверки не работает: ей не хватает памяти или она здесь не запускается. Свободные ответы вы сверяете с образцом сами.")
+        AiPhase.Downloadable -> DownloadOffer(ai, controller::downloadModel)
+        AiPhase.Downloading -> DownloadProgress(ai)
+        AiPhase.Testing -> {
+            val done = ai.testedDone ?: 0
+            Muted("Проверяю точность модели: $done из ${ai.testTotal}")
+            NeonBar(done.toFloat() / ai.testTotal, height = 4.dp)
+        }
+        AiPhase.Untested -> {
+            Muted("${ai.modelName} готова. Прежде чем доверить ей ответы, проверим её на ${ai.testTotal} фразах с известным ответом.")
+            NeonOutlinedButton(controller::testModel) { Text("ПРОВЕРИТЬ ТОЧНОСТЬ") }
+        }
+        AiPhase.Tested -> ai.lastTest?.let { TestVerdict(it, controller::testModel) }
+    }
+}
+
+@Composable
+private fun DownloadOffer(ai: AiStatus, onDownload: () -> Unit) {
+    val size = ai.downloadTotalBytes?.let { " (${megabytes(it)}, лучше по Wi-Fi)" }.orEmpty()
+    Muted("Можно скачать ${ai.modelName}$size — модель Google, которая проверяет ответы на телефоне без интернета.")
+    if (ai.downloadFailed) {
+        Label("Не скачалось: проверьте интернет и свободное место. Продолжит с того же места.", color = Neon.Danger, modifier = Modifier.shake())
+    }
+    NeonOutlinedButton(onDownload) { Text(if (ai.downloadFailed) "СКАЧАТЬ ДАЛЬШЕ" else "СКАЧАТЬ МОДЕЛЬ") }
+}
+
+@Composable
+private fun DownloadProgress(ai: AiStatus) {
+    val done = ai.downloadedBytes
+    val total = ai.downloadTotalBytes
+    Muted("${ai.modelName} скачивается" + (done?.let { ": ${megabytes(it)}" + (total?.let { " из ${megabytes(it)}" }.orEmpty()) } ?: "…"))
+    if (done != null && total != null) NeonBar(done.toFloat() / total, height = 4.dp)
+}
+
+@Composable
+private fun TestVerdict(test: AiCheck, onRetest: () -> Unit) {
+    Muted(
+        "Совпала с эталоном: ${countUp((test.agreement * 100).roundToInt())}% из ${test.total}. " +
+            "Пропустила ошибок: ${test.wrongAccepted}, придралась к верным: ${test.rightRejected}, " +
+            "ответила не по формату: ${test.unusable}.",
+    )
+    Label(
+        if (test.enabled) "Модель проверяет свободные ответы" else "Ниже порога 90% — сверяете сами",
+        color = if (test.enabled) Neon.Cyan else Neon.Magenta,
+        modifier = Modifier.pop(origin = LeftCenter),
+    )
+    test.translationAgreement?.let { agreement ->
+        Muted("Переводы фраз: совпала ${(agreement * 100).roundToInt()}%.")
+        Label(
+            if (test.translationsEnabled) "Модель проверяет и переводы" else "Переводы ниже порога — сверяете сами",
+            color = if (test.translationsEnabled) Neon.Cyan else Neon.Magenta,
+        )
+    }
+    NeonOutlinedButton(onRetest) { Text("ПРОВЕРИТЬ ЕЩЁ РАЗ") }
+}
+
+@Composable
 private fun PresentScreen(present: Screen.Present, controller: StudyController) =
-    StudyPage(present.steps, present.banner, controller::stopSession) {
+    StudyPage(present.banner) {
         Label("Новое · ${present.topicTitle}", color = Neon.Magenta)
         present.topicIntro?.let { Note(it) }
         val item = present.item
@@ -391,16 +408,16 @@ private fun PresentScreen(present: Screen.Present, controller: StudyController) 
         val audio = item.audio
         if (isWord) SpeakOnShow(item.id, item.en, audio?.file)
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(item.en, Modifier.weight(1f), style = MaterialTheme.typography.headlineMedium, color = Neon.Cyan)
+            Text(item.en, Modifier.weight(1f).pop(origin = LeftCenter), style = MaterialTheme.typography.headlineMedium, color = Neon.Cyan)
             if (isWord) ListenButton(item.en, "▶ СЛУШАТЬ", audio?.file)
         }
-        Text(item.ru, style = MaterialTheme.typography.titleMedium)
+        Text(item.ru, Modifier.appear(1), style = MaterialTheme.typography.titleMedium)
         if (item.note.isNotBlank()) Muted(item.note)
         if (audio != null) {
             Note(SHADOWING)
             Credit(audio)
         } else {
-            Panel(Modifier.fillMaxWidth()) {
+            Panel(Modifier.fillMaxWidth().appear(2)) {
                 item.examples.forEach { example ->
                     Row {
                         Column(Modifier.weight(1f)) {
@@ -417,22 +434,19 @@ private fun PresentScreen(present: Screen.Present, controller: StudyController) 
 
 @Composable
 private fun QuestionScreen(question: Screen.Question, controller: StudyController) =
-    StudyPage(question.steps, question.banner, controller::stopSession) {
+    StudyPage(question.banner) {
         Label(rungLabel(question.exercise.rung) + " // " + question.exercise.instruction, color = Neon.Magenta)
         question.hint?.let { hint ->
-            // М13: a fast wrong answer was a confident mistake; pointing it out helps it get corrected.
             val lead = if (question.confidentError) "Ответ быстрый, но неверный — запомните внимательно." else "Не совсем."
-            Note("$lead Подсказка: $hint")
+            Note("$lead Подсказка: $hint", Modifier.shake(question.id, strength = if (question.confidentError) 1.8f else 1f))
         }
         val exercise = question.exercise
         if (exercise.byEar) {
-            // М24: the recording is the question itself.
             SpeakOnShow(question.id, exercise.listen, exercise.recording)
             ListenButton(exercise.listen, "▶ ПОСЛУШАТЬ ЕЩЁ", exercise.recording)
         }
         when (exercise) {
             is Exercise.Choice -> {
-                // An English word to recognise is played at once; a sentence with a gap would give the answer away.
                 val spoken = exercise.question == exercise.listen
                 if (spoken) SpeakOnShow(question.id, exercise.listen)
                 if (exercise.question.isNotEmpty()) {
@@ -443,7 +457,7 @@ private fun QuestionScreen(question: Screen.Question, controller: StudyControlle
                 }
                 exercise.translation?.let { Muted(it) }
                 exercise.options.forEachIndexed { index, option ->
-                    NeonOutlinedButton({ controller.choose(index) }, Modifier.fillMaxWidth()) { Text(option) }
+                    NeonOutlinedButton({ controller.choose(index) }, Modifier.fillMaxWidth().appear(index + 1)) { Text(option) }
                 }
             }
             is Exercise.Typed -> {
@@ -495,17 +509,17 @@ internal fun AnswerField(id: Int, singleLine: Boolean, onSubmit: (String) -> Uni
 
 @Composable
 private fun CheckingScreen(checking: Screen.Checking, controller: StudyController) =
-    StudyPage(checking.steps, banner = null, onStop = controller::stopSession) {
+    Page {
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
             CircularProgressIndicator(color = Neon.Magenta)
-            Text("Модель на телефоне проверяет ответ…", style = MaterialTheme.typography.bodyLarge)
+            Text("Модель на телефоне проверяет ответ…", Modifier.pulse(fadeBy = 0.5f), style = MaterialTheme.typography.bodyLarge)
         }
     }
 
 @Composable
 private fun JudgedScreen(judged: Screen.Judged, controller: StudyController) =
-    StudyPage(judged.steps, banner = null, onStop = controller::stopSession) {
-        Label("Модель нашла ошибку", color = Neon.Danger)
+    Page {
+        Label("Модель нашла ошибку", color = Neon.Danger, modifier = Modifier.shake())
         Muted("Ваш вариант")
         Text(diffText(judged.diff, shown = DiffKind.Removed), style = MaterialTheme.typography.bodyLarge)
         Muted("Исправлено")
@@ -518,7 +532,6 @@ private fun JudgedScreen(judged: Screen.Judged, controller: StudyController) =
         }
     }
 
-/** One side of the correction: unchanged words, as the learner wrote them or as corrected, plus the removed or the added ones highlighted. */
 @Composable
 internal fun diffText(parts: List<DiffPart>, shown: DiffKind) = buildAnnotatedString {
     val highlight = if (shown == DiffKind.Removed) {
@@ -538,7 +551,7 @@ internal fun diffText(parts: List<DiffPart>, shown: DiffKind) = buildAnnotatedSt
 
 @Composable
 private fun SelfCheckScreen(check: Screen.SelfCheck, controller: StudyController) =
-    StudyPage(check.steps, banner = null, onStop = controller::stopSession) {
+    Page {
         Label("Сравните с образцом", color = Neon.Magenta)
         check.response?.let {
             Muted("Ваш ответ")
@@ -546,7 +559,7 @@ private fun SelfCheckScreen(check: Screen.SelfCheck, controller: StudyController
         }
         Muted("Образец")
         val references = (check.exercise as? Exercise.Free)?.references ?: listOf(check.exercise.answer)
-        Panel(Modifier.fillMaxWidth()) {
+        Panel(Modifier.fillMaxWidth().appear(1)) {
             references.forEach { Text(it, style = MaterialTheme.typography.bodyLarge, color = Neon.Cyan) }
         }
         ListenButton(check.exercise.listen, "▶ СЛУШАТЬ ОБРАЗЕЦ", check.exercise.recording)
@@ -557,12 +570,11 @@ private fun SelfCheckScreen(check: Screen.SelfCheck, controller: StudyController
         }
     }
 
-/** М24: the phrase just heard right, to listen to again and repeat aloud. */
 @Composable
 private fun HeardScreen(heard: Screen.Heard, controller: StudyController) =
-    StudyPage(heard.steps, heard.banner, controller::stopSession) {
+    StudyPage(heard.banner) {
         Label("Что звучало", color = Neon.Acid)
-        Text(heard.exercise.answer, style = MaterialTheme.typography.headlineSmall, color = Neon.Cyan)
+        Text(heard.exercise.answer, Modifier.pop(origin = LeftCenter), style = MaterialTheme.typography.headlineSmall, color = Neon.Cyan)
         Muted(heard.translation)
         ListenButton(heard.exercise.listen, "▶ ПОСЛУШАТЬ ЕЩЁ", heard.exercise.recording)
         Note(SHADOWING)
@@ -571,7 +583,6 @@ private fun HeardScreen(heard: Screen.Heard, controller: StudyController) =
 
 private const val SHADOWING = "Повторите вслух за диктором 2–3 раза: тот же темп, ударения и паузы."
 
-/** Who recorded a phrase and under which license, as the license asks. */
 @Composable
 private fun Credit(audio: AudioFile) {
     Text(
@@ -587,10 +598,10 @@ private fun Credit(audio: AudioFile) {
 
 @Composable
 private fun RevealScreen(reveal: Screen.Reveal, controller: StudyController) =
-    StudyPage(reveal.steps, banner = null, onStop = controller::stopSession) {
-        Label("Правильный ответ", color = Neon.Danger)
+    Page {
+        Label("Правильный ответ", color = Neon.Danger, modifier = Modifier.shake())
         SpeakOnShow(reveal, reveal.exercise.listen, reveal.exercise.recording)
-        Text(reveal.exercise.answer, style = MaterialTheme.typography.headlineSmall, color = Neon.Cyan)
+        Text(reveal.exercise.answer, Modifier.appear(1), style = MaterialTheme.typography.headlineSmall, color = Neon.Cyan)
         ListenButton(
             reveal.exercise.listen,
             if (reveal.exercise.listen == reveal.exercise.answer) "▶ СЛУШАТЬ" else "▶ ${reveal.exercise.listen}",
@@ -621,7 +632,8 @@ private fun RestScreen(rest: Screen.Rest, nowMs: () -> Long, onFinish: () -> Uni
     val total = rest.minutes * 60
     val left = ((rest.untilMs - now).coerceAtLeast(0) / 1_000).toInt()
     Column(Modifier.align(Alignment.CenterHorizontally), horizontalAlignment = Alignment.CenterHorizontally) {
-        NeonNumber("${left / 60}:${(left % 60).toString().padStart(2, '0')}", style = MaterialTheme.typography.displayMedium)
+        val time = "${left / 60}:${(left % 60).toString().padStart(2, '0')}"
+        RollingText(time, glowing(MaterialTheme.typography.displayMedium, Neon.Cyan), Neon.Cyan)
     }
     NeonBar(1f - left.toFloat() / total, height = 6.dp)
     NeonButton(onFinish, Modifier.fillMaxWidth()) { Text(if (left > 0) "ПРОДОЛЖИТЬ РАНЬШЕ" else "ПРОДОЛЖИТЬ") }
@@ -629,21 +641,20 @@ private fun RestScreen(rest: Screen.Rest, nowMs: () -> Long, onFinish: () -> Uni
 
 @Composable
 private fun DoneScreen(done: Screen.Done, onHome: () -> Unit) = Page {
-    Label(if (done.endedEarly) "Стоп" else "Готово", color = Neon.Acid)
+    Label(if (done.endedEarly) "Стоп" else "Готово", color = Neon.Acid, modifier = Modifier.pop(origin = LeftCenter))
     Text(if (done.endedEarly) "На сегодня хватит" else "Занятие окончено", style = MaterialTheme.typography.headlineMedium)
     if (done.endedEarly) Muted("Усталость не прошла после перерыва. Остальное перенесено, прогресс сохранён.")
-    Panel(Modifier.fillMaxWidth(), accent = Neon.Acid.copy(alpha = 0.45f)) {
+    Panel(Modifier.fillMaxWidth().appear(1), accent = Neon.Acid.copy(alpha = 0.45f)) {
         Label("С первого раза")
-        NeonNumber("${done.rightFirstTime}/${done.answered}", color = Neon.Acid)
+        NeonNumber("${countUp(done.rightFirstTime)}/${done.answered}", color = Neon.Acid)
         NeonBar(if (done.answered == 0) 0f else done.rightFirstTime.toFloat() / done.answered, segments = done.answered.coerceIn(1, 24), height = 8.dp)
     }
     if (done.translated > 0) {
-        Panel(Modifier.fillMaxWidth(), accent = Neon.Cyan.copy(alpha = 0.45f)) {
+        Panel(Modifier.fillMaxWidth().appear(2), accent = Neon.Cyan.copy(alpha = 0.45f)) {
             Label("Перевод фраз")
-            NeonNumber("${done.translatedRight}/${done.translated}", color = Neon.Cyan)
+            NeonNumber("${countUp(done.translatedRight)}/${done.translated}", color = Neon.Cyan)
         }
     }
-    // М27: the first study of the day extends the streak, and that moment gets the burst.
     if (done.streakGrew) {
         Label("Серия продлена", color = Neon.Magenta, modifier = Modifier.align(Alignment.CenterHorizontally))
         StreakBurst(done.streak, grew = true, modifier = Modifier.align(Alignment.CenterHorizontally))
@@ -651,20 +662,19 @@ private fun DoneScreen(done: Screen.Done, onHome: () -> Unit) = Page {
     NeonButton(onHome, Modifier.fillMaxWidth()) { Text("НА ГЛАВНУЮ") }
 }
 
-/** М2: what the memory model promised against what the learner recalled, from the answer log. */
 @Composable
 private fun CalibrationScreen(screen: Screen.Calibration, onHome: () -> Unit) = Page {
     val report = screen.report
-    Label("Точность прогноза", color = Neon.Cyan)
+    BackBar("Точность прогноза", Neon.Cyan, onHome)
     Text("Прогноз против факта", style = MaterialTheme.typography.headlineMedium)
     if (report.reviews > 0) {
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            Panel(Modifier.weight(1f), accent = Neon.Cyan.copy(alpha = 0.45f)) {
-                NeonNumber(percent(report.predicted), color = Neon.Cyan)
+            Panel(Modifier.weight(1f).appear(1), accent = Neon.Cyan.copy(alpha = 0.45f)) {
+                NeonNumber(countPercent(report.predicted), color = Neon.Cyan)
                 Label("Обещала модель")
             }
-            Panel(Modifier.weight(1f), accent = Neon.Acid.copy(alpha = 0.45f)) {
-                NeonNumber(percent(report.actual), color = Neon.Acid)
+            Panel(Modifier.weight(1f).appear(2), accent = Neon.Acid.copy(alpha = 0.45f)) {
+                NeonNumber(countPercent(report.actual), color = Neon.Acid)
                 Label("Вы вспомнили")
             }
         }
@@ -682,8 +692,8 @@ private fun CalibrationScreen(screen: Screen.Calibration, onHome: () -> Unit) = 
     )
     if (report.bins.size > 1) {
         Label("По уровню прогноза · вспомнили · повторов", modifier = Modifier.padding(top = 8.dp))
-        report.bins.forEach { bin ->
-            Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+        report.bins.forEachIndexed { index, bin ->
+            Column(Modifier.fillMaxWidth().appear(index + 3), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text("прогноз ${percent(bin.from)}–${percent(bin.to)}", Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge)
                     Label("${percent(bin.actual)} · ${bin.count}", color = Neon.Acid)
@@ -697,13 +707,11 @@ private fun CalibrationScreen(screen: Screen.Calibration, onHome: () -> Unit) = 
             "Отдельные контрольные не нужны. Первые встречи со словом и знакомое по тесту уровня не считаются.",
     )
     FitPanel(screen.fit)
-    NeonButton(onHome, Modifier.fillMaxWidth()) { Text("НА ГЛАВНУЮ") }
 }
 
-/** М2: whose parameters the memory model runs on, and how the last fit did on reviews it had not seen. */
 @Composable
 private fun FitPanel(fit: FitStatus) {
-    Panel(Modifier.fillMaxWidth(), accent = Neon.Magenta.copy(alpha = 0.5f)) {
+    Panel(Modifier.fillMaxWidth().appear(4), accent = Neon.Magenta.copy(alpha = 0.5f)) {
         Label("Параметры памяти", color = Neon.Magenta)
         Text(if (fit.personal) "Подогнаны под вас" else "Стандартные FSRS", style = MaterialTheme.typography.titleMedium)
         val last = fit.last
@@ -727,39 +735,44 @@ private fun FitPanel(fit: FitStatus) {
 
 private fun percent(share: Double) = "${(share * 100).roundToInt()}%"
 
-/** Three decimals without platform formatting: 0.432. */
+@Composable
+private fun countPercent(share: Double) = "${countUp((share * 100).roundToInt())}%"
+
 private fun decimals(value: Double): String {
     val thousandths = (value * 1000).roundToInt()
     return "${thousandths / 1000}.${(thousandths % 1000).toString().padStart(3, '0')}"
 }
 
-/** Session screens: the step counter and a neon bar of how far the session has got. */
 @Composable
-internal fun StudyPage(
-    steps: Steps,
-    banner: Banner?,
-    onStop: () -> Unit,
-    counter: String = "Шаг",
-    content: @Composable ColumnScope.() -> Unit,
-) = Page {
+internal fun BackBar(section: String, color: Color, onBack: () -> Unit) {
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        Label("$counter ${steps.done + 1}/${steps.done + steps.remaining}", color = Neon.Cyan, modifier = Modifier.weight(1f))
-        TextButton(onStop) { Text("ЗАКОНЧИТЬ") }
+        NeonTextButton(onBack) { Label("← Назад", color = Neon.Cyan) }
+        Spacer(Modifier.weight(1f))
+        Label(section, color = color)
     }
-    NeonBar(steps.fraction, height = 6.dp)
-    when (banner) {
-        Banner.Correct -> Label("✓ Верно", color = Neon.Acid)
-        Banner.CheckedByAi -> Label("✓ Верно — проверила модель на телефоне", color = Neon.Acid)
-        Banner.CorrectWithHint -> Label("Верно с подсказкой — вернёмся к этому в конце", color = Neon.Acid)
-        null -> Unit
-    }
+}
+
+@Composable
+private fun StudyPage(banner: Banner?, content: @Composable ColumnScope.() -> Unit) = Page {
+    BannerLabel(banner)
     content()
+}
+
+@Composable
+private fun BannerLabel(banner: Banner?) {
+    val text = when (banner) {
+        Banner.Correct -> "✓ Верно"
+        Banner.CheckedByAi -> "✓ Верно — проверила модель на телефоне"
+        Banner.CorrectWithHint -> "Верно с подсказкой — вернёмся к этому в конце"
+        null -> return
+    }
+    Label(text, color = Neon.Acid, modifier = Modifier.pop(origin = LeftCenter))
 }
 
 @Composable
 internal fun Page(content: @Composable ColumnScope.() -> Unit) {
     Column(
-        Modifier.fillMaxSize().safeDrawingPadding().verticalScroll(rememberScrollState()).padding(20.dp),
+        Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
         Column(Modifier.widthIn(max = 640.dp).align(Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(14.dp)) {
@@ -768,17 +781,15 @@ internal fun Page(content: @Composable ColumnScope.() -> Unit) {
     }
 }
 
-/** Plays English aloud, in the real voice of [recording] when there is one; nothing is drawn without a speaker. */
 @Composable
 internal fun ListenButton(text: String, label: String = "▶", recording: String? = null) {
     val speaker = LocalSpeaker.current ?: return
     val scope = rememberCoroutineScope()
-    TextButton({ scope.launch { speaker.say(text, recording) } }) {
+    NeonTextButton({ scope.launch { speaker.say(text, recording) } }) {
         Text(label, style = MaterialTheme.typography.labelLarge, color = Neon.Cyan)
     }
 }
 
-/** Plays [text] once when a screen with this [key] appears. */
 @Composable
 private fun SpeakOnShow(key: Any, text: String, recording: String? = null) {
     val speaker = LocalSpeaker.current
@@ -786,8 +797,8 @@ private fun SpeakOnShow(key: Any, text: String, recording: String? = null) {
 }
 
 @Composable
-internal fun Note(text: String) {
-    Panel(Modifier.fillMaxWidth(), accent = Neon.Magenta.copy(alpha = 0.55f)) {
+internal fun Note(text: String, modifier: Modifier = Modifier) {
+    Panel(modifier.fillMaxWidth(), accent = Neon.Magenta.copy(alpha = 0.55f)) {
         Text(text, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSecondaryContainer)
     }
 }

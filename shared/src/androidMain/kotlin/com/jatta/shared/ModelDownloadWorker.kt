@@ -35,10 +35,6 @@ private const val DONE_ID = 3
 private const val DOWNLOADED_KEY = "downloaded"
 private const val MAX_ATTEMPTS = 20
 
-/**
- * Downloads Gemma's file as foreground work with a progress notification, so it goes on after the learner
- * leaves the app. A lost connection is retried once the network is back, and the file continues where it stopped.
- */
 class ModelDownloadWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
     private val notifications = context.getSystemService(NotificationManager::class.java)
 
@@ -46,7 +42,6 @@ class ModelDownloadWorker(context: Context, params: WorkerParameters) : Coroutin
         val file = GemmaModel.file(applicationContext)
         if (file.isReady) return Result.success()
         notifications.createNotificationChannel(NotificationChannel(CHANNEL_ID, "Загрузка модели", NotificationManager.IMPORTANCE_LOW))
-        // Android refuses a foreground start from the background on later retries; the work then runs as usual.
         runCatching { setForeground(foreground(0)) }
         val job = coroutineContext[Job]
         val done = withContext(Dispatchers.IO) {
@@ -102,7 +97,6 @@ class ModelDownloadWorker(context: Context, params: WorkerParameters) : Coroutin
     }
 
     companion object {
-        /** Starts the download unless it runs already and follows it to the end; true when it finished well. */
         suspend fun follow(context: Context, onProgress: (Long) -> Unit): Boolean {
             val work = WorkManager.getInstance(context)
             val request = OneTimeWorkRequestBuilder<ModelDownloadWorker>()

@@ -13,14 +13,12 @@ android {
         applicationId = "com.jatta.app"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 6
-        versionName = "0.6"
-        // Phones are ARM. LiteRT-LM (Gemma) ships only 64-bit builds; 32-bit phones still get the app without it.
+        versionCode = 7
+        versionName = "0.7"
         ndk {
             abiFilters += listOf("arm64-v8a", "armeabi-v7a")
         }
     }
-    // The APK is downloaded from GitHub: compressed native libraries make it much smaller.
     packaging {
         jniLibs {
             useLegacyPackaging = true
@@ -31,7 +29,6 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            // Sideloaded from GitHub releases: signed with the debug key so the APK installs as is.
             signingConfig = signingConfigs.getByName("debug")
         }
     }

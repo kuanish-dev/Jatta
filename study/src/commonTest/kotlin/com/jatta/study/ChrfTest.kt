@@ -9,7 +9,6 @@ import kotlin.test.assertTrue
 
 class ChrfTest {
 
-    /** Values from a Python implementation of chrF++ written from Popović's definition. */
     @Test
     fun scoresMatchTheReferenceImplementation() {
         assertEquals(0.662441204628705, Chrf.score("I need to go to sleep", "I have to go to sleep."), 1e-12)

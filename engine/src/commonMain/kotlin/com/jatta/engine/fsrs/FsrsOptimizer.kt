@@ -12,22 +12,10 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 import kotlin.random.Random
 
-/** An item's first graded answer of a learning day. */
 data class Review(val day: Int, val grade: Grade)
 
-/**
- * Fits the FSRS parameters to one learner's reviews (М2), after the py-fsrs 6.3.2 optimizer.
- *
- * The loss is the log loss of the predicted recall on every review made on a later day than the one
- * before it. It is minimised from the default parameters with Adam and a cosine learning rate, the
- * parameters are clipped to the reference bounds after each step, and the epoch with the lowest loss
- * wins. Two differences from py-fsrs: gradients are central differences instead of autograd, and a
- * mini-batch holds whole items, so every step replays exact histories. [days] picks whose reviews
- * count, so a fit can learn from earlier reviews and be checked on later ones.
- */
 class FsrsOptimizer(private val config: EngineConfig) {
 
-    /** Days of the reviews that count towards the loss, one entry per review. */
     fun scoredDays(histories: List<List<Review>>): List<Int> = histories.flatMap { history ->
         history.take(config.optimizerMaxReviewsPerItem).zipWithNext()
             .filter { (previous, review) -> review.day > previous.day }
@@ -36,11 +24,9 @@ class FsrsOptimizer(private val config: EngineConfig) {
 
     fun reviewCount(histories: List<List<Review>>, days: IntRange = ALL_DAYS): Int = scoredDays(histories).count { it in days }
 
-    /** Mean log loss of the recall predicted with [parameters]. */
     fun loss(parameters: List<Double>, histories: List<List<Review>>, days: IntRange = ALL_DAYS): Double =
         lossSum(parameters, histories, days) / reviewCount(histories, days)
 
-    /** Parameters fitted to the reviews on [days], or null when they are fewer than one batch. */
     fun fit(histories: List<List<Review>>, days: IntRange = ALL_DAYS): List<Double>? {
         val reviews = reviewCount(histories, days)
         if (reviews < config.optimizerBatchReviews) return null
@@ -117,11 +103,9 @@ class FsrsOptimizer(private val config: EngineConfig) {
         return sum
     }
 
-    /** Binary cross-entropy with each log clamped at -100, as torch.nn.BCELoss computes it. */
     private fun logLoss(predicted: Double, recalled: Boolean): Double =
         -max(ln(if (recalled) predicted else 1 - predicted), -100.0)
 
-    /** torch.optim.Adam with its default betas and epsilon, under a cosine-annealed learning rate. */
     private class Adam(size: Int, private val rate: Double, private val totalSteps: Int) {
         private val first = DoubleArray(size)
         private val second = DoubleArray(size)

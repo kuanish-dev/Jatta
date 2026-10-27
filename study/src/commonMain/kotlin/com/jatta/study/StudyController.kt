@@ -38,6 +38,7 @@ import com.jatta.study.placement.Placement
 import com.jatta.study.placement.PlacementFile
 import com.jatta.study.progress.DailyProgress
 import com.jatta.study.progress.DayMark
+import com.jatta.study.progress.ProgressReport
 import com.jatta.study.progress.Streak
 import com.jatta.study.reading.ReadingPicker
 import com.jatta.study.remind.Reminder
@@ -68,21 +69,12 @@ import kotlinx.coroutines.withTimeoutOrNull
 
 private const val MS_PER_MINUTE = 60_000L
 
-/** A translation waiting for its verdict (М25). */
 private class PendingTranslation(val response: String, val score: Double, val responseMs: Long)
 
-/** Who decided whether an answer was right; kept in the answer and translation logs. */
 private enum class CheckedBy(val logName: String) {
     Code("code"), Self("self"), Ai("ai"), AiDisputed("ai-disputed"), Placement(Calibration.PLACEMENT),
 }
 
-/**
- * Runs the app around the engine: plans the day, walks the session queue, turns steps into exercises,
- * saves every graded answer at once, and follows the rest coach. Free answers go to the on-device model
- * only after it has passed the accuracy test (М21); otherwise the learner compares with the model answer.
- * A finished session ends with a few sentences to translate (М25).
- * Platform code supplies the clock, the time zone, the storage directory and the model.
- */
 class StudyController(
     private val content: StudyCourse,
     private val store: LearnerStore,
@@ -91,7 +83,6 @@ class StudyController(
     private val scope: CoroutineScope,
     private val model: OnDeviceModel? = null,
     private val evalCases: List<EvalCase> = emptyList(),
-    /** М25: translations with known verdicts; the model is tested on those the threshold leaves to it. */
     translationCases: List<TranslationCase> = emptyList(),
     private val texts: List<ReadingText> = emptyList(),
     private val sentences: SentencesFile? = null,
@@ -99,7 +90,6 @@ class StudyController(
     placementFile: PlacementFile? = null,
     private val engineConfig: EngineConfig = EngineConfig(),
     private val config: StudyConfig = StudyConfig(),
-    /** Where heavy work such as fitting the memory model runs, off the UI thread. */
     private val background: CoroutineDispatcher = Dispatchers.Default,
 ) {
     private var saved = store.load().let { if (it.firstDaysRecorded) it else it.withFirstDays(LogReplay.firstStudyDays(store.readLog())) }
@@ -113,12 +103,10 @@ class StudyController(
     private val judge = model?.let { FreeAnswerJudge(it, config) }
     private val modelTranslationCases = JudgeEval.belowThreshold(translationCases, config.translationPassScore)
     private val placement = placementFile?.let { Placement(content, it, config) }
-    /** Topics made of rules only: the grammar of the course. */
     private val grammarTopics = content.topics.values.filter { topic -> topic.items.all { it.kind == KindFile.Rule } }.map { it.id }
 
     private val themeState = MutableStateFlow(saved.theme)
 
-    /** The learner's choice of look; the UI decides what System means on its platform. */
     val theme: StateFlow<ThemeChoice> = themeState.asStateFlow()
 
     private var modelState = ModelState.Unavailable
@@ -158,7 +146,6 @@ class StudyController(
             scope.launch {
                 modelState = withContext(background) { model.state() }
                 refreshHome()
-                // A download started earlier may still run in the background: follow its progress.
                 if (modelState == ModelState.Downloading) followDownload(model)
             }
         }
@@ -179,7 +166,6 @@ class StudyController(
         begin(engine.planDay(learner, today))
     }
 
-    /** М26: what going through a topic now would bring, before the learner starts it. */
     fun openTopic(topicId: String) {
         today = currentDay()
         val status = topicStatuses().first { it.id == topicId }
@@ -199,21 +185,37 @@ class StudyController(
         )
     }
 
-    /** М26: go through the topic on screen, outside the plan of the day. */
     fun startTopic() {
         val topic = state.value as? Screen.Topic ?: return
         today = currentDay()
         begin(engine.planTopic(learner, topic.topic.id, today))
     }
 
-    /** М27: the summary has been seen; it comes back tomorrow. */
+    fun openProgress() {
+        val day = currentDay()
+        scope.launch {
+            val report = withContext(background) {
+                ProgressReport.of(store.readLog(), store.readTranslations(), engine, progressParts(), day)
+            }
+            if (state.value is Screen.Home) state.value = Screen.Progress(report)
+        }
+    }
+
+    private fun progressParts(): List<Pair<String, Set<String>>> {
+        val items = content.items.values
+        return listOf(
+            "Слова и сочетания" to items.filter { it.kind != KindFile.Rule && it.audio == null }.mapTo(HashSet()) { it.id },
+            "Грамматика" to items.filter { it.kind == KindFile.Rule }.mapTo(HashSet()) { it.id },
+            "Фразы на слух" to items.filter { it.audio != null }.mapTo(HashSet()) { it.id },
+        )
+    }
+
     fun closeSummary() {
         saved = saved.copy(lastSummaryDay = currentDay())
         save()
         openHome()
     }
 
-    /** М27: on the first opening of a day, yesterday's results and the streak; null before any day of study is over. */
     private fun dailySummary(): Screen.DailySummary? {
         today = currentDay()
         if (saved.lastSummaryDay == today) return null
@@ -226,7 +228,6 @@ class StudyController(
         return Screen.DailySummary(yesterday, restDay, streak)
     }
 
-    /** М27: kept until something is studied; a day counts as rest when the memory of that day had nothing due or new. */
     private fun currentStreak(): Streak {
         val day = currentDay()
         streakCache?.let { (cached, streak) -> if (cached == day) return streak }
@@ -255,7 +256,6 @@ class StudyController(
         showCurrent(banner = null)
     }
 
-    /** The learner has read the new item. */
     fun presented() {
         session().presented()
         stepsDone++
@@ -280,7 +280,6 @@ class StudyController(
         }
     }
 
-    /** The learner has said the sentence aloud and wants to compare. */
     fun showSpokenAnswer() {
         pendingResponseMs = elapsedMs()
         showSelfCheck(response = null)
@@ -288,15 +287,12 @@ class StudyController(
 
     fun judgeSelf(correct: Boolean) = answer(correct, pendingResponseMs, CheckedBy.Self)
 
-    /** The learner accepts the model's correction. */
     fun acceptCorrection() = answer(false, pendingResponseMs, CheckedBy.Ai)
 
-    /** The learner is sure the model was wrong; logged separately to watch the model's accuracy. */
     fun disputeCorrection() = answer(true, pendingResponseMs, CheckedBy.AiDisputed)
 
     fun continueAfterReveal() = advance(banner = null)
 
-    /** The learner has listened again and repeated the phrase. */
     fun continueAfterHeard() {
         val heard = state.value as? Screen.Heard ?: return
         advance(heard.banner)
@@ -312,10 +308,6 @@ class StudyController(
         }
     }
 
-    /**
-     * М25: a translation close enough to a human one counts at once. Further off, it may still be right in
-     * other words: the model judges it leniently when it passed its test on translations, otherwise the learner compares.
-     */
     fun submitTranslation(text: String) {
         val task = (state.value as? Screen.Translate)?.task ?: return
         val closeness = TranslationScore.of(text, task.references, config.translationPassScore)
@@ -331,7 +323,6 @@ class StudyController(
         }
     }
 
-    /** The learner's verdict on a translation the code could not accept: right after all, or a mistake. */
     fun judgeTranslation(right: Boolean) {
         val outcome = (state.value as? Screen.Translated)?.outcome ?: return
         val checkedBy = when (outcome) {
@@ -360,7 +351,7 @@ class StudyController(
         scope.launch {
             val request = JudgeRequest(task.source, closest, response)
             val judgment = withTimeoutOrNull(config.judgeTimeoutMs) { judge.judgeTranslation(request) }
-            if (token != checkToken || state.value !is Screen.Checking) return@launch // the learner left meanwhile
+            if (token != checkToken || state.value !is Screen.Checking) return@launch
             when {
                 judgment == null -> showTranslated(closest, TranslationOutcome.LearnerDecides)
                 judgment.correct -> {
@@ -372,7 +363,6 @@ class StudyController(
         }
     }
 
-    /** The learner's words against [target], the closest human translation. */
     private fun showTranslated(target: String, outcome: TranslationOutcome) {
         val pending = pendingTranslation ?: error("No translation on screen")
         state.value = Screen.Translated(
@@ -399,17 +389,24 @@ class StudyController(
 
     private fun translationSteps() = Steps(translationIndex, translations.size - translationIndex)
 
-    /** Leave in the middle: everything answered so far is already saved. */
     fun stopSession() = openHome()
 
-    /** М23: start the placement test. */
+    fun goBack() {
+        val current = state.value
+        when {
+            !current.canGoBack -> Unit
+            current is Screen.DailySummary -> closeSummary()
+            current is Screen.PlacementWord || current is Screen.PlacementGrammar -> state.value = placementIntro()
+            else -> openHome()
+        }
+    }
+
     fun startPlacement() {
         placementWords.clear()
         placementGrammar.clear()
         showPlacementStep()
     }
 
-    /** Start from the beginning of the course instead. */
     fun skipPlacement() {
         saved = saved.copy(placement = SavedPlacement(skipped = true))
         save()
@@ -440,13 +437,11 @@ class StudyController(
         }
     }
 
-    /** Known items start with a fresh memory, so the scheduler checks them within days. */
     private fun finishPlacement(test: Placement): Screen {
         val result = test.result(placementWords, placementGrammar)
         val today = currentDay()
         result.knownItems.forEach { item ->
             learner = engine.placeKnown(learner, item, today)
-            // Logged so a replay of the log rebuilds the same memory; calibration doesn't score these.
             store.log(LogEntry(nowMs(), today, item, "Placement", true, 0, Grade.Good.name, false, CheckedBy.Placement.logName))
         }
         saved = saved.copy(placement = SavedPlacement(result.estimatedWords, result.totalWords))
@@ -462,7 +457,6 @@ class StudyController(
         return Screen.PlacementIntro(test.words.size, test.grammar.size)
     }
 
-    /** М2: compare what the model predicted with what the learner recalled, from the answer log. */
     fun openCalibration() {
         val log = store.readLog()
         val fit = FitStatus(
@@ -474,7 +468,6 @@ class StudyController(
         state.value = Screen.Calibration(Calibration.of(log, engine.memory, config), fit)
     }
 
-    /** М2: fit the memory model to the learner's log once enough new reviews have come in. */
     private fun fitMemoryIfDue() {
         val log = store.readLog()
         if (fitting || !personalFit.isDue(log, saved.fsrsFit)) return
@@ -488,7 +481,6 @@ class StudyController(
         }
     }
 
-    /** Adopted parameters rebuild every logged item's memory, so schedules follow the better model. */
     private fun adoptFit(result: FitResult) {
         saved = saved.copy(fsrsFit = result.check)
         result.parameters?.let { parameters ->
@@ -506,7 +498,6 @@ class StudyController(
     private fun engineWith(parameters: List<Double>?) =
         Engine(content.course, parameters?.let { engineConfig.copy(fsrsParameters = it) } ?: engineConfig)
 
-    /** System → Light → Dark → System. */
     fun cycleTheme() {
         val next = ThemeChoice.entries[(saved.theme.ordinal + 1) % ThemeChoice.entries.size]
         saved = saved.copy(theme = next)
@@ -514,7 +505,6 @@ class StudyController(
         themeState.value = next
     }
 
-    /** М11: open the real text offered on the home screen. */
     fun openReading() {
         val reading = (state.value as? Screen.Home)?.reading ?: return
         state.value = Screen.Read(reading)
@@ -527,7 +517,6 @@ class StudyController(
         openHome()
     }
 
-    /** The download goes on in the background; the notification permission lets its progress show outside the app. */
     fun downloadModel() {
         val model = model ?: return
         if (following) return
@@ -551,7 +540,6 @@ class StudyController(
         refreshHome()
     }
 
-    /** М21, "test first, then trust": the model checks lessons only if it matches enough known verdicts. */
     fun testModel() {
         val judge = judge ?: return
         if (testedDone != null || evalCases.isEmpty()) return
@@ -583,7 +571,6 @@ class StudyController(
         }
     }
 
-    /** The model, once it has passed the accuracy test and is ready (М21). */
     private fun trustedJudge() = judge?.takeIf { saved.aiCheck?.enabled == true && modelState == ModelState.Ready }
 
     private fun checkFreeAnswer(text: String, responseMs: Long, task: String?) {
@@ -598,7 +585,7 @@ class StudyController(
         state.value = Screen.Checking(steps())
         scope.launch {
             val judgment = withTimeoutOrNull(config.judgeTimeoutMs) { judge.judge(JudgeRequest(task, current.answer, text)) }
-            if (token != checkToken || state.value !is Screen.Checking) return@launch // the learner left meanwhile
+            if (token != checkToken || state.value !is Screen.Checking) return@launch
             when {
                 judgment == null -> showSelfCheck(text)
                 judgment.correct -> answer(true, responseMs, CheckedBy.Ai)
@@ -646,7 +633,6 @@ class StudyController(
         }
     }
 
-    /** М24: a phrase heard right is shown as text, to replay and repeat aloud, before moving on. */
     private fun afterRight(exercise: Exercise, banner: Banner) {
         if (exercise.byEar) {
             state.value = Screen.Heard(exercise, content.items.getValue(exercise.itemId).ru, banner, steps())
@@ -659,7 +645,6 @@ class StudyController(
         state.value = Screen.SelfCheck(exercise ?: error("No exercise on screen"), response, steps())
     }
 
-    /** Next step, unless the rest coach asked for a break or the end (М14, М16). */
     private fun advance(banner: Banner?) {
         val advice = pendingAdvice
         pendingAdvice = Advice.Continue
@@ -701,7 +686,6 @@ class StudyController(
     }
 
     private fun finishSession() {
-        // М6: one step harder or easier by this session's first answers.
         if (firstAnswers.size >= config.minAnswersForLadderShift) {
             val accuracy = firstAnswers.count { it }.toDouble() / firstAnswers.size
             learner = learner.copy(ladderShift = engine.ladder.adjustShift(learner.ladderShift, accuracy))
@@ -710,7 +694,6 @@ class StudyController(
         reminders?.askPermission()
         updateReminder()
         fitMemoryIfDue()
-        // М25: translation needs a fresh head; a session ended by fatigue skips it.
         translations = if (endedEarly) emptyList() else translationPicker?.pick(learner, today, store.readTranslations()).orEmpty()
         translationIndex = 0
         translatedRight = 0
@@ -740,11 +723,6 @@ class StudyController(
         reminders?.schedule(nextReminder())
     }
 
-    /**
-     * М19, М20: one reminder, at the learner's usual study time, on the next day with something to do.
-     * Reviews fall due when the memory model expects forgetting, so the reminder follows the spacing
-     * schedule; the same time every day is the cue that turns study into a habit.
-     */
     private fun nextReminder(): Reminder? {
         val now = nowMs()
         val offset = utcOffsetMinutes()
@@ -761,7 +739,6 @@ class StudyController(
         return null
     }
 
-    /** The median start time of recent sessions, so the reminder comes when the learner usually studies. */
     private fun usualStudyMinute(): Int {
         val minutes = saved.sessionStarts.map { it.minute.toLong() }
         return if (minutes.isEmpty()) config.defaultStudyMinute else median(minutes).toInt()
@@ -801,7 +778,6 @@ class StudyController(
             testTotal = evalCases.size + modelTranslationCases.size,
             lastTest = saved.aiCheck,
         )
-        // М11, the course author's choice: real texts open once all the grammar of the course holds in memory.
         val grammarHolds = grammarTopics.all { engine.gate.isMastered(it, learner, today) }
         val reading = if (grammarHolds) readingPicker.pick(texts, learner, today, saved.readTexts.toSet()) else null
         val vocabulary = saved.placement?.let { p -> p.estimatedWords?.let { VocabularyEstimate(it, p.totalWords ?: 0) } }
@@ -821,7 +797,6 @@ class StudyController(
         TopicStatus(topic.id, topic.title, state, held = items.count { engine.gate.holds(learner.progress[it.id], today) }, total = items.size)
     }
 
-    /** The learner's usual accuracy and speed once there is enough history (М16). */
     private fun baseline(): Baseline {
         val recent = saved.recent
         if (recent.size < config.minAnswersForBaseline) return Baseline.Default
@@ -831,10 +806,8 @@ class StudyController(
         )
     }
 
-    /** Answers by ear include the recording, so they keep their own usual speed (М13, М24). */
     private fun speedKey(exercise: Exercise) = exercise.rung.name + if (exercise.byEar) "-ear" else ""
 
-    /** The learner's usual speed on this kind of exercise, for telling fast from slow answers (М2, М13). */
     private fun medianMs(exercise: Exercise): Long {
         val times = saved.recent.filter { it.rung == speedKey(exercise) }.map { it.responseMs }
         if (times.size >= config.minAnswersForRungMedian) return median(times)

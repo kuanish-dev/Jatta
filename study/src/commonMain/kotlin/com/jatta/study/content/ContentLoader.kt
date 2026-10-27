@@ -6,7 +6,6 @@ import com.jatta.engine.content.Topic
 import com.jatta.study.exercise.AnswerCheck
 import kotlinx.serialization.json.Json
 
-/** A course ready to study: the engine's view of it plus the texts exercises are built from. */
 class StudyCourse(
     val title: String,
     val course: Course,
@@ -19,13 +18,11 @@ class StudyCourse(
 class ContentError(val problems: List<String>) :
     IllegalArgumentException("Content has errors:\n" + problems.joinToString("\n"))
 
-/** Reads content/<language>/course.json and topics/<id>.json, and refuses broken content. */
 object ContentLoader {
     private val json = Json { ignoreUnknownKeys = false }
 
     fun readCourseFile(text: String): CourseFile = json.decodeFromString(text)
 
-    /** [topicTexts] maps every topic id listed in [courseFile] to the text of its file. */
     fun load(courseFile: CourseFile, topicTexts: Map<String, String>): StudyCourse {
         val topics = courseFile.topics.map { id ->
             val text = topicTexts[id] ?: throw ContentError(listOf("No file for topic $id"))
@@ -79,7 +76,6 @@ object ContentLoader {
     }
 }
 
-/** Finds and blanks out the gap of an example as whole words. */
 internal object Gap {
     const val BLANK = "___"
 

@@ -6,22 +6,13 @@ import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.StudyCourse
 
-/** A text picked for reading, with the words to point out. */
 data class Reading(
     val text: ReadingText,
-    /** Words the learner has met in the course: meeting them again in a real text strengthens them. */
     val courseWords: Set<String>,
-    /** Words to guess from context; at most a few by construction (М11). */
     val unknownWords: Set<String>,
 )
 
-/**
- * М11: picks a real text the learner can read, at least 95% of known words and at most 3 unknown
- * ones, checked by the engine. Among those it prefers texts with more words the learner is
- * learning, since every encounter in context adds to the memory of a word.
- */
 class ReadingPicker(content: StudyCourse, private val engine: Engine) {
-    /** Word item id → its forms as they appear in text: "colleague", "colleagues". */
     private val forms: Map<String, Set<String>> = content.items.values
         .filter { it.kind != KindFile.Rule }
         .associate { item ->

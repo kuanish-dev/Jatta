@@ -1,10 +1,15 @@
 package com.jatta.shared
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,14 +28,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.ReadOnlyComposable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -53,7 +60,6 @@ import com.jatta.shared.resources.exo2
 import com.jatta.shared.resources.jetbrains_mono
 import org.jetbrains.compose.resources.Font
 
-/** The colours of one theme. [glow] is how strongly big numbers glow: strong on black, faint on white. */
 @Immutable
 data class NeonPalette(
     val void: Color,
@@ -69,9 +75,10 @@ data class NeonPalette(
     val gridAlpha: Float,
     val glow: Float,
     val isDark: Boolean,
+    val flame: List<Color>,
+    val flameCore: List<Color>,
 )
 
-/** Neon on near-black. */
 val DarkNeon = NeonPalette(
     void = Color(0xFF07070D),
     panel = Color(0xFF0E0E19),
@@ -86,12 +93,10 @@ val DarkNeon = NeonPalette(
     gridAlpha = 0.045f,
     glow = 0.7f,
     isDark = true,
+    flame = listOf(Color(0xFFFF2E88), Color(0xFFFF6A1A), Color(0xFFFFB000)),
+    flameCore = listOf(Color(0xFFFFE066), Color(0xFFFFFBE6)),
 )
 
-/**
- * The same look on cool white. Pure neon is unreadable on white, so the accents are deeper shades
- * of the same hues, dark enough for text.
- */
 val LightNeon = NeonPalette(
     void = Color(0xFFF2F4F8),
     panel = Color(0xFFFFFFFF),
@@ -106,11 +111,12 @@ val LightNeon = NeonPalette(
     gridAlpha = 0.07f,
     glow = 0.22f,
     isDark = false,
+    flame = listOf(Color(0xFFE5135F), Color(0xFFF4511E), Color(0xFFFFA000)),
+    flameCore = listOf(Color(0xFFFFCA28), Color(0xFFFFF3C4)),
 )
 
 val LocalNeon = staticCompositionLocalOf { DarkNeon }
 
-/** The current theme's colours, so screens can write `Neon.Cyan` in either theme. */
 object Neon {
     val Void: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.void
     val Panel: Color @Composable @ReadOnlyComposable get() = LocalNeon.current.panel
@@ -156,7 +162,6 @@ private fun colorScheme(p: NeonPalette): ColorScheme {
     )
 }
 
-/** Chamfered corners, the cyberpunk panel shape: two opposite corners cut. */
 val ChamferSmall = CutCornerShape(topStart = 8.dp, bottomEnd = 8.dp)
 val ChamferLarge = CutCornerShape(topStart = 14.dp, bottomEnd = 14.dp)
 
@@ -168,7 +173,6 @@ private val shapes = Shapes(
     extraLarge = ChamferLarge,
 )
 
-/** Exo 2 for reading and headings, JetBrains Mono for numbers and labels; both have Cyrillic. */
 @Composable
 private fun typography(): Typography {
     val exo = FontFamily(
@@ -202,10 +206,9 @@ private fun typography(): Typography {
     )
 }
 
-/** The app's theme, dark or light, with a faint grid behind every screen. */
 @Composable
 fun JattaTheme(dark: Boolean, content: @Composable () -> Unit) {
-    val palette = if (dark) DarkNeon else LightNeon
+    val palette = fading(if (dark) DarkNeon else LightNeon)
     MaterialTheme(colorScheme = colorScheme(palette), typography = typography(), shapes = shapes) {
         CompositionLocalProvider(LocalNeon provides palette, LocalContentColor provides palette.text) {
             Box(Modifier.fillMaxSize().background(palette.void).drawBehind { drawGrid(palette.cyan.copy(alpha = palette.gridAlpha)) }) {
@@ -214,6 +217,29 @@ fun JattaTheme(dark: Boolean, content: @Composable () -> Unit) {
         }
     }
 }
+
+@Composable
+private fun fading(p: NeonPalette): NeonPalette = p.copy(
+    void = p.void.fade(),
+    panel = p.panel.fade(),
+    panelHigh = p.panelHigh.fade(),
+    line = p.line.fade(),
+    cyan = p.cyan.fade(),
+    magenta = p.magenta.fade(),
+    acid = p.acid.fade(),
+    danger = p.danger.fade(),
+    text = p.text.fade(),
+    muted = p.muted.fade(),
+    gridAlpha = animateFloatAsState(p.gridAlpha, tween(THEME_FADE_MS)).value,
+    glow = animateFloatAsState(p.glow, tween(THEME_FADE_MS)).value,
+    flame = p.flame.map { it.fade() },
+    flameCore = p.flameCore.map { it.fade() },
+)
+
+@Composable
+private fun Color.fade(): Color = animateColorAsState(this, tween(THEME_FADE_MS)).value
+
+private const val THEME_FADE_MS = 450
 
 private fun DrawScope.drawGrid(line: Color) {
     val step = 28.dp.toPx()
@@ -230,21 +256,31 @@ private fun DrawScope.drawGrid(line: Color) {
 }
 
 @Composable
-fun NeonButton(onClick: () -> Unit, modifier: Modifier = Modifier, enabled: Boolean = true, content: @Composable RowScope.() -> Unit) =
-    Button(onClick, modifier, enabled = enabled, shape = ChamferSmall, content = content)
+fun NeonButton(onClick: () -> Unit, modifier: Modifier = Modifier, enabled: Boolean = true, content: @Composable RowScope.() -> Unit) {
+    val interaction = remember { MutableInteractionSource() }
+    Button(onClick, modifier.pressScale(interaction), enabled = enabled, shape = ChamferSmall, interactionSource = interaction, content = content)
+}
 
 @Composable
-fun NeonOutlinedButton(onClick: () -> Unit, modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) =
+fun NeonOutlinedButton(onClick: () -> Unit, modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
+    val interaction = remember { MutableInteractionSource() }
     OutlinedButton(
         onClick,
-        modifier,
+        modifier.pressScale(interaction),
         shape = ChamferSmall,
         border = BorderStroke(1.dp, Neon.Cyan.copy(alpha = 0.55f)),
         colors = ButtonDefaults.outlinedButtonColors(contentColor = Neon.Text),
+        interactionSource = interaction,
         content = content,
     )
+}
 
-/** A panel with a chamfered neon edge; [accent] colours the edge. */
+@Composable
+fun NeonTextButton(onClick: () -> Unit, modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
+    val interaction = remember { MutableInteractionSource() }
+    TextButton(onClick, modifier.pressScale(interaction, pressed = 0.9f), interactionSource = interaction, content = content)
+}
+
 @Composable
 fun Panel(modifier: Modifier = Modifier, accent: Color = Neon.Line, content: @Composable ColumnScope.() -> Unit) {
     Column(
@@ -258,22 +294,19 @@ fun Panel(modifier: Modifier = Modifier, accent: Color = Neon.Line, content: @Co
     )
 }
 
-/** A small uppercase monospace label: "ПАМЯТЬ", "ШАГ 4/24". */
 @Composable
 fun Label(text: String, color: Color = Neon.Muted, modifier: Modifier = Modifier) {
     Text(text.uppercase(), modifier, style = MaterialTheme.typography.labelMedium, color = color)
 }
 
-/**
- * Progress as a neon bar. Segmented for course progress, so each block reads as a piece of the course;
- * continuous for the session. The fill animates and glows from cyan to magenta.
- */
 @Composable
 fun NeonBar(fraction: Float, modifier: Modifier = Modifier, segments: Int = 0, height: Dp = 10.dp, dim: Boolean = false) {
-    val animated by animateFloatAsState(fraction.coerceIn(0f, 1f))
+    val fill = remember { Animatable(0f) }
+    LaunchedEffect(fraction) { fill.animateTo(fraction.coerceIn(0f, 1f), tween(700, easing = FastOutSlowInEasing)) }
     val track = Neon.PanelHigh
     val colors = if (dim) listOf(Neon.Muted, Neon.Muted) else listOf(Neon.Cyan, Neon.Magenta)
     Canvas(modifier.fillMaxWidth().height(height + 6.dp)) {
+        val animated = fill.value
         val top = 3.dp.toPx()
         val h = height.toPx()
         val gradient = Brush.horizontalGradient(colors, startX = 0f, endX = size.width)
@@ -314,9 +347,11 @@ private fun chamfered(x: Float, y: Float, width: Float, height: Float): Path {
     }
 }
 
-/** Big glowing number in the monospace face. */
 @Composable
 fun NeonNumber(text: String, color: Color = Neon.Cyan, style: TextStyle = MaterialTheme.typography.displaySmall) {
-    val glow = LocalNeon.current.glow
-    Text(text, style = style.copy(shadow = Shadow(color.copy(alpha = glow), blurRadius = 18f)), color = color)
+    Text(text, style = glowing(style, color), color = color)
 }
+
+@Composable
+fun glowing(style: TextStyle, color: Color): TextStyle =
+    style.copy(shadow = Shadow(color.copy(alpha = LocalNeon.current.glow), blurRadius = 18f))

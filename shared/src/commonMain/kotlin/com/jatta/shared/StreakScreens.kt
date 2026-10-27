@@ -6,7 +6,6 @@ import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
@@ -24,9 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -58,7 +55,6 @@ import kotlin.math.sin
 private const val SPARKS = 18
 private val WEEKDAYS = listOf("Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс")
 
-/** М27: once a day, what yesterday brought and the streak. Nothing here says off for a missed day. */
 @Composable
 internal fun DailySummaryScreen(screen: Screen.DailySummary, onContinue: () -> Unit) = Page {
     val yesterday = screen.yesterday
@@ -66,7 +62,7 @@ internal fun DailySummaryScreen(screen: Screen.DailySummary, onContinue: () -> U
     Label("Итоги вчера", color = Neon.Cyan)
     if (yesterday != null) {
         Text("Вчера вы занимались", style = MaterialTheme.typography.headlineMedium)
-        Panel(Modifier.fillMaxWidth(), accent = Neon.Cyan.copy(alpha = 0.45f)) {
+        Panel(Modifier.fillMaxWidth().appear(1), accent = Neon.Cyan.copy(alpha = 0.45f)) {
             val share = if (yesterday.answered == 0) 0 else yesterday.rightFirstTime * 100 / yesterday.answered
             SummaryRow("Ответов", yesterday.answered)
             SummaryRow("С первого раза", yesterday.rightFirstTime, "  ·  $share%")
@@ -90,44 +86,39 @@ internal fun DailySummaryScreen(screen: Screen.DailySummary, onContinue: () -> U
     }
     WeekStrip(streak)
     if (!streak.studiedToday) Muted("Сегодняшнее занятие продлит серию до ${streak.days + 1} ${daysWord(streak.days + 1)}.")
-    NeonButton(onContinue, Modifier.fillMaxWidth()) { Text("ПОЕХАЛИ") }
+    NeonButton(onContinue, Modifier.fillMaxWidth().pulse(scaleBy = 0.025f)) { Text("ПОЕХАЛИ") }
 }
 
-/** One line of the summary; the number counts up from zero. */
 @Composable
 private fun SummaryRow(label: String, value: Int, suffix: String = "") {
-    var shown by remember { mutableStateOf(0) }
-    LaunchedEffect(value) { shown = value }
-    val count by animateIntAsState(shown, tween(900, easing = FastOutSlowInEasing))
+    val count = countUp(value)
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Text(label, Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge)
         Text("$count$suffix", style = MaterialTheme.typography.titleMedium, color = Neon.Cyan)
     }
 }
 
-/** The streak on the home screen: a small flame and the count. */
 @Composable
-internal fun StreakChip(streak: Streak) {
-    if (streak.days == 0 && !streak.studiedToday) return
-    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+internal fun StreakChip(streak: Streak, onOpen: () -> Unit) {
+    Row(
+        Modifier.pressable(onOpen),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
         FlameIcon(22.dp)
-        Label("${streak.days} ${daysWord(streak.days)} подряд", color = Neon.Acid)
-        if (!streak.studiedToday) Muted("— занятие сегодня продлит серию")
+        Label(if (streak.days > 0) "${streak.days} ${daysWord(streak.days)} подряд" else "Серия начнётся с занятия", color = Neon.Acid)
+        Muted(if (streak.days > 0 && !streak.studiedToday) "— продлите сегодня ›" else "прогресс ›")
     }
 }
 
-/**
- * М27: the streak as a neon ring that fills, a number that counts up under a flickering flame, and sparks that fly
- * off when the count is reached; [grew] adds a floating "+1" for a streak extended just now.
- */
 @Composable
-internal fun StreakBurst(days: Int, grew: Boolean, modifier: Modifier = Modifier) {
+internal fun StreakBurst(days: Int, grew: Boolean, modifier: Modifier = Modifier, ringSize: Dp = 230.dp) {
     val palette = LocalNeon.current
     val ring = remember { Animatable(0f) }
     val count = remember { Animatable(if (grew) (days - 1).coerceAtLeast(0).toFloat() else 0f) }
     val burst = remember { Animatable(0f) }
     LaunchedEffect(days, grew) {
-        delay(300) // let the screen settle so the first frames aren't skipped
+        delay(300)
         launch { ring.animateTo(1f, tween(1100, easing = FastOutSlowInEasing)) }
         count.animateTo(days.toFloat(), tween(1100, easing = FastOutSlowInEasing))
         burst.animateTo(1f, tween(1000, easing = LinearOutSlowInEasing))
@@ -135,7 +126,7 @@ internal fun StreakBurst(days: Int, grew: Boolean, modifier: Modifier = Modifier
     val forever = rememberInfiniteTransition()
     val spin by forever.animateFloat(0f, 360f, infiniteRepeatable(tween(14_000, easing = LinearEasing)))
     val pulse by forever.animateFloat(0.7f, 1f, infiniteRepeatable(tween(1300), RepeatMode.Reverse))
-    Box(modifier.size(230.dp), contentAlignment = Alignment.Center) {
+    Box(modifier.size(ringSize), contentAlignment = Alignment.Center) {
         Canvas(Modifier.fillMaxSize()) {
             val stroke = size.minDimension * 0.055f
             val radius = size.minDimension / 2 - stroke * 2.5f
@@ -156,16 +147,17 @@ internal fun StreakBurst(days: Int, grew: Boolean, modifier: Modifier = Modifier
             }
             sparks(burst.value, radius, stroke, colors)
         }
+        val compact = ringSize < 200.dp
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            FlameIcon(34.dp)
-            NeonNumber(count.value.roundToInt().toString(), color = Neon.Acid, style = MaterialTheme.typography.displayMedium)
-            Label("${daysWord(days)} подряд", color = Neon.Muted)
+            FlameIcon(if (compact) 26.dp else 34.dp)
+            val style = if (compact) MaterialTheme.typography.displaySmall else MaterialTheme.typography.displayMedium
+            NeonNumber(count.value.roundToInt().toString(), color = Neon.Acid, style = style)
+            Label(if (compact) daysWord(days) else "${daysWord(days)} подряд", color = Neon.Muted)
         }
         if (grew) PlusOne(burst.value)
     }
 }
 
-/** Sparks fly out from the ring and fade, each in a colour of the ring. */
 private fun DrawScope.sparks(progress: Float, radius: Float, stroke: Float, colors: List<Color>) {
     if (progress <= 0f || progress >= 1f) return
     repeat(SPARKS) { index ->
@@ -182,7 +174,6 @@ private fun DrawScope.sparks(progress: Float, radius: Float, stroke: Float, colo
     }
 }
 
-/** "+1" floats up and fades while the sparks fly. */
 @Composable
 private fun PlusOne(progress: Float) {
     Text(
@@ -193,21 +184,25 @@ private fun PlusOne(progress: Float) {
     )
 }
 
-/** A neon flame that flickers. */
 @Composable
 internal fun FlameIcon(iconSize: Dp) {
     val palette = LocalNeon.current
     val forever = rememberInfiniteTransition()
     val flicker by forever.animateFloat(0.9f, 1.08f, infiniteRepeatable(tween(420, easing = LinearEasing), RepeatMode.Reverse))
+    val glow by forever.animateFloat(0.75f, 1f, infiniteRepeatable(tween(700, easing = LinearEasing), RepeatMode.Reverse))
     Canvas(Modifier.size(iconSize)) {
+        val warm = palette.flame[1]
+        drawCircle(
+            Brush.radialGradient(listOf(warm.copy(alpha = 0.55f * glow), Color.Transparent), Offset(center.x, size.height * 0.68f), size.minDimension * 0.75f),
+            size.minDimension * 0.75f, Offset(center.x, size.height * 0.68f),
+        )
         scale(1f, flicker, pivot = Offset(center.x, size.height)) {
-            drawPath(flame(size.width, size.height, 1f), Brush.verticalGradient(listOf(palette.acid, palette.magenta)))
-            drawPath(flame(size.width, size.height, 0.5f), palette.acid.copy(alpha = 0.9f))
+            drawPath(flame(size.width, size.height, 1f), Brush.verticalGradient(palette.flame))
+            drawPath(flame(size.width, size.height, 0.55f), Brush.verticalGradient(palette.flameCore, startY = size.height * 0.45f))
         }
     }
 }
 
-/** A teardrop flame standing on the bottom edge, [scale] of the full size. */
 private fun flame(width: Float, height: Float, scale: Float): Path = Path().apply {
     val w = width * scale
     val h = height * scale
@@ -221,7 +216,6 @@ private fun flame(width: Float, height: Float, scale: Float): Path = Path().appl
     close()
 }
 
-/** The last seven days, each cell appearing in turn. */
 @Composable
 internal fun WeekStrip(streak: Streak) {
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {

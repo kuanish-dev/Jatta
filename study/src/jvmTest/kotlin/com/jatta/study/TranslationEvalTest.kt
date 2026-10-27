@@ -6,11 +6,6 @@ import java.io.File
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-/**
- * М25: what the 80% threshold does with translations of known verdict. Accepting a wrong translation
- * teaches the mistake; rejecting a right one only sends it to the model or the learner, so the threshold
- * must be precise, and may miss many right translations in other words.
- */
 class TranslationEvalTest {
     private val cases = JudgeEval.readTranslationCases(File(System.getProperty("contentDir"), "eval/translations.json").readText())
 

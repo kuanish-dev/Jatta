@@ -1,9 +1,5 @@
 package com.jatta.study.exercise
 
-/**
- * Compares typed answers the forgiving way: case, punctuation, curly quotes and contractions don't matter.
- * Russian letters are kept, with ё read as е, so Russian translations compare the same way (М25).
- */
 object AnswerCheck {
 
     fun matches(response: String, accepted: List<String>): Boolean {
@@ -17,7 +13,6 @@ object AnswerCheck {
         return s.replace(NOT_TEXT, " ").replace(SPACES, " ").trim()
     }
 
-    /** Order matters: the special negatives go before the general "n't". */
     private val CONTRACTIONS = listOf(
         "can't" to "can not",
         "cannot" to "can not",

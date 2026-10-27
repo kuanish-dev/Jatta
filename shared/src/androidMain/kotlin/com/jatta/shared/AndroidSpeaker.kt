@@ -6,7 +6,6 @@ import android.media.MediaPlayer
 import android.speech.tts.TextToSpeech
 import java.util.Locale
 
-/** Android's TextToSpeech with an American English voice, and MediaPlayer for recordings. */
 class AndroidSpeaker(context: Context) : Speaker, TextToSpeech.OnInitListener {
     private val tts = TextToSpeech(context.applicationContext, this)
     private var ready = false

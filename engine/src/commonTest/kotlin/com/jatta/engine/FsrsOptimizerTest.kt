@@ -16,13 +16,8 @@ class FsrsOptimizerTest {
     private val optimizer = FsrsOptimizer(config)
     private val defaults = Fsrs.DEFAULT_PARAMETERS
 
-    /** A learner who forgets new items about three times faster than the defaults expect. */
     private val fastForgetter = defaults.toMutableList().apply { this[2] = 0.7 }
 
-    /**
-     * Items met on day 0, reviewed when the default model says they are due, and recalled with the
-     * probability [truth] gives, as the app would see a learner whose memory follows [truth].
-     */
     private fun simulate(truth: List<Double>, items: Int, reviewsPerItem: Int, seed: Int): List<List<Review>> {
         val random = Random(seed)
         val app = Fsrs(config.desiredRetention, config.maximumIntervalDays)

@@ -19,7 +19,6 @@ import com.jatta.shared.PhoneModel
 import java.util.TimeZone
 
 class MainActivity : ComponentActivity() {
-    // The answer needs no handling: without permission Android simply doesn't show reminders.
     private val notificationPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) {}
     private lateinit var speaker: AndroidSpeaker
 
@@ -46,13 +45,11 @@ class MainActivity : ComponentActivity() {
         super.onDestroy()
     }
 
-    /** Light icons on the dark theme, dark icons on the light one, whatever the phone's own setting. */
     private fun matchSystemBars(dark: Boolean) {
         val style = if (dark) SystemBarStyle.dark(Color.TRANSPARENT) else SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT)
         enableEdgeToEdge(style, style)
     }
 
-    /** Android 13+ asks the learner; earlier versions allow notifications by default. */
     private fun askNotificationPermission() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
         if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) return

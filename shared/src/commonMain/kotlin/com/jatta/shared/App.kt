@@ -37,10 +37,6 @@ import com.jatta.study.translate.SentencesFile
 
 internal const val CONTENT_DIR = "files/content"
 
-/**
- * The whole app. Platform code passes where to keep the learner's data, the clock, the time zone, the
- * on-device model (null where there is none), reminders and speech, so everything below is the same on Android and iOS.
- */
 @Composable
 fun App(
     dataDir: String,
@@ -49,7 +45,6 @@ fun App(
     model: OnDeviceModel?,
     reminders: ReminderScheduler?,
     speaker: Speaker?,
-    /** Lets the platform match its system bars to the theme. */
     onDarkTheme: (Boolean) -> Unit = {},
 ) = CompositionLocalProvider(LocalSpeaker provides speaker) {
     val scope = rememberCoroutineScope()
@@ -65,7 +60,6 @@ fun App(
     JattaTheme(dark) {
         LaunchedEffect(Unit) {
             try {
-                // Reading the course and replaying the log take seconds: off the main thread, so the first screen animates.
                 controller = withContext(Dispatchers.Default) {
                     StudyController(
                     content = loadCourse(),

@@ -10,10 +10,6 @@ import platform.Foundation.NSUserDomainMask
 import platform.Foundation.localTimeZone
 import platform.Foundation.timeIntervalSince1970
 
-/**
- * Entry point for the iOS app (Xcode project to be added once Xcode is installed). Apple Foundation
- * Models is Swift-only, so the Swift side will pass its OnDeviceModel implementation in here.
- */
 fun MainViewController(model: OnDeviceModel? = null) = ComposeUIViewController {
     App(
         dataDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true).first() as String,

@@ -7,13 +7,13 @@ import com.jatta.study.judge.DiffPart
 import com.jatta.study.judge.ModelState
 import com.jatta.study.placement.PlacementResult
 import com.jatta.study.progress.DaySummary
+import com.jatta.study.progress.ProgressReport
 import com.jatta.study.progress.Streak
 import com.jatta.study.reading.Reading
 import com.jatta.study.store.AiCheck
 import com.jatta.study.store.FitCheck
 import com.jatta.study.translate.TranslationTask
 
-/** What the app shows. The UI only draws these and calls StudyController back. */
 sealed interface Screen {
     data class Home(
         val courseTitle: String,
@@ -23,36 +23,23 @@ sealed interface Screen {
         val topics: List<TopicStatus>,
         val ai: AiStatus,
         val progress: CourseProgress,
-        /** The placement test's vocabulary estimate, if the learner took it (М23). */
         val vocabulary: VocabularyEstimate?,
-        /** A real text the learner can read now (М11), or null when none fits yet. */
         val reading: Reading?,
-        /** М27: days in a row without a missed day. */
         val streak: Streak,
     ) : Screen
 
-    /**
-     * М27: once a day, on the first opening, what yesterday brought ([yesterday] is null when there was no study;
-     * [restDay] — then there was nothing to study either) and the streak.
-     */
     data class DailySummary(val yesterday: DaySummary?, val restDay: Boolean, val streak: Streak) : Screen
 
-    /** М23: before the first lesson, the offer to find where the course should start. */
+    data class Progress(val report: ProgressReport) : Screen
+
     data class PlacementIntro(val words: Int, val questions: Int) : Screen
 
-    /** М23: do you know this word? Some of them don't exist. */
     data class PlacementWord(val word: String, val steps: Steps) : Screen
 
-    /** М23: a grammar question of the placement test; [id] keeps consecutive questions distinct. */
     data class PlacementGrammar(val id: Int, val exercise: Exercise.Choice, val steps: Steps) : Screen
 
     data class PlacementDone(val result: PlacementResult) : Screen
 
-    /**
-     * М26: a topic the learner chose: [reviews] items met so far, [early] of them before they are due, [newToday]
-     * new ones within today's limit and [newLater] left for the following days; [missing] — the topics it builds
-     * on that don't hold yet.
-     */
     data class Topic(
         val topic: TopicStatus,
         val intro: String,
@@ -63,10 +50,8 @@ sealed interface Screen {
         val missing: List<String>,
     ) : Screen
 
-    /** Reading a real text; words met in the course are pointed out (М11). */
     data class Read(val reading: Reading) : Screen
 
-    /** A new item met for the first time; [topicIntro] is set for the first item of a topic (М10). */
     data class Present(
         val item: ItemFile,
         val topicTitle: String,
@@ -75,10 +60,6 @@ sealed interface Screen {
         val steps: Steps,
     ) : Screen
 
-    /**
-     * [id] makes every shown question distinct, so the UI resets its input. [hint] is set on the second
-     * try; [confidentError] when the wrong answer came fast, a mistake made with confidence (М13).
-     */
     data class Question(
         val id: Int,
         val exercise: Exercise,
@@ -88,39 +69,30 @@ sealed interface Screen {
         val confidentError: Boolean = false,
     ) : Screen
 
-    /** The on-device model is checking a free answer. */
     data class Checking(val steps: Steps) : Screen
 
-    /** The model found a mistake: what changed, and the course's explanation (М12, М22). */
     data class Judged(val exercise: Exercise, val diff: List<DiffPart>, val note: String, val steps: Steps) : Screen
 
-    /** The learner compares a free answer with the model answer and says whether it was right. */
     data class SelfCheck(val exercise: Exercise, val response: String?, val steps: Steps) : Screen
 
-    /** М24: right by ear — now the text and its meaning, the voice again, and a moment to repeat it aloud. */
     data class Heard(val exercise: Exercise, val translation: String, val banner: Banner, val steps: Steps) : Screen
 
-    /** Wrong after the hint: the answer and a short explanation (М12). */
     data class Reveal(val exercise: Exercise, val note: String, val steps: Steps) : Screen
 
     data class Rest(val kind: RestKind, val minutes: Int, val untilMs: Long) : Screen
 
-    /** М25: translate a sentence made of words the learner holds; [id] keeps consecutive tasks distinct. */
     data class Translate(val id: Int, val task: TranslationTask, val steps: Steps) : Screen
 
-    /** М25: the translation against the closest human one, with its chrF++ [score]. */
     data class Translated(
         val task: TranslationTask,
         val response: String,
         val score: Double,
-        /** The closest human translation. */
         val target: String,
         val diff: List<DiffPart>,
         val outcome: TranslationOutcome,
         val steps: Steps,
     ) : Screen
 
-    /** [translated] sentences at the end, [translatedRight] of them right (М25); [streakGrew] when this was today's first study (М27). */
     data class Done(
         val answered: Int,
         val rightFirstTime: Int,
@@ -131,36 +103,25 @@ sealed interface Screen {
         val streakGrew: Boolean = false,
     ) : Screen
 
-    /** М2: how well the memory model has predicted this learner so far, and its fit to the learner. */
     data class Calibration(val report: CalibrationReport, val fit: FitStatus) : Screen
 }
 
-/**
- * How far the session is. Every finished step counts as done, and an item that comes back adds a
- * step to the queue, so the bar only moves forward.
- */
+val Screen.canGoBack: Boolean get() = this !is Screen.Home && this !is Screen.PlacementIntro
+
 data class Steps(val done: Int, val remaining: Int) {
     val fraction: Float get() = if (done + remaining == 0) 1f else done.toFloat() / (done + remaining)
 }
 
-/** М23: about [words] of the [total] most frequent English words are known. */
 data class VocabularyEstimate(val words: Int, val total: Int)
 
-/** М1, М2: how much of the course holds in memory now (recall tomorrow ≥ 85%), not merely how much was seen. */
 data class CourseProgress(val held: Int, val met: Int, val total: Int)
 
-/** The on-device model as the home screen shows it. */
 data class AiStatus(
     val model: ModelState,
-    /** "Gemma 4 E2B"; null when the platform has no model. */
     val modelName: String?,
-    /** The size of a download the app makes itself. */
     val downloadTotalBytes: Long?,
-    /** Bytes downloaded while the model is downloading. */
     val downloadedBytes: Long?,
-    /** The last download stopped short; another try continues where it stopped. */
     val downloadFailed: Boolean,
-    /** Cases checked so far while the accuracy test runs. */
     val testedDone: Int?,
     val testTotal: Int,
     val lastTest: AiCheck?,
@@ -168,10 +129,6 @@ data class AiStatus(
 
 enum class Banner { Correct, CheckedByAi, CorrectWithHint }
 
-/**
- * М25: Close — near enough to a human translation; RightByAi — further off, but the model found the meaning
- * the same; WrongByAi — the model found it different; LearnerDecides — further off and no model: the learner compares.
- */
 enum class TranslationOutcome { Close, RightByAi, WrongByAi, LearnerDecides }
 
 enum class RestKind { Scheduled, Fatigue, Quiet }
@@ -180,8 +137,4 @@ enum class TopicState { Locked, Open, Mastered }
 
 data class TopicStatus(val id: String, val title: String, val state: TopicState, val held: Int, val total: Int)
 
-/**
- * М2: whether the memory model runs on [personal] parameters, the reviews it can be fitted on so far,
- * the count at which the next fit runs, and how the last fit did on reviews it had not seen.
- */
 data class FitStatus(val personal: Boolean, val reviews: Int, val nextFitAt: Int, val last: FitCheck?)

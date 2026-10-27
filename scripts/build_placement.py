@@ -1,14 +1,3 @@
-"""Builds content/en/placement.json, the word list of the placement test.
-
-The test is a yes/no vocabulary test with pseudowords (Meara & Buxton 1987; LexTALE uses the same
-idea): the learner says which words they know, and saying "yes" to words that don't exist shows how
-much to discount. Real words are sampled from NGSL 1.2 frequency bands, so the result reads as "how
-many of the most frequent words you know". Each band mixes words of the course, which the result
-then places directly, with random NGSL words, which keep the band estimate fair.
-
-Run from the repository root:  python3 -I scripts/build_placement.py
-"""
-
 import csv
 import json
 import random
@@ -20,7 +9,6 @@ OUT = ROOT / "content/en/placement.json"
 BANDS = [(1, 500), (501, 1000), (1001, 1500), (1501, 2000), (2001, 2500), (2501, 2809)]
 WORDS_PER_BAND = 8
 COURSE_WORDS_PER_BAND = 4
-# Checked against NGSL and a 235k-word English dictionary (/usr/share/dict/words) by this script.
 PSEUDOWORDS = [
     "plimp", "drust", "marbish", "slonder", "gorvent", "pellick",
     "vonter", "cradish", "fendle", "spratch", "bralt", "clember",

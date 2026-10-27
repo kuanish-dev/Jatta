@@ -12,7 +12,6 @@ import platform.AVFAudio.AVSpeechUtterance
 import platform.Foundation.NSData
 import platform.Foundation.create
 
-/** iOS speech synthesis with an American English voice, and AVAudioPlayer for recordings. Not run yet: needs Xcode. */
 class IosSpeaker : Speaker {
     private val synthesizer = AVSpeechSynthesizer()
     private var player: AVAudioPlayer? = null

@@ -2,14 +2,8 @@ package com.jatta.study.translate
 
 import com.jatta.study.exercise.AnswerCheck
 
-/** How close a translation came: the best [score], the human translation it came closest to, and whether that is close enough. */
 data class Closeness(val score: Double, val closest: String, val passed: Boolean)
 
-/**
- * М25: a translation is compared with every human translation of the sentence by chrF++ and counts as
- * right when one of them is at least [passScore] close and has as many negations. N-gram scores barely
- * notice a missing "not", which turns the meaning around; so the negations must match.
- */
 object TranslationScore {
 
     fun of(response: String, references: List<String>, passScore: Double): Closeness {

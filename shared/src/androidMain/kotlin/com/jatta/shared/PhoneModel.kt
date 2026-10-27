@@ -3,10 +3,6 @@ package com.jatta.shared
 import com.jatta.study.judge.ModelState
 import com.jatta.study.judge.OnDeviceModel
 
-/**
- * Gemini Nano where the phone has it, since the system runs it and keeps it up to date; on any other
- * phone, [fallback] inside the app. The choice is made once, on the first question.
- */
 class PhoneModel(private val system: OnDeviceModel, private val fallback: OnDeviceModel) : OnDeviceModel {
     private var chosen: OnDeviceModel? = null
 

@@ -5,26 +5,14 @@ import com.jatta.study.exercise.AnswerCheck
 import kotlin.math.ceil
 import kotlin.math.max
 
-/** A free answer to check: the task in English, one correct answer and what the learner wrote. */
 data class JudgeRequest(val task: String, val reference: String, val response: String)
 
-/** The verdict; [corrected] is the learner's sentence with the fewest changes, set when it is wrong. */
 data class Judgment(val correct: Boolean, val corrected: String?)
 
-/**
- * Checks free answers with the on-device model under tight rules (М21, М22). The model only says
- * right or wrong and fixes the sentence with minimal edits; explanations come from the course.
- * Translations at the end of a session (М25) are judged leniently, by meaning alone: the model only says
- * whether it is the same, and the learner's slips show against the closest human translation.
- * A reply that breaks the format, or "fixes" by rewriting the sentence, is thrown away and the learner
- * compares with the model answer instead: small models over-correct, and a false correction teaches
- * the wrong thing.
- */
 class FreeAnswerJudge(private val model: OnDeviceModel, private val config: StudyConfig) {
 
     suspend fun judge(request: JudgeRequest): Judgment? = ask(prompt(request), request)
 
-    /** М25: [JudgeRequest.task] is the Russian sentence, [JudgeRequest.reference] the closest human translation. */
     suspend fun judgeTranslation(request: JudgeRequest): Judgment? = ask(translationPrompt(request), request) { reply, _ ->
         when (field(reply, "MEANING")?.uppercase()?.take(4)) {
             "SAME" -> Judgment(correct = true, corrected = null)
@@ -58,7 +46,6 @@ class FreeAnswerJudge(private val model: OnDeviceModel, private val config: Stud
         return max(config.judgeMinEditsAllowed, ceil(words * config.judgeMaxEditShare).toInt())
     }
 
-    /** Value of a "KEY: value" line, tolerating markdown bold and quotes around it. */
     private fun field(reply: String, key: String): String? = reply.lineSequence()
         .map { it.trim().trim('*', '-', ' ') }
         .firstOrNull { it.startsWith("$key:", ignoreCase = true) || it.startsWith("$key :", ignoreCase = true) }
@@ -80,7 +67,6 @@ class FreeAnswerJudge(private val model: OnDeviceModel, private val config: Stud
             FIXED: the learner's sentence with the fewest changes that make it correct
         """.trimIndent()
 
-        /** Lenient: only the meaning is judged, never grammar; the examples are not from the eval set. */
         fun translationPrompt(request: JudgeRequest): String = """
             A learner of English (level B1) translated a Russian sentence into English. Decide only whether the meaning is the same. Ignore grammar, spelling and style completely: "he go", "I buyed", a missing article or a wrong tense do not change the meaning.
             Russian sentence: ${request.task}

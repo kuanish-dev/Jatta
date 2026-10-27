@@ -19,10 +19,6 @@ private const val WORK_NAME = "jatta-reminder"
 private const val CHANNEL_ID = "reminders"
 private const val TEXT_KEY = "text"
 
-/**
- * Reminders through WorkManager: one pending job, replaced on every update, kept across reboots.
- * [askPermission] comes from the activity, which owns the system permission dialog.
- */
 class AndroidReminders(private val context: Context, private val askPermission: () -> Unit) : ReminderScheduler {
 
     override fun askPermission() = askPermission.invoke()
@@ -41,7 +37,6 @@ class AndroidReminders(private val context: Context, private val askPermission: 
     }
 }
 
-/** Shows the reminder. Without the notification permission Android drops it silently, which is the learner's choice. */
 class ReminderWorker(context: Context, params: WorkerParameters) : Worker(context, params) {
     override fun doWork(): Result {
         val manager = applicationContext.getSystemService(NotificationManager::class.java)

@@ -45,13 +45,19 @@ class SmallPartsTest {
     }
 
     @Test
+    fun learningDaysAreCalendarDates() {
+        assertEquals(CalendarDate(1970, 1, 1), calendarDate(0))
+        assertEquals(CalendarDate(2024, 2, 29), calendarDate(19_782))
+        assertEquals(CalendarDate(2000, 3, 1), calendarDate(11_017))
+        assertEquals(CalendarDate(2026, 10, 27), calendarDate(20_753))
+    }
+
+    @Test
     fun learningDayStartsAtFourInTheMorningLocalTime() {
         val day20260101 = 20_454
         val utc = { day: Int, hour: Int, minute: Int -> (day * 24L * 60 + hour * 60 + minute) * 60_000 }
         val almaty = 5 * 60
-        // 02:00 on 2 January in Almaty still belongs to 1 January
         assertEquals(day20260101, learningDay(utc(day20260101, 21, 0), almaty, dayStartHour = 4))
-        // 04:30 on 2 January in Almaty is the next learning day
         assertEquals(day20260101 + 1, learningDay(utc(day20260101, 23, 30), almaty, dayStartHour = 4))
     }
 

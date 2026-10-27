@@ -4,13 +4,8 @@ import com.jatta.study.exercise.AnswerCheck
 
 enum class DiffKind { Same, Removed, Added }
 
-/** A word or words of the difference; a Same part keeps both spellings: [text] as corrected, [written] as the learner wrote it. */
 data class DiffPart(val text: String, val kind: DiffKind, val written: String = text)
 
-/**
- * Word-level difference between the learner's sentence and its correction, for showing exactly what changed.
- * Words are compared as [AnswerCheck.normalize] reads them, so "does not" and "doesn't" are the same words.
- */
 object WordDiff {
 
     private class Token(val word: Int, val key: String, val last: Boolean)
@@ -36,7 +31,6 @@ object WordDiff {
         val groupB = mutableListOf<Int>()
         val doneA = HashSet<Int>()
         val doneB = HashSet<Int>()
-        // Matched words go out together once both sides reach a word end: "does not" against "doesn't".
         fun flush(same: Boolean) {
             if (same) {
                 result += DiffPart(groupB.joinToString(" ") { b[it] }, DiffKind.Same, groupA.joinToString(" ") { a[it] })
@@ -70,7 +64,6 @@ object WordDiff {
         return result
     }
 
-    /** Number of word edits; a replaced word counts once. */
     fun edits(from: String, to: String): Int {
         val parts = parts(from, to)
         return maxOf(parts.count { it.kind == DiffKind.Removed }, parts.count { it.kind == DiffKind.Added })
@@ -78,7 +71,6 @@ object WordDiff {
 
     private fun words(text: String) = text.split(' ').filter { it.isNotBlank() }
 
-    /** A word as compared: "doesn't" is two keys, "does" and "not"; punctuation alone is one empty key. */
     private fun keys(word: String) = AnswerCheck.normalize(word).split(' ').filter { it.isNotEmpty() }.ifEmpty { listOf("") }
 
     private fun tokens(words: List<String>) = words.flatMapIndexed { index, word ->
@@ -86,7 +78,6 @@ object WordDiff {
         keys.mapIndexed { k, key -> Token(index, key, last = k == keys.lastIndex) }
     }
 
-    /** Longest common subsequence of the keys, walked from the start. */
     private fun align(a: List<Token>, b: List<Token>): List<Step> {
         val lcs = Array(a.size + 1) { IntArray(b.size + 1) }
         for (i in a.indices.reversed()) for (j in b.indices.reversed()) {

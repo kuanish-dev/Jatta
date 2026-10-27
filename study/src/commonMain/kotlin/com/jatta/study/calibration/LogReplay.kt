@@ -6,10 +6,8 @@ import com.jatta.engine.learner.ItemProgress
 import com.jatta.engine.memory.MemoryModel
 import com.jatta.study.store.LogEntry
 
-/** The answer log read back as memory: only graded answers, the first of each day, change memory. */
 object LogReplay {
 
-    /** Memory of every logged item; [onReview] sees each graded answer with the memory just before it. */
     fun progress(
         log: List<LogEntry>,
         memory: MemoryModel,
@@ -25,15 +23,10 @@ object LogReplay {
         return state
     }
 
-    /** The day each item was first studied, leaving out items the placement test found known (М18). */
     fun firstStudyDays(log: List<LogEntry>): Map<String, Int> = graded(log).groupBy { it.item }
         .filterValues { it.first().checkedBy != Calibration.PLACEMENT }
         .mapValues { (_, entries) -> entries.first().day }
 
-    /**
-     * Review histories to fit the memory model on. Items placed as known by the placement test are left
-     * out: their history starts from a guess, not from the first meeting the model describes.
-     */
     fun histories(log: List<LogEntry>): List<List<Review>> = graded(log).groupBy { it.item }.values
         .filter { it.first().checkedBy != Calibration.PLACEMENT }
         .map { entries -> entries.map { Review(it.day, Grade.valueOf(it.grade!!)) } }

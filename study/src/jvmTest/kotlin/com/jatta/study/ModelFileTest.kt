@@ -14,7 +14,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-/** A server like Hugging Face: a redirect to storage that honours ranges, and a way to cut the connection. */
 class ModelFileTest {
     private val content = Random(7).nextBytes(3_000_000)
     private val sha = MessageDigest.getInstance("SHA-256").digest(content).joinToString("") { "%02x".format(it) }

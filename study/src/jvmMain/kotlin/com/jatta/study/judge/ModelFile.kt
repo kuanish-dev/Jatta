@@ -6,19 +6,11 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.security.MessageDigest
 
-/**
- * A large model file fetched over HTTPS. A broken download continues where it stopped, the way phones
- * lose connection; the finished file must match its size and SHA-256 before it is used.
- */
 class ModelFile(private val url: String, val bytes: Long, private val sha256: String, val target: File) {
     private val part = File(target.path + ".part")
 
     val isReady: Boolean get() = target.length() == bytes
 
-    /**
-     * Fetches what is missing; [onProgress] gets the bytes on disk so far, and [isStopped] ends the download early,
-     * keeping what is there for the next try. True when the file is complete and intact.
-     */
     fun download(isStopped: () -> Boolean = { false }, onProgress: (Long) -> Unit): Boolean {
         if (isReady) return true
         target.parentFile?.mkdirs()
@@ -38,7 +30,7 @@ class ModelFile(private val url: String, val bytes: Long, private val sha256: St
         try {
             val append = when (connection.responseCode) {
                 HttpURLConnection.HTTP_PARTIAL -> true
-                HttpURLConnection.HTTP_OK -> false // the server ignored the range: start over
+                HttpURLConnection.HTTP_OK -> false
                 else -> return
             }
             var done = if (append) part.length() else 0L
@@ -65,7 +57,6 @@ class ModelFile(private val url: String, val bytes: Long, private val sha256: St
         }
     }
 
-    /** Hugging Face answers with a redirect to its file storage; the range has to go with every hop. */
     private fun open(from: Long): HttpURLConnection {
         var location = URL(url)
         repeat(MAX_REDIRECTS) {

@@ -22,10 +22,6 @@ class CalibrationTest {
     private fun entry(item: String, day: Int, grade: Grade, checkedBy: String = "code") =
         LogEntry(day * 86_400_000L, day, item, "Recognize", grade != Grade.Again, 3_000, grade.name, false, checkedBy)
 
-    /**
-     * Learners who meet each item on day 0 and then review it on its due days, recalling with the
-     * model's prediction shifted by [shift]. Returns the log and the number of reviews with a prediction.
-     */
     private fun simulate(items: Int, reviewsPerItem: Int, shift: Double): Pair<List<LogEntry>, Int> {
         val random = Random(7)
         val log = mutableListOf<LogEntry>()
@@ -81,10 +77,8 @@ class CalibrationTest {
     fun placedItemsAreReplayedButNotScoredAndLaterAnswersOfADayAreIgnored() {
         val log = listOf(
             entry("w-a", 0, Grade.Good, checkedBy = Calibration.PLACEMENT),
-            // a later answer of the same day carries no grade and is not a review
             LogEntry(1_000, 0, "w-a", "Recognize", false, 3_000, null, false, "code"),
             entry("w-a", 2, Grade.Again),
-            // the topic gone through again the same day (М26) changes memory but predicts nothing
             entry("w-a", 2, Grade.Good),
         )
         val report = Calibration.of(log, memory, studyConfig)

@@ -5,7 +5,6 @@ import com.jatta.study.content.StudyCourse
 import com.jatta.study.translate.SentencesFile
 import java.io.File
 
-/** The course from content/en in the repository; the path comes from study/build.gradle.kts. */
 object RealContent {
     private val dir = File(System.getProperty("contentDir"), "en")
 

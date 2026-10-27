@@ -6,17 +6,10 @@ import kotlin.math.min
 import kotlin.math.pow
 import kotlin.math.round
 
-/** Answer quality fed to the memory model (М2). */
 enum class Grade(val value: Int) { Again(1), Hard(2), Good(3), Easy(4) }
 
-/** What the model knows about one item: days until recall drops to 90%, and difficulty from 1 to 10. */
 data class Memory(val stability: Double, val difficulty: Double)
 
-/**
- * FSRS-6 memory model (М2), ported from the reference py-fsrs 6.3.2 in long-term mode:
- * no same-day learning steps, because repeats inside a session are handled by the session queue (М4).
- * FsrsTest checks it against vectors produced by scripts/fsrs_vectors.py.
- */
 class Fsrs(
     private val desiredRetention: Double,
     private val maximumIntervalDays: Int,
@@ -29,13 +22,11 @@ class Fsrs(
     private val decay = -w[20]
     private val factor = 0.9.pow(1 / decay) - 1
 
-    /** Memory after the very first graded answer. */
     fun first(grade: Grade): Memory = Memory(
         stability = clampStability(w[grade.value - 1]),
         difficulty = clampDifficulty(initialDifficulty(grade)),
     )
 
-    /** Memory after an answer given [elapsedDays] whole days after the previous review. */
     fun next(memory: Memory, elapsedDays: Int, grade: Grade): Memory {
         val stability = if (elapsedDays < 1) {
             shortTermStability(memory.stability, grade)
@@ -45,11 +36,9 @@ class Fsrs(
         return Memory(stability, nextDifficulty(memory.difficulty, grade))
     }
 
-    /** Probability of recalling the item [elapsedDays] after its last review. */
     fun retrievability(memory: Memory, elapsedDays: Int): Double =
         (1 + factor * max(0, elapsedDays) / memory.stability).pow(decay)
 
-    /** Whole days until the recall probability falls to the desired retention. */
     fun intervalDays(stability: Double): Int {
         val days = round(stability / factor * (desiredRetention.pow(1 / decay) - 1)).toInt()
         return days.coerceIn(1, maximumIntervalDays)
@@ -106,13 +95,11 @@ class Fsrs(
     private fun clampStability(stability: Double) = max(stability, 0.001)
 
     companion object {
-        /** FSRS-6 defaults from py-fsrs 6.3.2, fitted on a large set of Anki reviews. */
         val DEFAULT_PARAMETERS = listOf(
             0.212, 1.2931, 2.3065, 8.2956, 6.4133, 0.8334, 3.0194, 0.001, 1.8722, 0.1666, 0.796,
             1.4835, 0.0614, 0.2629, 1.6483, 0.6014, 1.8729, 0.5425, 0.0912, 0.0658, 0.1542,
         )
 
-        /** Range each parameter must stay in, from py-fsrs 6.3.2. */
         val LOWER_BOUNDS = listOf(
             0.001, 0.001, 0.001, 0.001, 1.0, 0.001, 0.001, 0.001, 0.0, 0.0, 0.001,
             0.001, 0.001, 0.001, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.1,

@@ -2,30 +2,22 @@ package com.jatta.study.exercise
 
 import com.jatta.engine.session.Rung
 
-/** A concrete exercise for one item on one rung of the ladder (М5). */
 sealed interface Exercise {
     val itemId: String
     val rung: Rung
 
-    /** What to do, in Russian: "Что значит это слово?". */
     val instruction: String
 
-    /** Shown on the second try after a mistake: a hint, not the answer (М12). */
     val hint: String
 
-    /** The right answer, shown on reveal and for self-checking. */
     val answer: String
 
-    /** English to play aloud once the learner has answered: never part of the question's solution beforehand. */
     val listen: String
 
-    /** A real voice saying [listen], played instead of speech synthesis: a file of the course's audio folder. */
     val recording: String?
 
-    /** Done by ear (М24): the recording is the question and plays as soon as the exercise appears. */
     val byEar: Boolean
 
-    /** Pick one option; checked by code. */
     data class Choice(
         override val itemId: String,
         override val rung: Rung,
@@ -41,10 +33,6 @@ sealed interface Exercise {
         override val byEar: Boolean = false,
     ) : Exercise
 
-    /**
-     * Type the answer; checked by code against [accepted]. When [openEnded] is true a mismatch may still
-     * be right (a free translation), so the learner compares with the model answer instead.
-     */
     data class Typed(
         override val itemId: String,
         override val rung: Rung,
@@ -57,13 +45,11 @@ sealed interface Exercise {
         override val hint: String,
         override val answer: String,
         override val listen: String,
-        /** The task in English for the on-device model; set when [openEnded]. */
         val judgeTask: String? = null,
         override val recording: String? = null,
         override val byEar: Boolean = false,
     ) : Exercise
 
-    /** Write an own sentence; judged by the on-device model when there is one, otherwise by the learner. */
     data class Free(
         override val itemId: String,
         override val rung: Rung,
@@ -73,13 +59,11 @@ sealed interface Exercise {
         override val hint: String,
         override val answer: String,
         override val listen: String,
-        /** The task in English for the on-device model. */
         val judgeTask: String,
         override val recording: String? = null,
         override val byEar: Boolean = false,
     ) : Exercise
 
-    /** Say the sentence aloud, then compare with the model answer. */
     data class Speak(
         override val itemId: String,
         override val rung: Rung,

@@ -17,7 +17,6 @@ class TranslationPickerTest {
     private val picker = TranslationPicker(file, engine, config)
     private val today = 100
 
-    /** The first [count] course words learned today, so they hold tomorrow. */
     private fun holding(count: Int): Learner {
         val words = file.sentences.flatMap { it.items }.distinct().take(count)
         return words.fold(Learner()) { learner, id -> engine.placeKnown(learner, id, today) }

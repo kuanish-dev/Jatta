@@ -1,21 +1,3 @@
-"""Builds the translation sentences (М25) from Tatoeba: English sentences with their Russian translations.
-
-A sentence is taken when it uses at least one word or phrase of the course and every other word is among
-the 1000 most frequent (NGSL 1.2) or is Tom or Mary, the stock names of Tatoeba. Up to three sentences per
-course word are kept, those with the most translations first: every translation is one more correct answer
-to compare with. Sentences that are listening phrases already, and sentences on topics the course leaves
-out, are skipped; so are the ids in "skip" of sources/tatoeba/sentences.json.
-
-Each sentence keeps:
-  en    — the English sentence first, then the other English translations of ru[0];
-  ru    — its Russian translations, the one with the most English translations first;
-  items — the course items it uses; the app offers it once the learner holds all of them.
-
-Sentences and translations: CC BY 2.0 FR. Run from the repository root after scripts/collect_phrases.py
-has downloaded the Tatoeba exports:
-    python3 -I scripts/collect_sentences.py [--exports DIR]
-"""
-
 import argparse
 import collections
 import csv
@@ -52,7 +34,6 @@ def sentences(path):
 
 
 def ngsl_forms():
-    """Word form → rank of its headword, the lowest when a form belongs to several."""
     ranks = {}
     for row in csv.DictReader(open(ROOT / "sources/ngsl/NGSL_12_stats.csv", newline="")):
         ranks.setdefault(row["Lemma"].lower(), int(row["SFI Rank"]))
@@ -68,7 +49,6 @@ def ngsl_forms():
 
 
 def tokens(text):
-    """Lower-cased words with contractions split off: "don't" → "do", "n't"."""
     result = []
     for word in TOKEN.findall(text.lower()):
         suffix = next((s for s in SUFFIXES if word.endswith(s) and len(word) > len(s)), None)
@@ -81,7 +61,6 @@ def tokens(text):
 
 
 def inflections(word):
-    """Forms of a headword: NGSL's list when it has one, otherwise the regular endings."""
     listed = [f for f, lemma in LEMMA_OF.items() if lemma == word]
     if listed:
         return set(listed)
@@ -93,7 +72,6 @@ def inflections(word):
 
 
 def course_items():
-    """Course words and phrases (not rules, not listening phrases) → their forms as token tuples."""
     items = {}
     for path in sorted(TOPICS.glob("*.json")):
         for item in json.loads(path.read_text())["items"]:
@@ -123,7 +101,6 @@ LEMMA_OF = lemma_of()
 
 
 def items_in(words, index):
-    """Course items found in the sentence and the positions of their words."""
     found, covered = set(), set()
     for i, word in enumerate(words):
         for item, form in index.get(word, ()):
@@ -180,7 +157,6 @@ def main():
         ru = [russian[main]] + [russian[r] for r in sorted(clean) if r != main]
         candidates.append({"id": sid, "en": en[:MAX_TRANSLATIONS], "ru": ru[:MAX_TRANSLATIONS], "items": sorted(found)})
 
-    # Most translations first, then fewer course words, shorter and older sentences.
     candidates.sort(key=lambda s: (-min(len(s["en"]), 4) - min(len(s["ru"]), 4), len(s["items"]), len(s["en"][0]), s["id"]))
     chosen, per_item = [], collections.Counter()
     for sentence in candidates:

@@ -20,13 +20,11 @@ kotlin {
             implementation(libs.kotlinx.coroutines.test)
         }
         jvmTest.dependencies {
-            // М21: runs the phone's model file on this computer to measure it (LiteRtEvalTest).
             implementation(libs.litertlm.jvm)
         }
     }
 }
 
-// JVM tests check the real course files in content/ against the word lists in sources/
 val contentDir: String = rootProject.layout.projectDirectory.dir("content").asFile.absolutePath
 val sourcesDir: String = rootProject.layout.projectDirectory.dir("sources").asFile.absolutePath
 tasks.named<Test>("jvmTest") {
@@ -34,7 +32,6 @@ tasks.named<Test>("jvmTest") {
     systemProperty("sourcesDir", sourcesDir)
     inputs.dir(contentDir)
     inputs.dir(sourcesDir)
-    // LocalModelEvalTest measures a local model only when one is named: -PollamaModel=gemma4:e2b or -PlitertModel=<file>
     for (name in listOf("ollamaModel", "litertModel")) {
         val value = providers.gradleProperty(name).orElse("")
         systemProperty(name, value.get().let { if (it.isEmpty() || it.startsWith("/")) it else rootProject.file(it).path })

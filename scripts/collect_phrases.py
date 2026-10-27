@@ -1,17 +1,3 @@
-"""Builds the listening phrases (М24) from Tatoeba: sentences recorded by native speakers under free licenses.
-
-The phrases are chosen by hand in sources/tatoeba/phrases.json. For each one this script takes the English
-sentence, a Russian translation (or the override in "translations"), one recording under CC BY or CC BY-SA
-by a member who lists English as native, and the word to catch by ear (the least frequent word by NGSL,
-or the override in "gaps"). It writes content/en/topics/<topic>.json and content/en/audio/ph-<id>.m4a.
-
-Sentences and translations: CC BY 2.0 FR. Recordings: the license of each contributor, kept per phrase.
-Needs ffmpeg. Run from the repository root:
-    python3 -I scripts/collect_phrases.py [--exports DIR] [--dry-run | --text-only]
-The Tatoeba exports (about 50 MB) and the original MP3 recordings are kept in DIR (default build/tatoeba),
-so a rerun only converts again.
-"""
-
 import argparse
 import bz2
 import csv
@@ -32,8 +18,6 @@ FREE_LICENSES = ("CC BY 4.0", "CC BY-SA 4.0")
 USER_AGENT = "JattaPhraseCollector/1.0 (https://github.com/kuanish-dev/Jatta)"
 WORD = re.compile(r"[A-Za-z]+")
 STEMS = {"ca": "can", "wo": "will", "sha": "shall"}
-# Silence is trimmed at both ends but 0.15 s of it is kept, so soft final sounds ("plans") are not cut;
-# speech is brought to one loudness and stored as mono AAC at 40 kbit/s.
 TRIM = "silenceremove=start_periods=1:start_threshold=-50dB:start_silence=0.15"
 FFMPEG_FILTER = f"{TRIM},areverse,{TRIM},areverse,loudnorm=I=-18:TP=-2"
 DOWNLOADS_AT_ONCE = 4
@@ -94,7 +78,6 @@ def ngsl_ranks():
 
 
 def gap_word(text, ranks):
-    """The least frequent word of the sentence, the most informative one to catch: no names, no short words."""
     candidates = []
     for match in WORD.finditer(text):
         word = match.group()
@@ -106,7 +89,6 @@ def gap_word(text, ranks):
 
 
 def original(directory, sid, audio_id, only_voice):
-    """The static file of a sentence is its one recording; a sentence with several voices needs the recording id."""
     path = directory / "mp3" / f"{audio_id}.mp3"
     if not path.exists():
         path.parent.mkdir(exist_ok=True)

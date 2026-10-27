@@ -4,7 +4,6 @@ from fsrs import Scheduler, Card, Rating
 R = {"A": Rating.Again, "H": Rating.Hard, "G": Rating.Good, "E": Rating.Easy}
 
 def run(name, steps, retention=0.9):
-    # steps: list of (rating, delay) where delay = "due" or an int number of days after the previous review
     s = Scheduler(learning_steps=(), relearning_steps=(), enable_fuzzing=False, desired_retention=retention)
     card = Card()
     t0 = datetime(2026, 1, 1, tzinfo=timezone.utc)
@@ -27,7 +26,3 @@ run("easyThenLapses", [("E","due"),("E","due"),("A","due"),("A","due"),("G","due
 run("offSchedule", [("G","due"),("G",10),("G",2),("H",30),("G","due"),("A",1),("G","due")])
 run("lowRetention", [("G","due")] * 6, retention=0.85)
 
-s = Scheduler(learning_steps=(), relearning_steps=(), enable_fuzzing=False)
-c, _ = s.review_card(Card(), Rating.Good, datetime(2026,1,1,tzinfo=timezone.utc))
-for d in [0, 1, 3, 10, 30]:
-    print(f"    // retrievability after {d} days: {s.get_card_retrievability(c, datetime(2026,1,1,tzinfo=timezone.utc)+timedelta(days=d))!r} (S={c.stability!r})")

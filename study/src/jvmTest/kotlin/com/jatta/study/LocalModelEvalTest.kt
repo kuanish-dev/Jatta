@@ -28,7 +28,6 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.put
 import kotlinx.serialization.json.putJsonObject
 
-/** A model served by Ollama on this computer, asked the way the app asks Gemini Nano: temperature 0, top-k 1, 80 tokens. */
 class OllamaModel(override val name: String) : OnDeviceModel {
     private val http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).build()
     override val downloadBytes: Long? = null
@@ -59,7 +58,6 @@ class OllamaModel(override val name: String) : OnDeviceModel {
     }
 }
 
-/** The phone's model file run by LiteRT-LM on this computer, with the same settings as GemmaModel in the app. */
 class LiteRtModel(path: String) : OnDeviceModel {
     private val engine = Engine(EngineConfig(modelPath = path, backend = Backend.CPU())).apply { initialize() }
     private val conversation = ConversationConfig(samplerConfig = SamplerConfig(topK = 1, topP = 1.0, temperature = 0.0), maxOutputToken = 80)
@@ -75,7 +73,6 @@ class LiteRtModel(path: String) : OnDeviceModel {
     }
 }
 
-/** Counts calls and time to reply. */
 class Timed(private val model: OnDeviceModel) : OnDeviceModel by model {
     var calls = 0
     var totalMs = 0L
@@ -89,11 +86,6 @@ class Timed(private val model: OnDeviceModel) : OnDeviceModel by model {
     }
 }
 
-/**
- * Measures a local model on the eval sets before it may check answers in the app (М21, М25), with the app's own
- * judging code. Through Ollama: `./gradlew :study:jvmTest --tests '*LocalModelEvalTest*' --rerun -PollamaModel=gemma4:e2b`;
- * the phone's LiteRT-LM file: `... -PlitertModel=build/models/gemma-4-E2B-it.litertlm`. Without either it does nothing.
- */
 class LocalModelEvalTest {
     private val contentDir = System.getProperty("contentDir")
 

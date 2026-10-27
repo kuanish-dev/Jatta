@@ -6,21 +6,13 @@ import com.jatta.study.StudyConfig
 import com.jatta.study.store.TranslationEntry
 import kotlin.random.Random
 
-/** One sentence to translate into English: [source] in Russian, [references] — human translations. */
 data class TranslationTask(
     val sentenceId: Int,
     val source: String,
     val references: List<String>,
-    /** The sentence's page on Tatoeba, which names its authors. */
     val sourceUrl: String,
 )
 
-/**
- * М25: picks sentences to translate into English at the end of a session. A sentence qualifies when the
- * learner holds every course word in it (recall tomorrow ≥ 85%): the task is to use words already learned,
- * in a new sentence. The weakest of those words go first, since retrieval strengthens a memory most while it
- * is still weak. A sentence translated right is not offered again; one translated wrong returns after a few days.
- */
 class TranslationPicker(private val file: SentencesFile, private val engine: Engine, private val config: StudyConfig) {
 
     fun pick(learner: Learner, today: Int, history: List<TranslationEntry>): List<TranslationTask> {

@@ -38,7 +38,6 @@ class PersonalFitTest {
 
     @Test
     fun aFitThatDoesNotPredictLaterReviewsIsRejected() {
-        // the learner forgot fast at first and then like everyone else: the fit learns a past that is gone
         val log = SimulatedLog.of(items, lastDay = 120, seed = 2, truth = SimulatedLog.fastForgetter, after = defaults, switchDay = 70)
         val result = fit.run(log, defaults, today = 120)!!
         assertFalse(result.check.adopted)

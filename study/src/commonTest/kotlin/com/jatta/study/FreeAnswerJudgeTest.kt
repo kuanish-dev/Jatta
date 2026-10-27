@@ -28,11 +28,8 @@ class FreeAnswerJudgeTest {
 
     @Test
     fun throwsAwayRepliesItCannotTrust() {
-        // says wrong but changes nothing
         assertNull(judge.parse("VERDICT: WRONG\nFIXED: I didn't see it.", "I didn't see it."))
-        // rewrites the sentence instead of fixing it (М22)
         assertNull(judge.parse("VERDICT: WRONG\nFIXED: Unfortunately, your message never reached me.", "I didn't saw your message."))
-        // no verdict at all
         assertNull(judge.parse("The sentence looks fine to me!", "I met him."))
     }
 
@@ -66,7 +63,6 @@ class FreeAnswerJudgeTest {
         assertEquals(1, WordDiff.edits("I have went home.", "I went home."))
     }
 
-    /** М25: a translation is judged by meaning alone; lesson answers keep the strict prompt. */
     @Test
     fun translationsAreJudgedByMeaningAlone() = runTest {
         var asked = ""
@@ -102,7 +98,6 @@ class FreeAnswerJudgeTest {
     }
 }
 
-/** A stand-in for the on-device model that replies with whatever the test wants. */
 class ReplyingModel(private val reply: (String) -> String?) : OnDeviceModel {
     override val name = "Test model"
     override val downloadBytes: Long? = null

@@ -24,7 +24,6 @@ class ContentTest {
         assertEquals(1015, content.items.size)
     }
 
-    /** М24: every recorded phrase has its file, a free license and its source, and is studied by ear. */
     @Test
     fun recordedPhrasesAreCreditedAndStudiedByEar() {
         val recorded = content.items.values.filter { it.audio != null }
@@ -53,7 +52,6 @@ class ContentTest {
         assertEquals(recorded.map { it.audio!!.file }.toSet(), files, "every recording belongs to a phrase")
     }
 
-    /** М8: a word's rank is its NGSL 1.2 rank, and a word missing from NGSL has no rank. */
     @Test
     fun wordRanksComeFromNgsl() {
         val ngsl = mutableMapOf<String, Int>()
@@ -67,7 +65,6 @@ class ContentTest {
         }
     }
 
-    /** М11: every collected text is credited and passes the engine's coverage check once the course words are known. */
     @Test
     fun realTextsAreCreditedAndReadable() {
         val texts = ReadingTexts.read(File(System.getProperty("contentDir"), "en/texts.json").readText())
@@ -88,7 +85,6 @@ class ContentTest {
         }
     }
 
-    /** М25: every sentence to translate uses words of the course, has translations both ways and its credit. */
     @Test
     fun translationSentencesUseCourseWordsAndAreCredited() {
         val file = RealContent.sentences()

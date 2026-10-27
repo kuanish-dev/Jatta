@@ -11,7 +11,6 @@ import kotlinx.serialization.json.Json
 import kotlin.random.Random
 import kotlin.math.roundToInt
 
-/** content/en/placement.json, built by scripts/build_placement.py. */
 @Serializable
 data class PlacementFile(val source: String, val bands: List<PlacementBand>, val pseudowords: List<String>) {
     companion object {
@@ -19,43 +18,22 @@ data class PlacementFile(val source: String, val bands: List<PlacementBand>, val
     }
 }
 
-/** Real words sampled from one NGSL frequency band, ranks [from]..[to]. */
 @Serializable
 data class PlacementBand(val from: Int, val to: Int, val words: List<String>)
 
-/** One yes/no question; [band] is null for a word that doesn't exist. */
 data class WordProbe(val word: String, val band: Int?)
 
-/** A grammar question: the first rule items of each grammar topic, as choice exercises. */
 data class GrammarProbe(val topicId: String, val exercise: Exercise.Choice)
 
 data class PlacementResult(
-    /** Estimated number of the [totalWords] most frequent words the learner knows. */
     val estimatedWords: Int,
     val totalWords: Int,
-    /** Share of pseudowords the learner said they know. */
     val falseAlarms: Double,
-    /** False when the learner claimed too many pseudowords: then single "yes" answers are not trusted. */
     val reliable: Boolean,
-    /** Course items to start as already known; they come back for a check within days. */
     val knownItems: Set<String>,
-    /** Titles of grammar topics placed as known. */
     val knownTopics: List<String>,
 )
 
-/**
- * Placement test: where the course starts for this learner (М23).
- *
- * Words: a yes/no test with pseudowords (Meara & Buxton 1987; LexTALE works the same way). The hit
- * rate in each frequency band is corrected for guessing with the false-alarm rate, (h − f) / (1 − f).
- * A course word the learner was asked about directly counts as known on their "yes"; other course
- * words count as known when their band is mostly known.
- *
- * Grammar: two choice questions per grammar topic; both right places the topic as known.
- *
- * Known items start with a fresh memory, so the scheduler checks them within days: a wrong guess of
- * the test costs one review, not a gap in the course.
- */
 class Placement(private val content: StudyCourse, private val file: PlacementFile, private val config: StudyConfig) {
 
     val words: List<WordProbe> = (
@@ -75,7 +53,6 @@ class Placement(private val content: StudyCourse, private val file: PlacementFil
             }
     }
 
-    /** [knows]: word → the learner's yes/no; [grammarRight]: one entry per question of [grammar]. */
     fun result(knows: Map<String, Boolean>, grammarRight: List<Boolean>): PlacementResult {
         val falseAlarms = file.pseudowords.count { knows[it] == true }.toDouble() / file.pseudowords.size
         val reliable = falseAlarms <= config.placementMaxFalseAlarms

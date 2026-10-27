@@ -15,10 +15,6 @@ import com.jatta.engine.session.Ladder
 import com.jatta.engine.session.RestCoach
 import com.jatta.engine.session.Session
 
-/**
- * The engine for one course. Pure: no clock, storage or network. The app passes in the learning day
- * and the time of each answer, and stores what comes back.
- */
 class Engine(val course: Course, val config: EngineConfig = EngineConfig()) {
     val memory = MemoryModel(Fsrs(config.desiredRetention, config.maximumIntervalDays, config.fsrsParameters))
     val gate = TopicGate(course, memory, config)
@@ -29,20 +25,17 @@ class Engine(val course: Course, val config: EngineConfig = EngineConfig()) {
 
     fun planDay(learner: Learner, today: Int): DayPlan = planner.plan(learner, today)
 
-    /** М26: the plan for one topic the learner chose, outside the plan of the day. */
     fun planTopic(learner: Learner, topicId: String, today: Int): DayPlan = planner.topic(topicId, learner, today)
 
     fun startSession(plan: DayPlan): Session = Session(plan.reviews, plan.newItems, config)
 
     fun restCoach(baseline: Baseline, startMs: Long): RestCoach = RestCoach(config, baseline, startMs)
 
-    /** Stores an item's first graded answer of the day in the learner's memory state. */
     fun recordGrade(learner: Learner, itemId: String, grade: Grade, today: Int): Learner {
         val progress = memory.review(learner.progress[itemId], itemId, grade, today)
         return learner.copy(progress = learner.progress + (itemId to progress))
     }
 
-    /** М23: an item the placement test found known enters memory today but is not new learning for М18. */
     fun placeKnown(learner: Learner, itemId: String, today: Int): Learner {
         val progress = memory.review(null, itemId, Grade.Good, today).copy(firstDay = null)
         return learner.copy(progress = learner.progress + (itemId to progress))

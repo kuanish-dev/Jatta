@@ -34,7 +34,6 @@ import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
-/** Keeps the last scheduled reminder instead of showing it. */
 class RecordingReminders : ReminderScheduler {
     var last: Reminder? = null
     var askedPermission = false
@@ -79,12 +78,30 @@ class StudyControllerTest {
     }
 
     @Test
+    fun backLeadsToTheStartOfWhatIsOpenAndHomeHasNoBack() {
+        val app = controller(placement = placementFile)
+        assertFalse(app.screen.value.canGoBack)
+        app.startPlacement()
+        app.answerPlacementWord(true)
+        app.goBack()
+        assertTrue(app.screen.value is Screen.PlacementIntro, "leaving the test returns to its start")
+        app.skipPlacement()
+        app.openProgress()
+        app.goBack()
+        assertTrue(app.screen.value is Screen.Home)
+        app.startSession()
+        app.presented()
+        app.goBack()
+        assertTrue(app.screen.value is Screen.Home, "back ends a session like the stop button")
+        assertFalse(app.screen.value.canGoBack, "on home the system closes the app")
+    }
+
+    @Test
     fun whatThePlacementTestFindsKnownStartsInMemory() {
         val app = controller(placement = placementFile)
         app.startPlacement()
         while (true) {
             when (val screen = app.screen.value) {
-                // knows every real word and no pseudoword
                 is Screen.PlacementWord -> app.answerPlacementWord(screen.word !in placementFile.pseudowords)
                 is Screen.PlacementGrammar -> app.answerPlacementGrammar(screen.exercise.correctIndex)
                 else -> break
@@ -96,10 +113,8 @@ class StudyControllerTest {
         val home = app.screen.value as Screen.Home
         assertEquals(VocabularyEstimate(2809, 2809), home.vocabulary)
         assertEquals(done.result.knownItems.size, home.progress.held)
-        // words outside NGSL still have to be learned
         assertTrue(home.newItems > 0)
 
-        // placed items are in the log, so a replay rebuilds them, but they are not scored
         app.openCalibration()
         assertEquals(0, (app.screen.value as Screen.Calibration).report.reviews)
         now += 3 * day
@@ -114,7 +129,6 @@ class StudyControllerTest {
 
     @Test
     fun afterASessionTheMemoryModelIsFittedToTheLogAndMemoryRebuilt() {
-        // small batches so a short history is enough to fit on
         val engineConfig = EngineConfig(optimizerBatchReviews = 64)
         val studyConfig = StudyConfig(refitAfterReviews = 64)
         val today = learningDay(now, almaty, 4)
@@ -151,7 +165,6 @@ class StudyControllerTest {
         assertEquals(check.reviews + studyConfig.refitAfterReviews, after.nextFitAt)
     }
 
-    /** М18: twelve new items a day, however many sessions it takes. */
     @Test
     fun theDailyLimitOfNewItemsHoldsAcrossSessions() {
         val app = controller()
@@ -166,7 +179,6 @@ class StudyControllerTest {
         assertEquals(12, (app.screen.value as Screen.Home).newItems)
     }
 
-    /** A state saved before items kept their first study day gets it from the answer log. */
     @Test
     fun anOlderStateLearnsFromTheLogWhatWasStartedToday() {
         controller().apply {
@@ -181,11 +193,9 @@ class StudyControllerTest {
         assertTrue(store.load().progress.isNotEmpty())
     }
 
-    /** М24: a phrase recognised by ear is then shown as text, to listen to again and repeat. */
     @Test
     fun aPhraseHeardRightIsShownAsTextToRepeat() {
         val app = controller()
-        // the first phrases come a few days in, after the topics before them in the course
         repeat(8) {
             app.openHome()
             app.startSession()
@@ -220,7 +230,6 @@ class StudyControllerTest {
     @Test
     fun remindersFollowTheScheduleAtTheUsualStudyTime() {
         val app = controller()
-        // 13:00 in Almaty, nothing studied yet: today at the default 19:00
         val first = reminders.last!!
         assertEquals(learningDay(now, almaty, 4), learningDay(first.atMs, almaty, 4))
         assertEquals(19 * 60, localMinuteOfDay(first.atMs, almaty))
@@ -229,7 +238,6 @@ class StudyControllerTest {
         app.startSession()
         runSessionAnsweringRight(app)
         assertTrue(reminders.askedPermission)
-        // studied today: tomorrow, at the time this session started
         val next = reminders.last!!
         assertEquals(learningDay(now, almaty, 4) + 1, learningDay(next.atMs, almaty, 4))
         assertEquals(startMinute, localMinuteOfDay(next.atMs, almaty))
@@ -255,14 +263,14 @@ class StudyControllerTest {
         while (app.screen.value is Screen.Present) app.presented()
         val choice = (app.screen.value as Screen.Question).exercise as Exercise.Choice
         val wrong = (choice.options.indices - choice.correctIndex).first()
-        app.choose(wrong) // answered at once
+        app.choose(wrong)
         assertTrue((app.screen.value as Screen.Question).confidentError)
 
         app.choose(wrong)
         app.continueAfterReveal()
         while (app.screen.value is Screen.Present) app.presented()
         val next = (app.screen.value as Screen.Question).exercise as Exercise.Choice
-        now += 9_000 // slower than the usual 5 s for this exercise form
+        now += 9_000
         app.choose((next.options.indices - next.correctIndex).first())
         assertFalse((app.screen.value as Screen.Question).confidentError)
     }
@@ -294,7 +302,6 @@ class StudyControllerTest {
     @Test
     fun theModelChecksFreeAnswersOnlyAfterPassingTheAccuracyTest() {
         val cases = JudgeEval.readCases(File(System.getProperty("contentDir"), "eval/free-answers.json").readText())
-        // A model that knows the eval answers and fixes one word; anything else gets "is" for "are".
         val model = ReplyingModel { prompt ->
             val case = cases.firstOrNull { "Learner's sentence: ${it.response}" in prompt }
             when {
@@ -329,7 +336,6 @@ class StudyControllerTest {
         assertNotNull((app.screen.value as Screen.Question).hint)
     }
 
-    /** М25: close to a human translation counts at once; further off, the learner decides; all of it in its own log. */
     @Test
     fun aSessionEndsWithSentencesToTranslate() {
         val app = controller(sentences = RealContent.sentences())
@@ -367,13 +373,11 @@ class StudyControllerTest {
         assertEquals(answers, LearnerStore(dir.absolutePath).readLog().size, "translations stay out of the answer log")
     }
 
-    /** М25: further off, a translation goes to the model only after the model passed its own test on translations. */
     @Test
     fun aModelChecksTranslationsLenientlyOnlyAfterItsOwnTest() {
         val dir = File(System.getProperty("contentDir"), "eval")
         val cases = JudgeEval.readCases(File(dir, "free-answers.json").readText())
         val translationCases = JudgeEval.readTranslationCases(File(dir, "translations.json").readText())
-        // A model that knows every verdict; any other translation it finds the same in meaning.
         val model = ReplyingModel { prompt ->
             val free = cases.firstOrNull { "Learner's sentence: ${it.response}" in prompt }
             val translation = translationCases.firstOrNull { "Learner's translation: ${it.response}\n" in prompt }
@@ -400,7 +404,6 @@ class StudyControllerTest {
         assertTrue(log.isNotEmpty() && log.all { it.checkedBy == "ai" && it.passed })
     }
 
-    /** М26: any topic can be gone through outside the plan; early reviews are real reviews and reschedule memory. */
     @Test
     fun anyTopicCanBeGoneThroughOutsideThePlan() {
         val app = controller()
@@ -433,7 +436,6 @@ class StudyControllerTest {
         assertEquals(content.course.itemsOf("present-perfect").size, closed.newToday, "its new items fit in today's limit")
     }
 
-    /** М27: on the first opening of a day, yesterday's results and the streak, once; the first study of the day extends it. */
     @Test
     fun eachDayOpensWithYesterdaysSummaryAndTheStreak() {
         controller().apply { startSession() }.also { runSessionAnsweringRight(it) }
@@ -449,6 +451,12 @@ class StudyControllerTest {
         assertFalse(summary.streak.studiedToday)
         app.closeSummary()
         assertEquals(1, (app.screen.value as Screen.Home).streak.days)
+        app.openProgress()
+        val progress = (app.screen.value as Screen.Progress).report
+        assertEquals(1, progress.longestStreak)
+        assertEquals(listOf("Слова и сочетания", "Грамматика", "Фразы на слух"), progress.parts.map { it.title })
+        assertEquals(content.items.size, progress.parts.sumOf { it.total })
+        app.openHome()
         assertTrue(controller().screen.value is Screen.Home, "once a day")
 
         app.startSession()
@@ -471,7 +479,7 @@ class StudyControllerTest {
 
         app.startSession()
         val first = app.screen.value as Screen.Present
-        assertEquals("w-experience", first.item.id) // most frequent work word in NGSL
+        assertEquals("w-experience", first.item.id)
         assertNotNull(first.topicIntro)
 
         val done = runSessionAnsweringRight(app)
@@ -494,7 +502,6 @@ class StudyControllerTest {
         val home = again.screen.value as Screen.Home
         assertEquals(12, home.reviews)
         assertEquals(12, home.newItems)
-        // the passive waits until the Present Perfect holds
         assertEquals(TopicState.Locked, home.topics.single { it.title == content.topics.getValue("passive").title }.state)
     }
 
@@ -539,14 +546,13 @@ class StudyControllerTest {
                 is Screen.Home -> error("Unexpected home screen in a session")
                 is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
                 is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated, is Screen.Topic,
-                is Screen.DailySummary ->
+                is Screen.DailySummary, is Screen.Progress ->
                     error("Unexpected screen in a session: $screen")
             }
         }
         error("The session did not finish")
     }
 
-    /** Sessions day after day until one ends with sentences to translate. */
     private fun firstTranslation(app: StudyController): Screen.Translate {
         repeat(5) {
             app.openHome()

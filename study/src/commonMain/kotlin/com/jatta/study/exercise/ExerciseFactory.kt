@@ -8,10 +8,6 @@ import com.jatta.study.content.KindFile
 import com.jatta.study.content.StudyCourse
 import kotlin.random.Random
 
-/**
- * Builds the exercise for an item on a rung (М5). When the item has no material for that rung
- * it takes the nearest lower rung, then the nearest higher one.
- */
 class ExerciseFactory(private val content: StudyCourse) {
 
     fun build(itemId: String, rung: Rung, seed: Int): Exercise {
@@ -29,10 +25,6 @@ class ExerciseFactory(private val content: StudyCourse) {
         else -> wordExercise(item, rung, random)
     }
 
-    /**
-     * М24: a recorded phrase is studied by ear: understand it, catch a word, write it all down, then say
-     * it from its meaning and compare with the voice. There is no free composition for a phrase.
-     */
     private fun recordedExercise(item: ItemFile, recording: String, rung: Rung, random: Random): Exercise? = when (rung) {
         Rung.Recognize -> {
             val options = (listOf(item.ru) + otherWords(item).map { it.ru }.distinct().shuffled(random).take(3)).shuffled(random)
@@ -153,7 +145,6 @@ class ExerciseFactory(private val content: StudyCourse) {
     private fun gapped(item: ItemFile, random: Random): ExampleFile? =
         item.examples.filter { it.gap != null }.randomOrNull(random)
 
-    /** Words and phrases of the same topic to use as wrong options, or of the whole course if the topic is small. */
     private fun otherWords(item: ItemFile): List<ItemFile> {
         val topic = content.topicOf(item.id)
         val sameTopic = topic.items.filter { it.kind != KindFile.Rule && it.id != item.id && it.ru != item.ru }

@@ -23,13 +23,6 @@ import kotlinx.coroutines.withContext
 import java.io.File
 import kotlin.coroutines.cancellation.CancellationException
 
-/**
- * Gemma 4 E2B run inside the app by LiteRT-LM, for phones without Gemini Nano (where the phone has it,
- * Gemini Nano is the same Gemma 4 run by the system). The model file is downloaded once from Hugging Face,
- * in the background by [ModelDownloadWorker], pinned to one revision and checked by SHA-256. LiteRT-LM is built
- * for 64-bit ARM only, phones with less memory than [MIN_MEMORY_BYTES] can't hold the model, and a phone where it
- * failed to start on both GPU and CPU doesn't get it.
- */
 class GemmaModel(private val context: Context) : OnDeviceModel {
     private val file = file(context)
     private val loading = Mutex()
@@ -56,21 +49,11 @@ class GemmaModel(private val context: Context) : OnDeviceModel {
         }
     }
 
-    /**
-     * Loading takes seconds. The first time it happens on the accuracy test; once a backend has worked on this
-     * phone, it loads as soon as the app opens. The one that worked goes first, then the GPU, then the CPU.
-     */
     private suspend fun engine(): Engine = loading.withLock {
         engine ?: (backends().sortedByDescending { worked(it).exists() }.firstNotNullOfOrNull(::start)
             ?: error("LiteRT-LM could not start on this phone")).also { engine = it }
     }
 
-    /**
-     * A GPU engine can load and still fail on the first message (no OpenCL on the phone), so a one-token question
-     * proves it works before it is kept. A native library can also kill the app outright, which no catch survives:
-     * the attempt is marked as failed before it starts and unmarked once it works, so a backend that failed or
-     * crashed is not tried again on this phone.
-     */
     private fun start(backend: Backend): Engine? {
         val failed = failed(backend)
         if (failed.exists()) return null
@@ -112,7 +95,6 @@ class GemmaModel(private val context: Context) : OnDeviceModel {
         return info.totalMem
     }
 
-    /** A failing model means self-checking, not a crash; the reason goes to the log. */
     private inline fun <T> guarded(fallback: T, block: () -> T): T = try {
         block()
     } catch (e: CancellationException) {
@@ -130,10 +112,8 @@ class GemmaModel(private val context: Context) : OnDeviceModel {
 
         fun file(context: Context) = ModelFile(URL, BYTES, SHA256, File(context.filesDir, "models/gemma-4-E2B-it.litertlm"))
 
-        /** The model needs about 1.7 GB on the CPU besides the app and the system. Weak: a margin, not a measurement. */
         private const val MIN_MEMORY_BYTES = 6L * 1024 * 1024 * 1024 - 512L * 1024 * 1024
 
-        /** The same answer for the same sentence, as with Gemini Nano: greedy, short, no thinking. */
         private val conversation = ConversationConfig(samplerConfig = SamplerConfig(topK = 1, topP = 1.0, temperature = 0.0), maxOutputToken = 80)
         private val probe = ConversationConfig(samplerConfig = SamplerConfig(topK = 1, topP = 1.0, temperature = 0.0), maxOutputToken = 1)
     }

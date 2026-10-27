@@ -3,13 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <!-- Only to download the model that checks answers, once -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- The model download goes on in the background as foreground work with a progress notification -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
 
-    <!-- Android 11+ hides other apps by default; the text-to-speech engine must be declared to bind to it. -->
     <queries>
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE" />
@@ -20,10 +17,8 @@
         android:label="Jatta"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
-        <!-- LiteRT-LM runs Gemma on the GPU through OpenCL where the phone has it, otherwise on the CPU -->
         <uses-native-library android:name="libvndksupport.so" android:required="false" />
         <uses-native-library android:name="libOpenCL.so" android:required="false" />
-        <!-- configChanges keeps a running session alive on rotation and theme switches -->
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
             android:foregroundServiceType="dataSync"

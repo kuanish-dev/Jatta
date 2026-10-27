@@ -44,7 +44,6 @@ class DailyProgressTest {
             answer("w-old", 99, minute, correct = true, graded = false),
             answer("w-new", 99, 2 * minute, correct = true),
             answer("w-placed", 99, 10 * minute, correct = true),
-            // an evening sitting after a long break
             answer("w-other", 99, 300 * minute, correct = true),
         )
         val translations = listOf(TranslationEntry(99 * 86_400_000L + 305 * minute, 99, 1, "x", 0.9, true, 1_000, "code"))

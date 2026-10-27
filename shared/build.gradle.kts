@@ -34,6 +34,7 @@ kotlin {
             implementation(libs.compose.foundation)
             implementation(libs.compose.ui)
             implementation(libs.compose.material3)
+            implementation(libs.navigationevent.compose)
             implementation(libs.compose.components.resources)
         }
         androidMain.dependencies {
@@ -44,8 +45,6 @@ kotlin {
     }
 }
 
-// Compose resources = this module's own (fonts, licenses) plus a copy of the course from content/
-// at the repository root, merged into one directory.
 val syncResources = tasks.register<Sync>("syncResources") {
     from(layout.projectDirectory.dir("src/commonMain/composeResources"))
     from(rootProject.layout.projectDirectory.dir("content")) { into("files/content") }

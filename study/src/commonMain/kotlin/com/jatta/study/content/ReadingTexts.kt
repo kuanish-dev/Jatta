@@ -3,7 +3,6 @@ package com.jatta.study.content
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
-/** Where a text comes from; shown with the text, as its license requires. */
 @Serializable
 data class TextSource(
     val name: String,
@@ -14,11 +13,6 @@ data class TextSource(
     val changes: String,
 )
 
-/**
- * A passage from a real book or article (М11), collected by scripts/collect_texts.py.
- * [rare] lists its words outside the vocabulary assumed for B1; a rare word counts as known once
- * the learner holds it in the course.
- */
 @Serializable
 data class ReadingText(
     val id: String,

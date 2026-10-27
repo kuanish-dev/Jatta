@@ -6,17 +6,12 @@ import com.jatta.engine.learner.ItemProgress
 import com.jatta.engine.learner.Learner
 import com.jatta.engine.memory.MemoryModel
 
-/** What to study today. */
 data class DayPlan(
-    /** Due reviews, most forgotten first, with confusable topics interleaved. */
     val reviews: List<String>,
-    /** New items in teaching order. */
     val newItems: List<String>,
-    /** Due reviews moved to the following days because today is over the limit (М18). */
     val postponedReviews: Int,
 )
 
-/** Builds the day: reviews first, then new items if the learner is ready for them (М1, М7, М8, М9, М18). */
 class DayPlanner(
     private val course: Course,
     private val memory: MemoryModel,
@@ -33,11 +28,6 @@ class DayPlanner(
         return DayPlan(interleave(reviews), newItems, postponedReviews = due.size - reviews.size)
     }
 
-    /**
-     * М26: a topic the learner chose, whatever the schedule. Every item met so far comes back, most forgotten
-     * first, due or not: an early review strengthens memory less, and the memory model reschedules it by what it
-     * gives. New items of the topic come within what is left of today's limit (М18); a closed topic may be chosen too.
-     */
     fun topic(topicId: String, learner: Learner, today: Int): DayPlan {
         val items = course.itemsOf(topicId)
         val reviews = items.mapNotNull { learner.progress[it.id] }
@@ -55,14 +45,9 @@ class DayPlanner(
         .map { it.id }
         .toList()
 
-    /** М18: the limit is per day, so items already started today in an earlier session count against it. */
     fun newAllowance(learner: Learner, today: Int): Int =
         (config.newItemsPerDay - learner.progress.values.count { it.firstDay == today }).coerceAtLeast(0)
 
-    /**
-     * Reviews of topics that learners confuse are mixed one by one, so each answer needs telling
-     * them apart (М9). Groups of unrelated topics keep their urgency order.
-     */
     private fun interleave(reviews: List<ItemProgress>): List<String> {
         val clusters = confusionClusters()
         return reviews
@@ -77,7 +62,6 @@ class DayPlanner(
         return (0 until longest).flatMap { index -> lists.mapNotNull { it.getOrNull(index) } }
     }
 
-    /** Topic id → id of the first topic in its group of mutually confusable topics. */
     private fun confusionClusters(): Map<String, String> {
         val root = course.topics.associate { it.id to it.id }.toMutableMap()
         fun find(id: String): String = if (root.getValue(id) == id) id else find(root.getValue(id))

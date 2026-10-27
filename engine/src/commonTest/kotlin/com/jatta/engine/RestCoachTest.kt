@@ -15,7 +15,6 @@ class RestCoachTest {
     private val baseline = Baseline(accuracy = 0.9, medianResponseMs = 4_000)
     private val minute = 60_000L
 
-    /** Half wrong and 50% slower than usual. */
     private val tired = List(10) { Answer(correct = it % 2 == 0, responseMs = 6_000) }
 
     @Test

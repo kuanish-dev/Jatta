@@ -7,34 +7,19 @@ import kotlin.math.sqrt
 
 enum class CalibrationVerdict { TooFewReviews, Accurate, Overestimates, Underestimates }
 
-/** Reviews whose predicted recall fell between [from] and [to]. */
 data class CalibrationBin(val from: Double, val to: Double, val count: Int, val predicted: Double, val actual: Double)
 
 data class CalibrationReport(
     val reviews: Int,
-    /** Mean recall the model predicted for these reviews. */
     val predicted: Double,
-    /** Share actually recalled, with its 95% interval [low]..[high]. */
     val actual: Double,
     val low: Double,
     val high: Double,
     val bins: List<CalibrationBin>,
     val verdict: CalibrationVerdict,
-    /** Reviews needed before there is a verdict. */
     val minReviews: Int,
 )
 
-/**
- * How well the memory model predicts this learner (М2), from the answer log alone.
- *
- * The log is replayed through the model: before each review the model's recall prediction is known,
- * after it whether the learner recalled. Every scheduled review is a test with a known prediction,
- * so no extra questions are needed; extra early reviews would barely strengthen memory and would
- * change what they measure. Models of memory are evaluated the same way on review histories
- * (srs-benchmark). Items placed as known by the placement test (М23) are replayed but not scored, and
- * neither is a second review on the same day, a topic gone through again (М26): it predicts nothing about forgetting,
- * and the fit of the memory model leaves it out too.
- */
 object Calibration {
     private val edges = listOf(0.0, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0)
 
@@ -68,7 +53,6 @@ object Calibration {
         return CalibrationReport(n, predicted, actual, low, high, bins, verdict, config.minReviewsForCalibration)
     }
 
-    /** 95% Wilson score interval for [k] successes out of [n]; sound for small samples and shares near 1. */
     private fun wilson(k: Int, n: Int): Pair<Double, Double> {
         if (n == 0) return 0.0 to 1.0
         val z = 1.96
@@ -79,6 +63,5 @@ object Calibration {
         return (center - half).coerceAtLeast(0.0) to (center + half).coerceAtMost(1.0)
     }
 
-    /** checkedBy of log entries written for items placed as known by the placement test. */
     const val PLACEMENT = "placement"
 }

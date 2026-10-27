@@ -6,16 +6,10 @@ import com.jatta.engine.fsrs.Grade
 import com.jatta.study.store.LogEntry
 import kotlin.random.Random
 
-/**
- * Answer logs of a learner who meets [newPerDay] new items a day and reviews each one whenever the
- * default model says it is due, up to [lastDay]. Recall follows [truth] before [switchDay] and
- * [after] from then on.
- */
 object SimulatedLog {
     private val config = EngineConfig()
     private const val DAY_MS = 86_400_000L
 
-    /** Forgets new items about three times faster, and builds memory more slowly, than the defaults expect. */
     val fastForgetter = Fsrs.DEFAULT_PARAMETERS.toMutableList().apply {
         this[2] = 0.7
         this[8] = 1.2

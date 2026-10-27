@@ -2,12 +2,6 @@ package com.jatta.study.translate
 
 import com.jatta.study.exercise.AnswerCheck
 
-/**
- * chrF++ (Popović 2015, 2017), the sentence-level score of machine translation research: the F-score of
- * character n-grams 1–6 (spaces left out) and word n-grams 1–2, precision and recall averaged over the
- * orders, recall weighted twice (β = 2). Texts are compared after [AnswerCheck.normalize], so case,
- * punctuation and contractions don't count. 0 — nothing in common, 1 — the same text.
- */
 object Chrf {
     private const val CHAR_ORDER = 6
     private const val WORD_ORDER = 2

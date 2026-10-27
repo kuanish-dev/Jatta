@@ -13,7 +13,6 @@ import platform.UserNotifications.UNUserNotificationCenter
 
 private const val REQUEST_ID = "jatta-reminder"
 
-/** Reminders as local notifications. Not run yet: needs Xcode and a simulator. */
 class IosReminders : ReminderScheduler {
     private val center = UNUserNotificationCenter.currentNotificationCenter()
 

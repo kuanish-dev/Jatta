@@ -1,15 +1,3 @@
-"""Collects reading texts for М11 from open sources and keeps only passages a B1 learner can read.
-
-A passage is kept when at least 95% of its words are known and it brings at most 3 unknown words.
-"Known" means: a form of one of the first ASSUMED_KNOWN_RANK words of NGSL 1.2 (a conservative
-guess at B1 vocabulary), a word of the course, or a proper noun (names count as known in coverage
-studies). Every other word is stored in "rare"; the app treats a rare word as known once the learner
-holds it, so texts unlock as the course goes on.
-
-Sources: Simple English Wikipedia (CC BY-SA 4.0) and public-domain books from Project Gutenberg.
-Run from the repository root:  python3 -I scripts/collect_texts.py
-"""
-
 import csv
 import json
 import re
@@ -44,7 +32,6 @@ BOOKS = [
     (14838, "The Tale of Peter Rabbit", "Beatrix Potter", 1902),
 ]
 
-# The app's tokenizer (engine TextCoverage): lower-case letters with an optional inner apostrophe.
 TOKEN = re.compile(r"[a-z]+(?:'[a-z]+)?")
 CONTRACTION_STEMS = {"ca": "can", "wo": "will", "sha": "shall"}
 
@@ -67,7 +54,6 @@ def ngsl_known_forms():
         words = [w.strip().lower() for w in line.split(",") if w.strip()]
         if ranks.get(words[0], 10**9) <= ASSUMED_KNOWN_RANK:
             forms.update(words)
-    # NGSL keeps numbers, days and months in a supplementary list; a B1 learner knows them all.
     for line in open(ROOT / "sources/ngsl/NGSL_SUP_lemmatized.csv", encoding="utf-8-sig"):
         if not line.startswith("#"):
             forms.update(w.strip().lower() for w in line.split(",") if w.strip())
@@ -97,7 +83,6 @@ def is_known(token, known):
 
 
 def proper_nouns(text):
-    """Words written with a capital letter somewhere other than the start of a sentence."""
     names = set()
     for match in re.finditer(r"[A-Za-z]+(?:'[A-Za-z]+)?", text):
         word = match.group()
@@ -125,14 +110,12 @@ def clean(text):
 
 
 def is_prose(paragraph):
-    """Running sentences: not a heading, a list or a table of contents."""
     if "CHAPTER" in paragraph or paragraph.isupper():
         return False
     return paragraph.endswith((".", "!", "?", '."', '!"', '?"', ".'", "!'", "?'"))
 
 
 def passages(paragraphs):
-    """Prose paragraphs of a good length; short neighbours are joined, long ones skipped."""
     buffer = []
     for paragraph in paragraphs:
         paragraph = clean(paragraph)
@@ -158,14 +141,12 @@ def readable(text, known, course):
     unknown_count = sum(1 for t in tokens if t in rare)
     if 1 - unknown_count / len(tokens) < MIN_COVERAGE or len(rare) > MAX_UNKNOWN:
         return None
-    # Store every word outside the assumed vocabulary, course words included: the app decides
-    # per learner which of them are already known.
     _, outside_base = judge(text, known)
     return outside_base
 
 
 def wiki_texts(known, course):
-    seen = set()  # several titles redirect to the same page
+    seen = set()
     for title in WIKI_TITLES:
         query = urllib.parse.urlencode({
             "action": "query", "format": "json", "prop": "extracts|info", "explaintext": 1,

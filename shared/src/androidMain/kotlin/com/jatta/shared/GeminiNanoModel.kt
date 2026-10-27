@@ -9,10 +9,6 @@ import com.jatta.study.judge.ModelState
 import com.jatta.study.judge.OnDeviceModel
 import kotlin.coroutines.cancellation.CancellationException
 
-/**
- * Gemini Nano through ML Kit's Prompt API. It runs inside the AICore system app, only on supported
- * phones; anywhere else (an emulator, an older phone) it reports Unavailable and [PhoneModel] uses Gemma instead.
- */
 class GeminiNanoModel : OnDeviceModel {
     private val model by lazy { Generation.getClient() }
 
@@ -41,7 +37,6 @@ class GeminiNanoModel : OnDeviceModel {
     }
 
     override suspend fun generate(prompt: String): String? = guarded(null) {
-        // Temperature 0 and top-1: the same answer for the same sentence, no creativity wanted.
         val request = generateContentRequest(TextPart(prompt)) {
             temperature = 0f
             topK = 1
@@ -50,7 +45,6 @@ class GeminiNanoModel : OnDeviceModel {
         model.generateContent(request).candidates.firstOrNull()?.text
     }
 
-    /** AICore errors (no support, not set up yet, quota) all mean "can't use the model right now". */
     private inline fun <T> guarded(fallback: T, block: () -> T): T = try {
         block()
     } catch (e: CancellationException) {

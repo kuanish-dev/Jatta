@@ -9,7 +9,6 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-/** Compares the port with py-fsrs 6.3.2; the vectors come from scripts/fsrs_vectors.py. */
 class FsrsTest {
 
     @Test
