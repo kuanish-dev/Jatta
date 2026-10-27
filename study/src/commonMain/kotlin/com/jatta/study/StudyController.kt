@@ -6,6 +6,7 @@ import com.jatta.engine.epochMsAt
 import com.jatta.engine.learningDay
 import com.jatta.engine.localMinuteOfDay
 import com.jatta.engine.fsrs.Grade
+import com.jatta.engine.plan.DayPlan
 import com.jatta.engine.session.Advice
 import com.jatta.engine.session.Answer
 import com.jatta.engine.session.Baseline
@@ -119,6 +120,7 @@ class StudyController(
     private var modelState = ModelState.Unavailable
     private var downloadedBytes: Long? = null
     private var downloadFailed = false
+    private var following = false
     private var testedDone: Int? = null
 
     private var today = 0
@@ -149,6 +151,8 @@ class StudyController(
             scope.launch {
                 modelState = model.state()
                 refreshHome()
+                // A download started earlier may still run in the background: follow its progress.
+                if (modelState == ModelState.Downloading) followDownload(model)
             }
         }
     }
@@ -164,7 +168,38 @@ class StudyController(
 
     fun startSession() {
         today = currentDay()
-        session = engine.startSession(engine.planDay(learner, today))
+        begin(engine.planDay(learner, today))
+    }
+
+    /** М26: what going through a topic now would bring, before the learner starts it. */
+    fun openTopic(topicId: String) {
+        today = currentDay()
+        val status = topicStatuses().first { it.id == topicId }
+        val items = content.course.itemsOf(topicId)
+        val plan = engine.planTopic(learner, topicId, today)
+        val missing = content.course.topics.first { it.id == topicId }.requires
+            .filterNot { engine.gate.isMastered(it, learner, today) }
+            .map { content.topics.getValue(it).title }
+        state.value = Screen.Topic(
+            topic = status,
+            intro = content.topics.getValue(topicId).intro,
+            reviews = plan.reviews.size,
+            early = plan.reviews.count { learner.progress.getValue(it).dueDay > today },
+            newToday = plan.newItems.size,
+            newLater = items.count { it.id !in learner.progress } - plan.newItems.size,
+            missing = missing,
+        )
+    }
+
+    /** М26: go through the topic on screen, outside the plan of the day. */
+    fun startTopic() {
+        val topic = state.value as? Screen.Topic ?: return
+        today = currentDay()
+        begin(engine.planTopic(learner, topic.topic.id, today))
+    }
+
+    private fun begin(plan: DayPlan) {
+        session = engine.startSession(plan)
         coach = engine.restCoach(baseline(), nowMs())
         val start = SessionStart(today, localMinuteOfDay(nowMs(), utcOffsetMinutes()))
         saved = saved.copy(sessionStarts = (saved.sessionStarts + start).takeLast(config.sessionStartsKept))
@@ -449,21 +484,28 @@ class StudyController(
         openHome()
     }
 
+    /** The download goes on in the background; the notification permission lets its progress show outside the app. */
     fun downloadModel() {
         val model = model ?: return
+        if (following) return
+        reminders?.askPermission()
         modelState = ModelState.Downloading
-        downloadedBytes = 0
         refreshHome()
-        scope.launch {
-            val ready = model.download { bytes ->
-                downloadedBytes = bytes
-                refreshHome()
-            }
-            downloadedBytes = null
-            downloadFailed = !ready
-            modelState = if (ready) ModelState.Ready else model.state()
+        scope.launch { followDownload(model) }
+    }
+
+    private suspend fun followDownload(model: OnDeviceModel) {
+        if (following) return
+        following = true
+        val ready = model.download { bytes ->
+            downloadedBytes = bytes
             refreshHome()
         }
+        following = false
+        downloadedBytes = null
+        downloadFailed = !ready
+        modelState = if (ready) ModelState.Ready else model.state()
+        refreshHome()
     }
 
     /** М21, "test first, then trust": the model checks lessons only if it matches enough known verdicts. */
@@ -694,15 +736,7 @@ class StudyController(
     private fun home(): Screen.Home {
         today = currentDay()
         val plan = engine.planDay(learner, today)
-        val topics = content.course.topics.map { topic ->
-            val items = content.course.itemsOf(topic.id)
-            val state = when {
-                !engine.gate.isOpen(topic, learner, today) -> TopicState.Locked
-                engine.gate.isMastered(topic.id, learner, today) -> TopicState.Mastered
-                else -> TopicState.Open
-            }
-            TopicStatus(topic.title, state, held = items.count { engine.gate.holds(learner.progress[it.id], today) }, total = items.size)
-        }
+        val topics = topicStatuses()
         val progress = CourseProgress(
             held = topics.sumOf { it.held },
             met = content.course.items.count { it.id in learner.progress },
@@ -723,6 +757,16 @@ class StudyController(
         val reading = if (grammarHolds) readingPicker.pick(texts, learner, today, saved.readTexts.toSet()) else null
         val vocabulary = saved.placement?.let { p -> p.estimatedWords?.let { VocabularyEstimate(it, p.totalWords ?: 0) } }
         return Screen.Home(content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, progress, vocabulary, reading)
+    }
+
+    private fun topicStatuses(): List<TopicStatus> = content.course.topics.map { topic ->
+        val items = content.course.itemsOf(topic.id)
+        val state = when {
+            !engine.gate.isOpen(topic, learner, today) -> TopicState.Locked
+            engine.gate.isMastered(topic.id, learner, today) -> TopicState.Mastered
+            else -> TopicState.Open
+        }
+        TopicStatus(topic.id, topic.title, state, held = items.count { engine.gate.holds(learner.progress[it.id], today) }, total = items.size)
     }
 
     /** The learner's usual accuracy and speed once there is enough history (М16). */

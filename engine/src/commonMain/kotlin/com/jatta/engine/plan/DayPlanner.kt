@@ -33,17 +33,31 @@ class DayPlanner(
         return DayPlan(interleave(reviews), newItems, postponedReviews = due.size - reviews.size)
     }
 
-    /** М18: the limit is per day, so items already started today in an earlier session count against it. */
-    private fun newItems(learner: Learner, today: Int): List<String> {
-        val startedToday = learner.progress.values.count { it.firstDay == today }
-        return course.topics.asSequence()
-            .filter { gate.isOpen(it, learner, today) }
-            .flatMap { course.itemsOf(it.id) }
-            .filter { it.id !in learner.progress }
-            .take((config.newItemsPerDay - startedToday).coerceAtLeast(0))
-            .map { it.id }
-            .toList()
+    /**
+     * М26: a topic the learner chose, whatever the schedule. Every item met so far comes back, most forgotten
+     * first, due or not: an early review strengthens memory less, and the memory model reschedules it by what it
+     * gives. New items of the topic come within what is left of today's limit (М18); a closed topic may be chosen too.
+     */
+    fun topic(topicId: String, learner: Learner, today: Int): DayPlan {
+        val items = course.itemsOf(topicId)
+        val reviews = items.mapNotNull { learner.progress[it.id] }
+            .sortedWith(compareBy<ItemProgress> { memory.recallOn(it, today) }.thenBy { it.itemId })
+            .map { it.itemId }
+        val newItems = items.filter { it.id !in learner.progress }.take(newAllowance(learner, today)).map { it.id }
+        return DayPlan(reviews, newItems, postponedReviews = 0)
     }
+
+    private fun newItems(learner: Learner, today: Int): List<String> = course.topics.asSequence()
+        .filter { gate.isOpen(it, learner, today) }
+        .flatMap { course.itemsOf(it.id) }
+        .filter { it.id !in learner.progress }
+        .take(newAllowance(learner, today))
+        .map { it.id }
+        .toList()
+
+    /** М18: the limit is per day, so items already started today in an earlier session count against it. */
+    fun newAllowance(learner: Learner, today: Int): Int =
+        (config.newItemsPerDay - learner.progress.values.count { it.firstDay == today }).coerceAtLeast(0)
 
     /**
      * Reviews of topics that learners confuse are mixed one by one, so each answer needs telling

@@ -31,7 +31,9 @@ data class CalibrationReport(
  * after it whether the learner recalled. Every scheduled review is a test with a known prediction,
  * so no extra questions are needed; extra early reviews would barely strengthen memory and would
  * change what they measure. Models of memory are evaluated the same way on review histories
- * (srs-benchmark). Items placed as known by the placement test (М23) are replayed but not scored.
+ * (srs-benchmark). Items placed as known by the placement test (М23) are replayed but not scored, and
+ * neither is a second review on the same day, a topic gone through again (М26): it predicts nothing about forgetting,
+ * and the fit of the memory model leaves it out too.
  */
 object Calibration {
     private val edges = listOf(0.0, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0)
@@ -39,7 +41,9 @@ object Calibration {
     fun of(log: List<LogEntry>, memory: MemoryModel, config: StudyConfig): CalibrationReport {
         val scored = mutableListOf<Pair<Double, Boolean>>()
         LogReplay.progress(log, memory) { entry, previous ->
-            if (previous != null && entry.checkedBy != PLACEMENT) scored += memory.recallOn(previous, entry.day) to entry.correct
+            if (previous != null && entry.checkedBy != PLACEMENT && entry.day > previous.lastReviewDay) {
+                scored += memory.recallOn(previous, entry.day) to entry.correct
+            }
         }
 
         val n = scored.size

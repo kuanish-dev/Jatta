@@ -63,6 +63,17 @@ class ModelFileTest {
     }
 
     @Test
+    fun aStoppedDownloadKeepsWhatItHas() {
+        val file = ModelFile(url, content.size.toLong(), sha, File(dir, "model.litertlm"))
+        var chunks = 0
+        assertFalse(file.download(isStopped = { chunks++ > 0 }) {})
+        val kept = File(dir, "model.litertlm.part").length()
+        assertTrue(kept in 1 until content.size, "kept $kept bytes")
+        assertTrue(file.download {})
+        assertEquals(listOf(null, "bytes=$kept-"), ranges)
+    }
+
+    @Test
     fun aDamagedFileIsThrownAwayAndNotUsed() {
         val file = ModelFile(url, content.size.toLong(), "0".repeat(64), File(dir, "model.litertlm"))
         assertFalse(file.download {})

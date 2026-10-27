@@ -84,6 +84,8 @@ class CalibrationTest {
             // a later answer of the same day carries no grade and is not a review
             LogEntry(1_000, 0, "w-a", "Recognize", false, 3_000, null, false, "code"),
             entry("w-a", 2, Grade.Again),
+            // the topic gone through again the same day (М26) changes memory but predicts nothing
+            entry("w-a", 2, Grade.Good),
         )
         val report = Calibration.of(log, memory, studyConfig)
         assertEquals(1, report.reviews)

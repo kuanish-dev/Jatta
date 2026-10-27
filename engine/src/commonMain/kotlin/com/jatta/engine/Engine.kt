@@ -29,6 +29,9 @@ class Engine(val course: Course, val config: EngineConfig = EngineConfig()) {
 
     fun planDay(learner: Learner, today: Int): DayPlan = planner.plan(learner, today)
 
+    /** М26: the plan for one topic the learner chose, outside the plan of the day. */
+    fun planTopic(learner: Learner, topicId: String, today: Int): DayPlan = planner.topic(topicId, learner, today)
+
     fun startSession(plan: DayPlan): Session = Session(plan.reviews, plan.newItems, config)
 
     fun restCoach(baseline: Baseline, startMs: Long): RestCoach = RestCoach(config, baseline, startMs)

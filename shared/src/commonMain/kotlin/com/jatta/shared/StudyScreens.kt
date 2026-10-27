@@ -1,5 +1,6 @@
 package com.jatta.shared
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -75,6 +76,7 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
     when (val s = screen) {
         is Screen.Home -> HomeScreen(s, controller)
         is Screen.Read -> ReadScreen(s, controller)
+        is Screen.Topic -> TopicScreen(s, controller)
         is Screen.PlacementIntro -> PlacementIntroScreen(s, controller)
         is Screen.PlacementWord -> PlacementWordScreen(s, controller)
         is Screen.PlacementGrammar -> PlacementGrammarScreen(s, controller)
@@ -125,8 +127,8 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
     if (nothingToDo) Muted("Новые повторы появятся, когда память начнёт ослабевать.")
     home.reading?.let { ReadingCard(it, controller::openReading) }
     Label("Темы · в памяти / всего", modifier = Modifier.padding(top = 8.dp))
-    home.topics.forEach { TopicRow(it) }
-    if (home.topics.any { it.state == TopicState.Locked }) Muted("Закрытые темы откроются, когда темы до них будут держаться в памяти.")
+    home.topics.forEach { topic -> TopicRow(topic) { controller.openTopic(topic.id) } }
+    Muted("Любую тему можно пройти отдельно: нажмите на неё. Закрытые темы сами откроются, когда темы до них будут держаться в памяти.")
     TextButton(controller::openCalibration) { Label("Точность прогноза памяти →", color = Neon.Cyan) }
     AiSection(home.ai, controller)
 }
@@ -248,14 +250,15 @@ private fun Stat(label: String, value: Int, color: Color, modifier: Modifier) {
 }
 
 @Composable
-private fun TopicRow(topic: TopicStatus) {
+private fun TopicRow(topic: TopicStatus, onOpen: () -> Unit) {
     val fraction = if (topic.total == 0) 0f else topic.held.toFloat() / topic.total
     val (status, color) = when (topic.state) {
         TopicState.Locked -> "закрыта" to Neon.Muted
         TopicState.Open -> "${topic.held}/${topic.total}" to Neon.Cyan
         TopicState.Mastered -> "✓ ${topic.held}/${topic.total}" to Neon.Acid
     }
-    Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+    // М26: any topic opens, to go through it outside the plan of the day.
+    Column(Modifier.fillMaxWidth().clickable(onClick = onOpen), verticalArrangement = Arrangement.spacedBy(2.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(topic.title, Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Medium)
             Label(status, color = color)
@@ -330,7 +333,7 @@ private fun AiSection(ai: AiStatus, controller: StudyController) {
     val testedDone = ai.testedDone
     when {
         ai.model == ModelState.Unavailable ->
-            Muted("На этом устройстве модели нет: ей нужно от 6 ГБ памяти. Свободные ответы вы сверяете с образцом сами.")
+            Muted("На этом устройстве модель для проверки не работает: ей не хватает памяти или она здесь не запускается. Свободные ответы вы сверяете с образцом сами.")
         ai.model == ModelState.Downloadable -> {
             val size = ai.downloadTotalBytes?.let { " (${megabytes(it)}, лучше по Wi-Fi)" }.orEmpty()
             Muted("Можно скачать ${ai.modelName}$size — модель Google, которая проверяет ответы на телефоне без интернета.")

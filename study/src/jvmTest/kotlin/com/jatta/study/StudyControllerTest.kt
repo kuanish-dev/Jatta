@@ -400,6 +400,39 @@ class StudyControllerTest {
         assertTrue(log.isNotEmpty() && log.all { it.checkedBy == "ai" && it.passed })
     }
 
+    /** М26: any topic can be gone through outside the plan; early reviews are real reviews and reschedule memory. */
+    @Test
+    fun anyTopicCanBeGoneThroughOutsideThePlan() {
+        val app = controller()
+        app.startSession()
+        runSessionAnsweringRight(app)
+        now += day
+        app.openHome()
+        val before = LearnerStore(dir.absolutePath).load().progress.associateBy { it.item }
+
+        app.openTopic("work-words")
+        val topic = app.screen.value as Screen.Topic
+        assertEquals(12, topic.reviews)
+        assertEquals(12, topic.early, "learned yesterday, due in a few days")
+        assertEquals(0, topic.newToday)
+        app.startTopic()
+        runSessionAnsweringRight(app)
+
+        val after = LearnerStore(dir.absolutePath).load().progress.associateBy { it.item }
+        val today = learningDay(now, almaty, EngineConfig().dayStartHour)
+        val reviewed = content.course.itemsOf("work-words").map { it.id }
+        reviewed.forEach { item ->
+            assertEquals(today, after.getValue(item).lastReviewDay)
+            assertTrue(after.getValue(item).dueDay > before.getValue(item).dueDay, "$item: an early review moves the next one later, not to now")
+        }
+
+        app.openHome()
+        app.openTopic("present-perfect")
+        val closed = app.screen.value as Screen.Topic
+        assertTrue(closed.missing.isNotEmpty(), "a closed topic says what it builds on")
+        assertEquals(content.course.itemsOf("present-perfect").size, closed.newToday, "its new items fit in today's limit")
+    }
+
     @Test
     fun firstDayIntroducesTheFirstWordsAndSavesThem() {
         val app = controller()
@@ -475,7 +508,7 @@ class StudyControllerTest {
                 is Screen.Rest -> app.finishRest()
                 is Screen.Home -> error("Unexpected home screen in a session")
                 is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
-                is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated ->
+                is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated, is Screen.Topic ->
                     error("Unexpected screen in a session: $screen")
             }
         }

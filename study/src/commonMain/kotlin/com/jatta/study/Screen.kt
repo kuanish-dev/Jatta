@@ -38,6 +38,21 @@ sealed interface Screen {
 
     data class PlacementDone(val result: PlacementResult) : Screen
 
+    /**
+     * М26: a topic the learner chose: [reviews] items met so far, [early] of them before they are due, [newToday]
+     * new ones within today's limit and [newLater] left for the following days; [missing] — the topics it builds
+     * on that don't hold yet.
+     */
+    data class Topic(
+        val topic: TopicStatus,
+        val intro: String,
+        val reviews: Int,
+        val early: Int,
+        val newToday: Int,
+        val newLater: Int,
+        val missing: List<String>,
+    ) : Screen
+
     /** Reading a real text; words met in the course are pointed out (М11). */
     data class Read(val reading: Reading) : Screen
 
@@ -151,7 +166,7 @@ enum class RestKind { Scheduled, Fatigue, Quiet }
 
 enum class TopicState { Locked, Open, Mastered }
 
-data class TopicStatus(val title: String, val state: TopicState, val held: Int, val total: Int)
+data class TopicStatus(val id: String, val title: String, val state: TopicState, val held: Int, val total: Int)
 
 /**
  * М2: whether the memory model runs on [personal] parameters, the reviews it can be fitted on so far,

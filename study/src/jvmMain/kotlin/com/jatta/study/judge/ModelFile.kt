@@ -15,21 +15,25 @@ class ModelFile(private val url: String, val bytes: Long, private val sha256: St
 
     val isReady: Boolean get() = target.length() == bytes
 
-    /** Fetches what is missing; [onProgress] gets the bytes on disk so far. True when the file is complete and intact. */
-    fun download(onProgress: (Long) -> Unit): Boolean {
+    /**
+     * Fetches what is missing; [onProgress] gets the bytes on disk so far, and [isStopped] ends the download early,
+     * keeping what is there for the next try. True when the file is complete and intact.
+     */
+    fun download(isStopped: () -> Boolean = { false }, onProgress: (Long) -> Unit): Boolean {
         if (isReady) return true
         target.parentFile?.mkdirs()
         if (part.length() > bytes) part.delete()
         if (target.parentFile!!.usableSpace < bytes - part.length() + SPARE_BYTES) return false
-        if (part.length() < bytes) fetch(onProgress)
-        if (part.length() != bytes || digest(part) != sha256) {
+        if (part.length() < bytes) fetch(isStopped, onProgress)
+        if (part.length() < bytes) return false
+        if (digest(part) != sha256) {
             part.delete()
             return false
         }
         return part.renameTo(target)
     }
 
-    private fun fetch(onProgress: (Long) -> Unit) {
+    private fun fetch(isStopped: () -> Boolean, onProgress: (Long) -> Unit) {
         val connection = open(part.length())
         try {
             val append = when (connection.responseCode) {
@@ -43,7 +47,7 @@ class ModelFile(private val url: String, val bytes: Long, private val sha256: St
             connection.inputStream.use { input ->
                 FileOutputStream(part, append).use { output ->
                     val buffer = ByteArray(BUFFER_BYTES)
-                    while (true) {
+                    while (!isStopped()) {
                         val read = input.read(buffer)
                         if (read < 0) break
                         output.write(buffer, 0, read)

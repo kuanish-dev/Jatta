@@ -51,6 +51,18 @@ class DayPlannerTest {
     }
 
     @Test
+    fun aChosenTopicBringsBackItsItemsEarlyAndNewOnesWithinTheDailyLimit() {
+        val small = Engine(Fixture.course, EngineConfig(newItemsPerDay = 3))
+        val met = Learner(mapOf("w9" to Fixture.held("w9", today - 2), "w8" to Fixture.due("w8", today, daysAgo = 6)))
+        val learner = small.recordGrade(met, "w10", Grade.Good, today)
+        val plan = small.planTopic(learner, "basics", today)
+        assertEquals(listOf("w8", "w9", "w10"), plan.reviews, "every met item, the most forgotten first, due or not")
+        assertEquals(listOf("w7", "w6"), plan.newItems, "w10 started today already counts")
+        assertEquals(emptyList(), small.planDay(learner, today).reviews.filter { it != "w8" }, "the plan of the day has only what is due")
+        assertEquals(listOf("past1", "past2", "past3"), small.planTopic(Learner(), "past-simple", today).newItems, "a closed topic too")
+    }
+
+    @Test
     fun mostForgottenReviewsComeFirst() {
         val learner = Learner(
             mapOf(
