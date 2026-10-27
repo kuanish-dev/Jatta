@@ -31,4 +31,7 @@ data class StudyConfig(
     val translationsPerSession: Int = 4,
     val translationPassScore: Double = 0.8,
     val translationRetryDays: Int = 3,
+    val chatTimeoutMs: Long = 45_000,
+    val chatTurnsKept: Int = 8,
+    val chatWordsOffered: Int = 6,
 )

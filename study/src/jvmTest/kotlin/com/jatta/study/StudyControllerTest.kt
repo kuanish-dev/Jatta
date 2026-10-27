@@ -6,6 +6,10 @@ import com.jatta.engine.learner.Learner
 import com.jatta.engine.learningDay
 import com.jatta.engine.localMinuteOfDay
 import com.jatta.study.calibration.LogReplay
+import com.jatta.study.chat.Change
+import com.jatta.study.chat.ChatTopic
+import com.jatta.study.chat.ChatTopicsFile
+import com.jatta.study.chat.Review
 import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.TextSource
@@ -57,12 +61,13 @@ class StudyControllerTest {
         texts: List<ReadingText> = emptyList(),
         sentences: SentencesFile? = null,
         placement: PlacementFile? = null,
+        chatTopics: List<ChatTopic> = emptyList(),
         engineConfig: EngineConfig = EngineConfig(),
         config: StudyConfig = StudyConfig(),
     ) = StudyController(
         content, LearnerStore(dir.absolutePath), nowMs = { now }, utcOffsetMinutes = { almaty },
         scope = CoroutineScope(Dispatchers.Unconfined), model = model, evalCases = evalCases, translationCases = translationCases,
-        texts = texts, sentences = sentences, reminders = reminders, placementFile = placement,
+        texts = texts, sentences = sentences, reminders = reminders, placementFile = placement, chatTopics = chatTopics,
         engineConfig = engineConfig, config = config, background = Dispatchers.Unconfined,
     )
 
@@ -228,6 +233,34 @@ class StudyControllerTest {
     }
 
     @Test
+    fun aSpokenAnswerHeardAsTheSampleCountsAndAnyOtherIsComparedByTheLearner() {
+        val app = controller(engineConfig = EngineConfig(rungStabilityDays = listOf(0.0, 0.0, 0.0, 0.0)))
+        app.startSession()
+        runSessionAnsweringRight(app)
+        now += 5 * day
+        app.openHome()
+        app.startSession()
+
+        val first = nextSpeak(app)
+        app.submitSpoken(listOf("something else", first.answer.uppercase().trimEnd('.', '?', '!')))
+        assertFalse(app.screen.value is Screen.SelfCheck)
+        assertEquals("speech", LearnerStore(dir.absolutePath).readLog().last().checkedBy)
+
+        val second = nextSpeak(app)
+        app.submitSpoken(listOf("I have no idea"))
+        val check = app.screen.value as Screen.SelfCheck
+        assertEquals("I have no idea", check.response)
+        assertEquals(second.answer, check.heard!!.filter { it.kind != DiffKind.Removed }.joinToString(" ") { it.text })
+        app.judgeSelf(false)
+        assertEquals("self", LearnerStore(dir.absolutePath).readLog().last().checkedBy)
+    }
+
+    private fun nextSpeak(app: StudyController): Exercise.Speak {
+        val question = answerRightUntil(app) { it is Screen.Question && it.exercise is Exercise.Speak } as Screen.Question
+        return question.exercise as Exercise.Speak
+    }
+
+    @Test
     fun remindersFollowTheScheduleAtTheUsualStudyTime() {
         val app = controller()
         val first = reminders.last!!
@@ -334,6 +367,42 @@ class StudyControllerTest {
         assertEquals(listOf("is"), judged.diff.filter { it.kind == DiffKind.Added }.map { it.text })
         app.acceptCorrection()
         assertNotNull((app.screen.value as Screen.Question).hint)
+    }
+
+    @Test
+    fun aTalkOpensAfterTheModelPassesItsTestAndEachMessageIsReviewedAtOnce() {
+        val cases = JudgeEval.readCases(File(System.getProperty("contentDir"), "eval/free-answers.json").readText())
+        val model = ReplyingModel { prompt ->
+            val case = cases.firstOrNull { "Learner's sentence: ${it.response}" in prompt }
+            when {
+                case != null -> if (case.correct) "VERDICT: CORRECT" else "VERDICT: WRONG\nFIXED: X " + case.response.substringAfter(' ')
+                "Learner's message: I go to the office yesterday" in prompt -> "VERDICT: WRONG\nFIXED: I went to the office yesterday"
+                "Learner's message:" in prompt -> "VERDICT: CORRECT"
+                else -> "Alex: Hi! How was your day at work?\nLearner: fine"
+            }
+        }
+        val topics = ChatTopicsFile.read(File(System.getProperty("contentDir"), "en/chat.json").readText())
+        val app = controller(model, cases, chatTopics = topics)
+        assertFalse((app.screen.value as Screen.Home).chatReady, "no talk before the model passes its test")
+        app.testModel()
+        assertTrue((app.screen.value as Screen.Home).chatReady)
+
+        app.openChat()
+        assertEquals(topics, (app.screen.value as Screen.ChatTopics).topics)
+        app.startChat("work")
+        assertEquals(listOf("Hi! How was your day at work?"), (app.screen.value as Screen.Chat).messages.map { it.text })
+
+        app.sendChat("I go to the office yesterday")
+        val chat = app.screen.value as Screen.Chat
+        val fixed = chat.messages[1].review as Review.Fixed
+        assertEquals(listOf(Change("go", "went")), fixed.changes)
+        assertEquals("I went to the office yesterday", fixed.corrected)
+        assertEquals(3, chat.messages.size, "the partner answers after the review")
+        app.sendChat("It was fine")
+        assertEquals(Review.Fine, (app.screen.value as Screen.Chat).messages[3].review)
+
+        app.goBack()
+        assertTrue(app.screen.value is Screen.Home)
     }
 
     @Test
@@ -546,6 +615,7 @@ class StudyControllerTest {
                 is Screen.Home -> error("Unexpected home screen in a session")
                 is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
                 is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated, is Screen.Topic,
+                is Screen.ChatTopics, is Screen.Chat,
                 is Screen.DailySummary, is Screen.Progress ->
                     error("Unexpected screen in a session: $screen")
             }

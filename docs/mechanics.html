@@ -331,7 +331,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
   <div class="section-head">
     <div class="eyebrow">Схема</div>
     <h2>Как движок ведёт ученика</h2>
-    <p class="muted" style="max-width:70ch">Метки М1–М27 ведут к описанию механики ниже.</p>
+    <p class="muted" style="max-width:70ch">Метки М1–М28 ведут к описанию механики ниже.</p>
   </div>
 
   <div class="diagram">
@@ -481,6 +481,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
       <article class="mech" id="m5" data-l="b">
         <div class="mech-head"><span class="mid">М5</span><h4>Лестница: от узнавания к речи</h4><span class="lvl b">Средние</span></div>
         <p><span class="k">Движок:</span> единица проходит ступени: узнать среди вариантов, вставить в пропуск, перевести, составить свою фразу, сказать на время. Ступень растёт вместе со стабильностью памяти.</p>
+        <p><span class="k">Вслух:</span> на верхней ступени ответ говорят в микрофон. Речь распознаётся на самом телефоне, без интернета. Если один из вариантов распознавания совпал с образцом, ответ засчитан. Если нет, видно, что расслышал телефон и чем это отличается от образца, а решает ученик: распознавание тоже ошибается, и проигрывать из-за него нельзя.</p>
         <p class="sci"><span class="k">Наука:</span> память лучше срабатывает в том виде, в каком её тренировали. Узнавание слова и умение самому его употребить — разные знания, второе нужно тренировать отдельно. Теория освоения навыков описывает путь от знания правила к автоматизму через практику.</p>
         <p><a class="cite" href="#ref-morris1977">Morris 1977</a> · <a class="cite" href="#ref-webb2009">Webb 2009</a> · <a class="cite" href="#ref-dekeyser2007">DeKeyser 2007</a></p>
       </article>
@@ -620,6 +621,12 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
         <p class="sci"><span class="k">Наука:</span> регулярно видеть свой прогресс помогает дойти до цели: в мета-анализе экспериментов наблюдение за продвижением заметно повышало достижение цели, сильнее — когда результаты записаны и видны. Привычка складывается из ежедневного повторения в одном контексте. А эффект очков и серий умеренный и зависит от дизайна, поэтому серия здесь — добавка, а не основа.</p>
         <p><a class="cite" href="#ref-harkin2016">Harkin 2016</a> · <a class="cite" href="#ref-lally2010">Lally 2010</a> · <a class="cite" href="#ref-sailer2020">Sailer &amp; Homner 2020</a></p>
       </article>
+      <article class="mech" id="m28" data-l="b">
+        <div class="mech-head"><span class="mid">М28</span><h4>Разговор с разбором ошибок</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> свободный разговор по выбранной теме с моделью на телефоне. Собеседник пишет коротко, задаёт вопрос и вставляет слова курса, которые вы уже встречали. Каждую вашу фразу та же модель сразу проверяет, и под фразой появляется разбор: что заменить, что добавить и как правильно. Объяснений модель не пишет. Разговор открывается только после того, как модель прошла проверку точности (М21): разбору нужно доверять. На Mac Gemma 4 E2B разобрала верно 23 фразы из 24. Разговор не меняет память и сроки повторов.</p>
+        <p class="sci"><span class="k">Наука:</span> беседа, в которой собеседник отвечает, переспрашивает и уточняет, помогает усвоению грамматики и слов. Исправление ошибок в мета-анализе даёт заметный эффект, который сохраняется и на отсроченных тестах. Сколько именно даёт письменный чат с моделью, отдельно не изучено.</p>
+        <p><a class="cite" href="#ref-mackey2007">Mackey &amp; Goo 2007</a> · <a class="cite" href="#ref-li2010">Li 2010</a></p>
+      </article>
     </div>
   </div>
 
@@ -740,6 +747,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
     <li id="ref-kocmi2021">Kocmi, T., Federmann, C., Grundkiewicz, R., Junczys-Dowmunt, M., Matsushita, H., &amp; Menezes, A. (2021). To ship or not to ship: An extensive evaluation of automatic metrics for machine translation. <i>Proceedings of the Sixth Conference on Machine Translation (WMT)</i>. <a href="https://aclanthology.org/2021.wmt-1.57/">acl</a></li>
     <li id="ref-kulik1990">Kulik, C.-L. C., Kulik, J. A., &amp; Bangert-Drowns, R. L. (1990). Effectiveness of mastery learning programs: A meta-analysis. <i>Review of Educational Research, 60</i>(2).</li>
     <li id="ref-lally2010">Lally, P., van Jaarsveld, C. H. M., Potts, H. W. W., &amp; Wardle, J. (2010). How are habits formed: Modelling habit formation in the real world. <i>European Journal of Social Psychology, 40</i>(6).</li>
+    <li id="ref-mackey2007">Mackey, A., &amp; Goo, J. (2007). Interaction research in SLA: A meta-analysis and research synthesis. In A. Mackey (Ed.), <i>Conversational interaction in second language acquisition</i> (pp. 407–452). Oxford University Press.</li>
     <li id="ref-laufer2008">Laufer, B., &amp; Girsai, N. (2008). Form-focused instruction in second language vocabulary learning: A case for contrastive analysis and translation. <i>Applied Linguistics, 29</i>(4), 694–716. <a href="https://doi.org/10.1093/applin/amn018">doi</a></li>
     <li id="ref-laufer2010">Laufer, B., &amp; Ravenhorst-Kalovski, G. C. (2010). Lexical threshold revisited: Lexical text coverage, learners’ vocabulary size and reading comprehension. <i>Reading in a Foreign Language, 22</i>(1).</li>
     <li id="ref-lemhofer2012">Lemhöfer, K., &amp; Broersma, M. (2012). Introducing LexTALE: A quick and valid Lexical Test for Advanced Learners of English. <i>Behavior Research Methods, 44</i>(2). <a href="https://forms.mpi.nl/node/44908">mpi.nl</a></li>
@@ -773,7 +781,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
 </section>
 
 <footer class="wrap">
-  Собрано 23 октября 2026, обновлено в тот же день: М11, М13, М19, М20 описаны так, как они сделаны в приложении. 27 октября добавлены М25 — перевод фраз с мягкой проверкой по смыслу — М26 — любая тема вне плана — и М27 — итоги вчера и серия. Уровни доказательности — наша оценка по типу и числу исследований. Часть размеров эффектов взята из аннотаций и обзоров; перед публичной статьёй их стоит сверить с полными текстами.
+  Собрано 23 октября 2026, обновлено в тот же день: М11, М13, М19, М20 описаны так, как они сделаны в приложении. 27 октября добавлены М25 — перевод фраз с мягкой проверкой по смыслу — М26 — любая тема вне плана — и М27 — итоги вчера и серия; затем М28 — разговор с моделью и разбором ошибок. Уровни доказательности — наша оценка по типу и числу исследований. Часть размеров эффектов взята из аннотаций и обзоров; перед публичной статьёй их стоит сверить с полными текстами.
 </footer>
 
 <script>

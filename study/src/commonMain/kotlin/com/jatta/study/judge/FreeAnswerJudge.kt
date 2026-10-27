@@ -21,6 +21,13 @@ class FreeAnswerJudge(private val model: OnDeviceModel, private val config: Stud
         }
     }
 
+    suspend fun reviewChat(said: String?, message: String): Judgment? {
+        val reply = model.generate(chatPrompt(said, message)) ?: return null
+        val fixed = field(reply, "FIXED")
+        if (fixed != null && AnswerCheck.normalize(fixed) == AnswerCheck.normalize(message)) return Judgment(correct = true, corrected = null)
+        return parse(reply, message)
+    }
+
     private suspend fun ask(prompt: String, request: JudgeRequest, read: (String, String) -> Judgment? = ::parse): Judgment? {
         if (AnswerCheck.matches(request.response, listOf(request.reference))) return Judgment(correct = true, corrected = null)
         val reply = model.generate(prompt) ?: return null
@@ -66,6 +73,17 @@ class FreeAnswerJudge(private val model: OnDeviceModel, private val config: Stud
             VERDICT: CORRECT or WRONG
             FIXED: the learner's sentence with the fewest changes that make it correct
         """.trimIndent()
+
+        fun chatPrompt(said: String?, message: String): String = buildString {
+            appendLine("You are checking one chat message written by a learner of English (level B1).")
+            if (said != null) appendLine("The other person wrote: $said")
+            appendLine("Learner's message: $message")
+            appendLine()
+            appendLine("Decide whether the learner's message is correct English. Only grammar mistakes and wrong words count. Ignore punctuation, capital letters and style. Short informal answers are correct.")
+            appendLine("Reply with exactly two lines:")
+            appendLine("VERDICT: CORRECT or WRONG")
+            append("FIXED: the learner's message with the fewest changes that make it correct")
+        }
 
         fun translationPrompt(request: JudgeRequest): String = """
             A learner of English (level B1) translated a Russian sentence into English. Decide only whether the meaning is the same. Ignore grammar, spelling and style completely: "he go", "I buyed", a missing article or a wrong tense do not change the meaning.

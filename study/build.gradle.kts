@@ -32,9 +32,10 @@ tasks.named<Test>("jvmTest") {
     systemProperty("sourcesDir", sourcesDir)
     inputs.dir(contentDir)
     inputs.dir(sourcesDir)
-    for (name in listOf("ollamaModel", "litertModel")) {
-        val value = providers.gradleProperty(name).orElse("")
-        systemProperty(name, value.get().let { if (it.isEmpty() || it.startsWith("/")) it else rootProject.file(it).path })
-        inputs.property(name, value)
-    }
+    val ollamaModel = providers.gradleProperty("ollamaModel").orElse("")
+    val litertModel = providers.gradleProperty("litertModel").map { rootProject.file(it).path }.orElse("")
+    systemProperty("ollamaModel", ollamaModel.get())
+    systemProperty("litertModel", litertModel.get())
+    inputs.property("ollamaModel", ollamaModel)
+    inputs.property("litertModel", litertModel)
 }

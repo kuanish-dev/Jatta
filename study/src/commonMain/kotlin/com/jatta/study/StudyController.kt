@@ -20,12 +20,16 @@ import com.jatta.study.calibration.Calibration
 import com.jatta.study.calibration.FitResult
 import com.jatta.study.calibration.LogReplay
 import com.jatta.study.calibration.PersonalFit
+import com.jatta.study.chat.ChatFlow
+import com.jatta.study.chat.ChatPartner
+import com.jatta.study.chat.ChatTopic
 import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.StudyCourse
 import com.jatta.study.exercise.AnswerCheck
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.exercise.ExerciseFactory
+import com.jatta.study.exercise.SpokenAnswer
 import com.jatta.study.judge.EvalCase
 import com.jatta.study.judge.FreeAnswerJudge
 import com.jatta.study.judge.JudgeEval
@@ -66,13 +70,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
+import kotlin.random.Random
 
 private const val MS_PER_MINUTE = 60_000L
 
 private class PendingTranslation(val response: String, val score: Double, val responseMs: Long)
 
 private enum class CheckedBy(val logName: String) {
-    Code("code"), Self("self"), Ai("ai"), AiDisputed("ai-disputed"), Placement(Calibration.PLACEMENT),
+    Code("code"), Speech("speech"), Self("self"), Ai("ai"), AiDisputed("ai-disputed"), Placement(Calibration.PLACEMENT),
 }
 
 class StudyController(
@@ -88,6 +93,7 @@ class StudyController(
     private val sentences: SentencesFile? = null,
     private val reminders: ReminderScheduler? = null,
     placementFile: PlacementFile? = null,
+    private val chatTopics: List<ChatTopic> = emptyList(),
     private val engineConfig: EngineConfig = EngineConfig(),
     private val config: StudyConfig = StudyConfig(),
     private val background: CoroutineDispatcher = Dispatchers.Default,
@@ -133,6 +139,8 @@ class StudyController(
     private var translationIndex = 0
     private var translatedRight = 0
     private var pendingTranslation: PendingTranslation? = null
+    private var chat: ChatFlow? = null
+    private var chatToken = 0
 
     private var streakCache: Pair<Int, Streak>? = null
     private var streakBefore: Streak? = null
@@ -153,6 +161,8 @@ class StudyController(
 
     fun openHome() {
         checkToken++
+        chatToken++
+        chat = null
         session = null
         coach = null
         exercise = null
@@ -285,6 +295,15 @@ class StudyController(
         showSelfCheck(response = null)
     }
 
+    fun submitSpoken(heard: List<String>) {
+        val current = exercise as? Exercise.Speak ?: return
+        val responseMs = elapsedMs()
+        if (SpokenAnswer.matches(heard, current.answer)) return answer(true, responseMs, CheckedBy.Speech)
+        pendingResponseMs = responseMs
+        val closest = SpokenAnswer.closest(heard, current.answer)
+        state.value = Screen.SelfCheck(current, closest, steps(), heard = WordDiff.parts(closest, current.answer))
+    }
+
     fun judgeSelf(correct: Boolean) = answer(correct, pendingResponseMs, CheckedBy.Self)
 
     fun acceptCorrection() = answer(false, pendingResponseMs, CheckedBy.Ai)
@@ -390,6 +409,36 @@ class StudyController(
     private fun translationSteps() = Steps(translationIndex, translations.size - translationIndex)
 
     fun stopSession() = openHome()
+
+    fun openChat() {
+        if (chatReady()) state.value = Screen.ChatTopics(chatTopics)
+    }
+
+    fun startChat(topicId: String) {
+        val topic = chatTopics.firstOrNull { it.id == topicId } ?: return
+        val judge = trustedJudge() ?: return
+        val token = ++chatToken
+        val flow = ChatFlow(topic, chatWords(topic), ChatPartner(model!!), judge, config.chatTimeoutMs, config.chatTurnsKept) {
+            if (token == chatToken) state.value = it
+        }
+        chat = flow
+        scope.launch { flow.open() }
+    }
+
+    fun sendChat(text: String) {
+        val flow = chat ?: return
+        scope.launch { flow.send(text) }
+    }
+
+    private fun chatReady() = trustedJudge() != null && chatTopics.isNotEmpty()
+
+    private fun chatWords(topic: ChatTopic): List<String> {
+        val pool = topic.words?.let { content.topics[it]?.items } ?: content.items.values
+        return pool.filter { it.id in learner.progress && it.kind != KindFile.Rule && it.audio == null }
+            .shuffled(Random(currentDay() + topic.id.hashCode()))
+            .take(config.chatWordsOffered)
+            .map { it.en }
+    }
 
     fun goBack() {
         val current = state.value
@@ -784,6 +833,7 @@ class StudyController(
         return Screen.Home(
             content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, progress, vocabulary, reading,
             streak = currentStreak(),
+            chatReady = chatReady(),
         )
     }
 

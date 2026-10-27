@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.jatta.shared.resources.Res
 import com.jatta.study.StudyController
+import com.jatta.study.chat.ChatTopicsFile
 import com.jatta.study.ThemeChoice
 import com.jatta.study.content.ContentLoader
 import com.jatta.study.content.ReadingText
@@ -45,8 +46,9 @@ fun App(
     model: OnDeviceModel?,
     reminders: ReminderScheduler?,
     speaker: Speaker?,
+    speechInput: SpeechInput? = null,
     onDarkTheme: (Boolean) -> Unit = {},
-) = CompositionLocalProvider(LocalSpeaker provides speaker) {
+) = CompositionLocalProvider(LocalSpeaker provides speaker, LocalSpeechInput provides speechInput) {
     val scope = rememberCoroutineScope()
     var controller by remember { mutableStateOf<StudyController?>(null) }
     var failure by remember { mutableStateOf<String?>(null) }
@@ -74,6 +76,7 @@ fun App(
                     sentences = SentencesFile.read(Res.readBytes("$CONTENT_DIR/en/sentences.json").decodeToString()),
                     reminders = reminders,
                     placementFile = PlacementFile.read(Res.readBytes("$CONTENT_DIR/en/placement.json").decodeToString()),
+                    chatTopics = ChatTopicsFile.read(Res.readBytes("$CONTENT_DIR/en/chat.json").decodeToString()),
                     )
                 }
             } catch (e: Exception) {

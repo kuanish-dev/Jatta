@@ -1,6 +1,8 @@
 package com.jatta.study
 
 import com.jatta.study.calibration.CalibrationReport
+import com.jatta.study.chat.ChatMessage
+import com.jatta.study.chat.ChatTopic
 import com.jatta.study.content.ItemFile
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffPart
@@ -26,6 +28,7 @@ sealed interface Screen {
         val vocabulary: VocabularyEstimate?,
         val reading: Reading?,
         val streak: Streak,
+        val chatReady: Boolean = false,
     ) : Screen
 
     data class DailySummary(val yesterday: DaySummary?, val restDay: Boolean, val streak: Streak) : Screen
@@ -73,7 +76,7 @@ sealed interface Screen {
 
     data class Judged(val exercise: Exercise, val diff: List<DiffPart>, val note: String, val steps: Steps) : Screen
 
-    data class SelfCheck(val exercise: Exercise, val response: String?, val steps: Steps) : Screen
+    data class SelfCheck(val exercise: Exercise, val response: String?, val steps: Steps, val heard: List<DiffPart>? = null) : Screen
 
     data class Heard(val exercise: Exercise, val translation: String, val banner: Banner, val steps: Steps) : Screen
 
@@ -104,6 +107,16 @@ sealed interface Screen {
     ) : Screen
 
     data class Calibration(val report: CalibrationReport, val fit: FitStatus) : Screen
+
+    data class ChatTopics(val topics: List<ChatTopic>) : Screen
+
+    data class Chat(
+        val topic: ChatTopic,
+        val messages: List<ChatMessage>,
+        val typing: Boolean,
+        val silent: Boolean,
+        val words: List<String>,
+    ) : Screen
 }
 
 val Screen.canGoBack: Boolean get() = this !is Screen.Home && this !is Screen.PlacementIntro

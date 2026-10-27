@@ -1,6 +1,7 @@
 package com.jatta.study
 
 import com.jatta.engine.session.Rung
+import com.jatta.study.chat.ChatTopicsFile
 import com.jatta.study.content.ContentError
 import com.jatta.study.content.ContentLoader
 import com.jatta.engine.EngineConfig
@@ -17,6 +18,16 @@ import kotlin.test.assertTrue
 
 class ContentTest {
     private val content = RealContent.load()
+
+    @Test
+    fun chatTopicsAreUniqueAndUseRealWordTopics() {
+        val topics = ChatTopicsFile.read(File(System.getProperty("contentDir"), "en/chat.json").readText())
+        assertEquals(topics.size, topics.map { it.id }.toSet().size)
+        topics.mapNotNull { it.words }.forEach { id ->
+            val topic = content.topics[id]
+            assertTrue(topic != null && topic.items.none { it.kind == KindFile.Rule }, "chat topic words must be a word topic: $id")
+        }
+    }
 
     @Test
     fun realCourseLoads() {

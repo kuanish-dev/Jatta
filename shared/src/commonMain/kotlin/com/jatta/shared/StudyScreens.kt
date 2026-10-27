@@ -97,6 +97,8 @@ internal fun ScreenContent(screen: Screen, controller: StudyController, nowMs: (
         is Screen.Rest -> RestScreen(s, nowMs, controller::finishRest)
         is Screen.Done -> DoneScreen(s, controller::openHome)
         is Screen.Calibration -> CalibrationScreen(s, controller::openHome)
+        is Screen.ChatTopics -> ChatTopicsScreen(s, controller)
+        is Screen.Chat -> ChatScreen(s, controller)
     }
 }
 
@@ -133,6 +135,7 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
     }
     if (nothingToDo) Muted("Новые повторы появятся, когда память начнёт ослабевать.")
     home.reading?.let { ReadingCard(it, controller::openReading) }
+    if (home.ai.model != ModelState.Unavailable) ChatCard(home.chatReady, controller::openChat)
     Label("Темы · в памяти / всего", modifier = Modifier.padding(top = 8.dp))
     home.topics.forEachIndexed { index, topic -> TopicRow(topic, index) { controller.openTopic(topic.id) } }
     Muted("Любую тему можно пройти отдельно: нажмите на неё. Закрытые темы сами откроются, когда темы до них будут держаться в памяти.")
@@ -276,6 +279,20 @@ private fun ReadingCard(reading: Reading, onOpen: () -> Unit) {
 }
 
 @Composable
+private fun ChatCard(ready: Boolean, onOpen: () -> Unit) {
+    Panel(Modifier.fillMaxWidth().appear(5), accent = Neon.Cyan.copy(alpha = 0.5f)) {
+        Label("Разговор с ИИ", color = Neon.Cyan)
+        Text("Поболтать по-английски", style = MaterialTheme.typography.titleMedium)
+        if (ready) {
+            Muted("Модель на телефоне ведёт беседу и сразу разбирает ошибки в каждой вашей фразе.")
+            NeonOutlinedButton(onOpen) { Text("ПОГОВОРИТЬ") }
+        } else {
+            Muted("Откроется, когда модель на телефоне пройдёт проверку точности: разбору ошибок нужно доверять.")
+        }
+    }
+}
+
+@Composable
 private fun ReadScreen(read: Screen.Read, controller: StudyController) = Page {
     val reading = read.reading
     BackBar("Чтение", Neon.Magenta, controller::openHome)
@@ -302,7 +319,7 @@ private fun ReadScreen(read: Screen.Read, controller: StudyController) = Page {
 }
 
 @Composable
-private fun highlighted(text: String, words: Set<String>) = buildAnnotatedString {
+internal fun highlighted(text: String, words: Set<String>) = buildAnnotatedString {
     val style = SpanStyle(color = Neon.Cyan, fontWeight = FontWeight.Bold)
     var at = 0
     Regex("[A-Za-z]+(?:'[A-Za-z]+)?").findAll(text).forEach { match ->
@@ -472,7 +489,7 @@ private fun QuestionScreen(question: Screen.Question, controller: StudyControlle
             }
             is Exercise.Speak -> {
                 Text(exercise.prompt, style = MaterialTheme.typography.headlineSmall)
-                NeonButton(controller::showSpokenAnswer, Modifier.fillMaxWidth()) { Text("СКАЗАЛ(А), ПОКАЗАТЬ ОТВЕТ") }
+                SpeakAnswer(question.id, controller::submitSpoken, controller::showSpokenAnswer)
             }
         }
     }
@@ -553,22 +570,29 @@ internal fun diffText(parts: List<DiffPart>, shown: DiffKind) = buildAnnotatedSt
 private fun SelfCheckScreen(check: Screen.SelfCheck, controller: StudyController) =
     Page {
         Label("Сравните с образцом", color = Neon.Magenta)
-        check.response?.let {
-            Muted("Ваш ответ")
-            Text(it, style = MaterialTheme.typography.bodyLarge)
-        }
-        Muted("Образец")
-        val references = (check.exercise as? Exercise.Free)?.references ?: listOf(check.exercise.answer)
-        Panel(Modifier.fillMaxWidth().appear(1)) {
-            references.forEach { Text(it, style = MaterialTheme.typography.bodyLarge, color = Neon.Cyan) }
-        }
+        val heard = check.heard
+        if (heard != null) HeardComparison(heard) else WrittenComparison(check)
         ListenButton(check.exercise.listen, "▶ СЛУШАТЬ ОБРАЗЕЦ", check.exercise.recording)
+        if (heard != null) Muted("Телефон мог расслышать неточно: судите по тому, что сказали.")
         Muted("Смысл и грамматика верны — значит верно, даже если слова другие.")
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             NeonButton({ controller.judgeSelf(true) }, Modifier.weight(1f)) { Text("ВЕРНО") }
             NeonOutlinedButton({ controller.judgeSelf(false) }, Modifier.weight(1f)) { Text("ЕСТЬ ОШИБКА") }
         }
     }
+
+@Composable
+private fun WrittenComparison(check: Screen.SelfCheck) {
+    check.response?.let {
+        Muted("Ваш ответ")
+        Text(it, style = MaterialTheme.typography.bodyLarge)
+    }
+    Muted("Образец")
+    val references = (check.exercise as? Exercise.Free)?.references ?: listOf(check.exercise.answer)
+    Panel(Modifier.fillMaxWidth().appear(1)) {
+        references.forEach { Text(it, style = MaterialTheme.typography.bodyLarge, color = Neon.Cyan) }
+    }
+}
 
 @Composable
 private fun HeardScreen(heard: Screen.Heard, controller: StudyController) =

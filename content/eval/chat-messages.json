@@ -1,0 +1,29 @@
+{
+  "about": "Chat messages of B1 learners for measuring the chat review. correct: the message is correct English (informal and short answers count as correct).",
+  "cases": [
+    {"said": "How was your weekend?", "message": "I go to the cinema with my friends.", "correct": false},
+    {"said": "What do you do?", "message": "I am work in a bank.", "correct": false},
+    {"said": "Do you like your job?", "message": "Yes, I like it very much, but my boss are strict.", "correct": false},
+    {"said": "Where did you go last summer?", "message": "We have been to Turkey last summer.", "correct": false},
+    {"said": "How long have you lived there?", "message": "I live there since 2019.", "correct": false},
+    {"said": "What did you buy?", "message": "I buyed a new phone.", "correct": false},
+    {"said": "Are you busy this week?", "message": "Yes, I have a lot of works this week.", "correct": false},
+    {"said": "What do you think about the price?", "message": "It is too much expensive for me.", "correct": false},
+    {"said": "Do you have any plans?", "message": "I want to going to the mountains.", "correct": false},
+    {"said": "How do you feel today?", "message": "I feel very boring because nothing happens.", "correct": false},
+    {"said": "Did you call him?", "message": "No, I didn't called him yet.", "correct": false},
+    {"said": "What does your sister do?", "message": "She work as a teacher in a school.", "correct": false},
+    {"said": "How was your weekend?", "message": "Pretty good, thanks. I stayed at home and relaxed.", "correct": true},
+    {"said": "Do you like coffee?", "message": "Yes, I drink it every morning.", "correct": true},
+    {"said": "Where do you work?", "message": "At a leasing company in Almaty.", "correct": true},
+    {"said": "Have you ever been to London?", "message": "No, never, but I'd love to go.", "correct": true},
+    {"said": "What are you doing this evening?", "message": "I'm meeting a friend for dinner.", "correct": true},
+    {"said": "How long have you worked there?", "message": "I've worked there for three years.", "correct": true},
+    {"said": "Do you play any sports?", "message": "Not really. I sometimes go swimming.", "correct": true},
+    {"said": "What did you do yesterday?", "message": "I finished a big report and went to bed early.", "correct": true},
+    {"said": "Is it expensive?", "message": "yeah a bit", "correct": true},
+    {"said": "What would you do with more money?", "message": "If I had more money, I would travel more.", "correct": true},
+    {"said": "Why do you like your job?", "message": "Because my colleagues are friendly and the work is interesting.", "correct": true},
+    {"said": "How do you get to work?", "message": "Usually by bus, it takes about forty minutes.", "correct": true}
+  ]
+}

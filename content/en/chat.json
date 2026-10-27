@@ -1,0 +1,14 @@
+{
+  "topics": [
+    {"id": "work", "ru": "Работа", "en": "the learner's job and a normal working day", "words": "work-words"},
+    {"id": "projects", "ru": "Проекты и сроки", "en": "a project the learner is working on and its deadlines", "words": "project-words"},
+    {"id": "meetings", "ru": "Встречи и звонки", "en": "meetings, calls and talking with colleagues", "words": "meeting-words"},
+    {"id": "money", "ru": "Деньги и покупки", "en": "money, prices and shopping", "words": "money-words"},
+    {"id": "travel", "ru": "Поездки", "en": "a trip the learner made or wants to make", "words": "travel-words"},
+    {"id": "tech", "ru": "Телефон и компьютер", "en": "the phone, apps and computer the learner uses", "words": "tech-words"},
+    {"id": "people", "ru": "Люди и характер", "en": "the learner's friends and family and what they are like", "words": "people-words"},
+    {"id": "feelings", "ru": "Как дела", "en": "how the learner feels this week and why", "words": "feelings-words"},
+    {"id": "health", "ru": "Здоровье и спорт", "en": "health, sleep and sport", "words": "health-words"},
+    {"id": "weekend", "ru": "Выходные", "en": "the learner's last weekend and plans for the next one"}
+  ]
+}
