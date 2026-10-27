@@ -1,0 +1,175 @@
+{
+  "id": "comparisons",
+  "title": "Сравнения: as…as, much better, the more…",
+  "intro": "Кроме better и the best, сравнивают так: as big as — такой же большой, much better — намного лучше, the more…, the better… — чем больше, тем лучше; so и such — «так» и «такой».",
+  "items": [
+    {
+      "id": "cmp-as-as",
+      "kind": "rule",
+      "en": "as … as / not as … as",
+      "ru": "as + прилагательное + as — такой же, как; not as … as — не такой, как",
+      "note": "This flat is as big as ours. The test wasn't as difficult as I expected.",
+      "examples": [
+        {
+          "en": "This flat is as big as ours.",
+          "ru": "Эта квартира такая же большая, как наша.",
+          "gap": "as big as",
+          "cue": "big",
+          "wrong": [
+            "so big as",
+            "as bigger as",
+            "as big than"
+          ]
+        },
+        {
+          "en": "The test wasn't as difficult as I expected.",
+          "ru": "Тест оказался не таким трудным, как я ожидал.",
+          "gap": "as difficult as",
+          "cue": "difficult",
+          "wrong": [
+            "as difficult than",
+            "so difficult that",
+            "more difficult as"
+          ]
+        },
+        {
+          "en": "He works as hard as his father.",
+          "ru": "Он работает так же много, как его отец.",
+          "gap": "as hard as",
+          "cue": "hard",
+          "wrong": [
+            "as harder as",
+            "so hard than",
+            "as hard than"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmp-much-better",
+      "kind": "rule",
+      "en": "much / a bit / even + сравнительная",
+      "ru": "much, a lot, a bit, even перед сравнительной степенью: much better, a bit cheaper",
+      "note": "Much better — намного лучше, a bit slower — чуть медленнее, even harder — ещё труднее. «Very better» — ошибка.",
+      "examples": [
+        {
+          "en": "This version is much better than the old one.",
+          "ru": "Эта версия намного лучше старой.",
+          "gap": "much better",
+          "cue": "намного лучше",
+          "wrong": [
+            "very better",
+            "more better",
+            "much more good"
+          ]
+        },
+        {
+          "en": "Could you speak a bit slower?",
+          "ru": "Вы не могли бы говорить чуть медленнее?",
+          "gap": "a bit slower",
+          "cue": "чуть медленнее",
+          "wrong": [
+            "a bit more slow",
+            "a bit slowest",
+            "very slower"
+          ]
+        },
+        {
+          "en": "The second test was even harder.",
+          "ru": "Второй тест был ещё труднее.",
+          "gap": "even harder",
+          "cue": "ещё труднее",
+          "wrong": [
+            "even more hard",
+            "very harder",
+            "more harder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmp-the-more",
+      "kind": "rule",
+      "en": "the more …, the more …",
+      "ru": "Чем …, тем …: the more, the better",
+      "note": "The more you practise, the better you get — чем больше практикуешься, тем лучше получается.",
+      "examples": [
+        {
+          "en": "The more you practise, the better you get.",
+          "ru": "Чем больше практикуешься, тем лучше получается.",
+          "gap": "The more",
+          "cue": "чем больше",
+          "wrong": [
+            "More",
+            "The most",
+            "As more"
+          ]
+        },
+        {
+          "en": "The sooner we start, the sooner we finish.",
+          "ru": "Чем раньше начнём, тем раньше закончим.",
+          "gap": "The sooner",
+          "cue": "чем раньше",
+          "wrong": [
+            "Sooner",
+            "The soonest",
+            "As soon"
+          ]
+        },
+        {
+          "en": "The older he gets, the calmer he becomes.",
+          "ru": "Чем старше он становится, тем он спокойнее.",
+          "gap": "the calmer",
+          "cue": "тем спокойнее",
+          "wrong": [
+            "calmer",
+            "the calmest",
+            "more calm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cmp-so-such",
+      "kind": "rule",
+      "en": "so … that / such … that / too … to",
+      "ru": "so + прилагательное, such + (a) + существительное; too … to — слишком, чтобы",
+      "note": "It was so cold that… It was such a good film that… He is too tired to work.",
+      "examples": [
+        {
+          "en": "It was so cold that we stayed inside.",
+          "ru": "Было так холодно, что мы остались дома.",
+          "gap": "so",
+          "cue": "так",
+          "wrong": [
+            "such",
+            "too",
+            "very"
+          ]
+        },
+        {
+          "en": "It was such a good film that I watched it twice.",
+          "ru": "Фильм был такой хороший, что я посмотрел его дважды.",
+          "gap": "such",
+          "cue": "такой",
+          "wrong": [
+            "so",
+            "too",
+            "very"
+          ]
+        },
+        {
+          "en": "He is too tired to work today.",
+          "ru": "Он слишком устал, чтобы сегодня работать.",
+          "gap": "too",
+          "cue": "слишком",
+          "wrong": [
+            "so",
+            "such",
+            "very"
+          ]
+        }
+      ]
+    }
+  ]
+}

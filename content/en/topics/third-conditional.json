@@ -1,0 +1,182 @@
+{
+  "id": "third-conditional",
+  "title": "Условные 3-го типа и wish",
+  "intro": "О прошлом, которое уже не изменить: If I had known, I would have come — если бы я знал, я бы пришёл. Wish — сожаление: I wish I knew — жаль, что не знаю; I wish I had known — жаль, что не знал.",
+  "requires": [
+    "second-conditional",
+    "narrative-tenses"
+  ],
+  "confusableWith": [
+    "second-conditional"
+  ],
+  "items": [
+    {
+      "id": "tc-form",
+      "kind": "rule",
+      "en": "If + had V3, would have V3",
+      "ru": "Нереальное прошлое: If + Past Perfect, would have + V3",
+      "note": "If I had left earlier, I would have caught the train. Обе части — о прошлом, которое уже не изменить.",
+      "examples": [
+        {
+          "en": "If I had left earlier, I would have caught the train.",
+          "ru": "Если бы я вышел раньше, я бы успел на поезд.",
+          "gap": "would have caught",
+          "cue": "catch",
+          "wrong": [
+            "would catch",
+            "will have caught",
+            "would have catch"
+          ]
+        },
+        {
+          "en": "If she had studied harder, she would have passed the exam.",
+          "ru": "Если бы она занималась усерднее, она сдала бы экзамен.",
+          "gap": "had studied",
+          "cue": "study",
+          "wrong": [
+            "studied",
+            "would study",
+            "has studied"
+          ]
+        },
+        {
+          "en": "We wouldn't have been late if we had taken a taxi.",
+          "ru": "Мы бы не опоздали, если бы взяли такси.",
+          "gap": "wouldn't have been",
+          "cue": "not / be",
+          "wrong": [
+            "weren't",
+            "wouldn't be",
+            "won't have been"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tc-could-might",
+      "kind": "rule",
+      "en": "could have / might have",
+      "ru": "Вместо would have — could have (смог бы) и might have (может быть)",
+      "note": "If you had asked me, I could have helped. If he had seen the sign, he might have stopped.",
+      "examples": [
+        {
+          "en": "If you had asked me, I could have helped you.",
+          "ru": "Если бы ты попросил, я мог бы тебе помочь.",
+          "gap": "could have helped",
+          "cue": "help",
+          "wrong": [
+            "could help",
+            "can have helped",
+            "could have help"
+          ]
+        },
+        {
+          "en": "If he had seen the sign, he might have stopped.",
+          "ru": "Если бы он увидел знак, он, может быть, остановился бы.",
+          "gap": "might have stopped",
+          "cue": "stop",
+          "wrong": [
+            "might stop",
+            "may stopped",
+            "might have stop"
+          ]
+        },
+        {
+          "en": "If we had known, we could have booked earlier.",
+          "ru": "Если бы мы знали, могли бы забронировать раньше.",
+          "gap": "could have booked",
+          "cue": "book",
+          "wrong": [
+            "could book",
+            "could have book",
+            "can booked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tc-wish-past",
+      "kind": "rule",
+      "en": "wish + Past Simple",
+      "ru": "wish + прошедшее время — жаль, что сейчас не так",
+      "note": "I wish I had more time — жаль, что у меня нет времени. Говорим о настоящем, но берём прошедшее время.",
+      "examples": [
+        {
+          "en": "I wish I had more free time.",
+          "ru": "Жаль, что у меня мало свободного времени.",
+          "gap": "had",
+          "cue": "have",
+          "wrong": [
+            "have",
+            "will have",
+            "would had"
+          ]
+        },
+        {
+          "en": "She wishes she lived closer to work.",
+          "ru": "Ей жаль, что она живёт далеко от работы.",
+          "gap": "lived",
+          "cue": "live",
+          "wrong": [
+            "lives",
+            "will live",
+            "living"
+          ]
+        },
+        {
+          "en": "I wish I knew the answer.",
+          "ru": "Жаль, что я не знаю ответа.",
+          "gap": "knew",
+          "cue": "know",
+          "wrong": [
+            "know",
+            "will know",
+            "knowing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tc-wish-past-perfect",
+      "kind": "rule",
+      "en": "wish / if only + Past Perfect",
+      "ru": "wish, if only + Past Perfect — жаль, что тогда было не так",
+      "note": "I wish I had studied earlier — жаль, что я не начал учиться раньше. If only — то же, но сильнее.",
+      "examples": [
+        {
+          "en": "I wish I had studied English earlier.",
+          "ru": "Жаль, что я не начал учить английский раньше.",
+          "gap": "had studied",
+          "cue": "study",
+          "wrong": [
+            "studied",
+            "would study",
+            "have studied"
+          ]
+        },
+        {
+          "en": "If only we hadn't missed the flight.",
+          "ru": "Если бы только мы не опоздали на рейс.",
+          "gap": "hadn't missed",
+          "cue": "not / miss",
+          "wrong": [
+            "didn't miss",
+            "haven't missed",
+            "wouldn't miss"
+          ]
+        },
+        {
+          "en": "He wishes he had taken the job.",
+          "ru": "Он жалеет, что не согласился на ту работу.",
+          "gap": "had taken",
+          "cue": "take",
+          "wrong": [
+            "took",
+            "has taken",
+            "would take"
+          ]
+        }
+      ]
+    }
+  ]
+}

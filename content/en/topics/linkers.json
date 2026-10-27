@@ -1,0 +1,175 @@
+{
+  "id": "linkers",
+  "title": "Связки: although, despite, so that",
+  "intro": "Связки соединяют мысли. Although и even though — «хотя», дальше целое предложение. Despite — «несмотря на», дальше существительное или -ing. So that и in order to — «чтобы». However, therefore — «однако», «поэтому» в начале нового предложения.",
+  "items": [
+    {
+      "id": "lk-although",
+      "kind": "rule",
+      "en": "although / even though",
+      "ru": "although, even though — хотя; дальше целое предложение",
+      "note": "Although it was raining, we went out. Even though — ещё сильнее: «хотя и».",
+      "examples": [
+        {
+          "en": "Although it was raining, we went for a walk.",
+          "ru": "Хотя шёл дождь, мы пошли гулять.",
+          "gap": "Although",
+          "cue": "хотя",
+          "wrong": [
+            "Despite",
+            "However",
+            "In spite"
+          ]
+        },
+        {
+          "en": "She went to work even though she felt ill.",
+          "ru": "Она пошла на работу, хотя плохо себя чувствовала.",
+          "gap": "even though",
+          "cue": "хотя",
+          "wrong": [
+            "despite",
+            "however",
+            "in spite"
+          ]
+        },
+        {
+          "en": "Although he is young, he is very experienced.",
+          "ru": "Хотя он молод, у него большой опыт.",
+          "gap": "Although",
+          "cue": "хотя",
+          "wrong": [
+            "Despite",
+            "However",
+            "Even"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lk-despite",
+      "kind": "rule",
+      "en": "despite / in spite of + noun / -ing",
+      "ru": "despite, in spite of — несмотря на; дальше существительное или -ing",
+      "note": "Despite the rain… Despite feeling tired… «Despite of» — ошибка: либо despite, либо in spite of.",
+      "examples": [
+        {
+          "en": "Despite the rain, we went for a walk.",
+          "ru": "Несмотря на дождь, мы пошли гулять.",
+          "gap": "Despite",
+          "cue": "несмотря на",
+          "wrong": [
+            "Although",
+            "Even though",
+            "Despite of"
+          ]
+        },
+        {
+          "en": "We finished on time in spite of the problems.",
+          "ru": "Мы закончили вовремя, несмотря на проблемы.",
+          "gap": "in spite of",
+          "cue": "несмотря на",
+          "wrong": [
+            "although",
+            "in spite",
+            "even though"
+          ]
+        },
+        {
+          "en": "Despite feeling tired, she kept working.",
+          "ru": "Несмотря на усталость, она продолжала работать.",
+          "gap": "Despite",
+          "cue": "несмотря на",
+          "wrong": [
+            "Although",
+            "Despite of",
+            "Even though"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lk-purpose",
+      "kind": "rule",
+      "en": "so that / in order to",
+      "ru": "Цель: to, in order to + глагол; so that + предложение",
+      "note": "She is saving in order to buy a car. I left early so that I wouldn't miss the bus. «For to buy» — ошибка.",
+      "examples": [
+        {
+          "en": "I left early so that I wouldn't miss the bus.",
+          "ru": "Я вышел пораньше, чтобы не опоздать на автобус.",
+          "gap": "so that",
+          "cue": "чтобы",
+          "wrong": [
+            "in order to",
+            "for",
+            "so as"
+          ]
+        },
+        {
+          "en": "She is saving money in order to buy a car.",
+          "ru": "Она копит деньги, чтобы купить машину.",
+          "gap": "in order to",
+          "cue": "чтобы",
+          "wrong": [
+            "so that",
+            "for",
+            "in order for"
+          ]
+        },
+        {
+          "en": "Speak slowly so that everyone can understand.",
+          "ru": "Говорите медленно, чтобы все поняли.",
+          "gap": "so that",
+          "cue": "чтобы",
+          "wrong": [
+            "in order to",
+            "for",
+            "to"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lk-however",
+      "kind": "rule",
+      "en": "however / therefore",
+      "ru": "However — однако, therefore — поэтому; начинают новое предложение, после них запятая",
+      "note": "The plan is good. However, it is expensive. The flight was cancelled. Therefore, we stayed.",
+      "examples": [
+        {
+          "en": "The plan is good. However, it is expensive.",
+          "ru": "План хороший. Однако он дорогой.",
+          "gap": "However",
+          "cue": "однако",
+          "wrong": [
+            "Although",
+            "Despite",
+            "Therefore"
+          ]
+        },
+        {
+          "en": "The flight was cancelled. Therefore, we stayed another night.",
+          "ru": "Рейс отменили. Поэтому мы остались ещё на ночь.",
+          "gap": "Therefore",
+          "cue": "поэтому",
+          "wrong": [
+            "However",
+            "Although",
+            "Despite"
+          ]
+        },
+        {
+          "en": "I like the job. However, the salary is low.",
+          "ru": "Мне нравится работа. Однако зарплата низкая.",
+          "gap": "However",
+          "cue": "однако",
+          "wrong": [
+            "Although",
+            "Despite",
+            "Therefore"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "id": "verb-patterns",
+  "title": "Глагол + to или -ing",
+  "intro": "После одних глаголов идёт to + глагол (want to go), после других — -ing (enjoy going). Это нужно запоминать вместе с глаголом. После make и let — глагол без to.",
+  "items": [
+    {
+      "id": "vp-to",
+      "kind": "rule",
+      "en": "want / decide / hope + to",
+      "ru": "После want, decide, hope, plan, agree, manage — to + глагол",
+      "note": "We decided to stay. I hope to see you soon. She managed to finish.",
+      "examples": [
+        {
+          "en": "We decided to stay at home.",
+          "ru": "Мы решили остаться дома.",
+          "gap": "to stay",
+          "cue": "stay",
+          "wrong": [
+            "staying",
+            "stay",
+            "to staying"
+          ]
+        },
+        {
+          "en": "I hope to see you soon.",
+          "ru": "Надеюсь скоро тебя увидеть.",
+          "gap": "to see",
+          "cue": "see",
+          "wrong": [
+            "seeing",
+            "see",
+            "to seeing"
+          ]
+        },
+        {
+          "en": "She managed to finish on time.",
+          "ru": "Ей удалось закончить вовремя.",
+          "gap": "to finish",
+          "cue": "finish",
+          "wrong": [
+            "finishing",
+            "finish",
+            "to finishing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vp-ing",
+      "kind": "rule",
+      "en": "enjoy / avoid / mind + -ing",
+      "ru": "После enjoy, avoid, finish, mind, suggest, keep — -ing",
+      "note": "I enjoy working here. Would you mind closing the window? He suggested meeting on Monday.",
+      "examples": [
+        {
+          "en": "I enjoy working with this team.",
+          "ru": "Мне нравится работать в этой команде.",
+          "gap": "working",
+          "cue": "work",
+          "wrong": [
+            "to work",
+            "work",
+            "to working"
+          ]
+        },
+        {
+          "en": "Would you mind closing the window?",
+          "ru": "Вы не могли бы закрыть окно?",
+          "gap": "closing",
+          "cue": "close",
+          "wrong": [
+            "to close",
+            "close",
+            "closed"
+          ]
+        },
+        {
+          "en": "He suggested meeting on Monday.",
+          "ru": "Он предложил встретиться в понедельник.",
+          "gap": "meeting",
+          "cue": "meet",
+          "wrong": [
+            "to meet",
+            "meet",
+            "met"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vp-object-to",
+      "kind": "rule",
+      "en": "ask / tell / want someone to",
+      "ru": "ask, tell, want + кого-то + to: I want you to come",
+      "note": "My boss asked me to send the report. I want you to call me. «I want that you…» — ошибка.",
+      "examples": [
+        {
+          "en": "My boss asked me to send the report.",
+          "ru": "Начальник попросил меня отправить отчёт.",
+          "gap": "me to send",
+          "cue": "I / send",
+          "wrong": [
+            "me send",
+            "that I send",
+            "me sending"
+          ]
+        },
+        {
+          "en": "I want you to call me tomorrow.",
+          "ru": "Я хочу, чтобы ты позвонил мне завтра.",
+          "gap": "you to call",
+          "cue": "you / call",
+          "wrong": [
+            "that you call",
+            "you call",
+            "you calling"
+          ]
+        },
+        {
+          "en": "The teacher told us to be quiet.",
+          "ru": "Учитель велел нам вести себя тихо.",
+          "gap": "us to be",
+          "cue": "we / be",
+          "wrong": [
+            "us be",
+            "to us be",
+            "us being"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vp-make-let",
+      "kind": "rule",
+      "en": "make / let + verb",
+      "ru": "make и let — глагол без to: let me know, it made me laugh",
+      "note": "Let me know — дай мне знать. The film made me cry — фильм заставил меня плакать.",
+      "examples": [
+        {
+          "en": "Let me know when you arrive.",
+          "ru": "Дай знать, когда приедешь.",
+          "gap": "Let me know",
+          "cue": "let / I / know",
+          "wrong": [
+            "Let me to know",
+            "Let me knowing",
+            "Let to me know"
+          ]
+        },
+        {
+          "en": "The film made me cry.",
+          "ru": "Фильм довёл меня до слёз.",
+          "gap": "made me cry",
+          "cue": "make / I / cry",
+          "wrong": [
+            "made me to cry",
+            "made me crying",
+            "made to me cry"
+          ]
+        },
+        {
+          "en": "My parents didn't let me go out.",
+          "ru": "Родители не отпускали меня гулять.",
+          "gap": "let me go",
+          "cue": "let / I / go",
+          "wrong": [
+            "let me to go",
+            "let me going",
+            "let to me go"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vp-stop-remember",
+      "kind": "rule",
+      "en": "stop / remember + to или -ing",
+      "ru": "Смысл меняется: stop smoking — бросить курить, remember to lock — не забыть запереть",
+      "note": "Stop doing — перестать; stop to do — остановиться, чтобы. Remember to do — не забыть сделать; remember doing — помнить, как делал.",
+      "examples": [
+        {
+          "en": "I stopped smoking two years ago.",
+          "ru": "Я бросил курить два года назад.",
+          "gap": "smoking",
+          "cue": "бросил",
+          "wrong": [
+            "to smoke",
+            "smoke",
+            "smoked"
+          ]
+        },
+        {
+          "en": "Remember to lock the door.",
+          "ru": "Не забудь запереть дверь.",
+          "gap": "to lock",
+          "cue": "не забудь",
+          "wrong": [
+            "locking",
+            "lock",
+            "locked"
+          ]
+        },
+        {
+          "en": "I remember meeting him in Almaty.",
+          "ru": "Я помню, как познакомился с ним в Алматы.",
+          "gap": "meeting",
+          "cue": "помню, как",
+          "wrong": [
+            "to meet",
+            "meet",
+            "met"
+          ]
+        }
+      ]
+    }
+  ]
+}

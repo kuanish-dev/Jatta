@@ -1,0 +1,182 @@
+{
+  "id": "modals-deduction",
+  "title": "Модальные: догадки и прошлое",
+  "intro": "Must, might, can't выражают не только обязанность, но и догадку: She must be tired — она, наверное, устала. О прошлом — с have + V3: It must have rained. Should have done — «надо было».",
+  "requires": [
+    "modals-obligation",
+    "present-perfect"
+  ],
+  "confusableWith": [
+    "modals-obligation"
+  ],
+  "items": [
+    {
+      "id": "md-present",
+      "kind": "rule",
+      "en": "must be / might be / can't be",
+      "ru": "Догадка о настоящем: must — наверняка, might — возможно, can't — не может быть",
+      "note": "You must be tired — ты, наверное, устал. That can't be true — не может быть. Нельзя mustn't в значении «не может быть».",
+      "examples": [
+        {
+          "en": "You've been working all day. You must be tired.",
+          "ru": "Ты работал весь день. Ты, наверное, устал.",
+          "gap": "must be",
+          "cue": "наверняка",
+          "wrong": [
+            "can't be",
+            "should be",
+            "must to be"
+          ]
+        },
+        {
+          "en": "That can't be Tom. He's in London.",
+          "ru": "Это не может быть Том. Он в Лондоне.",
+          "gap": "can't be",
+          "cue": "не может быть",
+          "wrong": [
+            "mustn't be",
+            "must be",
+            "can't to be"
+          ]
+        },
+        {
+          "en": "She might be at home, I'm not sure.",
+          "ru": "Она, возможно, дома, я не уверен.",
+          "gap": "might be",
+          "cue": "возможно",
+          "wrong": [
+            "must be",
+            "can't be",
+            "might to be"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "md-past",
+      "kind": "rule",
+      "en": "must have / can't have / might have + V3",
+      "ru": "Догадка о прошлом: must have done, might have done, can't have done",
+      "note": "It must have rained — наверняка шёл дождь. He can't have finished — не может быть, что он закончил.",
+      "examples": [
+        {
+          "en": "The ground is wet. It must have rained.",
+          "ru": "Земля мокрая. Наверное, шёл дождь.",
+          "gap": "must have rained",
+          "cue": "наверняка / rain",
+          "wrong": [
+            "must rain",
+            "must have rain",
+            "can't have rained"
+          ]
+        },
+        {
+          "en": "He can't have finished already — he only started an hour ago.",
+          "ru": "Не может быть, что он уже закончил: он начал час назад.",
+          "gap": "can't have finished",
+          "cue": "не может быть / finish",
+          "wrong": [
+            "mustn't have finished",
+            "can't finish",
+            "can't have finish"
+          ]
+        },
+        {
+          "en": "She didn't answer. She might have been asleep.",
+          "ru": "Она не ответила. Возможно, она спала.",
+          "gap": "might have been",
+          "cue": "возможно / be",
+          "wrong": [
+            "might be",
+            "must had been",
+            "might have be"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "md-should-have",
+      "kind": "rule",
+      "en": "should have + V3",
+      "ru": "should have done — надо было (а не сделал); shouldn't have done — не надо было",
+      "note": "You should have told me — надо было мне сказать. Это упрёк или сожаление о прошлом.",
+      "examples": [
+        {
+          "en": "You should have told me earlier.",
+          "ru": "Надо было сказать мне раньше.",
+          "gap": "should have told",
+          "cue": "tell",
+          "wrong": [
+            "should tell",
+            "should have tell",
+            "must told"
+          ]
+        },
+        {
+          "en": "I shouldn't have eaten so much.",
+          "ru": "Не надо было мне столько есть.",
+          "gap": "shouldn't have eaten",
+          "cue": "not / eat",
+          "wrong": [
+            "shouldn't eat",
+            "shouldn't have ate",
+            "mustn't have eaten"
+          ]
+        },
+        {
+          "en": "We should have booked a table.",
+          "ru": "Надо было забронировать столик.",
+          "gap": "should have booked",
+          "cue": "book",
+          "wrong": [
+            "should book",
+            "should have book",
+            "had to booked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "md-allowed-supposed",
+      "kind": "rule",
+      "en": "be allowed to / be supposed to",
+      "ru": "be allowed to — разрешено; be supposed to — должен по правилам или по плану",
+      "note": "You aren't allowed to park here — здесь нельзя парковаться. We're supposed to start at nine — мы должны начать в девять.",
+      "examples": [
+        {
+          "en": "You aren't allowed to park here.",
+          "ru": "Здесь нельзя парковаться.",
+          "gap": "allowed to",
+          "cue": "разрешено",
+          "wrong": [
+            "allow to",
+            "allowed",
+            "allowing to"
+          ]
+        },
+        {
+          "en": "We're supposed to start at nine.",
+          "ru": "Мы должны начать в девять.",
+          "gap": "supposed to",
+          "cue": "по плану",
+          "wrong": [
+            "suppose to",
+            "supposed",
+            "supposing to"
+          ]
+        },
+        {
+          "en": "Were you allowed to use a dictionary?",
+          "ru": "Тебе разрешили пользоваться словарём?",
+          "gap": "allowed to",
+          "cue": "разрешено",
+          "wrong": [
+            "allow to",
+            "allowed",
+            "allowing to"
+          ]
+        }
+      ]
+    }
+  ]
+}

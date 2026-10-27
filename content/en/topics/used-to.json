@@ -1,0 +1,181 @@
+{
+  "id": "used-to",
+  "title": "Used to и would: как было раньше",
+  "intro": "Used to — то, что было раньше и прошло: I used to live in Shymkent. Would — повторявшиеся действия в прошлом: Every summer we would go to the lake. Be used to + -ing — совсем другое: «привык».",
+  "requires": [
+    "past-simple"
+  ],
+  "confusableWith": [
+    "past-simple"
+  ],
+  "items": [
+    {
+      "id": "ut-form",
+      "kind": "rule",
+      "en": "used to + verb",
+      "ru": "used to — раньше (а теперь нет)",
+      "note": "I used to live in Shymkent — раньше я жил в Шымкенте. Только о прошлом; для настоящего — usually.",
+      "examples": [
+        {
+          "en": "I used to live in Shymkent.",
+          "ru": "Раньше я жил в Шымкенте.",
+          "gap": "used to live",
+          "cue": "live",
+          "wrong": [
+            "use to live",
+            "used to living",
+            "was used to live"
+          ]
+        },
+        {
+          "en": "She used to play the piano.",
+          "ru": "Раньше она играла на пианино.",
+          "gap": "used to play",
+          "cue": "play",
+          "wrong": [
+            "use to play",
+            "used to playing",
+            "used play"
+          ]
+        },
+        {
+          "en": "There used to be a cinema here.",
+          "ru": "Раньше здесь был кинотеатр.",
+          "gap": "used to be",
+          "cue": "be",
+          "wrong": [
+            "use to be",
+            "used to being",
+            "used be"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ut-negative-question",
+      "kind": "rule",
+      "en": "didn't use to / Did … use to",
+      "ru": "Отрицание и вопрос: didn't use to, Did … use to",
+      "note": "После did — use без d: I didn't use to like coffee. Did you use to work from home?",
+      "examples": [
+        {
+          "en": "I didn't use to like coffee.",
+          "ru": "Раньше я не любил кофе.",
+          "gap": "didn't use to like",
+          "cue": "not / like",
+          "wrong": [
+            "didn't use to liked",
+            "used not like",
+            "didn't use like"
+          ]
+        },
+        {
+          "en": "Did you use to work from home?",
+          "ru": "Ты раньше работал из дома?",
+          "gap": "Did you use to work",
+          "cue": "you / work",
+          "wrong": [
+            "Did you used to worked",
+            "Used you work",
+            "Did you use work"
+          ]
+        },
+        {
+          "en": "We didn't use to have a car.",
+          "ru": "Раньше у нас не было машины.",
+          "gap": "didn't use to have",
+          "cue": "not / have",
+          "wrong": [
+            "didn't use to had",
+            "didn't use have",
+            "used not have"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ut-would",
+      "kind": "rule",
+      "en": "would + verb (habits)",
+      "ru": "would — «бывало»: повторявшиеся действия в прошлом, но не состояния",
+      "note": "Every summer we would go to the lake. Но не «I would live in Shymkent» — жить это состояние, тут только used to.",
+      "examples": [
+        {
+          "en": "Every summer we would go to the lake.",
+          "ru": "Каждое лето мы, бывало, ездили на озеро.",
+          "gap": "would go",
+          "cue": "go",
+          "wrong": [
+            "would went",
+            "will go",
+            "would going"
+          ]
+        },
+        {
+          "en": "My grandmother would tell us stories every evening.",
+          "ru": "Бабушка каждый вечер рассказывала нам истории.",
+          "gap": "would tell",
+          "cue": "tell",
+          "wrong": [
+            "would told",
+            "will tell",
+            "would telling"
+          ]
+        },
+        {
+          "en": "When I was a student, I would study at night.",
+          "ru": "Когда я был студентом, я, бывало, занимался ночью.",
+          "gap": "would study",
+          "cue": "study",
+          "wrong": [
+            "would studied",
+            "will study",
+            "would studying"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ut-be-used-to",
+      "kind": "rule",
+      "en": "be used to + -ing",
+      "ru": "be used to + -ing — привык (и сейчас тоже); не путать с used to",
+      "note": "I'm used to getting up early — я привык рано вставать. Get used to — привыкать.",
+      "examples": [
+        {
+          "en": "I'm used to getting up early.",
+          "ru": "Я привык рано вставать.",
+          "gap": "used to getting",
+          "cue": "get",
+          "wrong": [
+            "used to get",
+            "use to getting",
+            "used getting"
+          ]
+        },
+        {
+          "en": "She isn't used to working at night.",
+          "ru": "Она не привыкла работать по ночам.",
+          "gap": "used to working",
+          "cue": "work",
+          "wrong": [
+            "used to work",
+            "use to working",
+            "used working"
+          ]
+        },
+        {
+          "en": "You'll soon get used to living here.",
+          "ru": "Ты скоро привыкнешь здесь жить.",
+          "gap": "used to living",
+          "cue": "live",
+          "wrong": [
+            "used to live",
+            "use to living",
+            "used living"
+          ]
+        }
+      ]
+    }
+  ]
+}
