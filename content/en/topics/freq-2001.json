@@ -1,0 +1,307 @@
+{
+  "id": "freq-2001",
+  "title": "Частые слова 2001–2100",
+  "intro": "Слова с 2001-го по 2100-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-achievement",
+      "kind": "word",
+      "en": "achievement",
+      "ru": "достижение",
+      "rank": 2001,
+      "note": "A great achievement — большое достижение. Глагол — achieve.",
+      "examples": [
+        { "en": "Finishing the marathon was a great achievement.", "ru": "Пробежать марафон — большое достижение.", "gap": "achievement" },
+        { "en": "Talk about your achievements in the interview.", "ru": "Расскажите на собеседовании о своих достижениях.", "gap": "achievements" }
+      ]
+    },
+    {
+      "id": "w-negotiate",
+      "kind": "word",
+      "en": "negotiate",
+      "ru": "вести переговоры, договариваться",
+      "rank": 2002,
+      "note": "Negotiate a price / a contract — договориться о цене / условиях контракта. Ударение: ne-GO-ti-ate.",
+      "examples": [
+        { "en": "We managed to negotiate a better price.", "ru": "Нам удалось договориться о более выгодной цене.", "gap": "negotiate" },
+        { "en": "The two companies are still negotiating.", "ru": "Компании всё ещё ведут переговоры.", "gap": "negotiating" }
+      ]
+    },
+    {
+      "id": "w-supplier",
+      "kind": "word",
+      "en": "supplier",
+      "ru": "поставщик",
+      "rank": 2004,
+      "note": "От глагола supply — поставлять, снабжать.",
+      "examples": [
+        { "en": "We found a cheaper supplier of paper.", "ru": "Мы нашли поставщика бумаги подешевле.", "gap": "supplier" },
+        { "en": "Our supplier is late with the delivery again.", "ru": "Наш поставщик снова задерживает поставку.", "gap": "supplier" }
+      ]
+    },
+    {
+      "id": "w-pension",
+      "kind": "word",
+      "en": "pension",
+      "ru": "пенсия",
+      "rank": 2008,
+      "note": "Pension — сами деньги, а выйти на пенсию — retire. Пенсионер — pensioner или retiree.",
+      "examples": [
+        { "en": "My grandmother lives on a small pension.", "ru": "Моя бабушка живёт на небольшую пенсию.", "gap": "pension" },
+        { "en": "Part of my salary goes into a pension fund.", "ru": "Часть моей зарплаты идёт в пенсионный фонд.", "gap": "pension" }
+      ]
+    },
+    {
+      "id": "w-deeply",
+      "kind": "word",
+      "en": "deeply",
+      "ru": "глубоко, сильно (о чувствах)",
+      "rank": 2012,
+      "note": "Чаще о чувствах: deeply grateful, deeply sorry. Также breathe deeply — глубоко дышать.",
+      "examples": [
+        { "en": "I'm deeply grateful for your help.", "ru": "Я глубоко благодарен вам за помощь.", "gap": "deeply" },
+        { "en": "Breathe deeply and try to relax.", "ru": "Дышите глубоко и постарайтесь расслабиться.", "gap": "deeply" }
+      ]
+    },
+    {
+      "id": "w-recognition",
+      "kind": "word",
+      "en": "recognition",
+      "ru": "признание, узнавание",
+      "rank": 2013,
+      "note": "Get recognition for something — получить признание за что-то. Face recognition — распознавание лиц. Глагол — recognize.",
+      "examples": [
+        { "en": "She finally got recognition for her hard work.", "ru": "Её упорный труд наконец получил признание.", "gap": "recognition" },
+        { "en": "My phone uses face recognition to unlock.", "ru": "Мой телефон разблокируется по лицу.", "gap": "recognition" }
+      ]
+    },
+    {
+      "id": "w-assistance",
+      "kind": "word",
+      "en": "assistance",
+      "ru": "помощь, содействие",
+      "rank": 2015,
+      "note": "Официальнее, чем help: Can I be of any assistance? Не путайте с assistant — помощник.",
+      "examples": [
+        { "en": "Please contact us if you need any assistance.", "ru": "Свяжитесь с нами, если вам понадобится помощь.", "gap": "assistance" },
+        { "en": "Passengers who need assistance should speak to our staff.", "ru": "Пассажирам, которым нужна помощь, следует обратиться к персоналу.", "gap": "assistance" }
+      ]
+    },
+    {
+      "id": "w-ultimately",
+      "kind": "word",
+      "en": "ultimately",
+      "ru": "в конечном счёте, в итоге",
+      "rank": 2020,
+      "note": "Ложный друг: не «ультимативно», а «в конце концов, по большому счёту».",
+      "examples": [
+        { "en": "Ultimately, the decision is yours.", "ru": "В конечном счёте решать тебе.", "gap": "Ultimately" },
+        { "en": "The project ultimately cost twice as much.", "ru": "В итоге проект обошёлся вдвое дороже.", "gap": "ultimately" }
+      ]
+    },
+    {
+      "id": "w-proof",
+      "kind": "word",
+      "en": "proof",
+      "ru": "доказательство, подтверждение",
+      "rank": 2021,
+      "note": "Proof of address / identity — подтверждение адреса / личности. В сложных словах -proof — защищённый: waterproof.",
+      "examples": [
+        { "en": "You need proof of address to open an account.", "ru": "Чтобы открыть счёт, нужно подтверждение адреса.", "gap": "proof" },
+        { "en": "Do you have any proof that you paid?", "ru": "У вас есть доказательство, что вы заплатили?", "gap": "proof" }
+      ]
+    },
+    {
+      "id": "w-smart",
+      "kind": "word",
+      "en": "smart",
+      "ru": "умный, толковый, нарядный (об одежде)",
+      "rank": 2023,
+      "note": "Главное значение — умный, сообразительный. В британском английском ещё и об одежде: smart clothes — нарядная, опрятная одежда.",
+      "examples": [
+        { "en": "That was a really smart decision.", "ru": "Это было действительно умное решение.", "gap": "smart" },
+        { "en": "You should wear something smart to the interview.", "ru": "На собеседование стоит одеться поприличнее.", "gap": "smart" }
+      ]
+    },
+    {
+      "id": "w-preparation",
+      "kind": "word",
+      "en": "preparation",
+      "ru": "подготовка",
+      "rank": 2028,
+      "note": "In preparation for — готовясь к. Часто во множественном числе: preparations for the wedding. Глагол — prepare.",
+      "examples": [
+        { "en": "The trip needs a lot of preparation.", "ru": "Поездка требует серьёзной подготовки.", "gap": "preparation" },
+        { "en": "Preparations for the wedding took six months.", "ru": "Подготовка к свадьбе заняла полгода.", "gap": "Preparations" }
+      ]
+    },
+    {
+      "id": "w-dispute",
+      "kind": "word",
+      "en": "dispute",
+      "ru": "спор, конфликт",
+      "rank": 2029,
+      "note": "Обычно серьёзный или официальный спор: a dispute with neighbors over parking. В обычной беседе «спор» — argument.",
+      "examples": [
+        { "en": "They had a dispute with their neighbors over parking.", "ru": "У них вышел спор с соседями из-за парковки.", "gap": "dispute" },
+        { "en": "The dispute was settled without going to court.", "ru": "Спор уладили, не доводя дело до суда.", "gap": "dispute" }
+      ]
+    },
+    {
+      "id": "w-agenda",
+      "kind": "word",
+      "en": "agenda",
+      "ru": "повестка дня, план встречи",
+      "rank": 2030,
+      "note": "Список вопросов для встречи: on the agenda — в повестке. Hidden agenda — скрытые цели.",
+      "examples": [
+        { "en": "What's on the agenda for today's meeting?", "ru": "Что в повестке сегодняшней встречи?", "gap": "agenda" },
+        { "en": "Please send me the agenda before Friday.", "ru": "Пришлите мне, пожалуйста, повестку до пятницы.", "gap": "agenda" }
+      ]
+    },
+    {
+      "id": "w-retail",
+      "kind": "word",
+      "en": "retail",
+      "ru": "розничная торговля, розница",
+      "rank": 2037,
+      "note": "Retail price — розничная цена; оптом — wholesale. Ударение: RE-tail.",
+      "examples": [
+        { "en": "She has worked in retail for ten years.", "ru": "Она десять лет работает в розничной торговле.", "gap": "retail" },
+        { "en": "The retail price of this phone is too high.", "ru": "Розничная цена этого телефона слишком высокая.", "gap": "retail" }
+      ]
+    },
+    {
+      "id": "w-unlikely",
+      "kind": "word",
+      "en": "unlikely",
+      "ru": "маловероятный, вряд ли",
+      "rank": 2039,
+      "note": "Be unlikely to do something: He is unlikely to come — вряд ли он придёт.",
+      "examples": [
+        { "en": "It's unlikely to rain today.", "ru": "Сегодня вряд ли будет дождь.", "gap": "unlikely" },
+        { "en": "He is unlikely to get the job.", "ru": "Вряд ли он получит эту работу.", "gap": "unlikely" }
+      ]
+    },
+    {
+      "id": "w-elderly",
+      "kind": "word",
+      "en": "elderly",
+      "ru": "пожилой",
+      "rank": 2052,
+      "note": "Вежливее, чем old. The elderly — пожилые люди. Несмотря на -ly, это прилагательное.",
+      "examples": [
+        { "en": "My elderly neighbor needs help with shopping.", "ru": "Моей пожилой соседке нужна помощь с покупками.", "gap": "elderly" },
+        { "en": "The bus has special seats for the elderly.", "ru": "В автобусе есть специальные места для пожилых.", "gap": "elderly" }
+      ]
+    },
+    {
+      "id": "w-specialist",
+      "kind": "word",
+      "en": "specialist",
+      "ru": "специалист",
+      "rank": 2063,
+      "note": "Specialist in — специалист по чему-то. О враче — узкий специалист: see a specialist.",
+      "examples": [
+        { "en": "My doctor sent me to a specialist.", "ru": "Терапевт направил меня к узкому специалисту.", "gap": "specialist" },
+        { "en": "He is a specialist in tax law.", "ru": "Он специалист по налоговому праву.", "gap": "specialist" }
+      ]
+    },
+    {
+      "id": "w-profile",
+      "kind": "word",
+      "en": "profile",
+      "ru": "профиль, анкета",
+      "rank": 2065,
+      "note": "Ударение на первый слог: PRO-file. Keep a low profile — не привлекать к себе внимания.",
+      "examples": [
+        { "en": "Don't forget to update your profile on the website.", "ru": "Не забудь обновить свой профиль на сайте.", "gap": "profile" },
+        { "en": "Employers often look at your online profile.", "ru": "Работодатели часто смотрят ваш профиль в интернете.", "gap": "profile" }
+      ]
+    },
+    {
+      "id": "w-submit",
+      "kind": "word",
+      "en": "submit",
+      "ru": "подавать (документы), сдавать (работу)",
+      "rank": 2070,
+      "note": "Submit an application / a report — подать заявку / сдать отчёт. Удвоение t: submitted.",
+      "examples": [
+        { "en": "Please submit your application by Friday.", "ru": "Пожалуйста, подайте заявку до пятницы.", "gap": "submit" },
+        { "en": "I submitted the report this morning.", "ru": "Я сдал отчёт сегодня утром.", "gap": "submitted" }
+      ]
+    },
+    {
+      "id": "w-tension",
+      "kind": "word",
+      "en": "tension",
+      "ru": "напряжение, напряжённость",
+      "rank": 2075,
+      "note": "О людях и отношениях: tension between colleagues. О теле: tension in the neck. Электрическое напряжение — voltage.",
+      "examples": [
+        { "en": "There is some tension between the two teams.", "ru": "Между двумя командами есть некоторое напряжение.", "gap": "tension" },
+        { "en": "A massage helps to release tension in your neck.", "ru": "Массаж помогает снять напряжение в шее.", "gap": "tension" }
+      ]
+    },
+    {
+      "id": "w-eliminate",
+      "kind": "word",
+      "en": "eliminate",
+      "ru": "устранять, исключать",
+      "rank": 2082,
+      "note": "Eliminate errors / risks — устранить ошибки / риски. В спорте be eliminated — вылететь из турнира.",
+      "examples": [
+        { "en": "The new software helps eliminate errors.", "ru": "Новая программа помогает устранить ошибки.", "gap": "eliminate" },
+        { "en": "Our team was eliminated in the first round.", "ru": "Наша команда вылетела в первом же раунде.", "gap": "eliminated" }
+      ]
+    },
+    {
+      "id": "w-tight",
+      "kind": "word",
+      "en": "tight",
+      "ru": "тесный, плотный (о графике)",
+      "rank": 2083,
+      "note": "Tight jeans — узкие джинсы, a tight schedule — плотный график, money is tight — с деньгами туго.",
+      "examples": [
+        { "en": "These shoes are too tight for me.", "ru": "Эти туфли мне тесноваты.", "gap": "tight" },
+        { "en": "We have a very tight schedule this week.", "ru": "На этой неделе у нас очень плотный график.", "gap": "tight" }
+      ]
+    },
+    {
+      "id": "w-recruit",
+      "kind": "word",
+      "en": "recruit",
+      "ru": "нанимать, набирать (сотрудников)",
+      "rank": 2087,
+      "note": "Recruitment — подбор персонала, recruiter — рекрутер. Существительное a recruit — новичок, новый сотрудник.",
+      "examples": [
+        { "en": "We need to recruit two more developers.", "ru": "Нам нужно нанять ещё двух разработчиков.", "gap": "recruit" },
+        { "en": "The company recruited fifty new staff last year.", "ru": "В прошлом году компания набрала пятьдесят новых сотрудников.", "gap": "recruited" }
+      ]
+    },
+    {
+      "id": "w-persuade",
+      "kind": "word",
+      "en": "persuade",
+      "ru": "убедить, уговорить",
+      "rank": 2091,
+      "note": "Persuade someone to do something: She persuaded me to stay. Произношение: [pəˈsweɪd].",
+      "examples": [
+        { "en": "She persuaded me to stay one more day.", "ru": "Она уговорила меня остаться ещё на день.", "gap": "persuaded" },
+        { "en": "It's hard to persuade my boss to change anything.", "ru": "Убедить моего начальника что-то поменять непросто.", "gap": "persuade" }
+      ]
+    },
+    {
+      "id": "w-inspire",
+      "kind": "word",
+      "en": "inspire",
+      "ru": "вдохновлять",
+      "rank": 2092,
+      "note": "Inspire someone to do something — вдохновить на что-то. Существительное — inspiration.",
+      "examples": [
+        { "en": "Her story inspired me to learn Spanish.", "ru": "Её история вдохновила меня на изучение испанского.", "gap": "inspired" },
+        { "en": "Good teachers inspire their students.", "ru": "Хорошие учителя вдохновляют своих учеников.", "gap": "inspire" }
+      ]
+    }
+  ]
+}

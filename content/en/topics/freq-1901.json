@@ -1,0 +1,355 @@
+{
+  "id": "freq-1901",
+  "title": "Частые слова 1901–2000",
+  "intro": "Слова с 1901-го по 2000-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-approximately",
+      "kind": "word",
+      "en": "approximately",
+      "ru": "приблизительно, примерно",
+      "rank": 1902,
+      "note": "Официальнее, чем about или around: approximately two hours.",
+      "examples": [
+        { "en": "The flight takes approximately three hours.", "ru": "Полёт длится примерно три часа.", "gap": "approximately" },
+        { "en": "Approximately half of our staff work from home.", "ru": "Примерно половина наших сотрудников работает из дома.", "gap": "Approximately" }
+      ]
+    },
+    {
+      "id": "w-highlight",
+      "kind": "word",
+      "en": "highlight",
+      "ru": "выделить, подчеркнуть",
+      "rank": 1904,
+      "note": "Highlighter — маркер для текста. Существительное: the highlight of the trip — самый яркий момент поездки.",
+      "examples": [
+        { "en": "I highlighted the key points in yellow.", "ru": "Я выделил главное жёлтым маркером.", "gap": "highlighted" },
+        { "en": "The walk in the old town was the highlight of our trip.", "ru": "Самым ярким моментом поездки стала прогулка по старому городу.", "gap": "highlight" }
+      ]
+    },
+    {
+      "id": "w-climate",
+      "kind": "word",
+      "en": "climate",
+      "ru": "климат",
+      "rank": 1906,
+      "note": "Climate — климат местности, weather — погода в конкретный день. Произношение: [ˈklaɪmət].",
+      "examples": [
+        { "en": "I'd like to live in a warmer climate.", "ru": "Я хотел бы жить там, где климат теплее.", "gap": "climate" },
+        { "en": "The climate here is hot and dry in summer.", "ru": "Летом здесь жаркий и сухой климат.", "gap": "climate" }
+      ]
+    },
+    {
+      "id": "w-exception",
+      "kind": "word",
+      "en": "exception",
+      "ru": "исключение",
+      "rank": 1908,
+      "note": "With the exception of — за исключением. Make an exception — сделать исключение.",
+      "examples": [
+        { "en": "Everyone came, with the exception of Tom.", "ru": "Пришли все, за исключением Тома.", "gap": "exception" },
+        { "en": "We don't usually do this, but we'll make an exception.", "ru": "Обычно мы так не делаем, но сделаем исключение.", "gap": "exception" }
+      ]
+    },
+    {
+      "id": "w-excuse",
+      "kind": "word",
+      "en": "excuse",
+      "ru": "оправдание, отговорка",
+      "rank": 1915,
+      "note": "Существительное произносится с глухим [s] на конце, глагол (Excuse me) — со звонким [z]. Make excuses — оправдываться.",
+      "examples": [
+        { "en": "He always has an excuse for being late.", "ru": "У него всегда найдётся оправдание опозданию.", "gap": "excuse" },
+        { "en": "Stop making excuses and start working.", "ru": "Хватит искать отговорки, пора работать.", "gap": "excuses" }
+      ]
+    },
+    {
+      "id": "w-partly",
+      "kind": "word",
+      "en": "partly",
+      "ru": "частично, отчасти",
+      "rank": 1916,
+      "note": "Partly because — отчасти потому, что. В прогнозе погоды: partly cloudy — переменная облачность.",
+      "examples": [
+        { "en": "The delay was partly caused by bad weather.", "ru": "Задержка отчасти произошла из-за плохой погоды.", "gap": "partly" },
+        { "en": "I moved here partly because of the job.", "ru": "Я переехал сюда отчасти из-за работы.", "gap": "partly" }
+      ]
+    },
+    {
+      "id": "w-calculate",
+      "kind": "word",
+      "en": "calculate",
+      "ru": "вычислять, подсчитывать",
+      "rank": 1925,
+      "note": "Calculate the cost — подсчитать стоимость. Существительное — calculation (расчёт).",
+      "examples": [
+        { "en": "Let me calculate how much we spent.", "ru": "Сейчас посчитаю, сколько мы потратили.", "gap": "calculate" },
+        { "en": "The price is calculated per person.", "ru": "Цена рассчитывается на одного человека.", "gap": "calculated" }
+      ]
+    },
+    {
+      "id": "w-outline",
+      "kind": "word",
+      "en": "outline",
+      "ru": "изложить в общих чертах, общий план",
+      "rank": 1931,
+      "note": "Глагол и существительное: outline a plan — кратко изложить план, an outline — краткий план, набросок.",
+      "examples": [
+        { "en": "Let me outline the main points of the plan.", "ru": "Позвольте вкратце изложить основные пункты плана.", "gap": "outline" },
+        { "en": "Please send me an outline of your presentation.", "ru": "Пришлите мне, пожалуйста, план вашей презентации.", "gap": "outline" }
+      ]
+    },
+    {
+      "id": "w-sufficient",
+      "kind": "word",
+      "en": "sufficient",
+      "ru": "достаточный",
+      "rank": 1932,
+      "note": "Официальный синоним enough: sufficient time / money. Антоним — insufficient.",
+      "examples": [
+        { "en": "We don't have sufficient time to finish the project.", "ru": "У нас недостаточно времени, чтобы закончить проект.", "gap": "sufficient" },
+        { "en": "One bottle of water should be sufficient.", "ru": "Одной бутылки воды должно хватить.", "gap": "sufficient" }
+      ]
+    },
+    {
+      "id": "w-luck",
+      "kind": "word",
+      "en": "luck",
+      "ru": "удача, везение",
+      "rank": 1934,
+      "note": "Good luck! — удачи! Bad luck — невезение. Прилагательное — lucky.",
+      "examples": [
+        { "en": "Good luck with your exam tomorrow!", "ru": "Удачи на завтрашнем экзамене!", "gap": "luck" },
+        { "en": "We had bad luck with the weather.", "ru": "Нам не повезло с погодой.", "gap": "luck" }
+      ]
+    },
+    {
+      "id": "w-split",
+      "kind": "word",
+      "en": "split",
+      "ru": "разделить, поделить",
+      "rank": 1936,
+      "note": "Неправильный глагол: split – split – split. Split the bill — разделить счёт.",
+      "examples": [
+        { "en": "Let's split the bill between the four of us.", "ru": "Давайте разделим счёт на четверых.", "gap": "split" },
+        { "en": "The teacher split the class into three groups.", "ru": "Учитель разделил класс на три группы.", "gap": "split" }
+      ]
+    },
+    {
+      "id": "w-sudden",
+      "kind": "word",
+      "en": "sudden",
+      "ru": "внезапный",
+      "rank": 1940,
+      "note": "All of a sudden — вдруг, внезапно. Наречие — suddenly.",
+      "examples": [
+        { "en": "There was a sudden change in the weather.", "ru": "Погода внезапно изменилась.", "gap": "sudden" },
+        { "en": "All of a sudden, the lights went out.", "ru": "Вдруг погас свет.", "gap": "sudden" }
+      ]
+    },
+    {
+      "id": "w-consistent",
+      "kind": "word",
+      "en": "consistent",
+      "ru": "последовательный, стабильный",
+      "rank": 1942,
+      "note": "Не «консистентный»: о результатах — стабильный, без перепадов, о человеке — последовательный.",
+      "examples": [
+        { "en": "Our team has shown consistent results all year.", "ru": "Весь год наша команда показывает стабильные результаты.", "gap": "consistent" },
+        { "en": "Parents should be consistent with their rules.", "ru": "Родители должны быть последовательными в своих требованиях.", "gap": "consistent" }
+      ]
+    },
+    {
+      "id": "w-originally",
+      "kind": "word",
+      "en": "originally",
+      "ru": "изначально, первоначально",
+      "rank": 1943,
+      "note": "Where are you originally from? — Откуда вы родом? Не значит «оригинально, необычно».",
+      "examples": [
+        { "en": "Where are you originally from?", "ru": "Откуда вы родом?", "gap": "originally" },
+        { "en": "The meeting was originally planned for Monday.", "ru": "Изначально встречу планировали на понедельник.", "gap": "originally" }
+      ]
+    },
+    {
+      "id": "w-comfort",
+      "kind": "word",
+      "en": "comfort",
+      "ru": "комфорт, утешение",
+      "rank": 1945,
+      "note": "Также глагол: comfort someone — утешить. Прилагательное — comfortable.",
+      "examples": [
+        { "en": "I like to travel in comfort.", "ru": "Я люблю путешествовать с комфортом.", "gap": "comfort" },
+        { "en": "She tried to comfort her crying son.", "ru": "Она пыталась утешить плачущего сына.", "gap": "comfort" }
+      ]
+    },
+    {
+      "id": "w-severe",
+      "kind": "word",
+      "en": "severe",
+      "ru": "сильный, суровый (о плохом)",
+      "rank": 1947,
+      "note": "Только о плохом: severe weather, a severe headache — сильная головная боль. Ударение: se-VERE.",
+      "examples": [
+        { "en": "The city had severe snowstorms last winter.", "ru": "Прошлой зимой в городе были сильные метели.", "gap": "severe" },
+        { "en": "I have a severe headache today.", "ru": "У меня сегодня сильно болит голова.", "gap": "severe" }
+      ]
+    },
+    {
+      "id": "w-prospect",
+      "kind": "word",
+      "en": "prospect",
+      "ru": "перспектива, виды на будущее",
+      "rank": 1949,
+      "note": "Job / career prospects — перспективы в работе. The prospect of doing — мысль о том, что предстоит.",
+      "examples": [
+        { "en": "This job offers good career prospects.", "ru": "Эта работа даёт хорошие карьерные перспективы.", "gap": "prospects" },
+        { "en": "I don't like the prospect of working all weekend.", "ru": "Мне не нравится перспектива работать все выходные.", "gap": "prospect" }
+      ]
+    },
+    {
+      "id": "w-criticism",
+      "kind": "word",
+      "en": "criticism",
+      "ru": "критика",
+      "rank": 1956,
+      "note": "Ударение: CRI-ti-cism. Глагол — criticize (брит. criticise), критик — critic.",
+      "examples": [
+        { "en": "He doesn't take criticism very well.", "ru": "Он плохо воспринимает критику.", "gap": "criticism" },
+        { "en": "The new design received a lot of criticism.", "ru": "Новый дизайн вызвал много критики.", "gap": "criticism" }
+      ]
+    },
+    {
+      "id": "w-retain",
+      "kind": "word",
+      "en": "retain",
+      "ru": "сохранять, удерживать",
+      "rank": 1959,
+      "note": "Официальное слово: retain staff / customers — удерживать сотрудников / клиентов. В разговоре чаще keep.",
+      "examples": [
+        { "en": "The company is trying to retain its best staff.", "ru": "Компания старается удержать лучших сотрудников.", "gap": "retain" },
+        { "en": "Please retain your receipt for future reference.", "ru": "Пожалуйста, сохраните чек.", "gap": "retain" }
+      ]
+    },
+    {
+      "id": "w-volunteer",
+      "kind": "word",
+      "en": "volunteer",
+      "ru": "доброволец, волонтёр",
+      "rank": 1962,
+      "note": "Также глагол: volunteer to do something — вызваться что-то сделать. Ударение: vo-lun-TEER.",
+      "examples": [
+        { "en": "She works as a volunteer at an animal shelter.", "ru": "Она волонтёр в приюте для животных.", "gap": "volunteer" },
+        { "en": "Who will volunteer to take notes?", "ru": "Кто вызовется вести записи?", "gap": "volunteer" }
+      ]
+    },
+    {
+      "id": "w-abandon",
+      "kind": "word",
+      "en": "abandon",
+      "ru": "бросить, покинуть, отказаться (от плана)",
+      "rank": 1965,
+      "note": "Abandon a plan — отказаться от плана. Abandoned — заброшенный: an abandoned house.",
+      "examples": [
+        { "en": "We had to abandon our plans because of the rain.", "ru": "Из-за дождя нам пришлось отказаться от своих планов.", "gap": "abandon" },
+        { "en": "There is an abandoned factory near my house.", "ru": "Рядом с моим домом есть заброшенная фабрика.", "gap": "abandoned" }
+      ]
+    },
+    {
+      "id": "w-rapidly",
+      "kind": "word",
+      "en": "rapidly",
+      "ru": "быстро, стремительно",
+      "rank": 1968,
+      "note": "Обычно о росте и изменениях: grow / change rapidly. Прилагательное — rapid.",
+      "examples": [
+        { "en": "Our city is growing rapidly.", "ru": "Наш город стремительно растёт.", "gap": "rapidly" },
+        { "en": "Apartment prices rose rapidly last year.", "ru": "В прошлом году цены на квартиры резко выросли.", "gap": "rapidly" }
+      ]
+    },
+    {
+      "id": "w-efficient",
+      "kind": "word",
+      "en": "efficient",
+      "ru": "эффективный, экономичный",
+      "rank": 1969,
+      "note": "Efficient — без лишних затрат времени, сил и энергии; effective — дающий нужный результат.",
+      "examples": [
+        { "en": "This new heater is very efficient.", "ru": "Этот новый обогреватель очень экономичный.", "gap": "efficient" },
+        { "en": "She is fast and efficient at her work.", "ru": "Она работает быстро и толково.", "gap": "efficient" }
+      ]
+    },
+    {
+      "id": "w-differ",
+      "kind": "word",
+      "en": "differ",
+      "ru": "отличаться, различаться",
+      "rank": 1976,
+      "note": "Differ from — отличаться от. Opinions differ — мнения расходятся. Ударение: DIF-fer.",
+      "examples": [
+        { "en": "Prices differ from shop to shop.", "ru": "В разных магазинах цены отличаются.", "gap": "differ" },
+        { "en": "Our opinions differ on this question.", "ru": "Наши мнения по этому вопросу расходятся.", "gap": "differ" }
+      ]
+    },
+    {
+      "id": "w-distribute",
+      "kind": "word",
+      "en": "distribute",
+      "ru": "раздавать, распространять",
+      "rank": 1980,
+      "note": "Distribute leaflets — раздавать листовки. Ударение: dis-TRI-bute.",
+      "examples": [
+        { "en": "Please distribute these papers to everyone.", "ru": "Пожалуйста, раздайте эти бумаги всем.", "gap": "distribute" },
+        { "en": "The company distributes its products across the country.", "ru": "Компания продаёт свою продукцию по всей стране.", "gap": "distributes" }
+      ]
+    },
+    {
+      "id": "w-crucial",
+      "kind": "word",
+      "en": "crucial",
+      "ru": "решающий, крайне важный",
+      "rank": 1983,
+      "note": "Сильнее, чем important: It is crucial that... Произношение: [ˈkruːʃəl].",
+      "examples": [
+        { "en": "The next few days are crucial.", "ru": "Следующие несколько дней будут решающими.", "gap": "crucial" },
+        { "en": "Good sleep is crucial for your health.", "ru": "Хороший сон крайне важен для здоровья.", "gap": "crucial" }
+      ]
+    },
+    {
+      "id": "w-unemployment",
+      "kind": "word",
+      "en": "unemployment",
+      "ru": "безработица",
+      "rank": 1984,
+      "note": "Unemployed — безработный. Unemployment benefit — пособие по безработице.",
+      "examples": [
+        { "en": "Unemployment is low in this region.", "ru": "В этом регионе низкая безработица.", "gap": "Unemployment" },
+        { "en": "He received unemployment benefits for three months.", "ru": "Три месяца он получал пособие по безработице.", "gap": "unemployment" }
+      ]
+    },
+    {
+      "id": "w-fault",
+      "kind": "word",
+      "en": "fault",
+      "ru": "вина, неисправность",
+      "rank": 1995,
+      "note": "It's my fault — я виноват. Также неисправность или недостаток: a fault in the system.",
+      "examples": [
+        { "en": "Don't worry, it's not your fault.", "ru": "Не переживай, ты не виноват.", "gap": "fault" },
+        { "en": "The engineer found a fault in the system.", "ru": "Инженер нашёл в системе неисправность.", "gap": "fault" }
+      ]
+    },
+    {
+      "id": "w-minor",
+      "kind": "word",
+      "en": "minor",
+      "ru": "незначительный, мелкий",
+      "rank": 1997,
+      "note": "Антоним — major. Существительное a minor — несовершеннолетний.",
+      "examples": [
+        { "en": "There are a few minor mistakes in your report.", "ru": "В твоём отчёте есть несколько мелких ошибок.", "gap": "minor" },
+        { "en": "We had a minor problem with the hotel booking.", "ru": "У нас была небольшая проблема с бронью в отеле.", "gap": "minor" }
+      ]
+    }
+  ]
+}

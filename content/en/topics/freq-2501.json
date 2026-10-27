@@ -1,0 +1,319 @@
+{
+  "id": "freq-2501",
+  "title": "Частые слова 2501–2600",
+  "intro": "Слова с 2501-го по 2600-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-disagree",
+      "kind": "word",
+      "en": "disagree",
+      "ru": "не соглашаться, расходиться во мнениях",
+      "rank": 2503,
+      "note": "Disagree with someone about something. Не говорите I am not agree: правильно I disagree или I don't agree.",
+      "examples": [
+        { "en": "I'm sorry, but I disagree with you.", "ru": "Извините, но я с вами не согласен.", "gap": "disagree" },
+        { "en": "My parents often disagree about money.", "ru": "Мои родители часто расходятся во мнениях насчёт денег.", "gap": "disagree" }
+      ]
+    },
+    {
+      "id": "w-tackle",
+      "kind": "word",
+      "en": "tackle",
+      "ru": "взяться (за проблему), решать",
+      "rank": 2506,
+      "note": "Tackle a problem / a task — взяться за решение проблемы, задачи. В футболе tackle — отбор мяча.",
+      "examples": [
+        { "en": "We need to tackle this problem before it gets worse.", "ru": "Нужно взяться за эту проблему, пока не стало хуже.", "gap": "tackle" },
+        { "en": "The city is tackling traffic with new bus lanes.", "ru": "Город борется с пробками с помощью новых автобусных полос.", "gap": "tackling" }
+      ]
+    },
+    {
+      "id": "w-exceed",
+      "kind": "word",
+      "en": "exceed",
+      "ru": "превышать, превзойти",
+      "rank": 2508,
+      "note": "Exceed the speed limit — превысить скорость. Exceed expectations — превзойти ожидания.",
+      "examples": [
+        { "en": "Don't exceed the speed limit in the city.", "ru": "Не превышайте скорость в городе.", "gap": "exceed" },
+        { "en": "The results exceeded our expectations.", "ru": "Результаты превзошли наши ожидания.", "gap": "exceeded" }
+      ]
+    },
+    {
+      "id": "w-click",
+      "kind": "word",
+      "en": "click",
+      "ru": "нажать (мышью), щёлкнуть",
+      "rank": 2514,
+      "note": "Click on a link / a button — нажать на ссылку, кнопку. Double-click — двойной щелчок.",
+      "examples": [
+        { "en": "Click on the link to confirm your email.", "ru": "Нажмите на ссылку, чтобы подтвердить почту.", "gap": "Click" },
+        { "en": "I clicked the wrong button and lost my work.", "ru": "Я нажал не ту кнопку и потерял всю работу.", "gap": "clicked" }
+      ]
+    },
+    {
+      "id": "w-fortune",
+      "kind": "word",
+      "en": "fortune",
+      "ru": "состояние (большие деньги), удача",
+      "rank": 2516,
+      "note": "Cost a fortune — стоить целое состояние. Make a fortune — разбогатеть. Good fortune — удача.",
+      "examples": [
+        { "en": "This bag cost me a fortune.", "ru": "Эта сумка обошлась мне в целое состояние.", "gap": "fortune" },
+        { "en": "He made a fortune selling apartments.", "ru": "Он сколотил состояние на продаже квартир.", "gap": "fortune" }
+      ]
+    },
+    {
+      "id": "w-ceremony",
+      "kind": "word",
+      "en": "ceremony",
+      "ru": "церемония",
+      "rank": 2517,
+      "note": "Wedding ceremony — свадебная церемония, opening ceremony — церемония открытия. Ударение на первый слог: CER-e-mo-ny.",
+      "examples": [
+        { "en": "The wedding ceremony starts at three o'clock.", "ru": "Свадебная церемония начнётся в три часа.", "gap": "ceremony" },
+        { "en": "Students got their diplomas at the graduation ceremony.", "ru": "Студенты получили дипломы на выпускной церемонии.", "gap": "ceremony" }
+      ]
+    },
+    {
+      "id": "w-automatically",
+      "kind": "word",
+      "en": "automatically",
+      "ru": "автоматически",
+      "rank": 2521,
+      "note": "Пишется с окончанием -ically: automatically. Прилагательное — automatic.",
+      "examples": [
+        { "en": "The doors of the shop open automatically.", "ru": "Двери магазина открываются автоматически.", "gap": "automatically" },
+        { "en": "Your subscription renews automatically every month.", "ru": "Подписка продлевается автоматически каждый месяц.", "gap": "automatically" }
+      ]
+    },
+    {
+      "id": "w-partnership",
+      "kind": "word",
+      "en": "partnership",
+      "ru": "партнёрство, сотрудничество",
+      "rank": 2527,
+      "note": "In partnership with — совместно с. Business partnership — деловое партнёрство.",
+      "examples": [
+        { "en": "Our company has a partnership with a local bank.", "ru": "Наша компания сотрудничает с местным банком.", "gap": "partnership" },
+        { "en": "The festival is organized in partnership with the city.", "ru": "Фестиваль проводится совместно с городскими властями.", "gap": "partnership" }
+      ]
+    },
+    {
+      "id": "w-participation",
+      "kind": "word",
+      "en": "participation",
+      "ru": "участие",
+      "rank": 2528,
+      "note": "Participation in something — участие в чём-то. Глагол — participate in; в разговоре проще take part in.",
+      "examples": [
+        { "en": "Thank you for your participation in the survey.", "ru": "Спасибо за участие в опросе.", "gap": "participation" },
+        { "en": "Participation in the training is required for all staff.", "ru": "Участие в тренинге обязательно для всех сотрудников.", "gap": "Participation" }
+      ]
+    },
+    {
+      "id": "w-penalty",
+      "kind": "word",
+      "en": "penalty",
+      "ru": "штраф, наказание",
+      "rank": 2530,
+      "note": "Штраф по договору или правилам, например за просрочку платежа. В футболе — пенальти. Ударение на первый слог: PEN-al-ty.",
+      "examples": [
+        { "en": "There is a penalty for paying the bill late.", "ru": "За просрочку оплаты счёта начисляется штраф.", "gap": "penalty" },
+        { "en": "He scored a penalty in the last minute.", "ru": "Он забил пенальти на последней минуте.", "gap": "penalty" }
+      ]
+    },
+    {
+      "id": "w-chat",
+      "kind": "word",
+      "en": "chat",
+      "ru": "болтать, беседа, чат",
+      "rank": 2534,
+      "note": "Chat with someone about something — поболтать. Have a chat — поговорить, часто перед серьёзным разговором.",
+      "examples": [
+        { "en": "We chatted about our plans over coffee.", "ru": "За кофе мы поболтали о наших планах.", "gap": "chatted" },
+        { "en": "Can we have a quick chat after lunch?", "ru": "Можем коротко поговорить после обеда?", "gap": "chat" }
+      ]
+    },
+    {
+      "id": "w-sake",
+      "kind": "word",
+      "en": "sake",
+      "ru": "ради (кого-то, чего-то)",
+      "rank": 2537,
+      "note": "Только в выражениях: for the sake of — ради; for my sake — ради меня; for goodness' sake! — ну сколько можно!",
+      "examples": [
+        { "en": "They stayed together for the sake of the children.", "ru": "Они остались вместе ради детей.", "gap": "sake" },
+        { "en": "Please drive slowly, for my sake.", "ru": "Пожалуйста, езжай медленно — ради меня.", "gap": "sake" }
+      ]
+    },
+    {
+      "id": "w-boost",
+      "kind": "word",
+      "en": "boost",
+      "ru": "повысить, поднять, подъём",
+      "rank": 2539,
+      "note": "Boost sales / confidence / energy — поднять продажи, уверенность, силы. Как существительное — толчок: a boost to the economy.",
+      "examples": [
+        { "en": "A good night's sleep will boost your energy.", "ru": "Хороший ночной сон придаст тебе сил.", "gap": "boost" },
+        { "en": "The new ad boosted sales by twenty percent.", "ru": "Новая реклама подняла продажи на двадцать процентов.", "gap": "boosted" }
+      ]
+    },
+    {
+      "id": "w-maintenance",
+      "kind": "word",
+      "en": "maintenance",
+      "ru": "обслуживание, уход, ремонт",
+      "rank": 2548,
+      "note": "Глагол — maintain, но в существительном пишется -ten-: maintenance. Car maintenance — обслуживание машины.",
+      "examples": [
+        { "en": "The elevator is closed for maintenance today.", "ru": "Сегодня лифт не работает: идёт техобслуживание.", "gap": "maintenance" },
+        { "en": "Old houses need a lot of maintenance.", "ru": "Старые дома требуют постоянного ухода и ремонта.", "gap": "maintenance" }
+      ]
+    },
+    {
+      "id": "w-consequently",
+      "kind": "word",
+      "en": "consequently",
+      "ru": "следовательно, поэтому",
+      "rank": 2549,
+      "note": "Книжная связка «в результате»; в разговоре чаще so. Существительное — consequence (последствие).",
+      "examples": [
+        { "en": "The train was late; consequently, I missed the meeting.", "ru": "Поезд опоздал, и поэтому я пропустил совещание.", "gap": "consequently" },
+        { "en": "He didn't save the file and consequently lost all his work.", "ru": "Он не сохранил файл и в результате потерял всю работу.", "gap": "consequently" }
+      ]
+    },
+    {
+      "id": "w-strengthen",
+      "kind": "word",
+      "en": "strengthen",
+      "ru": "укрепить, усилить",
+      "rank": 2552,
+      "note": "От strength + -en. Strengthen a friendship / muscles — укрепить дружбу, мышцы. Антоним — weaken.",
+      "examples": [
+        { "en": "These simple exercises strengthen your back.", "ru": "Эти простые упражнения укрепляют спину.", "gap": "strengthen" },
+        { "en": "The trip strengthened our friendship.", "ru": "Поездка укрепила нашу дружбу.", "gap": "strengthened" }
+      ]
+    },
+    {
+      "id": "w-potentially",
+      "kind": "word",
+      "en": "potentially",
+      "ru": "потенциально, возможно",
+      "rank": 2558,
+      "note": "О том, что может случиться: a potentially dangerous situation. Прилагательное — potential.",
+      "examples": [
+        { "en": "This mistake could potentially cost us a lot of money.", "ru": "Эта ошибка может обойтись нам очень дорого.", "gap": "potentially" },
+        { "en": "Ice on the roads is potentially dangerous.", "ru": "Лёд на дорогах может быть опасен.", "gap": "potentially" }
+      ]
+    },
+    {
+      "id": "w-scope",
+      "kind": "word",
+      "en": "scope",
+      "ru": "рамки, масштаб, охват",
+      "rank": 2559,
+      "note": "The scope of the project — рамки, объём проекта. Outside the scope — за рамками.",
+      "examples": [
+        { "en": "This task is outside the scope of our project.", "ru": "Эта задача выходит за рамки нашего проекта.", "gap": "scope" },
+        { "en": "We underestimated the scope of the repairs.", "ru": "Мы недооценили масштаб ремонта.", "gap": "scope" }
+      ]
+    },
+    {
+      "id": "w-pretend",
+      "kind": "word",
+      "en": "pretend",
+      "ru": "притворяться, делать вид",
+      "rank": 2560,
+      "note": "Ложный друг: не «претендовать» (это claim). Pretend to do / pretend that: He pretended to be asleep.",
+      "examples": [
+        { "en": "She pretended not to see me.", "ru": "Она сделала вид, что меня не заметила.", "gap": "pretended" },
+        { "en": "Don't pretend you don't know the answer.", "ru": "Не притворяйся, будто не знаешь ответа.", "gap": "pretend" }
+      ]
+    },
+    {
+      "id": "w-pride",
+      "kind": "word",
+      "en": "pride",
+      "ru": "гордость",
+      "rank": 2563,
+      "note": "Take pride in something — гордиться чем-то. Прилагательное — proud (be proud of).",
+      "examples": [
+        { "en": "She takes great pride in her work.", "ru": "Она очень гордится своей работой.", "gap": "pride" },
+        { "en": "He looked at his new house with pride.", "ru": "Он с гордостью смотрел на свой новый дом.", "gap": "pride" }
+      ]
+    },
+    {
+      "id": "w-resign",
+      "kind": "word",
+      "en": "resign",
+      "ru": "уволиться (по своему желанию), уйти в отставку",
+      "rank": 2566,
+      "note": "Resign from a job — уйти по собственному желанию. Если увольняет начальник — be fired. Существительное — resignation.",
+      "examples": [
+        { "en": "She resigned from her job to start a business.", "ru": "Она уволилась с работы, чтобы открыть своё дело.", "gap": "resigned" },
+        { "en": "I'm thinking of resigning next month.", "ru": "Я подумываю уволиться в следующем месяце.", "gap": "resigning" }
+      ]
+    },
+    {
+      "id": "w-strict",
+      "kind": "word",
+      "en": "strict",
+      "ru": "строгий",
+      "rank": 2568,
+      "note": "Strict rules — строгие правила. Be strict with someone — быть строгим с кем-то.",
+      "examples": [
+        { "en": "Our school had very strict rules about phones.", "ru": "В нашей школе были очень строгие правила насчёт телефонов.", "gap": "strict" },
+        { "en": "My parents were strict with me about homework.", "ru": "Родители строго следили за тем, чтобы я делал уроки.", "gap": "strict" }
+      ]
+    },
+    {
+      "id": "w-limitation",
+      "kind": "word",
+      "en": "limitation",
+      "ru": "ограничение",
+      "rank": 2574,
+      "note": "Чаще во множественном числе: limitations — ограничения, слабые места. Know your limitations — знать свои пределы.",
+      "examples": [
+        { "en": "The free version of the app has some limitations.", "ru": "У бесплатной версии приложения есть некоторые ограничения.", "gap": "limitations" },
+        { "en": "It's important to know your own limitations.", "ru": "Важно понимать пределы своих возможностей.", "gap": "limitations" }
+      ]
+    },
+    {
+      "id": "w-wise",
+      "kind": "word",
+      "en": "wise",
+      "ru": "мудрый, разумный",
+      "rank": 2577,
+      "note": "It would be wise to… — было бы разумно: It would be wise to book early. Существительное — wisdom.",
+      "examples": [
+        { "en": "My grandmother was a very wise woman.", "ru": "Моя бабушка была очень мудрой женщиной.", "gap": "wise" },
+        { "en": "It would be wise to buy the tickets early.", "ru": "Было бы разумно купить билеты заранее.", "gap": "wise" }
+      ]
+    },
+    {
+      "id": "w-neglect",
+      "kind": "word",
+      "en": "neglect",
+      "ru": "запускать, пренебрегать (не уделять внимания)",
+      "rank": 2578,
+      "note": "Neglect your health — запустить здоровье. Neglected — заброшенный: a neglected garden.",
+      "examples": [
+        { "en": "Don't neglect your health because of work.", "ru": "Не запускай здоровье из-за работы.", "gap": "neglect" },
+        { "en": "The garden was neglected for years.", "ru": "Сад годами стоял заброшенным.", "gap": "neglected" }
+      ]
+    },
+    {
+      "id": "w-trigger",
+      "kind": "word",
+      "en": "trigger",
+      "ru": "вызвать, спровоцировать",
+      "rank": 2586,
+      "note": "Запустить реакцию или процесс: Stress can trigger headaches. Существительное trigger — повод, а также спусковой крючок.",
+      "examples": [
+        { "en": "Stress and lack of sleep can trigger headaches.", "ru": "Стресс и недосып могут вызвать головную боль.", "gap": "trigger" },
+        { "en": "Smoke from the kitchen triggered the fire alarm.", "ru": "Дым из кухни включил пожарную сигнализацию.", "gap": "triggered" }
+      ]
+    }
+  ]
+}

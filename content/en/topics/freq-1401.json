@@ -1,0 +1,355 @@
+{
+  "id": "freq-1401",
+  "title": "Частые слова 1401–1500",
+  "intro": "Слова с 1401-го по 1500-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-objective",
+      "kind": "word",
+      "en": "objective",
+      "ru": "цель, задача",
+      "rank": 1402,
+      "note": "Objective — конкретная цель в работе или учёбе. Как прилагательное — объективный, беспристрастный: an objective opinion.",
+      "examples": [
+        { "en": "Our objective is to finish the project by May.", "ru": "Наша цель — закончить проект к маю.", "gap": "objective" },
+        { "en": "It's hard to be objective about your own work.", "ru": "О собственной работе трудно судить объективно.", "gap": "objective" }
+      ]
+    },
+    {
+      "id": "w-oppose",
+      "kind": "word",
+      "en": "oppose",
+      "ru": "выступать против, возражать",
+      "rank": 1406,
+      "note": "Oppose something — без предлога: oppose a plan. Также be opposed to something — быть против чего-то.",
+      "examples": [
+        { "en": "Many residents oppose the new parking rules.", "ru": "Многие жители против новых правил парковки.", "gap": "oppose" },
+        { "en": "My parents strongly opposed my decision to quit.", "ru": "Родители были категорически против того, чтобы я уволился.", "gap": "opposed" }
+      ]
+    },
+    {
+      "id": "w-branch",
+      "kind": "word",
+      "en": "branch",
+      "ru": "филиал, отделение, ветка",
+      "rank": 1407,
+      "note": "Branch — ветка дерева, а также филиал банка или магазина: Our bank has a branch near here.",
+      "examples": [
+        { "en": "The bank has a branch in every district.", "ru": "У банка есть отделение в каждом районе.", "gap": "branch" },
+        { "en": "A big branch fell on our car during the storm.", "ru": "Во время бури на нашу машину упала большая ветка.", "gap": "branch" }
+      ]
+    },
+    {
+      "id": "w-vehicle",
+      "kind": "word",
+      "en": "vehicle",
+      "ru": "транспортное средство, автомобиль",
+      "rank": 1408,
+      "note": "Официальное слово (правила, документы); в разговоре — car, bus, truck. Буква h не читается: [ˈviːəkəl].",
+      "examples": [
+        { "en": "Please do not leave your vehicle here.", "ru": "Пожалуйста, не оставляйте здесь свой автомобиль.", "gap": "vehicle" },
+        { "en": "Electric vehicles are becoming more popular.", "ru": "Электромобили становятся всё популярнее.", "gap": "vehicles" }
+      ]
+    },
+    {
+      "id": "w-decrease",
+      "kind": "word",
+      "en": "decrease",
+      "ru": "уменьшаться, снижение",
+      "rank": 1420,
+      "note": "Decrease by — на сколько, decrease to — до какого уровня. Противоположное — increase. У глагола ударение на второй слог, у существительного — на первый.",
+      "examples": [
+        { "en": "The number of tourists decreased by ten percent.", "ru": "Число туристов сократилось на десять процентов.", "gap": "decreased" },
+        { "en": "We've noticed a decrease in sales this month.", "ru": "В этом месяце мы заметили падение продаж.", "gap": "decrease" }
+      ]
+    },
+    {
+      "id": "w-normally",
+      "kind": "word",
+      "en": "normally",
+      "ru": "обычно, как правило",
+      "rank": 1424,
+      "note": "Normally = usually: I normally get up at seven. Русское «нормально» в смысле «хорошо» — это fine или OK.",
+      "examples": [
+        { "en": "I normally take the bus to work.", "ru": "Обычно я езжу на работу на автобусе.", "gap": "normally" },
+        { "en": "Normally the shop opens at nine, but today it's closed.", "ru": "Обычно магазин открывается в девять, но сегодня он закрыт.", "gap": "Normally" }
+      ]
+    },
+    {
+      "id": "w-generate",
+      "kind": "word",
+      "en": "generate",
+      "ru": "производить, создавать, приносить (доход)",
+      "rank": 1426,
+      "note": "Generate electricity — вырабатывать электричество; generate income — приносить доход; generate ideas — придумывать идеи.",
+      "examples": [
+        { "en": "Solar panels generate electricity for the whole house.", "ru": "Солнечные панели вырабатывают электричество для всего дома.", "gap": "generate" },
+        { "en": "The new shop generates a good income.", "ru": "Новый магазин приносит хороший доход.", "gap": "generates" }
+      ]
+    },
+    {
+      "id": "w-delivery",
+      "kind": "word",
+      "en": "delivery",
+      "ru": "доставка",
+      "rank": 1428,
+      "note": "Free delivery — бесплатная доставка. Глагол — deliver (доставить).",
+      "examples": [
+        { "en": "Delivery is free for orders over fifty dollars.", "ru": "При заказе от пятидесяти долларов доставка бесплатная.", "gap": "Delivery" },
+        { "en": "The delivery arrived two days late.", "ru": "Заказ привезли с опозданием на два дня.", "gap": "delivery" }
+      ]
+    },
+    {
+      "id": "w-deny",
+      "kind": "word",
+      "en": "deny",
+      "ru": "отрицать, опровергать",
+      "rank": 1429,
+      "note": "Deny doing something или deny that…: He denied eating the cake. Произносится [dɪˈnaɪ]. Существительное — denial.",
+      "examples": [
+        { "en": "He denied eating the last piece of cake.", "ru": "Он отрицал, что съел последний кусок торта.", "gap": "denied" },
+        { "en": "The company denied the rumors about job cuts.", "ru": "Компания опровергла слухи о сокращениях.", "gap": "denied" }
+      ]
+    },
+    {
+      "id": "w-guest",
+      "kind": "word",
+      "en": "guest",
+      "ru": "гость",
+      "rank": 1430,
+      "note": "Буква u не читается: [ɡest]. Be my guest! — Пожалуйста, не стесняйтесь! (в ответ на просьбу) Guesthouse — гостевой дом, небольшая гостиница.",
+      "examples": [
+        { "en": "Our guest room is small but comfortable.", "ru": "Наша гостевая комната маленькая, но уютная.", "gap": "guest" },
+        { "en": "Breakfast is free for hotel guests.", "ru": "Для гостей отеля завтрак бесплатный.", "gap": "guests" }
+      ]
+    },
+    {
+      "id": "w-basically",
+      "kind": "word",
+      "en": "basically",
+      "ru": "по сути, в сущности",
+      "rank": 1435,
+      "note": "В разговоре часто вводное слово: Basically, we need more time. Пишется -ically, но произносится [ˈbeɪsɪkli].",
+      "examples": [
+        { "en": "Basically, we need more time and more money.", "ru": "По сути, нам нужно больше времени и денег.", "gap": "Basically" },
+        { "en": "The two phones are basically the same.", "ru": "Эти два телефона, по сути, одинаковые.", "gap": "basically" }
+      ]
+    },
+    {
+      "id": "w-mainly",
+      "kind": "word",
+      "en": "mainly",
+      "ru": "в основном, главным образом",
+      "rank": 1438,
+      "note": "Mainly = mostly: The visitors were mainly students. Ставится перед тем, к чему относится.",
+      "examples": [
+        { "en": "Our customers are mainly young people.", "ru": "Наши клиенты — в основном молодёжь.", "gap": "mainly" },
+        { "en": "I use my laptop mainly for work.", "ru": "Ноутбук я использую главным образом для работы.", "gap": "mainly" }
+      ]
+    },
+    {
+      "id": "w-occasion",
+      "kind": "word",
+      "en": "occasion",
+      "ru": "случай, повод (событие)",
+      "rank": 1444,
+      "note": "A special occasion — особый случай, праздник. On several occasions — несколько раз. Пишется с двумя c и одной s.",
+      "examples": [
+        { "en": "I keep this dress for special occasions.", "ru": "Это платье я берегу для особых случаев.", "gap": "occasions" },
+        { "en": "We've met on several occasions.", "ru": "Мы встречались несколько раз.", "gap": "occasions" }
+      ]
+    },
+    {
+      "id": "w-familiar",
+      "kind": "word",
+      "en": "familiar",
+      "ru": "знакомый, привычный",
+      "rank": 1445,
+      "note": "Be familiar with something — знать, быть знакомым с чем-то. Ложный друг: не «фамильярный».",
+      "examples": [
+        { "en": "Your face looks very familiar to me.", "ru": "Ваше лицо кажется мне очень знакомым.", "gap": "familiar" },
+        { "en": "Are you familiar with this software?", "ru": "Вы знакомы с этой программой?", "gap": "familiar" }
+      ]
+    },
+    {
+      "id": "w-ignore",
+      "kind": "word",
+      "en": "ignore",
+      "ru": "игнорировать, не обращать внимания",
+      "rank": 1446,
+      "note": "Ignore somebody/something — без предлога. Не путайте с ignorant — невежественный, несведущий.",
+      "examples": [
+        { "en": "Just ignore him, he's in a bad mood.", "ru": "Не обращай на него внимания, он не в духе.", "gap": "ignore" },
+        { "en": "She ignored my messages for a week.", "ru": "Она неделю не отвечала на мои сообщения.", "gap": "ignored" }
+      ]
+    },
+    {
+      "id": "w-destroy",
+      "kind": "word",
+      "en": "destroy",
+      "ru": "разрушить, уничтожить",
+      "rank": 1447,
+      "note": "Destroy — уничтожить полностью; damage — повредить частично. Существительное — destruction.",
+      "examples": [
+        { "en": "One bad review can destroy a small business.", "ru": "Один плохой отзыв может погубить маленький бизнес.", "gap": "destroy" },
+        { "en": "The storm destroyed our garden.", "ru": "Буря уничтожила наш сад.", "gap": "destroyed" }
+      ]
+    },
+    {
+      "id": "w-technical",
+      "kind": "word",
+      "en": "technical",
+      "ru": "технический",
+      "rank": 1458,
+      "note": "Technical problems — технические неполадки; technical support — техподдержка. Technically — формально, строго говоря.",
+      "examples": [
+        { "en": "We had some technical problems during the call.", "ru": "Во время звонка у нас были технические неполадки.", "gap": "technical" },
+        { "en": "Please contact technical support if the app doesn't work.", "ru": "Если приложение не работает, обратитесь в техподдержку.", "gap": "technical" }
+      ]
+    },
+    {
+      "id": "w-arrangement",
+      "kind": "word",
+      "en": "arrangement",
+      "ru": "договорённость, приготовления",
+      "rank": 1460,
+      "note": "Make arrangements — всё подготовить, обо всём договориться: make travel arrangements. Глагол — arrange.",
+      "examples": [
+        { "en": "We have an arrangement with the hotel next door.", "ru": "У нас договорённость с соседним отелем.", "gap": "arrangement" },
+        { "en": "Have you made all the arrangements for the trip?", "ru": "Ты всё подготовил к поездке?", "gap": "arrangements" }
+      ]
+    },
+    {
+      "id": "w-switch",
+      "kind": "word",
+      "en": "switch",
+      "ru": "переключить, перейти (на другое)",
+      "rank": 1463,
+      "note": "Switch on/off — включить/выключить. Switch to something — перейти на что-то: switch to a new bank. Существительное switch — выключатель.",
+      "examples": [
+        { "en": "Can you switch off the light, please?", "ru": "Выключи, пожалуйста, свет.", "gap": "switch" },
+        { "en": "I switched to a cheaper phone plan.", "ru": "Я перешёл на более дешёвый тариф.", "gap": "switched" }
+      ]
+    },
+    {
+      "id": "w-participate",
+      "kind": "word",
+      "en": "participate",
+      "ru": "участвовать",
+      "rank": 1468,
+      "note": "Participate in something — с in. Официальнее, чем take part in. Участник — participant.",
+      "examples": [
+        { "en": "All employees must participate in the training.", "ru": "Все сотрудники обязаны участвовать в тренинге.", "gap": "participate" },
+        { "en": "Thank you for participating in our survey.", "ru": "Спасибо за участие в нашем опросе.", "gap": "participating" }
+      ]
+    },
+    {
+      "id": "w-tough",
+      "kind": "word",
+      "en": "tough",
+      "ru": "трудный, жёсткий",
+      "rank": 1469,
+      "note": "Произносится [tʌf], как stuff. О задаче — трудный (a tough decision), о мясе — жёсткое, о человеке — сильный, выносливый.",
+      "examples": [
+        { "en": "It was a tough decision, but I left the job.", "ru": "Решение далось нелегко, но я ушёл с работы.", "gap": "tough" },
+        { "en": "This steak is too tough to eat.", "ru": "Этот стейк такой жёсткий, что его невозможно есть.", "gap": "tough" }
+      ]
+    },
+    {
+      "id": "w-regulation",
+      "kind": "word",
+      "en": "regulation",
+      "ru": "правило, норма (официальная)",
+      "rank": 1481,
+      "note": "Обычно во множественном числе: safety regulations — правила безопасности. Глагол — regulate.",
+      "examples": [
+        { "en": "Please follow the safety regulations in the lab.", "ru": "Пожалуйста, соблюдайте в лаборатории правила безопасности.", "gap": "regulations" },
+        { "en": "There are strict regulations about bringing food into the country.", "ru": "Есть строгие правила ввоза продуктов в страну.", "gap": "regulations" }
+      ]
+    },
+    {
+      "id": "w-escape",
+      "kind": "word",
+      "en": "escape",
+      "ru": "сбежать, вырваться, спастись",
+      "rank": 1482,
+      "note": "Escape from somewhere. Часто переносно: escape the heat / the city — сбежать от жары / из города. Клавиша Esc — отсюда.",
+      "examples": [
+        { "en": "We escaped the city heat for a weekend at the lake.", "ru": "На выходные мы сбежали от городской жары на озеро.", "gap": "escaped" },
+        { "en": "Reading is my way to escape from everyday stress.", "ru": "Чтение для меня — способ уйти от повседневного стресса.", "gap": "escape" }
+      ]
+    },
+    {
+      "id": "w-relax",
+      "kind": "word",
+      "en": "relax",
+      "ru": "расслабиться, отдохнуть",
+      "rank": 1485,
+      "note": "Без себя: relax, а не relax myself. Relaxed — спокойный (о человеке), relaxing — расслабляющий: a relaxing bath.",
+      "examples": [
+        { "en": "I like to relax with a book in the evening.", "ru": "Вечером я люблю отдохнуть с книгой.", "gap": "relax" },
+        { "en": "Relax, everything will be fine.", "ru": "Расслабься, всё будет хорошо.", "gap": "Relax" }
+      ]
+    },
+    {
+      "id": "w-suspect",
+      "kind": "word",
+      "en": "suspect",
+      "ru": "подозревать, предполагать",
+      "rank": 1490,
+      "note": "Suspect that… — подозревать, догадываться. Существительное suspect (ударение на первый слог) — подозреваемый.",
+      "examples": [
+        { "en": "I suspect that the shop is closed today.", "ru": "Подозреваю, что магазин сегодня закрыт.", "gap": "suspect" },
+        { "en": "She suspected that something was wrong.", "ru": "Она заподозрила, что что-то не так.", "gap": "suspected" }
+      ]
+    },
+    {
+      "id": "w-confidence",
+      "kind": "word",
+      "en": "confidence",
+      "ru": "уверенность, доверие",
+      "rank": 1493,
+      "note": "Self-confidence — уверенность в себе. Прилагательное — confident. Не путайте с confidential — конфиденциальный.",
+      "examples": [
+        { "en": "She speaks English with great confidence.", "ru": "Она говорит по-английски очень уверенно.", "gap": "confidence" },
+        { "en": "The new manager quickly gained our confidence.", "ru": "Новый менеджер быстро завоевал наше доверие.", "gap": "confidence" }
+      ]
+    },
+    {
+      "id": "w-error",
+      "kind": "word",
+      "en": "error",
+      "ru": "ошибка (сбой)",
+      "rank": 1497,
+      "note": "Официальнее и техничнее, чем mistake: an error message — сообщение об ошибке, human error — человеческий фактор.",
+      "examples": [
+        { "en": "I got an error message when I tried to pay.", "ru": "Когда я пытался оплатить, выскочило сообщение об ошибке.", "gap": "error" },
+        { "en": "There was an error in the bill.", "ru": "В счёте была ошибка.", "gap": "error" }
+      ]
+    },
+    {
+      "id": "w-assess",
+      "kind": "word",
+      "en": "assess",
+      "ru": "оценить (качество, ситуацию)",
+      "rank": 1499,
+      "note": "Assess a situation / a risk / damage. Существительное — assessment. Оценить в деньгах — скорее value или estimate.",
+      "examples": [
+        { "en": "The teacher will assess your speaking skills.", "ru": "Преподаватель оценит ваши разговорные навыки.", "gap": "assess" },
+        { "en": "We need to assess the risks before we start.", "ru": "Прежде чем начинать, надо оценить риски.", "gap": "assess" }
+      ]
+    },
+    {
+      "id": "w-register",
+      "kind": "word",
+      "en": "register",
+      "ru": "зарегистрироваться, записаться",
+      "rank": 1500,
+      "note": "Register for a course — записаться на курс; register a car — поставить машину на учёт. Существительное — registration.",
+      "examples": [
+        { "en": "You need to register on the website first.", "ru": "Сначала нужно зарегистрироваться на сайте.", "gap": "register" },
+        { "en": "I've registered for an evening Spanish course.", "ru": "Я записался на вечерние курсы испанского.", "gap": "registered" }
+      ]
+    }
+  ]
+}

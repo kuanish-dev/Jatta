@@ -20,8 +20,8 @@ class ContentTest {
 
     @Test
     fun realCourseLoads() {
-        assertEquals(34, content.course.topics.size)
-        assertEquals(531, content.items.size)
+        assertEquals(52, content.course.topics.size)
+        assertEquals(1015, content.items.size)
     }
 
     /** М24: every recorded phrase has its file, a free license and its source, and is studied by ear. */

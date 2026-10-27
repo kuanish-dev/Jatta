@@ -1,0 +1,307 @@
+{
+  "id": "freq-1001",
+  "title": "Частые слова 1001–1100",
+  "intro": "Слова с 1001-го по 1100-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-difficulty",
+      "kind": "word",
+      "en": "difficulty",
+      "ru": "трудность, сложность",
+      "rank": 1001,
+      "note": "Have difficulty (in) doing something — с трудом что-то делать: I have difficulty sleeping. Во множественном числе — трудности, проблемы.",
+      "examples": [
+        { "en": "She had some difficulty finding the hotel.", "ru": "Она не сразу нашла гостиницу.", "gap": "difficulty" },
+        { "en": "The company is having financial difficulties this year.", "ru": "В этом году у компании финансовые трудности.", "gap": "difficulties" }
+      ]
+    },
+    {
+      "id": "w-announce",
+      "kind": "word",
+      "en": "announce",
+      "ru": "объявить, сообщить (официально)",
+      "rank": 1004,
+      "note": "Announce something или announce that…: They announced the results. Существительное — announcement.",
+      "examples": [
+        { "en": "The airline announced a delay of two hours.", "ru": "Авиакомпания объявила о задержке на два часа.", "gap": "announced" },
+        { "en": "They will announce the winners on Friday.", "ru": "Победителей объявят в пятницу.", "gap": "announce" }
+      ]
+    },
+    {
+      "id": "w-independent",
+      "kind": "word",
+      "en": "independent",
+      "ru": "независимый, самостоятельный",
+      "rank": 1006,
+      "note": "Independent of somebody: She's independent of her parents. О магазине или кафе — частный, не сетевой: an independent bookshop.",
+      "examples": [
+        { "en": "My daughter is very independent for her age.", "ru": "Моя дочь очень самостоятельная для своего возраста.", "gap": "independent" },
+        { "en": "We asked an independent expert to check the report.", "ru": "Мы попросили независимого эксперта проверить отчёт.", "gap": "independent" }
+      ]
+    },
+    {
+      "id": "w-survey",
+      "kind": "word",
+      "en": "survey",
+      "ru": "опрос, обследование",
+      "rank": 1008,
+      "note": "Do (carry out) a survey — провести опрос. У существительного ударение на первый слог: SUR-vey.",
+      "examples": [
+        { "en": "We did a survey of our customers last month.", "ru": "В прошлом месяце мы провели опрос клиентов.", "gap": "survey" },
+        { "en": "The survey shows that most people prefer online shopping.", "ru": "Опрос показывает, что большинство людей предпочитает покупать онлайн.", "gap": "survey" }
+      ]
+    },
+    {
+      "id": "w-majority",
+      "kind": "word",
+      "en": "majority",
+      "ru": "большинство",
+      "rank": 1009,
+      "note": "The majority of + существительное: the majority of students. Противоположное — minority (меньшинство).",
+      "examples": [
+        { "en": "The majority of our clients live in the city.", "ru": "Большинство наших клиентов живут в городе.", "gap": "majority" },
+        { "en": "The vast majority of people here speak two languages.", "ru": "Подавляющее большинство людей здесь говорит на двух языках.", "gap": "majority" }
+      ]
+    },
+    {
+      "id": "w-exchange",
+      "kind": "word",
+      "en": "exchange",
+      "ru": "обмен, обменять",
+      "rank": 1015,
+      "note": "Exchange A for B — обменять A на B. Exchange rate — курс валюты.",
+      "examples": [
+        { "en": "Can I exchange this shirt for a bigger size?", "ru": "Можно обменять эту рубашку на размер побольше?", "gap": "exchange" },
+        { "en": "What's the exchange rate for dollars today?", "ru": "Какой сегодня курс доллара?", "gap": "exchange" }
+      ]
+    },
+    {
+      "id": "w-appropriate",
+      "kind": "word",
+      "en": "appropriate",
+      "ru": "подходящий, уместный",
+      "rank": 1019,
+      "note": "Appropriate for something/somebody: This film isn't appropriate for children. Противоположное — inappropriate (неуместный).",
+      "examples": [
+        { "en": "Jeans are not appropriate for a business meeting.", "ru": "Джинсы неуместны на деловой встрече.", "gap": "appropriate" },
+        { "en": "Please choose an appropriate time for the call.", "ru": "Пожалуйста, выберите подходящее время для звонка.", "gap": "appropriate" }
+      ]
+    },
+    {
+      "id": "w-prevent",
+      "kind": "word",
+      "en": "prevent",
+      "ru": "предотвратить, не допустить",
+      "rank": 1026,
+      "note": "Prevent somebody from doing something — помешать кому-то что-то сделать. Не путайте с protect — защищать.",
+      "examples": [
+        { "en": "Regular exercise can help prevent back pain.", "ru": "Регулярные упражнения помогают предотвратить боль в спине.", "gap": "prevent" },
+        { "en": "The heavy snow prevented us from leaving the city.", "ru": "Из-за сильного снегопада мы не смогли уехать из города.", "gap": "prevented" }
+      ]
+    },
+    {
+      "id": "w-invite",
+      "kind": "word",
+      "en": "invite",
+      "ru": "пригласить",
+      "rank": 1028,
+      "note": "Invite somebody to something: invite friends to dinner. Существительное — invitation.",
+      "examples": [
+        { "en": "I'd like to invite you to my birthday party.", "ru": "Хочу пригласить тебя на мой день рождения.", "gap": "invite" },
+        { "en": "She was invited to a job interview.", "ru": "Её пригласили на собеседование.", "gap": "invited" }
+      ]
+    },
+    {
+      "id": "w-effective",
+      "kind": "word",
+      "en": "effective",
+      "ru": "эффективный, действенный",
+      "rank": 1031,
+      "note": "Effective — дающий нужный результат; efficient — экономный, без лишних затрат времени и сил.",
+      "examples": [
+        { "en": "This medicine is very effective against headaches.", "ru": "Это лекарство хорошо помогает при головной боли.", "gap": "effective" },
+        { "en": "What is the most effective way to learn new words?", "ru": "Как эффективнее всего учить новые слова?", "gap": "effective" }
+      ]
+    },
+    {
+      "id": "w-correct",
+      "kind": "word",
+      "en": "correct",
+      "ru": "правильный, верный",
+      "rank": 1032,
+      "note": "Также глагол: correct a mistake — исправить ошибку. Correct — верный по фактам; right шире: the right decision, the right time.",
+      "examples": [
+        { "en": "Is this the correct address?", "ru": "Это правильный адрес?", "gap": "correct" },
+        { "en": "Please check that all your answers are correct.", "ru": "Проверьте, пожалуйста, все ли ответы верны.", "gap": "correct" }
+      ]
+    },
+    {
+      "id": "w-admit",
+      "kind": "word",
+      "en": "admit",
+      "ru": "признать, признаться",
+      "rank": 1034,
+      "note": "После admit — глагол с -ing или that: She admitted forgetting about it. Второе значение — принять, впустить: be admitted to hospital.",
+      "examples": [
+        { "en": "She admitted forgetting about the meeting.", "ru": "Она призналась, что забыла о встрече.", "gap": "admitted" },
+        { "en": "I must admit, the food was better than I expected.", "ru": "Должен признать, еда оказалась лучше, чем я ожидал.", "gap": "admit" }
+      ]
+    },
+    {
+      "id": "w-handle",
+      "kind": "word",
+      "en": "handle",
+      "ru": "справиться, заниматься (делом, проблемой)",
+      "rank": 1041,
+      "note": "Handle a problem / a situation / a complaint. Существительное handle — ручка (двери, сумки).",
+      "examples": [
+        { "en": "Don't worry, I'll handle it.", "ru": "Не волнуйся, я разберусь.", "gap": "handle" },
+        { "en": "Who handles customer complaints in your company?", "ru": "Кто у вас в компании занимается жалобами клиентов?", "gap": "handles" }
+      ]
+    },
+    {
+      "id": "w-complex",
+      "kind": "word",
+      "en": "complex",
+      "ru": "сложный (из многих частей)",
+      "rank": 1047,
+      "note": "Complex — сложный по устройству; complicated — запутанный; difficult — трудный для выполнения. Существительное complex — комплекс: a sports complex.",
+      "examples": [
+        { "en": "This is a complex problem with no easy answer.", "ru": "Это сложная проблема, у которой нет простого решения.", "gap": "complex" },
+        { "en": "The tax system in this country is very complex.", "ru": "Налоговая система в этой стране очень сложная.", "gap": "complex" }
+      ]
+    },
+    {
+      "id": "w-remove",
+      "kind": "word",
+      "en": "remove",
+      "ru": "убрать, удалить, снять",
+      "rank": 1053,
+      "note": "Remove something from something: remove a stain from a shirt. Звучит официальнее, чем take off или take away.",
+      "examples": [
+        { "en": "Please remove your shoes before entering.", "ru": "Пожалуйста, снимите обувь перед входом.", "gap": "remove" },
+        { "en": "How do I remove coffee stains from a white shirt?", "ru": "Как вывести кофейные пятна с белой рубашки?", "gap": "remove" }
+      ]
+    },
+    {
+      "id": "w-equipment",
+      "kind": "word",
+      "en": "equipment",
+      "ru": "оборудование, снаряжение",
+      "rank": 1055,
+      "note": "Неисчисляемое: без -s и без a. Один предмет — a piece of equipment.",
+      "examples": [
+        { "en": "The gym has a lot of new equipment.", "ru": "В спортзале много нового оборудования.", "gap": "equipment" },
+        { "en": "We need to buy some camping equipment for the trip.", "ru": "Для поездки нам нужно купить туристическое снаряжение.", "gap": "equipment" }
+      ]
+    },
+    {
+      "id": "w-otherwise",
+      "kind": "word",
+      "en": "otherwise",
+      "ru": "иначе, в противном случае",
+      "rank": 1056,
+      "note": "Обычно во второй части предложения: Hurry up, otherwise we'll miss the train. Второе значение — в остальном: small but otherwise fine.",
+      "examples": [
+        { "en": "Take an umbrella, otherwise you'll get wet.", "ru": "Возьми зонт, а то промокнешь.", "gap": "otherwise" },
+        { "en": "The hotel was noisy, but otherwise it was perfect.", "ru": "Гостиница была шумной, но в остальном всё было идеально.", "gap": "otherwise" }
+      ]
+    },
+    {
+      "id": "w-collect",
+      "kind": "word",
+      "en": "collect",
+      "ru": "собирать, забирать",
+      "rank": 1069,
+      "note": "Collect coins — коллекционировать монеты. В британском английском также забрать: collect the kids from school (= pick up).",
+      "examples": [
+        { "en": "He collects old coins as a hobby.", "ru": "Он коллекционирует старые монеты, это его хобби.", "gap": "collects" },
+        { "en": "Can you collect the children from school today?", "ru": "Ты можешь сегодня забрать детей из школы?", "gap": "collect" }
+      ]
+    },
+    {
+      "id": "w-inform",
+      "kind": "word",
+      "en": "inform",
+      "ru": "сообщить, уведомить",
+      "rank": 1070,
+      "note": "Inform somebody about/of something — без to перед человеком. Звучит официальнее, чем tell.",
+      "examples": [
+        { "en": "Please inform us of any changes to your address.", "ru": "Пожалуйста, сообщите нам, если у вас изменится адрес.", "gap": "inform" },
+        { "en": "We were informed that the office would close early.", "ru": "Нам сообщили, что офис закроется раньше.", "gap": "informed" }
+      ]
+    },
+    {
+      "id": "w-principle",
+      "kind": "word",
+      "en": "principle",
+      "ru": "принцип",
+      "rank": 1071,
+      "note": "In principle — в принципе, теоретически. Не путайте с principal — главный, директор школы: звучат одинаково.",
+      "examples": [
+        { "en": "I agree with you in principle.", "ru": "В принципе я с тобой согласен.", "gap": "principle" },
+        { "en": "Honesty is one of my basic principles.", "ru": "Честность — один из моих главных принципов.", "gap": "principles" }
+      ]
+    },
+    {
+      "id": "w-fair",
+      "kind": "word",
+      "en": "fair",
+      "ru": "честный, справедливый",
+      "rank": 1080,
+      "note": "It's not fair! — Это нечестно! Также a fair price — разумная цена, fair hair — светлые волосы.",
+      "examples": [
+        { "en": "It's not fair that I always wash the dishes.", "ru": "Нечестно, что посуду всегда мою я.", "gap": "fair" },
+        { "en": "They offered me a fair price for my old car.", "ru": "Мне предложили разумную цену за мою старую машину.", "gap": "fair" }
+      ]
+    },
+    {
+      "id": "w-additional",
+      "kind": "word",
+      "en": "additional",
+      "ru": "дополнительный",
+      "rank": 1081,
+      "note": "Близко к extra, но официальнее: additional costs — дополнительные расходы. Наречие — additionally.",
+      "examples": [
+        { "en": "There is an additional fee for extra luggage.", "ru": "За лишний багаж взимается дополнительная плата.", "gap": "additional" },
+        { "en": "We need additional information before we can decide.", "ru": "Прежде чем решать, нам нужна дополнительная информация.", "gap": "additional" }
+      ]
+    },
+    {
+      "id": "w-negative",
+      "kind": "word",
+      "en": "negative",
+      "ru": "отрицательный, негативный",
+      "rank": 1086,
+      "note": "A negative test result — отрицательный результат анализа, то есть ничего не нашли. Противоположное — positive.",
+      "examples": [
+        { "en": "Don't be so negative about everything!", "ru": "Не надо так негативно ко всему относиться!", "gap": "negative" },
+        { "en": "The film got mostly negative reviews.", "ru": "Фильм получил в основном отрицательные отзывы.", "gap": "negative" }
+      ]
+    },
+    {
+      "id": "w-alternative",
+      "kind": "word",
+      "en": "alternative",
+      "ru": "альтернатива, другой вариант",
+      "rank": 1090,
+      "note": "An alternative to something: an alternative to coffee. Как прилагательное — другой, запасной: an alternative route.",
+      "examples": [
+        { "en": "Is there a cheaper alternative to this hotel?", "ru": "Есть вариант подешевле, чем этот отель?", "gap": "alternative" },
+        { "en": "The road is closed, so we need an alternative route.", "ru": "Дорогу перекрыли, придётся искать другой маршрут.", "gap": "alternative" }
+      ]
+    },
+    {
+      "id": "w-attitude",
+      "kind": "word",
+      "en": "attitude",
+      "ru": "отношение (к чему-то), настрой",
+      "rank": 1094,
+      "note": "Attitude to/towards something: a positive attitude to work. Не путайте с relationship — отношения между людьми.",
+      "examples": [
+        { "en": "She has a very positive attitude to life.", "ru": "У неё очень позитивное отношение к жизни.", "gap": "attitude" },
+        { "en": "His attitude towards his colleagues needs to change.", "ru": "Ему нужно изменить отношение к коллегам.", "gap": "attitude" }
+      ]
+    }
+  ]
+}

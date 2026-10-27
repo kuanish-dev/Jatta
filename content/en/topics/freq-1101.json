@@ -1,0 +1,379 @@
+{
+  "id": "freq-1101",
+  "title": "Частые слова 1101–1200",
+  "intro": "Слова с 1101-го по 1200-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-progress",
+      "kind": "word",
+      "en": "progress",
+      "ru": "прогресс, успехи, продвижение",
+      "rank": 1101,
+      "note": "Неисчисляемое: make progress (без a) — делать успехи, продвигаться. У глагола to progress ударение на второй слог.",
+      "examples": [
+        { "en": "You've made great progress with your English.", "ru": "Ты сделал большие успехи в английском.", "gap": "progress" },
+        { "en": "The project is making good progress.", "ru": "Проект хорошо продвигается.", "gap": "progress" }
+      ]
+    },
+    {
+      "id": "w-examine",
+      "kind": "word",
+      "en": "examine",
+      "ru": "осмотреть, изучить (внимательно)",
+      "rank": 1104,
+      "note": "Examine — тщательно рассматривать или обследовать: The doctor examined my knee. Exam — экзамен, examination — также медосмотр.",
+      "examples": [
+        { "en": "The doctor examined my knee and said it was fine.", "ru": "Врач осмотрел моё колено и сказал, что всё в порядке.", "gap": "examined" },
+        { "en": "We need to examine these figures more carefully.", "ru": "Эти цифры нужно изучить внимательнее.", "gap": "examine" }
+      ]
+    },
+    {
+      "id": "w-display",
+      "kind": "word",
+      "en": "display",
+      "ru": "показывать, выставлять (на экране, витрине)",
+      "rank": 1109,
+      "note": "On display — выставлено на обозрение: The paintings are on display until May. Существительное display — также экран, дисплей.",
+      "examples": [
+        { "en": "The price is displayed on the screen.", "ru": "Цена отображается на экране.", "gap": "displayed" },
+        { "en": "Her photos are on display in a small gallery.", "ru": "Её фотографии выставлены в небольшой галерее.", "gap": "display" }
+      ]
+    },
+    {
+      "id": "w-transfer",
+      "kind": "word",
+      "en": "transfer",
+      "ru": "перевести, перевод (денег, людей)",
+      "rank": 1110,
+      "note": "Transfer money to an account — перевести деньги на счёт. У существительного ударение на первый слог: TRANS-fer.",
+      "examples": [
+        { "en": "I'll transfer the money to your account tomorrow.", "ru": "Завтра я переведу деньги тебе на счёт.", "gap": "transfer" },
+        { "en": "The hotel offers a free airport transfer.", "ru": "Отель предлагает бесплатный трансфер из аэропорта.", "gap": "transfer" }
+      ]
+    },
+    {
+      "id": "w-slightly",
+      "kind": "word",
+      "en": "slightly",
+      "ru": "немного, слегка",
+      "rank": 1112,
+      "note": "Обычно перед прилагательным или сравнительной степенью: slightly better, slightly different. Чуть официальнее, чем a little.",
+      "examples": [
+        { "en": "The new price is slightly higher than last year.", "ru": "Новая цена немного выше, чем в прошлом году.", "gap": "slightly" },
+        { "en": "I feel slightly tired after the flight.", "ru": "После перелёта я немного устал.", "gap": "slightly" }
+      ]
+    },
+    {
+      "id": "w-overall",
+      "kind": "word",
+      "en": "overall",
+      "ru": "в целом, общий",
+      "rank": 1113,
+      "note": "Как наречие часто стоит в начале: Overall, the trip was a success. Как прилагательное: the overall cost — общая стоимость.",
+      "examples": [
+        { "en": "Overall, I'm happy with the results.", "ru": "В целом я доволен результатами.", "gap": "Overall" },
+        { "en": "What is the overall cost of the project?", "ru": "Какова общая стоимость проекта?", "gap": "overall" }
+      ]
+    },
+    {
+      "id": "w-intend",
+      "kind": "word",
+      "en": "intend",
+      "ru": "намереваться, собираться",
+      "rank": 1114,
+      "note": "Intend to do something. Звучит официальнее, чем be going to. Существительное — intention (намерение).",
+      "examples": [
+        { "en": "We intend to open a second shop next year.", "ru": "В следующем году мы собираемся открыть второй магазин.", "gap": "intend" },
+        { "en": "I didn't intend to hurt your feelings.", "ru": "Я не хотел тебя обидеть.", "gap": "intend" }
+      ]
+    },
+    {
+      "id": "w-respond",
+      "kind": "word",
+      "en": "respond",
+      "ru": "ответить, отреагировать",
+      "rank": 1116,
+      "note": "Respond to something: respond to an email. Официальнее, чем answer или reply. Существительное — response.",
+      "examples": [
+        { "en": "She still hasn't responded to my email.", "ru": "Она до сих пор не ответила на моё письмо.", "gap": "responded" },
+        { "en": "How did your boss respond to the idea?", "ru": "Как начальник отреагировал на эту идею?", "gap": "respond" }
+      ]
+    },
+    {
+      "id": "w-regular",
+      "kind": "word",
+      "en": "regular",
+      "ru": "регулярный, постоянный",
+      "rank": 1119,
+      "note": "A regular customer — постоянный клиент. В США regular значит ещё и обычный, стандартный: regular coffee, regular size.",
+      "examples": [
+        { "en": "I go to the gym on a regular basis.", "ru": "Я регулярно хожу в спортзал.", "gap": "regular" },
+        { "en": "He's a regular customer at our café.", "ru": "Он постоянный клиент нашего кафе.", "gap": "regular" }
+      ]
+    },
+    {
+      "id": "w-reveal",
+      "kind": "word",
+      "en": "reveal",
+      "ru": "раскрыть, обнаружить (тайное)",
+      "rank": 1124,
+      "note": "Reveal a secret / the truth — раскрыть секрет / правду. Reveal that…: The study revealed that… — Исследование показало, что…",
+      "examples": [
+        { "en": "He never revealed his real age.", "ru": "Он так и не сказал, сколько ему на самом деле лет.", "gap": "revealed" },
+        { "en": "The study revealed that people sleep less in summer.", "ru": "Исследование показало, что летом люди спят меньше.", "gap": "revealed" }
+      ]
+    },
+    {
+      "id": "w-status",
+      "kind": "word",
+      "en": "status",
+      "ru": "статус, положение",
+      "rank": 1127,
+      "note": "Order status — статус заказа; marital status — семейное положение (в анкетах). Ударение на первый слог.",
+      "examples": [
+        { "en": "You can check the status of your order online.", "ru": "Статус заказа можно проверить онлайн.", "gap": "status" },
+        { "en": "Please write your marital status on the form.", "ru": "Укажите в анкете своё семейное положение.", "gap": "status" }
+      ]
+    },
+    {
+      "id": "w-decline",
+      "kind": "word",
+      "en": "decline",
+      "ru": "снижаться, снижение",
+      "rank": 1129,
+      "note": "Decline in something — спад, снижение: a decline in sales. Второе значение — вежливо отказаться: decline an invitation.",
+      "examples": [
+        { "en": "The number of visitors has declined this year.", "ru": "Число посетителей в этом году сократилось.", "gap": "declined" },
+        { "en": "There has been a decline in sales since March.", "ru": "С марта наблюдается спад продаж.", "gap": "decline" }
+      ]
+    },
+    {
+      "id": "w-decade",
+      "kind": "word",
+      "en": "decade",
+      "ru": "десятилетие",
+      "rank": 1130,
+      "note": "Не путайте с русской «декадой» (десять дней): decade — это десять лет. Ударение на первый слог: DEC-ade.",
+      "examples": [
+        { "en": "Prices have doubled over the last decade.", "ru": "За последние десять лет цены выросли вдвое.", "gap": "decade" },
+        { "en": "They have been friends for decades.", "ru": "Они дружат уже не один десяток лет.", "gap": "decades" }
+      ]
+    },
+    {
+      "id": "w-launch",
+      "kind": "word",
+      "en": "launch",
+      "ru": "запустить, выпустить (новое)",
+      "rank": 1131,
+      "note": "Launch a product / a website / a campaign — запустить. Существительное: the launch of a new app — запуск, выпуск.",
+      "examples": [
+        { "en": "The company will launch its new app next month.", "ru": "В следующем месяце компания выпустит новое приложение.", "gap": "launch" },
+        { "en": "We celebrated the launch of our website.", "ru": "Мы отметили запуск нашего сайта.", "gap": "launch" }
+      ]
+    },
+    {
+      "id": "w-warn",
+      "kind": "word",
+      "en": "warn",
+      "ru": "предупредить (об опасности)",
+      "rank": 1132,
+      "note": "Warn somebody about something или warn somebody not to do something. Произносится как worn: [wɔːrn].",
+      "examples": [
+        { "en": "Let me warn you, the boss is in a bad mood.", "ru": "Предупреждаю: у начальника плохое настроение.", "gap": "warn" },
+        { "en": "The doctor warned him not to eat too much salt.", "ru": "Врач предупредил его, чтобы он не ел много соли.", "gap": "warned" }
+      ]
+    },
+    {
+      "id": "w-consumer",
+      "kind": "word",
+      "en": "consumer",
+      "ru": "потребитель",
+      "rank": 1133,
+      "note": "Consumer goods — потребительские товары. Глагол consume — потреблять. Покупатель в конкретном магазине — чаще customer.",
+      "examples": [
+        { "en": "Consumers are spending less on clothes this year.", "ru": "В этом году потребители тратят меньше на одежду.", "gap": "Consumers" },
+        { "en": "Consumer prices rose by five percent last year.", "ru": "В прошлом году потребительские цены выросли на пять процентов.", "gap": "Consumer" }
+      ]
+    },
+    {
+      "id": "w-eventually",
+      "kind": "word",
+      "en": "eventually",
+      "ru": "в конце концов, в итоге",
+      "rank": 1140,
+      "note": "Ложный друг: eventually — не «возможно, эвентуально», а «в итоге, со временем».",
+      "examples": [
+        { "en": "We waited for an hour, and eventually the bus came.", "ru": "Мы ждали час, и в конце концов автобус пришёл.", "gap": "eventually" },
+        { "en": "Don't worry, you'll eventually get used to the new job.", "ru": "Не волнуйся, со временем ты привыкнешь к новой работе.", "gap": "eventually" }
+      ]
+    },
+    {
+      "id": "w-importance",
+      "kind": "word",
+      "en": "importance",
+      "ru": "важность, значение",
+      "rank": 1144,
+      "note": "The importance of something: the importance of sleep. Прилагательное — important.",
+      "examples": [
+        { "en": "Doctors often talk about the importance of sleep.", "ru": "Врачи часто говорят о том, как важен сон.", "gap": "importance" },
+        { "en": "My parents taught me the importance of saving money.", "ru": "Родители объяснили мне, как важно откладывать деньги.", "gap": "importance" }
+      ]
+    },
+    {
+      "id": "w-ensure",
+      "kind": "word",
+      "en": "ensure",
+      "ru": "обеспечить, проследить (чтобы)",
+      "rank": 1153,
+      "note": "Ensure that… — проследить, чтобы… Не путайте с insure — застраховать и assure — заверить.",
+      "examples": [
+        { "en": "Please ensure that all windows are closed.", "ru": "Проследите, пожалуйста, чтобы все окна были закрыты.", "gap": "ensure" },
+        { "en": "We do everything to ensure our customers are happy.", "ru": "Мы делаем всё, чтобы клиенты были довольны.", "gap": "ensure" }
+      ]
+    },
+    {
+      "id": "w-satisfy",
+      "kind": "word",
+      "en": "satisfy",
+      "ru": "удовлетворить, устроить",
+      "rank": 1154,
+      "note": "Чаще в форме satisfied with — довольный чем-то: I'm satisfied with the service. Satisfying — приносящий удовлетворение.",
+      "examples": [
+        { "en": "It's hard to satisfy every customer.", "ru": "Трудно угодить каждому клиенту.", "gap": "satisfy" },
+        { "en": "Are you satisfied with your new flat?", "ru": "Ты доволен новой квартирой?", "gap": "satisfied" }
+      ]
+    },
+    {
+      "id": "w-expert",
+      "kind": "word",
+      "en": "expert",
+      "ru": "эксперт, специалист",
+      "rank": 1157,
+      "note": "An expert in/on something: an expert in tax law. Ударение на первый слог: EX-pert.",
+      "examples": [
+        { "en": "We asked an expert for advice.", "ru": "Мы обратились за советом к специалисту.", "gap": "expert" },
+        { "en": "She's an expert on Italian food.", "ru": "Она знаток итальянской кухни.", "gap": "expert" }
+      ]
+    },
+    {
+      "id": "w-procedure",
+      "kind": "word",
+      "en": "procedure",
+      "ru": "процедура, порядок действий",
+      "rank": 1168,
+      "note": "Follow the procedure — соблюдать порядок. Ударение на второй слог: [prəˈsiːdʒər].",
+      "examples": [
+        { "en": "What is the procedure for getting a visa?", "ru": "Какая процедура оформления визы?", "gap": "procedure" },
+        { "en": "The procedure takes about twenty minutes.", "ru": "Процедура занимает около двадцати минут.", "gap": "procedure" }
+      ]
+    },
+    {
+      "id": "w-global",
+      "kind": "word",
+      "en": "global",
+      "ru": "мировой, глобальный",
+      "rank": 1170,
+      "note": "Global warming — глобальное потепление. Синоним — worldwide.",
+      "examples": [
+        { "en": "The company has a global network of offices.", "ru": "У компании есть сеть офисов по всему миру.", "gap": "global" },
+        { "en": "Global prices for coffee have gone up.", "ru": "Мировые цены на кофе выросли.", "gap": "Global" }
+      ]
+    },
+    {
+      "id": "w-struggle",
+      "kind": "word",
+      "en": "struggle",
+      "ru": "бороться, с трудом справляться",
+      "rank": 1171,
+      "note": "Struggle with something / struggle to do something — с трудом что-то делать: I struggle to wake up early.",
+      "examples": [
+        { "en": "I always struggle to wake up on Mondays.", "ru": "По понедельникам мне всегда тяжело просыпаться.", "gap": "struggle" },
+        { "en": "Many families are struggling with high rent.", "ru": "Многим семьям трудно платить высокую аренду.", "gap": "struggling" }
+      ]
+    },
+    {
+      "id": "w-select",
+      "kind": "word",
+      "en": "select",
+      "ru": "выбрать, отобрать",
+      "rank": 1173,
+      "note": "Официальнее, чем choose: так пишут на сайтах и в инструкциях (Select your language). Существительное — selection.",
+      "examples": [
+        { "en": "Select your language and click Next.", "ru": "Выберите язык и нажмите «Далее».", "gap": "Select" },
+        { "en": "Only three candidates were selected for the interview.", "ru": "На собеседование отобрали только трёх кандидатов.", "gap": "selected" }
+      ]
+    },
+    {
+      "id": "w-annual",
+      "kind": "word",
+      "en": "annual",
+      "ru": "ежегодный, годовой",
+      "rank": 1177,
+      "note": "Annual report — годовой отчёт, annual leave — ежегодный отпуск. Наречие — annually.",
+      "examples": [
+        { "en": "The annual meeting is held in March.", "ru": "Ежегодное собрание проходит в марте.", "gap": "annual" },
+        { "en": "What is your annual income?", "ru": "Каков ваш годовой доход?", "gap": "annual" }
+      ]
+    },
+    {
+      "id": "w-reality",
+      "kind": "word",
+      "en": "reality",
+      "ru": "реальность, действительность",
+      "rank": 1181,
+      "note": "In reality — на самом деле: It sounds easy, but in reality it's hard. Become a reality — сбыться, стать реальностью.",
+      "examples": [
+        { "en": "The job looked easy, but in reality it was very hard.", "ru": "Работа казалась лёгкой, но на деле оказалась очень тяжёлой.", "gap": "reality" },
+        { "en": "Her dream of living by the sea became a reality.", "ru": "Её мечта жить у моря сбылась.", "gap": "reality" }
+      ]
+    },
+    {
+      "id": "w-conflict",
+      "kind": "word",
+      "en": "conflict",
+      "ru": "конфликт, противоречие",
+      "rank": 1184,
+      "note": "У существительного ударение на первый слог: CON-flict. Глагол conflict with — противоречить, совпадать по времени.",
+      "examples": [
+        { "en": "There was a conflict between two members of the team.", "ru": "Между двумя членами команды возник конфликт.", "gap": "conflict" },
+        { "en": "The meeting conflicts with my dentist appointment.", "ru": "Встреча совпадает по времени с приёмом у стоматолога.", "gap": "conflicts" }
+      ]
+    },
+    {
+      "id": "w-entire",
+      "kind": "word",
+      "en": "entire",
+      "ru": "весь, целый",
+      "rank": 1185,
+      "note": "Сильнее, чем whole: the entire day — весь день целиком. Наречие entirely — полностью.",
+      "examples": [
+        { "en": "I spent the entire weekend cleaning the flat.", "ru": "Я потратил все выходные на уборку квартиры.", "gap": "entire" },
+        { "en": "The entire team worked late on Friday.", "ru": "В пятницу вся команда задержалась на работе.", "gap": "entire" }
+      ]
+    },
+    {
+      "id": "w-shift",
+      "kind": "word",
+      "en": "shift",
+      "ru": "смена (на работе), сдвиг",
+      "rank": 1190,
+      "note": "Night shift — ночная смена. Глагол shift — сдвинуть, переместить: shift the meeting to Monday.",
+      "examples": [
+        { "en": "My sister works the night shift at the hospital.", "ru": "Моя сестра работает в ночную смену в больнице.", "gap": "shift" },
+        { "en": "There has been a shift towards online shopping.", "ru": "Люди всё больше переходят на покупки онлайн.", "gap": "shift" }
+      ]
+    },
+    {
+      "id": "w-category",
+      "kind": "word",
+      "en": "category",
+      "ru": "категория, разряд",
+      "rank": 1192,
+      "note": "Ударение на первый слог: CAT-e-go-ry. Fall into a category — относиться к категории.",
+      "examples": [
+        { "en": "Which category does this product belong to?", "ru": "К какой категории относится этот товар?", "gap": "category" },
+        { "en": "The hotel is in the cheapest price category.", "ru": "Этот отель в самой дешёвой ценовой категории.", "gap": "category" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "id": "freq-2601",
+  "title": "Частые слова 2601–2700",
+  "intro": "Слова с 2601-го по 2700-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-cooperation",
+      "kind": "word",
+      "en": "cooperation",
+      "ru": "сотрудничество, содействие",
+      "rank": 2606,
+      "note": "Thank you for your cooperation — спасибо за содействие (частая фраза в объявлениях). Глагол — cooperate.",
+      "examples": [
+        { "en": "Thank you for your cooperation and patience.", "ru": "Спасибо за содействие и терпение.", "gap": "cooperation" },
+        { "en": "The project needs close cooperation between the two teams.", "ru": "Проект требует тесного сотрудничества двух команд.", "gap": "cooperation" }
+      ]
+    },
+    {
+      "id": "w-regardless",
+      "kind": "word",
+      "en": "regardless",
+      "ru": "независимо (от), всё равно",
+      "rank": 2610,
+      "note": "Regardless of — независимо от: regardless of age. В конце фразы без of — «всё равно, несмотря ни на что».",
+      "examples": [
+        { "en": "Anyone can join the club, regardless of age.", "ru": "Вступить в клуб может любой, независимо от возраста.", "gap": "regardless" },
+        { "en": "It was raining, but we went for a walk regardless.", "ru": "Шёл дождь, но мы всё равно пошли гулять.", "gap": "regardless" }
+      ]
+    },
+    {
+      "id": "w-scan",
+      "kind": "word",
+      "en": "scan",
+      "ru": "сканировать, просматривать (быстро)",
+      "rank": 2611,
+      "note": "Два значения: сканировать (scan a document, scan a code) и быстро пробежать глазами (scan a list).",
+      "examples": [
+        { "en": "Scan the code on the table to see the menu.", "ru": "Отсканируйте код на столе, чтобы открыть меню.", "gap": "Scan" },
+        { "en": "I quickly scanned the list for my name.", "ru": "Я быстро пробежал глазами список, ища свою фамилию.", "gap": "scanned" }
+      ]
+    },
+    {
+      "id": "w-greet",
+      "kind": "word",
+      "en": "greet",
+      "ru": "приветствовать, встречать",
+      "rank": 2614,
+      "note": "Greet someone with a smile — встретить с улыбкой. Существительное — greeting (приветствие).",
+      "examples": [
+        { "en": "The host greeted us at the door.", "ru": "Хозяин встретил нас у двери.", "gap": "greeted" },
+        { "en": "Always greet your colleagues in the morning.", "ru": "Всегда здоровайтесь с коллегами по утрам.", "gap": "greet" }
+      ]
+    },
+    {
+      "id": "w-hopefully",
+      "kind": "word",
+      "en": "hopefully",
+      "ru": "надеюсь, будем надеяться",
+      "rank": 2615,
+      "note": "Обычно значит «надеюсь»: Hopefully, it won't rain. Значение «с надеждой» встречается гораздо реже.",
+      "examples": [
+        { "en": "Hopefully, the weather will be good tomorrow.", "ru": "Надеюсь, завтра будет хорошая погода.", "gap": "Hopefully" },
+        { "en": "The package should hopefully arrive by Monday.", "ru": "Посылка, будем надеяться, придёт к понедельнику.", "gap": "hopefully" }
+      ]
+    },
+    {
+      "id": "w-trick",
+      "kind": "word",
+      "en": "trick",
+      "ru": "трюк, хитрость, приём",
+      "rank": 2617,
+      "note": "A trick — полезный приём или фокус. Trick someone — обмануть, разыграть. Do the trick — сработать, помочь.",
+      "examples": [
+        { "en": "Here's a simple trick to save on electricity.", "ru": "Вот простая хитрость, как сэкономить на электричестве.", "gap": "trick" },
+        { "en": "A cup of strong tea usually does the trick.", "ru": "Обычно помогает чашка крепкого чая.", "gap": "trick" }
+      ]
+    },
+    {
+      "id": "w-barely",
+      "kind": "word",
+      "en": "barely",
+      "ru": "едва, еле",
+      "rank": 2626,
+      "note": "Barely = почти не: I can barely hear you — я тебя почти не слышу. Отрицание уже внутри слова, not не нужно.",
+      "examples": [
+        { "en": "I can barely hear you, the connection is bad.", "ru": "Я тебя еле слышу, плохая связь.", "gap": "barely" },
+        { "en": "We barely had time to eat lunch.", "ru": "Мы едва успели пообедать.", "gap": "barely" }
+      ]
+    },
+    {
+      "id": "w-invent",
+      "kind": "word",
+      "en": "invent",
+      "ru": "изобрести, придумать",
+      "rank": 2627,
+      "note": "Invent — создать новое; найти то, что уже существует, — discover. Существительное — invention.",
+      "examples": [
+        { "en": "Do you know who invented the telephone?", "ru": "Ты знаешь, кто изобрёл телефон?", "gap": "invented" },
+        { "en": "She likes to invent new recipes on weekends.", "ru": "По выходным она любит придумывать новые рецепты.", "gap": "invent" }
+      ]
+    },
+    {
+      "id": "w-hesitate",
+      "kind": "word",
+      "en": "hesitate",
+      "ru": "колебаться, не решаться",
+      "rank": 2631,
+      "note": "Don't hesitate to contact me — обращайтесь без колебаний (частая фраза в письмах). Ударение на первый слог: HES-i-tate.",
+      "examples": [
+        { "en": "Don't hesitate to contact me if you have questions.", "ru": "Если будут вопросы, смело обращайтесь.", "gap": "hesitate" },
+        { "en": "She hesitated before signing the contract.", "ru": "Она помедлила, прежде чем подписать договор.", "gap": "hesitated" }
+      ]
+    },
+    {
+      "id": "w-motivation",
+      "kind": "word",
+      "en": "motivation",
+      "ru": "мотивация",
+      "rank": 2633,
+      "note": "Lack of motivation — нехватка мотивации. Глагол — motivate.",
+      "examples": [
+        { "en": "I lost my motivation to study after the holidays.", "ru": "После каникул у меня пропала мотивация учиться.", "gap": "motivation" },
+        { "en": "Money is not my only motivation for working.", "ru": "Деньги — не единственное, ради чего я работаю.", "gap": "motivation" }
+      ]
+    },
+    {
+      "id": "w-surprisingly",
+      "kind": "word",
+      "en": "surprisingly",
+      "ru": "удивительно, на удивление",
+      "rank": 2646,
+      "note": "Часто в начале фразы: Surprisingly, … — как ни странно, …. Not surprisingly — как и следовало ожидать.",
+      "examples": [
+        { "en": "Surprisingly, the exam was quite easy.", "ru": "Как ни странно, экзамен оказался довольно лёгким.", "gap": "Surprisingly" },
+        { "en": "The hotel was surprisingly cheap for the city center.", "ru": "Для центра города отель был на удивление дешёвым.", "gap": "surprisingly" }
+      ]
+    },
+    {
+      "id": "w-bias",
+      "kind": "word",
+      "en": "bias",
+      "ru": "предвзятость, предубеждение",
+      "rank": 2649,
+      "note": "Bias against / in favor of — предвзятость против или в пользу кого-то. Прилагательное — biased (предвзятый).",
+      "examples": [
+        { "en": "The article shows a clear bias against young drivers.", "ru": "В статье явно видна предвзятость к молодым водителям.", "gap": "bias" },
+        { "en": "We try to hire people without bias.", "ru": "При найме мы стараемся быть беспристрастными.", "gap": "bias" }
+      ]
+    },
+    {
+      "id": "w-continuous",
+      "kind": "word",
+      "en": "continuous",
+      "ru": "непрерывный, постоянный",
+      "rank": 2652,
+      "note": "Continuous — без перерыва. Continual — часто повторяющийся. Глагол — continue.",
+      "examples": [
+        { "en": "The continuous noise from the road keeps me awake.", "ru": "Непрерывный шум с дороги не даёт мне уснуть.", "gap": "continuous" },
+        { "en": "Our company believes in continuous learning.", "ru": "Наша компания делает ставку на постоянное обучение.", "gap": "continuous" }
+      ]
+    },
+    {
+      "id": "w-guideline",
+      "kind": "word",
+      "en": "guideline",
+      "ru": "рекомендация, правило (инструкция)",
+      "rank": 2655,
+      "note": "Обычно во множественном числе: follow the guidelines — следовать рекомендациям. Мягче, чем rules.",
+      "examples": [
+        { "en": "Please follow the safety guidelines in the lab.", "ru": "Пожалуйста, соблюдайте правила безопасности в лаборатории.", "gap": "guidelines" },
+        { "en": "This is just a guideline, not a strict rule.", "ru": "Это лишь рекомендация, а не строгое правило.", "gap": "guideline" }
+      ]
+    },
+    {
+      "id": "w-consume",
+      "kind": "word",
+      "en": "consume",
+      "ru": "потреблять, расходовать",
+      "rank": 2659,
+      "note": "Официальное слово: consume energy / food. В быту чаще eat, drink, use. Потребитель — consumer.",
+      "examples": [
+        { "en": "This old fridge consumes a lot of electricity.", "ru": "Этот старый холодильник потребляет много электричества.", "gap": "consumes" },
+        { "en": "We consume too much sugar without noticing it.", "ru": "Мы потребляем слишком много сахара, сами того не замечая.", "gap": "consume" }
+      ]
+    },
+    {
+      "id": "w-luxury",
+      "kind": "word",
+      "en": "luxury",
+      "ru": "роскошь, люкс",
+      "rank": 2660,
+      "note": "Luxury hotel — роскошный отель. Ударение на первый слог: LUX-u-ry. Прилагательное — luxurious.",
+      "examples": [
+        { "en": "We stayed in a luxury hotel on our honeymoon.", "ru": "В медовый месяц мы жили в роскошном отеле.", "gap": "luxury" },
+        { "en": "For me, a free weekend is a real luxury.", "ru": "Для меня свободные выходные — настоящая роскошь.", "gap": "luxury" }
+      ]
+    },
+    {
+      "id": "w-weekly",
+      "kind": "word",
+      "en": "weekly",
+      "ru": "еженедельный, еженедельно",
+      "rank": 2661,
+      "note": "И прилагательное, и наречие: a weekly meeting, paid weekly. Так же устроены daily и monthly.",
+      "examples": [
+        { "en": "We have a weekly team meeting on Mondays.", "ru": "По понедельникам у нас еженедельная планёрка.", "gap": "weekly" },
+        { "en": "At my new job, I get paid weekly.", "ru": "На новой работе мне платят каждую неделю.", "gap": "weekly" }
+      ]
+    },
+    {
+      "id": "w-adventure",
+      "kind": "word",
+      "en": "adventure",
+      "ru": "приключение",
+      "rank": 2667,
+      "note": "Ударение на второй слог: ad-VEN-ture. Adventure stories — приключенческие истории.",
+      "examples": [
+        { "en": "Our trip to the mountains was a real adventure.", "ru": "Поездка в горы стала настоящим приключением.", "gap": "adventure" },
+        { "en": "My son loves adventure stories.", "ru": "Мой сын обожает приключенческие истории.", "gap": "adventure" }
+      ]
+    },
+    {
+      "id": "w-attraction",
+      "kind": "word",
+      "en": "attraction",
+      "ru": "достопримечательность, привлекательность",
+      "rank": 2670,
+      "note": "Не только «аттракцион»: tourist attraction — достопримечательность. Также «притяжение, симпатия». Глагол — attract.",
+      "examples": [
+        { "en": "The old castle is the main tourist attraction here.", "ru": "Старый замок — главная достопримечательность этих мест.", "gap": "attraction" },
+        { "en": "Low prices are the main attraction of this shop.", "ru": "Главное, чем привлекает этот магазин, — низкие цены.", "gap": "attraction" }
+      ]
+    },
+    {
+      "id": "w-determination",
+      "kind": "word",
+      "en": "determination",
+      "ru": "решимость, целеустремлённость",
+      "rank": 2677,
+      "note": "With determination — решительно, упорно. Прилагательное — determined (полный решимости).",
+      "examples": [
+        { "en": "She passed the exam through hard work and determination.", "ru": "Она сдала экзамен благодаря упорному труду и целеустремлённости.", "gap": "determination" },
+        { "en": "His determination to learn English impressed everyone.", "ru": "Его решимость выучить английский впечатлила всех.", "gap": "determination" }
+      ]
+    },
+    {
+      "id": "w-confusion",
+      "kind": "word",
+      "en": "confusion",
+      "ru": "путаница, замешательство",
+      "rank": 2682,
+      "note": "Cause confusion — вызвать путаницу. Глагол — confuse, прилагательное — confused (растерянный).",
+      "examples": [
+        { "en": "There was some confusion about the meeting time.", "ru": "Со временем встречи вышла путаница.", "gap": "confusion" },
+        { "en": "To avoid confusion, please write your full name.", "ru": "Чтобы не было путаницы, пишите полное имя.", "gap": "confusion" }
+      ]
+    },
+    {
+      "id": "w-hurry",
+      "kind": "word",
+      "en": "hurry",
+      "ru": "спешить, торопиться",
+      "rank": 2683,
+      "note": "Be in a hurry — торопиться: I'm in a hurry. Hurry up! — Поторопись!",
+      "examples": [
+        { "en": "Sorry, I can't talk now, I'm in a hurry.", "ru": "Извини, сейчас не могу говорить, я спешу.", "gap": "hurry" },
+        { "en": "We hurried to the station to catch the last train.", "ru": "Мы поспешили на вокзал, чтобы успеть на последний поезд.", "gap": "hurried" }
+      ]
+    },
+    {
+      "id": "w-controversial",
+      "kind": "word",
+      "en": "controversial",
+      "ru": "спорный, неоднозначный",
+      "rank": 2685,
+      "note": "О теме или решении, вокруг которого идут споры: a controversial decision. Ударение: con-tro-VER-sial.",
+      "examples": [
+        { "en": "The new parking rules are very controversial.", "ru": "Новые правила парковки вызывают много споров.", "gap": "controversial" },
+        { "en": "It was a controversial decision, but it worked.", "ru": "Решение было спорным, но оно сработало.", "gap": "controversial" }
+      ]
+    },
+    {
+      "id": "w-revise",
+      "kind": "word",
+      "en": "revise",
+      "ru": "пересмотреть, доработать (текст, план)",
+      "rank": 2688,
+      "note": "Revise a plan / a text — пересмотреть, исправить. В британском английском ещё «повторять к экзамену»; в американском это review.",
+      "examples": [
+        { "en": "We had to revise our budget after the price increase.", "ru": "После роста цен нам пришлось пересмотреть бюджет.", "gap": "revise" },
+        { "en": "Please send me the revised version of the contract.", "ru": "Пришлите мне, пожалуйста, исправленную версию договора.", "gap": "revised" }
+      ]
+    },
+    {
+      "id": "w-hint",
+      "kind": "word",
+      "en": "hint",
+      "ru": "намёк, подсказка, намекнуть",
+      "rank": 2689,
+      "note": "Give a hint — подсказать; drop a hint — намекнуть; take a hint — понять намёк.",
+      "examples": [
+        { "en": "I don't know the answer, can you give me a hint?", "ru": "Я не знаю ответа, подскажешь?", "gap": "hint" },
+        { "en": "She hinted that she wanted flowers for her birthday.", "ru": "Она намекнула, что хочет цветы на день рождения.", "gap": "hinted" }
+      ]
+    },
+    {
+      "id": "w-panic",
+      "kind": "word",
+      "en": "panic",
+      "ru": "паника, паниковать",
+      "rank": 2693,
+      "note": "В формах появляется k: panicked, panicking. Don't panic! — Без паники!",
+      "examples": [
+        { "en": "Don't panic, we still have plenty of time.", "ru": "Без паники, у нас ещё полно времени.", "gap": "panic" },
+        { "en": "I panicked when I couldn't find my passport.", "ru": "Я запаниковал, когда не смог найти паспорт.", "gap": "panicked" }
+      ]
+    },
+    {
+      "id": "w-genuine",
+      "kind": "word",
+      "en": "genuine",
+      "ru": "настоящий, подлинный, искренний",
+      "rank": 2698,
+      "note": "Genuine leather — натуральная кожа; genuine interest — искренний интерес. Читается JEN-yoo-in.",
+      "examples": [
+        { "en": "Is this bag made of genuine leather?", "ru": "Эта сумка из натуральной кожи?", "gap": "genuine" },
+        { "en": "She showed genuine interest in my work.", "ru": "Она проявила искренний интерес к моей работе.", "gap": "genuine" }
+      ]
+    }
+  ]
+}

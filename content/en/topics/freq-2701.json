@@ -1,0 +1,283 @@
+{
+  "id": "freq-2701",
+  "title": "Частые слова 2701–2809",
+  "intro": "Слова с 2701-го по 2809-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-reckon",
+      "kind": "word",
+      "en": "reckon",
+      "ru": "думать, полагать (разговорное)",
+      "rank": 2701,
+      "note": "Разговорное «по-моему, думаю», особенно в британском английском: I reckon it'll rain.",
+      "examples": [
+        { "en": "I reckon it will rain this afternoon.", "ru": "Думаю, после обеда пойдёт дождь.", "gap": "reckon" },
+        { "en": "How long do you reckon the trip will take?", "ru": "Как думаешь, сколько займёт поездка?", "gap": "reckon" }
+      ]
+    },
+    {
+      "id": "w-storage",
+      "kind": "word",
+      "en": "storage",
+      "ru": "хранение, хранилище",
+      "rank": 2707,
+      "note": "Storage space — место для хранения вещей; cloud storage — облачное хранилище. Глагол — store.",
+      "examples": [
+        { "en": "Our new apartment has lots of storage space.", "ru": "В нашей новой квартире много места для хранения вещей.", "gap": "storage" },
+        { "en": "I pay for extra cloud storage for my photos.", "ru": "Я плачу за дополнительное облачное хранилище для фотографий.", "gap": "storage" }
+      ]
+    },
+    {
+      "id": "w-innocent",
+      "kind": "word",
+      "en": "innocent",
+      "ru": "невиновный, невинный",
+      "rank": 2714,
+      "note": "В суде — невиновный. О вопросе или замечании — безобидный: an innocent question.",
+      "examples": [
+        { "en": "The court decided that he was innocent.", "ru": "Суд решил, что он невиновен.", "gap": "innocent" },
+        { "en": "It was just an innocent question.", "ru": "Это был просто безобидный вопрос.", "gap": "innocent" }
+      ]
+    },
+    {
+      "id": "w-substitute",
+      "kind": "word",
+      "en": "substitute",
+      "ru": "заменить, замена",
+      "rank": 2715,
+      "note": "Substitute A for B — использовать A вместо B: substitute honey for sugar. No substitute for — ничем не заменить.",
+      "examples": [
+        { "en": "You can substitute honey for sugar in this recipe.", "ru": "В этом рецепте сахар можно заменить мёдом.", "gap": "substitute" },
+        { "en": "There is no substitute for real practice.", "ru": "Настоящую практику ничем не заменишь.", "gap": "substitute" }
+      ]
+    },
+    {
+      "id": "w-supplement",
+      "kind": "word",
+      "en": "supplement",
+      "ru": "добавка, дополнение, дополнять",
+      "rank": 2716,
+      "note": "Vitamin supplements — витамины, пищевые добавки. Supplement your income — иметь дополнительный заработок.",
+      "examples": [
+        { "en": "My doctor told me to take vitamin supplements.", "ru": "Врач посоветовал мне принимать витамины.", "gap": "supplements" },
+        { "en": "She teaches online to supplement her income.", "ru": "Она преподаёт онлайн, чтобы иметь дополнительный доход.", "gap": "supplement" }
+      ]
+    },
+    {
+      "id": "w-adjustment",
+      "kind": "word",
+      "en": "adjustment",
+      "ru": "корректировка, поправка, привыкание",
+      "rank": 2717,
+      "note": "Make an adjustment — внести поправку. Также «привыкание к новому»: adjustment to a new country. Глагол — adjust.",
+      "examples": [
+        { "en": "We made a few adjustments to the schedule.", "ru": "Мы внесли несколько поправок в расписание.", "gap": "adjustments" },
+        { "en": "Moving to a new country takes some adjustment.", "ru": "К жизни в новой стране нужно привыкнуть.", "gap": "adjustment" }
+      ]
+    },
+    {
+      "id": "w-filter",
+      "kind": "word",
+      "en": "filter",
+      "ru": "фильтр, фильтровать",
+      "rank": 2719,
+      "note": "Water filter, coffee filter. Как глагол: filter the results by price — отфильтровать результаты по цене.",
+      "examples": [
+        { "en": "We need a new filter for the coffee machine.", "ru": "Нам нужен новый фильтр для кофеварки.", "gap": "filter" },
+        { "en": "You can filter the results by price.", "ru": "Результаты можно отфильтровать по цене.", "gap": "filter" }
+      ]
+    },
+    {
+      "id": "w-flexible",
+      "kind": "word",
+      "en": "flexible",
+      "ru": "гибкий",
+      "rank": 2720,
+      "note": "Flexible hours — гибкий график. I'm flexible — мне подходит любой вариант. Существительное — flexibility.",
+      "examples": [
+        { "en": "My job has flexible hours, so I start at ten.", "ru": "У меня гибкий график, поэтому я начинаю в десять.", "gap": "flexible" },
+        { "en": "We can meet any day this week; I'm flexible.", "ru": "Встретиться можем в любой день на этой неделе — я подстроюсь.", "gap": "flexible" }
+      ]
+    },
+    {
+      "id": "w-precise",
+      "kind": "word",
+      "en": "precise",
+      "ru": "точный, чёткий",
+      "rank": 2723,
+      "note": "Точный до мелочей: precise instructions, the precise moment. Наречие — precisely.",
+      "examples": [
+        { "en": "Could you give me more precise instructions?", "ru": "Можете дать более точные указания?", "gap": "precise" },
+        { "en": "At that precise moment, the phone rang.", "ru": "Именно в этот момент зазвонил телефон.", "gap": "precise" }
+      ]
+    },
+    {
+      "id": "w-distant",
+      "kind": "word",
+      "en": "distant",
+      "ru": "далёкий, отдалённый",
+      "rank": 2724,
+      "note": "Distant relatives — дальние родственники; in the distant future — в далёком будущем. Существительное — distance.",
+      "examples": [
+        { "en": "We visited some distant relatives in the village.", "ru": "Мы навестили дальних родственников в деревне.", "gap": "distant" },
+        { "en": "The sound of distant thunder woke me up.", "ru": "Меня разбудили далёкие раскаты грома.", "gap": "distant" }
+      ]
+    },
+    {
+      "id": "w-stranger",
+      "kind": "word",
+      "en": "stranger",
+      "ru": "незнакомец, незнакомый человек",
+      "rank": 2725,
+      "note": "Не «странный» (это strange) и не «иностранец» (это foreigner): stranger — человек, которого вы не знаете.",
+      "examples": [
+        { "en": "Children shouldn't talk to strangers.", "ru": "Детям не стоит разговаривать с незнакомцами.", "gap": "strangers" },
+        { "en": "A stranger helped me carry my bags to the train.", "ru": "Незнакомый человек помог мне донести сумки до поезда.", "gap": "stranger" }
+      ]
+    },
+    {
+      "id": "w-summarize",
+      "kind": "word",
+      "en": "summarize",
+      "ru": "подвести итог, кратко изложить",
+      "rank": 2729,
+      "note": "Британское написание — summarise. To summarize, … — подводя итог, …. Существительное — summary.",
+      "examples": [
+        { "en": "Can you summarize the article in three sentences?", "ru": "Можешь изложить статью в трёх предложениях?", "gap": "summarize" },
+        { "en": "Let me summarize what we agreed on today.", "ru": "Давайте подведём итог тому, о чём мы сегодня договорились.", "gap": "summarize" }
+      ]
+    },
+    {
+      "id": "w-probability",
+      "kind": "word",
+      "en": "probability",
+      "ru": "вероятность",
+      "rank": 2732,
+      "note": "In all probability — по всей вероятности. Прилагательное — probable, наречие — probably.",
+      "examples": [
+        { "en": "The probability of rain tomorrow is low.", "ru": "Вероятность дождя завтра невелика.", "gap": "probability" },
+        { "en": "In all probability, the meeting will be canceled.", "ru": "По всей вероятности, совещание отменят.", "gap": "probability" }
+      ]
+    },
+    {
+      "id": "w-uncertainty",
+      "kind": "word",
+      "en": "uncertainty",
+      "ru": "неопределённость, неуверенность",
+      "rank": 2734,
+      "note": "Un- + certainty (уверенность). Часто о планах и экономике: a time of uncertainty — время неопределённости.",
+      "examples": [
+        { "en": "There is a lot of uncertainty about prices next year.", "ru": "Насчёт цен на следующий год много неясного.", "gap": "uncertainty" },
+        { "en": "The uncertainty about my job keeps me awake at night.", "ru": "Неопределённость с работой не даёт мне спать по ночам.", "gap": "uncertainty" }
+      ]
+    },
+    {
+      "id": "w-monthly",
+      "kind": "word",
+      "en": "monthly",
+      "ru": "ежемесячный, ежемесячно",
+      "rank": 2738,
+      "note": "И прилагательное, и наречие: a monthly payment — ежемесячный платёж; paid monthly — оплачивается раз в месяц.",
+      "examples": [
+        { "en": "Our monthly rent includes water and heating.", "ru": "В ежемесячную плату за аренду входят вода и отопление.", "gap": "monthly" },
+        { "en": "The magazine comes out monthly.", "ru": "Журнал выходит раз в месяц.", "gap": "monthly" }
+      ]
+    },
+    {
+      "id": "w-attendance",
+      "kind": "word",
+      "en": "attendance",
+      "ru": "посещаемость, присутствие",
+      "rank": 2751,
+      "note": "Глагол — attend (посещать, присутствовать). Attendance is required — присутствие обязательно.",
+      "examples": [
+        { "en": "Attendance at the meeting is required.", "ru": "Присутствие на собрании обязательно.", "gap": "Attendance" },
+        { "en": "Her school attendance has improved this year.", "ru": "В этом году она стала реже пропускать школу.", "gap": "attendance" }
+      ]
+    },
+    {
+      "id": "w-qualification",
+      "kind": "word",
+      "en": "qualification",
+      "ru": "квалификация, диплом (об образовании)",
+      "rank": 2753,
+      "note": "Часто — диплом или сертификат: What qualifications do you have? Глагол — qualify.",
+      "examples": [
+        { "en": "What qualifications do you need for this job?", "ru": "Какое образование нужно для этой работы?", "gap": "qualifications" },
+        { "en": "He has a qualification in accounting.", "ru": "У него есть диплом по бухгалтерии.", "gap": "qualification" }
+      ]
+    },
+    {
+      "id": "w-suspend",
+      "kind": "word",
+      "en": "suspend",
+      "ru": "приостановить, временно отстранить",
+      "rank": 2754,
+      "note": "Suspend a card / a service / a project — временно остановить. Существительное — suspension.",
+      "examples": [
+        { "en": "The bank suspended my card after a strange payment.", "ru": "Банк заблокировал мою карту после подозрительного платежа.", "gap": "suspended" },
+        { "en": "We had to suspend the project for a month.", "ru": "Нам пришлось приостановить проект на месяц.", "gap": "suspend" }
+      ]
+    },
+    {
+      "id": "w-voluntary",
+      "kind": "word",
+      "en": "voluntary",
+      "ru": "добровольный",
+      "rank": 2756,
+      "note": "Voluntary work — волонтёрская работа. Ударение на первый слог: VOL-un-tar-y. Волонтёр — volunteer.",
+      "examples": [
+        { "en": "Taking part in the survey is voluntary.", "ru": "Участие в опросе добровольное.", "gap": "voluntary" },
+        { "en": "She does voluntary work at an animal shelter.", "ru": "Она работает волонтёром в приюте для животных.", "gap": "voluntary" }
+      ]
+    },
+    {
+      "id": "w-weird",
+      "kind": "word",
+      "en": "weird",
+      "ru": "странный, чудной",
+      "rank": 2771,
+      "note": "Разговорный синоним strange. Пишется ei: weird — исключение из правила «i перед e».",
+      "examples": [
+        { "en": "I had a weird dream last night.", "ru": "Мне сегодня приснился странный сон.", "gap": "weird" },
+        { "en": "It feels weird to be back at the office.", "ru": "Странно снова оказаться в офисе.", "gap": "weird" }
+      ]
+    },
+    {
+      "id": "w-registration",
+      "kind": "word",
+      "en": "registration",
+      "ru": "регистрация, запись",
+      "rank": 2783,
+      "note": "Registration form — регистрационная форма. Глагол — register (зарегистрироваться, записаться).",
+      "examples": [
+        { "en": "Registration for the course closes on Friday.", "ru": "Запись на курс заканчивается в пятницу.", "gap": "Registration" },
+        { "en": "Fill out the registration form at the front desk.", "ru": "Заполните регистрационную форму на стойке администратора.", "gap": "registration" }
+      ]
+    },
+    {
+      "id": "w-fortunate",
+      "kind": "word",
+      "en": "fortunate",
+      "ru": "везучий, удачливый",
+      "rank": 2800,
+      "note": "Be fortunate to… — повезло: We were fortunate to find a hotel. Синоним — lucky. Наречие — fortunately (к счастью).",
+      "examples": [
+        { "en": "We were fortunate to find a cheap apartment.", "ru": "Нам повезло найти недорогую квартиру.", "gap": "fortunate" },
+        { "en": "I feel fortunate to have such good friends.", "ru": "Мне повезло, что у меня такие хорошие друзья.", "gap": "fortunate" }
+      ]
+    },
+    {
+      "id": "w-ashamed",
+      "kind": "word",
+      "en": "ashamed",
+      "ru": "пристыженный, (кому-то) стыдно",
+      "rank": 2806,
+      "note": "Be ashamed of something — стыдиться чего-то. Не путать с embarrassed — неловко, смущён.",
+      "examples": [
+        { "en": "I'm ashamed of what I said yesterday.", "ru": "Мне стыдно за то, что я вчера сказал.", "gap": "ashamed" },
+        { "en": "Don't be ashamed to ask for help.", "ru": "Не стыдись просить о помощи.", "gap": "ashamed" }
+      ]
+    }
+  ]
+}

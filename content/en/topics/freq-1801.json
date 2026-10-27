@@ -1,0 +1,343 @@
+{
+  "id": "freq-1801",
+  "title": "Частые слова 1801–1900",
+  "intro": "Слова с 1801-го по 1900-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-vast",
+      "kind": "word",
+      "en": "vast",
+      "ru": "огромный, обширный",
+      "rank": 1802,
+      "note": "О размере или количестве: a vast area. The vast majority — подавляющее большинство.",
+      "examples": [
+        { "en": "The vast majority of our clients are happy.", "ru": "Подавляющее большинство наших клиентов довольны.", "gap": "vast" },
+        { "en": "The airport is vast, so arrive early.", "ru": "Аэропорт огромный, так что приезжайте заранее.", "gap": "vast" }
+      ]
+    },
+    {
+      "id": "w-immediate",
+      "kind": "word",
+      "en": "immediate",
+      "ru": "немедленный, срочный",
+      "rank": 1806,
+      "note": "Immediate family — ближайшие родственники. Наречие — immediately (сразу же).",
+      "examples": [
+        { "en": "We need an immediate answer from the client.", "ru": "Нам нужен немедленный ответ от клиента.", "gap": "immediate" },
+        { "en": "The new rules will have an immediate effect on prices.", "ru": "Новые правила сразу же скажутся на ценах.", "gap": "immediate" }
+      ]
+    },
+    {
+      "id": "w-incident",
+      "kind": "word",
+      "en": "incident",
+      "ru": "случай, происшествие",
+      "rank": 1807,
+      "note": "Обычно о неприятном событии: report an incident. Without incident — без происшествий. Ударение: IN-ci-dent.",
+      "examples": [
+        { "en": "Please report any incident to the manager.", "ru": "Пожалуйста, сообщайте руководителю о любом происшествии.", "gap": "incident" },
+        { "en": "The plane landed safely without incident.", "ru": "Самолёт благополучно приземлился без происшествий.", "gap": "incident" }
+      ]
+    },
+    {
+      "id": "w-childhood",
+      "kind": "word",
+      "en": "childhood",
+      "ru": "детство",
+      "rank": 1808,
+      "note": "Since childhood — с детства. «В детстве» чаще говорят as a child или when I was a child.",
+      "examples": [
+        { "en": "I spent my childhood in a small village.", "ru": "Детство я провёл в маленькой деревне.", "gap": "childhood" },
+        { "en": "She has been my best friend since childhood.", "ru": "Мы с ней лучшие подруги с детства.", "gap": "childhood" }
+      ]
+    },
+    {
+      "id": "w-draft",
+      "kind": "word",
+      "en": "draft",
+      "ru": "черновик, проект (документа)",
+      "rank": 1809,
+      "note": "First draft — первый вариант текста. Также глагол: draft a letter — набросать письмо.",
+      "examples": [
+        { "en": "Can you check the first draft of my report?", "ru": "Можешь проверить черновик моего отчёта?", "gap": "draft" },
+        { "en": "I've drafted a reply to the client.", "ru": "Я набросал ответ клиенту.", "gap": "drafted" }
+      ]
+    },
+    {
+      "id": "w-temporary",
+      "kind": "word",
+      "en": "temporary",
+      "ru": "временный",
+      "rank": 1820,
+      "note": "Антоним — permanent. Temporary job — временная работа.",
+      "examples": [
+        { "en": "This is only a temporary solution.", "ru": "Это лишь временное решение.", "gap": "temporary" },
+        { "en": "He found a temporary job for the summer.", "ru": "Он нашёл временную работу на лето.", "gap": "temporary" }
+      ]
+    },
+    {
+      "id": "w-qualify",
+      "kind": "word",
+      "en": "qualify",
+      "ru": "получить квалификацию, иметь право (на что-то)",
+      "rank": 1823,
+      "note": "Qualify as — получить специальность: She qualified as a doctor. Qualify for — иметь право на что-то: qualify for a discount.",
+      "examples": [
+        { "en": "She qualified as a lawyer last year.", "ru": "В прошлом году она получила диплом юриста.", "gap": "qualified" },
+        { "en": "Students qualify for a discount on train tickets.", "ru": "Студентам положена скидка на билеты на поезд.", "gap": "qualify" }
+      ]
+    },
+    {
+      "id": "w-competitive",
+      "kind": "word",
+      "en": "competitive",
+      "ru": "конкурентный, конкурентоспособный",
+      "rank": 1824,
+      "note": "Competitive prices / salary — выгодные цены, достойная зарплата. О человеке — любящий соревноваться.",
+      "examples": [
+        { "en": "We offer a competitive salary and good benefits.", "ru": "Мы предлагаем конкурентную зарплату и хороший соцпакет.", "gap": "competitive" },
+        { "en": "My brother is very competitive, even in board games.", "ru": "Мой брат всегда хочет победить, даже в настольных играх.", "gap": "competitive" }
+      ]
+    },
+    {
+      "id": "w-truly",
+      "kind": "word",
+      "en": "truly",
+      "ru": "по-настоящему, искренне",
+      "rank": 1825,
+      "note": "Усиливает и подчёркивает искренность: I'm truly sorry. Пишется без e: true → truly.",
+      "examples": [
+        { "en": "I'm truly sorry for the delay.", "ru": "Искренне прошу прощения за задержку.", "gap": "truly" },
+        { "en": "It was a truly wonderful evening.", "ru": "Это был по-настоящему чудесный вечер.", "gap": "truly" }
+      ]
+    },
+    {
+      "id": "w-habit",
+      "kind": "word",
+      "en": "habit",
+      "ru": "привычка",
+      "rank": 1828,
+      "note": "Have a habit of doing — иметь привычку что-то делать. Break a habit — избавиться от привычки.",
+      "examples": [
+        { "en": "I have a habit of checking my phone in bed.", "ru": "У меня есть привычка проверять телефон в постели.", "gap": "habit" },
+        { "en": "It's hard to break old habits.", "ru": "От старых привычек трудно избавиться.", "gap": "habits" }
+      ]
+    },
+    {
+      "id": "w-emotional",
+      "kind": "word",
+      "en": "emotional",
+      "ru": "эмоциональный, волнующий",
+      "rank": 1831,
+      "note": "О событии — трогательный, о человеке — взволнованный: get emotional — расчувствоваться.",
+      "examples": [
+        { "en": "Saying goodbye to my colleagues was very emotional.", "ru": "Прощаться с коллегами было очень трогательно.", "gap": "emotional" },
+        { "en": "He gets emotional when he talks about his family.", "ru": "Когда он говорит о семье, его переполняют чувства.", "gap": "emotional" }
+      ]
+    },
+    {
+      "id": "w-emphasize",
+      "kind": "word",
+      "en": "emphasize",
+      "ru": "подчёркивать, делать акцент",
+      "rank": 1840,
+      "note": "Британское написание — emphasise. Без предлога: emphasize the importance, а не emphasize on.",
+      "examples": [
+        { "en": "The manager emphasized the importance of teamwork.", "ru": "Руководитель подчеркнул важность командной работы.", "gap": "emphasized" },
+        { "en": "I'd like to emphasize one thing.", "ru": "Хочу особо подчеркнуть одну вещь.", "gap": "emphasize" }
+      ]
+    },
+    {
+      "id": "w-maximum",
+      "kind": "word",
+      "en": "maximum",
+      "ru": "максимум, максимальный",
+      "rank": 1841,
+      "note": "A maximum of — не больше: a maximum of two bags. В разговоре сокращают до max.",
+      "examples": [
+        { "en": "Each passenger can take a maximum of two bags.", "ru": "Каждый пассажир может взять не больше двух сумок.", "gap": "maximum" },
+        { "en": "The maximum speed here is sixty kilometers an hour.", "ru": "Максимальная скорость здесь — шестьдесят километров в час.", "gap": "maximum" }
+      ]
+    },
+    {
+      "id": "w-effectively",
+      "kind": "word",
+      "en": "effectively",
+      "ru": "эффективно, результативно",
+      "rank": 1842,
+      "note": "Ещё одно значение — «фактически»: The decision effectively ended the project.",
+      "examples": [
+        { "en": "We need to use our time more effectively.", "ru": "Нам нужно эффективнее использовать время.", "gap": "effectively" },
+        { "en": "She manages her team very effectively.", "ru": "Она очень эффективно руководит командой.", "gap": "effectively" }
+      ]
+    },
+    {
+      "id": "w-elsewhere",
+      "kind": "word",
+      "en": "elsewhere",
+      "ru": "в другом месте, где-нибудь ещё",
+      "rank": 1843,
+      "note": "Обычно в конце фразы: look elsewhere — поискать в другом месте.",
+      "examples": [
+        { "en": "If the price is too high, we'll look elsewhere.", "ru": "Если цена слишком высокая, поищем в другом месте.", "gap": "elsewhere" },
+        { "en": "Prices here are higher than elsewhere in the country.", "ru": "Цены здесь выше, чем в других частях страны.", "gap": "elsewhere" }
+      ]
+    },
+    {
+      "id": "w-bother",
+      "kind": "word",
+      "en": "bother",
+      "ru": "беспокоить, утруждать себя",
+      "rank": 1844,
+      "note": "Sorry to bother you — простите за беспокойство. Don't bother — не утруждайся, не надо.",
+      "examples": [
+        { "en": "Sorry to bother you, but can I ask a question?", "ru": "Простите за беспокойство, можно задать вопрос?", "gap": "bother" },
+        { "en": "He didn't even bother to call me.", "ru": "Он даже не потрудился мне позвонить.", "gap": "bother" }
+      ]
+    },
+    {
+      "id": "w-initiative",
+      "kind": "word",
+      "en": "initiative",
+      "ru": "инициатива",
+      "rank": 1845,
+      "note": "Take the initiative — проявить инициативу. Ударение: i-NI-tia-tive.",
+      "examples": [
+        { "en": "She took the initiative and organized the meeting.", "ru": "Она проявила инициативу и организовала встречу.", "gap": "initiative" },
+        { "en": "The city started a new recycling initiative.", "ru": "Город запустил новую программу по переработке отходов.", "gap": "initiative" }
+      ]
+    },
+    {
+      "id": "w-assumption",
+      "kind": "word",
+      "en": "assumption",
+      "ru": "предположение, допущение",
+      "rank": 1855,
+      "note": "Make assumptions — строить предположения, судить заранее. Глагол — assume: I assume you know.",
+      "examples": [
+        { "en": "Don't make assumptions about people you don't know.", "ru": "Не делай выводов о людях, которых не знаешь.", "gap": "assumptions" },
+        { "en": "Our plan was based on the assumption that prices would fall.", "ru": "Наш план строился на предположении, что цены упадут.", "gap": "assumption" }
+      ]
+    },
+    {
+      "id": "w-extreme",
+      "kind": "word",
+      "en": "extreme",
+      "ru": "крайний, экстремальный",
+      "rank": 1857,
+      "note": "Extreme heat / weather — сильная жара, экстремальная погода. Наречие extremely значит просто «очень».",
+      "examples": [
+        { "en": "The region often has extreme weather in winter.", "ru": "Зимой в этом регионе часто бывает суровая погода.", "gap": "extreme" },
+        { "en": "Working twelve hours a day is a bit extreme.", "ru": "Работать по двенадцать часов в день — это уже перебор.", "gap": "extreme" }
+      ]
+    },
+    {
+      "id": "w-reputation",
+      "kind": "word",
+      "en": "reputation",
+      "ru": "репутация",
+      "rank": 1859,
+      "note": "Have a reputation for something — славиться чем-то: The hotel has a reputation for great food.",
+      "examples": [
+        { "en": "The company has a very good reputation.", "ru": "У компании очень хорошая репутация.", "gap": "reputation" },
+        { "en": "This restaurant has a reputation for excellent service.", "ru": "Этот ресторан славится отличным обслуживанием.", "gap": "reputation" }
+      ]
+    },
+    {
+      "id": "w-negotiation",
+      "kind": "word",
+      "en": "negotiation",
+      "ru": "переговоры",
+      "rank": 1861,
+      "note": "В значении «переговоры» обычно во множественном числе: negotiations. Open to negotiation — можно обсудить.",
+      "examples": [
+        { "en": "After long negotiations, we signed the contract.", "ru": "После долгих переговоров мы подписали контракт.", "gap": "negotiations" },
+        { "en": "The price is still open to negotiation.", "ru": "Цену ещё можно обсудить.", "gap": "negotiation" }
+      ]
+    },
+    {
+      "id": "w-deserve",
+      "kind": "word",
+      "en": "deserve",
+      "ru": "заслуживать, заслужить",
+      "rank": 1872,
+      "note": "Без предлога: You deserve a rest — ты заслужил отдых. Обратите внимание: в английском настоящее время, в русском часто прошедшее.",
+      "examples": [
+        { "en": "You've worked hard and you deserve a break.", "ru": "Ты много работал и заслужил отдых.", "gap": "deserve" },
+        { "en": "She deserves a promotion more than anyone.", "ru": "Она больше всех заслуживает повышения.", "gap": "deserves" }
+      ]
+    },
+    {
+      "id": "w-unusual",
+      "kind": "word",
+      "en": "unusual",
+      "ru": "необычный",
+      "rank": 1873,
+      "note": "It's unusual for someone to do something — на кого-то не похоже: It's unusual for him to be late.",
+      "examples": [
+        { "en": "It's unusual for him to be late.", "ru": "Обычно он не опаздывает.", "gap": "unusual" },
+        { "en": "She has a very unusual name.", "ru": "У неё очень необычное имя.", "gap": "unusual" }
+      ]
+    },
+    {
+      "id": "w-repair",
+      "kind": "word",
+      "en": "repair",
+      "ru": "ремонтировать, чинить, ремонт",
+      "rank": 1878,
+      "note": "Обычно о машинах, технике, дорогах; в разговоре часто fix. Ремонт квартиры — renovation.",
+      "examples": [
+        { "en": "How much will it cost to repair the car?", "ru": "Сколько будет стоить ремонт машины?", "gap": "repair" },
+        { "en": "The road is closed for repairs.", "ru": "Дорога закрыта на ремонт.", "gap": "repairs" }
+      ]
+    },
+    {
+      "id": "w-collapse",
+      "kind": "word",
+      "en": "collapse",
+      "ru": "рухнуть, обрушиться, развалиться",
+      "rank": 1879,
+      "note": "О здании — обрушиться, о сделке или компании — развалиться, о человеке — упасть без сил.",
+      "examples": [
+        { "en": "The roof of the old barn collapsed under the snow.", "ru": "Крыша старого сарая рухнула под тяжестью снега.", "gap": "collapsed" },
+        { "en": "The deal collapsed at the last minute.", "ru": "Сделка сорвалась в последнюю минуту.", "gap": "collapsed" }
+      ]
+    },
+    {
+      "id": "w-capable",
+      "kind": "word",
+      "en": "capable",
+      "ru": "способный, умелый",
+      "rank": 1885,
+      "note": "Capable of doing — с предлогом of и -ing: capable of running the office (сравните: able to run).",
+      "examples": [
+        { "en": "She is capable of running the office on her own.", "ru": "Она вполне способна сама руководить офисом.", "gap": "capable" },
+        { "en": "He's a very capable manager.", "ru": "Он очень толковый руководитель.", "gap": "capable" }
+      ]
+    },
+    {
+      "id": "w-emergency",
+      "kind": "word",
+      "en": "emergency",
+      "ru": "чрезвычайная ситуация, экстренный случай",
+      "rank": 1891,
+      "note": "In an emergency — в экстренном случае. Emergency exit — запасной выход.",
+      "examples": [
+        { "en": "In an emergency, call this number.", "ru": "В экстренном случае звоните по этому номеру.", "gap": "emergency" },
+        { "en": "Where is the nearest emergency exit?", "ru": "Где ближайший запасной выход?", "gap": "emergency" }
+      ]
+    },
+    {
+      "id": "w-valuable",
+      "kind": "word",
+      "en": "valuable",
+      "ru": "ценный, дорогой",
+      "rank": 1898,
+      "note": "Valuables — ценные вещи. Осторожно: invaluable значит «бесценный», а не «не имеющий ценности».",
+      "examples": [
+        { "en": "Don't leave valuable things in the car.", "ru": "Не оставляйте ценные вещи в машине.", "gap": "valuable" },
+        { "en": "Thank you for your valuable advice.", "ru": "Спасибо за ценный совет.", "gap": "valuable" }
+      ]
+    }
+  ]
+}

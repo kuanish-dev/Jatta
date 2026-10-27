@@ -1,0 +1,331 @@
+{
+  "id": "freq-2401",
+  "title": "Частые слова 2401–2500",
+  "intro": "Слова с 2401-го по 2500-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-barrier",
+      "kind": "word",
+      "en": "barrier",
+      "ru": "барьер, преграда, ограждение",
+      "rank": 2402,
+      "note": "Language barrier — языковой барьер. Ударение на первый слог: BAR-ri-er.",
+      "examples": [
+        { "en": "The language barrier made the first month difficult.", "ru": "Из-за языкового барьера первый месяц был трудным.", "gap": "barrier" },
+        { "en": "Workers put up barriers around the hole in the road.", "ru": "Рабочие поставили ограждения вокруг ямы на дороге.", "gap": "barriers" }
+      ]
+    },
+    {
+      "id": "w-tendency",
+      "kind": "word",
+      "en": "tendency",
+      "ru": "склонность, тенденция",
+      "rank": 2408,
+      "note": "Have a tendency to do something — быть склонным что-то делать: He has a tendency to be late. Глагол — tend to.",
+      "examples": [
+        { "en": "He has a tendency to talk too much in meetings.", "ru": "Он склонен слишком много говорить на совещаниях.", "gap": "tendency" },
+        { "en": "There is a growing tendency to work from home.", "ru": "Всё заметнее тенденция работать из дома.", "gap": "tendency" }
+      ]
+    },
+    {
+      "id": "w-frequent",
+      "kind": "word",
+      "en": "frequent",
+      "ru": "частый",
+      "rank": 2409,
+      "note": "Наречие — frequently (часто). Frequent flyer — постоянный клиент авиакомпании.",
+      "examples": [
+        { "en": "There are frequent trains to the airport.", "ru": "В аэропорт часто ходят поезда.", "gap": "frequent" },
+        { "en": "Frequent breaks help me focus at work.", "ru": "Частые перерывы помогают мне сосредоточиться на работе.", "gap": "Frequent" }
+      ]
+    },
+    {
+      "id": "w-permission",
+      "kind": "word",
+      "en": "permission",
+      "ru": "разрешение",
+      "rank": 2414,
+      "note": "Ask for permission — спросить разрешения; get permission to do something. Глагол — permit.",
+      "examples": [
+        { "en": "You need permission to park here.", "ru": "Чтобы парковаться здесь, нужно разрешение.", "gap": "permission" },
+        { "en": "Did you ask your boss for permission to leave early?", "ru": "Ты спросил у начальника разрешения уйти пораньше?", "gap": "permission" }
+      ]
+    },
+    {
+      "id": "w-visible",
+      "kind": "word",
+      "en": "visible",
+      "ru": "видимый, заметный",
+      "rank": 2419,
+      "note": "Clearly visible — хорошо видно. Антоним — invisible. Существительное — visibility (видимость).",
+      "examples": [
+        { "en": "The mountains are visible from my window.", "ru": "Из моего окна видны горы.", "gap": "visible" },
+        { "en": "Keep your ID card in a visible place.", "ru": "Держите пропуск на видном месте.", "gap": "visible" }
+      ]
+    },
+    {
+      "id": "w-impressive",
+      "kind": "word",
+      "en": "impressive",
+      "ru": "впечатляющий",
+      "rank": 2421,
+      "note": "Глагол — impress, существительное — impression (впечатление). Impressive results — впечатляющие результаты.",
+      "examples": [
+        { "en": "Your English is really impressive!", "ru": "Твой английский правда впечатляет!", "gap": "impressive" },
+        { "en": "The company showed impressive growth last year.", "ru": "В прошлом году компания показала впечатляющий рост.", "gap": "impressive" }
+      ]
+    },
+    {
+      "id": "w-awareness",
+      "kind": "word",
+      "en": "awareness",
+      "ru": "осознание, осведомлённость",
+      "rank": 2423,
+      "note": "Raise awareness of something — привлечь внимание к проблеме. Прилагательное — aware (be aware of — знать, осознавать).",
+      "examples": [
+        { "en": "The campaign aims to raise awareness of healthy eating.", "ru": "Кампания призвана привлечь внимание к здоровому питанию.", "gap": "awareness" },
+        { "en": "Public awareness of recycling has grown a lot.", "ru": "Люди стали гораздо лучше понимать важность переработки отходов.", "gap": "awareness" }
+      ]
+    },
+    {
+      "id": "w-wealthy",
+      "kind": "word",
+      "en": "wealthy",
+      "ru": "богатый, состоятельный",
+      "rank": 2426,
+      "note": "Чуть официальнее, чем rich. Существительное — wealth (богатство). Читается WEL-thi.",
+      "examples": [
+        { "en": "They live in a wealthy part of town.", "ru": "Они живут в богатом районе города.", "gap": "wealthy" },
+        { "en": "His wealthy uncle paid for his studies.", "ru": "Его учёбу оплатил состоятельный дядя.", "gap": "wealthy" }
+      ]
+    },
+    {
+      "id": "w-acceptable",
+      "kind": "word",
+      "en": "acceptable",
+      "ru": "приемлемый, допустимый",
+      "rank": 2428,
+      "note": "Антоним — unacceptable (недопустимый): This is unacceptable. Глагол — accept.",
+      "examples": [
+        { "en": "Is it acceptable to wear jeans to the office?", "ru": "Можно ли ходить в офис в джинсах?", "gap": "acceptable" },
+        { "en": "The price seemed acceptable, so we signed the contract.", "ru": "Цена показалась приемлемой, и мы подписали договор.", "gap": "acceptable" }
+      ]
+    },
+    {
+      "id": "w-measurement",
+      "kind": "word",
+      "en": "measurement",
+      "ru": "измерение, размеры (мерки)",
+      "rank": 2431,
+      "note": "Чаще во множественном числе: take measurements — снять мерки, сделать замеры. Глагол — measure.",
+      "examples": [
+        { "en": "The tailor took my measurements for a new suit.", "ru": "Портной снял с меня мерки для нового костюма.", "gap": "measurements" },
+        { "en": "Check the measurements of the room before buying a sofa.", "ru": "Прежде чем покупать диван, проверьте размеры комнаты.", "gap": "measurements" }
+      ]
+    },
+    {
+      "id": "w-random",
+      "kind": "word",
+      "en": "random",
+      "ru": "случайный, произвольный",
+      "rank": 2432,
+      "note": "At random — наугад, случайным образом. В разговоре random — ещё и «странный, ни с того ни с сего»: a random question.",
+      "examples": [
+        { "en": "The winners were chosen at random.", "ru": "Победителей выбрали случайным образом.", "gap": "random" },
+        { "en": "A random person on the street asked me for directions.", "ru": "Случайный прохожий спросил у меня дорогу.", "gap": "random" }
+      ]
+    },
+    {
+      "id": "w-successfully",
+      "kind": "word",
+      "en": "successfully",
+      "ru": "успешно",
+      "rank": 2433,
+      "note": "Пишется с двумя c и двумя s: successfully. Прилагательное — successful, существительное — success.",
+      "examples": [
+        { "en": "Your payment was successfully completed.", "ru": "Ваш платёж успешно проведён.", "gap": "successfully" },
+        { "en": "She successfully passed her driving test.", "ru": "Она успешно сдала экзамен по вождению.", "gap": "successfully" }
+      ]
+    },
+    {
+      "id": "w-buyer",
+      "kind": "word",
+      "en": "buyer",
+      "ru": "покупатель",
+      "rank": 2438,
+      "note": "Обычно о том, кто покупает что-то крупное (квартиру, машину) или закупает товар для компании. Покупатель в магазине — чаще customer.",
+      "examples": [
+        { "en": "We found a buyer for our old car.", "ru": "Мы нашли покупателя на нашу старую машину.", "gap": "buyer" },
+        { "en": "Buyers usually see many apartments before choosing one.", "ru": "Покупатели обычно смотрят много квартир, прежде чем выбрать.", "gap": "Buyers" }
+      ]
+    },
+    {
+      "id": "w-mutual",
+      "kind": "word",
+      "en": "mutual",
+      "ru": "взаимный, общий",
+      "rank": 2439,
+      "note": "Mutual friend — общий друг. Mutual respect — взаимное уважение. The feeling is mutual — это взаимно.",
+      "examples": [
+        { "en": "We met through a mutual friend.", "ru": "Мы познакомились через общего друга.", "gap": "mutual" },
+        { "en": "Good teamwork is based on mutual respect.", "ru": "Хорошая командная работа строится на взаимном уважении.", "gap": "mutual" }
+      ]
+    },
+    {
+      "id": "w-motivate",
+      "kind": "word",
+      "en": "motivate",
+      "ru": "мотивировать, побуждать",
+      "rank": 2441,
+      "note": "Motivate someone to do something. Прилагательное — motivated (мотивированный), существительное — motivation.",
+      "examples": [
+        { "en": "Good managers know how to motivate their teams.", "ru": "Хорошие руководители умеют мотивировать свою команду.", "gap": "motivate" },
+        { "en": "I'm not very motivated to study today.", "ru": "Сегодня у меня нет особого желания учиться.", "gap": "motivated" }
+      ]
+    },
+    {
+      "id": "w-mortgage",
+      "kind": "word",
+      "en": "mortgage",
+      "ru": "ипотека",
+      "rank": 2443,
+      "note": "Читается MOR-gij: буква t не произносится. Take out a mortgage — взять ипотеку; pay off a mortgage — выплатить её.",
+      "examples": [
+        { "en": "We took out a mortgage to buy our apartment.", "ru": "Мы взяли ипотеку, чтобы купить квартиру.", "gap": "mortgage" },
+        { "en": "Half of my salary goes on the mortgage.", "ru": "Половина моей зарплаты уходит на ипотеку.", "gap": "mortgage" }
+      ]
+    },
+    {
+      "id": "w-passion",
+      "kind": "word",
+      "en": "passion",
+      "ru": "страсть, увлечение",
+      "rank": 2445,
+      "note": "A passion for something — страстное увлечение чем-то: a passion for music. Прилагательное — passionate.",
+      "examples": [
+        { "en": "She has a real passion for cooking.", "ru": "Она по-настоящему увлечена кулинарией.", "gap": "passion" },
+        { "en": "Football has always been his greatest passion.", "ru": "Футбол всегда был его главной страстью.", "gap": "passion" }
+      ]
+    },
+    {
+      "id": "w-roughly",
+      "kind": "word",
+      "en": "roughly",
+      "ru": "примерно, приблизительно",
+      "rank": 2450,
+      "note": "Синонимы — about, approximately. Читается RUF-li: gh звучит как f.",
+      "examples": [
+        { "en": "The trip takes roughly two hours.", "ru": "Поездка занимает примерно два часа.", "gap": "roughly" },
+        { "en": "Roughly half of our clients pay online.", "ru": "Примерно половина наших клиентов платит онлайн.", "gap": "Roughly" }
+      ]
+    },
+    {
+      "id": "w-compromise",
+      "kind": "word",
+      "en": "compromise",
+      "ru": "компромисс, пойти на уступки",
+      "rank": 2455,
+      "note": "Reach a compromise — прийти к компромиссу. Ударение на первый слог: COM-pro-mise.",
+      "examples": [
+        { "en": "After a long talk, we reached a compromise.", "ru": "После долгого разговора мы пришли к компромиссу.", "gap": "compromise" },
+        { "en": "Living with roommates means you have to compromise.", "ru": "Если живёшь с соседями, приходится идти на уступки.", "gap": "compromise" }
+      ]
+    },
+    {
+      "id": "w-weakness",
+      "kind": "word",
+      "en": "weakness",
+      "ru": "слабость, слабое место",
+      "rank": 2457,
+      "note": "Strengths and weaknesses — сильные и слабые стороны (частый вопрос на собеседовании). Have a weakness for — питать слабость к.",
+      "examples": [
+        { "en": "What are your main strengths and weaknesses?", "ru": "Каковы ваши главные сильные и слабые стороны?", "gap": "weaknesses" },
+        { "en": "I have a weakness for chocolate.", "ru": "У меня слабость к шоколаду.", "gap": "weakness" }
+      ]
+    },
+    {
+      "id": "w-announcement",
+      "kind": "word",
+      "en": "announcement",
+      "ru": "объявление, сообщение",
+      "rank": 2458,
+      "note": "Make an announcement — сделать объявление. Объявление о продаже на сайте — скорее ad. Глагол — announce.",
+      "examples": [
+        { "en": "Did you hear the announcement about our train?", "ru": "Ты слышал объявление о нашем поезде?", "gap": "announcement" },
+        { "en": "The director made an announcement about the new office.", "ru": "Директор сделал объявление о новом офисе.", "gap": "announcement" }
+      ]
+    },
+    {
+      "id": "w-praise",
+      "kind": "word",
+      "en": "praise",
+      "ru": "хвалить, похвала",
+      "rank": 2473,
+      "note": "Praise someone for something — хвалить за что-то. Существительное неисчисляемое: a lot of praise, без a.",
+      "examples": [
+        { "en": "My manager praised me for the presentation.", "ru": "Начальник похвалил меня за презентацию.", "gap": "praised" },
+        { "en": "The new restaurant has received a lot of praise.", "ru": "Новый ресторан собрал много хвалебных отзывов.", "gap": "praise" }
+      ]
+    },
+    {
+      "id": "w-compensation",
+      "kind": "word",
+      "en": "compensation",
+      "ru": "компенсация, возмещение",
+      "rank": 2479,
+      "note": "Compensation for something — компенсация за что-то. В вакансиях — ещё и «вознаграждение»: зарплата вместе с бонусами.",
+      "examples": [
+        { "en": "We got compensation for our delayed flight.", "ru": "Мы получили компенсацию за задержку рейса.", "gap": "compensation" },
+        { "en": "The job offers good compensation and flexible hours.", "ru": "На этой работе хорошее вознаграждение и гибкий график.", "gap": "compensation" }
+      ]
+    },
+    {
+      "id": "w-profession",
+      "kind": "word",
+      "en": "profession",
+      "ru": "профессия",
+      "rank": 2487,
+      "note": "Обычно о профессии, требующей образования. By profession — по профессии. О работе в разговоре чаще спрашивают What do you do?",
+      "examples": [
+        { "en": "Teaching is a difficult but rewarding profession.", "ru": "Преподавание — трудная, но благодарная профессия.", "gap": "profession" },
+        { "en": "She is a lawyer by profession.", "ru": "По профессии она юрист.", "gap": "profession" }
+      ]
+    },
+    {
+      "id": "w-literally",
+      "kind": "word",
+      "en": "literally",
+      "ru": "буквально",
+      "rank": 2488,
+      "note": "В разговоре часто просто усиливает фразу: I literally ran to the station. Прилагательное — literal.",
+      "examples": [
+        { "en": "Don't translate this phrase literally.", "ru": "Не переводи эту фразу буквально.", "gap": "literally" },
+        { "en": "The office is literally next to my house.", "ru": "Офис буквально в двух шагах от моего дома.", "gap": "literally" }
+      ]
+    },
+    {
+      "id": "w-inflation",
+      "kind": "word",
+      "en": "inflation",
+      "ru": "инфляция",
+      "rank": 2494,
+      "note": "Inflation rate — уровень инфляции. Inflation rises / falls — инфляция растёт / снижается.",
+      "examples": [
+        { "en": "Inflation has made food much more expensive.", "ru": "Из-за инфляции продукты сильно подорожали.", "gap": "Inflation" },
+        { "en": "The inflation rate fell to four percent.", "ru": "Уровень инфляции снизился до четырёх процентов.", "gap": "inflation" }
+      ]
+    },
+    {
+      "id": "w-remote",
+      "kind": "word",
+      "en": "remote",
+      "ru": "удалённый, отдалённый",
+      "rank": 2497,
+      "note": "Remote work — удалённая работа; a remote village — глухая деревня. The remote (control) — пульт.",
+      "examples": [
+        { "en": "Our company allows remote work twice a week.", "ru": "Наша компания разрешает работать удалённо два дня в неделю.", "gap": "remote" },
+        { "en": "They spent their holiday in a remote mountain village.", "ru": "Они провели отпуск в отдалённой горной деревне.", "gap": "remote" }
+      ]
+    }
+  ]
+}

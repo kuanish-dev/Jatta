@@ -1,0 +1,319 @@
+{
+  "id": "freq-1601",
+  "title": "Частые слова 1601–1700",
+  "intro": "Слова с 1601-го по 1700-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-expectation",
+      "kind": "word",
+      "en": "expectation",
+      "ru": "ожидание (чего-то от кого-то)",
+      "rank": 1606,
+      "note": "Это не «ожидание» в очереди (waiting), а то, на что вы рассчитываете. Meet expectations — оправдать ожидания.",
+      "examples": [
+        { "en": "The hotel was far below our expectations.", "ru": "Отель оказался гораздо хуже, чем мы ожидали.", "gap": "expectations" },
+        { "en": "My manager has high expectations of the team.", "ru": "Начальник многого ждёт от команды.", "gap": "expectations" }
+      ]
+    },
+    {
+      "id": "w-employment",
+      "kind": "word",
+      "en": "employment",
+      "ru": "работа (официально), занятость",
+      "rank": 1607,
+      "note": "Официальное слово, в разговоре чаще job. Employment contract — трудовой договор.",
+      "examples": [
+        { "en": "She found employment at a local bank.", "ru": "Она устроилась на работу в местный банк.", "gap": "employment" },
+        { "en": "You need to sign an employment contract first.", "ru": "Сначала нужно подписать трудовой договор.", "gap": "employment" }
+      ]
+    },
+    {
+      "id": "w-celebrate",
+      "kind": "word",
+      "en": "celebrate",
+      "ru": "праздновать, отмечать",
+      "rank": 1608,
+      "note": "Celebrate a birthday — отмечать день рождения. Существительное — celebration.",
+      "examples": [
+        { "en": "We celebrated my mother's birthday at a restaurant.", "ru": "Мы отметили мамин день рождения в ресторане.", "gap": "celebrated" },
+        { "en": "Let's celebrate the end of the project!", "ru": "Давайте отметим окончание проекта!", "gap": "celebrate" }
+      ]
+    },
+    {
+      "id": "w-increasingly",
+      "kind": "word",
+      "en": "increasingly",
+      "ru": "всё более, всё больше",
+      "rank": 1612,
+      "note": "Ставится перед прилагательным: increasingly popular — всё более популярный.",
+      "examples": [
+        { "en": "Online shopping is becoming increasingly popular.", "ru": "Покупки в интернете становятся всё популярнее.", "gap": "increasingly" },
+        { "en": "It is increasingly difficult to find a cheap apartment.", "ru": "Найти дешёвую квартиру становится всё сложнее.", "gap": "increasingly" }
+      ]
+    },
+    {
+      "id": "w-outcome",
+      "kind": "word",
+      "en": "outcome",
+      "ru": "итог, исход, результат",
+      "rank": 1626,
+      "note": "Итог события или процесса: the outcome of the talks, of the match. Звучит официальнее, чем result.",
+      "examples": [
+        { "en": "We are still waiting for the outcome of the meeting.", "ru": "Мы всё ещё ждём итогов встречи.", "gap": "outcome" },
+        { "en": "Nobody could predict the outcome of the match.", "ru": "Никто не мог предсказать исход матча.", "gap": "outcome" }
+      ]
+    },
+    {
+      "id": "w-blame",
+      "kind": "word",
+      "en": "blame",
+      "ru": "винить, обвинять",
+      "rank": 1627,
+      "note": "Blame someone for something: They blamed me for the mistake. Be to blame — быть виноватым.",
+      "examples": [
+        { "en": "Don't blame yourself for what happened.", "ru": "Не вини себя в том, что случилось.", "gap": "blame" },
+        { "en": "He blamed the traffic for being late.", "ru": "Он свалил своё опоздание на пробки.", "gap": "blamed" }
+      ]
+    },
+    {
+      "id": "w-explanation",
+      "kind": "word",
+      "en": "explanation",
+      "ru": "объяснение",
+      "rank": 1628,
+      "note": "Give an explanation — дать объяснение. Глагол explain требует to перед человеком: explain to me, а не explain me.",
+      "examples": [
+        { "en": "Thank you for the clear explanation.", "ru": "Спасибо за понятное объяснение.", "gap": "explanation" },
+        { "en": "There must be a simple explanation for this.", "ru": "Этому наверняка есть простое объяснение.", "gap": "explanation" }
+      ]
+    },
+    {
+      "id": "w-retire",
+      "kind": "word",
+      "en": "retire",
+      "ru": "уйти на пенсию",
+      "rank": 1635,
+      "note": "Retired — на пенсии: My father is retired. Существительное — retirement.",
+      "examples": [
+        { "en": "My father retired at sixty-three.", "ru": "Мой отец вышел на пенсию в шестьдесят три.", "gap": "retired" },
+        { "en": "She wants to retire early and travel.", "ru": "Она хочет пораньше уйти на пенсию и путешествовать.", "gap": "retire" }
+      ]
+    },
+    {
+      "id": "w-suitable",
+      "kind": "word",
+      "en": "suitable",
+      "ru": "подходящий, пригодный",
+      "rank": 1638,
+      "note": "Suitable for — подходящий для чего-то или кого-то: suitable for children.",
+      "examples": [
+        { "en": "This film is not suitable for children.", "ru": "Этот фильм не для детей.", "gap": "suitable" },
+        { "en": "We are looking for a suitable place for the party.", "ru": "Мы ищем подходящее место для вечеринки.", "gap": "suitable" }
+      ]
+    },
+    {
+      "id": "w-analyze",
+      "kind": "word",
+      "en": "analyze",
+      "ru": "анализировать, разбирать",
+      "rank": 1641,
+      "note": "Британское написание — analyse. Существительное — analysis, во множественном числе analyses.",
+      "examples": [
+        { "en": "We need to analyze the sales figures.", "ru": "Нам нужно проанализировать данные о продажах.", "gap": "analyze" },
+        { "en": "The lab analyzed the water samples.", "ru": "Лаборатория сделала анализ проб воды.", "gap": "analyzed" }
+      ]
+    },
+    {
+      "id": "w-witness",
+      "kind": "word",
+      "en": "witness",
+      "ru": "свидетель, очевидец",
+      "rank": 1642,
+      "note": "Также глагол: witness an accident — стать свидетелем аварии.",
+      "examples": [
+        { "en": "The document must be signed in front of a witness.", "ru": "Документ нужно подписать в присутствии свидетеля.", "gap": "witness" },
+        { "en": "Were there any witnesses to the accident?", "ru": "Были ли у аварии свидетели?", "gap": "witnesses" }
+      ]
+    },
+    {
+      "id": "w-ordinary",
+      "kind": "word",
+      "en": "ordinary",
+      "ru": "обычный, рядовой",
+      "rank": 1646,
+      "note": "Ordinary people — простые люди. Out of the ordinary — необычный.",
+      "examples": [
+        { "en": "It was just an ordinary day at work.", "ru": "Это был самый обычный рабочий день.", "gap": "ordinary" },
+        { "en": "Ordinary people can't afford these prices.", "ru": "Простым людям такие цены не по карману.", "gap": "Ordinary" }
+      ]
+    },
+    {
+      "id": "w-mental",
+      "kind": "word",
+      "en": "mental",
+      "ru": "умственный, психический",
+      "rank": 1649,
+      "note": "Mental health — психическое здоровье. «Менталитет» — это mentality, а не mental.",
+      "examples": [
+        { "en": "Sport is good for your mental health.", "ru": "Спорт полезен для психического здоровья.", "gap": "mental" },
+        { "en": "This job requires a lot of mental effort.", "ru": "Эта работа требует больших умственных усилий.", "gap": "mental" }
+      ]
+    },
+    {
+      "id": "w-specifically",
+      "kind": "word",
+      "en": "specifically",
+      "ru": "именно, специально, конкретно",
+      "rank": 1653,
+      "note": "Specifically for — специально для: designed specifically for children.",
+      "examples": [
+        { "en": "This app was designed specifically for students.", "ru": "Это приложение создано специально для студентов.", "gap": "specifically" },
+        { "en": "I specifically asked you not to call me at work.", "ru": "Я же ясно просил тебя не звонить мне на работу.", "gap": "specifically" }
+      ]
+    },
+    {
+      "id": "w-tip",
+      "kind": "word",
+      "en": "tip",
+      "ru": "совет (практический), чаевые",
+      "rank": 1659,
+      "note": "Useful tips — полезные советы, leave a tip — оставить чаевые. Ещё одно значение — кончик: the tip of the tongue.",
+      "examples": [
+        { "en": "Can you give me some tips for the interview?", "ru": "Дашь мне пару советов перед собеседованием?", "gap": "tips" },
+        { "en": "We left a tip for the waiter.", "ru": "Мы оставили официанту чаевые.", "gap": "tip" }
+      ]
+    },
+    {
+      "id": "w-disappear",
+      "kind": "word",
+      "en": "disappear",
+      "ru": "исчезать, пропадать",
+      "rank": 1665,
+      "note": "Пишется с одной s и двумя p: dis + appear. Антоним — appear.",
+      "examples": [
+        { "en": "My keys have disappeared again.", "ru": "Мои ключи опять куда-то пропали.", "gap": "disappeared" },
+        { "en": "The sun disappeared behind the clouds.", "ru": "Солнце скрылось за облаками.", "gap": "disappeared" }
+      ]
+    },
+    {
+      "id": "w-constant",
+      "kind": "word",
+      "en": "constant",
+      "ru": "постоянный, непрерывный",
+      "rank": 1668,
+      "note": "О том, что происходит всё время: constant noise, constant changes. Наречие — constantly.",
+      "examples": [
+        { "en": "I can't work with this constant noise.", "ru": "Я не могу работать при этом непрерывном шуме.", "gap": "constant" },
+        { "en": "Small children need constant attention.", "ru": "Маленьким детям нужно постоянное внимание.", "gap": "constant" }
+      ]
+    },
+    {
+      "id": "w-significantly",
+      "kind": "word",
+      "en": "significantly",
+      "ru": "значительно, существенно",
+      "rank": 1669,
+      "note": "Обычно с изменениями и сравнениями: rise significantly, significantly cheaper.",
+      "examples": [
+        { "en": "Prices have increased significantly this year.", "ru": "В этом году цены значительно выросли.", "gap": "significantly" },
+        { "en": "The new route is significantly shorter.", "ru": "Новый маршрут существенно короче.", "gap": "significantly" }
+      ]
+    },
+    {
+      "id": "w-instruction",
+      "kind": "word",
+      "en": "instruction",
+      "ru": "указание, инструкция",
+      "rank": 1672,
+      "note": "Обычно во множественном числе: follow the instructions — следовать инструкции.",
+      "examples": [
+        { "en": "Read the instructions before you use the machine.", "ru": "Прочитайте инструкцию, прежде чем пользоваться аппаратом.", "gap": "instructions" },
+        { "en": "The manager gave us very clear instructions.", "ru": "Руководитель дал нам очень чёткие указания.", "gap": "instructions" }
+      ]
+    },
+    {
+      "id": "w-ideal",
+      "kind": "word",
+      "en": "ideal",
+      "ru": "идеальный",
+      "rank": 1674,
+      "note": "Ideal for — идеально подходит для: ideal for beginners.",
+      "examples": [
+        { "en": "This apartment is ideal for a young family.", "ru": "Эта квартира идеально подходит для молодой семьи.", "gap": "ideal" },
+        { "en": "In an ideal world, we would work four days a week.", "ru": "В идеальном мире мы бы работали четыре дня в неделю.", "gap": "ideal" }
+      ]
+    },
+    {
+      "id": "w-presentation",
+      "kind": "word",
+      "en": "presentation",
+      "ru": "презентация, доклад",
+      "rank": 1681,
+      "note": "Give a presentation — выступить с презентацией.",
+      "examples": [
+        { "en": "I have to give a presentation tomorrow.", "ru": "Завтра мне нужно выступить с презентацией.", "gap": "presentation" },
+        { "en": "Her presentation was short and clear.", "ru": "Её доклад был коротким и понятным.", "gap": "presentation" }
+      ]
+    },
+    {
+      "id": "w-compete",
+      "kind": "word",
+      "en": "compete",
+      "ru": "соревноваться, конкурировать",
+      "rank": 1683,
+      "note": "Compete with someone for something: Small shops can't compete with supermarkets.",
+      "examples": [
+        { "en": "Small shops can't compete with big supermarkets.", "ru": "Маленькие магазины не могут конкурировать с крупными супермаркетами.", "gap": "compete" },
+        { "en": "Ten teams competed for the prize.", "ru": "За приз боролись десять команд.", "gap": "competed" }
+      ]
+    },
+    {
+      "id": "w-reduction",
+      "kind": "word",
+      "en": "reduction",
+      "ru": "снижение, сокращение",
+      "rank": 1687,
+      "note": "A reduction in prices / costs — снижение цен / расходов (с предлогом in). Глагол — reduce.",
+      "examples": [
+        { "en": "The new system led to a big reduction in costs.", "ru": "Новая система позволила сильно сократить расходы.", "gap": "reduction" },
+        { "en": "Workers were unhappy about the reduction in their hours.", "ru": "Сотрудники были недовольны сокращением рабочих часов.", "gap": "reduction" }
+      ]
+    },
+    {
+      "id": "w-complaint",
+      "kind": "word",
+      "en": "complaint",
+      "ru": "жалоба, претензия",
+      "rank": 1689,
+      "note": "Make a complaint — пожаловаться. Глагол — complain about something.",
+      "examples": [
+        { "en": "I'd like to make a complaint about the service.", "ru": "Я хотел бы пожаловаться на обслуживание.", "gap": "complaint" },
+        { "en": "The hotel received many complaints about the noise.", "ru": "В отель поступило много жалоб на шум.", "gap": "complaints" }
+      ]
+    },
+    {
+      "id": "w-somehow",
+      "kind": "word",
+      "en": "somehow",
+      "ru": "как-то, каким-то образом",
+      "rank": 1692,
+      "note": "Неизвестно как, но получилось или должно получиться: Somehow we got there on time.",
+      "examples": [
+        { "en": "Somehow we arrived at the airport on time.", "ru": "Каким-то чудом мы приехали в аэропорт вовремя.", "gap": "Somehow" },
+        { "en": "We need to find the money somehow.", "ru": "Нам нужно как-то найти деньги.", "gap": "somehow" }
+      ]
+    },
+    {
+      "id": "w-formal",
+      "kind": "word",
+      "en": "formal",
+      "ru": "официальный, строгий (о стиле)",
+      "rank": 1700,
+      "note": "Formal letter — официальное письмо, formal clothes — строгая одежда. Антоним — informal.",
+      "examples": [
+        { "en": "You don't need to wear formal clothes to the office.", "ru": "В офис не обязательно ходить в строгой одежде.", "gap": "formal" },
+        { "en": "Please write a formal letter to the bank.", "ru": "Пожалуйста, напишите в банк официальное письмо.", "gap": "formal" }
+      ]
+    }
+  ]
+}

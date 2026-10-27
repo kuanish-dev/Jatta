@@ -1,0 +1,307 @@
+{
+  "id": "freq-2301",
+  "title": "Частые слова 2301–2400",
+  "intro": "Слова с 2301-го по 2400-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-approval",
+      "kind": "word",
+      "en": "approval",
+      "ru": "одобрение, согласие",
+      "rank": 2302,
+      "note": "Get approval — получить одобрение; need someone's approval — нужно чьё-то согласие. Глагол — approve.",
+      "examples": [
+        { "en": "We need the manager's approval before we buy anything.", "ru": "Прежде чем что-то покупать, нужно одобрение руководителя.", "gap": "approval" },
+        { "en": "The bank gave final approval for our loan.", "ru": "Банк окончательно одобрил наш кредит.", "gap": "approval" }
+      ]
+    },
+    {
+      "id": "w-grab",
+      "kind": "word",
+      "en": "grab",
+      "ru": "схватить, быстро взять",
+      "rank": 2303,
+      "note": "Разговорное. Grab a coffee / grab lunch — быстро выпить кофе, перекусить: Let's grab lunch.",
+      "examples": [
+        { "en": "Let's grab a coffee before the meeting.", "ru": "Давай быстро выпьем кофе перед совещанием.", "gap": "grab" },
+        { "en": "She grabbed her bag and ran to the bus.", "ru": "Она схватила сумку и побежала к автобусу.", "gap": "grabbed" }
+      ]
+    },
+    {
+      "id": "w-digital",
+      "kind": "word",
+      "en": "digital",
+      "ru": "цифровой, электронный",
+      "rank": 2309,
+      "note": "Digital copy — электронная копия, digital camera — цифровой фотоаппарат. Ударение на первый слог: DI-gi-tal.",
+      "examples": [
+        { "en": "Can you send me a digital copy of the contract?", "ru": "Можете прислать электронную копию договора?", "gap": "digital" },
+        { "en": "Paper tickets are gone; everything is digital now.", "ru": "Бумажных билетов больше нет — теперь всё в электронном виде.", "gap": "digital" }
+      ]
+    },
+    {
+      "id": "w-translate",
+      "kind": "word",
+      "en": "translate",
+      "ru": "переводить (на другой язык)",
+      "rank": 2310,
+      "note": "Translate from Russian into English — переводить с русского на английский. Переводчик — translator.",
+      "examples": [
+        { "en": "Could you translate this letter into English?", "ru": "Не могли бы вы перевести это письмо на английский?", "gap": "translate" },
+        { "en": "The website is translated into five languages.", "ru": "Сайт переведён на пять языков.", "gap": "translated" }
+      ]
+    },
+    {
+      "id": "w-edit",
+      "kind": "word",
+      "en": "edit",
+      "ru": "редактировать, править",
+      "rank": 2311,
+      "note": "Edit a text / a photo / a video. Редактор — editor.",
+      "examples": [
+        { "en": "I need an hour to edit the report.", "ru": "Мне нужен час, чтобы отредактировать отчёт.", "gap": "edit" },
+        { "en": "She edited the photos on her phone.", "ru": "Она отредактировала фотографии в телефоне.", "gap": "edited" }
+      ]
+    },
+    {
+      "id": "w-deposit",
+      "kind": "word",
+      "en": "deposit",
+      "ru": "залог, вклад, вносить (деньги)",
+      "rank": 2313,
+      "note": "Pay a deposit — внести залог (например, за квартиру). Как глагол — положить деньги на счёт: deposit money.",
+      "examples": [
+        { "en": "We paid a deposit of one month's rent.", "ru": "Мы внесли залог в размере месячной аренды.", "gap": "deposit" },
+        { "en": "I deposited my salary into a savings account.", "ru": "Я положил зарплату на сберегательный счёт.", "gap": "deposited" }
+      ]
+    },
+    {
+      "id": "w-pleasant",
+      "kind": "word",
+      "en": "pleasant",
+      "ru": "приятный",
+      "rank": 2314,
+      "note": "Читается PLEZ-ent, с кратким «е», как pleasure. Антоним — unpleasant.",
+      "examples": [
+        { "en": "We had a pleasant evening with friends.", "ru": "Мы приятно провели вечер с друзьями.", "gap": "pleasant" },
+        { "en": "The new receptionist is very pleasant.", "ru": "Новый администратор — очень приятный человек.", "gap": "pleasant" }
+      ]
+    },
+    {
+      "id": "w-overseas",
+      "kind": "word",
+      "en": "overseas",
+      "ru": "за границей, за границу, зарубежный",
+      "rank": 2315,
+      "note": "Буквально «за морями». Бывает наречием (work overseas) и прилагательным (overseas students). Синоним — abroad.",
+      "examples": [
+        { "en": "My brother has worked overseas for five years.", "ru": "Мой брат уже пять лет работает за границей.", "gap": "overseas" },
+        { "en": "The university has many overseas students.", "ru": "В университете много иностранных студентов.", "gap": "overseas" }
+      ]
+    },
+    {
+      "id": "w-summary",
+      "kind": "word",
+      "en": "summary",
+      "ru": "краткое изложение, сводка",
+      "rank": 2318,
+      "note": "In summary — подводя итог. Резюме для работы — не summary, а CV или résumé.",
+      "examples": [
+        { "en": "Please write a short summary of the meeting.", "ru": "Напишите, пожалуйста, краткий итог встречи.", "gap": "summary" },
+        { "en": "I only read the summary of the report.", "ru": "Я прочитал только краткое содержание отчёта.", "gap": "summary" }
+      ]
+    },
+    {
+      "id": "w-recovery",
+      "kind": "word",
+      "en": "recovery",
+      "ru": "выздоровление, восстановление",
+      "rank": 2321,
+      "note": "Глагол — recover. Make a full recovery — полностью поправиться. Об экономике — оживление: economic recovery.",
+      "examples": [
+        { "en": "He made a quick recovery after the operation.", "ru": "После операции он быстро поправился.", "gap": "recovery" },
+        { "en": "The economy is showing signs of recovery.", "ru": "Экономика показывает признаки восстановления.", "gap": "recovery" }
+      ]
+    },
+    {
+      "id": "w-specify",
+      "kind": "word",
+      "en": "specify",
+      "ru": "указать (точно), уточнить",
+      "rank": 2326,
+      "note": "Назвать точно и явно: specify the date / the size. Unless otherwise specified — если не указано иное.",
+      "examples": [
+        { "en": "Please specify your shoe size in the order.", "ru": "Пожалуйста, укажите в заказе размер обуви.", "gap": "specify" },
+        { "en": "The contract doesn't specify the delivery date.", "ru": "В договоре не указана дата доставки.", "gap": "specify" }
+      ]
+    },
+    {
+      "id": "w-exact",
+      "kind": "word",
+      "en": "exact",
+      "ru": "точный, в точности такой",
+      "rank": 2327,
+      "note": "The exact time / the exact amount — ровно, без округления. Наречие — exactly. Exact change — деньги без сдачи.",
+      "examples": [
+        { "en": "What's the exact time of your flight?", "ru": "Во сколько точно твой рейс?", "gap": "exact" },
+        { "en": "Do you have the exact change for the bus?", "ru": "У тебя найдётся мелочь на автобус без сдачи?", "gap": "exact" }
+      ]
+    },
+    {
+      "id": "w-anticipate",
+      "kind": "word",
+      "en": "anticipate",
+      "ru": "предвидеть, ожидать (заранее)",
+      "rank": 2335,
+      "note": "Ожидать заранее и готовиться: anticipate problems. Звучит официальнее, чем expect.",
+      "examples": [
+        { "en": "We didn't anticipate so many guests.", "ru": "Мы не ожидали столько гостей.", "gap": "anticipate" },
+        { "en": "Try to anticipate the questions before the interview.", "ru": "Перед собеседованием постарайтесь предугадать вопросы.", "gap": "anticipate" }
+      ]
+    },
+    {
+      "id": "w-dependent",
+      "kind": "word",
+      "en": "dependent",
+      "ru": "зависимый, зависящий",
+      "rank": 2336,
+      "note": "Dependent on — зависимый от. Предлог on, а не from: dependent on the weather.",
+      "examples": [
+        { "en": "Our plans are dependent on the weather.", "ru": "Наши планы зависят от погоды.", "gap": "dependent" },
+        { "en": "Many students are financially dependent on their parents.", "ru": "Многие студенты материально зависят от родителей.", "gap": "dependent" }
+      ]
+    },
+    {
+      "id": "w-precisely",
+      "kind": "word",
+      "en": "precisely",
+      "ru": "именно, ровно, точно",
+      "rank": 2342,
+      "note": "At precisely ten — ровно в десять. В ответе Precisely! — «Именно!», как Exactly!",
+      "examples": [
+        { "en": "The meeting starts at precisely ten o'clock.", "ru": "Совещание начинается ровно в десять.", "gap": "precisely" },
+        { "en": "That's precisely what I wanted to say.", "ru": "Именно это я и хотел сказать.", "gap": "precisely" }
+      ]
+    },
+    {
+      "id": "w-detect",
+      "kind": "word",
+      "en": "detect",
+      "ru": "обнаружить, выявить",
+      "rank": 2345,
+      "note": "Заметить то, что трудно увидеть: detect a mistake, detect smoke. Smoke detector — датчик дыма.",
+      "examples": [
+        { "en": "The system detected an error in the payment.", "ru": "Система обнаружила ошибку в платеже.", "gap": "detected" },
+        { "en": "This device can detect smoke in the kitchen.", "ru": "Этот прибор может обнаружить дым на кухне.", "gap": "detect" }
+      ]
+    },
+    {
+      "id": "w-illegal",
+      "kind": "word",
+      "en": "illegal",
+      "ru": "незаконный, нелегальный",
+      "rank": 2353,
+      "note": "It's illegal to… — запрещено законом: It's illegal to park here. Антоним — legal.",
+      "examples": [
+        { "en": "It's illegal to park in front of the gate.", "ru": "Парковаться перед воротами запрещено.", "gap": "illegal" },
+        { "en": "Downloading films from that site is illegal.", "ru": "Скачивать фильмы с этого сайта незаконно.", "gap": "illegal" }
+      ]
+    },
+    {
+      "id": "w-charity",
+      "kind": "word",
+      "en": "charity",
+      "ru": "благотворительность, благотворительный фонд",
+      "rank": 2354,
+      "note": "Give money to charity — жертвовать на благотворительность. A charity — благотворительная организация.",
+      "examples": [
+        { "en": "We gave our old clothes to charity.", "ru": "Мы отдали старую одежду на благотворительность.", "gap": "charity" },
+        { "en": "She works for a charity that helps children.", "ru": "Она работает в благотворительном фонде, который помогает детям.", "gap": "charity" }
+      ]
+    },
+    {
+      "id": "w-consultant",
+      "kind": "word",
+      "en": "consultant",
+      "ru": "консультант",
+      "rank": 2359,
+      "note": "Обычно внешний специалист, которого нанимает компания: a financial consultant, an IT consultant.",
+      "examples": [
+        { "en": "The company hired a consultant to cut costs.", "ru": "Компания наняла консультанта, чтобы сократить расходы.", "gap": "consultant" },
+        { "en": "She works as a marketing consultant.", "ru": "Она работает маркетинговым консультантом.", "gap": "consultant" }
+      ]
+    },
+    {
+      "id": "w-forecast",
+      "kind": "word",
+      "en": "forecast",
+      "ru": "прогноз, прогнозировать",
+      "rank": 2369,
+      "note": "Weather forecast — прогноз погоды. Прошедшее время — forecast или forecasted.",
+      "examples": [
+        { "en": "The forecast says it will rain tomorrow.", "ru": "По прогнозу завтра будет дождь.", "gap": "forecast" },
+        { "en": "Experts forecast a rise in house prices.", "ru": "Эксперты прогнозируют рост цен на жильё.", "gap": "forecast" }
+      ]
+    },
+    {
+      "id": "w-adapt",
+      "kind": "word",
+      "en": "adapt",
+      "ru": "приспособиться, адаптировать",
+      "rank": 2372,
+      "note": "Adapt to something — приспособиться к чему-то. Не путать с adopt — принять (решение), усыновить.",
+      "examples": [
+        { "en": "Children adapt to new schools quickly.", "ru": "Дети быстро привыкают к новой школе.", "gap": "adapt" },
+        { "en": "The novel was adapted for a TV series.", "ru": "По роману сняли сериал.", "gap": "adapted" }
+      ]
+    },
+    {
+      "id": "w-lecture",
+      "kind": "word",
+      "en": "lecture",
+      "ru": "лекция",
+      "rank": 2378,
+      "note": "Give a lecture — читать лекцию; attend a lecture — ходить на лекцию. Лектор — lecturer.",
+      "examples": [
+        { "en": "The lecture starts at nine in Room 5.", "ru": "Лекция начинается в девять в пятой аудитории.", "gap": "lecture" },
+        { "en": "She gives lectures on economics at the university.", "ru": "Она читает лекции по экономике в университете.", "gap": "lectures" }
+      ]
+    },
+    {
+      "id": "w-rescue",
+      "kind": "word",
+      "en": "rescue",
+      "ru": "спасти, спасение",
+      "rank": 2381,
+      "note": "Спасти из беды или трудной ситуации. Come to the rescue — прийти на выручку.",
+      "examples": [
+        { "en": "Firefighters rescued a cat from the tree.", "ru": "Пожарные сняли кошку с дерева.", "gap": "rescued" },
+        { "en": "My neighbor came to the rescue when my car broke down.", "ru": "Когда у меня сломалась машина, на выручку пришёл сосед.", "gap": "rescue" }
+      ]
+    },
+    {
+      "id": "w-preference",
+      "kind": "word",
+      "en": "preference",
+      "ru": "предпочтение",
+      "rank": 2383,
+      "note": "Have a preference for — предпочитать что-то. Глагол — prefer; в существительном ударение на первый слог: PREF-er-ence.",
+      "examples": [
+        { "en": "Do you have a preference for a window or aisle seat?", "ru": "Вы предпочитаете место у окна или у прохода?", "gap": "preference" },
+        { "en": "We chose the hotel based on the children's preferences.", "ru": "Мы выбирали гостиницу с учётом предпочтений детей.", "gap": "preferences" }
+      ]
+    },
+    {
+      "id": "w-incentive",
+      "kind": "word",
+      "en": "incentive",
+      "ru": "стимул, поощрение",
+      "rank": 2385,
+      "note": "An incentive to do something — стимул что-то делать: Bonuses are an incentive to work harder.",
+      "examples": [
+        { "en": "Bonuses are a good incentive for staff.", "ru": "Премии — хороший стимул для сотрудников.", "gap": "incentive" },
+        { "en": "Low interest rates give people little incentive to save.", "ru": "Низкие процентные ставки почти не стимулируют людей копить.", "gap": "incentive" }
+      ]
+    }
+  ]
+}

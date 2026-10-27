@@ -1,0 +1,343 @@
+{
+  "id": "freq-1501",
+  "title": "Частые слова 1501–1600",
+  "intro": "Слова с 1501-го по 1600-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-relevant",
+      "kind": "word",
+      "en": "relevant",
+      "ru": "относящийся к делу, актуальный",
+      "rank": 1504,
+      "note": "Relevant to something: This isn't relevant to our project. Противоположное — irrelevant (не имеющий отношения).",
+      "examples": [
+        { "en": "Please include only relevant work experience.", "ru": "Указывайте только опыт работы, имеющий отношение к вакансии.", "gap": "relevant" },
+        { "en": "Is this question relevant to our discussion?", "ru": "Этот вопрос имеет отношение к нашему обсуждению?", "gap": "relevant" }
+      ]
+    },
+    {
+      "id": "w-explore",
+      "kind": "word",
+      "en": "explore",
+      "ru": "исследовать, изучать, осматривать",
+      "rank": 1505,
+      "note": "Explore a city — осматривать город, гулять по нему; explore options — изучать, рассматривать варианты.",
+      "examples": [
+        { "en": "We spent the day exploring the old town.", "ru": "Мы целый день гуляли по старому городу.", "gap": "exploring" },
+        { "en": "Let's explore other options before we decide.", "ru": "Давайте рассмотрим другие варианты, прежде чем решать.", "gap": "explore" }
+      ]
+    },
+    {
+      "id": "w-leadership",
+      "kind": "word",
+      "en": "leadership",
+      "ru": "руководство, лидерство",
+      "rank": 1506,
+      "note": "Leadership skills — лидерские качества. Under somebody's leadership — под чьим-то руководством.",
+      "examples": [
+        { "en": "She has strong leadership skills.", "ru": "У неё ярко выраженные лидерские качества.", "gap": "leadership" },
+        { "en": "Under her leadership, the team doubled its sales.", "ru": "Под её руководством команда удвоила продажи.", "gap": "leadership" }
+      ]
+    },
+    {
+      "id": "w-commitment",
+      "kind": "word",
+      "en": "commitment",
+      "ru": "обязательство, преданность (делу)",
+      "rank": 1507,
+      "note": "Commitment to something: commitment to quality. Во множественном числе — дела, обязательства: family commitments.",
+      "examples": [
+        { "en": "Learning a language takes time and commitment.", "ru": "Изучение языка требует времени и самоотдачи.", "gap": "commitment" },
+        { "en": "I can't come on Saturday because of family commitments.", "ru": "В субботу не смогу прийти: у меня семейные дела.", "gap": "commitments" }
+      ]
+    },
+    {
+      "id": "w-necessarily",
+      "kind": "word",
+      "en": "necessarily",
+      "ru": "обязательно, непременно",
+      "rank": 1509,
+      "note": "Почти всегда с отрицанием: not necessarily — не обязательно, не всегда. Ударение в британском — NEC-es-sar-i-ly, в американском — nec-es-SAR-i-ly.",
+      "examples": [
+        { "en": "Expensive things are not necessarily better.", "ru": "Дорогие вещи не обязательно лучше.", "gap": "necessarily" },
+        { "en": "You don't necessarily need a car in this city.", "ru": "В этом городе не обязательно иметь машину.", "gap": "necessarily" }
+      ]
+    },
+    {
+      "id": "w-internal",
+      "kind": "word",
+      "en": "internal",
+      "ru": "внутренний",
+      "rank": 1517,
+      "note": "Internal email / meeting — внутренний, для своих сотрудников. Противоположное — external (внешний).",
+      "examples": [
+        { "en": "This is an internal document, please don't share it.", "ru": "Это внутренний документ, пожалуйста, не пересылайте его.", "gap": "internal" },
+        { "en": "The company has an internal training program.", "ru": "В компании есть внутренняя программа обучения.", "gap": "internal" }
+      ]
+    },
+    {
+      "id": "w-threaten",
+      "kind": "word",
+      "en": "threaten",
+      "ru": "угрожать, грозить",
+      "rank": 1521,
+      "note": "Threaten to do something: The landlord threatened to raise the rent. Произносится [ˈθretn]. Существительное — threat.",
+      "examples": [
+        { "en": "Our landlord threatened to raise the rent.", "ru": "Хозяин квартиры пригрозил поднять арендную плату.", "gap": "threatened" },
+        { "en": "Heavy rain is threatening our weekend plans.", "ru": "Сильный дождь грозит сорвать наши планы на выходные.", "gap": "threatening" }
+      ]
+    },
+    {
+      "id": "w-secure",
+      "kind": "word",
+      "en": "secure",
+      "ru": "надёжный, защищённый",
+      "rank": 1523,
+      "note": "A secure job — стабильная работа; a secure password — надёжный пароль. Глагол secure — добиться, обеспечить: secure a deal.",
+      "examples": [
+        { "en": "Make sure your password is secure.", "ru": "Убедитесь, что пароль надёжный.", "gap": "secure" },
+        { "en": "He wants a secure job with a good salary.", "ru": "Он хочет стабильную работу с хорошей зарплатой.", "gap": "secure" }
+      ]
+    },
+    {
+      "id": "w-investigate",
+      "kind": "word",
+      "en": "investigate",
+      "ru": "расследовать, выяснять",
+      "rank": 1533,
+      "note": "Investigate something — без предлога: investigate a complaint — разобраться с жалобой. Существительное — investigation.",
+      "examples": [
+        { "en": "We will investigate your complaint and reply within three days.", "ru": "Мы рассмотрим вашу жалобу и ответим в течение трёх дней.", "gap": "investigate" },
+        { "en": "Scientists are investigating why people sleep less in cities.", "ru": "Учёные выясняют, почему люди в городах спят меньше.", "gap": "investigating" }
+      ]
+    },
+    {
+      "id": "w-recommendation",
+      "kind": "word",
+      "en": "recommendation",
+      "ru": "рекомендация, совет",
+      "rank": 1534,
+      "note": "On somebody's recommendation — по чьему-то совету. Глагол recommend пишется с одной c и двумя m.",
+      "examples": [
+        { "en": "We chose this hotel on a friend's recommendation.", "ru": "Мы выбрали этот отель по совету друга.", "gap": "recommendation" },
+        { "en": "Can you give me a few restaurant recommendations?", "ru": "Можешь посоветовать пару ресторанов?", "gap": "recommendations" }
+      ]
+    },
+    {
+      "id": "w-typical",
+      "kind": "word",
+      "en": "typical",
+      "ru": "типичный, характерный",
+      "rank": 1536,
+      "note": "Typical of somebody — в чьём-то духе: It's typical of him to be late. Наречие typically — обычно.",
+      "examples": [
+        { "en": "A typical day at work starts at nine.", "ru": "Обычный рабочий день начинается в девять.", "gap": "typical" },
+        { "en": "It's typical of him to forget my birthday.", "ru": "Забыть про мой день рождения — это в его духе.", "gap": "typical" }
+      ]
+    },
+    {
+      "id": "w-concentrate",
+      "kind": "word",
+      "en": "concentrate",
+      "ru": "сосредоточиться",
+      "rank": 1541,
+      "note": "Concentrate on something — с on. Ударение на первый слог: CON-cen-trate.",
+      "examples": [
+        { "en": "I can't concentrate with all this noise.", "ru": "Я не могу сосредоточиться в таком шуме.", "gap": "concentrate" },
+        { "en": "Let's concentrate on the most important tasks.", "ru": "Давайте сосредоточимся на самых важных задачах.", "gap": "concentrate" }
+      ]
+    },
+    {
+      "id": "w-plenty",
+      "kind": "word",
+      "en": "plenty",
+      "ru": "много, предостаточно",
+      "rank": 1542,
+      "note": "Plenty of + существительное: plenty of time — много времени, даже с запасом. Одно слово: That's plenty, thanks — Хватит, спасибо.",
+      "examples": [
+        { "en": "Don't hurry, we have plenty of time.", "ru": "Не торопись, у нас полно времени.", "gap": "plenty" },
+        { "en": "There are plenty of cafés near the office.", "ru": "Возле офиса полно кафе.", "gap": "plenty" }
+      ]
+    },
+    {
+      "id": "w-entirely",
+      "kind": "word",
+      "en": "entirely",
+      "ru": "полностью, совершенно",
+      "rank": 1544,
+      "note": "Entirely = completely. Not entirely — не совсем: I'm not entirely sure.",
+      "examples": [
+        { "en": "I'm not entirely sure what he meant.", "ru": "Я не совсем уверен, что он имел в виду.", "gap": "entirely" },
+        { "en": "The house is powered entirely by solar energy.", "ru": "Дом полностью работает на солнечной энергии.", "gap": "entirely" }
+      ]
+    },
+    {
+      "id": "w-graduate",
+      "kind": "word",
+      "en": "graduate",
+      "ru": "окончить (вуз), выпускник",
+      "rank": 1548,
+      "note": "Graduate from university — окончить университет (с from). Глагол произносится [-eɪt], существительное — [-ət]. В США — и о школе.",
+      "examples": [
+        { "en": "She graduated from university two years ago.", "ru": "Она окончила университет два года назад.", "gap": "graduated" },
+        { "en": "The company hires many young graduates.", "ru": "Компания нанимает много молодых выпускников.", "gap": "graduates" }
+      ]
+    },
+    {
+      "id": "w-brand",
+      "kind": "word",
+      "en": "brand",
+      "ru": "бренд, марка",
+      "rank": 1549,
+      "note": "A brand of coffee — марка кофе. Brand-new — совершенно новый: a brand-new car.",
+      "examples": [
+        { "en": "Which brand of coffee do you usually buy?", "ru": "Кофе какой марки ты обычно покупаешь?", "gap": "brand" },
+        { "en": "Cheaper brands are often just as good.", "ru": "Более дешёвые марки часто ничуть не хуже.", "gap": "brands" }
+      ]
+    },
+    {
+      "id": "w-definitely",
+      "kind": "word",
+      "en": "definitely",
+      "ru": "определённо, точно",
+      "rank": 1557,
+      "note": "Definitely — точно, без сомнений. Пишется через i: defin-i-tely, а не definately.",
+      "examples": [
+        { "en": "I'll definitely call you tomorrow.", "ru": "Я обязательно позвоню тебе завтра.", "gap": "definitely" },
+        { "en": "This is definitely the best café in town.", "ru": "Это точно лучшее кафе в городе.", "gap": "definitely" }
+      ]
+    },
+    {
+      "id": "w-predict",
+      "kind": "word",
+      "en": "predict",
+      "ru": "предсказать, прогнозировать",
+      "rank": 1561,
+      "note": "Predict that… — предсказывать, что… Существительное — prediction, прилагательное predictable — предсказуемый.",
+      "examples": [
+        { "en": "Experts predict that prices will rise next year.", "ru": "Эксперты прогнозируют рост цен в следующем году.", "gap": "predict" },
+        { "en": "Nobody could predict the weather in the mountains.", "ru": "Погоду в горах никто не мог предсказать.", "gap": "predict" }
+      ]
+    },
+    {
+      "id": "w-previously",
+      "kind": "word",
+      "en": "previously",
+      "ru": "ранее, прежде",
+      "rank": 1562,
+      "note": "Официальнее, чем before: She previously worked in a bank. Прилагательное previous — предыдущий.",
+      "examples": [
+        { "en": "I previously worked as a teacher.", "ru": "Раньше я работал учителем.", "gap": "previously" },
+        { "en": "As previously discussed, the meeting will start at ten.", "ru": "Как мы уже обсуждали, встреча начнётся в десять.", "gap": "previously" }
+      ]
+    },
+    {
+      "id": "w-protection",
+      "kind": "word",
+      "en": "protection",
+      "ru": "защита",
+      "rank": 1563,
+      "note": "Protection from/against something: protection from the sun. Глагол — protect.",
+      "examples": [
+        { "en": "Wear sunglasses for protection from the sun.", "ru": "Носите солнечные очки, чтобы защитить глаза от солнца.", "gap": "protection" },
+        { "en": "This case gives your phone good protection.", "ru": "Этот чехол хорошо защищает телефон.", "gap": "protection" }
+      ]
+    },
+    {
+      "id": "w-reasonable",
+      "kind": "word",
+      "en": "reasonable",
+      "ru": "разумный, приемлемый (о цене)",
+      "rank": 1569,
+      "note": "A reasonable price — нормальная, не завышенная цена. Be reasonable! — Будь благоразумен!",
+      "examples": [
+        { "en": "The food is good and the prices are reasonable.", "ru": "Еда хорошая, а цены разумные.", "gap": "reasonable" },
+        { "en": "That sounds like a reasonable idea.", "ru": "По-моему, это разумная идея.", "gap": "reasonable" }
+      ]
+    },
+    {
+      "id": "w-guarantee",
+      "kind": "word",
+      "en": "guarantee",
+      "ru": "гарантия, гарантировать",
+      "rank": 1570,
+      "note": "Ударение на последний слог: [ˌɡærənˈtiː]; буква u не читается. Under guarantee — на гарантии.",
+      "examples": [
+        { "en": "The laptop comes with a two-year guarantee.", "ru": "На ноутбук даётся гарантия два года.", "gap": "guarantee" },
+        { "en": "I can't guarantee that we'll finish on time.", "ru": "Не могу гарантировать, что мы успеем в срок.", "gap": "guarantee" }
+      ]
+    },
+    {
+      "id": "w-comparison",
+      "kind": "word",
+      "en": "comparison",
+      "ru": "сравнение",
+      "rank": 1581,
+      "note": "In comparison with/to — по сравнению с. Глагол — compare. Пишется через i: compar-i-son.",
+      "examples": [
+        { "en": "In comparison with last year, sales are much better.", "ru": "По сравнению с прошлым годом продажи гораздо лучше.", "gap": "comparison" },
+        { "en": "This website makes price comparison easy.", "ru": "На этом сайте легко сравнивать цены.", "gap": "comparison" }
+      ]
+    },
+    {
+      "id": "w-narrow",
+      "kind": "word",
+      "en": "narrow",
+      "ru": "узкий",
+      "rank": 1585,
+      "note": "Противоположное — wide. Глагол narrow down — сузить выбор: narrow down the list.",
+      "examples": [
+        { "en": "The streets in the old town are very narrow.", "ru": "Улицы в старом городе очень узкие.", "gap": "narrow" },
+        { "en": "We narrowed the list down to three candidates.", "ru": "Мы сократили список до трёх кандидатов.", "gap": "narrowed" }
+      ]
+    },
+    {
+      "id": "w-permit",
+      "kind": "word",
+      "en": "permit",
+      "ru": "разрешать, разрешение (документ)",
+      "rank": 1589,
+      "note": "Существительное (ударение на первый слог) — разрешение, документ: a work permit. Глагол (ударение на второй) официальнее, чем allow.",
+      "examples": [
+        { "en": "You need a work permit to get a job here.", "ru": "Чтобы работать здесь, нужно разрешение на работу.", "gap": "permit" },
+        { "en": "Smoking is not permitted in the building.", "ru": "Курить в здании запрещено.", "gap": "permitted" }
+      ]
+    },
+    {
+      "id": "w-seriously",
+      "kind": "word",
+      "en": "seriously",
+      "ru": "серьёзно, всерьёз",
+      "rank": 1590,
+      "note": "Take something seriously — относиться серьёзно. В разговоре Seriously? — Серьёзно? Ты шутишь?",
+      "examples": [
+        { "en": "You should take your health more seriously.", "ru": "Тебе стоит серьёзнее относиться к своему здоровью.", "gap": "seriously" },
+        { "en": "Seriously? You quit your job yesterday?", "ru": "Серьёзно? Ты вчера уволился?", "gap": "Seriously" }
+      ]
+    },
+    {
+      "id": "w-unique",
+      "kind": "word",
+      "en": "unique",
+      "ru": "уникальный, неповторимый",
+      "rank": 1594,
+      "note": "Unique — единственный в своём роде, поэтому very unique считается ошибкой. Произносится [juˈniːk].",
+      "examples": [
+        { "en": "Every person's fingerprints are unique.", "ru": "Отпечатки пальцев у каждого человека уникальны.", "gap": "unique" },
+        { "en": "The hotel has a unique view of the old town.", "ru": "Из отеля открывается неповторимый вид на старый город.", "gap": "unique" }
+      ]
+    },
+    {
+      "id": "w-practical",
+      "kind": "word",
+      "en": "practical",
+      "ru": "практичный, практический",
+      "rank": 1598,
+      "note": "Practical advice — дельный совет; practical skills — практические навыки. Practically — почти: practically empty.",
+      "examples": [
+        { "en": "She gave me some practical advice about moving abroad.", "ru": "Она дала мне пару дельных советов насчёт переезда за границу.", "gap": "practical" },
+        { "en": "White sofas aren't very practical if you have kids.", "ru": "Белый диван — не самое практичное решение, если у вас дети.", "gap": "practical" }
+      ]
+    }
+  ]
+}

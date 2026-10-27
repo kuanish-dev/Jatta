@@ -1,0 +1,355 @@
+{
+  "id": "freq-1701",
+  "title": "Частые слова 1701–1800",
+  "intro": "Слова с 1701-го по 1800-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-employer",
+      "kind": "word",
+      "en": "employer",
+      "ru": "работодатель",
+      "rank": 1702,
+      "note": "Employer — тот, кто нанимает, employee — тот, кого наняли. Ударение: em-PLOY-er.",
+      "examples": [
+        { "en": "My employer pays for my English lessons.", "ru": "Работодатель оплачивает мне уроки английского.", "gap": "employer" },
+        { "en": "Employers want people with experience.", "ru": "Работодателям нужны люди с опытом.", "gap": "Employers" }
+      ]
+    },
+    {
+      "id": "w-reject",
+      "kind": "word",
+      "en": "reject",
+      "ru": "отклонить, отвергнуть",
+      "rank": 1703,
+      "note": "Reject an offer / an application — отклонить предложение / заявку. Мягче и разговорнее — turn down.",
+      "examples": [
+        { "en": "The bank rejected my loan application.", "ru": "Банк отклонил мою заявку на кредит.", "gap": "rejected" },
+        { "en": "Why did she reject such a good job offer?", "ru": "Почему она отказалась от такого хорошего предложения о работе?", "gap": "reject" }
+      ]
+    },
+    {
+      "id": "w-ban",
+      "kind": "word",
+      "en": "ban",
+      "ru": "запрещать, запрет",
+      "rank": 1706,
+      "note": "Глагол и существительное: ban something — запретить, a ban on something — запрет на что-то. Удвоение n: banned.",
+      "examples": [
+        { "en": "Smoking is banned in all restaurants.", "ru": "Курить запрещено во всех ресторанах.", "gap": "banned" },
+        { "en": "The city introduced a ban on plastic bags.", "ru": "Город ввёл запрет на пластиковые пакеты.", "gap": "ban" }
+      ]
+    },
+    {
+      "id": "w-steal",
+      "kind": "word",
+      "en": "steal",
+      "ru": "красть, украсть",
+      "rank": 1707,
+      "note": "Неправильный глагол: steal – stole – stolen. Крадут вещь (steal a bike), а грабят человека или место (rob a shop).",
+      "examples": [
+        { "en": "Someone stole my bike last night.", "ru": "Вчера ночью у меня украли велосипед.", "gap": "stole" },
+        { "en": "My wallet was stolen on the bus.", "ru": "У меня в автобусе украли кошелёк.", "gap": "stolen" }
+      ]
+    },
+    {
+      "id": "w-frequently",
+      "kind": "word",
+      "en": "frequently",
+      "ru": "часто",
+      "rank": 1711,
+      "note": "Официальнее, чем often. Frequently asked questions (FAQ) — часто задаваемые вопросы.",
+      "examples": [
+        { "en": "The trains are frequently late in winter.", "ru": "Зимой поезда часто опаздывают.", "gap": "frequently" },
+        { "en": "He frequently works from home.", "ru": "Он часто работает из дома.", "gap": "frequently" }
+      ]
+    },
+    {
+      "id": "w-helpful",
+      "kind": "word",
+      "en": "helpful",
+      "ru": "полезный, отзывчивый",
+      "rank": 1713,
+      "note": "О совете или вещи — полезный, о человеке — готовый помочь: The staff were very helpful.",
+      "examples": [
+        { "en": "Thank you, your advice was very helpful.", "ru": "Спасибо, ваш совет мне очень помог.", "gap": "helpful" },
+        { "en": "The hotel staff were friendly and helpful.", "ru": "Персонал отеля был приветливым и отзывчивым.", "gap": "helpful" }
+      ]
+    },
+    {
+      "id": "w-attractive",
+      "kind": "word",
+      "en": "attractive",
+      "ru": "привлекательный",
+      "rank": 1715,
+      "note": "О человеке — симпатичный, о предложении или цене — выгодный: an attractive offer.",
+      "examples": [
+        { "en": "The company made me an attractive offer.", "ru": "Компания сделала мне привлекательное предложение.", "gap": "attractive" },
+        { "en": "The old town is very attractive to tourists.", "ru": "Старый город очень привлекает туристов.", "gap": "attractive" }
+      ]
+    },
+    {
+      "id": "w-impression",
+      "kind": "word",
+      "en": "impression",
+      "ru": "впечатление",
+      "rank": 1717,
+      "note": "Make a good impression — произвести хорошее впечатление. I got the impression that... — мне показалось, что...",
+      "examples": [
+        { "en": "He made a good impression at the interview.", "ru": "На собеседовании он произвёл хорошее впечатление.", "gap": "impression" },
+        { "en": "I got the impression that she was tired.", "ru": "Мне показалось, что она устала.", "gap": "impression" }
+      ]
+    },
+    {
+      "id": "w-unable",
+      "kind": "word",
+      "en": "unable",
+      "ru": "неспособный, не в состоянии",
+      "rank": 1718,
+      "note": "Be unable to do — не мочь; официальнее, чем can't: I'm unable to attend.",
+      "examples": [
+        { "en": "I'm afraid I'm unable to attend the meeting.", "ru": "К сожалению, я не смогу присутствовать на встрече.", "gap": "unable" },
+        { "en": "He was unable to find a parking space.", "ru": "Он так и не смог найти место для парковки.", "gap": "unable" }
+      ]
+    },
+    {
+      "id": "w-properly",
+      "kind": "word",
+      "en": "properly",
+      "ru": "как следует, правильно",
+      "rank": 1726,
+      "note": "Так, как надо: I didn't sleep properly — я толком не выспался. Прилагательное — proper.",
+      "examples": [
+        { "en": "Make sure the door is properly closed.", "ru": "Проверь, что дверь как следует закрыта.", "gap": "properly" },
+        { "en": "I haven't eaten properly all day.", "ru": "Я весь день толком не ел.", "gap": "properly" }
+      ]
+    },
+    {
+      "id": "w-closely",
+      "kind": "word",
+      "en": "closely",
+      "ru": "тесно, внимательно",
+      "rank": 1731,
+      "note": "Work closely with — тесно сотрудничать, look closely — присмотреться. «Близко» в пространстве — close: live close to work.",
+      "examples": [
+        { "en": "I work closely with the design team.", "ru": "Я тесно сотрудничаю с командой дизайнеров.", "gap": "closely" },
+        { "en": "Look closely at the photo.", "ru": "Присмотрись к фотографии.", "gap": "closely" }
+      ]
+    },
+    {
+      "id": "w-assistant",
+      "kind": "word",
+      "en": "assistant",
+      "ru": "помощник, ассистент",
+      "rank": 1739,
+      "note": "Shop assistant — продавец в магазине. Ударение: as-SIS-tant.",
+      "examples": [
+        { "en": "My assistant will send you the documents.", "ru": "Мой помощник пришлёт вам документы.", "gap": "assistant" },
+        { "en": "Ask the shop assistant for a bigger size.", "ru": "Спроси у продавца размер побольше.", "gap": "assistant" }
+      ]
+    },
+    {
+      "id": "w-implement",
+      "kind": "word",
+      "en": "implement",
+      "ru": "внедрять, осуществлять",
+      "rank": 1740,
+      "note": "Официальное слово: implement a plan / changes / a system. Ударение на первый слог: IM-ple-ment.",
+      "examples": [
+        { "en": "The company implemented a new payment system.", "ru": "Компания внедрила новую платёжную систему.", "gap": "implemented" },
+        { "en": "It will take a year to implement these changes.", "ru": "На внедрение этих изменений уйдёт год.", "gap": "implement" }
+      ]
+    },
+    {
+      "id": "w-chart",
+      "kind": "word",
+      "en": "chart",
+      "ru": "диаграмма, график",
+      "rank": 1741,
+      "note": "Pie chart — круговая диаграмма, bar chart — столбчатая. The charts — хит-парад.",
+      "examples": [
+        { "en": "The chart shows our sales for last year.", "ru": "На диаграмме показаны наши продажи за прошлый год.", "gap": "chart" },
+        { "en": "I'll put these numbers into a chart.", "ru": "Я сведу эти цифры в график.", "gap": "chart" }
+      ]
+    },
+    {
+      "id": "w-advise",
+      "kind": "word",
+      "en": "advise",
+      "ru": "советовать, рекомендовать",
+      "rank": 1745,
+      "note": "Глагол advise — с s [z], существительное advice — с c [s]. Advise someone to do something.",
+      "examples": [
+        { "en": "The doctor advised me to rest for a week.", "ru": "Врач посоветовал мне неделю отдохнуть.", "gap": "advised" },
+        { "en": "I'd advise you to book the tickets early.", "ru": "Советую купить билеты заранее.", "gap": "advise" }
+      ]
+    },
+    {
+      "id": "w-reward",
+      "kind": "word",
+      "en": "reward",
+      "ru": "награда, вознаграждение",
+      "rank": 1748,
+      "note": "Также глагол: reward someone for something — наградить, поощрить. Award — официальная премия, приз.",
+      "examples": [
+        { "en": "They offered a reward for the lost dog.", "ru": "За потерявшуюся собаку обещали вознаграждение.", "gap": "reward" },
+        { "en": "The company rewards its best workers with a bonus.", "ru": "Компания поощряет лучших сотрудников премией.", "gap": "rewards" }
+      ]
+    },
+    {
+      "id": "w-meanwhile",
+      "kind": "word",
+      "en": "meanwhile",
+      "ru": "тем временем, между тем",
+      "rank": 1753,
+      "note": "Обычно в начале предложения, с запятой: Meanwhile, ...",
+      "examples": [
+        { "en": "I'll cook dinner. Meanwhile, you can set the table.", "ru": "Я приготовлю ужин, а ты пока накрой на стол.", "gap": "Meanwhile" },
+        { "en": "Prices keep rising. Meanwhile, salaries stay the same.", "ru": "Цены растут, а зарплаты тем временем остаются прежними.", "gap": "Meanwhile" }
+      ]
+    },
+    {
+      "id": "w-wage",
+      "kind": "word",
+      "en": "wage",
+      "ru": "заработная плата, заработок",
+      "rank": 1757,
+      "note": "Wage — оплата за час или неделю, обычно за физический труд; месячный оклад — salary. Minimum wage — минимальная оплата труда.",
+      "examples": [
+        { "en": "He earns a good wage as a builder.", "ru": "На стройке он хорошо зарабатывает.", "gap": "wage" },
+        { "en": "The workers are asking for higher wages.", "ru": "Работники требуют повышения зарплаты.", "gap": "wages" }
+      ]
+    },
+    {
+      "id": "w-absence",
+      "kind": "word",
+      "en": "absence",
+      "ru": "отсутствие",
+      "rank": 1758,
+      "note": "In someone's absence — в чьё-то отсутствие. Прилагательное — absent.",
+      "examples": [
+        { "en": "Who will do your work during your absence?", "ru": "Кто будет делать твою работу, пока тебя нет?", "gap": "absence" },
+        { "en": "She returned to work after a long absence.", "ru": "Она вернулась на работу после долгого отсутствия.", "gap": "absence" }
+      ]
+    },
+    {
+      "id": "w-rare",
+      "kind": "word",
+      "en": "rare",
+      "ru": "редкий",
+      "rank": 1763,
+      "note": "It's rare to... — редко бывает, что... О мясе rare значит «с кровью»: a rare steak.",
+      "examples": [
+        { "en": "It's rare to see snow here in April.", "ru": "Снег здесь в апреле — редкость.", "gap": "rare" },
+        { "en": "My uncle collects rare old coins.", "ru": "Мой дядя собирает редкие старинные монеты.", "gap": "rare" }
+      ]
+    },
+    {
+      "id": "w-intention",
+      "kind": "word",
+      "en": "intention",
+      "ru": "намерение",
+      "rank": 1764,
+      "note": "Have no intention of doing something — совсем не собираться что-то делать. Глагол — intend.",
+      "examples": [
+        { "en": "I have no intention of moving to another city.", "ru": "Я совсем не собираюсь переезжать в другой город.", "gap": "intention" },
+        { "en": "Her intention was to help, not to criticize.", "ru": "Она хотела помочь, а не покритиковать.", "gap": "intention" }
+      ]
+    },
+    {
+      "id": "w-gap",
+      "kind": "word",
+      "en": "gap",
+      "ru": "промежуток, щель, пробел",
+      "rank": 1767,
+      "note": "Пустое место между чем-то: a gap between the teeth, a gap in knowledge — пробел в знаниях. Gap year — год перерыва после школы.",
+      "examples": [
+        { "en": "There is a small gap between the door and the floor.", "ru": "Между дверью и полом есть небольшая щель.", "gap": "gap" },
+        { "en": "I need to fill the gaps in my grammar.", "ru": "Мне нужно восполнить пробелы в грамматике.", "gap": "gaps" }
+      ]
+    },
+    {
+      "id": "w-widely",
+      "kind": "word",
+      "en": "widely",
+      "ru": "широко",
+      "rank": 1768,
+      "note": "Обычно перед причастием: widely used / known / available — широко используемый / известный / доступный.",
+      "examples": [
+        { "en": "English is widely used in business.", "ru": "Английский широко используется в бизнесе.", "gap": "widely" },
+        { "en": "This medicine is widely available in pharmacies.", "ru": "Это лекарство продаётся почти в любой аптеке.", "gap": "widely" }
+      ]
+    },
+    {
+      "id": "w-minimum",
+      "kind": "word",
+      "en": "minimum",
+      "ru": "минимум, минимальный",
+      "rank": 1769,
+      "note": "A minimum of — не меньше: a minimum of two years. Keep something to a minimum — свести к минимуму.",
+      "examples": [
+        { "en": "You need a minimum of three years' experience.", "ru": "Нужен опыт работы не меньше трёх лет.", "gap": "minimum" },
+        { "en": "Let's keep our spending to a minimum this month.", "ru": "Давай в этом месяце сведём расходы к минимуму.", "gap": "minimum" }
+      ]
+    },
+    {
+      "id": "w-resolve",
+      "kind": "word",
+      "en": "resolve",
+      "ru": "решить, уладить (проблему)",
+      "rank": 1777,
+      "note": "Resolve a problem / a conflict — официальнее, чем solve; часто о спорах и жалобах.",
+      "examples": [
+        { "en": "We hope to resolve the problem quickly.", "ru": "Мы надеемся быстро решить проблему.", "gap": "resolve" },
+        { "en": "The issue was resolved after one phone call.", "ru": "Вопрос уладили одним телефонным звонком.", "gap": "resolved" }
+      ]
+    },
+    {
+      "id": "w-enormous",
+      "kind": "word",
+      "en": "enormous",
+      "ru": "огромный",
+      "rank": 1780,
+      "note": "Сильнее, чем big или large, поэтому very с ним не ставят: an enormous amount of work.",
+      "examples": [
+        { "en": "They live in an enormous house outside the city.", "ru": "Они живут в огромном доме за городом.", "gap": "enormous" },
+        { "en": "I have an enormous amount of work this week.", "ru": "На этой неделе у меня огромный объём работы.", "gap": "enormous" }
+      ]
+    },
+    {
+      "id": "w-permanent",
+      "kind": "word",
+      "en": "permanent",
+      "ru": "постоянный (не временный)",
+      "rank": 1782,
+      "note": "Антоним — temporary. Permanent job — постоянная работа, permanent address — адрес постоянного проживания.",
+      "examples": [
+        { "en": "She finally got a permanent job.", "ru": "Она наконец получила постоянную работу.", "gap": "permanent" },
+        { "en": "Is this change permanent or only for the summer?", "ru": "Это изменение насовсем или только на лето?", "gap": "permanent" }
+      ]
+    },
+    {
+      "id": "w-talent",
+      "kind": "word",
+      "en": "talent",
+      "ru": "талант, способности",
+      "rank": 1790,
+      "note": "A talent for something — талант к чему-то: a talent for languages. Без артикля talent — талантливые люди.",
+      "examples": [
+        { "en": "She has a real talent for languages.", "ru": "У неё настоящий талант к языкам.", "gap": "talent" },
+        { "en": "The company is always looking for new talent.", "ru": "Компания всегда ищет новых талантливых людей.", "gap": "talent" }
+      ]
+    },
+    {
+      "id": "w-communicate",
+      "kind": "word",
+      "en": "communicate",
+      "ru": "общаться, передавать (мысли, информацию)",
+      "rank": 1800,
+      "note": "Communicate with someone — общаться, поддерживать связь. Существительное — communication.",
+      "examples": [
+        { "en": "We communicate mostly by email.", "ru": "Мы общаемся в основном по электронной почте.", "gap": "communicate" },
+        { "en": "He finds it hard to communicate his ideas.", "ru": "Ему трудно донести свои идеи до других.", "gap": "communicate" }
+      ]
+    }
+  ]
+}

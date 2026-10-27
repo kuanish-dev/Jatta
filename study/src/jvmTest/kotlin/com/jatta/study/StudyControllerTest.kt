@@ -181,34 +181,36 @@ class StudyControllerTest {
     @Test
     fun aPhraseHeardRightIsShownAsTextToRepeat() {
         val app = controller()
-        app.startSession()
-        runSessionAnsweringRight(app)
-        now += day
-        app.openHome()
-        app.startSession()
-        repeat(300) {
-            now += 3_000
-            when (val screen = app.screen.value) {
-                is Screen.Present -> app.presented()
-                is Screen.Question -> {
-                    val exercise = screen.exercise
-                    answerRight(app, exercise)
-                    if (exercise.byEar) {
-                        val heard = app.screen.value as Screen.Heard
-                        assertEquals(exercise.answer, heard.exercise.answer)
-                        assertEquals(content.items.getValue(exercise.itemId).ru, heard.translation)
-                        assertEquals(exercise.recording, heard.exercise.recording)
-                        app.continueAfterHeard()
-                        assertFalse(app.screen.value is Screen.Heard)
-                        return
+        // the first phrases come a few days in, after the topics before them in the course
+        repeat(8) {
+            app.openHome()
+            app.startSession()
+            while (app.screen.value !is Screen.Done) {
+                now += 3_000
+                when (val screen = app.screen.value) {
+                    is Screen.Present -> app.presented()
+                    is Screen.Question -> {
+                        val exercise = screen.exercise
+                        answerRight(app, exercise)
+                        if (exercise.byEar) {
+                            val heard = app.screen.value as Screen.Heard
+                            assertEquals(exercise.answer, heard.exercise.answer)
+                            assertEquals(content.items.getValue(exercise.itemId).ru, heard.translation)
+                            assertEquals(exercise.recording, heard.exercise.recording)
+                            app.continueAfterHeard()
+                            assertFalse(app.screen.value is Screen.Heard)
+                            return
+                        }
                     }
+                    is Screen.SelfCheck -> app.judgeSelf(true)
+                    is Screen.Reveal -> app.continueAfterReveal()
+                    is Screen.Rest -> app.finishRest()
+                    else -> error("Unexpected screen: $screen")
                 }
-                is Screen.SelfCheck -> app.judgeSelf(true)
-                is Screen.Rest -> app.finishRest()
-                else -> error("Unexpected screen: $screen")
             }
+            now += day
         }
-        error("No phrase by ear in the second session")
+        error("No phrase by ear in the first sessions")
     }
 
     @Test

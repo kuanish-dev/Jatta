@@ -1,0 +1,331 @@
+{
+  "id": "freq-1301",
+  "title": "Частые слова 1301–1400",
+  "intro": "Слова с 1301-го по 1400-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-crisis",
+      "kind": "word",
+      "en": "crisis",
+      "ru": "кризис",
+      "rank": 1302,
+      "note": "Множественное число — crises [ˈkraɪsiːz]. Ударение на первый слог: CRI-sis.",
+      "examples": [
+        { "en": "The company is going through a crisis.", "ru": "Компания переживает кризис.", "gap": "crisis" },
+        { "en": "Many families lost money during the financial crisis.", "ru": "Многие семьи потеряли деньги во время финансового кризиса.", "gap": "crisis" }
+      ]
+    },
+    {
+      "id": "w-settle",
+      "kind": "word",
+      "en": "settle",
+      "ru": "уладить, обосноваться",
+      "rank": 1303,
+      "note": "Settle an argument — уладить спор; settle in — освоиться на новом месте; settle down — остепениться. Settle the bill — оплатить счёт.",
+      "examples": [
+        { "en": "We need to settle this before the meeting.", "ru": "Нужно уладить это до встречи.", "gap": "settle" },
+        { "en": "After many years abroad, they settled in a small town.", "ru": "После многих лет за границей они осели в маленьком городке.", "gap": "settled" }
+      ]
+    },
+    {
+      "id": "w-safety",
+      "kind": "word",
+      "en": "safety",
+      "ru": "безопасность",
+      "rank": 1311,
+      "note": "Safety — защита от несчастных случаев; security — защита от преступников и угроз. Safety rules — правила техники безопасности.",
+      "examples": [
+        { "en": "For your safety, please keep your seat belt on.", "ru": "Ради вашей безопасности, пожалуйста, не отстёгивайте ремень.", "gap": "safety" },
+        { "en": "Safety is our first priority at the factory.", "ru": "Безопасность на нашем заводе — главный приоритет.", "gap": "Safety" }
+      ]
+    },
+    {
+      "id": "w-insurance",
+      "kind": "word",
+      "en": "insurance",
+      "ru": "страховка, страхование",
+      "rank": 1314,
+      "note": "Travel insurance — туристическая страховка, health insurance — медицинская страховка. Глагол — insure (застраховать).",
+      "examples": [
+        { "en": "Don't forget to buy travel insurance.", "ru": "Не забудь купить туристическую страховку.", "gap": "insurance" },
+        { "en": "How much does car insurance cost here?", "ru": "Сколько здесь стоит автостраховка?", "gap": "insurance" }
+      ]
+    },
+    {
+      "id": "w-divide",
+      "kind": "word",
+      "en": "divide",
+      "ru": "делить, разделить",
+      "rank": 1316,
+      "note": "Divide into parts: divide the class into groups. В математике divide by — делить на: 10 divided by 2 is 5.",
+      "examples": [
+        { "en": "The teacher divided the class into three groups.", "ru": "Учитель разделил класс на три группы.", "gap": "divided" },
+        { "en": "Divide the cake into eight pieces.", "ru": "Разрежьте торт на восемь кусков.", "gap": "Divide" }
+      ]
+    },
+    {
+      "id": "w-investigation",
+      "kind": "word",
+      "en": "investigation",
+      "ru": "расследование, проверка",
+      "rank": 1318,
+      "note": "An investigation into something. Under investigation — расследуется, проверяется. Глагол — investigate.",
+      "examples": [
+        { "en": "The airline has started an investigation into the delay.", "ru": "Авиакомпания начала выяснять причины задержки.", "gap": "investigation" },
+        { "en": "After a short investigation, they found the problem in the software.", "ru": "После недолгой проверки нашли ошибку в программе.", "gap": "investigation" }
+      ]
+    },
+    {
+      "id": "w-package",
+      "kind": "word",
+      "en": "package",
+      "ru": "посылка, пакет (услуг)",
+      "rank": 1319,
+      "note": "Package — посылка или набор услуг: a holiday package — турпакет. Пакет для продуктов — bag, а не package.",
+      "examples": [
+        { "en": "A package arrived for you this morning.", "ru": "Сегодня утром тебе пришла посылка.", "gap": "package" },
+        { "en": "The package includes flights, hotel and breakfast.", "ru": "В пакет входят перелёт, отель и завтраки.", "gap": "package" }
+      ]
+    },
+    {
+      "id": "w-expand",
+      "kind": "word",
+      "en": "expand",
+      "ru": "расширять, расширяться",
+      "rank": 1321,
+      "note": "Expand a business — расширить бизнес. Существительное — expansion.",
+      "examples": [
+        { "en": "The company plans to expand into Asia.", "ru": "Компания планирует выйти на азиатский рынок.", "gap": "expand" },
+        { "en": "Reading helps you expand your vocabulary.", "ru": "Чтение помогает расширить словарный запас.", "gap": "expand" }
+      ]
+    },
+    {
+      "id": "w-commit",
+      "kind": "word",
+      "en": "commit",
+      "ru": "обязаться, посвятить себя (делу)",
+      "rank": 1322,
+      "note": "Be committed to something — быть преданным делу: She's committed to her work. Также commit a crime — совершить преступление.",
+      "examples": [
+        { "en": "We are committed to helping our customers.", "ru": "Мы искренне стремимся помогать клиентам.", "gap": "committed" },
+        { "en": "I don't want to commit to anything yet.", "ru": "Я пока не хочу ничего обещать.", "gap": "commit" }
+      ]
+    },
+    {
+      "id": "w-obvious",
+      "kind": "word",
+      "en": "obvious",
+      "ru": "очевидный, явный",
+      "rank": 1323,
+      "note": "It's obvious that… — очевидно, что… Наречие obviously — очевидно, конечно.",
+      "examples": [
+        { "en": "The answer was obvious to everyone.", "ru": "Ответ был всем очевиден.", "gap": "obvious" },
+        { "en": "It was obvious that she was tired.", "ru": "Было видно, что она устала.", "gap": "obvious" }
+      ]
+    },
+    {
+      "id": "w-relatively",
+      "kind": "word",
+      "en": "relatively",
+      "ru": "относительно, сравнительно",
+      "rank": 1326,
+      "note": "Ставится перед прилагательным: relatively cheap — сравнительно недорогой. Relative — относительный, а как существительное — родственник.",
+      "examples": [
+        { "en": "The flat is relatively cheap for this area.", "ru": "Для этого района квартира сравнительно недорогая.", "gap": "relatively" },
+        { "en": "The exam was relatively easy.", "ru": "Экзамен был относительно лёгким.", "gap": "relatively" }
+      ]
+    },
+    {
+      "id": "w-hardly",
+      "kind": "word",
+      "en": "hardly",
+      "ru": "едва, почти не",
+      "rank": 1340,
+      "note": "Hardly — не «усердно» (это hard), а «почти не»: I hardly know him — я его почти не знаю. Hardly ever — почти никогда.",
+      "examples": [
+        { "en": "I can hardly hear you.", "ru": "Я тебя почти не слышу.", "gap": "hardly" },
+        { "en": "We hardly ever go to the cinema now.", "ru": "Мы теперь почти никогда не ходим в кино.", "gap": "hardly" }
+      ]
+    },
+    {
+      "id": "w-award",
+      "kind": "word",
+      "en": "award",
+      "ru": "награда, премия",
+      "rank": 1341,
+      "note": "Win an award — получить награду. Глагол award — присудить: She was awarded a prize. Не путайте с reward — вознаграждение.",
+      "examples": [
+        { "en": "Our restaurant won an award for the best service.", "ru": "Наш ресторан получил премию за лучшее обслуживание.", "gap": "award" },
+        { "en": "She was awarded a scholarship to study abroad.", "ru": "Ей дали стипендию на учёбу за границей.", "gap": "awarded" }
+      ]
+    },
+    {
+      "id": "w-experiment",
+      "kind": "word",
+      "en": "experiment",
+      "ru": "эксперимент, опыт",
+      "rank": 1343,
+      "note": "Do (carry out) an experiment — провести эксперимент. Глагол experiment with something — экспериментировать с чем-то.",
+      "examples": [
+        { "en": "We did an experiment in our chemistry class.", "ru": "На уроке химии мы ставили опыт.", "gap": "experiment" },
+        { "en": "I like to experiment with new recipes.", "ru": "Мне нравится экспериментировать с новыми рецептами.", "gap": "experiment" }
+      ]
+    },
+    {
+      "id": "w-possibly",
+      "kind": "word",
+      "en": "possibly",
+      "ru": "возможно, может быть",
+      "rank": 1347,
+      "note": "В вопросе с could — вежливая просьба: Could you possibly help me? С can't — «никак»: I can't possibly finish today.",
+      "examples": [
+        { "en": "This is possibly the best pizza in town.", "ru": "Возможно, это лучшая пицца в городе.", "gap": "possibly" },
+        { "en": "Could you possibly lend me your car tomorrow?", "ru": "Не мог бы ты одолжить мне завтра машину?", "gap": "possibly" }
+      ]
+    },
+    {
+      "id": "w-threat",
+      "kind": "word",
+      "en": "threat",
+      "ru": "угроза",
+      "rank": 1348,
+      "note": "A threat to something: a threat to our business. Произносится [θret]. Глагол — threaten.",
+      "examples": [
+        { "en": "Online shopping is a threat to small shops.", "ru": "Интернет-торговля угрожает маленьким магазинам.", "gap": "threat" },
+        { "en": "Stress is a real threat to your health.", "ru": "Стресс — серьёзная угроза для здоровья.", "gap": "threat" }
+      ]
+    },
+    {
+      "id": "w-accident",
+      "kind": "word",
+      "en": "accident",
+      "ru": "авария, несчастный случай",
+      "rank": 1349,
+      "note": "By accident — случайно: I deleted the file by accident. Прилагательное accidental — случайный.",
+      "examples": [
+        { "en": "He had a small accident on his way to work.", "ru": "По дороге на работу он попал в небольшую аварию.", "gap": "accident" },
+        { "en": "Sorry, I took your umbrella by accident.", "ru": "Прости, я случайно взял твой зонт.", "gap": "accident" }
+      ]
+    },
+    {
+      "id": "w-enable",
+      "kind": "word",
+      "en": "enable",
+      "ru": "давать возможность, позволять",
+      "rank": 1352,
+      "note": "Enable somebody to do something: The app enables you to pay by phone. В настройках — включить: enable notifications.",
+      "examples": [
+        { "en": "The new system enables us to work faster.", "ru": "Новая система позволяет нам работать быстрее.", "gap": "enables" },
+        { "en": "Enable notifications to get the latest updates.", "ru": "Включите уведомления, чтобы получать свежие новости.", "gap": "Enable" }
+      ]
+    },
+    {
+      "id": "w-conclude",
+      "kind": "word",
+      "en": "conclude",
+      "ru": "сделать вывод, завершить",
+      "rank": 1355,
+      "note": "Conclude that… — прийти к выводу, что… Существительное — conclusion; in conclusion — в заключение.",
+      "examples": [
+        { "en": "We concluded that the plan was too expensive.", "ru": "Мы пришли к выводу, что план слишком дорогой.", "gap": "concluded" },
+        { "en": "The festival concluded with a big concert.", "ru": "Фестиваль завершился большим концертом.", "gap": "concluded" }
+      ]
+    },
+    {
+      "id": "w-convince",
+      "kind": "word",
+      "en": "convince",
+      "ru": "убедить",
+      "rank": 1358,
+      "note": "Convince somebody to do something или convince somebody that… Be convinced — быть уверенным.",
+      "examples": [
+        { "en": "She convinced me to try yoga.", "ru": "Она уговорила меня попробовать йогу.", "gap": "convinced" },
+        { "en": "I'm not convinced that this is a good idea.", "ru": "Я не уверен, что это хорошая идея.", "gap": "convinced" }
+      ]
+    },
+    {
+      "id": "w-vary",
+      "kind": "word",
+      "en": "vary",
+      "ru": "различаться, меняться",
+      "rank": 1359,
+      "note": "Prices vary — цены бывают разные. Vary from… to… — колебаться от… до… Прилагательные — various (разный), varied (разнообразный).",
+      "examples": [
+        { "en": "Prices vary from shop to shop.", "ru": "В разных магазинах цены разные.", "gap": "vary" },
+        { "en": "The weather can vary a lot in spring.", "ru": "Весной погода бывает очень переменчивой.", "gap": "vary" }
+      ]
+    },
+    {
+      "id": "w-location",
+      "kind": "word",
+      "en": "location",
+      "ru": "местоположение, расположение",
+      "rank": 1365,
+      "note": "A great location — удачное расположение (об отеле, квартире). Глагол — locate; be located — находиться.",
+      "examples": [
+        { "en": "The hotel is in a great location near the beach.", "ru": "Отель отлично расположен, рядом с пляжем.", "gap": "location" },
+        { "en": "Please send me your location.", "ru": "Пришли мне, пожалуйста, своё местоположение.", "gap": "location" }
+      ]
+    },
+    {
+      "id": "w-opposite",
+      "kind": "word",
+      "en": "opposite",
+      "ru": "противоположный, напротив",
+      "rank": 1373,
+      "note": "The opposite of… — противоположность: The opposite of hot is cold. Как предлог «напротив» — без of: opposite the bank.",
+      "examples": [
+        { "en": "The bank is opposite the train station.", "ru": "Банк находится напротив вокзала.", "gap": "opposite" },
+        { "en": "My brother and I have opposite opinions about everything.", "ru": "У нас с братом противоположные взгляды на всё.", "gap": "opposite" }
+      ]
+    },
+    {
+      "id": "w-monitor",
+      "kind": "word",
+      "en": "monitor",
+      "ru": "следить, отслеживать",
+      "rank": 1377,
+      "note": "Monitor progress / spending — следить за ходом, расходами. Существительное monitor — монитор, экран.",
+      "examples": [
+        { "en": "The app monitors your sleep every night.", "ru": "Приложение каждую ночь отслеживает ваш сон.", "gap": "monitors" },
+        { "en": "We monitor our spending every month.", "ru": "Мы каждый месяц следим за своими расходами.", "gap": "monitor" }
+      ]
+    },
+    {
+      "id": "w-finance",
+      "kind": "word",
+      "en": "finance",
+      "ru": "финансы, финансировать",
+      "rank": 1379,
+      "note": "Finance — сфера финансов; finances (мн. ч.) — личные деньги: My finances are a mess. Глагол finance — финансировать.",
+      "examples": [
+        { "en": "She works in finance at a large bank.", "ru": "Она работает в финансовой сфере в крупном банке.", "gap": "finance" },
+        { "en": "The project is financed by the city.", "ru": "Проект финансирует город.", "gap": "financed" }
+      ]
+    },
+    {
+      "id": "w-comfortable",
+      "kind": "word",
+      "en": "comfortable",
+      "ru": "удобный, комфортный",
+      "rank": 1384,
+      "note": "Обычно произносится в три слога: COMF-ta-ble. Feel comfortable — чувствовать себя свободно, спокойно.",
+      "examples": [
+        { "en": "These shoes are very comfortable.", "ru": "Эти туфли очень удобные.", "gap": "comfortable" },
+        { "en": "I don't feel comfortable speaking in public.", "ru": "Мне неловко выступать на публике.", "gap": "comfortable" }
+      ]
+    },
+    {
+      "id": "w-recall",
+      "kind": "word",
+      "en": "recall",
+      "ru": "вспомнить, припомнить",
+      "rank": 1388,
+      "note": "Официальнее, чем remember: I don't recall his name. Также отзыв товара производителем: recall a product.",
+      "examples": [
+        { "en": "I can't recall where I put my keys.", "ru": "Не могу вспомнить, куда положил ключи.", "gap": "recall" },
+        { "en": "Do you recall the name of that restaurant?", "ru": "Ты не помнишь, как назывался тот ресторан?", "gap": "recall" }
+      ]
+    }
+  ]
+}

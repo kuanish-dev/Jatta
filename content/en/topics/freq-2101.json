@@ -1,0 +1,307 @@
+{
+  "id": "freq-2101",
+  "title": "Частые слова 2101–2200",
+  "intro": "Слова с 2101-го по 2200-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-routine",
+      "kind": "word",
+      "en": "routine",
+      "ru": "распорядок, привычный порядок",
+      "rank": 2104,
+      "note": "Daily routine — распорядок дня. В отличие от русской «рутины», не обязательно скучное. Ударение: rou-TINE.",
+      "examples": [
+        { "en": "Exercise is part of my morning routine.", "ru": "Зарядка — часть моего утреннего распорядка.", "gap": "routine" },
+        { "en": "I'm tired of the same routine every day.", "ru": "Я устал каждый день делать одно и то же.", "gap": "routine" }
+      ]
+    },
+    {
+      "id": "w-steady",
+      "kind": "word",
+      "en": "steady",
+      "ru": "устойчивый, стабильный, ровный",
+      "rank": 2111,
+      "note": "Steady job — стабильная работа, steady growth — равномерный рост. Hold it steady — держи ровно.",
+      "examples": [
+        { "en": "He has a steady job and a nice apartment.", "ru": "У него стабильная работа и хорошая квартира.", "gap": "steady" },
+        { "en": "Sales have shown steady growth this year.", "ru": "В этом году продажи стабильно растут.", "gap": "steady" }
+      ]
+    },
+    {
+      "id": "w-disaster",
+      "kind": "word",
+      "en": "disaster",
+      "ru": "катастрофа, бедствие, провал",
+      "rank": 2117,
+      "note": "В разговоре — полный провал: The party was a disaster. Natural disaster — стихийное бедствие.",
+      "examples": [
+        { "en": "The party was a complete disaster.", "ru": "Вечеринка оказалась полным провалом.", "gap": "disaster" },
+        { "en": "It would be a disaster if we lost this client.", "ru": "Потерять этого клиента было бы катастрофой.", "gap": "disaster" }
+      ]
+    },
+    {
+      "id": "w-pace",
+      "kind": "word",
+      "en": "pace",
+      "ru": "темп, скорость",
+      "rank": 2118,
+      "note": "At your own pace — в своём темпе. Keep pace with — не отставать от.",
+      "examples": [
+        { "en": "You can study at your own pace.", "ru": "Можно учиться в своём темпе.", "gap": "pace" },
+        { "en": "I can't get used to the pace of city life.", "ru": "Я никак не привыкну к темпу городской жизни.", "gap": "pace" }
+      ]
+    },
+    {
+      "id": "w-heavily",
+      "kind": "word",
+      "en": "heavily",
+      "ru": "сильно, в большой степени",
+      "rank": 2119,
+      "note": "It's raining heavily — идёт сильный дождь. Depend heavily on — сильно зависеть от.",
+      "examples": [
+        { "en": "It rained heavily all night.", "ru": "Всю ночь шёл сильный дождь.", "gap": "heavily" },
+        { "en": "Our business depends heavily on tourists.", "ru": "Наш бизнес сильно зависит от туристов.", "gap": "heavily" }
+      ]
+    },
+    {
+      "id": "w-justify",
+      "kind": "word",
+      "en": "justify",
+      "ru": "оправдывать, обосновывать",
+      "rank": 2122,
+      "note": "Justify a decision / the cost — обосновать решение / расходы. Существительное — justification.",
+      "examples": [
+        { "en": "How can you justify such a high price?", "ru": "Чем вы можете оправдать такую высокую цену?", "gap": "justify" },
+        { "en": "The results justified the cost of the project.", "ru": "Результаты оправдали затраты на проект.", "gap": "justified" }
+      ]
+    },
+    {
+      "id": "w-vital",
+      "kind": "word",
+      "en": "vital",
+      "ru": "жизненно важный, необходимый",
+      "rank": 2123,
+      "note": "Сильнее, чем important: It is vital that... — крайне важно, чтобы...",
+      "examples": [
+        { "en": "Water is vital for all living things.", "ru": "Вода жизненно необходима всему живому.", "gap": "vital" },
+        { "en": "Your help was vital to the project.", "ru": "Твоя помощь была крайне важна для проекта.", "gap": "vital" }
+      ]
+    },
+    {
+      "id": "w-spare",
+      "kind": "word",
+      "en": "spare",
+      "ru": "запасной, свободный (о времени)",
+      "rank": 2126,
+      "note": "Spare time — свободное время, spare key — запасной ключ. Глагол: Can you spare a minute? — У тебя найдётся минутка?",
+      "examples": [
+        { "en": "What do you do in your spare time?", "ru": "Чем ты занимаешься в свободное время?", "gap": "spare" },
+        { "en": "I keep a spare key under the mat.", "ru": "Я держу запасной ключ под ковриком.", "gap": "spare" }
+      ]
+    },
+    {
+      "id": "w-guilty",
+      "kind": "word",
+      "en": "guilty",
+      "ru": "виноватый, виновный",
+      "rank": 2129,
+      "note": "Feel guilty about something — чувствовать вину за что-то. Существительное — guilt.",
+      "examples": [
+        { "en": "I feel guilty about missing your birthday.", "ru": "Мне стыдно, что я пропустил твой день рождения.", "gap": "guilty" },
+        { "en": "He had a guilty look on his face.", "ru": "У него был виноватый вид.", "gap": "guilty" }
+      ]
+    },
+    {
+      "id": "w-satisfaction",
+      "kind": "word",
+      "en": "satisfaction",
+      "ru": "удовлетворение, удовлетворённость",
+      "rank": 2133,
+      "note": "Job satisfaction — удовлетворённость работой. Прилагательное — satisfied (довольный).",
+      "examples": [
+        { "en": "Customer satisfaction is our main goal.", "ru": "Удовлетворённость клиентов — наша главная цель.", "gap": "satisfaction" },
+        { "en": "She gets a lot of satisfaction from her work.", "ru": "Работа приносит ей большое удовлетворение.", "gap": "satisfaction" }
+      ]
+    },
+    {
+      "id": "w-obligation",
+      "kind": "word",
+      "en": "obligation",
+      "ru": "обязательство, обязанность",
+      "rank": 2137,
+      "note": "Be under no obligation to do — не быть обязанным. «Облигация» — не obligation, а bond.",
+      "examples": [
+        { "en": "You are under no obligation to buy anything.", "ru": "Вы не обязаны ничего покупать.", "gap": "obligation" },
+        { "en": "We have a legal obligation to protect your data.", "ru": "По закону мы обязаны защищать ваши данные.", "gap": "obligation" }
+      ]
+    },
+    {
+      "id": "w-evaluate",
+      "kind": "word",
+      "en": "evaluate",
+      "ru": "оценивать",
+      "rank": 2139,
+      "note": "Официальное слово: evaluate results / performance. Существительное — evaluation.",
+      "examples": [
+        { "en": "We will evaluate the results at the end of the month.", "ru": "Мы оценим результаты в конце месяца.", "gap": "evaluate" },
+        { "en": "Each employee is evaluated once a year.", "ru": "Работу каждого сотрудника оценивают раз в год.", "gap": "evaluated" }
+      ]
+    },
+    {
+      "id": "w-currency",
+      "kind": "word",
+      "en": "currency",
+      "ru": "валюта",
+      "rank": 2144,
+      "note": "Foreign currency — иностранная валюта, local currency — местная валюта.",
+      "examples": [
+        { "en": "You can pay in local currency or in dollars.", "ru": "Можно платить в местной валюте или в долларах.", "gap": "currency" },
+        { "en": "Where can I exchange currency at the airport?", "ru": "Где в аэропорту можно обменять валюту?", "gap": "currency" }
+      ]
+    },
+    {
+      "id": "w-initially",
+      "kind": "word",
+      "en": "initially",
+      "ru": "сначала, поначалу",
+      "rank": 2146,
+      "note": "Обычно намекает, что потом всё изменилось: Initially I didn't like it. Пишется с двумя l.",
+      "examples": [
+        { "en": "Initially, I didn't like my new job.", "ru": "Поначалу новая работа мне не нравилась.", "gap": "Initially" },
+        { "en": "The trip was initially planned for May.", "ru": "Сначала поездку планировали на май.", "gap": "initially" }
+      ]
+    },
+    {
+      "id": "w-rarely",
+      "kind": "word",
+      "en": "rarely",
+      "ru": "редко",
+      "rank": 2149,
+      "note": "Стоит перед смысловым глаголом: I rarely go out. Синонимы — seldom, not often.",
+      "examples": [
+        { "en": "I rarely eat out during the week.", "ru": "В будни я редко ем вне дома.", "gap": "rarely" },
+        { "en": "My brother rarely calls me.", "ru": "Брат редко мне звонит.", "gap": "rarely" }
+      ]
+    },
+    {
+      "id": "w-constantly",
+      "kind": "word",
+      "en": "constantly",
+      "ru": "постоянно, всё время",
+      "rank": 2154,
+      "note": "С Continuous выражает раздражение: He's constantly complaining — он вечно жалуется.",
+      "examples": [
+        { "en": "My phone is constantly ringing at work.", "ru": "На работе у меня постоянно звонит телефон.", "gap": "constantly" },
+        { "en": "He is constantly late for meetings.", "ru": "Он вечно опаздывает на встречи.", "gap": "constantly" }
+      ]
+    },
+    {
+      "id": "w-everyday",
+      "kind": "word",
+      "en": "everyday",
+      "ru": "повседневный, обычный",
+      "rank": 2158,
+      "note": "Everyday (одним словом) — прилагательное: everyday life. Every day (раздельно) — каждый день.",
+      "examples": [
+        { "en": "This app makes everyday tasks easier.", "ru": "Это приложение упрощает повседневные дела.", "gap": "everyday" },
+        { "en": "Mobile phones are part of everyday life.", "ru": "Мобильные телефоны стали частью повседневной жизни.", "gap": "everyday" }
+      ]
+    },
+    {
+      "id": "w-withdraw",
+      "kind": "word",
+      "en": "withdraw",
+      "ru": "снимать (деньги), отзывать",
+      "rank": 2163,
+      "note": "Неправильный глагол: withdraw – withdrew – withdrawn. Withdraw money — снять деньги со счёта.",
+      "examples": [
+        { "en": "I need to withdraw some cash from an ATM.", "ru": "Мне нужно снять наличные в банкомате.", "gap": "withdraw" },
+        { "en": "She withdrew her application at the last moment.", "ru": "Она отозвала свою заявку в последний момент.", "gap": "withdrew" }
+      ]
+    },
+    {
+      "id": "w-pollution",
+      "kind": "word",
+      "en": "pollution",
+      "ru": "загрязнение",
+      "rank": 2164,
+      "note": "Air / water pollution — загрязнение воздуха / воды. Глагол — pollute.",
+      "examples": [
+        { "en": "Air pollution is a big problem in our city.", "ru": "Загрязнение воздуха — большая проблема нашего города.", "gap": "pollution" },
+        { "en": "Traffic is the main cause of pollution here.", "ru": "Главная причина загрязнения здесь — транспорт.", "gap": "pollution" }
+      ]
+    },
+    {
+      "id": "w-transform",
+      "kind": "word",
+      "en": "transform",
+      "ru": "преобразить, полностью изменить",
+      "rank": 2174,
+      "note": "Transform A into B — превратить одно в другое. Сильнее, чем change.",
+      "examples": [
+        { "en": "They transformed the old factory into an art gallery.", "ru": "Они превратили старую фабрику в художественную галерею.", "gap": "transformed" },
+        { "en": "Smartphones have transformed the way we live.", "ru": "Смартфоны полностью изменили нашу жизнь.", "gap": "transformed" }
+      ]
+    },
+    {
+      "id": "w-innovation",
+      "kind": "word",
+      "en": "innovation",
+      "ru": "нововведение, инновация",
+      "rank": 2180,
+      "note": "Ударение: in-no-VA-tion. Прилагательное — innovative.",
+      "examples": [
+        { "en": "The company is famous for its innovation.", "ru": "Компания славится своими инновациями.", "gap": "innovation" },
+        { "en": "Small innovations can save a lot of time.", "ru": "Небольшие нововведения могут сэкономить много времени.", "gap": "innovations" }
+      ]
+    },
+    {
+      "id": "w-gradually",
+      "kind": "word",
+      "en": "gradually",
+      "ru": "постепенно",
+      "rank": 2188,
+      "note": "Ударение на первый слог: GRA-du-al-ly. Прилагательное — gradual.",
+      "examples": [
+        { "en": "My English is gradually getting better.", "ru": "Мой английский постепенно становится лучше.", "gap": "gradually" },
+        { "en": "The weather gradually improved during the week.", "ru": "За неделю погода постепенно наладилась.", "gap": "gradually" }
+      ]
+    },
+    {
+      "id": "w-remarkable",
+      "kind": "word",
+      "en": "remarkable",
+      "ru": "замечательный, поразительный",
+      "rank": 2191,
+      "note": "Необычный и заслуживающий внимания: remarkable progress. It's remarkable how... — удивительно, как...",
+      "examples": [
+        { "en": "She made remarkable progress in just three months.", "ru": "Всего за три месяца она добилась поразительных успехов.", "gap": "remarkable" },
+        { "en": "It's remarkable how quickly children learn languages.", "ru": "Удивительно, как быстро дети учат языки.", "gap": "remarkable" }
+      ]
+    },
+    {
+      "id": "w-invitation",
+      "kind": "word",
+      "en": "invitation",
+      "ru": "приглашение",
+      "rank": 2194,
+      "note": "An invitation to a party — приглашение на вечеринку (с предлогом to). Глагол — invite.",
+      "examples": [
+        { "en": "Thank you for the invitation to your wedding.", "ru": "Спасибо за приглашение на вашу свадьбу.", "gap": "invitation" },
+        { "en": "We sent out the invitations last week.", "ru": "Мы разослали приглашения на прошлой неделе.", "gap": "invitations" }
+      ]
+    },
+    {
+      "id": "w-brilliant",
+      "kind": "word",
+      "en": "brilliant",
+      "ru": "блестящий, великолепный",
+      "rank": 2200,
+      "note": "В британской разговорной речи — «отлично!»: Brilliant! Бриллиант по-английски — diamond.",
+      "examples": [
+        { "en": "She came up with a brilliant idea.", "ru": "Ей пришла в голову блестящая идея.", "gap": "brilliant" },
+        { "en": "The concert last night was brilliant.", "ru": "Вчерашний концерт был великолепен.", "gap": "brilliant" }
+      ]
+    }
+  ]
+}

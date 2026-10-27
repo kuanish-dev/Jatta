@@ -1,0 +1,343 @@
+{
+  "id": "freq-1201",
+  "title": "Частые слова 1201–1300",
+  "intro": "Слова с 1201-го по 1300-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-requirement",
+      "kind": "word",
+      "en": "requirement",
+      "ru": "требование, условие",
+      "rank": 1204,
+      "note": "Meet the requirements — соответствовать требованиям. Глагол — require (требовать, нуждаться).",
+      "examples": [
+        { "en": "What are the requirements for this job?", "ru": "Какие требования к кандидатам на эту должность?", "gap": "requirements" },
+        { "en": "Good English is a requirement for this position.", "ru": "Хороший английский — обязательное условие для этой должности.", "gap": "requirement" }
+      ]
+    },
+    {
+      "id": "w-refuse",
+      "kind": "word",
+      "en": "refuse",
+      "ru": "отказаться, отказать",
+      "rank": 1209,
+      "note": "Refuse to do something — отказаться что-то делать. Без to: refuse an offer — отклонить предложение. Существительное — refusal.",
+      "examples": [
+        { "en": "The bank refused to give us a loan.", "ru": "Банк отказал нам в кредите.", "gap": "refused" },
+        { "en": "She refused my offer of help.", "ru": "Она отказалась от моей помощи.", "gap": "refused" }
+      ]
+    },
+    {
+      "id": "w-concept",
+      "kind": "word",
+      "en": "concept",
+      "ru": "понятие, концепция, идея",
+      "rank": 1213,
+      "note": "Ударение на первый слог: CON-cept. Близко к idea, но обычно об общем, отвлечённом представлении.",
+      "examples": [
+        { "en": "The concept of time is different in every culture.", "ru": "Понятие времени в разных культурах разное.", "gap": "concept" },
+        { "en": "I like the concept, but the design needs work.", "ru": "Идея мне нравится, но над дизайном надо поработать.", "gap": "concept" }
+      ]
+    },
+    {
+      "id": "w-survive",
+      "kind": "word",
+      "en": "survive",
+      "ru": "выжить, пережить",
+      "rank": 1218,
+      "note": "Survive something — без предлога: survive a crisis — пережить кризис. Существительное — survival.",
+      "examples": [
+        { "en": "Our small business survived two difficult years.", "ru": "Наш маленький бизнес пережил два трудных года.", "gap": "survived" },
+        { "en": "How do you survive on such a small salary?", "ru": "Как ты выживаешь на такую маленькую зарплату?", "gap": "survive" }
+      ]
+    },
+    {
+      "id": "w-solve",
+      "kind": "word",
+      "en": "solve",
+      "ru": "решить (задачу, проблему)",
+      "rank": 1221,
+      "note": "Solve a problem / a puzzle. Не путайте с decide — принять решение: decide to leave — решить уйти.",
+      "examples": [
+        { "en": "We need to solve this problem by Friday.", "ru": "Эту проблему нужно решить до пятницы.", "gap": "solve" },
+        { "en": "Restarting the computer solved the problem.", "ru": "Перезагрузка компьютера решила проблему.", "gap": "solved" }
+      ]
+    },
+    {
+      "id": "w-neighbor",
+      "kind": "word",
+      "en": "neighbor",
+      "ru": "сосед",
+      "rank": 1222,
+      "note": "Британское написание — neighbour. Буквы gh не читаются: [ˈneɪbər]. Neighborhood — район, окрестности.",
+      "examples": [
+        { "en": "Our new neighbors are very friendly.", "ru": "Наши новые соседи очень дружелюбные.", "gap": "neighbors" },
+        { "en": "I asked my neighbor to water the plants.", "ru": "Я попросил соседа поливать цветы.", "gap": "neighbor" }
+      ]
+    },
+    {
+      "id": "w-background",
+      "kind": "word",
+      "en": "background",
+      "ru": "фон, происхождение (образование, опыт)",
+      "rank": 1223,
+      "note": "In the background — на заднем плане. О человеке: She has a background in finance — у неё финансовое образование или опыт.",
+      "examples": [
+        { "en": "There was loud music in the background.", "ru": "На заднем плане играла громкая музыка.", "gap": "background" },
+        { "en": "He has a background in marketing.", "ru": "У него опыт в маркетинге.", "gap": "background" }
+      ]
+    },
+    {
+      "id": "w-technique",
+      "kind": "word",
+      "en": "technique",
+      "ru": "метод, приём, техника (исполнения)",
+      "rank": 1224,
+      "note": "Ударение на второй слог: tech-NIQUE. Техника в смысле машин и приборов — не technique, а equipment или machines.",
+      "examples": [
+        { "en": "This breathing technique helps me relax.", "ru": "Эта дыхательная техника помогает мне расслабиться.", "gap": "technique" },
+        { "en": "She learned new cooking techniques in Italy.", "ru": "В Италии она освоила новые кулинарные приёмы.", "gap": "techniques" }
+      ]
+    },
+    {
+      "id": "w-improvement",
+      "kind": "word",
+      "en": "improvement",
+      "ru": "улучшение",
+      "rank": 1226,
+      "note": "An improvement in something: an improvement in sales. There's room for improvement — есть что улучшить.",
+      "examples": [
+        { "en": "Your work is good, but there's room for improvement.", "ru": "Работа хорошая, но есть что улучшить.", "gap": "improvement" },
+        { "en": "We made some improvements to the kitchen.", "ru": "Мы немного обновили кухню.", "gap": "improvements" }
+      ]
+    },
+    {
+      "id": "w-consequence",
+      "kind": "word",
+      "en": "consequence",
+      "ru": "последствие",
+      "rank": 1228,
+      "note": "Обычно во множественном числе: consequences. As a consequence — в результате.",
+      "examples": [
+        { "en": "Think about the consequences before you quit your job.", "ru": "Прежде чем увольняться, подумай о последствиях.", "gap": "consequences" },
+        { "en": "Being late every day can have serious consequences.", "ru": "Постоянные опоздания могут иметь серьёзные последствия.", "gap": "consequences" }
+      ]
+    },
+    {
+      "id": "w-circumstance",
+      "kind": "word",
+      "en": "circumstance",
+      "ru": "обстоятельство",
+      "rank": 1229,
+      "note": "Почти всегда во множественном числе: in the circumstances — при таких обстоятельствах. Under no circumstances — ни в коем случае.",
+      "examples": [
+        { "en": "In the circumstances, we had to cancel the trip.", "ru": "При таких обстоятельствах нам пришлось отменить поездку.", "gap": "circumstances" },
+        { "en": "Prices can change due to circumstances beyond our control.", "ru": "Цены могут меняться из-за не зависящих от нас обстоятельств.", "gap": "circumstances" }
+      ]
+    },
+    {
+      "id": "w-reaction",
+      "kind": "word",
+      "en": "reaction",
+      "ru": "реакция",
+      "rank": 1231,
+      "note": "A reaction to something: What was his reaction to the news? Глагол — react.",
+      "examples": [
+        { "en": "What was your mother's reaction to the news?", "ru": "Как твоя мама отреагировала на новость?", "gap": "reaction" },
+        { "en": "I had an allergic reaction to the medicine.", "ru": "У меня была аллергическая реакция на лекарство.", "gap": "reaction" }
+      ]
+    },
+    {
+      "id": "w-contribute",
+      "kind": "word",
+      "en": "contribute",
+      "ru": "вносить вклад, способствовать",
+      "rank": 1238,
+      "note": "Contribute to something. Ударение на второй слог: con-TRIB-ute. Существительное — contribution.",
+      "examples": [
+        { "en": "Everyone contributed ten dollars to the gift.", "ru": "Каждый скинулся по десять долларов на подарок.", "gap": "contributed" },
+        { "en": "Stress can contribute to poor sleep.", "ru": "Стресс может быть одной из причин плохого сна.", "gap": "contribute" }
+      ]
+    },
+    {
+      "id": "w-failure",
+      "kind": "word",
+      "en": "failure",
+      "ru": "неудача, провал",
+      "rank": 1239,
+      "note": "Глагол — fail. Также сбой, отказ техники: power failure — отключение электричества.",
+      "examples": [
+        { "en": "The party was a complete failure.", "ru": "Вечеринка полностью провалилась.", "gap": "failure" },
+        { "en": "Don't be afraid of failure.", "ru": "Не бойся неудач.", "gap": "failure" }
+      ]
+    },
+    {
+      "id": "w-combine",
+      "kind": "word",
+      "en": "combine",
+      "ru": "сочетать, совмещать, объединить",
+      "rank": 1244,
+      "note": "Combine A with B или combine A and B: combine work with study — совмещать работу с учёбой. Существительное — combination.",
+      "examples": [
+        { "en": "It's hard to combine work and study.", "ru": "Трудно совмещать работу и учёбу.", "gap": "combine" },
+        { "en": "Combine the flour with the milk and mix well.", "ru": "Соедините муку с молоком и хорошо перемешайте.", "gap": "Combine" }
+      ]
+    },
+    {
+      "id": "w-waste",
+      "kind": "word",
+      "en": "waste",
+      "ru": "тратить впустую, пустая трата",
+      "rank": 1246,
+      "note": "A waste of time/money — пустая трата времени/денег. Также отходы, мусор: food waste.",
+      "examples": [
+        { "en": "Don't waste your money on cheap shoes.", "ru": "Не трать зря деньги на дешёвую обувь.", "gap": "waste" },
+        { "en": "That meeting was a complete waste of time.", "ru": "Это совещание было пустой тратой времени.", "gap": "waste" }
+      ]
+    },
+    {
+      "id": "w-owner",
+      "kind": "word",
+      "en": "owner",
+      "ru": "владелец, хозяин",
+      "rank": 1258,
+      "note": "The owner of a car / a business. Глагол own — владеть; прилагательное own — собственный: my own car.",
+      "examples": [
+        { "en": "The owner of the café is my old friend.", "ru": "Владелец кафе — мой старый друг.", "gap": "owner" },
+        { "en": "Dog owners must clean up after their pets.", "ru": "Владельцы собак обязаны убирать за своими питомцами.", "gap": "owners" }
+      ]
+    },
+    {
+      "id": "w-duty",
+      "kind": "word",
+      "en": "duty",
+      "ru": "обязанность, долг",
+      "rank": 1262,
+      "note": "On duty — на дежурстве, off duty — не на смене. Также пошлина: duty-free — беспошлинный.",
+      "examples": [
+        { "en": "One of my duties is to answer the phone.", "ru": "Одна из моих обязанностей — отвечать на звонки.", "gap": "duties" },
+        { "en": "Which doctor is on duty tonight?", "ru": "Какой врач сегодня дежурит?", "gap": "duty" }
+      ]
+    },
+    {
+      "id": "w-arrange",
+      "kind": "word",
+      "en": "arrange",
+      "ru": "организовать, договориться",
+      "rank": 1266,
+      "note": "Arrange a meeting — назначить встречу; arrange to do something — договориться: We arranged to meet at six. Также расставить: arrange the chairs.",
+      "examples": [
+        { "en": "Can you arrange a meeting with the client?", "ru": "Ты можешь назначить встречу с клиентом?", "gap": "arrange" },
+        { "en": "We arranged to meet outside the cinema.", "ru": "Мы договорились встретиться у кинотеатра.", "gap": "arranged" }
+      ]
+    },
+    {
+      "id": "w-unfortunately",
+      "kind": "word",
+      "en": "unfortunately",
+      "ru": "к сожалению",
+      "rank": 1269,
+      "note": "Обычно в начале предложения, с запятой: Unfortunately, the shop was closed. Противоположное — fortunately (к счастью).",
+      "examples": [
+        { "en": "Unfortunately, the tickets were sold out.", "ru": "К сожалению, все билеты были распроданы.", "gap": "Unfortunately" },
+        { "en": "I'd love to come, but unfortunately I'm busy.", "ru": "Я бы с удовольствием пришёл, но, к сожалению, занят.", "gap": "unfortunately" }
+      ]
+    },
+    {
+      "id": "w-demonstrate",
+      "kind": "word",
+      "en": "demonstrate",
+      "ru": "показать, продемонстрировать",
+      "rank": 1272,
+      "note": "Demonstrate how to do something — показать, как это делается. Ударение на первый слог: DEM-on-strate. Существительное — demonstration.",
+      "examples": [
+        { "en": "Let me demonstrate how the machine works.", "ru": "Давайте я покажу, как работает этот аппарат.", "gap": "demonstrate" },
+        { "en": "The results clearly demonstrate that the plan works.", "ru": "Результаты ясно показывают, что план работает.", "gap": "demonstrate" }
+      ]
+    },
+    {
+      "id": "w-appreciate",
+      "kind": "word",
+      "en": "appreciate",
+      "ru": "ценить, быть благодарным",
+      "rank": 1274,
+      "note": "Вежливая формула: I'd appreciate it if you could… — Я был бы признателен, если бы вы… Произносится [əˈpriːʃieɪt].",
+      "examples": [
+        { "en": "I really appreciate your help.", "ru": "Я очень благодарен за помощь.", "gap": "appreciate" },
+        { "en": "I'd appreciate it if you called me back.", "ru": "Буду признателен, если вы мне перезвоните.", "gap": "appreciate" }
+      ]
+    },
+    {
+      "id": "w-apparently",
+      "kind": "word",
+      "en": "apparently",
+      "ru": "по-видимому, судя по всему",
+      "rank": 1277,
+      "note": "Apparently — «говорят, как выяснилось»: так передают услышанное. Не «очевидно» — это obviously.",
+      "examples": [
+        { "en": "Apparently, the shop is closing next month.", "ru": "Говорят, магазин в следующем месяце закрывается.", "gap": "Apparently" },
+        { "en": "He was apparently too busy to call.", "ru": "Видимо, он был слишком занят, чтобы позвонить.", "gap": "apparently" }
+      ]
+    },
+    {
+      "id": "w-trend",
+      "kind": "word",
+      "en": "trend",
+      "ru": "тенденция, тренд",
+      "rank": 1281,
+      "note": "A trend towards something: a trend towards working from home. Прилагательное trendy — модный.",
+      "examples": [
+        { "en": "There is a growing trend towards working from home.", "ru": "Работа из дома становится всё популярнее.", "gap": "trend" },
+        { "en": "She always follows the latest fashion trends.", "ru": "Она всегда следит за последними модными тенденциями.", "gap": "trends" }
+      ]
+    },
+    {
+      "id": "w-essential",
+      "kind": "word",
+      "en": "essential",
+      "ru": "необходимый, важнейший",
+      "rank": 1290,
+      "note": "Сильнее, чем important: без этого нельзя. It is essential to… / essential for something. The essentials — самое необходимое.",
+      "examples": [
+        { "en": "Good shoes are essential for a long walk.", "ru": "Для долгой прогулки хорошая обувь просто необходима.", "gap": "essential" },
+        { "en": "It's essential to book tickets in advance.", "ru": "Билеты обязательно нужно бронировать заранее.", "gap": "essential" }
+      ]
+    },
+    {
+      "id": "w-promote",
+      "kind": "word",
+      "en": "promote",
+      "ru": "продвигать, повысить (в должности)",
+      "rank": 1292,
+      "note": "Be promoted — получить повышение: She was promoted to manager. Promote a product — рекламировать товар. Существительное — promotion.",
+      "examples": [
+        { "en": "She was promoted to senior manager last year.", "ru": "В прошлом году её повысили до старшего менеджера.", "gap": "promoted" },
+        { "en": "We use social media to promote our products.", "ru": "Мы продвигаем наши товары через соцсети.", "gap": "promote" }
+      ]
+    },
+    {
+      "id": "w-currently",
+      "kind": "word",
+      "en": "currently",
+      "ru": "в настоящее время, сейчас",
+      "rank": 1293,
+      "note": "Официальнее, чем now; часто с Present Continuous: I'm currently looking for a job. Прилагательное current — текущий.",
+      "examples": [
+        { "en": "I'm currently working on a new project.", "ru": "Сейчас я работаю над новым проектом.", "gap": "currently" },
+        { "en": "The museum is currently closed for repairs.", "ru": "Сейчас музей закрыт на ремонт.", "gap": "currently" }
+      ]
+    },
+    {
+      "id": "w-attract",
+      "kind": "word",
+      "en": "attract",
+      "ru": "привлекать",
+      "rank": 1298,
+      "note": "Attract attention / customers / tourists. Прилагательное attractive — привлекательный; attraction — достопримечательность.",
+      "examples": [
+        { "en": "The festival attracts thousands of tourists every year.", "ru": "Каждый год фестиваль привлекает тысячи туристов.", "gap": "attracts" },
+        { "en": "We need new ideas to attract young customers.", "ru": "Нам нужны новые идеи, чтобы привлечь молодых покупателей.", "gap": "attract" }
+      ]
+    }
+  ]
+}

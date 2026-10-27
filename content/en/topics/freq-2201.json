@@ -1,0 +1,319 @@
+{
+  "id": "freq-2201",
+  "title": "Частые слова 2201–2300",
+  "intro": "Слова с 2201-го по 2300-е место в частотном списке NGSL. Темой они не связаны: так слова меньше путаются при запоминании. Самые частые идут первыми.",
+  "items": [
+    {
+      "id": "w-adjust",
+      "kind": "word",
+      "en": "adjust",
+      "ru": "отрегулировать, приспособиться",
+      "rank": 2208,
+      "note": "Adjust the seat — отрегулировать сиденье. Adjust to something — привыкнуть, приспособиться: adjust to a new job.",
+      "examples": [
+        { "en": "You can adjust the height of this chair.", "ru": "Высоту этого стула можно отрегулировать.", "gap": "adjust" },
+        { "en": "It took me a month to adjust to the new job.", "ru": "Мне понадобился месяц, чтобы привыкнуть к новой работе.", "gap": "adjust" }
+      ]
+    },
+    {
+      "id": "w-nowadays",
+      "kind": "word",
+      "en": "nowadays",
+      "ru": "в наше время, сейчас",
+      "rank": 2210,
+      "note": "Противопоставляет настоящее прошлому: Nowadays people rarely write letters. Синоним — these days.",
+      "examples": [
+        { "en": "Nowadays most people pay by card.", "ru": "Сейчас большинство людей платит картой.", "gap": "Nowadays" },
+        { "en": "Kids nowadays spend hours on their phones.", "ru": "Современные дети часами сидят в телефонах.", "gap": "nowadays" }
+      ]
+    },
+    {
+      "id": "w-competitor",
+      "kind": "word",
+      "en": "competitor",
+      "ru": "конкурент, соперник",
+      "rank": 2213,
+      "note": "Компания-конкурент или участник соревнования. Глагол — compete, прилагательное — competitive.",
+      "examples": [
+        { "en": "Our main competitor has lowered its prices.", "ru": "Наш главный конкурент снизил цены.", "gap": "competitor" },
+        { "en": "Over two hundred competitors ran in the city marathon.", "ru": "В городском марафоне бежали больше двухсот участников.", "gap": "competitors" }
+      ]
+    },
+    {
+      "id": "w-overcome",
+      "kind": "word",
+      "en": "overcome",
+      "ru": "преодолеть, справиться",
+      "rank": 2222,
+      "note": "Неправильный глагол: overcome — overcame — overcome. Overcome a fear / a problem — побороть страх, справиться с проблемой.",
+      "examples": [
+        { "en": "She worked hard to overcome her fear of flying.", "ru": "Она много работала над собой, чтобы побороть страх полётов.", "gap": "overcome" },
+        { "en": "We overcame many problems during the project.", "ru": "За время проекта мы справились со многими проблемами.", "gap": "overcame" }
+      ]
+    },
+    {
+      "id": "w-depth",
+      "kind": "word",
+      "en": "depth",
+      "ru": "глубина",
+      "rank": 2224,
+      "note": "Существительное от deep. In depth — подробно, основательно: discuss something in depth.",
+      "examples": [
+        { "en": "The depth of the pool is two meters.", "ru": "Глубина бассейна — два метра.", "gap": "depth" },
+        { "en": "We discussed the plan in depth at the meeting.", "ru": "На совещании мы подробно обсудили план.", "gap": "depth" }
+      ]
+    },
+    {
+      "id": "w-entrance",
+      "kind": "word",
+      "en": "entrance",
+      "ru": "вход",
+      "rank": 2225,
+      "note": "Main entrance — главный вход. Entrance exam — вступительный экзамен. Глагол — enter.",
+      "examples": [
+        { "en": "I'll meet you at the main entrance.", "ru": "Встретимся у главного входа.", "gap": "entrance" },
+        { "en": "She passed the university entrance exam.", "ru": "Она сдала вступительный экзамен в университет.", "gap": "entrance" }
+      ]
+    },
+    {
+      "id": "w-interpret",
+      "kind": "word",
+      "en": "interpret",
+      "ru": "истолковать, понять (смысл)",
+      "rank": 2232,
+      "note": "Также «переводить устно»: устный переводчик — interpreter, письменный — translator.",
+      "examples": [
+        { "en": "How do you interpret these results?", "ru": "Как вы трактуете эти результаты?", "gap": "interpret" },
+        { "en": "He interpreted my silence as agreement.", "ru": "Он принял моё молчание за согласие.", "gap": "interpreted" }
+      ]
+    },
+    {
+      "id": "w-harm",
+      "kind": "word",
+      "en": "harm",
+      "ru": "вред, навредить",
+      "rank": 2236,
+      "note": "Do harm — навредить. No harm done — ничего страшного. Прилагательное — harmful (вредный).",
+      "examples": [
+        { "en": "Too much sugar can do real harm to your teeth.", "ru": "Избыток сахара может серьёзно навредить зубам.", "gap": "harm" },
+        { "en": "A short walk in the cold won't harm you.", "ru": "Короткая прогулка на холоде тебе не повредит.", "gap": "harm" }
+      ]
+    },
+    {
+      "id": "w-consult",
+      "kind": "word",
+      "en": "consult",
+      "ru": "посоветоваться, обратиться (к специалисту)",
+      "rank": 2237,
+      "note": "Consult a doctor — обратиться к врачу за советом, consult a map — свериться с картой. Давать советы другим — скорее advise.",
+      "examples": [
+        { "en": "You should consult a doctor before taking these pills.", "ru": "Перед приёмом этих таблеток стоит проконсультироваться с врачом.", "gap": "consult" },
+        { "en": "I always consult my wife before big purchases.", "ru": "Перед крупными покупками я всегда советуюсь с женой.", "gap": "consult" }
+      ]
+    },
+    {
+      "id": "w-impress",
+      "kind": "word",
+      "en": "impress",
+      "ru": "произвести впечатление, впечатлить",
+      "rank": 2243,
+      "note": "Be impressed by/with — быть под впечатлением: I was impressed by the view. Прилагательное — impressive.",
+      "examples": [
+        { "en": "He wore a suit to impress his new boss.", "ru": "Он надел костюм, чтобы произвести впечатление на нового начальника.", "gap": "impress" },
+        { "en": "We were impressed by the service at the hotel.", "ru": "Нас впечатлило обслуживание в отеле.", "gap": "impressed" }
+      ]
+    },
+    {
+      "id": "w-similarly",
+      "kind": "word",
+      "en": "similarly",
+      "ru": "так же, аналогично, похоже",
+      "rank": 2247,
+      "note": "Часто стоит в начале предложения как связка: «точно так же, аналогично». Прилагательное — similar.",
+      "examples": [
+        { "en": "The two sisters dress similarly and are often confused.", "ru": "Сёстры одеваются похоже, и их часто путают.", "gap": "similarly" },
+        { "en": "Train tickets are cheaper online; similarly, hotels give online discounts.", "ru": "Билеты на поезд онлайн дешевле; точно так же и гостиницы дают скидки при онлайн-бронировании.", "gap": "similarly" }
+      ]
+    },
+    {
+      "id": "w-loud",
+      "kind": "word",
+      "en": "loud",
+      "ru": "громкий, громко",
+      "rank": 2249,
+      "note": "Out loud — вслух: read it out loud. Наречие — loudly, но в разговоре часто просто loud: Speak louder!",
+      "examples": [
+        { "en": "The music next door is too loud.", "ru": "У соседей слишком громкая музыка.", "gap": "loud" },
+        { "en": "Could you read the message out loud?", "ru": "Можешь прочитать сообщение вслух?", "gap": "loud" }
+      ]
+    },
+    {
+      "id": "w-efficiency",
+      "kind": "word",
+      "en": "efficiency",
+      "ru": "эффективность, экономичность",
+      "rank": 2254,
+      "note": "Efficiency — результат без лишних затрат времени и сил. Прилагательное — efficient. Energy efficiency — энергоэффективность.",
+      "examples": [
+        { "en": "The new software improved our efficiency.", "ru": "Новая программа повысила нашу эффективность.", "gap": "efficiency" },
+        { "en": "Check the energy efficiency of a fridge before you buy it.", "ru": "Перед покупкой холодильника проверьте его энергоэффективность.", "gap": "efficiency" }
+      ]
+    },
+    {
+      "id": "w-statistic",
+      "kind": "word",
+      "en": "statistic",
+      "ru": "статистический показатель, цифра",
+      "rank": 2256,
+      "note": "Чаще во множественном числе: statistics — статистика, данные (The statistics show…). Одно число — a statistic.",
+      "examples": [
+        { "en": "One statistic surprised me: half of us skip breakfast.", "ru": "Одна цифра меня удивила: половина из нас не завтракает.", "gap": "statistic" },
+        { "en": "Official statistics show that prices rose by five percent.", "ru": "Официальная статистика показывает, что цены выросли на пять процентов.", "gap": "statistics" }
+      ]
+    },
+    {
+      "id": "w-regularly",
+      "kind": "word",
+      "en": "regularly",
+      "ru": "регулярно",
+      "rank": 2257,
+      "note": "Ставится перед смысловым глаголом или в конце: I regularly check my email. Прилагательное — regular.",
+      "examples": [
+        { "en": "I regularly go to the gym after work.", "ru": "Я регулярно хожу в спортзал после работы.", "gap": "regularly" },
+        { "en": "Please back up your files regularly.", "ru": "Пожалуйста, регулярно делайте резервные копии файлов.", "gap": "regularly" }
+      ]
+    },
+    {
+      "id": "w-membership",
+      "kind": "word",
+      "en": "membership",
+      "ru": "членство, абонемент",
+      "rank": 2261,
+      "note": "Gym membership — абонемент в спортзал. Membership fee — членский взнос.",
+      "examples": [
+        { "en": "My gym membership costs thirty dollars a month.", "ru": "Абонемент в спортзал обходится мне в тридцать долларов в месяц.", "gap": "membership" },
+        { "en": "Club membership is free for students.", "ru": "Для студентов членство в клубе бесплатное.", "gap": "membership" }
+      ]
+    },
+    {
+      "id": "w-quantity",
+      "kind": "word",
+      "en": "quantity",
+      "ru": "количество",
+      "rank": 2267,
+      "note": "Quality — качество, quantity — количество: quality over quantity. A large quantity of — большое количество чего-то.",
+      "examples": [
+        { "en": "We ordered a large quantity of paper for the office.", "ru": "Мы заказали в офис большое количество бумаги.", "gap": "quantity" },
+        { "en": "When I buy clothes, I prefer quality to quantity.", "ru": "Покупая одежду, я ставлю качество выше количества.", "gap": "quantity" }
+      ]
+    },
+    {
+      "id": "w-briefly",
+      "kind": "word",
+      "en": "briefly",
+      "ru": "кратко, ненадолго",
+      "rank": 2270,
+      "note": "Два значения: «в двух словах» (explain briefly) и «на короткое время» (We met briefly). Прилагательное — brief.",
+      "examples": [
+        { "en": "Can you briefly explain the main idea?", "ru": "Можете кратко объяснить основную идею?", "gap": "briefly" },
+        { "en": "We met briefly at the airport.", "ru": "Мы ненадолго увиделись в аэропорту.", "gap": "briefly" }
+      ]
+    },
+    {
+      "id": "w-disturb",
+      "kind": "word",
+      "en": "disturb",
+      "ru": "беспокоить, мешать",
+      "rank": 2272,
+      "note": "Sorry to disturb you — извините за беспокойство. Do not disturb — «не беспокоить» (табличка в отеле).",
+      "examples": [
+        { "en": "Sorry to disturb you, but your car is blocking mine.", "ru": "Извините за беспокойство, но ваша машина загораживает мою.", "gap": "disturb" },
+        { "en": "Please don't disturb me while I'm working.", "ru": "Пожалуйста, не мешай мне, пока я работаю.", "gap": "disturb" }
+      ]
+    },
+    {
+      "id": "w-accurate",
+      "kind": "word",
+      "en": "accurate",
+      "ru": "точный, верный",
+      "rank": 2283,
+      "note": "О данных, информации, приборах: accurate figures. Ударение на первый слог: AC-cu-rate.",
+      "examples": [
+        { "en": "Is the weather app on your phone accurate?", "ru": "Прогноз погоды у тебя в телефоне точный?", "gap": "accurate" },
+        { "en": "Please give me an accurate figure, not a guess.", "ru": "Пожалуйста, назовите точную цифру, а не примерную.", "gap": "accurate" }
+      ]
+    },
+    {
+      "id": "w-burden",
+      "kind": "word",
+      "en": "burden",
+      "ru": "бремя, груз, обуза",
+      "rank": 2286,
+      "note": "Чаще в переносном смысле: a financial burden — финансовое бремя. Be a burden to someone — быть кому-то обузой.",
+      "examples": [
+        { "en": "The loan became a heavy burden for the family.", "ru": "Кредит стал для семьи тяжёлым бременем.", "gap": "burden" },
+        { "en": "I don't want to be a burden to my children.", "ru": "Я не хочу быть обузой для своих детей.", "gap": "burden" }
+      ]
+    },
+    {
+      "id": "w-occasionally",
+      "kind": "word",
+      "en": "occasionally",
+      "ru": "иногда, время от времени",
+      "rank": 2289,
+      "note": "Реже, чем sometimes: «изредка». Пишется с двумя c и одной s: occasionally.",
+      "examples": [
+        { "en": "We occasionally eat out on weekends.", "ru": "По выходным мы иногда ужинаем в ресторане.", "gap": "occasionally" },
+        { "en": "I work from home only occasionally.", "ru": "Я работаю из дома лишь изредка.", "gap": "occasionally" }
+      ]
+    },
+    {
+      "id": "w-shareholder",
+      "kind": "word",
+      "en": "shareholder",
+      "ru": "акционер",
+      "rank": 2290,
+      "note": "Share — акция, holder — владелец. Shareholders' meeting — собрание акционеров.",
+      "examples": [
+        { "en": "The shareholders will meet in May.", "ru": "Акционеры соберутся в мае.", "gap": "shareholders" },
+        { "en": "She is the largest shareholder in the company.", "ru": "Она крупнейший акционер компании.", "gap": "shareholder" }
+      ]
+    },
+    {
+      "id": "w-discovery",
+      "kind": "word",
+      "en": "discovery",
+      "ru": "открытие, находка",
+      "rank": 2292,
+      "note": "Make a discovery — сделать открытие. Глагол — discover. Открытие магазина или выставки — не discovery, а opening.",
+      "examples": [
+        { "en": "Scientists made an important discovery about sleep.", "ru": "Учёные сделали важное открытие о сне.", "gap": "discovery" },
+        { "en": "This little café near work was a real discovery.", "ru": "Это маленькое кафе рядом с работой стало для меня настоящим открытием.", "gap": "discovery" }
+      ]
+    },
+    {
+      "id": "w-frequency",
+      "kind": "word",
+      "en": "frequency",
+      "ru": "частота",
+      "rank": 2295,
+      "note": "Прилагательное — frequent (частый). Ударение на первый слог: FRE-quen-cy.",
+      "examples": [
+        { "en": "The frequency of buses drops after nine at night.", "ru": "После девяти вечера автобусы ходят реже.", "gap": "frequency" },
+        { "en": "Tune the radio to a different frequency.", "ru": "Настрой радио на другую частоту.", "gap": "frequency" }
+      ]
+    },
+    {
+      "id": "w-criticize",
+      "kind": "word",
+      "en": "criticize",
+      "ru": "критиковать",
+      "rank": 2296,
+      "note": "Британское написание — criticise. Criticize someone for something — критиковать за что-то. Существительное — criticism.",
+      "examples": [
+        { "en": "My boss rarely criticizes anyone in public.", "ru": "Мой начальник редко критикует кого-то при всех.", "gap": "criticizes" },
+        { "en": "Customers criticized the bank for its slow service.", "ru": "Клиенты критиковали банк за медленное обслуживание.", "gap": "criticized" }
+      ]
+    }
+  ]
+}
