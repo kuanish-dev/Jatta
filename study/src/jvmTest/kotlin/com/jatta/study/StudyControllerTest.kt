@@ -15,13 +15,13 @@ import com.jatta.study.judge.DiffKind
 import com.jatta.study.judge.EvalCase
 import com.jatta.study.judge.JudgeEval
 import com.jatta.study.judge.OnDeviceModel
+import com.jatta.study.judge.TranslationCase
 import com.jatta.study.store.LearnerStore
 import com.jatta.study.store.SavedProgress
 import com.jatta.study.store.SavedState
 import com.jatta.study.store.withLearner
 import com.jatta.study.remind.Reminder
 import com.jatta.study.remind.ReminderScheduler
-import com.jatta.study.translate.Direction
 import com.jatta.study.translate.SentencesFile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -54,6 +54,7 @@ class StudyControllerTest {
     private fun controller(
         model: OnDeviceModel? = null,
         evalCases: List<EvalCase> = emptyList(),
+        translationCases: List<TranslationCase> = emptyList(),
         texts: List<ReadingText> = emptyList(),
         sentences: SentencesFile? = null,
         placement: PlacementFile? = null,
@@ -61,7 +62,7 @@ class StudyControllerTest {
         config: StudyConfig = StudyConfig(),
     ) = StudyController(
         content, LearnerStore(dir.absolutePath), nowMs = { now }, utcOffsetMinutes = { almaty },
-        scope = CoroutineScope(Dispatchers.Unconfined), model = model, evalCases = evalCases,
+        scope = CoroutineScope(Dispatchers.Unconfined), model = model, evalCases = evalCases, translationCases = translationCases,
         texts = texts, sentences = sentences, reminders = reminders, placementFile = placement,
         engineConfig = engineConfig, config = config, background = Dispatchers.Unconfined,
     )
@@ -334,7 +335,6 @@ class StudyControllerTest {
         val app = controller(sentences = RealContent.sentences())
         val first = firstTranslation(app)
         val answers = LearnerStore(dir.absolutePath).readLog().size
-        assertEquals(Direction.EnRu, first.task.direction)
         app.submitTranslation(first.task.references.first())
         val close = app.screen.value as Screen.Translated
         assertEquals(TranslationOutcome.Close, close.outcome)
@@ -342,8 +342,7 @@ class StudyControllerTest {
         assertTrue(close.diff.all { it.kind == DiffKind.Same })
         app.nextTranslation()
 
-        val second = app.screen.value as Screen.Translate
-        assertEquals(Direction.RuEn, second.task.direction)
+        app.screen.value as Screen.Translate
         app.submitTranslation("Something else entirely.")
         val far = app.screen.value as Screen.Translated
         assertEquals(TranslationOutcome.LearnerDecides, far.outcome)
@@ -368,38 +367,37 @@ class StudyControllerTest {
         assertEquals(answers, LearnerStore(dir.absolutePath).readLog().size, "translations stay out of the answer log")
     }
 
-    /** М25: English further off goes to a trusted model; Russian stays with the learner, the model was not tested on it. */
+    /** М25: further off, a translation goes to the model only after the model passed its own test on translations. */
     @Test
-    fun aTrustedModelChecksEnglishTranslationsOnly() {
-        val cases = JudgeEval.readCases(File(System.getProperty("contentDir"), "eval/free-answers.json").readText())
+    fun aModelChecksTranslationsLenientlyOnlyAfterItsOwnTest() {
+        val dir = File(System.getProperty("contentDir"), "eval")
+        val cases = JudgeEval.readCases(File(dir, "free-answers.json").readText())
+        val translationCases = JudgeEval.readTranslationCases(File(dir, "translations.json").readText())
+        // A model that knows every verdict; any other translation it finds the same in meaning.
         val model = ReplyingModel { prompt ->
-            val case = cases.firstOrNull { "Learner's sentence: ${it.response}" in prompt }
+            val free = cases.firstOrNull { "Learner's sentence: ${it.response}" in prompt }
+            val translation = translationCases.firstOrNull { "Learner's translation: ${it.response}\n" in prompt }
             when {
-                case == null -> "VERDICT: CORRECT"
-                case.correct -> "VERDICT: CORRECT"
-                else -> "VERDICT: WRONG\nFIXED: X " + case.response.substringAfter(' ')
+                free != null -> if (free.correct) "VERDICT: CORRECT" else "VERDICT: WRONG\nFIXED: X " + free.response.substringAfter(' ')
+                translation?.correct == false -> "MEANING: DIFFERENT"
+                else -> "MEANING: SAME"
             }
         }
-        val app = controller(model, cases, sentences = RealContent.sentences())
+        val app = controller(model, cases, translationCases = translationCases, sentences = RealContent.sentences())
         app.testModel()
-        assertTrue((app.screen.value as Screen.Home).ai.lastTest!!.enabled)
+        val check = (app.screen.value as Screen.Home).ai.lastTest!!
+        assertEquals(1.0, check.translationAgreement)
+        assertTrue(check.translationsEnabled)
 
         firstTranslation(app)
         while (true) {
-            val screen = app.screen.value as? Screen.Translate ?: break
+            app.screen.value as? Screen.Translate ?: break
             app.submitTranslation("In my own words.")
-            val checked = app.screen.value as Screen.Translated
-            if (screen.task.direction == Direction.RuEn) {
-                assertEquals(TranslationOutcome.RightByAi, checked.outcome)
-                app.nextTranslation()
-            } else {
-                assertEquals(TranslationOutcome.LearnerDecides, checked.outcome)
-                app.judgeTranslation(right = true)
-            }
+            assertEquals(TranslationOutcome.RightByAi, (app.screen.value as Screen.Translated).outcome)
+            app.nextTranslation()
         }
-        val log = LearnerStore(dir.absolutePath).readTranslations()
-        assertEquals(log.map { if (it.direction == "ru-en") "ai" else "self" }, log.map { it.checkedBy })
-        assertTrue(log.all { it.passed })
+        val log = LearnerStore(this.dir.absolutePath).readTranslations()
+        assertTrue(log.isNotEmpty() && log.all { it.checkedBy == "ai" && it.passed })
     }
 
     @Test

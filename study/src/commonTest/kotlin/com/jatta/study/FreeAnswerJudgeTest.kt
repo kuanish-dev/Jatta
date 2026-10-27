@@ -66,6 +66,23 @@ class FreeAnswerJudgeTest {
         assertEquals(1, WordDiff.edits("I have went home.", "I went home."))
     }
 
+    /** М25: a translation is judged by meaning alone; lesson answers keep the strict prompt. */
+    @Test
+    fun translationsAreJudgedByMeaningAlone() = runTest {
+        var asked = ""
+        var reply = "**MEANING:** SAME"
+        val judge = FreeAnswerJudge(ReplyingModel { asked = it; reply }, StudyConfig())
+        val request = JudgeRequest("Тому нужны были наличные.", "Tom needed some cash.", "Tom needs cash.")
+        assertEquals(Judgment(true, null), judge.judgeTranslation(request))
+        assertTrue("Russian sentence: Тому нужны были наличные." in asked && "Ignore grammar" in asked)
+        reply = "MEANING: DIFFERENT"
+        assertEquals(Judgment(false, null), judge.judgeTranslation(request))
+        reply = "VERDICT: CORRECT"
+        assertNull(judge.judgeTranslation(request), "a reply out of format is thrown away")
+        judge.judge(JudgeRequest("Translate into English: «Ты отправил письмо?»", "Did you send the email?", "Did you sent the email?"))
+        assertTrue("Ignore grammar" !in asked)
+    }
+
     @Test
     fun aContractionAndItsLongFormAreTheSameWords() {
         assertEquals(

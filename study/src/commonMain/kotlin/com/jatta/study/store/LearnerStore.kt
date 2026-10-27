@@ -27,7 +27,10 @@ data class SavedProgress(
 @Serializable
 data class RecentAnswer(val rung: String, val correct: Boolean, val responseMs: Long)
 
-/** Result of the last accuracy test of the on-device model; [enabled] once it agrees often enough (М21). */
+/**
+ * Result of the last accuracy test of the on-device model; [enabled] once it agrees often enough on free
+ * answers (М21), [translationsEnabled] once it does on translations under the lenient rule (М25).
+ */
 @Serializable
 data class AiCheck(
     val agreement: Double,
@@ -36,6 +39,8 @@ data class AiCheck(
     val rightRejected: Int,
     val unusable: Int,
     val enabled: Boolean,
+    val translationAgreement: Double? = null,
+    val translationsEnabled: Boolean = false,
 )
 
 /** The placement test's outcome; [skipped] when the learner chose to start from the beginning (М23). */
@@ -103,8 +108,6 @@ data class TranslationEntry(
     val atMs: Long,
     val day: Int,
     val sentence: Int,
-    /** en-ru or ru-en. */
-    val direction: String,
     val response: String,
     /** chrF++ against the closest human translation, 0–1. */
     val score: Double,

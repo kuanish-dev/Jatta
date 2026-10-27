@@ -29,6 +29,7 @@ import com.jatta.study.judge.FreeAnswerJudge
 import com.jatta.study.judge.JudgeEval
 import com.jatta.study.judge.JudgeRequest
 import com.jatta.study.judge.ModelState
+import com.jatta.study.judge.TranslationCase
 import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.judge.WordDiff
 import com.jatta.study.placement.Placement
@@ -46,7 +47,6 @@ import com.jatta.study.store.TranslationEntry
 import com.jatta.study.store.toLearner
 import com.jatta.study.store.withFirstDays
 import com.jatta.study.store.withLearner
-import com.jatta.study.translate.Direction
 import com.jatta.study.translate.SentencesFile
 import com.jatta.study.translate.TranslationPicker
 import com.jatta.study.translate.TranslationScore
@@ -86,6 +86,8 @@ class StudyController(
     private val scope: CoroutineScope,
     private val model: OnDeviceModel? = null,
     private val evalCases: List<EvalCase> = emptyList(),
+    /** М25: translations with known verdicts; the model is tested on those the threshold leaves to it. */
+    translationCases: List<TranslationCase> = emptyList(),
     private val texts: List<ReadingText> = emptyList(),
     private val sentences: SentencesFile? = null,
     private val reminders: ReminderScheduler? = null,
@@ -104,6 +106,7 @@ class StudyController(
     private var fitting = false
     private val exercises = ExerciseFactory(content)
     private val judge = model?.let { FreeAnswerJudge(it, config) }
+    private val modelTranslationCases = JudgeEval.belowThreshold(translationCases, config.translationPassScore)
     private val placement = placementFile?.let { Placement(content, it, config) }
     /** Topics made of rules only: the grammar of the course. */
     private val grammarTopics = content.topics.values.filter { topic -> topic.items.all { it.kind == KindFile.Rule } }.map { it.id }
@@ -232,20 +235,19 @@ class StudyController(
 
     /**
      * М25: a translation close enough to a human one counts at once. Further off, it may still be right in
-     * other words: English goes to the model when there is a trusted one, otherwise the learner compares.
-     * Russian always goes to the learner: the model was only tested on English answers.
+     * other words: the model judges it leniently when it passed its test on translations, otherwise the learner compares.
      */
     fun submitTranslation(text: String) {
         val task = (state.value as? Screen.Translate)?.task ?: return
         val closeness = TranslationScore.of(text, task.references, config.translationPassScore)
         pendingTranslation = PendingTranslation(text, closeness.score, elapsedMs())
-        val judge = trustedJudge()
+        val judge = trustedJudge()?.takeIf { saved.aiCheck?.translationsEnabled == true }
         when {
             closeness.passed -> {
                 recordTranslation(true, CheckedBy.Code)
                 showTranslated(closeness.closest, TranslationOutcome.Close)
             }
-            judge != null && task.direction == Direction.RuEn -> checkTranslation(judge, task, closeness.closest)
+            judge != null -> checkTranslation(judge, task, closeness.closest)
             else -> showTranslated(closeness.closest, TranslationOutcome.LearnerDecides)
         }
     }
@@ -254,7 +256,7 @@ class StudyController(
     fun judgeTranslation(right: Boolean) {
         val outcome = (state.value as? Screen.Translated)?.outcome ?: return
         val checkedBy = when (outcome) {
-            TranslationOutcome.FixedByAi -> if (right) CheckedBy.AiDisputed else CheckedBy.Ai
+            TranslationOutcome.WrongByAi -> if (right) CheckedBy.AiDisputed else CheckedBy.Ai
             TranslationOutcome.LearnerDecides -> CheckedBy.Self
             TranslationOutcome.Close, TranslationOutcome.RightByAi -> return
         }
@@ -277,8 +279,8 @@ class StudyController(
         val token = ++checkToken
         state.value = Screen.Checking(translationSteps())
         scope.launch {
-            val request = JudgeRequest("Translate into English: «${task.source}»", closest, response)
-            val judgment = withTimeoutOrNull(config.judgeTimeoutMs) { judge.judge(request) }
+            val request = JudgeRequest(task.source, closest, response)
+            val judgment = withTimeoutOrNull(config.judgeTimeoutMs) { judge.judgeTranslation(request) }
             if (token != checkToken || state.value !is Screen.Checking) return@launch // the learner left meanwhile
             when {
                 judgment == null -> showTranslated(closest, TranslationOutcome.LearnerDecides)
@@ -286,12 +288,12 @@ class StudyController(
                     recordTranslation(true, CheckedBy.Ai)
                     showTranslated(closest, TranslationOutcome.RightByAi)
                 }
-                else -> showTranslated(judgment.corrected!!, TranslationOutcome.FixedByAi)
+                else -> showTranslated(closest, TranslationOutcome.WrongByAi)
             }
         }
     }
 
-    /** The learner's words against [target]: the closest human translation or the model's fix. */
+    /** The learner's words against [target], the closest human translation. */
     private fun showTranslated(target: String, outcome: TranslationOutcome) {
         val pending = pendingTranslation ?: error("No translation on screen")
         state.value = Screen.Translated(
@@ -311,8 +313,7 @@ class StudyController(
         if (right) translatedRight++
         store.logTranslation(
             TranslationEntry(
-                nowMs(), today, task.sentenceId, task.direction.logName, pending.response, pending.score, right,
-                pending.responseMs, checkedBy.logName,
+                nowMs(), today, task.sentenceId, pending.response, pending.score, right, pending.responseMs, checkedBy.logName,
             ),
         )
     }
@@ -474,6 +475,10 @@ class StudyController(
                 testedDone = done
                 refreshHome()
             }
+            val translations = JudgeEval.runTranslations(judge, modelTranslationCases, config.translationPassScore) { done ->
+                testedDone = evalCases.size + done
+                refreshHome()
+            }
             val check = AiCheck(
                 agreement = result.agreement,
                 total = result.total,
@@ -481,6 +486,8 @@ class StudyController(
                 rightRejected = result.rightRejected,
                 unusable = result.unusable,
                 enabled = result.agreement >= config.minJudgeAgreement,
+                translationAgreement = translations.agreement.takeIf { translations.total > 0 },
+                translationsEnabled = translations.total > 0 && translations.agreement >= config.minJudgeAgreement,
             )
             testedDone = null
             saved = saved.copy(aiCheck = check)
@@ -699,7 +706,7 @@ class StudyController(
             met = content.course.items.count { it.id in learner.progress },
             total = content.course.items.size,
         )
-        val ai = AiStatus(modelState, downloadedBytes, testedDone, evalCases.size, saved.aiCheck)
+        val ai = AiStatus(modelState, downloadedBytes, testedDone, evalCases.size + modelTranslationCases.size, saved.aiCheck)
         // М11, the course author's choice: real texts open once all the grammar of the course holds in memory.
         val grammarHolds = grammarTopics.all { engine.gate.isMastered(it, learner, today) }
         val reading = if (grammarHolds) readingPicker.pick(texts, learner, today, saved.readTexts.toSet()) else null

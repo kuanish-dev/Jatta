@@ -30,4 +30,8 @@ tasks.named<Test>("jvmTest") {
     systemProperty("sourcesDir", sourcesDir)
     inputs.dir(contentDir)
     inputs.dir(sourcesDir)
+    // OllamaEvalTest measures a local model only when one is named: -PollamaModel=gemma4:e2b
+    val ollamaModel = providers.gradleProperty("ollamaModel").orElse("")
+    systemProperty("ollamaModel", ollamaModel.get())
+    inputs.property("ollamaModel", ollamaModel)
 }

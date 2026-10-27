@@ -1,5 +1,6 @@
 package com.jatta.study.judge
 
+import com.jatta.study.translate.TranslationScore
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
@@ -9,6 +10,13 @@ data class EvalCase(val task: String, val reference: String, val response: Strin
 
 @Serializable
 private data class EvalFile(val cases: List<EvalCase>)
+
+/** М25: a translation into English with a known verdict under the lenient rule. */
+@Serializable
+data class TranslationCase(val source: String, val references: List<String>, val response: String, val correct: Boolean)
+
+@Serializable
+private data class TranslationFile(val about: String, val cases: List<TranslationCase>)
 
 data class EvalResult(
     val total: Int,
@@ -29,16 +37,41 @@ data class EvalResult(
 object JudgeEval {
     fun readCases(text: String): List<EvalCase> = Json.decodeFromString<EvalFile>(text).cases
 
-    suspend fun run(judge: FreeAnswerJudge, cases: List<EvalCase>, onProgress: (done: Int) -> Unit): EvalResult {
+    fun readTranslationCases(text: String): List<TranslationCase> = Json.decodeFromString<TranslationFile>(text).cases
+
+    /** The translations the threshold leaves to the model: only these does the model see in lessons. */
+    fun belowThreshold(cases: List<TranslationCase>, passScore: Double): List<TranslationCase> =
+        cases.filterNot { TranslationScore.of(it.response, it.references, passScore).passed }
+
+    suspend fun run(judge: FreeAnswerJudge, cases: List<EvalCase>, onProgress: (done: Int) -> Unit): EvalResult =
+        measure(cases, { it.correct }, { judge.judge(JudgeRequest(it.task, it.reference, it.response)) }, onProgress)
+
+    /** М25: each translation is compared with its closest human one, as in lessons. */
+    suspend fun runTranslations(
+        judge: FreeAnswerJudge,
+        cases: List<TranslationCase>,
+        passScore: Double,
+        onProgress: (done: Int) -> Unit,
+    ): EvalResult = measure(cases, { it.correct }, { case ->
+        val closest = TranslationScore.of(case.response, case.references, passScore).closest
+        judge.judgeTranslation(JudgeRequest(case.source, closest, case.response))
+    }, onProgress)
+
+    private suspend fun <T> measure(
+        cases: List<T>,
+        correct: (T) -> Boolean,
+        verdict: suspend (T) -> Judgment?,
+        onProgress: (done: Int) -> Unit,
+    ): EvalResult {
         var agreed = 0
         var wrongAccepted = 0
         var rightRejected = 0
         var unusable = 0
         cases.forEachIndexed { index, case ->
-            val judgment = judge.judge(JudgeRequest(case.task, case.reference, case.response))
+            val judgment = verdict(case)
             when {
                 judgment == null -> unusable++
-                judgment.correct == case.correct -> agreed++
+                judgment.correct == correct(case) -> agreed++
                 judgment.correct -> wrongAccepted++
                 else -> rightRejected++
             }

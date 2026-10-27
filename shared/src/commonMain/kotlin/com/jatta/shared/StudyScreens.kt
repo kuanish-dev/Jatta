@@ -353,6 +353,14 @@ private fun AiSection(ai: AiStatus, controller: StudyController) {
                 if (test.enabled) "Модель проверяет свободные ответы" else "Ниже порога 90% — сверяете сами",
                 color = if (test.enabled) Neon.Cyan else Neon.Magenta,
             )
+            // М25: translations are judged leniently and have their own test.
+            test.translationAgreement?.let { agreement ->
+                Muted("Переводы фраз: совпала ${(agreement * 100).roundToInt()}%.")
+                Label(
+                    if (test.translationsEnabled) "Модель проверяет и переводы" else "Переводы ниже порога — сверяете сами",
+                    color = if (test.translationsEnabled) Neon.Cyan else Neon.Magenta,
+                )
+            }
             NeonOutlinedButton(controller::testModel) { Text("ПРОВЕРИТЬ ЕЩЁ РАЗ") }
         }
     }

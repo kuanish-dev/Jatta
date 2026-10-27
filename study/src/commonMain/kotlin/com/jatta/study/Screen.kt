@@ -83,15 +83,12 @@ sealed interface Screen {
     /** М25: translate a sentence made of words the learner holds; [id] keeps consecutive tasks distinct. */
     data class Translate(val id: Int, val task: TranslationTask, val steps: Steps) : Screen
 
-    /**
-     * М25: the translation against the closest human one (or the model's fix, when [outcome] is FixedByAi),
-     * with its chrF++ [score].
-     */
+    /** М25: the translation against the closest human one, with its chrF++ [score]. */
     data class Translated(
         val task: TranslationTask,
         val response: String,
         val score: Double,
-        /** The closest human translation, or the model's fix. */
+        /** The closest human translation. */
         val target: String,
         val diff: List<DiffPart>,
         val outcome: TranslationOutcome,
@@ -139,10 +136,10 @@ data class AiStatus(
 enum class Banner { Correct, CheckedByAi, CorrectWithHint }
 
 /**
- * М25: Close — near enough to a human translation; RightByAi — further off, but the model found it right;
- * FixedByAi — the model corrected it; LearnerDecides — further off and no model: the learner compares.
+ * М25: Close — near enough to a human translation; RightByAi — further off, but the model found the meaning
+ * the same; WrongByAi — the model found it different; LearnerDecides — further off and no model: the learner compares.
  */
-enum class TranslationOutcome { Close, RightByAi, FixedByAi, LearnerDecides }
+enum class TranslationOutcome { Close, RightByAi, WrongByAi, LearnerDecides }
 
 enum class RestKind { Scheduled, Fatigue, Quiet }
 

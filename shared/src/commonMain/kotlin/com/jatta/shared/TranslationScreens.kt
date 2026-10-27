@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
@@ -20,21 +19,18 @@ import com.jatta.study.StudyController
 import com.jatta.study.TranslationOutcome
 import com.jatta.study.exercise.AnswerCheck
 import com.jatta.study.judge.DiffKind
-import com.jatta.study.translate.Direction
 import com.jatta.study.translate.TranslationTask
 import kotlin.math.roundToInt
 
-/** М25: a sentence of held words to translate, at the end of a session. */
+/** М25: a sentence of held words to translate into English, at the end of a session. */
 @Composable
 internal fun TranslateScreen(screen: Screen.Translate, controller: StudyController) =
     StudyPage(screen.steps, banner = null, onStop = controller::stopSession, counter = "Перевод") {
-        val task = screen.task
-        Label(if (task.direction == Direction.EnRu) "Переведите на русский" else "Переведите на английский", color = Neon.Magenta)
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(task.source, Modifier.weight(1f), style = MaterialTheme.typography.headlineSmall)
-            if (task.direction == Direction.EnRu) ListenButton(task.english)
+        Label("Переведите на английский", color = Neon.Magenta)
+        Text(screen.task.source, style = MaterialTheme.typography.headlineSmall)
+        if (screen.steps.done == 0) {
+            Muted("Фразы из слов, которые вы держите в памяти. Засчитывается от 80% сходства с переводом человека или когда смысл передан.")
         }
-        if (screen.steps.done == 0) Muted("Фразы из слов, которые вы держите в памяти. Засчитывается от 80% сходства с переводом человека.")
         AnswerField(screen.id, singleLine = false, onSubmit = controller::submitTranslation)
     }
 
@@ -47,26 +43,26 @@ internal fun TranslatedScreen(screen: Screen.Translated, controller: StudyContro
         when (screen.outcome) {
             TranslationOutcome.Close -> Label("✓ Засчитано · $similarity", color = Neon.Acid)
             TranslationOutcome.RightByAi -> Label("✓ Верно другими словами — проверила модель · $similarity", color = Neon.Acid)
-            TranslationOutcome.FixedByAi -> Label("Модель нашла ошибку · $similarity", color = Neon.Danger)
+            TranslationOutcome.WrongByAi -> Label("Модель: смысл другой · $similarity", color = Neon.Danger)
             TranslationOutcome.LearnerDecides -> Label("$similarity — меньше 80%", color = Neon.Magenta)
         }
         Muted(task.source)
         Muted("Ваш перевод")
         Text(diffText(screen.diff, shown = DiffKind.Removed), style = MaterialTheme.typography.bodyLarge)
-        Muted(if (screen.outcome == TranslationOutcome.FixedByAi) "Исправлено" else "Ближайший перевод человека")
+        Muted("Ближайший перевод человека")
         Text(diffText(screen.diff, shown = DiffKind.Added), style = MaterialTheme.typography.bodyLarge)
-        ListenButton(if (task.direction == Direction.RuEn) screen.target else task.english, "▶ СЛУШАТЬ")
+        ListenButton(screen.target, "▶ СЛУШАТЬ")
         if (screen.outcome == TranslationOutcome.LearnerDecides) OtherTranslations(task, screen.target)
         SentenceCredit(task)
         when (screen.outcome) {
             TranslationOutcome.Close, TranslationOutcome.RightByAi ->
                 NeonButton(controller::nextTranslation, Modifier.fillMaxWidth()) { Text("ДАЛЬШЕ") }
-            TranslationOutcome.FixedByAi -> Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            TranslationOutcome.WrongByAi -> Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 NeonButton({ controller.judgeTranslation(false) }, Modifier.weight(1f)) { Text("ПОНЯТНО") }
                 NeonOutlinedButton({ controller.judgeTranslation(true) }, Modifier.weight(1f)) { Text("МОДЕЛЬ ОШИБЛАСЬ") }
             }
             TranslationOutcome.LearnerDecides -> {
-                Muted("Смысл и грамматика верны — значит верно, даже если слова другие.")
+                Muted("Смысл передан — значит верно, даже если слова другие или есть мелкие ошибки. Неверно — если смысл другой.")
                 Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     NeonButton({ controller.judgeTranslation(true) }, Modifier.weight(1f)) { Text("ВЕРНО") }
                     NeonOutlinedButton({ controller.judgeTranslation(false) }, Modifier.weight(1f)) { Text("ЕСТЬ ОШИБКА") }

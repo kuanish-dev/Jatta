@@ -71,6 +71,7 @@ fun App(
                     scope = scope,
                     model = model,
                     evalCases = loadEvalCases(),
+                    translationCases = JudgeEval.readTranslationCases(Res.readBytes("$CONTENT_DIR/eval/translations.json").decodeToString()),
                     texts = loadTexts(),
                     sentences = SentencesFile.read(Res.readBytes("$CONTENT_DIR/en/sentences.json").decodeToString()),
                     reminders = reminders,

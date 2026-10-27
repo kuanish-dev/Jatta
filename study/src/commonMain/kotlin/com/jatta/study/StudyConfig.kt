@@ -28,7 +28,7 @@ data class StudyConfig(
     val judgeMinEditsAllowed: Int = 3,
     /** How long to wait for the on-device model before falling back to self-check. */
     val judgeTimeoutMs: Long = 20_000,
-    /** М21: share of known verdicts the model must match before it checks answers in lessons. Weak. */
+    /** М21, М25: share of known verdicts the model must match before it checks answers or translations. Weak. */
     val minJudgeAgreement: Double = 0.9,
     /** М19, М20: reminder time until the learner has a usual one, minutes after midnight. Weak. */
     val defaultStudyMinute: Int = 19 * 60,
@@ -48,7 +48,7 @@ data class StudyConfig(
     val fitHoldoutShare: Double = 0.2,
     /** М2: new reviews after which the memory model is fitted again. Weak. */
     val refitAfterReviews: Int = 512,
-    /** М25: sentences to translate at the end of a session. Weak: a few minutes while the words are fresh. */
+    /** М25: sentences to translate into English at the end of a session. Weak: a few minutes while the words are fresh. */
     val translationsPerSession: Int = 4,
     /** М25: chrF++ to a human translation from which a translation counts as right. The course author's choice. */
     val translationPassScore: Double = 0.8,
