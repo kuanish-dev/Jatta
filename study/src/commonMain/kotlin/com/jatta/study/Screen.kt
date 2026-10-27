@@ -9,6 +9,7 @@ import com.jatta.study.placement.PlacementResult
 import com.jatta.study.reading.Reading
 import com.jatta.study.store.AiCheck
 import com.jatta.study.store.FitCheck
+import com.jatta.study.translate.TranslationTask
 
 /** What the app shows. The UI only draws these and calls StudyController back. */
 sealed interface Screen {
@@ -79,7 +80,32 @@ sealed interface Screen {
 
     data class Rest(val kind: RestKind, val minutes: Int, val untilMs: Long) : Screen
 
-    data class Done(val answered: Int, val rightFirstTime: Int, val endedEarly: Boolean) : Screen
+    /** М25: translate a sentence made of words the learner holds; [id] keeps consecutive tasks distinct. */
+    data class Translate(val id: Int, val task: TranslationTask, val steps: Steps) : Screen
+
+    /**
+     * М25: the translation against the closest human one (or the model's fix, when [outcome] is FixedByAi),
+     * with its chrF++ [score].
+     */
+    data class Translated(
+        val task: TranslationTask,
+        val response: String,
+        val score: Double,
+        /** The closest human translation, or the model's fix. */
+        val target: String,
+        val diff: List<DiffPart>,
+        val outcome: TranslationOutcome,
+        val steps: Steps,
+    ) : Screen
+
+    /** [translated] sentences at the end, [translatedRight] of them right (М25). */
+    data class Done(
+        val answered: Int,
+        val rightFirstTime: Int,
+        val endedEarly: Boolean,
+        val translated: Int = 0,
+        val translatedRight: Int = 0,
+    ) : Screen
 
     /** М2: how well the memory model has predicted this learner so far, and its fit to the learner. */
     data class Calibration(val report: CalibrationReport, val fit: FitStatus) : Screen
@@ -111,6 +137,12 @@ data class AiStatus(
 )
 
 enum class Banner { Correct, CheckedByAi, CorrectWithHint }
+
+/**
+ * М25: Close — near enough to a human translation; RightByAi — further off, but the model found it right;
+ * FixedByAi — the model corrected it; LearnerDecides — further off and no model: the learner compares.
+ */
+enum class TranslationOutcome { Close, RightByAi, FixedByAi, LearnerDecides }
 
 enum class RestKind { Scheduled, Fatigue, Quiet }
 

@@ -86,6 +86,8 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
         is Screen.SelfCheck -> SelfCheckScreen(s, controller)
         is Screen.Heard -> HeardScreen(s, controller)
         is Screen.Reveal -> RevealScreen(s, controller)
+        is Screen.Translate -> TranslateScreen(s, controller)
+        is Screen.Translated -> TranslatedScreen(s, controller)
         is Screen.Rest -> RestScreen(s, nowMs, controller::finishRest)
         is Screen.Done -> DoneScreen(s, controller::openHome)
         is Screen.Calibration -> CalibrationScreen(s, controller::openHome)
@@ -439,7 +441,7 @@ private fun QuestionScreen(question: Screen.Question, controller: StudyControlle
     }
 
 @Composable
-private fun AnswerField(id: Int, singleLine: Boolean, onSubmit: (String) -> Unit) {
+internal fun AnswerField(id: Int, singleLine: Boolean, onSubmit: (String) -> Unit) {
     var text by remember(id) { mutableStateOf("") }
     val focus = remember(id) { FocusRequester() }
     LaunchedEffect(id) { focus.requestFocus() }
@@ -493,9 +495,9 @@ private fun JudgedScreen(judged: Screen.Judged, controller: StudyController) =
         }
     }
 
-/** One side of the correction: unchanged words plus either the removed or the added ones, highlighted. */
+/** One side of the correction: unchanged words, as the learner wrote them or as corrected, plus the removed or the added ones highlighted. */
 @Composable
-private fun diffText(parts: List<DiffPart>, shown: DiffKind) = buildAnnotatedString {
+internal fun diffText(parts: List<DiffPart>, shown: DiffKind) = buildAnnotatedString {
     val highlight = if (shown == DiffKind.Removed) {
         SpanStyle(color = Neon.Danger, textDecoration = TextDecoration.LineThrough)
     } else {
@@ -503,7 +505,11 @@ private fun diffText(parts: List<DiffPart>, shown: DiffKind) = buildAnnotatedStr
     }
     parts.filter { it.kind == DiffKind.Same || it.kind == shown }.forEachIndexed { index, part ->
         if (index > 0) append(' ')
-        if (part.kind == DiffKind.Same) append(part.text) else withStyle(highlight) { append(part.text) }
+        when {
+            part.kind != DiffKind.Same -> withStyle(highlight) { append(part.text) }
+            shown == DiffKind.Removed -> append(part.written)
+            else -> append(part.text)
+        }
     }
 }
 
@@ -608,6 +614,12 @@ private fun DoneScreen(done: Screen.Done, onHome: () -> Unit) = Page {
         NeonNumber("${done.rightFirstTime}/${done.answered}", color = Neon.Acid)
         NeonBar(if (done.answered == 0) 0f else done.rightFirstTime.toFloat() / done.answered, segments = done.answered.coerceIn(1, 24), height = 8.dp)
     }
+    if (done.translated > 0) {
+        Panel(Modifier.fillMaxWidth(), accent = Neon.Cyan.copy(alpha = 0.45f)) {
+            Label("Перевод фраз")
+            NeonNumber("${done.translatedRight}/${done.translated}", color = Neon.Cyan)
+        }
+    }
     NeonButton(onHome, Modifier.fillMaxWidth()) { Text("НА ГЛАВНУЮ") }
 }
 
@@ -695,9 +707,15 @@ private fun decimals(value: Double): String {
 
 /** Session screens: the step counter and a neon bar of how far the session has got. */
 @Composable
-private fun StudyPage(steps: Steps, banner: Banner?, onStop: () -> Unit, content: @Composable ColumnScope.() -> Unit) = Page {
+internal fun StudyPage(
+    steps: Steps,
+    banner: Banner?,
+    onStop: () -> Unit,
+    counter: String = "Шаг",
+    content: @Composable ColumnScope.() -> Unit,
+) = Page {
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        Label("Шаг ${steps.done + 1}/${steps.done + steps.remaining}", color = Neon.Cyan, modifier = Modifier.weight(1f))
+        Label("$counter ${steps.done + 1}/${steps.done + steps.remaining}", color = Neon.Cyan, modifier = Modifier.weight(1f))
         TextButton(onStop) { Text("ЗАКОНЧИТЬ") }
     }
     NeonBar(steps.fraction, height = 6.dp)
@@ -711,7 +729,7 @@ private fun StudyPage(steps: Steps, banner: Banner?, onStop: () -> Unit, content
 }
 
 @Composable
-private fun Page(content: @Composable ColumnScope.() -> Unit) {
+internal fun Page(content: @Composable ColumnScope.() -> Unit) {
     Column(
         Modifier.fillMaxSize().safeDrawingPadding().verticalScroll(rememberScrollState()).padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
@@ -724,7 +742,7 @@ private fun Page(content: @Composable ColumnScope.() -> Unit) {
 
 /** Plays English aloud, in the real voice of [recording] when there is one; nothing is drawn without a speaker. */
 @Composable
-private fun ListenButton(text: String, label: String = "▶", recording: String? = null) {
+internal fun ListenButton(text: String, label: String = "▶", recording: String? = null) {
     val speaker = LocalSpeaker.current ?: return
     val scope = rememberCoroutineScope()
     TextButton({ scope.launch { speaker.say(text, recording) } }) {
@@ -740,14 +758,14 @@ private fun SpeakOnShow(key: Any, text: String, recording: String? = null) {
 }
 
 @Composable
-private fun Note(text: String) {
+internal fun Note(text: String) {
     Panel(Modifier.fillMaxWidth(), accent = Neon.Magenta.copy(alpha = 0.55f)) {
         Text(text, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSecondaryContainer)
     }
 }
 
 @Composable
-private fun Muted(text: String, modifier: Modifier = Modifier) {
+internal fun Muted(text: String, modifier: Modifier = Modifier) {
     Text(text, modifier, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
 }
 

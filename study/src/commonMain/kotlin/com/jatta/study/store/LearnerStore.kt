@@ -94,6 +94,26 @@ data class LogEntry(
     val checkedBy: String? = null,
 )
 
+/**
+ * A sentence translated at the end of a session (М25). Kept apart from the answer log: that log is what
+ * the memory model is checked and fitted on, and translations are extra practice, not scheduled reviews.
+ */
+@Serializable
+data class TranslationEntry(
+    val atMs: Long,
+    val day: Int,
+    val sentence: Int,
+    /** en-ru or ru-en. */
+    val direction: String,
+    val response: String,
+    /** chrF++ against the closest human translation, 0–1. */
+    val score: Double,
+    val passed: Boolean,
+    val responseMs: Long,
+    /** code when close enough to a human translation, otherwise ai, ai-disputed or self. */
+    val checkedBy: String,
+)
+
 fun SavedState.toLearner() = Learner(
     progress = progress.associate {
         it.item to ItemProgress(it.item, Memory(it.stability, it.difficulty), it.lastReviewDay, it.dueDay, it.firstDay)
@@ -116,13 +136,14 @@ fun SavedState.withFirstDays(firstDays: Map<String, Int>) = copy(
     firstDaysRecorded = true,
 )
 
-/** Keeps the learner on the device: a JSON snapshot written atomically, plus an append-only answer log. */
+/** Keeps the learner on the device: a JSON snapshot written atomically, plus append-only logs of answers and translations. */
 class LearnerStore(directory: String) {
     private val dir = Path(directory)
     private val statePath = Path(directory, "learner.json")
     private val tempPath = Path(directory, "learner.json.tmp")
     private val brokenPath = Path(directory, "learner.broken.json")
     private val logPath = Path(directory, "answers.jsonl")
+    private val translationsPath = Path(directory, "translations.jsonl")
     private val json = Json { ignoreUnknownKeys = true }
 
     fun load(): SavedState {
@@ -142,17 +163,24 @@ class LearnerStore(directory: String) {
     }
 
     /** The answer log, oldest first; a line that can't be read is skipped. */
-    fun readLog(): List<LogEntry> {
-        if (!SystemFileSystem.exists(logPath)) return emptyList()
-        val text = SystemFileSystem.source(logPath).buffered().use { it.readString() }
-        return text.lineSequence()
-            .filter { it.isNotBlank() }
-            .mapNotNull { runCatching { json.decodeFromString<LogEntry>(it) }.getOrNull() }
-            .toList()
+    fun readLog(): List<LogEntry> = readLines(logPath).mapNotNull { runCatching { json.decodeFromString<LogEntry>(it) }.getOrNull() }
+
+    fun log(entry: LogEntry) = append(logPath, json.encodeToString(entry))
+
+    /** The translations log (М25), oldest first. */
+    fun readTranslations(): List<TranslationEntry> =
+        readLines(translationsPath).mapNotNull { runCatching { json.decodeFromString<TranslationEntry>(it) }.getOrNull() }
+
+    fun logTranslation(entry: TranslationEntry) = append(translationsPath, json.encodeToString(entry))
+
+    private fun readLines(path: Path): List<String> {
+        if (!SystemFileSystem.exists(path)) return emptyList()
+        val text = SystemFileSystem.source(path).buffered().use { it.readString() }
+        return text.lines().filter { it.isNotBlank() }
     }
 
-    fun log(entry: LogEntry) {
+    private fun append(path: Path, line: String) {
         SystemFileSystem.createDirectories(dir)
-        SystemFileSystem.sink(logPath, append = true).buffered().use { it.writeString(json.encodeToString(entry) + "\n") }
+        SystemFileSystem.sink(path, append = true).buffered().use { it.writeString(line + "\n") }
     }
 }

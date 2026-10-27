@@ -330,7 +330,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
   <div class="section-head">
     <div class="eyebrow">Схема</div>
     <h2>Как движок ведёт ученика</h2>
-    <p class="muted" style="max-width:70ch">Метки М1–М24 ведут к описанию механики ниже.</p>
+    <p class="muted" style="max-width:70ch">Метки М1–М25 ведут к описанию механики ниже.</p>
   </div>
 
   <div class="diagram">
@@ -360,8 +360,8 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
       <div class="node">
         <span class="step">Занятие</span>
         <h4>Блоки по 20–25 минут</h4>
-        <p>Упражнения по лестнице сложности, ошибки возвращаются в очередь, ИИ проверяет и объясняет.</p>
-        <div class="chips"><a href="#m3">М3</a><a href="#m4">М4</a><a href="#m5">М5</a><a href="#m6">М6</a><a href="#m11">М11</a><a href="#m21">М21</a></div>
+        <p>Упражнения по лестнице сложности, ошибки возвращаются в очередь, ИИ проверяет и объясняет. В конце — перевод фраз из выученных слов.</p>
+        <div class="chips"><a href="#m3">М3</a><a href="#m4">М4</a><a href="#m5">М5</a><a href="#m6">М6</a><a href="#m11">М11</a><a href="#m21">М21</a><a href="#m25">М25</a></div>
       </div>
       <span class="arrow" aria-hidden="true"></span>
       <div class="node">
@@ -428,7 +428,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
 <section class="wrap rule-top" id="mechanics">
   <div class="section-head">
     <div class="eyebrow">Механики</div>
-    <h2>23 правила движка и их основания</h2>
+    <h2>25 правил движка и их основания</h2>
   </div>
   <div class="filters" role="group" aria-label="Фильтр по уровню доказательности">
     <button type="button" id="f-all" data-f="all" aria-pressed="true">Все</button>
@@ -488,6 +488,12 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
         <p><span class="k">Движок:</span> 251 фраза с настоящими голосами носителей языка (Tatoeba, свободные лицензии CC BY и CC BY-SA). При первой встрече фраза звучит, и её нужно повторить вслух 2–3 раза за диктором. В повторах — лестница на слух: понять смысл, поймать пропущенное слово, записать фразу целиком, а на верхней ступени сказать её по смыслу и сравнить с голосом. После верного ответа на слух показывается текст: можно переслушать и снова повторить. Повторы назначает та же модель памяти (М2). Все слова фраз — из частотного списка NGSL, не больше одного редкого. Фильмы не берём: даже бесплатные ролики защищены авторским правом.</p>
         <p class="sci"><span class="k">Наука:</span> повторение за диктором (shadowing) улучшало восприятие речи и понимание на слух у японских студентов. Для понимания на слух хватает около 95% знакомых слов, меньше, чем для чтения. Ученики, которых учили готовым фразам целиком, звучали в устной речи увереннее. Исследований немного и они небольшие, поэтому уровень средний.</p>
         <p><a class="cite" href="#ref-hamada2016">Hamada 2016</a> · <a class="cite" href="#ref-vanzeeland2013">van Zeeland &amp; Schmitt 2013</a> · <a class="cite" href="#ref-boers2006">Boers 2006</a></p>
+      </article>
+      <article class="mech" id="m25" data-l="b">
+        <div class="mech-head"><span class="mid">М25</span><h4>Перевод фраз в конце занятия</h4><span class="lvl b">Средние</span></div>
+        <p><span class="k">Движок:</span> после занятия — 4 предложения на перевод, по очереди на русский и на английский. Это настоящие предложения Tatoeba с переводами людей: 1928 пар, вычитанных вручную. Берутся только те, где все слова курса держатся в памяти, а остальные слова — из первой тысячи NGSL; сначала фразы с самыми слабыми из этих слов. Ответ сравнивается со всеми переводами людей по chrF++, метрике машинного перевода. От 80% сходства (порог задал автор курса) при том же числе отрицаний перевод засчитывается сразу, а отличия подсвечиваются. Ниже 80% английский ответ проверяет модель на телефоне, если она прошла тест (М21), русский — вы сами, глядя на переводы людей: на русских ответах модель не проверялась. Фраза, переведённая верно, в этом направлении больше не встречается; ошибка возвращается через 3 дня. Перевод — добавочная практика: сроки повторов он не меняет и пишется в отдельный журнал, чтобы не сбивать калибровку и подгонку памяти (М2).</p>
+        <p class="sci"><span class="k">Наука:</span> задания на перевод с сопоставлением двух языков дали лучшее запоминание слов и сочетаний, чем те же слова в заданиях только на смысл. Перевод на родной язык строит понимание слова, на иностранный — умение им пользоваться, поэтому направления чередуются. Среди простых метрик chrF лучше BLEU совпадает с оценками людей. На 121 размеченном ответе порог засчитал 30, из них 5 — с мелкой грамматической ошибкой; из 70 верных — 25. Верный перевод другими словами метрика узнать не может, его проверяет модель или ученик.</p>
+        <p><a class="cite" href="#ref-laufer2008">Laufer &amp; Girsai 2008</a> · <a class="cite" href="#ref-webb2009">Webb 2009</a> · <a class="cite" href="#ref-popovic2015">Popović 2015</a> · <a class="cite" href="#ref-popovic2017">Popović 2017</a> · <a class="cite" href="#ref-kocmi2021">Kocmi 2021</a></p>
       </article>
     </div>
   </div>
@@ -650,6 +656,9 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
       <tbody>
         <tr><td>Цель удержания при повторах</td><td class="val">90%</td><td><a href="#m2">М2</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Повторить фразу вслух за диктором</td><td class="val">2–3 раза</td><td><a href="#m24">М24</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Фраз на перевод в конце занятия</td><td class="val">4, направления по очереди</td><td><a href="#m25">М25</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Перевод засчитывается</td><td class="val">chrF++ ≥ 80% к переводу человека</td><td><a href="#m25">М25</a></td><td><span class="lvl c">Слабые</span></td></tr>
+        <tr><td>Неверный перевод возвращается</td><td class="val">через 3 дня</td><td><a href="#m25">М25</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Подгонка памяти под ученика</td><td class="val">с 640 повторов, 20% на проверку</td><td><a href="#m2">М2</a></td><td><span class="lvl c">Слабые</span></td></tr>
         <tr><td>Критерий внутри занятия</td><td class="val">1 верный ответ</td><td><a href="#m4">М4</a></td><td><span class="lvl a">Сильные</span></td></tr>
         <tr><td>Первый повтор нового</td><td class="val">после ночи</td><td><a href="#m17">М17</a></td><td><span class="lvl b">Средние</span></td></tr>
@@ -680,6 +689,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
     <li>Калибровка: каждый плановый повтор — проверка прогноза. Перед ним модель знает, с какой вероятностью вы вспомните, после него — вспомнили ли. Средний прогноз сравнивается с долей вспомненного и её 95% интервалом (Вильсона), отдельно по уровням прогноза. Вывод — не раньше 30 повторов. Экран «Точность прогноза» в приложении.</li>
     <li>Отдельной контрольной нет: внеплановый ранний повтор почти не укрепляет память и сам меняет то, что измеряет (М3). Модели памяти так и сравнивают — по истории обычных повторов (<a class="cite" href="#ref-srsbench">srs-benchmark</a>).</li>
     <li>Подгонка под вас: с 640 повторов приложение подгоняет 21 параметр FSRS по журналу тем же способом, что эталонный оптимизатор py-fsrs 6.3.2 (5 проходов Adam, минимум 512 повторов для обучения). Последние 20% повторов подгонка не видит: новые параметры принимаются, только если на них ошибка прогноза меньше, чем у прежних, — так модели памяти сравнивают в <a class="cite" href="#ref-srsbench">srs-benchmark</a>. Потом проверка повторяется каждые 512 новых повторов.</li>
+    <li>Переводы в конце занятия (М25) пишутся в свой журнал: ответ, сходство, засчитан ли и кто решил — код, модель или вы. По нему видно, как часто порог 80% расходится с решением модели и ученика.</li>
     <li>Параметры со слабой доказательностью меняем по этим данным, а не по ощущениям.</li>
   </ul>
 </section>
@@ -712,8 +722,10 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
     <li id="ref-karpicke2008">Karpicke, J. D., &amp; Roediger, H. L. (2008). The critical importance of retrieval for learning. <i>Science, 319</i>(5865). <a href="https://doi.org/10.1126/science.1152408">doi</a></li>
     <li id="ref-kestin2025">Kestin, G., Miller, K., Klales, A., Milbourne, T., &amp; Ponti, G. (2025). AI tutoring outperforms in-class active learning. <i>Scientific Reports, 15</i>. <a href="https://serl.fas.harvard.edu/publication/ai-tutoring-outperforms-class-active-learning-rct-introducing-novel-research-based">harvard</a></li>
     <li id="ref-kim2022">Kim, S. K., &amp; Webb, S. (2022). The effects of spaced practice on second language learning: A meta-analysis. <i>Language Learning, 72</i>(1). <a href="https://doi.org/10.1111/lang.12479">doi</a></li>
+    <li id="ref-kocmi2021">Kocmi, T., Federmann, C., Grundkiewicz, R., Junczys-Dowmunt, M., Matsushita, H., &amp; Menezes, A. (2021). To ship or not to ship: An extensive evaluation of automatic metrics for machine translation. <i>Proceedings of the Sixth Conference on Machine Translation (WMT)</i>. <a href="https://aclanthology.org/2021.wmt-1.57/">acl</a></li>
     <li id="ref-kulik1990">Kulik, C.-L. C., Kulik, J. A., &amp; Bangert-Drowns, R. L. (1990). Effectiveness of mastery learning programs: A meta-analysis. <i>Review of Educational Research, 60</i>(2).</li>
     <li id="ref-lally2010">Lally, P., van Jaarsveld, C. H. M., Potts, H. W. W., &amp; Wardle, J. (2010). How are habits formed: Modelling habit formation in the real world. <i>European Journal of Social Psychology, 40</i>(6).</li>
+    <li id="ref-laufer2008">Laufer, B., &amp; Girsai, N. (2008). Form-focused instruction in second language vocabulary learning: A case for contrastive analysis and translation. <i>Applied Linguistics, 29</i>(4), 694–716. <a href="https://doi.org/10.1093/applin/amn018">doi</a></li>
     <li id="ref-laufer2010">Laufer, B., &amp; Ravenhorst-Kalovski, G. C. (2010). Lexical threshold revisited: Lexical text coverage, learners’ vocabulary size and reading comprehension. <i>Reading in a Foreign Language, 22</i>(1).</li>
     <li id="ref-lemhofer2012">Lemhöfer, K., &amp; Broersma, M. (2012). Introducing LexTALE: A quick and valid Lexical Test for Advanced Learners of English. <i>Behavior Research Methods, 44</i>(2). <a href="https://forms.mpi.nl/node/44908">mpi.nl</a></li>
     <li id="ref-li2010">Li, S. (2010). The effectiveness of corrective feedback in SLA: A meta-analysis. <i>Language Learning, 60</i>(2).</li>
@@ -728,6 +740,8 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
     <li id="ref-pan2019">Pan, S. C., Tajran, J., Lovelett, J., Osuna, J., &amp; Rickard, T. C. (2019). Does interleaved practice enhance foreign language learning? The effects of training schedule on Spanish verb conjugation skills. <i>Journal of Educational Psychology, 111</i>(7).</li>
     <li id="ref-pashler2005">Pashler, H., Cepeda, N. J., Wixted, J. T., &amp; Rohrer, D. (2005). When does feedback facilitate learning of words? <i>Journal of Experimental Psychology: Learning, Memory, and Cognition, 31</i>(1).</li>
     <li id="ref-pashler2008">Pashler, H., McDaniel, M., Rohrer, D., &amp; Bjork, R. (2008). Learning styles: Concepts and evidence. <i>Psychological Science in the Public Interest, 9</i>(3). <a href="https://doi.org/10.1111/j.1539-6053.2009.01038.x">doi</a></li>
+    <li id="ref-popovic2015">Popović, M. (2015). chrF: character n-gram F-score for automatic MT evaluation. <i>Proceedings of the Tenth Workshop on Statistical Machine Translation (WMT)</i>, 392–395. <a href="https://aclanthology.org/W15-3049/">acl</a></li>
+    <li id="ref-popovic2017">Popović, M. (2017). chrF++: words helping character n-grams. <i>Proceedings of the Second Conference on Machine Translation (WMT)</i>, 612–618. <a href="https://aclanthology.org/W17-4770/">acl</a></li>
     <li id="ref-puig2023">Puig-Mayenco, E., et al. (2023). Частичная репликация LexTALE на учениках с родным испанским и китайским. <i>Linguistic Approaches to Bilingualism</i>. <a href="https://ira.lib.polyu.edu.hk/handle/10397/97162">polyu</a></li>
     <li id="ref-rawson2022">Rawson, K. A., &amp; Dunlosky, J. (2022). Successive relearning: An underexplored but potent technique for obtaining and maintaining knowledge. <i>Current Directions in Psychological Science</i>. <a href="https://journals.sagepub.com/doi/full/10.1177/09637214221100484">sagepub</a></li>
     <li id="ref-rohrer2005">Rohrer, D., Taylor, K., Pashler, H., Wixted, J. T., &amp; Cepeda, N. J. (2005). The effect of overlearning on long-term retention. <i>Applied Cognitive Psychology, 19</i>(3). <a href="https://doi.org/10.1002/acp.1083">doi</a></li>
@@ -744,7 +758,7 @@ footer.wrap { padding-block: 24px 48px; font-size: 13px; color: var(--muted); bo
 </section>
 
 <footer class="wrap">
-  Собрано 23 октября 2026, обновлено в тот же день: М11, М13, М19, М20 описаны так, как они сделаны в приложении. Уровни доказательности — наша оценка по типу и числу исследований. Часть размеров эффектов взята из аннотаций и обзоров; перед публичной статьёй их стоит сверить с полными текстами.
+  Собрано 23 октября 2026, обновлено в тот же день: М11, М13, М19, М20 описаны так, как они сделаны в приложении. 27 октября добавлен М25 — перевод фраз. Уровни доказательности — наша оценка по типу и числу исследований. Часть размеров эффектов взята из аннотаций и обзоров; перед публичной статьёй их стоит сверить с полными текстами.
 </footer>
 
 <script>

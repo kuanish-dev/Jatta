@@ -21,6 +21,8 @@ import com.jatta.study.store.SavedState
 import com.jatta.study.store.withLearner
 import com.jatta.study.remind.Reminder
 import com.jatta.study.remind.ReminderScheduler
+import com.jatta.study.translate.Direction
+import com.jatta.study.translate.SentencesFile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import java.io.File
@@ -53,13 +55,14 @@ class StudyControllerTest {
         model: OnDeviceModel? = null,
         evalCases: List<EvalCase> = emptyList(),
         texts: List<ReadingText> = emptyList(),
+        sentences: SentencesFile? = null,
         placement: PlacementFile? = null,
         engineConfig: EngineConfig = EngineConfig(),
         config: StudyConfig = StudyConfig(),
     ) = StudyController(
         content, LearnerStore(dir.absolutePath), nowMs = { now }, utcOffsetMinutes = { almaty },
         scope = CoroutineScope(Dispatchers.Unconfined), model = model, evalCases = evalCases,
-        texts = texts, reminders = reminders, placementFile = placement,
+        texts = texts, sentences = sentences, reminders = reminders, placementFile = placement,
         engineConfig = engineConfig, config = config, background = Dispatchers.Unconfined,
     )
 
@@ -325,6 +328,80 @@ class StudyControllerTest {
         assertNotNull((app.screen.value as Screen.Question).hint)
     }
 
+    /** М25: close to a human translation counts at once; further off, the learner decides; all of it in its own log. */
+    @Test
+    fun aSessionEndsWithSentencesToTranslate() {
+        val app = controller(sentences = RealContent.sentences())
+        val first = firstTranslation(app)
+        val answers = LearnerStore(dir.absolutePath).readLog().size
+        assertEquals(Direction.EnRu, first.task.direction)
+        app.submitTranslation(first.task.references.first())
+        val close = app.screen.value as Screen.Translated
+        assertEquals(TranslationOutcome.Close, close.outcome)
+        assertEquals(1.0, close.score)
+        assertTrue(close.diff.all { it.kind == DiffKind.Same })
+        app.nextTranslation()
+
+        val second = app.screen.value as Screen.Translate
+        assertEquals(Direction.RuEn, second.task.direction)
+        app.submitTranslation("Something else entirely.")
+        val far = app.screen.value as Screen.Translated
+        assertEquals(TranslationOutcome.LearnerDecides, far.outcome)
+        assertTrue(far.score < 0.8)
+        app.judgeTranslation(right = false)
+
+        var translated = 2
+        while (true) {
+            val screen = app.screen.value as? Screen.Translate ?: break
+            app.submitTranslation(screen.task.references.last())
+            app.nextTranslation()
+            translated++
+        }
+        (app.screen.value as? Screen.Rest)?.let { app.finishRest() }
+        val done = app.screen.value as Screen.Done
+        assertEquals(translated, done.translated)
+        assertEquals(translated - 1, done.translatedRight)
+        val log = LearnerStore(dir.absolutePath).readTranslations()
+        assertEquals(listOf("code", "self"), log.take(2).map { it.checkedBy })
+        assertEquals(listOf(true, false), log.take(2).map { it.passed })
+        assertEquals("Something else entirely.", log[1].response)
+        assertEquals(answers, LearnerStore(dir.absolutePath).readLog().size, "translations stay out of the answer log")
+    }
+
+    /** М25: English further off goes to a trusted model; Russian stays with the learner, the model was not tested on it. */
+    @Test
+    fun aTrustedModelChecksEnglishTranslationsOnly() {
+        val cases = JudgeEval.readCases(File(System.getProperty("contentDir"), "eval/free-answers.json").readText())
+        val model = ReplyingModel { prompt ->
+            val case = cases.firstOrNull { "Learner's sentence: ${it.response}" in prompt }
+            when {
+                case == null -> "VERDICT: CORRECT"
+                case.correct -> "VERDICT: CORRECT"
+                else -> "VERDICT: WRONG\nFIXED: X " + case.response.substringAfter(' ')
+            }
+        }
+        val app = controller(model, cases, sentences = RealContent.sentences())
+        app.testModel()
+        assertTrue((app.screen.value as Screen.Home).ai.lastTest!!.enabled)
+
+        firstTranslation(app)
+        while (true) {
+            val screen = app.screen.value as? Screen.Translate ?: break
+            app.submitTranslation("In my own words.")
+            val checked = app.screen.value as Screen.Translated
+            if (screen.task.direction == Direction.RuEn) {
+                assertEquals(TranslationOutcome.RightByAi, checked.outcome)
+                app.nextTranslation()
+            } else {
+                assertEquals(TranslationOutcome.LearnerDecides, checked.outcome)
+                app.judgeTranslation(right = true)
+            }
+        }
+        val log = LearnerStore(dir.absolutePath).readTranslations()
+        assertEquals(log.map { if (it.direction == "ru-en") "ai" else "self" }, log.map { it.checkedBy })
+        assertTrue(log.all { it.passed })
+    }
+
     @Test
     fun firstDayIntroducesTheFirstWordsAndSavesThem() {
         val app = controller()
@@ -382,11 +459,14 @@ class StudyControllerTest {
         assertEquals("w-responsible", (app.screen.value as Screen.Present).item.id)
     }
 
-    private fun runSessionAnsweringRight(app: StudyController): Screen.Done {
+    private fun runSessionAnsweringRight(app: StudyController): Screen.Done = answerRightUntil(app) { it is Screen.Done } as Screen.Done
+
+    private fun answerRightUntil(app: StudyController, stop: (Screen) -> Boolean): Screen {
         repeat(500) {
             now += 3_000
-            when (val screen = app.screen.value) {
-                is Screen.Done -> return screen
+            val screen = app.screen.value
+            if (stop(screen)) return screen
+            when (screen) {
                 is Screen.Present -> app.presented()
                 is Screen.Question -> answerRight(app, screen.exercise)
                 is Screen.SelfCheck -> app.judgeSelf(true)
@@ -397,11 +477,23 @@ class StudyControllerTest {
                 is Screen.Rest -> app.finishRest()
                 is Screen.Home -> error("Unexpected home screen in a session")
                 is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
-                is Screen.Calibration ->
+                is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated ->
                     error("Unexpected screen in a session: $screen")
             }
         }
         error("The session did not finish")
+    }
+
+    /** Sessions day after day until one ends with sentences to translate. */
+    private fun firstTranslation(app: StudyController): Screen.Translate {
+        repeat(5) {
+            app.openHome()
+            app.startSession()
+            val screen = answerRightUntil(app) { it is Screen.Translate || it is Screen.Done }
+            if (screen is Screen.Translate) return screen
+            now += day
+        }
+        error("No sentences to translate after five days")
     }
 
     private fun answerRight(app: StudyController, exercise: Exercise) = when (exercise) {

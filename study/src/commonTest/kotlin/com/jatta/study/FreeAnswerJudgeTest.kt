@@ -65,6 +65,24 @@ class FreeAnswerJudgeTest {
         )
         assertEquals(1, WordDiff.edits("I have went home.", "I went home."))
     }
+
+    @Test
+    fun aContractionAndItsLongFormAreTheSameWords() {
+        assertEquals(
+            listOf(
+                DiffPart("It", DiffKind.Same),
+                DiffPart("doesn't", DiffKind.Same, written = "does not"),
+                DiffPart("matters.", DiffKind.Removed),
+                DiffPart("matter.", DiffKind.Added),
+            ),
+            WordDiff.parts("It does not matters.", "It doesn't matter."),
+        )
+        assertEquals(0, WordDiff.edits("I cannot confirm that", "I can't confirm that."))
+        assertEquals(
+            listOf(DiffPart("doesn't", DiffKind.Removed), DiffPart("not", DiffKind.Added)),
+            WordDiff.parts("doesn't", "not"),
+        )
+    }
 }
 
 /** A stand-in for the on-device model that replies with whatever the test wants. */

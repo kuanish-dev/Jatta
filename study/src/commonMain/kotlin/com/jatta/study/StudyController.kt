@@ -42,9 +42,15 @@ import com.jatta.study.store.LogEntry
 import com.jatta.study.store.RecentAnswer
 import com.jatta.study.store.SavedPlacement
 import com.jatta.study.store.SessionStart
+import com.jatta.study.store.TranslationEntry
 import com.jatta.study.store.toLearner
 import com.jatta.study.store.withFirstDays
 import com.jatta.study.store.withLearner
+import com.jatta.study.translate.Direction
+import com.jatta.study.translate.SentencesFile
+import com.jatta.study.translate.TranslationPicker
+import com.jatta.study.translate.TranslationScore
+import com.jatta.study.translate.TranslationTask
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -57,7 +63,10 @@ import kotlinx.coroutines.withTimeoutOrNull
 
 private const val MS_PER_MINUTE = 60_000L
 
-/** Who decided whether an answer was right; kept in the answer log. */
+/** A translation waiting for its verdict (М25). */
+private class PendingTranslation(val response: String, val score: Double, val responseMs: Long)
+
+/** Who decided whether an answer was right; kept in the answer and translation logs. */
 private enum class CheckedBy(val logName: String) {
     Code("code"), Self("self"), Ai("ai"), AiDisputed("ai-disputed"), Placement(Calibration.PLACEMENT),
 }
@@ -66,6 +75,7 @@ private enum class CheckedBy(val logName: String) {
  * Runs the app around the engine: plans the day, walks the session queue, turns steps into exercises,
  * saves every graded answer at once, and follows the rest coach. Free answers go to the on-device model
  * only after it has passed the accuracy test (М21); otherwise the learner compares with the model answer.
+ * A finished session ends with a few sentences to translate (М25).
  * Platform code supplies the clock, the time zone, the storage directory and the model.
  */
 class StudyController(
@@ -77,6 +87,7 @@ class StudyController(
     private val model: OnDeviceModel? = null,
     private val evalCases: List<EvalCase> = emptyList(),
     private val texts: List<ReadingText> = emptyList(),
+    private val sentences: SentencesFile? = null,
     private val reminders: ReminderScheduler? = null,
     placementFile: PlacementFile? = null,
     private val engineConfig: EngineConfig = EngineConfig(),
@@ -88,6 +99,7 @@ class StudyController(
     private var learner = saved.toLearner()
     private var engine = engineWith(saved.fsrsParameters)
     private var readingPicker = ReadingPicker(content, engine)
+    private var translationPicker = sentences?.let { TranslationPicker(it, engine, config) }
     private val personalFit = PersonalFit(engineConfig, config)
     private var fitting = false
     private val exercises = ExerciseFactory(content)
@@ -119,6 +131,10 @@ class StudyController(
     private var checkToken = 0
     private val firstAnswers = mutableListOf<Boolean>()
     private var endedEarly = false
+    private var translations = emptyList<TranslationTask>()
+    private var translationIndex = 0
+    private var translatedRight = 0
+    private var pendingTranslation: PendingTranslation? = null
 
     private val state = MutableStateFlow(if (needsPlacement()) placementIntro() else home())
     val screen: StateFlow<Screen> = state.asStateFlow()
@@ -153,6 +169,7 @@ class StudyController(
         stepsDone = 0
         pendingAdvice = Advice.Continue
         endedEarly = false
+        translations = emptyList()
         showCurrent(banner = null)
     }
 
@@ -212,6 +229,95 @@ class StudyController(
             showCurrent(banner = null)
         }
     }
+
+    /**
+     * М25: a translation close enough to a human one counts at once. Further off, it may still be right in
+     * other words: English goes to the model when there is a trusted one, otherwise the learner compares.
+     * Russian always goes to the learner: the model was only tested on English answers.
+     */
+    fun submitTranslation(text: String) {
+        val task = (state.value as? Screen.Translate)?.task ?: return
+        val closeness = TranslationScore.of(text, task.references, config.translationPassScore)
+        pendingTranslation = PendingTranslation(text, closeness.score, elapsedMs())
+        val judge = trustedJudge()
+        when {
+            closeness.passed -> {
+                recordTranslation(true, CheckedBy.Code)
+                showTranslated(closeness.closest, TranslationOutcome.Close)
+            }
+            judge != null && task.direction == Direction.RuEn -> checkTranslation(judge, task, closeness.closest)
+            else -> showTranslated(closeness.closest, TranslationOutcome.LearnerDecides)
+        }
+    }
+
+    /** The learner's verdict on a translation the code could not accept: right after all, or a mistake. */
+    fun judgeTranslation(right: Boolean) {
+        val outcome = (state.value as? Screen.Translated)?.outcome ?: return
+        val checkedBy = when (outcome) {
+            TranslationOutcome.FixedByAi -> if (right) CheckedBy.AiDisputed else CheckedBy.Ai
+            TranslationOutcome.LearnerDecides -> CheckedBy.Self
+            TranslationOutcome.Close, TranslationOutcome.RightByAi -> return
+        }
+        recordTranslation(right, checkedBy)
+        nextTranslation()
+    }
+
+    fun nextTranslation() {
+        translationIndex++
+        if (translationIndex < translations.size) showTranslation() else concludeSession()
+    }
+
+    private fun showTranslation() {
+        shownAtMs = nowMs()
+        state.value = Screen.Translate(++questionCounter, translations[translationIndex], translationSteps())
+    }
+
+    private fun checkTranslation(judge: FreeAnswerJudge, task: TranslationTask, closest: String) {
+        val response = pendingTranslation?.response ?: error("No translation to check")
+        val token = ++checkToken
+        state.value = Screen.Checking(translationSteps())
+        scope.launch {
+            val request = JudgeRequest("Translate into English: «${task.source}»", closest, response)
+            val judgment = withTimeoutOrNull(config.judgeTimeoutMs) { judge.judge(request) }
+            if (token != checkToken || state.value !is Screen.Checking) return@launch // the learner left meanwhile
+            when {
+                judgment == null -> showTranslated(closest, TranslationOutcome.LearnerDecides)
+                judgment.correct -> {
+                    recordTranslation(true, CheckedBy.Ai)
+                    showTranslated(closest, TranslationOutcome.RightByAi)
+                }
+                else -> showTranslated(judgment.corrected!!, TranslationOutcome.FixedByAi)
+            }
+        }
+    }
+
+    /** The learner's words against [target]: the closest human translation or the model's fix. */
+    private fun showTranslated(target: String, outcome: TranslationOutcome) {
+        val pending = pendingTranslation ?: error("No translation on screen")
+        state.value = Screen.Translated(
+            task = translations[translationIndex],
+            response = pending.response,
+            score = pending.score,
+            target = target,
+            diff = WordDiff.parts(pending.response, target),
+            outcome = outcome,
+            steps = translationSteps(),
+        )
+    }
+
+    private fun recordTranslation(right: Boolean, checkedBy: CheckedBy) {
+        val task = translations[translationIndex]
+        val pending = pendingTranslation ?: error("No translation on screen")
+        if (right) translatedRight++
+        store.logTranslation(
+            TranslationEntry(
+                nowMs(), today, task.sentenceId, task.direction.logName, pending.response, pending.score, right,
+                pending.responseMs, checkedBy.logName,
+            ),
+        )
+    }
+
+    private fun translationSteps() = Steps(translationIndex, translations.size - translationIndex)
 
     /** Leave in the middle: everything answered so far is already saved. */
     fun stopSession() = openHome()
@@ -309,6 +415,7 @@ class StudyController(
             saved = saved.copy(fsrsParameters = parameters)
             engine = engineWith(parameters)
             readingPicker = ReadingPicker(content, engine)
+            translationPicker = sentences?.let { TranslationPicker(it, engine, config) }
             learner = learner.copy(progress = learner.progress + LogReplay.progress(store.readLog(), engine.memory))
         }
         save()
@@ -382,9 +489,12 @@ class StudyController(
         }
     }
 
+    /** The model, once it has passed the accuracy test and is ready (М21). */
+    private fun trustedJudge() = judge?.takeIf { saved.aiCheck?.enabled == true && modelState == ModelState.Ready }
+
     private fun checkFreeAnswer(text: String, responseMs: Long, task: String?) {
         pendingResponseMs = responseMs
-        val judge = judge?.takeIf { saved.aiCheck?.enabled == true && modelState == ModelState.Ready }
+        val judge = trustedJudge()
         if (judge == null || task == null) {
             showSelfCheck(text)
             return
@@ -506,6 +616,14 @@ class StudyController(
         reminders?.askPermission()
         updateReminder()
         fitMemoryIfDue()
+        // М25: translation needs a fresh head; a session ended by fatigue skips it.
+        translations = if (endedEarly) emptyList() else translationPicker?.pick(learner, today, store.readTranslations()).orEmpty()
+        translationIndex = 0
+        translatedRight = 0
+        if (translations.isEmpty()) concludeSession() else showTranslation()
+    }
+
+    private fun concludeSession() {
         val after = coach().afterSession(session())
         if (after is Advice.QuietRest) {
             state.value = Screen.Rest(RestKind.Quiet, after.minutes, nowMs() + after.minutes * MS_PER_MINUTE)
@@ -515,7 +633,7 @@ class StudyController(
     }
 
     private fun showDone() {
-        state.value = Screen.Done(firstAnswers.size, firstAnswers.count { it }, endedEarly)
+        state.value = Screen.Done(firstAnswers.size, firstAnswers.count { it }, endedEarly, translations.size, translatedRight)
     }
 
     private fun updateReminder() {

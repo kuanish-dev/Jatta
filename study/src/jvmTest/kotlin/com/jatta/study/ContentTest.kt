@@ -88,6 +88,25 @@ class ContentTest {
         }
     }
 
+    /** М25: every sentence to translate uses words of the course, has translations both ways and its credit. */
+    @Test
+    fun translationSentencesUseCourseWordsAndAreCredited() {
+        val file = RealContent.sentences()
+        assertEquals("CC BY 2.0 FR", file.license)
+        assertEquals("https://tatoeba.org/sentences/show/", file.url)
+        assertTrue(file.sentences.size >= 1500, "only ${file.sentences.size} sentences")
+        assertEquals(file.sentences.size, file.sentences.map { it.id }.toSet().size, "duplicate sentence ids")
+        file.sentences.forEach { sentence ->
+            assertTrue(sentence.items.isNotEmpty(), "${sentence.id}: no course word")
+            sentence.items.forEach { id ->
+                val item = content.items[id]
+                assertTrue(item != null && item.kind != KindFile.Rule && item.audio == null, "${sentence.id}: $id is not a course word")
+            }
+            assertTrue(sentence.en.isNotEmpty() && sentence.en.none { it.isBlank() }, "${sentence.id}: English")
+            assertTrue(sentence.ru.isNotEmpty() && sentence.ru.all { RUSSIAN.matches(it) }, "${sentence.id}: Russian")
+        }
+    }
+
     @Test
     fun everyItemHasAWorkingExerciseOnEveryRung() {
         val factory = ExerciseFactory(content)
@@ -122,5 +141,9 @@ class ContentTest {
         """.trimIndent()
         val error = assertFailsWith<ContentError> { ContentLoader.load(course, mapOf("t" to topic)) }
         assertTrue(error.problems.any { "not a whole word" in it }, error.message)
+    }
+
+    private companion object {
+        val RUSSIAN = Regex("[^A-Za-z]*[А-Яа-яЁё][^A-Za-z]*")
     }
 }

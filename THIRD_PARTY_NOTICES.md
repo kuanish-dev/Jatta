@@ -91,6 +91,15 @@ hand-picked list in `sources/tatoeba/phrases.json`) are shipped in the app:
   with the phrase. The recordings were trimmed of silence at both ends, brought to one loudness and
   converted to AAC; the CC BY-SA recordings remain under CC BY-SA 4.0.
 
+### Translation sentences — Tatoeba, CC BY 2.0 FR
+
+`content/en/sentences.json` (built by `scripts/collect_sentences.py`; pairs left out after review are listed
+in `sources/tatoeba/sentences.json`) is shipped in the app. It holds English sentences and their Russian
+translations from [Tatoeba](https://tatoeba.org), licensed under
+[CC BY 2.0 FR](https://creativecommons.org/licenses/by/2.0/fr/). The app links every sentence to its page
+on Tatoeba, which names its authors and translators. `content/eval/translations.json` uses some of the same
+sentences with answers written for testing.
+
 ### Fonts — SIL Open Font License 1.1
 
 `shared/src/commonMain/composeResources/font/` holds Exo 2 (Copyright 2013 The Exo 2 Project Authors,

@@ -1,0 +1,36 @@
+package com.jatta.study
+
+import com.jatta.study.translate.TranslationScore
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import java.io.File
+import kotlin.test.Test
+import kotlin.test.assertTrue
+
+/**
+ * М25: what the 80% threshold does with translations of known verdict. Accepting a wrong translation
+ * teaches the mistake; rejecting a right one only sends it to the model or the learner, so the threshold
+ * must be precise, and may miss many right translations in other words.
+ */
+class TranslationEvalTest {
+    @Serializable
+    private data class Case(val direction: String, val source: String, val references: List<String>, val response: String, val correct: Boolean)
+
+    @Serializable
+    private data class Cases(val about: String, val cases: List<Case>)
+
+    private val cases = Json.decodeFromString<Cases>(File(System.getProperty("contentDir"), "eval/translations.json").readText()).cases
+
+    @Test
+    fun theThresholdRarelyAcceptsAWrongTranslation() {
+        val accepted = cases.filter { TranslationScore.of(it.response, it.references, StudyConfig().translationPassScore).passed }
+        val wrongAccepted = accepted.count { !it.correct }
+        val rightAccepted = accepted.count { it.correct }
+        val right = cases.count { it.correct }
+        println("М25 eval: ${cases.size} cases, accepted ${accepted.size}, wrong among them $wrongAccepted, right accepted $rightAccepted of $right")
+        assertTrue(cases.size >= 100)
+        assertTrue(rightAccepted.toDouble() / accepted.size >= 0.8, "precision ${rightAccepted.toDouble() / accepted.size}")
+        assertTrue(rightAccepted.toDouble() / right >= 0.3, "recall ${rightAccepted.toDouble() / right}")
+        assertTrue(cases.filter { it.response == it.references.first() }.all { it in accepted }, "a human translation is always accepted")
+    }
+}

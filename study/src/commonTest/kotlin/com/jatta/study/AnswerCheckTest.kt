@@ -22,6 +22,12 @@ class AnswerCheckTest {
     }
 
     @Test
+    fun russianIsKeptAndYoIsReadAsYe() {
+        assertTrue(AnswerCheck.matches("я ни о чем не жалею", listOf("Я ни о чём не жалею.")))
+        assertFalse(AnswerCheck.matches("Я обо всём жалею", listOf("Я ни о чём не жалею.")))
+    }
+
+    @Test
     fun differentWordsDoNotMatch() {
         assertFalse(AnswerCheck.matches("I work late yesterday", listOf("I worked late yesterday.")))
         assertFalse(AnswerCheck.matches("didn't saw", listOf("didn't see")))

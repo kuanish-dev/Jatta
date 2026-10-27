@@ -1,6 +1,9 @@
 package com.jatta.study.exercise
 
-/** Compares typed answers the forgiving way: case, punctuation, curly quotes and contractions don't matter. */
+/**
+ * Compares typed answers the forgiving way: case, punctuation, curly quotes and contractions don't matter.
+ * Russian letters are kept, with ё read as е, so Russian translations compare the same way (М25).
+ */
 object AnswerCheck {
 
     fun matches(response: String, accepted: List<String>): Boolean {
@@ -9,7 +12,7 @@ object AnswerCheck {
     }
 
     fun normalize(text: String): String {
-        var s = text.lowercase().replace('’', '\'').replace('‘', '\'')
+        var s = text.lowercase().replace('’', '\'').replace('‘', '\'').replace('ё', 'е')
         CONTRACTIONS.forEach { (short, long) -> s = s.replace(short, long) }
         return s.replace(NOT_TEXT, " ").replace(SPACES, " ").trim()
     }
@@ -26,6 +29,6 @@ object AnswerCheck {
         "'ll" to " will",
         "'d" to " would",
     )
-    private val NOT_TEXT = Regex("[^a-z0-9' ]")
+    private val NOT_TEXT = Regex("[^a-z0-9а-я' ]")
     private val SPACES = Regex("\\s+")
 }

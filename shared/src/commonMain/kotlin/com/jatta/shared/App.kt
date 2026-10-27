@@ -31,6 +31,7 @@ import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.placement.PlacementFile
 import com.jatta.study.remind.ReminderScheduler
 import com.jatta.study.store.LearnerStore
+import com.jatta.study.translate.SentencesFile
 
 internal const val CONTENT_DIR = "files/content"
 
@@ -71,6 +72,7 @@ fun App(
                     model = model,
                     evalCases = loadEvalCases(),
                     texts = loadTexts(),
+                    sentences = SentencesFile.read(Res.readBytes("$CONTENT_DIR/en/sentences.json").decodeToString()),
                     reminders = reminders,
                     placementFile = PlacementFile.read(Res.readBytes("$CONTENT_DIR/en/placement.json").decodeToString()),
                 )
