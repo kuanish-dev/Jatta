@@ -593,6 +593,15 @@ class StudyControllerTest {
     }
 
     @Test
+    fun theAboutScreenOpensFromHomeAndTheBackGestureReturns() {
+        val app = controller()
+        app.openAbout()
+        assertEquals(Screen.About, app.screen.value)
+        app.goBack()
+        assertTrue(app.screen.value is Screen.Home)
+    }
+
+    @Test
     fun theDictionaryFindsAnyUnitAndTheTopicListsItsContents() {
         val app = controller()
         app.openDictionary()
@@ -838,7 +847,7 @@ class StudyControllerTest {
                 is Screen.Read, is Screen.OwnText, is Screen.TextStudy,
                 is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
                 is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated, is Screen.Topic,
-                is Screen.Dictionary, is Screen.ItemCard,
+                is Screen.Dictionary, is Screen.ItemCard, is Screen.About,
                 is Screen.ChatTopics, is Screen.Chat,
                 is Screen.DailySummary, is Screen.Progress ->
                     error("Unexpected screen in a session: $screen")

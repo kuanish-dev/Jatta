@@ -246,6 +246,10 @@ class StudyController(
         state.value = Screen.OwnText
     }
 
+    fun openAbout() {
+        state.value = Screen.About
+    }
+
     fun analyzeText(text: String) {
         if (text.isBlank()) return
         today = currentDay()

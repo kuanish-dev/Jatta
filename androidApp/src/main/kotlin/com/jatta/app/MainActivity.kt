@@ -45,6 +45,7 @@ class MainActivity : ComponentActivity() {
                 model = PhoneModel(GeminiNanoModel(), GemmaModel(applicationContext)),
                 reminders = reminders,
                 speaker = speaker,
+                version = packageManager.getPackageInfo(packageName, 0).versionName,
                 speechInput = AndroidSpeechInput(applicationContext, askPermission = ::askMicrophone),
                 files = AndroidFiles(applicationContext, pickSaveTarget = ::pickSaveTarget, pickOpenSource = ::pickOpenSource),
                 onDarkTheme = ::matchSystemBars,

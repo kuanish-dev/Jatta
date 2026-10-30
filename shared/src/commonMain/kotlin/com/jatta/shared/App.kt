@@ -51,8 +51,11 @@ fun App(
     speaker: Speaker?,
     speechInput: SpeechInput? = null,
     files: FileExchange? = null,
+    version: String? = null,
     onDarkTheme: (Boolean) -> Unit = {},
-) = CompositionLocalProvider(LocalSpeaker provides speaker, LocalSpeechInput provides speechInput, LocalFiles provides files) {
+) = CompositionLocalProvider(
+    LocalSpeaker provides speaker, LocalSpeechInput provides speechInput, LocalFiles provides files, LocalAppVersion provides version,
+) {
     val scope = rememberCoroutineScope()
     var controller by remember { mutableStateOf<StudyController?>(null) }
     var failure by remember { mutableStateOf<String?>(null) }

@@ -83,6 +83,7 @@ internal fun ScreenContent(screen: Screen, controller: StudyController, nowMs: (
         is Screen.Home -> HomeScreen(s, controller, onReload)
         is Screen.Read -> ReadScreen(s, controller)
         is Screen.OwnText -> OwnTextScreen(controller)
+        is Screen.About -> AboutScreen(controller::openHome)
         is Screen.TextStudy -> TextStudyScreen(s, controller)
         is Screen.DailySummary -> DailySummaryScreen(s, controller::closeSummary)
         is Screen.Progress -> ProgressScreen(s.report, controller::openHome)
@@ -163,6 +164,7 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController, onReload:
     NeonTextButton(controller::openCalibration) { Label(calibrationLine(home.calibration), color = Neon.Cyan) }
     if (studied) AiSection(home.ai, controller)
     DataSection(controller, onReload)
+    NeonTextButton(controller::openAbout) { Label("О приложении →", color = Neon.Cyan) }
 }
 
 @Composable

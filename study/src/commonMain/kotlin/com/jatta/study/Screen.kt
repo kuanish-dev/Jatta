@@ -71,6 +71,8 @@ sealed interface Screen {
 
     data object OwnText : Screen
 
+    data object About : Screen
+
     data class TextStudy(val report: TextReport, val newToday: Int) : Screen
 
     data class Present(
