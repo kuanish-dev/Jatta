@@ -1,0 +1,181 @@
+{
+  "id": "habits-preferences",
+  "title": "Get used to, would rather, had better",
+  "intro": "Get used to + -ing — привыкать: I'm getting used to the noise. Would rather + глагол без to — предпочёл бы: I'd rather stay at home. Had better + глагол без to — лучше бы, иначе будут неприятности: You'd better call them now. Prefer X to Y — предпочитать одно другому.",
+  "requires": [
+    "used-to"
+  ],
+  "confusableWith": [
+    "used-to"
+  ],
+  "items": [
+    {
+      "id": "hp-get-used-to",
+      "kind": "rule",
+      "en": "get used to + -ing / noun",
+      "ru": "get used to + -ing или существительное — привыкать (процесс, ещё не привык)",
+      "note": "I'm getting used to the noise — я привыкаю к шуму; It took me a month to get used to driving here. Get — это переход, be used to — уже привык. После to здесь -ing, не глагол: get used to working, не get used to work.",
+      "examples": [
+        {
+          "en": "I'm getting used to the noise from the street.",
+          "ru": "Я привыкаю к шуму с улицы.",
+          "gap": "getting used to",
+          "cue": "get used",
+          "wrong": [
+            "getting use to",
+            "getting used",
+            "used to"
+          ]
+        },
+        {
+          "en": "It took me a month to get used to working at night.",
+          "ru": "Мне понадобился месяц, чтобы привыкнуть работать по ночам.",
+          "gap": "get used to working",
+          "cue": "get used / work",
+          "wrong": [
+            "get used to work",
+            "get use to working",
+            "used to work"
+          ]
+        },
+        {
+          "en": "She has got used to living alone.",
+          "ru": "Она привыкла жить одна.",
+          "gap": "got used to living",
+          "cue": "get used / live",
+          "wrong": [
+            "got used to live",
+            "got use to living",
+            "used to live"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hp-would-rather",
+      "kind": "rule",
+      "en": "would rather (not) + verb",
+      "ru": "would rather + глагол без to — предпочёл бы; отрицание — would rather not",
+      "note": "I'd rather stay at home — я бы лучше остался дома. После rather — глагол без to и без -ing: I'd rather walk, не I'd rather to walk. Отрицание: I'd rather not talk about it. Сравнение — than: I'd rather walk than drive.",
+      "examples": [
+        {
+          "en": "I'd rather stay at home tonight.",
+          "ru": "Я бы лучше остался сегодня дома.",
+          "gap": "rather stay",
+          "cue": "rather / stay",
+          "wrong": [
+            "rather to stay",
+            "rather staying",
+            "rather stayed"
+          ]
+        },
+        {
+          "en": "We'd rather not drive in this weather.",
+          "ru": "Мы бы предпочли не ехать в такую погоду.",
+          "gap": "rather not drive",
+          "cue": "rather / not / drive",
+          "wrong": [
+            "not rather drive",
+            "rather not to drive",
+            "rather don't drive"
+          ]
+        },
+        {
+          "en": "She would rather walk than wait for the bus.",
+          "ru": "Она лучше пройдётся пешком, чем будет ждать автобус.",
+          "gap": "rather walk than",
+          "cue": "rather / walk",
+          "wrong": [
+            "rather to walk than",
+            "rather walk that",
+            "rather walking than"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hp-had-better",
+      "kind": "rule",
+      "en": "had better (not) + verb",
+      "ru": "had better + глагол без to — лучше бы, не то будут неприятности; отрицание — had better not",
+      "note": "You'd better call them now — лучше позвони им сейчас, иначе будет поздно. Хотя форма had, это про настоящее и будущее, не про прошлое. После better — глагол без to: you'd better go, не you'd better to go. Сильнее, чем should: совет с предупреждением.",
+      "examples": [
+        {
+          "en": "You'd better call the doctor today.",
+          "ru": "Лучше бы тебе сегодня позвонить врачу.",
+          "gap": "better call",
+          "cue": "had better / call",
+          "wrong": [
+            "better to call",
+            "better calling",
+            "better called"
+          ]
+        },
+        {
+          "en": "We had better leave now or we'll miss the train.",
+          "ru": "Нам лучше выйти сейчас, иначе опоздаем на поезд.",
+          "gap": "had better leave",
+          "cue": "had better / leave",
+          "wrong": [
+            "have better leave",
+            "had better to leave",
+            "had better leaving"
+          ]
+        },
+        {
+          "en": "You'd better not forget your passport.",
+          "ru": "Смотри не забудь паспорт.",
+          "gap": "better not forget",
+          "cue": "had better / not / forget",
+          "wrong": [
+            "not better forget",
+            "better don't forget",
+            "better not to forget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hp-prefer",
+      "kind": "rule",
+      "en": "prefer X to Y / prefer doing / would prefer to do",
+      "ru": "prefer X to Y — предпочитать вообще; would prefer to + глагол — предпочёл бы сейчас",
+      "note": "I prefer tea to coffee — вообще, всегда; после prefer — существительное или -ing, и «чем» — это to, не than: I prefer walking to driving. Would prefer — о конкретном случае, с to + глагол: I'd prefer to stay in tonight. Сравнение здесь — rather than.",
+      "examples": [
+        {
+          "en": "I prefer tea to coffee in the morning.",
+          "ru": "По утрам я предпочитаю чай кофе.",
+          "gap": "prefer tea to",
+          "cue": "prefer",
+          "wrong": [
+            "prefer tea than",
+            "prefer tea from",
+            "prefer tea that"
+          ]
+        },
+        {
+          "en": "She prefers working from home to going to the office.",
+          "ru": "Она предпочитает работать из дома, а не ездить в офис.",
+          "gap": "prefers working",
+          "cue": "prefer / work",
+          "wrong": [
+            "prefers to working",
+            "prefer working",
+            "prefers work"
+          ]
+        },
+        {
+          "en": "I'd prefer to meet on Friday, if that's okay.",
+          "ru": "Я бы предпочёл встретиться в пятницу, если можно.",
+          "gap": "prefer to meet",
+          "cue": "prefer / meet",
+          "wrong": [
+            "prefer meet",
+            "prefer meeting",
+            "rather to meet"
+          ]
+        }
+      ]
+    }
+  ]
+}

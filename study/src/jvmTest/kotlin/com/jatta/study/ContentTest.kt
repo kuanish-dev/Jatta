@@ -20,19 +20,16 @@ class ContentTest {
     private val content = RealContent.load()
 
     @Test
-    fun chatTopicsAreUniqueAndUseRealWordTopics() {
+    fun chatTopicsAreUniqueAndNamedInBothLanguages() {
         val topics = ChatTopicsFile.read(File(System.getProperty("contentDir"), "en/chat.json").readText())
         assertEquals(topics.size, topics.map { it.id }.toSet().size)
-        topics.mapNotNull { it.words }.forEach { id ->
-            val topic = content.topics[id]
-            assertTrue(topic != null && topic.items.none { it.kind == KindFile.Rule }, "chat topic words must be a word topic: $id")
-        }
+        assertTrue(topics.all { it.ru.isNotBlank() && it.en.isNotBlank() })
     }
 
     @Test
     fun realCourseLoads() {
-        assertEquals(52, content.course.topics.size)
-        assertEquals(1015, content.items.size)
+        assertEquals(68, content.course.topics.size)
+        assertEquals(1268, content.items.size)
     }
 
     @Test

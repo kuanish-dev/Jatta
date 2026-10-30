@@ -56,6 +56,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jatta.shared.resources.Res
+import com.jatta.study.Look
 import com.jatta.shared.resources.exo2
 import com.jatta.shared.resources.jetbrains_mono
 import org.jetbrains.compose.resources.Font
@@ -113,6 +114,42 @@ val LightNeon = NeonPalette(
     isDark = false,
     flame = listOf(Color(0xFFE5135F), Color(0xFFF4511E), Color(0xFFFFA000)),
     flameCore = listOf(Color(0xFFFFCA28), Color(0xFFFFF3C4)),
+)
+
+val CalmDark = NeonPalette(
+    void = Color(0xFF12151B),
+    panel = Color(0xFF1A1E26),
+    panelHigh = Color(0xFF252B36),
+    line = Color(0xFF333B48),
+    cyan = Color(0xFF8BB8DA),
+    magenta = Color(0xFFD39AA8),
+    acid = Color(0xFFCDB96A),
+    danger = Color(0xFFE0706A),
+    text = Color(0xFFE4E7EB),
+    muted = Color(0xFF98A2AE),
+    gridAlpha = 0f,
+    glow = 0f,
+    isDark = true,
+    flame = listOf(Color(0xFFD39AA8), Color(0xFFE0956A), Color(0xFFE0BC6A)),
+    flameCore = listOf(Color(0xFFF0DEA0), Color(0xFFFBF6E6)),
+)
+
+val CalmLight = NeonPalette(
+    void = Color(0xFFF6F7F9),
+    panel = Color(0xFFFFFFFF),
+    panelHigh = Color(0xFFE9ECF0),
+    line = Color(0xFFD3D8DF),
+    cyan = Color(0xFF2F6B9A),
+    magenta = Color(0xFF9E4D66),
+    acid = Color(0xFF80691E),
+    danger = Color(0xFFB3362E),
+    text = Color(0xFF1B1F24),
+    muted = Color(0xFF5E6872),
+    gridAlpha = 0f,
+    glow = 0f,
+    isDark = false,
+    flame = listOf(Color(0xFFC25A7A), Color(0xFFD97A4A), Color(0xFFD9A84A)),
+    flameCore = listOf(Color(0xFFE8C97A), Color(0xFFFFF4D6)),
 )
 
 val LocalNeon = staticCompositionLocalOf { DarkNeon }
@@ -207,8 +244,8 @@ private fun typography(): Typography {
 }
 
 @Composable
-fun JattaTheme(dark: Boolean, content: @Composable () -> Unit) {
-    val palette = fading(if (dark) DarkNeon else LightNeon)
+fun JattaTheme(dark: Boolean, look: Look = Look.Neon, content: @Composable () -> Unit) {
+    val palette = fading(paletteOf(dark, look))
     MaterialTheme(colorScheme = colorScheme(palette), typography = typography(), shapes = shapes) {
         CompositionLocalProvider(LocalNeon provides palette, LocalContentColor provides palette.text) {
             Box(Modifier.fillMaxSize().background(palette.void).drawBehind { drawGrid(palette.cyan.copy(alpha = palette.gridAlpha)) }) {
@@ -216,6 +253,11 @@ fun JattaTheme(dark: Boolean, content: @Composable () -> Unit) {
             }
         }
     }
+}
+
+private fun paletteOf(dark: Boolean, look: Look): NeonPalette = when (look) {
+    Look.Neon -> if (dark) DarkNeon else LightNeon
+    Look.Calm -> if (dark) CalmDark else CalmLight
 }
 
 @Composable

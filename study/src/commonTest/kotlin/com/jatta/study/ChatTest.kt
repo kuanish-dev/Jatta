@@ -35,18 +35,17 @@ class ChatTest {
     }
 
     @Test
-    fun thePartnersReplyIsCutToItsOwnTurn() {
-        assertEquals("Hi! How was your day?", ChatPartner.clean("Alex: Hi! How was your day?\nLearner: fine\nAlex: Good."))
-        assertEquals("Nice. Where did you go?", ChatPartner.clean("\"Nice.\nWhere did you go?\""))
-        assertNull(ChatPartner.clean("  \n "))
+    fun thePartnersReplyIsPlainTextOfItsOwnTurn() {
+        assertEquals("Hi! How was your day?", ChatPartner.tidy("You: Hi! How was your day? 😊\nFriend: fine\nYou: Good."))
+        assertEquals("Plov sounds delicious! Do you play guitar often?", ChatPartner.tidy("**Plov** sounds delicious! 😋\n\nDo you play guitar often? 🎸"))
+        assertNull(ChatPartner.tidy("  \n "))
     }
 
     @Test
-    fun thePartnerSeesTheTopicTheWordsAndTheTalk() {
+    fun thePartnerHasACharacterTheTopicAndTheRealTurns() {
         val topic = ChatTopic("work", "Работа", "the learner's job")
-        val prompt = ChatPartner.prompt(topic, listOf("deadline"), listOf(ChatMessage(false, "Hi!"), ChatMessage(true, "Hello")))
-        assertTrue("Topic: the learner's job." in prompt)
-        assertTrue("deadline" in prompt)
-        assertTrue(prompt.endsWith("Alex: Hi!\nLearner: Hello\nAlex:"))
+        assertTrue("Today you talk about the learner's job." in ChatPartner.persona(topic))
+        val turns = ChatPartner.turns(listOf(ChatMessage(false, "Hey! How is work?"), ChatMessage(true, "Busy")))
+        assertEquals(listOf(true to "Hi!", false to "Hey! How is work?", true to "Busy"), turns.map { it.fromUser to it.text })
     }
 }

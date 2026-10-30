@@ -6,11 +6,14 @@ import android.os.Build
 import android.util.Log
 import com.google.ai.edge.litertlm.Backend
 import com.google.ai.edge.litertlm.Content
+import com.google.ai.edge.litertlm.Contents
 import com.google.ai.edge.litertlm.ConversationConfig
+import com.google.ai.edge.litertlm.Message
 import com.google.ai.edge.litertlm.Engine
 import com.google.ai.edge.litertlm.EngineConfig
 import com.google.ai.edge.litertlm.SamplerConfig
 import com.jatta.study.judge.ModelFile
+import com.jatta.study.judge.ChatTurn
 import com.jatta.study.judge.ModelState
 import com.jatta.study.judge.OnDeviceModel
 import kotlinx.coroutines.CoroutineScope
@@ -46,6 +49,18 @@ class GemmaModel(private val context: Context) : OnDeviceModel {
     override suspend fun generate(prompt: String): String? = withContext(Dispatchers.Default) {
         guarded(null) {
             ask(engine(), prompt, conversation)
+        }
+    }
+
+    override suspend fun chat(system: String, turns: List<ChatTurn>): String? = withContext(Dispatchers.Default) {
+        guarded(null) {
+            val config = ConversationConfig(
+                systemInstruction = Contents.of(system),
+                initialMessages = turns.dropLast(1).map { if (it.fromUser) Message.user(it.text) else Message.model(it.text) },
+                samplerConfig = SamplerConfig(topK = 64, topP = 0.95, temperature = 0.8),
+                maxOutputToken = 80,
+            )
+            ask(engine(), turns.last().text, config)
         }
     }
 

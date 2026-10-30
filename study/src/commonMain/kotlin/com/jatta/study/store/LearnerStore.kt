@@ -3,6 +3,7 @@ package com.jatta.study.store
 import com.jatta.engine.fsrs.Memory
 import com.jatta.engine.learner.ItemProgress
 import com.jatta.engine.learner.Learner
+import com.jatta.study.Look
 import com.jatta.study.ThemeChoice
 import kotlinx.io.buffered
 import kotlinx.io.files.Path
@@ -62,6 +63,7 @@ data class SavedState(
     val sessionStarts: List<SessionStart> = emptyList(),
     val readTexts: List<String> = emptyList(),
     val theme: ThemeChoice = ThemeChoice.System,
+    val look: Look = Look.Neon,
     val placement: SavedPlacement? = null,
     val fsrsParameters: List<Double>? = null,
     val fsrsFit: FitCheck? = null,
@@ -146,6 +148,22 @@ class LearnerStore(directory: String) {
         readLines(translationsPath).mapNotNull { runCatching { json.decodeFromString<TranslationEntry>(it) }.getOrNull() }
 
     fun logTranslation(entry: TranslationEntry) = append(translationsPath, json.encodeToString(entry))
+
+    fun export(nowMs: Long): String = ProgressBundle.write(ProgressBundle(exportedAtMs = nowMs, state = load(), answers = readLog(), translations = readTranslations()))
+
+    fun import(text: String): ImportSummary? {
+        val bundle = ProgressBundle.read(text) ?: return null
+        save(bundle.state)
+        rewrite(logPath, bundle.answers.map { json.encodeToString(it) })
+        rewrite(translationsPath, bundle.translations.map { json.encodeToString(it) })
+        return ImportSummary(bundle.state.progress.size, bundle.answers.size, bundle.translations.size)
+    }
+
+    private fun rewrite(path: Path, lines: List<String>) {
+        SystemFileSystem.createDirectories(dir)
+        SystemFileSystem.sink(tempPath).buffered().use { sink -> lines.forEach { sink.writeString(it + "\n") } }
+        SystemFileSystem.atomicMove(tempPath, path)
+    }
 
     private fun readLines(path: Path): List<String> {
         if (!SystemFileSystem.exists(path)) return emptyList()

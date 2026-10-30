@@ -38,4 +38,5 @@ tasks.named<Test>("jvmTest") {
     systemProperty("litertModel", litertModel.get())
     inputs.property("ollamaModel", ollamaModel)
     inputs.property("litertModel", litertModel)
+    providers.gradleProperty("testJava").orNull?.let { executable = it }
 }

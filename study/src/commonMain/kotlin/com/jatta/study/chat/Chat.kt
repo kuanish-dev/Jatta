@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
 @Serializable
-data class ChatTopic(val id: String, val ru: String, val en: String, val words: String? = null)
+data class ChatTopic(val id: String, val ru: String, val en: String)
 
 @Serializable
 data class ChatTopicsFile(val topics: List<ChatTopic>) {

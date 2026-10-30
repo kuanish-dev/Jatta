@@ -14,9 +14,11 @@ class FreeAnswerJudge(private val model: OnDeviceModel, private val config: Stud
     suspend fun judge(request: JudgeRequest): Judgment? = ask(prompt(request), request)
 
     suspend fun judgeTranslation(request: JudgeRequest): Judgment? = ask(translationPrompt(request), request) { reply, _ ->
-        when (field(reply, "MEANING")?.uppercase()?.take(4)) {
-            "SAME" -> Judgment(correct = true, corrected = null)
-            "DIFF" -> Judgment(correct = false, corrected = null)
+        val same = "SAME" in reply.uppercase()
+        val different = "DIFFERENT" in reply.uppercase()
+        when {
+            same && !different -> Judgment(correct = true, corrected = null)
+            different && !same -> Judgment(correct = false, corrected = null)
             else -> null
         }
     }
@@ -63,15 +65,13 @@ class FreeAnswerJudge(private val model: OnDeviceModel, private val config: Stud
 
     companion object {
         fun prompt(request: JudgeRequest): String = """
-            You are checking one sentence written by a learner of English (level B1).
             Task: ${request.task}
-            A correct answer could be: ${request.reference}
-            Learner's sentence: ${request.response}
+            Example answer: ${request.reference}
+            Learner's answer: ${request.response}
 
-            Decide whether the learner's sentence is correct English that does the task. Other wordings than the example are fine. Ignore punctuation and capital letters. Do not improve style.
-            Reply with exactly two lines:
+            Is the learner's answer correct English for this task? Other wordings are fine. Ignore punctuation and capital letters.
             VERDICT: CORRECT or WRONG
-            FIXED: the learner's sentence with the fewest changes that make it correct
+            FIXED: the answer with the fewest changes that make it correct
         """.trimIndent()
 
         fun chatPrompt(said: String?, message: String): String = buildString {
@@ -86,17 +86,11 @@ class FreeAnswerJudge(private val model: OnDeviceModel, private val config: Stud
         }
 
         fun translationPrompt(request: JudgeRequest): String = """
-            A learner of English (level B1) translated a Russian sentence into English. Decide only whether the meaning is the same. Ignore grammar, spelling and style completely: "he go", "I buyed", a missing article or a wrong tense do not change the meaning.
-            Russian sentence: ${request.task}
-            A correct translation: ${request.reference}
-            Learner's translation: ${request.response}
+            Russian: ${request.task}
+            Correct English: ${request.reference}
+            Learner's English: ${request.response}
 
-            The meaning is DIFFERENT if the learner's translation has another action, thing, quality or person, swaps who does what to whom, says the opposite, adds or drops "not", or leaves out the main point. Otherwise it is the SAME.
-            Examples:
-            «Я вчера купил хлеб.» — "I buyed bread yesterday." — SAME
-            «Я вчера купил хлеб.» — "I sold bread yesterday." — DIFFERENT
-            «Анна позвонила брату.» — "Anna's brother called her." — DIFFERENT
-            Reply with one line:
+            Does the learner's sentence mean the same as the Russian one? Mistakes in grammar and spelling do not matter, only the meaning.
             MEANING: SAME or DIFFERENT
         """.trimIndent()
     }

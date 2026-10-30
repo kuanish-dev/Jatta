@@ -1,0 +1,488 @@
+{
+  "id": "phrasal-verbs",
+  "title": "Фразовые глаголы: повседневные",
+  "intro": "Фразовый глагол — глагол с частицей (up, off, out…), у которого своё значение: give up — сдаться, а не «дать вверх». Учите их как отдельные слова, целиком.",
+  "items": [
+    {
+      "id": "c-put-off",
+      "kind": "phrase",
+      "en": "put off",
+      "ru": "откладывать (на потом)",
+      "note": "Разделяемый: put it off, put off the meeting. Put off + -ing: I keep putting off going to the dentist. Ещё — отбить желание: the smell put me off.",
+      "examples": [
+        {
+          "en": "We put off the trip until next spring.",
+          "ru": "Мы отложили поездку до следующей весны.",
+          "gap": "put off"
+        },
+        {
+          "en": "Stop putting off that phone call.",
+          "ru": "Хватит откладывать этот звонок.",
+          "gap": "putting off"
+        }
+      ]
+    },
+    {
+      "id": "c-find-out",
+      "kind": "phrase",
+      "en": "find out",
+      "ru": "узнать, выяснить",
+      "note": "Find out — узнать факт: find out the price, find out what happened. Разделяемый, но объект обычно после: find out the truth. Find без out — найти вещь.",
+      "examples": [
+        {
+          "en": "I found out that my colleague is leaving.",
+          "ru": "Я узнал, что мой коллега увольняется.",
+          "gap": "found out"
+        },
+        {
+          "en": "Can you find out when the shop closes?",
+          "ru": "Можешь узнать, когда закрывается магазин?",
+          "gap": "find out"
+        }
+      ]
+    },
+    {
+      "id": "c-run-out-of",
+      "kind": "phrase",
+      "en": "run out of",
+      "ru": "исчерпать, остаться без",
+      "note": "Run out of milk, time, money — молоко, время, деньги кончились. Неразделяемый. Без of: we are running out — у нас заканчивается.",
+      "examples": [
+        {
+          "en": "We have run out of coffee again.",
+          "ru": "У нас опять кончился кофе.",
+          "gap": "run out of"
+        },
+        {
+          "en": "I'm running out of time before the deadline.",
+          "ru": "До дедлайна у меня остаётся всё меньше времени.",
+          "gap": "running out of"
+        }
+      ]
+    },
+    {
+      "id": "c-set-up",
+      "kind": "phrase",
+      "en": "set up",
+      "ru": "основать, организовать; установить, настроить",
+      "note": "Set up a company — открыть своё дело, set up a meeting — организовать встречу, set up a printer, an account — установить, настроить. Разделяемый: set it up.",
+      "examples": [
+        {
+          "en": "She set up her own bakery two years ago.",
+          "ru": "Два года назад она открыла свою пекарню.",
+          "gap": "set up"
+        },
+        {
+          "en": "We are setting up a meeting for Monday.",
+          "ru": "Мы организуем встречу на понедельник.",
+          "gap": "setting up"
+        }
+      ]
+    },
+    {
+      "id": "c-turn-down",
+      "kind": "phrase",
+      "en": "turn down",
+      "ru": "отклонить, отказаться; убавить (звук)",
+      "note": "Turn down an offer, a job — отказаться. Turn down the music, the heating — сделать тише, убавить. Разделяемый: turn it down.",
+      "examples": [
+        {
+          "en": "He turned down a job in London.",
+          "ru": "Он отказался от работы в Лондоне.",
+          "gap": "turned down"
+        },
+        {
+          "en": "Could you turn down the music a bit?",
+          "ru": "Можешь сделать музыку потише?",
+          "gap": "turn down"
+        }
+      ]
+    },
+    {
+      "id": "c-carry-on",
+      "kind": "phrase",
+      "en": "carry on",
+      "ru": "продолжать",
+      "note": "Carry on + -ing: carry on working. Carry on without me — продолжайте без меня. Неразделяемый. Британский вариант; американцы чаще говорят go on или keep on.",
+      "examples": [
+        {
+          "en": "Sorry for the interruption, please carry on.",
+          "ru": "Извините, что перебил, продолжайте.",
+          "gap": "carry on"
+        },
+        {
+          "en": "She carried on working after the baby was born.",
+          "ru": "После рождения ребёнка она продолжила работать.",
+          "gap": "carried on"
+        }
+      ]
+    },
+    {
+      "id": "c-pick-up",
+      "kind": "phrase",
+      "en": "pick up",
+      "ru": "забрать, подвезти; поднять; нахвататься (языка)",
+      "note": "Pick up the kids from school — забрать детей, pick up the phone — поднять трубку, pick up some Spanish — нахвататься испанского. Разделяемый: pick it up, pick me up.",
+      "examples": [
+        {
+          "en": "I'll pick up the kids after work.",
+          "ru": "Я заберу детей после работы.",
+          "gap": "pick up"
+        },
+        {
+          "en": "She picked up Italian while living in Rome.",
+          "ru": "Она нахваталась итальянского, пока жила в Риме.",
+          "gap": "picked up"
+        }
+      ]
+    },
+    {
+      "id": "c-get-over",
+      "kind": "phrase",
+      "en": "get over",
+      "ru": "пережить, оправиться (от болезни, расставания)",
+      "note": "Get over a cold, a breakup, a shock — оправиться, пережить. Неразделяемый: get over it. I can't get over how… — не могу поверить, как…",
+      "examples": [
+        {
+          "en": "It took him a year to get over the divorce.",
+          "ru": "Ему понадобился год, чтобы пережить развод.",
+          "gap": "get over"
+        },
+        {
+          "en": "She is still getting over the flu.",
+          "ru": "Она всё ещё отходит от гриппа.",
+          "gap": "getting over"
+        }
+      ]
+    },
+    {
+      "id": "c-let-down",
+      "kind": "phrase",
+      "en": "let down",
+      "ru": "подвести, разочаровать",
+      "note": "Let someone down — подвести того, кто на тебя рассчитывал. Разделяемый, объект обычно между: let me down, let the team down. Feel let down — чувствовать себя обманутым в ожиданиях.",
+      "examples": [
+        {
+          "en": "I promised to help and I won't let down my friends.",
+          "ru": "Я обещал помочь и не подведу друзей.",
+          "gap": "let down"
+        },
+        {
+          "en": "The hotel let down everyone with its dirty rooms.",
+          "ru": "Отель всех разочаровал грязными номерами.",
+          "gap": "let down"
+        }
+      ]
+    },
+    {
+      "id": "c-sort-out",
+      "kind": "phrase",
+      "en": "sort out",
+      "ru": "уладить, разобраться; разобрать (вещи)",
+      "note": "Sort out a problem — уладить. Sort out the papers, the garage — разобрать, навести порядок. Разделяемый: sort it out. Британское; в американском чаще figure out или fix.",
+      "examples": [
+        {
+          "en": "We need to sort out the visa before the trip.",
+          "ru": "Нужно уладить вопрос с визой до поездки.",
+          "gap": "sort out"
+        },
+        {
+          "en": "I spent Sunday sorting out the garage.",
+          "ru": "Я провёл воскресенье, разбирая гараж.",
+          "gap": "sorting out"
+        }
+      ]
+    },
+    {
+      "id": "c-show-up",
+      "kind": "phrase",
+      "en": "show up",
+      "ru": "появиться, прийти (туда, где ждут)",
+      "also": [
+        "turn up"
+      ],
+      "note": "He didn't show up — он не пришёл. Неразделяемый. Разговорный синоним — turn up. Часто с оттенком «с опозданием» или «неожиданно».",
+      "examples": [
+        {
+          "en": "He showed up an hour late, as usual.",
+          "ru": "Он явился с опозданием на час, как обычно.",
+          "gap": "showed up"
+        },
+        {
+          "en": "If she doesn't show up, we'll start without her.",
+          "ru": "Если она не придёт, начнём без неё.",
+          "gap": "show up"
+        }
+      ]
+    },
+    {
+      "id": "c-figure-out",
+      "kind": "phrase",
+      "en": "figure out",
+      "ru": "понять, разобраться, сообразить",
+      "note": "Figure out how, why, what — понять, додуматься: I can't figure out how it works. Разделяемый: figure it out. Американское; британцы чаще говорят work out.",
+      "examples": [
+        {
+          "en": "I can't figure out how to open this file.",
+          "ru": "Не могу понять, как открыть этот файл.",
+          "gap": "figure out"
+        },
+        {
+          "en": "We finally figured out why the car wouldn't start.",
+          "ru": "Мы наконец поняли, почему машина не заводилась.",
+          "gap": "figured out"
+        }
+      ]
+    },
+    {
+      "id": "c-end-up",
+      "kind": "phrase",
+      "en": "end up",
+      "ru": "в итоге оказаться, кончить тем, что",
+      "note": "End up + -ing или место: we ended up staying at home, he ended up in hospital. О результате, которого не планировали. Неразделяемый.",
+      "examples": [
+        {
+          "en": "We ended up eating pizza at midnight.",
+          "ru": "В итоге мы ели пиццу в полночь.",
+          "gap": "ended up"
+        },
+        {
+          "en": "Drive like that and you'll end up in hospital.",
+          "ru": "Будешь так ездить — окажешься в больнице.",
+          "gap": "end up"
+        }
+      ]
+    },
+    {
+      "id": "c-come-across",
+      "kind": "phrase",
+      "en": "come across",
+      "ru": "случайно найти, наткнуться; производить впечатление",
+      "note": "Come across an old photo — наткнуться. Come across as rude — казаться грубым. Неразделяемый. Случайно встретить человека — run into.",
+      "examples": [
+        {
+          "en": "I came across an old letter in the drawer.",
+          "ru": "Я наткнулся на старое письмо в ящике.",
+          "gap": "came across"
+        },
+        {
+          "en": "He comes across as shy, but he is very friendly.",
+          "ru": "Он кажется застенчивым, но на самом деле очень дружелюбный.",
+          "gap": "comes across"
+        }
+      ]
+    },
+    {
+      "id": "c-take-off",
+      "kind": "phrase",
+      "en": "take off",
+      "ru": "снять (одежду); взлететь; взять отгул",
+      "note": "Take off your coat — снять пальто, разделяемый: take it off. The plane takes off — самолёт взлетает. Take a day off — взять выходной. О бизнесе — пошёл в гору.",
+      "examples": [
+        {
+          "en": "Please take off your shoes at the door.",
+          "ru": "Пожалуйста, снимайте обувь у двери.",
+          "gap": "take off"
+        },
+        {
+          "en": "Our flight took off two hours late.",
+          "ru": "Наш рейс вылетел с опозданием на два часа.",
+          "gap": "took off"
+        }
+      ]
+    },
+    {
+      "id": "c-cut-down-on",
+      "kind": "phrase",
+      "en": "cut down on",
+      "ru": "сократить (потребление)",
+      "note": "Cut down on sugar, coffee, spending — есть, пить, тратить меньше. Неразделяемый. Без on — cut down a tree: срубить.",
+      "examples": [
+        {
+          "en": "The doctor told me to cut down on salt.",
+          "ru": "Врач велел мне есть меньше соли.",
+          "gap": "cut down on"
+        },
+        {
+          "en": "We are cutting down on takeaways to save money.",
+          "ru": "Мы реже заказываем еду, чтобы сэкономить.",
+          "gap": "cutting down on"
+        }
+      ]
+    },
+    {
+      "id": "c-put-up-with",
+      "kind": "phrase",
+      "en": "put up with",
+      "ru": "терпеть, мириться с",
+      "note": "Put up with noise, with a difficult boss — терпеть то, что не нравится. Неразделяемый. I won't put up with it — я этого не потерплю.",
+      "examples": [
+        {
+          "en": "I can't put up with this noise any longer.",
+          "ru": "Я больше не могу терпеть этот шум.",
+          "gap": "put up with"
+        },
+        {
+          "en": "How do you put up with your flatmate?",
+          "ru": "Как ты терпишь своего соседа по квартире?",
+          "gap": "put up with"
+        }
+      ]
+    },
+    {
+      "id": "c-hang-out",
+      "kind": "phrase",
+      "en": "hang out",
+      "ru": "проводить время, тусоваться",
+      "note": "Hang out with friends — просто быть вместе без особого дела. Разговорное, неразделяемый. Hang out the washing — развесить бельё, другое значение.",
+      "examples": [
+        {
+          "en": "We usually hang out at the park on Sundays.",
+          "ru": "По воскресеньям мы обычно зависаем в парке.",
+          "gap": "hang out"
+        },
+        {
+          "en": "She hangs out with her colleagues after work.",
+          "ru": "После работы она проводит время с коллегами.",
+          "gap": "hangs out"
+        }
+      ]
+    },
+    {
+      "id": "c-break-down",
+      "kind": "phrase",
+      "en": "break down",
+      "ru": "сломаться (о машине); сорваться, расплакаться",
+      "note": "The car broke down — машина сломалась в пути. Talks broke down — переговоры сорвались. He broke down in tears — расплакался. Неразделяемый. Breakdown — поломка, nervous breakdown — нервный срыв.",
+      "examples": [
+        {
+          "en": "Our car broke down on the way to the airport.",
+          "ru": "Наша машина сломалась по дороге в аэропорт.",
+          "gap": "broke down"
+        },
+        {
+          "en": "The washing machine keeps breaking down.",
+          "ru": "Стиральная машина всё время ломается.",
+          "gap": "breaking down"
+        }
+      ]
+    },
+    {
+      "id": "c-fill-in",
+      "kind": "phrase",
+      "en": "fill in",
+      "ru": "заполнить (бланк); подменить (кого-то)",
+      "also": [
+        "fill out"
+      ],
+      "note": "Fill in a form — заполнить анкету; американцы говорят fill out. Разделяемый: fill it in. Fill in for someone — подменить на работе. Fill me in — введи меня в курс дела.",
+      "examples": [
+        {
+          "en": "Please fill in this form and sign at the bottom.",
+          "ru": "Пожалуйста, заполните этот бланк и распишитесь внизу.",
+          "gap": "fill in"
+        },
+        {
+          "en": "I'm filling in for Anna while she is on holiday.",
+          "ru": "Я подменяю Анну, пока она в отпуске.",
+          "gap": "filling in"
+        }
+      ]
+    },
+    {
+      "id": "c-go-on",
+      "kind": "phrase",
+      "en": "go on",
+      "ru": "продолжать(ся); происходить",
+      "note": "What's going on? — что происходит? Go on talking — продолжай говорить. The meeting went on for hours — тянулась часами. Go on! — давай, ну же. Неразделяемый.",
+      "examples": [
+        {
+          "en": "What is going on in the kitchen?",
+          "ru": "Что происходит на кухне?",
+          "gap": "going on"
+        },
+        {
+          "en": "The party went on until three in the morning.",
+          "ru": "Вечеринка продолжалась до трёх ночи.",
+          "gap": "went on"
+        }
+      ]
+    },
+    {
+      "id": "c-catch-up",
+      "kind": "phrase",
+      "en": "catch up",
+      "ru": "догнать; наверстать; обменяться новостями",
+      "note": "Catch up with someone — догнать или узнать, как дела. Catch up on work, sleep — наверстать упущенное. Let's catch up over coffee — давай встретимся, поболтаем. Неразделяемый.",
+      "examples": [
+        {
+          "en": "Let's catch up over lunch next week.",
+          "ru": "Давай на следующей неделе пообедаем и поболтаем.",
+          "gap": "catch up"
+        },
+        {
+          "en": "She is catching up on emails after the holiday.",
+          "ru": "После отпуска она разгребает почту.",
+          "gap": "catching up"
+        }
+      ]
+    },
+    {
+      "id": "c-get-rid-of",
+      "kind": "phrase",
+      "en": "get rid of",
+      "ru": "избавиться от",
+      "note": "Get rid of old clothes, a cold, a bad habit — избавиться от вещей, болезни, привычки. Неразделяемый, всегда с of.",
+      "examples": [
+        {
+          "en": "We need to get rid of these old boxes.",
+          "ru": "Нужно избавиться от этих старых коробок.",
+          "gap": "get rid of"
+        },
+        {
+          "en": "I finally got rid of my cold.",
+          "ru": "Я наконец избавился от простуды.",
+          "gap": "got rid of"
+        }
+      ]
+    },
+    {
+      "id": "c-come-up-with",
+      "kind": "phrase",
+      "en": "come up with",
+      "ru": "придумать, предложить (идею, решение)",
+      "note": "Come up with an idea, a plan, a solution — придумать. Неразделяемый. Без with — come up: всплыть, случиться: something came up — кое-что случилось.",
+      "examples": [
+        {
+          "en": "She came up with a great name for the café.",
+          "ru": "Она придумала отличное название для кафе.",
+          "gap": "came up with"
+        },
+        {
+          "en": "We need to come up with a plan by Friday.",
+          "ru": "Нам нужно придумать план к пятнице.",
+          "gap": "come up with"
+        }
+      ]
+    },
+    {
+      "id": "c-run-into",
+      "kind": "phrase",
+      "en": "run into",
+      "ru": "случайно встретить; столкнуться (с трудностями)",
+      "note": "Run into an old friend — случайно встретить. Run into problems, trouble — столкнуться с трудностями. Неразделяемый. Разговорный синоним — bump into.",
+      "examples": [
+        {
+          "en": "I ran into my old teacher at the market.",
+          "ru": "Я случайно встретил на рынке своего старого учителя.",
+          "gap": "ran into"
+        },
+        {
+          "en": "We might run into traffic on the way back.",
+          "ru": "На обратном пути можем попасть в пробки.",
+          "gap": "run into"
+        }
+      ]
+    }
+  ]
+}

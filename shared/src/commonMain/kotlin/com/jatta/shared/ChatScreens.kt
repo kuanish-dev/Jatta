@@ -36,8 +36,11 @@ internal fun ChatTopicsScreen(screen: Screen.ChatTopics, controller: StudyContro
     Text("О чём поговорим?", style = MaterialTheme.typography.headlineMedium)
     Muted(
         "Собеседник — модель на телефоне. Каждую вашу фразу она сразу проверяет: под фразой появится разбор ошибок. " +
-            "Слова из курса, которые вы уже встречали, собеседник постарается вставить в разговор.",
+            "Слова из курса, которые вы уже встречали, подсвечены в его репликах.",
     )
+    if (!screen.reviewTrusted) {
+        Note("Модель ещё не прошла проверку точности уроков (она на главной), поэтому разбор ошибок приблизительный: спорное сверяйте с правилом курса.")
+    }
     screen.topics.forEachIndexed { index, topic ->
         NeonOutlinedButton({ controller.startChat(topic.id) }, Modifier.fillMaxWidth().appear(index + 1)) { Text(topic.ru) }
     }
@@ -55,7 +58,7 @@ internal fun ChatScreen(screen: Screen.Chat, controller: StudyController) {
             BackBar("Разговор · ${screen.topic.ru}", Neon.Magenta, controller::openHome)
             LazyColumn(Modifier.weight(1f), state = list, verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 itemsIndexed(screen.messages) { _, message ->
-                    if (message.fromLearner) LearnerLine(message.text, message.review) else PartnerLine(message.text, screen.words)
+                    if (message.fromLearner) LearnerLine(message.text, message.review, screen.reviewTrusted) else PartnerLine(message.text, screen.words)
                 }
                 if (screen.typing) item { Typing() }
                 if (screen.silent) item { Muted("Модель не ответила. Напишите ещё раз — она продолжит разговор.") }
@@ -77,27 +80,27 @@ private fun PartnerLine(text: String, words: List<String>) {
 }
 
 @Composable
-private fun LearnerLine(text: String, review: Review?) {
+private fun LearnerLine(text: String, review: Review?, trusted: Boolean) {
     Column(Modifier.fillMaxWidth().appear(), horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(6.dp)) {
         Panel(Modifier.fillMaxWidth(0.88f), accent = Neon.Magenta.copy(alpha = 0.45f)) {
             Text(text, style = MaterialTheme.typography.bodyLarge)
         }
-        Column(Modifier.fillMaxWidth(0.88f)) { review?.let { ReviewBlock(it) } }
+        Column(Modifier.fillMaxWidth(0.88f)) { review?.let { ReviewBlock(it, trusted) } }
     }
 }
 
 @Composable
-private fun ReviewBlock(review: Review) = when (review) {
+private fun ReviewBlock(review: Review, trusted: Boolean) = when (review) {
     Review.Checking -> Muted("Проверяю…", Modifier.pulse(fadeBy = 0.6f))
     Review.Fine -> Label("✓ Без ошибок", color = Neon.Acid, modifier = Modifier.pop(origin = LeftCenter))
     Review.Unclear -> Muted("Модель не смогла разобрать эту фразу.")
-    is Review.Fixed -> Mistakes(review)
+    is Review.Fixed -> Mistakes(review, trusted)
 }
 
 @Composable
-private fun Mistakes(fixed: Review.Fixed) {
+private fun Mistakes(fixed: Review.Fixed, trusted: Boolean) {
     Panel(Modifier.fillMaxWidth().shake(), accent = Neon.Danger.copy(alpha = 0.55f)) {
-        Label("Разбор", color = Neon.Danger)
+        Label(if (trusted) "Разбор" else "Разбор · приблизительно", color = Neon.Danger)
         fixed.changes.forEach { Text(changeText(it), style = MaterialTheme.typography.bodyLarge) }
         Muted("Как правильно")
         Text(correctedText(fixed.diff), style = MaterialTheme.typography.bodyLarge)

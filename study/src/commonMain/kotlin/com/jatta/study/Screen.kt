@@ -1,6 +1,7 @@
 package com.jatta.study
 
 import com.jatta.study.calibration.CalibrationReport
+import com.jatta.study.calibration.CalibrationVerdict
 import com.jatta.study.chat.ChatMessage
 import com.jatta.study.chat.ChatTopic
 import com.jatta.study.content.ItemFile
@@ -12,6 +13,7 @@ import com.jatta.study.progress.DaySummary
 import com.jatta.study.progress.ProgressReport
 import com.jatta.study.progress.Streak
 import com.jatta.study.reading.Reading
+import com.jatta.study.reading.TextReport
 import com.jatta.study.store.AiCheck
 import com.jatta.study.store.FitCheck
 import com.jatta.study.translate.TranslationTask
@@ -29,6 +31,10 @@ sealed interface Screen {
         val reading: Reading?,
         val streak: Streak,
         val chatReady: Boolean = false,
+        val chatReviewTrusted: Boolean = false,
+        val placementOffered: Boolean = false,
+        val calibration: CalibrationSummary? = null,
+        val notice: String? = null,
     ) : Screen
 
     data class DailySummary(val yesterday: DaySummary?, val restDay: Boolean, val streak: Streak) : Screen
@@ -54,6 +60,10 @@ sealed interface Screen {
     ) : Screen
 
     data class Read(val reading: Reading) : Screen
+
+    data object OwnText : Screen
+
+    data class TextStudy(val report: TextReport, val newToday: Int) : Screen
 
     data class Present(
         val item: ItemFile,
@@ -108,7 +118,7 @@ sealed interface Screen {
 
     data class Calibration(val report: CalibrationReport, val fit: FitStatus) : Screen
 
-    data class ChatTopics(val topics: List<ChatTopic>) : Screen
+    data class ChatTopics(val topics: List<ChatTopic>, val reviewTrusted: Boolean) : Screen
 
     data class Chat(
         val topic: ChatTopic,
@@ -116,10 +126,11 @@ sealed interface Screen {
         val typing: Boolean,
         val silent: Boolean,
         val words: List<String>,
+        val reviewTrusted: Boolean = true,
     ) : Screen
 }
 
-val Screen.canGoBack: Boolean get() = this !is Screen.Home && this !is Screen.PlacementIntro
+val Screen.canGoBack: Boolean get() = this !is Screen.Home
 
 data class Steps(val done: Int, val remaining: Int) {
     val fraction: Float get() = if (done + remaining == 0) 1f else done.toFloat() / (done + remaining)
@@ -148,6 +159,8 @@ enum class RestKind { Scheduled, Fatigue, Quiet }
 
 enum class TopicState { Locked, Open, Mastered }
 
-data class TopicStatus(val id: String, val title: String, val state: TopicState, val held: Int, val total: Int)
+data class TopicStatus(val id: String, val title: String, val state: TopicState, val held: Int, val total: Int, val custom: Boolean = false)
+
+data class CalibrationSummary(val reviews: Int, val predicted: Double, val actual: Double, val verdict: CalibrationVerdict)
 
 data class FitStatus(val personal: Boolean, val reviews: Int, val nextFitAt: Int, val last: FitCheck?)

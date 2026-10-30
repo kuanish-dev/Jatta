@@ -1,0 +1,177 @@
+{
+  "id": "ability",
+  "title": "Can, could, be able to",
+  "intro": "Can — могу или умею сейчас, could — умел раньше. Где can не встаёт (будущее, перфект, после to), берём be able to. Про один удавшийся случай в прошлом — was able to или managed to.",
+  "requires": ["present-perfect"],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "ab-can-could",
+      "kind": "rule",
+      "en": "can / could",
+      "ru": "can — могу, умею сейчас; could — умел, мог вообще в прошлом",
+      "note": "I can swim — умею плавать. When I was five, I could already read — умел вообще, а не в один раз. После can и could — глагол без to, и формы на -s нет: he can, а не he cans.",
+      "examples": [
+        {
+          "en": "She can speak three languages.",
+          "ru": "Она говорит на трёх языках.",
+          "gap": "can speak",
+          "cue": "speak",
+          "wrong": [
+            "can to speak",
+            "cans speak",
+            "can speaks"
+          ]
+        },
+        {
+          "en": "I could run fast when I was young.",
+          "ru": "В молодости я умел быстро бегать.",
+          "gap": "could run",
+          "cue": "run",
+          "wrong": [
+            "can run",
+            "could to run",
+            "could ran"
+          ]
+        },
+        {
+          "en": "My grandmother could play the piano.",
+          "ru": "Моя бабушка умела играть на пианино.",
+          "gap": "could play",
+          "cue": "play",
+          "wrong": [
+            "can play",
+            "could to play",
+            "could playing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab-be-able-to",
+      "kind": "rule",
+      "en": "be able to",
+      "ru": "be able to — там, где can не встаёт: будущее, перфект, после to",
+      "note": "Will be able to — смогу: I'll be able to help you tomorrow. Have been able to — удавалось: I haven't been able to sleep. После to и других глаголов: I want to be able to drive. Про сейчас обычно can: I can hear you.",
+      "examples": [
+        {
+          "en": "You will be able to walk in a week.",
+          "ru": "Через неделю вы сможете ходить.",
+          "gap": "will be able to walk",
+          "cue": "walk",
+          "wrong": [
+            "will can walk",
+            "can walk",
+            "will be able walk"
+          ]
+        },
+        {
+          "en": "I haven't been able to sleep since Monday.",
+          "ru": "С понедельника мне не удаётся заснуть.",
+          "gap": "haven't been able to sleep",
+          "cue": "sleep",
+          "wrong": [
+            "haven't could sleep",
+            "can't sleep",
+            "haven't been able sleep"
+          ]
+        },
+        {
+          "en": "I want to be able to drive by summer.",
+          "ru": "Я хочу к лету научиться водить.",
+          "gap": "to be able to drive",
+          "cue": "drive",
+          "wrong": [
+            "to can drive",
+            "can drive",
+            "to be able drive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab-managed",
+      "kind": "rule",
+      "en": "was able to / managed to",
+      "ru": "один удавшийся случай в прошлом — was able to или managed to, а не could",
+      "note": "Could — умел вообще. Что в конкретный раз удалось — was able to или managed to: The fire was bad, but everyone was able to get out. He managed to fix it. С отрицанием разницы нет: couldn't = wasn't able to.",
+      "examples": [
+        {
+          "en": "He managed to fix the car himself.",
+          "ru": "Ему удалось починить машину самому.",
+          "gap": "managed to fix",
+          "cue": "fix",
+          "wrong": [
+            "could fix",
+            "managed fix",
+            "managed fixing"
+          ]
+        },
+        {
+          "en": "Luckily, we were able to get tickets.",
+          "ru": "К счастью, нам удалось достать билеты.",
+          "gap": "were able to get",
+          "cue": "get",
+          "wrong": [
+            "could get",
+            "were able get",
+            "could to get"
+          ]
+        },
+        {
+          "en": "She managed to find a flat in two days.",
+          "ru": "Она сумела найти квартиру за два дня.",
+          "gap": "managed to find",
+          "cue": "find",
+          "wrong": [
+            "could find",
+            "managed finding",
+            "was managed to find"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab-could-polite",
+      "kind": "rule",
+      "en": "Could you…? / Can I…?",
+      "ru": "could и can — просьбы и разрешение; could — вежливее",
+      "note": "Could you help me? — не могли бы вы. Can I open the window? — можно? Could I…? — то же, но мягче. В ответе — can: Yes, you can. Порядок как в вопросе: модальный глагол перед подлежащим.",
+      "examples": [
+        {
+          "en": "Excuse me, could you help me with these boxes?",
+          "ru": "Извините, не могли бы вы помочь мне с этими коробками?",
+          "gap": "could you help",
+          "cue": "help",
+          "wrong": [
+            "could you to help",
+            "you could help",
+            "could help you"
+          ]
+        },
+        {
+          "en": "Sorry, can I use your phone for a minute?",
+          "ru": "Простите, можно мне на минуту ваш телефон?",
+          "gap": "can I use",
+          "cue": "use",
+          "wrong": [
+            "I can use",
+            "can I to use",
+            "can I using"
+          ]
+        },
+        {
+          "en": "Do you think I could leave early today?",
+          "ru": "Как думаешь, я мог бы сегодня уйти пораньше?",
+          "gap": "could leave",
+          "cue": "leave",
+          "wrong": [
+            "could to leave",
+            "could leaving",
+            "could left"
+          ]
+        }
+      ]
+    }
+  ]
+}

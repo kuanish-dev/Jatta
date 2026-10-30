@@ -1,0 +1,500 @@
+{
+  "id": "food-words",
+  "title": "Слова: еда и готовка",
+  "intro": "Еда дома и в кафе: продукты, рецепты, готовка, вкус и заказ в ресторане. Слова идут от частых к редким.",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "w-order",
+      "kind": "word",
+      "en": "order",
+      "ru": "заказывать; заказ",
+      "rank": 215,
+      "note": "В кафе: order a coffee, order dessert. Can I take your order? — спрашивает официант. Order — ещё и порядок или приказ.",
+      "examples": [
+        {
+          "en": "Are you ready to order?",
+          "ru": "Вы готовы сделать заказ?",
+          "gap": "order"
+        },
+        {
+          "en": "We ordered pizza and watched a film.",
+          "ru": "Мы заказали пиццу и посмотрели фильм.",
+          "gap": "ordered"
+        }
+      ]
+    },
+    {
+      "id": "w-serve",
+      "kind": "word",
+      "en": "serve",
+      "ru": "подавать (еду), обслуживать",
+      "rank": 534,
+      "note": "Serve dinner — подать ужин, serve with rice — подавать с рисом. В рецептах serves four — рассчитано на четыре порции.",
+      "examples": [
+        {
+          "en": "Breakfast is served from seven to ten.",
+          "ru": "Завтрак подают с семи до десяти.",
+          "gap": "served"
+        },
+        {
+          "en": "This recipe serves four people.",
+          "ru": "Этот рецепт рассчитан на четверых.",
+          "gap": "serves"
+        }
+      ]
+    },
+    {
+      "id": "w-mix",
+      "kind": "word",
+      "en": "mix",
+      "ru": "смешивать; смесь",
+      "rank": 1029,
+      "note": "Mix the flour with the eggs — смешать муку с яйцами. Mixture — смесь, cake mix — готовая смесь для торта.",
+      "examples": [
+        {
+          "en": "Mix the sugar and butter in a large bowl.",
+          "ru": "Смешайте сахар и масло в большой миске.",
+          "gap": "Mix"
+        },
+        {
+          "en": "She mixed the salad with her hands.",
+          "ru": "Она перемешала салат руками.",
+          "gap": "mixed"
+        }
+      ]
+    },
+    {
+      "id": "w-meal",
+      "kind": "word",
+      "en": "meal",
+      "ru": "приём пищи, еда (завтрак, обед или ужин)",
+      "rank": 1250,
+      "note": "Meal — любой завтрак, обед или ужин: a quick meal, a three-course meal. Food — еда вообще, продукты.",
+      "examples": [
+        {
+          "en": "We had a lovely meal at the new Italian place.",
+          "ru": "Мы отлично поели в новом итальянском ресторане.",
+          "gap": "meal"
+        },
+        {
+          "en": "I try to cook three meals a day.",
+          "ru": "Я стараюсь готовить три раза в день.",
+          "gap": "meals"
+        }
+      ]
+    },
+    {
+      "id": "w-fresh",
+      "kind": "word",
+      "en": "fresh",
+      "ru": "свежий",
+      "rank": 1309,
+      "note": "Fresh bread, fresh fish — свежий; fresh air — свежий воздух. Несвежий хлеб — stale, испортившееся молоко или мясо — off.",
+      "examples": [
+        {
+          "en": "The market sells fresh fish every morning.",
+          "ru": "На рынке каждое утро продают свежую рыбу.",
+          "gap": "fresh"
+        },
+        {
+          "en": "I prefer fresh vegetables to frozen ones.",
+          "ru": "Я предпочитаю свежие овощи замороженным.",
+          "gap": "fresh"
+        }
+      ]
+    },
+    {
+      "id": "w-taste",
+      "kind": "word",
+      "en": "taste",
+      "ru": "вкус; пробовать; иметь вкус",
+      "rank": 1413,
+      "note": "Taste the soup — попробуй суп. It tastes salty — на вкус солёный. Taste — ещё и вкус в одежде или музыке: good taste.",
+      "examples": [
+        {
+          "en": "This sauce tastes too salty.",
+          "ru": "Этот соус слишком солёный на вкус.",
+          "gap": "tastes"
+        },
+        {
+          "en": "Can I taste your dessert?",
+          "ru": "Можно попробовать твой десерт?",
+          "gap": "taste"
+        }
+      ]
+    },
+    {
+      "id": "w-dish",
+      "kind": "word",
+      "en": "dish",
+      "ru": "блюдо; тарелка",
+      "rank": 1882,
+      "note": "Dish — блюдо как кушанье: a vegetarian dish, the national dish. The dishes — посуда: do the dishes — мыть посуду.",
+      "examples": [
+        {
+          "en": "What is the national dish of your country?",
+          "ru": "Какое национальное блюдо в вашей стране?",
+          "gap": "dish"
+        },
+        {
+          "en": "It's your turn to do the dishes.",
+          "ru": "Твоя очередь мыть посуду.",
+          "gap": "dishes"
+        }
+      ]
+    },
+    {
+      "id": "w-portion",
+      "kind": "word",
+      "en": "portion",
+      "ru": "порция",
+      "rank": 2229,
+      "note": "A small portion of chips — маленькая порция картошки; в рецептах порция — serving. Portion — ещё и часть: a large portion of the budget.",
+      "examples": [
+        {
+          "en": "The portions in this restaurant are huge.",
+          "ru": "Порции в этом ресторане огромные.",
+          "gap": "portions"
+        },
+        {
+          "en": "Can I have a small portion of rice?",
+          "ru": "Можно мне маленькую порцию риса?",
+          "gap": "portion"
+        }
+      ]
+    },
+    {
+      "id": "w-menu",
+      "kind": "word",
+      "en": "menu",
+      "ru": "меню",
+      "rank": 2597,
+      "note": "On the menu — в меню. Set menu — комплексное меню по фиксированной цене. Ударение на первом слоге: [ˈmenjuː].",
+      "examples": [
+        {
+          "en": "Could we see the menu, please?",
+          "ru": "Можно нам меню, пожалуйста?",
+          "gap": "menu"
+        },
+        {
+          "en": "There is nothing vegetarian on the menu.",
+          "ru": "В меню нет ничего вегетарианского.",
+          "gap": "menu"
+        }
+      ]
+    },
+    {
+      "id": "w-bite",
+      "kind": "word",
+      "en": "bite",
+      "ru": "кусать; кусочек, укус",
+      "rank": 2663,
+      "note": "Take a bite — откусить, have a bite to eat — перекусить. Формы: bite — bit — bitten. A mosquito bite — укус комара.",
+      "examples": [
+        {
+          "en": "Can I have a bite of your sandwich?",
+          "ru": "Можно откусить от твоего сэндвича?",
+          "gap": "bite"
+        },
+        {
+          "en": "He bit into the apple and smiled.",
+          "ru": "Он откусил яблоко и улыбнулся.",
+          "gap": "bit"
+        }
+      ]
+    },
+    {
+      "id": "w-raw",
+      "kind": "word",
+      "en": "raw",
+      "ru": "сырой",
+      "rank": 2686,
+      "note": "Raw fish, raw meat — сырой; raw vegetables — свежие, не варёные. Стейк слабой прожарки — rare, а не raw.",
+      "examples": [
+        {
+          "en": "Don't eat raw eggs.",
+          "ru": "Не ешьте сырые яйца.",
+          "gap": "raw"
+        },
+        {
+          "en": "Some people like raw fish in sushi.",
+          "ru": "Некоторым нравится сырая рыба в суши.",
+          "gap": "raw"
+        }
+      ]
+    },
+    {
+      "id": "w-stir",
+      "kind": "word",
+      "en": "stir",
+      "ru": "помешивать, размешивать",
+      "rank": 2740,
+      "note": "Stir the soup — помешивай суп, stir sugar into tea — размешать сахар в чае. Stir-fry — жарить, быстро помешивая.",
+      "examples": [
+        {
+          "en": "Stir the sauce until it gets thick.",
+          "ru": "Помешивайте соус, пока он не загустеет.",
+          "gap": "Stir"
+        },
+        {
+          "en": "She stirred her coffee and said nothing.",
+          "ru": "Она размешала кофе и ничего не сказала.",
+          "gap": "stirred"
+        }
+      ]
+    },
+    {
+      "id": "w-slice",
+      "kind": "word",
+      "en": "slice",
+      "ru": "ломтик, кусок; нарезать ломтиками",
+      "rank": 2746,
+      "note": "A slice of bread, a slice of pizza — кусок, тонкий и плоский; piece — любой кусок. Sliced bread — нарезанный хлеб.",
+      "examples": [
+        {
+          "en": "Can I have another slice of cake?",
+          "ru": "Можно мне ещё кусочек торта?",
+          "gap": "slice"
+        },
+        {
+          "en": "Slice the tomatoes and put them on the bread.",
+          "ru": "Нарежьте помидоры и положите на хлеб.",
+          "gap": "Slice"
+        }
+      ]
+    },
+    {
+      "id": "w-fry",
+      "kind": "word",
+      "en": "fry",
+      "ru": "жарить (на сковороде)",
+      "note": "Fry onions in oil — жарить лук в масле, fried eggs — яичница. В духовке — bake или roast, на решётке — grill.",
+      "examples": [
+        {
+          "en": "Fry the onions until they turn golden.",
+          "ru": "Обжарьте лук до золотистого цвета.",
+          "gap": "Fry"
+        },
+        {
+          "en": "I had fried eggs for breakfast.",
+          "ru": "На завтрак у меня была яичница.",
+          "gap": "fried"
+        }
+      ]
+    },
+    {
+      "id": "w-boil",
+      "kind": "word",
+      "en": "boil",
+      "ru": "варить; кипеть, кипятить",
+      "note": "Boil the water — вскипятить воду, boil an egg — сварить яйцо, boiled potatoes — варёная картошка. The kettle is boiling — чайник кипит.",
+      "examples": [
+        {
+          "en": "Boil the pasta for ten minutes.",
+          "ru": "Варите пасту десять минут.",
+          "gap": "Boil"
+        },
+        {
+          "en": "The water is boiling, add the rice.",
+          "ru": "Вода кипит, добавляй рис.",
+          "gap": "boiling"
+        }
+      ]
+    },
+    {
+      "id": "w-bake",
+      "kind": "word",
+      "en": "bake",
+      "ru": "печь, выпекать",
+      "note": "Bake bread, bake a cake — печь в духовке; baked potato — печёная картошка. Bakery — пекарня.",
+      "examples": [
+        {
+          "en": "My mother bakes bread every Sunday.",
+          "ru": "Моя мама печёт хлеб каждое воскресенье.",
+          "gap": "bakes"
+        },
+        {
+          "en": "I baked a cake for his birthday.",
+          "ru": "Я испёк торт на его день рождения.",
+          "gap": "baked"
+        }
+      ]
+    },
+    {
+      "id": "w-chop",
+      "kind": "word",
+      "en": "chop",
+      "ru": "нарезать, рубить (ножом)",
+      "note": "Chop the onions — нарезать лук, finely chopped — мелко нарезанный. Chop wood — рубить дрова.",
+      "examples": [
+        {
+          "en": "Chop the garlic and add it to the pan.",
+          "ru": "Нарежьте чеснок и добавьте в сковороду.",
+          "gap": "Chop"
+        },
+        {
+          "en": "Add two finely chopped onions.",
+          "ru": "Добавьте две мелко нарезанные луковицы.",
+          "gap": "chopped"
+        }
+      ]
+    },
+    {
+      "id": "w-ingredient",
+      "kind": "word",
+      "en": "ingredient",
+      "ru": "ингредиент, составляющая",
+      "note": "The main ingredient — главный ингредиент; ingredients на упаковке — состав. Ударение на второй слог: [ɪnˈɡriːdiənt].",
+      "examples": [
+        {
+          "en": "Read the list of ingredients before you buy it.",
+          "ru": "Прочитай состав, прежде чем покупать.",
+          "gap": "ingredients"
+        },
+        {
+          "en": "Fresh basil is the key ingredient of this sauce.",
+          "ru": "Свежий базилик — главный ингредиент этого соуса.",
+          "gap": "ingredient"
+        }
+      ]
+    },
+    {
+      "id": "w-recipe",
+      "kind": "word",
+      "en": "recipe",
+      "ru": "рецепт (блюда)",
+      "note": "A recipe for soup — рецепт супа, follow a recipe — готовить по рецепту. Рецепт от врача — prescription. Читается [ˈresəpi].",
+      "examples": [
+        {
+          "en": "Can you send me the recipe for this soup?",
+          "ru": "Пришлёшь мне рецепт этого супа?",
+          "gap": "recipe"
+        },
+        {
+          "en": "I never follow recipes exactly.",
+          "ru": "Я никогда не готовлю точно по рецепту.",
+          "gap": "recipes"
+        }
+      ]
+    },
+    {
+      "id": "w-snack",
+      "kind": "word",
+      "en": "snack",
+      "ru": "перекус; перекусывать",
+      "note": "Have a snack — перекусить, a quick snack — лёгкий перекус. Snacks — чипсы, орешки, печенье. Snack on nuts — перекусывать орехами.",
+      "examples": [
+        {
+          "en": "I usually have a snack at four.",
+          "ru": "Я обычно перекусываю в четыре.",
+          "gap": "snack"
+        },
+        {
+          "en": "She snacks on nuts between meals.",
+          "ru": "Между приёмами пищи она перекусывает орехами.",
+          "gap": "snacks"
+        }
+      ]
+    },
+    {
+      "id": "w-dessert",
+      "kind": "word",
+      "en": "dessert",
+      "ru": "десерт",
+      "note": "Have ice cream for dessert — мороженое на десерт. Не путайте с desert — пустыня: в dessert ударение на второй слог [dɪˈzɜːt].",
+      "examples": [
+        {
+          "en": "Would you like to see the dessert menu?",
+          "ru": "Хотите посмотреть десертное меню?",
+          "gap": "dessert"
+        },
+        {
+          "en": "We skipped dessert and asked for the bill.",
+          "ru": "Мы не стали брать десерт и попросили счёт.",
+          "gap": "dessert"
+        }
+      ]
+    },
+    {
+      "id": "w-spicy",
+      "kind": "word",
+      "en": "spicy",
+      "ru": "острый (о еде)",
+      "note": "Spicy food — острая еда; hot — тоже острый, но ещё и горячий. Mild — неострый. Spice — специя.",
+      "examples": [
+        {
+          "en": "Indian food is often very spicy.",
+          "ru": "Индийская еда часто очень острая.",
+          "gap": "spicy"
+        },
+        {
+          "en": "Is this dish spicy?",
+          "ru": "Это блюдо острое?",
+          "gap": "spicy"
+        }
+      ]
+    },
+    {
+      "id": "w-delicious",
+      "kind": "word",
+      "en": "delicious",
+      "ru": "очень вкусный",
+      "also": [
+        "tasty"
+      ],
+      "note": "Delicious — очень вкусный, сильнее, чем tasty или nice. Very delicious не говорят — лучше absolutely delicious.",
+      "examples": [
+        {
+          "en": "The soup was absolutely delicious.",
+          "ru": "Суп был невероятно вкусный.",
+          "gap": "delicious"
+        },
+        {
+          "en": "Thank you, dinner was delicious.",
+          "ru": "Спасибо, ужин был очень вкусный.",
+          "gap": "delicious"
+        }
+      ]
+    },
+    {
+      "id": "c-eat-out",
+      "kind": "phrase",
+      "en": "eat out",
+      "ru": "есть не дома, ходить в кафе",
+      "note": "Eat out — поесть в кафе или ресторане, а не дома: we eat out once a week. Еда навынос — takeaway.",
+      "examples": [
+        {
+          "en": "We usually eat out on Fridays.",
+          "ru": "По пятницам мы обычно ходим куда-нибудь поесть.",
+          "gap": "eat out"
+        },
+        {
+          "en": "They ate out twice last week.",
+          "ru": "На прошлой неделе они дважды ходили в ресторан.",
+          "gap": "ate out"
+        }
+      ]
+    },
+    {
+      "id": "c-go-off",
+      "kind": "phrase",
+      "en": "go off",
+      "ru": "испортиться (о еде)",
+      "note": "The milk has gone off — молоко прокисло; так же говорят go bad. Go off — ещё и зазвонить: the alarm went off.",
+      "examples": [
+        {
+          "en": "This milk has gone off.",
+          "ru": "Это молоко прокисло.",
+          "gap": "gone off"
+        },
+        {
+          "en": "Fish goes off quickly in the heat.",
+          "ru": "В жару рыба быстро портится.",
+          "gap": "goes off"
+        }
+      ]
+    }
+  ]
+}

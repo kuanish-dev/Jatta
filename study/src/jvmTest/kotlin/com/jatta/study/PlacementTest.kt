@@ -22,7 +22,7 @@ class PlacementTest {
         val ngslWords = content.items.values.filter { it.rank != null }.map { it.id }
         assertTrue(result.knownItems.containsAll(ngslWords))
         assertFalse("w-deadline" in result.knownItems, "a word outside NGSL is never placed")
-        assertEquals(17, result.knownTopics.size)
+        assertEquals(24, result.knownTopics.size)
     }
 
     @Test
@@ -38,7 +38,13 @@ class PlacementTest {
         val result = test.result(test.words.associate { it.word to (it.band == 0) }, allRight.map { false })
         assertEquals(500, result.estimatedWords)
         val firstBand = content.items.values.filter { (it.rank ?: Int.MAX_VALUE) <= 500 }.map { it.id }.toSet()
-        assertEquals(setOf("w-experience", "w-suggest", "w-require", "w-decision", "w-account", "w-forward", "w-charge"), firstBand)
+        assertEquals(
+            setOf(
+                "w-experience", "w-suggest", "w-require", "w-decision", "w-account", "w-forward", "w-charge",
+                "w-order", "w-term", "w-pass", "w-research", "w-practice", "w-train", "w-close", "w-support",
+            ),
+            firstBand,
+        )
         assertEquals(firstBand, result.knownItems)
     }
 
@@ -46,7 +52,7 @@ class PlacementTest {
     fun grammarCountsOnlyWhenBothQuestionsOfATopicAreRight() {
         val firstWrong = allRight.mapIndexed { index, _ -> index != 0 }
         val result = test.result(emptyMap(), firstWrong)
-        assertEquals(16, result.knownTopics.size)
+        assertEquals(23, result.knownTopics.size)
         assertFalse(content.topicOf(test.grammar[0].exercise.itemId).title in result.knownTopics)
     }
 

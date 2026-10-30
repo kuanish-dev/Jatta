@@ -1,0 +1,495 @@
+{
+  "id": "nature-words",
+  "title": "Слова: природа и погода",
+  "intro": "Прогноз и времена года, выходные за городом, бережное отношение к природе в быту. Слова идут от частых к редким.",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "w-freeze",
+      "kind": "word",
+      "en": "freeze",
+      "ru": "замерзать, замораживать",
+      "rank": 1856,
+      "note": "Неправильный глагол: freeze — froze — frozen. The lake froze — озеро замёрзло; I'm freezing — я замёрз (о себе). Frozen food — замороженные продукты.",
+      "examples": [
+        {
+          "en": "The pipes froze last winter and burst.",
+          "ru": "Прошлой зимой трубы замёрзли и лопнули.",
+          "gap": "froze"
+        },
+        {
+          "en": "I'm freezing, can we go inside?",
+          "ru": "Я замёрз, может, зайдём внутрь?",
+          "gap": "freezing"
+        }
+      ]
+    },
+    {
+      "id": "w-storm",
+      "kind": "word",
+      "en": "storm",
+      "ru": "гроза, буря, шторм",
+      "rank": 1999,
+      "note": "Любая сильная непогода с ветром: a storm is coming — надвигается гроза. Snowstorm — метель, thunderstorm — гроза с громом.",
+      "examples": [
+        {
+          "en": "The storm knocked down trees along our street.",
+          "ru": "Буря повалила деревья на нашей улице.",
+          "gap": "storm"
+        },
+        {
+          "en": "All flights were delayed because of the storm.",
+          "ru": "Все рейсы задержали из-за шторма.",
+          "gap": "storm"
+        }
+      ]
+    },
+    {
+      "id": "w-soil",
+      "kind": "word",
+      "en": "soil",
+      "ru": "почва, грунт",
+      "rank": 2022,
+      "note": "Земля как вещество, в которой растут растения: rich soil — плодородная почва. Ground — земля под ногами, земля как поверхность.",
+      "examples": [
+        {
+          "en": "The soil in our garden is too dry.",
+          "ru": "Почва у нас в саду слишком сухая.",
+          "gap": "soil"
+        },
+        {
+          "en": "Tomatoes need rich soil and plenty of sun.",
+          "ru": "Помидорам нужна плодородная почва и много солнца.",
+          "gap": "soil"
+        }
+      ]
+    },
+    {
+      "id": "w-wet",
+      "kind": "word",
+      "en": "wet",
+      "ru": "мокрый, сырой (о погоде — дождливый)",
+      "rank": 2084,
+      "note": "Get wet — промокнуть; wet weather — дождливая погода; wet paint — осторожно, окрашено. Противоположность — dry.",
+      "examples": [
+        {
+          "en": "We got wet on the way home.",
+          "ru": "По дороге домой мы промокли.",
+          "gap": "wet"
+        },
+        {
+          "en": "It was a cold, wet weekend, so we stayed in.",
+          "ru": "Выходные были холодные и сырые, и мы остались дома.",
+          "gap": "wet"
+        }
+      ]
+    },
+    {
+      "id": "w-pour",
+      "kind": "word",
+      "en": "pour",
+      "ru": "лить (о дожде), наливать",
+      "rank": 2135,
+      "note": "It's pouring — льёт как из ведра. Pour the tea — налить чай; pour something into — вылить во что-то.",
+      "examples": [
+        {
+          "en": "It poured all day, so the match was cancelled.",
+          "ru": "Весь день лило, и матч отменили.",
+          "gap": "poured"
+        },
+        {
+          "en": "Take an umbrella, it's pouring outside.",
+          "ru": "Возьми зонт, на улице льёт.",
+          "gap": "pouring"
+        }
+      ]
+    },
+    {
+      "id": "w-stream",
+      "kind": "word",
+      "en": "stream",
+      "ru": "ручей, поток",
+      "rank": 2148,
+      "note": "Маленькая река: a mountain stream — горный ручей. Ещё поток чего угодно — a stream of cars, и глагол stream — смотреть видео онлайн.",
+      "examples": [
+        {
+          "en": "We crossed a small stream on the way up.",
+          "ru": "По пути наверх мы перешли маленький ручей.",
+          "gap": "stream"
+        },
+        {
+          "en": "The kids spent the afternoon playing by the stream.",
+          "ru": "Дети весь день играли у ручья.",
+          "gap": "stream"
+        }
+      ]
+    },
+    {
+      "id": "w-flood",
+      "kind": "word",
+      "en": "flood",
+      "ru": "наводнение; затопить",
+      "rank": 2274,
+      "note": "И существительное, и глагол: the river flooded the village — река затопила деревню. Flooded road — затопленная дорога; дома — кухню — тоже можно flood.",
+      "examples": [
+        {
+          "en": "After the heavy rain, the road was flooded.",
+          "ru": "После сильного дождя дорогу затопило.",
+          "gap": "flooded"
+        },
+        {
+          "en": "The flood damaged hundreds of homes in the area.",
+          "ru": "Наводнение повредило сотни домов в этом районе.",
+          "gap": "flood"
+        }
+      ]
+    },
+    {
+      "id": "w-shower",
+      "kind": "word",
+      "en": "shower",
+      "ru": "короткий дождь, ливень; душ",
+      "rank": 2352,
+      "note": "В прогнозе showers — дожди, которые быстро проходят: sunny with showers — солнечно, местами дождь. Take a shower — принять душ.",
+      "examples": [
+        {
+          "en": "There will be showers in the afternoon.",
+          "ru": "Во второй половине дня пройдут дожди.",
+          "gap": "showers"
+        },
+        {
+          "en": "We waited in a café until the shower passed.",
+          "ru": "Мы переждали дождик в кафе.",
+          "gap": "shower"
+        }
+      ]
+    },
+    {
+      "id": "w-dust",
+      "kind": "word",
+      "en": "dust",
+      "ru": "пыль; вытирать пыль",
+      "rank": 2448,
+      "note": "A layer of dust — слой пыли; dust storm — пыльная буря. Глагол: dust the shelves — протереть полки от пыли.",
+      "examples": [
+        {
+          "en": "The wind blew dust into our eyes.",
+          "ru": "Ветер нёс пыль прямо в глаза.",
+          "gap": "dust"
+        },
+        {
+          "en": "Everything in the old house was covered in dust.",
+          "ru": "Всё в старом доме было покрыто пылью.",
+          "gap": "dust"
+        }
+      ]
+    },
+    {
+      "id": "w-shelter",
+      "kind": "word",
+      "en": "shelter",
+      "ru": "укрытие, убежище; укрыться",
+      "rank": 2581,
+      "note": "Take shelter from the rain — укрыться от дождя; a bus shelter — остановка с крышей. Глагол: we sheltered under a tree.",
+      "examples": [
+        {
+          "en": "We took shelter in a shop until the rain stopped.",
+          "ru": "Мы укрылись в магазине, пока дождь не кончился.",
+          "gap": "shelter"
+        },
+        {
+          "en": "The tent gave us some shelter from the wind.",
+          "ru": "Палатка хоть как-то укрывала нас от ветра.",
+          "gap": "shelter"
+        }
+      ]
+    },
+    {
+      "id": "w-shade",
+      "kind": "word",
+      "en": "shade",
+      "ru": "тень (прохладное место)",
+      "rank": 2726,
+      "note": "Shade — тень как место без солнца: sit in the shade. Shadow — тень от предмета, с формой: the shadow of a tree. Ещё shade — оттенок цвета.",
+      "examples": [
+        {
+          "en": "Let's find some shade, it's too hot here.",
+          "ru": "Давай найдём тень, здесь слишком жарко.",
+          "gap": "shade"
+        },
+        {
+          "en": "We parked the car in the shade of a tree.",
+          "ru": "Мы поставили машину в тени дерева.",
+          "gap": "shade"
+        }
+      ]
+    },
+    {
+      "id": "w-melt",
+      "kind": "word",
+      "en": "melt",
+      "ru": "таять, плавить",
+      "note": "The snow is melting — снег тает. Melt the butter — растопить масло. Melting point — температура плавления.",
+      "examples": [
+        {
+          "en": "The snow melted in a couple of days.",
+          "ru": "Снег растаял за пару дней.",
+          "gap": "melted"
+        },
+        {
+          "en": "The ice cream is melting, eat it quickly!",
+          "ru": "Мороженое тает, ешь скорее!",
+          "gap": "melting"
+        }
+      ]
+    },
+    {
+      "id": "w-pollute",
+      "kind": "word",
+      "en": "pollute",
+      "ru": "загрязнять",
+      "note": "Загрязнять воздух, воду, почву: factories pollute the river. Polluted — загрязнённый. Не для грязной одежды — там dirty.",
+      "examples": [
+        {
+          "en": "Old cars pollute the air much more.",
+          "ru": "Старые машины загрязняют воздух намного сильнее.",
+          "gap": "pollute"
+        },
+        {
+          "en": "The river is too polluted to swim in.",
+          "ru": "Река слишком грязная, чтобы в ней купаться.",
+          "gap": "polluted"
+        }
+      ]
+    },
+    {
+      "id": "w-recycle",
+      "kind": "word",
+      "en": "recycle",
+      "ru": "перерабатывать (отходы), сдавать на переработку",
+      "note": "Recycle paper, glass, plastic — сдавать на переработку. Recycling bin — контейнер для раздельного сбора. Reuse — использовать повторно.",
+      "examples": [
+        {
+          "en": "We recycle glass, paper and plastic at home.",
+          "ru": "Дома мы сдаём на переработку стекло, бумагу и пластик.",
+          "gap": "recycle"
+        },
+        {
+          "en": "This bottle is made from recycled plastic.",
+          "ru": "Эта бутылка сделана из переработанного пластика.",
+          "gap": "recycled"
+        }
+      ]
+    },
+    {
+      "id": "w-breeze",
+      "kind": "word",
+      "en": "breeze",
+      "ru": "лёгкий ветерок",
+      "note": "Приятный слабый ветер: a cool breeze from the sea. Wind — ветер любой силы, gale — штормовой ветер.",
+      "examples": [
+        {
+          "en": "A light breeze was blowing from the lake.",
+          "ru": "С озера дул лёгкий ветерок.",
+          "gap": "breeze"
+        },
+        {
+          "en": "Let's have dinner outside, there's a nice breeze.",
+          "ru": "Давай поужинаем на улице, там приятный ветерок.",
+          "gap": "breeze"
+        }
+      ]
+    },
+    {
+      "id": "w-drought",
+      "kind": "word",
+      "en": "drought",
+      "ru": "засуха",
+      "note": "Долгое время без дождя: a long drought — долгая засуха. Противоположность по смыслу — flood, наводнение. Произносится «draut».",
+      "examples": [
+        {
+          "en": "The drought lasted the whole summer.",
+          "ru": "Засуха продолжалась всё лето.",
+          "gap": "drought"
+        },
+        {
+          "en": "Farmers lost half their crops in the drought.",
+          "ru": "Фермеры потеряли половину урожая из-за засухи.",
+          "gap": "drought"
+        }
+      ]
+    },
+    {
+      "id": "w-wildlife",
+      "kind": "word",
+      "en": "wildlife",
+      "ru": "дикая природа, дикие животные",
+      "note": "Неисчисляемое, без артикля a: a lot of wildlife, не wildlifes. Wildlife park — парк с дикими животными. Pets — домашние животные, не wildlife.",
+      "examples": [
+        {
+          "en": "The lake is home to a lot of wildlife.",
+          "ru": "На озере живёт много диких животных.",
+          "gap": "wildlife"
+        },
+        {
+          "en": "We saw plenty of wildlife on the hike.",
+          "ru": "В походе мы видели много зверей и птиц.",
+          "gap": "wildlife"
+        }
+      ]
+    },
+    {
+      "id": "w-countryside",
+      "kind": "word",
+      "en": "countryside",
+      "ru": "сельская местность, природа за городом",
+      "note": "Поля, деревни, холмы за городом: live in the countryside — жить за городом. Village — деревня как населённый пункт; country — ещё и страна.",
+      "examples": [
+        {
+          "en": "We spend most weekends in the countryside.",
+          "ru": "Большинство выходных мы проводим за городом.",
+          "gap": "countryside"
+        },
+        {
+          "en": "She moved from the city to the countryside.",
+          "ru": "Она переехала из города в сельскую местность.",
+          "gap": "countryside"
+        }
+      ]
+    },
+    {
+      "id": "w-humid",
+      "kind": "word",
+      "en": "humid",
+      "ru": "влажный (о воздухе, климате)",
+      "note": "О воздухе и погоде, когда душно: hot and humid — жарко и влажно. Humidity — влажность. Мокрые вещи — wet или damp, не humid.",
+      "examples": [
+        {
+          "en": "The summer there is hot and humid.",
+          "ru": "Лето там жаркое и влажное.",
+          "gap": "humid"
+        },
+        {
+          "en": "It's so humid that my shirt is sticking to me.",
+          "ru": "Так влажно, что рубашка липнет к телу.",
+          "gap": "humid"
+        }
+      ]
+    },
+    {
+      "id": "w-mild",
+      "kind": "word",
+      "en": "mild",
+      "ru": "мягкий (о погоде); слабый, неострый",
+      "note": "Mild winter — тёплая зима без морозов; mild weather — ни холодно, ни жарко. Ещё mild — неострый (о еде) и лёгкий (о болезни): a mild cold.",
+      "examples": [
+        {
+          "en": "The winter was mild, with almost no snow.",
+          "ru": "Зима была мягкая, почти без снега.",
+          "gap": "mild"
+        },
+        {
+          "en": "It's mild today, you don't need a coat.",
+          "ru": "Сегодня тепло, пальто не нужно.",
+          "gap": "mild"
+        }
+      ]
+    },
+    {
+      "id": "w-foggy",
+      "kind": "word",
+      "en": "foggy",
+      "ru": "туманный",
+      "note": "Fog — туман, foggy — туманный: a foggy morning. Mist — лёгкая дымка, misty — слегка туманно.",
+      "examples": [
+        {
+          "en": "Drive slowly, it's very foggy this morning.",
+          "ru": "Езжай медленно, утром сильный туман.",
+          "gap": "foggy"
+        },
+        {
+          "en": "The airport was closed because it was too foggy.",
+          "ru": "Аэропорт закрыли из-за сильного тумана.",
+          "gap": "foggy"
+        }
+      ]
+    },
+    {
+      "id": "w-slippery",
+      "kind": "word",
+      "en": "slippery",
+      "ru": "скользкий",
+      "note": "О дороге, полу, ступеньках: the roads are slippery — на дорогах гололёд. Глагол slip — поскользнуться.",
+      "examples": [
+        {
+          "en": "Be careful, the steps are slippery after the rain.",
+          "ru": "Осторожно, после дождя ступеньки скользкие.",
+          "gap": "slippery"
+        },
+        {
+          "en": "The roads were slippery, so I drove slowly.",
+          "ru": "Дороги были скользкие, и я ехал медленно.",
+          "gap": "slippery"
+        }
+      ]
+    },
+    {
+      "id": "w-chilly",
+      "kind": "word",
+      "en": "chilly",
+      "ru": "прохладный, зябкий",
+      "note": "Неприятно холодно, но не мороз: a chilly evening. Cool — приятно прохладно, cold — холодно, freezing — ледяной холод.",
+      "examples": [
+        {
+          "en": "It gets chilly in the evenings, bring a jacket.",
+          "ru": "По вечерам прохладно, возьми куртку.",
+          "gap": "chilly"
+        },
+        {
+          "en": "The office is a bit chilly today.",
+          "ru": "В офисе сегодня немного зябко.",
+          "gap": "chilly"
+        }
+      ]
+    },
+    {
+      "id": "c-cool-down",
+      "kind": "phrase",
+      "en": "cool down",
+      "ru": "остывать, охлаждаться; становиться прохладнее",
+      "note": "О погоде, еде и людях: it's cooling down — холодает; let the soup cool down — пусть суп остынет. Ещё — успокоиться после ссоры.",
+      "examples": [
+        {
+          "en": "It usually cools down after sunset.",
+          "ru": "Обычно после заката становится прохладнее.",
+          "gap": "cools down"
+        },
+        {
+          "en": "Let the engine cool down before you open it.",
+          "ru": "Дай двигателю остыть, прежде чем открывать.",
+          "gap": "cool down"
+        }
+      ]
+    },
+    {
+      "id": "c-warm-up",
+      "kind": "phrase",
+      "en": "warm up",
+      "ru": "теплеть, согреваться; разогревать",
+      "note": "It's warming up — теплеет; warm up the soup — разогреть суп; warm up before a run — размяться перед пробежкой.",
+      "examples": [
+        {
+          "en": "The weather should warm up by the weekend.",
+          "ru": "К выходным должно потеплеть.",
+          "gap": "warm up"
+        },
+        {
+          "en": "Come in and warm up by the fire.",
+          "ru": "Заходи и погрейся у огня.",
+          "gap": "warm up"
+        }
+      ]
+    }
+  ]
+}

@@ -2,13 +2,16 @@ package com.jatta.study
 
 import com.google.ai.edge.litertlm.Backend
 import com.google.ai.edge.litertlm.Content
+import com.google.ai.edge.litertlm.Contents
 import com.google.ai.edge.litertlm.ConversationConfig
+import com.google.ai.edge.litertlm.Message
 import com.google.ai.edge.litertlm.Engine
 import com.google.ai.edge.litertlm.EngineConfig
 import com.google.ai.edge.litertlm.SamplerConfig
 import com.jatta.study.chat.ChatMessage
 import com.jatta.study.chat.ChatPartner
 import com.jatta.study.chat.ChatTopic
+import com.jatta.study.judge.ChatTurn
 import com.jatta.study.judge.EvalResult
 import com.jatta.study.judge.FreeAnswerJudge
 import com.jatta.study.judge.JudgeEval
@@ -32,6 +35,7 @@ import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.put
+import kotlinx.serialization.json.putJsonArray
 import kotlinx.serialization.json.putJsonObject
 
 class OllamaModel(override val name: String) : OnDeviceModel {
@@ -62,6 +66,31 @@ class OllamaModel(override val name: String) : OnDeviceModel {
         if (response.statusCode() != 200) error("Ollama ${response.statusCode()}: ${response.body()}")
         return (Json.parseToJsonElement(response.body()).jsonObject["response"] as? JsonPrimitive)?.content
     }
+
+    override suspend fun chat(system: String, turns: List<ChatTurn>): String? {
+        val body = buildJsonObject {
+            put("model", name)
+            put("stream", false)
+            put("think", false)
+            putJsonArray("messages") {
+                add(buildJsonObject { put("role", "system"); put("content", system) })
+                turns.forEach { add(buildJsonObject { put("role", if (it.fromUser) "user" else "assistant"); put("content", it.text) }) }
+            }
+            putJsonObject("options") {
+                put("temperature", 0.8)
+                put("top_k", 64)
+                put("top_p", 0.95)
+                put("num_predict", 80)
+            }
+        }
+        val request = HttpRequest.newBuilder(URI("http://localhost:11434/api/chat"))
+            .timeout(Duration.ofMinutes(2))
+            .POST(HttpRequest.BodyPublishers.ofString(body.toString()))
+            .build()
+        val response = http.send(request, HttpResponse.BodyHandlers.ofString())
+        if (response.statusCode() != 200) error("Ollama ${response.statusCode()}: ${response.body()}")
+        return Json.parseToJsonElement(response.body()).jsonObject["message"]?.jsonObject?.get("content")?.jsonPrimitive?.content
+    }
 }
 
 class LiteRtModel(path: String) : OnDeviceModel {
@@ -76,6 +105,18 @@ class LiteRtModel(path: String) : OnDeviceModel {
 
     override suspend fun generate(prompt: String): String? = engine.createConversation(conversation).use { chat ->
         chat.sendMessage(prompt).contents.contents.filterIsInstance<Content.Text>().joinToString("") { it.text }
+    }
+
+    override suspend fun chat(system: String, turns: List<ChatTurn>): String? {
+        val config = ConversationConfig(
+            systemInstruction = Contents.of(system),
+            initialMessages = turns.dropLast(1).map { if (it.fromUser) Message.user(it.text) else Message.model(it.text) },
+            samplerConfig = SamplerConfig(topK = 64, topP = 0.95, temperature = 0.8),
+            maxOutputToken = 80,
+        )
+        return engine.createConversation(config).use { chat ->
+            chat.sendMessage(turns.last().text).contents.contents.filterIsInstance<Content.Text>().joinToString("") { it.text }
+        }
     }
 }
 
@@ -94,6 +135,26 @@ class Timed(private val model: OnDeviceModel) : OnDeviceModel by model {
 
 class LocalModelEvalTest {
     private val contentDir = System.getProperty("contentDir")
+    private val talks = listOf(
+        ChatTopic("work", "Работа", "the learner's job and a normal working day") to listOf(
+            "Hi! I'm fine, thanks.",
+            "I work in a leasing company, I am a frontend developer.",
+            "Yesterday I go to the office very early because we had a deadline.",
+            "I like my job but sometimes it are stressful.",
+        ),
+        ChatTopic("weekend", "Выходные", "the learner's last weekend and plans for the next one") to listOf(
+            "Hello! Good, and you?",
+            "On Saturday I was in the mountains with my friends, it was very cold.",
+            "We cooked plov and played guitar near the fire.",
+            "Next weekend I want stay at home and watch films.",
+        ),
+        ChatTopic("travel", "Поездки", "a trip the learner made or wants to make") to listOf(
+            "Hi Alex!",
+            "I never been in London, but I want to go there next year.",
+            "I want to see the museums and drink tea with milk, haha.",
+            "Is it expensive to live in a hotel there?",
+        ),
+    )
 
     @Test
     fun measuresAnOllamaModelWhenOneIsNamed() = runBlocking {
@@ -144,24 +205,26 @@ class LocalModelEvalTest {
             appendLine("  chat ${if (judgment?.correct == correct) "ok " else "BAD"}: $message -> ${judgment?.corrected ?: judgment?.correct}")
         }
         appendLine("chat review: agreed ${agreed} of ${cases.size}")
-        val topic = ChatTopic("work", "Работа", "the learner's job and a normal working day")
-        val words = listOf("deadline", "colleague", "experience")
-        val lines = mutableListOf<ChatMessage>()
-        listOf(
-            null,
-            "Hi! I'm fine, thanks.",
-            "I work in a leasing company, I am a frontend developer.",
-            "Yesterday I go to the office very early because we had a deadline.",
-            "I like my job but sometimes it are stressful.",
-        ).forEach { said ->
-            if (said != null) {
-                appendLine("  learner: $said | review: ${judge.reviewChat(lines.lastOrNull()?.text, said)?.let { it.corrected ?: "fine" }}")
-                lines += ChatMessage(true, said)
+        var replies = 0
+        var questions = 0
+        var words = 0
+        talks.forEach { (topic, learner) ->
+            val lines = mutableListOf<ChatMessage>()
+            (listOf<String?>(null) + learner).forEach { said ->
+                if (said != null) {
+                    appendLine("  you:  $said | review: ${judge.reviewChat(lines.lastOrNull()?.text, said)?.let { it.corrected ?: "fine" }}")
+                    lines += ChatMessage(true, said)
+                }
+                val reply = partner.reply(topic, lines) ?: "(no reply)"
+                appendLine("  ${ChatPartner.NAME.lowercase()}: $reply")
+                lines += ChatMessage(false, reply)
+                replies++
+                if (reply.trimEnd().endsWith("?")) questions++
+                words += reply.split(' ').size
             }
-            val reply = partner.reply(topic, words, lines)
-            appendLine("  ${ChatPartner.NAME}: $reply")
-            if (reply != null) lines += ChatMessage(false, reply)
+            appendLine()
         }
+        appendLine("partner: $replies replies, $questions end with a question, ${words / replies} words per reply")
     }
 
     private fun line(result: EvalResult) =

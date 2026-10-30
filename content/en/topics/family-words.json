@@ -1,0 +1,509 @@
+{
+  "id": "family-words",
+  "title": "Слова: семья и отношения",
+  "intro": "Родные и близкие, пары и свадьбы, воспитание детей и этапы жизни. Слова идут от частых к редким.",
+  "items": [
+    {
+      "id": "w-close",
+      "kind": "word",
+      "en": "close",
+      "ru": "близкий (о людях)",
+      "rank": 239,
+      "note": "Close friend — близкий друг, close family — ближайшие родственники, be close to someone — быть близким с кем-то. Прилагательное close читается с глухим s, в отличие от глагола close «закрывать».",
+      "examples": [
+        {
+          "en": "My sister and I are very close.",
+          "ru": "Мы с сестрой очень близки.",
+          "gap": "close"
+        },
+        {
+          "en": "He has a few close friends from school.",
+          "ru": "У него есть несколько близких друзей со школы.",
+          "gap": "close"
+        }
+      ]
+    },
+    {
+      "id": "w-support",
+      "kind": "word",
+      "en": "support",
+      "ru": "поддерживать; содержать (семью); поддержка",
+      "rank": 272,
+      "note": "Support someone — поддержать словом и делом или деньгами: support a family — содержать семью. Supportive — тот, кто всегда поддержит.",
+      "examples": [
+        {
+          "en": "My parents supported me when I changed careers.",
+          "ru": "Родители поддержали меня, когда я сменил профессию.",
+          "gap": "supported"
+        },
+        {
+          "en": "He works two jobs to support his family.",
+          "ru": "Он работает на двух работах, чтобы содержать семью.",
+          "gap": "support"
+        }
+      ]
+    },
+    {
+      "id": "w-relationship",
+      "kind": "word",
+      "en": "relationship",
+      "ru": "отношения",
+      "rank": 502,
+      "note": "Be in a relationship — состоять в отношениях, a close relationship with — близкие отношения с кем-то. Relations — отношения между странами или компаниями, не между людьми.",
+      "examples": [
+        {
+          "en": "They have been in a relationship for three years.",
+          "ru": "Они встречаются уже три года.",
+          "gap": "relationship"
+        },
+        {
+          "en": "I have a good relationship with my boss.",
+          "ru": "У меня хорошие отношения с начальником.",
+          "gap": "relationship"
+        }
+      ]
+    },
+    {
+      "id": "w-couple",
+      "kind": "word",
+      "en": "couple",
+      "ru": "пара (двое людей); пара, несколько",
+      "rank": 514,
+      "note": "A married couple — супружеская пара, a couple of days — пара дней, два-три. Пара предметов — pair: a pair of shoes.",
+      "examples": [
+        {
+          "en": "The couple next door just had a baby.",
+          "ru": "У пары из соседней квартиры только что родился ребёнок.",
+          "gap": "couple"
+        },
+        {
+          "en": "We met a nice couple on holiday.",
+          "ru": "В отпуске мы познакомились с приятной парой.",
+          "gap": "couple"
+        }
+      ]
+    },
+    {
+      "id": "w-single",
+      "kind": "word",
+      "en": "single",
+      "ru": "одинокий, не в браке; один, единственный",
+      "rank": 557,
+      "note": "Be single — не состоять в отношениях, a single mother — мать-одиночка. Single room — одноместный номер, single ticket — билет в одну сторону.",
+      "examples": [
+        {
+          "en": "My brother is thirty and still single.",
+          "ru": "Моему брату тридцать, и он всё ещё один.",
+          "gap": "single"
+        },
+        {
+          "en": "She is a single mother with two kids.",
+          "ru": "Она мать-одиночка с двумя детьми.",
+          "gap": "single"
+        }
+      ]
+    },
+    {
+      "id": "w-generation",
+      "kind": "word",
+      "en": "generation",
+      "ru": "поколение",
+      "rank": 998,
+      "note": "The older generation — старшее поколение, generation gap — разрыв между поколениями, three generations under one roof — три поколения под одной крышей.",
+      "examples": [
+        {
+          "en": "Three generations live in that house.",
+          "ru": "В том доме живут три поколения.",
+          "gap": "generations"
+        },
+        {
+          "en": "My generation grew up without smartphones.",
+          "ru": "Моё поколение росло без смартфонов.",
+          "gap": "generation"
+        }
+      ]
+    },
+    {
+      "id": "w-relative",
+      "kind": "word",
+      "en": "relative",
+      "ru": "родственник",
+      "rank": 1088,
+      "note": "Как существительное — родственник: a distant relative — дальний родственник. Relatives шире, чем family: дяди, тёти, двоюродные. Как прилагательное — относительный.",
+      "examples": [
+        {
+          "en": "We visit our relatives every summer.",
+          "ru": "Каждое лето мы ездим к родственникам.",
+          "gap": "relatives"
+        },
+        {
+          "en": "A distant relative left her a flat.",
+          "ru": "Дальний родственник оставил ей квартиру.",
+          "gap": "relative"
+        }
+      ]
+    },
+    {
+      "id": "w-partner",
+      "kind": "word",
+      "en": "partner",
+      "ru": "партнёр, спутник жизни",
+      "rank": 1136,
+      "note": "Partner — человек, с которым живёшь, когда не хочется говорить «муж» или «жена»: my partner and I. Ещё деловой партнёр — business partner.",
+      "examples": [
+        {
+          "en": "Bring your partner to the party on Saturday.",
+          "ru": "Приходи в субботу на вечеринку со своей половинкой.",
+          "gap": "partner"
+        },
+        {
+          "en": "She and her partner bought a house last year.",
+          "ru": "Они с партнёром купили дом в прошлом году.",
+          "gap": "partner"
+        }
+      ]
+    },
+    {
+      "id": "w-adopt",
+      "kind": "word",
+      "en": "adopt",
+      "ru": "усыновить, удочерить; перенять",
+      "rank": 1243,
+      "note": "Adopt a child — усыновить, adopted son — приёмный сын, adoption — усыновление. Adopt a habit, an approach — перенять привычку, подход.",
+      "examples": [
+        {
+          "en": "They adopted a little girl from the children's home.",
+          "ru": "Они удочерили девочку из детского дома.",
+          "gap": "adopted"
+        },
+        {
+          "en": "We decided to adopt a dog from the shelter.",
+          "ru": "Мы решили взять собаку из приюта.",
+          "gap": "adopt"
+        }
+      ]
+    },
+    {
+      "id": "w-marriage",
+      "kind": "word",
+      "en": "marriage",
+      "ru": "брак, замужество",
+      "rank": 1248,
+      "note": "Marriage — сам союз: a happy marriage, her second marriage. Церемония и праздник — wedding.",
+      "examples": [
+        {
+          "en": "Their marriage lasted only two years.",
+          "ru": "Их брак продержался всего два года.",
+          "gap": "marriage"
+        },
+        {
+          "en": "This is his second marriage.",
+          "ru": "Это его второй брак.",
+          "gap": "marriage"
+        }
+      ]
+    },
+    {
+      "id": "w-birth",
+      "kind": "word",
+      "en": "birth",
+      "ru": "рождение, роды",
+      "rank": 1526,
+      "note": "Give birth to — родить, date of birth — дата рождения. Birthday — день рождения, а birth — само рождение.",
+      "examples": [
+        {
+          "en": "She gave birth to twins last night.",
+          "ru": "Вчера ночью она родила двойню.",
+          "gap": "birth"
+        },
+        {
+          "en": "Please write your date of birth here.",
+          "ru": "Напишите здесь дату рождения.",
+          "gap": "birth"
+        }
+      ]
+    },
+    {
+      "id": "w-mature",
+      "kind": "word",
+      "en": "mature",
+      "ru": "зрелый, взрослый (по поведению)",
+      "rank": 2269,
+      "note": "Mature — взрослый по уму, а не по возрасту: mature for her age — взрослая не по годам. Противоположность — immature, «как ребёнок». Говорят и о сыре и вине.",
+      "examples": [
+        {
+          "en": "She is very mature for a fifteen-year-old.",
+          "ru": "Она очень взрослая для пятнадцати лет.",
+          "gap": "mature"
+        },
+        {
+          "en": "He has become more mature since he started working.",
+          "ru": "Он стал взрослее с тех пор, как начал работать.",
+          "gap": "mature"
+        }
+      ]
+    },
+    {
+      "id": "w-teenager",
+      "kind": "word",
+      "en": "teenager",
+      "ru": "подросток",
+      "also": [
+        "teen"
+      ],
+      "rank": 2346,
+      "note": "Teenager — от thirteen до nineteen: все возрасты с -teen. Короче — teen; teenage son — сын-подросток.",
+      "examples": [
+        {
+          "en": "Our teenager spends all evening in his room.",
+          "ru": "Наш подросток весь вечер сидит у себя в комнате.",
+          "gap": "teenager"
+        },
+        {
+          "en": "My two teenagers eat everything in the fridge.",
+          "ru": "Два моих подростка съедают всё, что есть в холодильнике.",
+          "gap": "teenagers"
+        }
+      ]
+    },
+    {
+      "id": "w-cousin",
+      "kind": "word",
+      "en": "cousin",
+      "ru": "двоюродный брат, двоюродная сестра",
+      "rank": 2361,
+      "note": "Cousin — и брат, и сестра, пол не различается. Second cousin — троюродный. Родной брат или сестра — sibling.",
+      "examples": [
+        {
+          "en": "My cousin is getting married in June.",
+          "ru": "Мой двоюродный брат женится в июне.",
+          "gap": "cousin"
+        },
+        {
+          "en": "I have eleven cousins on my mother's side.",
+          "ru": "У меня одиннадцать двоюродных по маминой линии.",
+          "gap": "cousins"
+        }
+      ]
+    },
+    {
+      "id": "w-pregnant",
+      "kind": "word",
+      "en": "pregnant",
+      "ru": "беременная",
+      "rank": 2511,
+      "note": "Six months pregnant — на шестом месяце, get pregnant — забеременеть, pregnant with twins — беременна двойней. Pregnancy — беременность.",
+      "examples": [
+        {
+          "en": "My wife is five months pregnant.",
+          "ru": "Моя жена на пятом месяце.",
+          "gap": "pregnant"
+        },
+        {
+          "en": "She found out she was pregnant in March.",
+          "ru": "Она узнала о беременности в марте.",
+          "gap": "pregnant"
+        }
+      ]
+    },
+    {
+      "id": "w-sibling",
+      "kind": "word",
+      "en": "sibling",
+      "ru": "брат или сестра (родные)",
+      "note": "Sibling — одно слово для брата и сестры, когда пол не важен: Do you have any siblings? Чаще в анкетах и в речи о семье; в разговоре обычно brother и sister.",
+      "examples": [
+        {
+          "en": "Do you have any siblings?",
+          "ru": "У тебя есть братья или сёстры?",
+          "gap": "siblings"
+        },
+        {
+          "en": "My younger sibling lives in Canada now.",
+          "ru": "Мой младший брат теперь живёт в Канаде.",
+          "gap": "sibling"
+        }
+      ]
+    },
+    {
+      "id": "w-nephew",
+      "kind": "word",
+      "en": "nephew",
+      "ru": "племянник",
+      "note": "Nephew — сын брата или сестры, niece — дочь. Читается «нефью».",
+      "examples": [
+        {
+          "en": "My nephew just started school.",
+          "ru": "Мой племянник только пошёл в школу.",
+          "gap": "nephew"
+        },
+        {
+          "en": "I bought a bike for my nephew.",
+          "ru": "Я купил племяннику велосипед.",
+          "gap": "nephew"
+        }
+      ]
+    },
+    {
+      "id": "w-niece",
+      "kind": "word",
+      "en": "niece",
+      "ru": "племянница",
+      "note": "Niece — дочь брата или сестры, рифмуется с peace. Общего слова для обоих нет: my nieces and nephews.",
+      "examples": [
+        {
+          "en": "My niece is studying medicine in Prague.",
+          "ru": "Моя племянница учится на врача в Праге.",
+          "gap": "niece"
+        },
+        {
+          "en": "We took our nieces to the zoo.",
+          "ru": "Мы сводили племянниц в зоопарк.",
+          "gap": "nieces"
+        }
+      ]
+    },
+    {
+      "id": "w-in-laws",
+      "kind": "word",
+      "en": "in-laws",
+      "ru": "родня со стороны мужа или жены",
+      "note": "Mother-in-law — тёща или свекровь, father-in-law — тесть или свёкор, son-in-law — зять, daughter-in-law — невестка. Все вместе — the in-laws.",
+      "examples": [
+        {
+          "en": "My in-laws are coming for the weekend.",
+          "ru": "На выходные приезжают родители жены.",
+          "gap": "in-laws"
+        },
+        {
+          "en": "He gets on well with his in-laws.",
+          "ru": "Он хорошо ладит с родителями жены.",
+          "gap": "in-laws"
+        }
+      ]
+    },
+    {
+      "id": "w-wedding",
+      "kind": "word",
+      "en": "wedding",
+      "ru": "свадьба",
+      "note": "Wedding — церемония и праздник: wedding ring, wedding dress, wedding anniversary — годовщина свадьбы. Брак как союз — marriage.",
+      "examples": [
+        {
+          "en": "We are going to a wedding next weekend.",
+          "ru": "В следующие выходные мы идём на свадьбу.",
+          "gap": "wedding"
+        },
+        {
+          "en": "Her wedding dress was made by her grandmother.",
+          "ru": "Её свадебное платье сшила бабушка.",
+          "gap": "wedding"
+        }
+      ]
+    },
+    {
+      "id": "w-engaged",
+      "kind": "word",
+      "en": "engaged",
+      "ru": "помолвленный, обручённый",
+      "note": "Get engaged — обручиться, be engaged to — быть помолвленным с кем-то, engagement ring — кольцо на помолвку. О телефоне engaged — занято.",
+      "examples": [
+        {
+          "en": "They got engaged on holiday in Italy.",
+          "ru": "Они обручились в отпуске в Италии.",
+          "gap": "engaged"
+        },
+        {
+          "en": "She has been engaged to Tom for a year.",
+          "ru": "Она помолвлена с Томом уже год.",
+          "gap": "engaged"
+        }
+      ]
+    },
+    {
+      "id": "w-spoilt",
+      "kind": "word",
+      "en": "spoilt",
+      "ru": "избалованный",
+      "also": [
+        "spoiled"
+      ],
+      "note": "Spoil a child — баловать ребёнка, a spoilt child — избалованный; в американском написании spoiled. Spoil ещё — портить: the rain spoilt our picnic.",
+      "examples": [
+        {
+          "en": "Their youngest son is terribly spoilt.",
+          "ru": "Их младший сын ужасно избалован.",
+          "gap": "spoilt"
+        },
+        {
+          "en": "I don't want my kids to grow up spoilt.",
+          "ru": "Я не хочу, чтобы мои дети выросли избалованными.",
+          "gap": "spoilt"
+        }
+      ]
+    },
+    {
+      "id": "c-get-on-with",
+      "kind": "phrase",
+      "en": "get on with",
+      "ru": "ладить с",
+      "also": [
+        "get along with"
+      ],
+      "note": "Get on with someone — хорошо ладить: we get on well. Американцы говорят get along with. Ещё get on with it — продолжай, не отвлекайся.",
+      "examples": [
+        {
+          "en": "Do you get on with your sister?",
+          "ru": "Ты ладишь с сестрой?",
+          "gap": "get on with"
+        },
+        {
+          "en": "He doesn't get on with his new boss.",
+          "ru": "Он не ладит с новым начальником.",
+          "gap": "get on with"
+        }
+      ]
+    },
+    {
+      "id": "c-grow-up",
+      "kind": "phrase",
+      "en": "grow up",
+      "ru": "вырасти, взрослеть",
+      "note": "Grow up — о людях: где вырос, стать взрослым. Grow без up — расти: о росте детей, растениях, бизнесе. Grown-up — взрослый.",
+      "examples": [
+        {
+          "en": "I grew up in a small town by the sea.",
+          "ru": "Я вырос в маленьком городке у моря.",
+          "gap": "grew up"
+        },
+        {
+          "en": "Children grow up so fast these days.",
+          "ru": "Дети сейчас так быстро растут.",
+          "gap": "grow up"
+        }
+      ]
+    },
+    {
+      "id": "c-bring-up",
+      "kind": "phrase",
+      "en": "bring up",
+      "ru": "воспитывать, растить; поднять (тему)",
+      "also": [
+        "raise"
+      ],
+      "note": "Bring up a child — растить и воспитывать, то же, что raise; разделяемый: bring them up. Bring up a question — поднять вопрос в разговоре. Upbringing — воспитание.",
+      "examples": [
+        {
+          "en": "She brought up three children on her own.",
+          "ru": "Она одна вырастила троих детей.",
+          "gap": "brought up"
+        },
+        {
+          "en": "Who is going to bring up the kids?",
+          "ru": "Кто будет растить детей?",
+          "gap": "bring up"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "id": "home-words",
+  "title": "Слова: дом и город",
+  "intro": "Квартира и дом, ремонт, соседи и аренда, свой район и город. Слова идут от частых к редким.",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "w-property",
+      "kind": "word",
+      "en": "property",
+      "ru": "недвижимость; собственность",
+      "rank": 921,
+      "note": "Property — и недвижимость вообще, и конкретный дом или квартира: a property for sale. Private property — частная собственность.",
+      "examples": [
+        {
+          "en": "They bought a property near the sea.",
+          "ru": "Они купили недвижимость у моря.",
+          "gap": "property"
+        },
+        {
+          "en": "The agent showed us three properties on Monday.",
+          "ru": "В понедельник агент показал нам три варианта жилья.",
+          "gap": "properties"
+        }
+      ]
+    },
+    {
+      "id": "w-block",
+      "kind": "word",
+      "en": "block",
+      "ru": "квартал; многоквартирный дом, корпус",
+      "rank": 1020,
+      "note": "A block of flats — многоквартирный дом. Two blocks away — через два квартала: расстояние в городе считают кварталами.",
+      "examples": [
+        {
+          "en": "The shop is two blocks from our house.",
+          "ru": "Магазин в двух кварталах от нашего дома.",
+          "gap": "blocks"
+        },
+        {
+          "en": "They live in a new block of flats.",
+          "ru": "Они живут в новом многоквартирном доме.",
+          "gap": "block"
+        }
+      ]
+    },
+    {
+      "id": "w-lift",
+      "kind": "word",
+      "en": "lift",
+      "ru": "лифт",
+      "also": ["elevator"],
+      "rank": 1167,
+      "note": "Британское слово; в США — elevator. Take the lift — поехать на лифте. Lift — ещё и глагол «поднимать»: lift the box.",
+      "examples": [
+        {
+          "en": "The lift is broken again, so we took the stairs.",
+          "ru": "Лифт опять сломан, так что мы пошли по лестнице.",
+          "gap": "lift"
+        },
+        {
+          "en": "Our flat is on the ninth floor, but there's no lift.",
+          "ru": "Наша квартира на девятом этаже, а лифта нет.",
+          "gap": "lift"
+        }
+      ]
+    },
+    {
+      "id": "w-district",
+      "kind": "word",
+      "en": "district",
+      "ru": "район (города), округ",
+      "rank": 1329,
+      "note": "District — официальная часть города: the business district, the old district. Area — любое место, neighborhood — свой район, где живёшь.",
+      "examples": [
+        {
+          "en": "Rents in the central district are the highest.",
+          "ru": "Аренда в центральном районе самая дорогая.",
+          "gap": "district"
+        },
+        {
+          "en": "We moved to a quiet district outside the centre.",
+          "ru": "Мы переехали в тихий район за центром.",
+          "gap": "district"
+        }
+      ]
+    },
+    {
+      "id": "w-square",
+      "kind": "word",
+      "en": "square",
+      "ru": "площадь (в городе); квадратный",
+      "rank": 1443,
+      "note": "The main square — главная площадь. Square metre — квадратный метр: a flat of sixty square metres.",
+      "examples": [
+        {
+          "en": "The market is held in the main square.",
+          "ru": "Рынок проходит на главной площади.",
+          "gap": "square"
+        },
+        {
+          "en": "The flat is only forty square metres.",
+          "ru": "Квартира всего сорок квадратных метров.",
+          "gap": "square"
+        }
+      ]
+    },
+    {
+      "id": "w-neighborhood",
+      "kind": "word",
+      "en": "neighborhood",
+      "ru": "район (где живёшь), окрестности",
+      "also": ["neighbourhood"],
+      "rank": 1694,
+      "note": "Британское написание — neighbourhood. Свой район: a quiet neighborhood, a good neighborhood for children. Neighbor — сосед.",
+      "examples": [
+        {
+          "en": "We live in a quiet neighborhood near the park.",
+          "ru": "Мы живём в тихом районе возле парка.",
+          "gap": "neighborhood"
+        },
+        {
+          "en": "Is there a good school in the neighborhood?",
+          "ru": "В этом районе есть хорошая школа?",
+          "gap": "neighborhood"
+        }
+      ]
+    },
+    {
+      "id": "w-household",
+      "kind": "word",
+      "en": "household",
+      "ru": "домохозяйство, семья (живущие вместе); домашний",
+      "rank": 1746,
+      "note": "Household — все, кто живёт в одной квартире, и само хозяйство: household chores — домашние дела, household expenses — расходы на дом.",
+      "examples": [
+        {
+          "en": "Who does the household chores in your family?",
+          "ru": "Кто в вашей семье занимается домашними делами?",
+          "gap": "household"
+        },
+        {
+          "en": "Most households in the building have a car.",
+          "ru": "У большинства семей в доме есть машина.",
+          "gap": "households"
+        }
+      ]
+    },
+    {
+      "id": "w-urban",
+      "kind": "word",
+      "en": "urban",
+      "ru": "городской",
+      "rank": 1918,
+      "note": "Urban life, urban areas — городская жизнь, городские районы. Противоположность — rural, сельский.",
+      "examples": [
+        {
+          "en": "Traffic is a problem in most urban areas.",
+          "ru": "Пробки — проблема большинства городских районов.",
+          "gap": "urban"
+        },
+        {
+          "en": "After ten years of urban life, they moved to a village.",
+          "ru": "После десяти лет городской жизни они переехали в деревню.",
+          "gap": "urban"
+        }
+      ]
+    },
+    {
+      "id": "w-roof",
+      "kind": "word",
+      "en": "roof",
+      "ru": "крыша",
+      "rank": 2016,
+      "note": "On the roof — на крыше. A roof over your head — крыша над головой. Множественное число — roofs.",
+      "examples": [
+        {
+          "en": "The roof leaks when it rains heavily.",
+          "ru": "Когда идёт сильный дождь, крыша протекает.",
+          "gap": "roof"
+        },
+        {
+          "en": "You can see the whole city from the roof.",
+          "ru": "С крыши виден весь город.",
+          "gap": "roof"
+        }
+      ]
+    },
+    {
+      "id": "w-furniture",
+      "kind": "word",
+      "en": "furniture",
+      "ru": "мебель",
+      "rank": 2166,
+      "note": "Неисчисляемое: a piece of furniture — предмет мебели, а не «a furniture». A furnished flat — квартира с мебелью.",
+      "examples": [
+        {
+          "en": "The flat is big, but there is no furniture.",
+          "ru": "Квартира большая, но мебели нет.",
+          "gap": "furniture"
+        },
+        {
+          "en": "We ordered new furniture for the living room.",
+          "ru": "Мы заказали новую мебель в гостиную.",
+          "gap": "furniture"
+        }
+      ]
+    },
+    {
+      "id": "w-tap",
+      "kind": "word",
+      "en": "tap",
+      "ru": "кран (водопроводный)",
+      "also": ["faucet"],
+      "rank": 2297,
+      "note": "Британское слово; в США — faucet. Turn on the tap, turn off the tap — открыть и закрыть кран. Tap water — вода из-под крана.",
+      "examples": [
+        {
+          "en": "The tap in the kitchen is dripping.",
+          "ru": "Кран на кухне капает.",
+          "gap": "tap"
+        },
+        {
+          "en": "Can you drink tap water here?",
+          "ru": "Здесь можно пить воду из-под крана?",
+          "gap": "tap"
+        }
+      ]
+    },
+    {
+      "id": "w-mess",
+      "kind": "word",
+      "en": "mess",
+      "ru": "беспорядок, бардак",
+      "rank": 2382,
+      "note": "What a mess! — ну и бардак. Make a mess — устроить беспорядок, be in a mess — быть в беспорядке.",
+      "examples": [
+        {
+          "en": "The kids made a mess in the kitchen again.",
+          "ru": "Дети опять устроили на кухне бардак.",
+          "gap": "mess"
+        },
+        {
+          "en": "Sorry about the mess, we've just moved in.",
+          "ru": "Извини за беспорядок, мы только что переехали.",
+          "gap": "mess"
+        }
+      ]
+    },
+    {
+      "id": "w-landlord",
+      "kind": "word",
+      "en": "landlord",
+      "ru": "хозяин жилья, арендодатель",
+      "note": "Landlord сдаёт жильё, tenant снимает. Женщина — landlady. Так же называют хозяина паба.",
+      "examples": [
+        {
+          "en": "Our landlord raised the rent again this year.",
+          "ru": "Хозяин квартиры в этом году опять поднял аренду.",
+          "gap": "landlord"
+        },
+        {
+          "en": "Call the landlord if the heating stops working.",
+          "ru": "Если перестанет работать отопление, позвони хозяину.",
+          "gap": "landlord"
+        }
+      ]
+    },
+    {
+      "id": "w-tenant",
+      "kind": "word",
+      "en": "tenant",
+      "ru": "жилец, арендатор",
+      "note": "Tenant — тот, кто снимает квартиру или дом по договору. Tenant и landlord — пара: жилец и хозяин.",
+      "examples": [
+        {
+          "en": "The previous tenants left the flat in good condition.",
+          "ru": "Прежние жильцы оставили квартиру в хорошем состоянии.",
+          "gap": "tenants"
+        },
+        {
+          "en": "A tenant has to pay the rent on time.",
+          "ru": "Арендатор должен платить за жильё вовремя.",
+          "gap": "tenant"
+        }
+      ]
+    },
+    {
+      "id": "w-ceiling",
+      "kind": "word",
+      "en": "ceiling",
+      "ru": "потолок",
+      "note": "Читается [ˈsiːlɪŋ]. High ceilings — высокие потолки. Переносно — верхний предел: a price ceiling.",
+      "examples": [
+        {
+          "en": "The old flat has high ceilings and big windows.",
+          "ru": "В старой квартире высокие потолки и большие окна.",
+          "gap": "ceilings"
+        },
+        {
+          "en": "There's a wet spot on the bathroom ceiling.",
+          "ru": "На потолке в ванной мокрое пятно.",
+          "gap": "ceiling"
+        }
+      ]
+    },
+    {
+      "id": "w-suburb",
+      "kind": "word",
+      "en": "suburb",
+      "ru": "пригород",
+      "note": "Часто во множественном: live in the suburbs — жить в пригороде, за чертой центра. Suburban — пригородный.",
+      "examples": [
+        {
+          "en": "They moved to the suburbs when the baby was born.",
+          "ru": "Когда родился ребёнок, они переехали в пригород.",
+          "gap": "suburbs"
+        },
+        {
+          "en": "It's a quiet suburb half an hour from the centre.",
+          "ru": "Это тихий пригород в получасе от центра.",
+          "gap": "suburb"
+        }
+      ]
+    },
+    {
+      "id": "w-lease",
+      "kind": "word",
+      "en": "lease",
+      "ru": "договор аренды; брать или сдавать в аренду",
+      "note": "Sign a lease — подписать договор аренды, a one-year lease — договор на год. Lease — и глагол: lease a car, lease an office.",
+      "examples": [
+        {
+          "en": "We signed a two-year lease on the flat.",
+          "ru": "Мы подписали договор аренды квартиры на два года.",
+          "gap": "lease"
+        },
+        {
+          "en": "Our lease ends in June, so we're looking for a new place.",
+          "ru": "Наш договор заканчивается в июне, так что мы ищем новое жильё.",
+          "gap": "lease"
+        }
+      ]
+    },
+    {
+      "id": "w-decorate",
+      "kind": "word",
+      "en": "decorate",
+      "ru": "делать косметический ремонт (красить, клеить обои); украшать",
+      "note": "В британском английском decorate a room — обновить стены: покрасить или поклеить обои. Decorate a Christmas tree — украсить ёлку.",
+      "examples": [
+        {
+          "en": "We decorated the bedroom before the baby arrived.",
+          "ru": "Мы сделали ремонт в спальне до рождения ребёнка.",
+          "gap": "decorated"
+        },
+        {
+          "en": "They're decorating the hall for the party.",
+          "ru": "Они украшают зал к празднику.",
+          "gap": "decorating"
+        }
+      ]
+    },
+    {
+      "id": "w-furnish",
+      "kind": "word",
+      "en": "furnish",
+      "ru": "обставлять мебелью",
+      "note": "A furnished flat — квартира с мебелью, unfurnished — без мебели. Furnish a room with something — обставить комнату чем-то.",
+      "examples": [
+        {
+          "en": "The flat was furnished, so we only brought our clothes.",
+          "ru": "Квартира была с мебелью, так что мы привезли только одежду.",
+          "gap": "furnished"
+        },
+        {
+          "en": "It will cost a lot to furnish a house this big.",
+          "ru": "Обставить такой большой дом будет дорого.",
+          "gap": "furnish"
+        }
+      ]
+    },
+    {
+      "id": "w-renovate",
+      "kind": "word",
+      "en": "renovate",
+      "ru": "делать капитальный ремонт, обновлять (дом)",
+      "note": "Renovate — серьёзно обновить дом или квартиру: новые полы, стены, кухня. Decorate — только покрасить и поклеить. Renovation — такой ремонт.",
+      "examples": [
+        {
+          "en": "They renovated the old house and sold it.",
+          "ru": "Они отремонтировали старый дом и продали его.",
+          "gap": "renovated"
+        },
+        {
+          "en": "We're renovating the kitchen, so we eat out a lot.",
+          "ru": "Мы делаем ремонт на кухне, так что часто едим не дома.",
+          "gap": "renovating"
+        }
+      ]
+    },
+    {
+      "id": "w-cosy",
+      "kind": "word",
+      "en": "cosy",
+      "ru": "уютный",
+      "also": ["cozy"],
+      "note": "Американское написание — cozy. A cosy flat — уютная квартира, небольшая и тёплая. В объявлениях cosy часто значит просто «маленькая».",
+      "examples": [
+        {
+          "en": "The flat is small but very cosy.",
+          "ru": "Квартира маленькая, но очень уютная.",
+          "gap": "cosy"
+        },
+        {
+          "en": "We spent a cosy evening by the fire.",
+          "ru": "Мы провели уютный вечер у камина.",
+          "gap": "cosy"
+        }
+      ]
+    },
+    {
+      "id": "w-spacious",
+      "kind": "word",
+      "en": "spacious",
+      "ru": "просторный",
+      "note": "Spacious — где много места: a spacious kitchen, a spacious living room. Противоположность — cramped, тесный.",
+      "examples": [
+        {
+          "en": "The living room is spacious and full of light.",
+          "ru": "Гостиная просторная и полная света.",
+          "gap": "spacious"
+        },
+        {
+          "en": "We need a more spacious flat for three children.",
+          "ru": "С тремя детьми нам нужна квартира попросторнее.",
+          "gap": "spacious"
+        }
+      ]
+    },
+    {
+      "id": "w-noisy",
+      "kind": "word",
+      "en": "noisy",
+      "ru": "шумный",
+      "note": "Noisy neighbours, a noisy street — шумные соседи, шумная улица. Noise — шум. Loud — громкий о звуке, noisy — о месте или людях.",
+      "examples": [
+        {
+          "en": "The street is too noisy at night.",
+          "ru": "Ночью улица слишком шумная.",
+          "gap": "noisy"
+        },
+        {
+          "en": "Our new neighbours are really noisy.",
+          "ru": "Наши новые соседи очень шумные.",
+          "gap": "noisy"
+        }
+      ]
+    },
+    {
+      "id": "w-leak",
+      "kind": "word",
+      "en": "leak",
+      "ru": "протекать; течь, утечка",
+      "note": "The roof leaks, the tap is leaking — протекает. A gas leak — утечка газа. Leak — и об информации, которая «утекла».",
+      "examples": [
+        {
+          "en": "The pipe under the sink is leaking.",
+          "ru": "Труба под раковиной протекает.",
+          "gap": "leaking"
+        },
+        {
+          "en": "There's a leak in the bathroom ceiling.",
+          "ru": "В потолке ванной течь.",
+          "gap": "leak"
+        }
+      ]
+    },
+    {
+      "id": "c-move-in",
+      "kind": "phrase",
+      "en": "move in",
+      "ru": "въезжать (в новое жильё)",
+      "note": "Move in — въехать, move out — съехать, move house — переехать. Move in with someone — съехаться с кем-то.",
+      "examples": [
+        {
+          "en": "We're moving in next Saturday.",
+          "ru": "Мы въезжаем в следующую субботу.",
+          "gap": "moving in"
+        },
+        {
+          "en": "When can we move in?",
+          "ru": "Когда мы можем въехать?",
+          "gap": "move in"
+        }
+      ]
+    }
+  ]
+}

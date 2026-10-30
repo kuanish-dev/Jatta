@@ -13,6 +13,7 @@ class ChatFlow(
     private val judge: FreeAnswerJudge,
     private val timeoutMs: Long,
     private val turnsKept: Int,
+    private val reviewTrusted: Boolean = true,
     private val show: (Screen.Chat) -> Unit,
 ) {
     private val messages = mutableListOf<ChatMessage>()
@@ -38,7 +39,7 @@ class ChatFlow(
     private suspend fun reply() {
         typing = true
         publish()
-        val answer = withTimeoutOrNull(timeoutMs) { partner.reply(topic, words, messages.takeLast(turnsKept)) }
+        val answer = withTimeoutOrNull(timeoutMs) { partner.reply(topic, messages.takeLast(turnsKept)) }
         typing = false
         silent = answer == null
         if (answer != null) messages += ChatMessage(fromLearner = false, text = answer)
@@ -51,5 +52,5 @@ class ChatFlow(
         else -> Review.Fixed(WordDiff.parts(text, judgment.corrected!!))
     }
 
-    private fun publish() = show(Screen.Chat(topic, messages.toList(), typing, silent, words))
+    private fun publish() = show(Screen.Chat(topic, messages.toList(), typing, silent, words, reviewTrusted))
 }

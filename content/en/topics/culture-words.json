@@ -1,0 +1,502 @@
+{
+  "id": "culture-words",
+  "title": "Слова: кино, музыка, книги",
+  "intro": "Сериалы и фильмы, концерты и альбомы, романы и выставки — как взрослые обсуждают, что посмотрели, послушали и прочитали. Слова идут от частых к редким.",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "w-series",
+      "kind": "word",
+      "en": "series",
+      "ru": "сериал; серия (книг)",
+      "rank": 723,
+      "note": "A TV series — сериал, в единственном и множественном числе пишется одинаково: a series, two series. A series of books — серия книг. Одна серия сериала — episode.",
+      "examples": [
+        {
+          "en": "We watched the whole series in one weekend.",
+          "ru": "Мы посмотрели весь сериал за одни выходные.",
+          "gap": "series"
+        },
+        {
+          "en": "Is there a new series about doctors on this platform?",
+          "ru": "На этой платформе есть новый сериал про врачей?",
+          "gap": "series"
+        }
+      ]
+    },
+    {
+      "id": "w-director",
+      "kind": "word",
+      "en": "director",
+      "ru": "режиссёр; директор",
+      "rank": 727,
+      "note": "В кино director — режиссёр, а не директор: directed by — «режиссёр такой-то». В компании director — директор или руководитель направления.",
+      "examples": [
+        {
+          "en": "The director answered questions after the screening.",
+          "ru": "После показа режиссёр ответил на вопросы.",
+          "gap": "director"
+        },
+        {
+          "en": "I like everything this director has made.",
+          "ru": "Мне нравится всё, что снял этот режиссёр.",
+          "gap": "director"
+        }
+      ]
+    },
+    {
+      "id": "w-scene",
+      "kind": "word",
+      "en": "scene",
+      "ru": "сцена (в фильме, книге)",
+      "rank": 1023,
+      "note": "Scene — эпизод фильма или пьесы: the opening scene, the final scene. Сцена как помост в зале — stage. Make a scene — устроить сцену, скандал.",
+      "examples": [
+        {
+          "en": "The opening scene was filmed in our town.",
+          "ru": "Первую сцену снимали в нашем городе.",
+          "gap": "scene"
+        },
+        {
+          "en": "I had to skip a few scary scenes.",
+          "ru": "Пару страшных сцен мне пришлось промотать.",
+          "gap": "scenes"
+        }
+      ]
+    },
+    {
+      "id": "w-audience",
+      "kind": "word",
+      "en": "audience",
+      "ru": "зрители, публика, аудитория",
+      "rank": 1166,
+      "note": "Audience — все, кто смотрит или слушает: в зале, у экрана, в блоге. Один зритель — a member of the audience, а не an audience. The audience laughed — зал засмеялся.",
+      "examples": [
+        {
+          "en": "The audience laughed at every joke.",
+          "ru": "Зрители смеялись над каждой шуткой.",
+          "gap": "audience"
+        },
+        {
+          "en": "This show has a young audience.",
+          "ru": "У этого шоу молодая аудитория.",
+          "gap": "audience"
+        }
+      ]
+    },
+    {
+      "id": "w-chapter",
+      "kind": "word",
+      "en": "chapter",
+      "ru": "глава (книги)",
+      "rank": 1275,
+      "note": "Chapter one, the last chapter — первая и последняя глава. В переносном смысле — этап жизни: a new chapter in my life.",
+      "examples": [
+        {
+          "en": "I read one chapter every night before bed.",
+          "ru": "Я читаю по главе каждый вечер перед сном.",
+          "gap": "chapter"
+        },
+        {
+          "en": "The first two chapters are quite slow.",
+          "ru": "Первые две главы довольно тягучие.",
+          "gap": "chapters"
+        }
+      ]
+    },
+    {
+      "id": "w-novel",
+      "kind": "word",
+      "en": "novel",
+      "ru": "роман (книга)",
+      "rank": 1278,
+      "note": "Novel — большая художественная книга: a detective novel, a historical novel. Любовный роман — a romance, а не a love novel. Как прилагательное novel — новый, необычный: a novel idea.",
+      "examples": [
+        {
+          "en": "She is writing her second novel.",
+          "ru": "Она пишет свой второй роман.",
+          "gap": "novel"
+        },
+        {
+          "en": "I prefer novels to short stories.",
+          "ru": "Романы мне нравятся больше, чем рассказы.",
+          "gap": "novels"
+        }
+      ]
+    },
+    {
+      "id": "w-concert",
+      "kind": "word",
+      "en": "concert",
+      "ru": "концерт",
+      "rank": 1382,
+      "note": "Go to a concert, be at a concert — ударение на первый слог: CONcert. Небольшой концерт в клубе часто называют a gig, a live show.",
+      "examples": [
+        {
+          "en": "We have tickets for a concert on Friday.",
+          "ru": "У нас билеты на концерт в пятницу.",
+          "gap": "concert"
+        },
+        {
+          "en": "The concert started an hour late.",
+          "ru": "Концерт начался на час позже.",
+          "gap": "concert"
+        }
+      ]
+    },
+    {
+      "id": "w-exhibition",
+      "kind": "word",
+      "en": "exhibition",
+      "ru": "выставка",
+      "rank": 1803,
+      "note": "An exhibition of photos, a photo exhibition — выставка фотографий. Выставка открывается и закрывается: the exhibition opens, runs until May. В американском английском чаще exhibit.",
+      "examples": [
+        {
+          "en": "The exhibition runs until the end of May.",
+          "ru": "Выставка работает до конца мая.",
+          "gap": "exhibition"
+        },
+        {
+          "en": "Let's go to the photo exhibition on Saturday.",
+          "ru": "Давай сходим на фотовыставку в субботу.",
+          "gap": "exhibition"
+        }
+      ]
+    },
+    {
+      "id": "w-plot",
+      "kind": "word",
+      "en": "plot",
+      "ru": "сюжет",
+      "rank": 1951,
+      "note": "The plot of a film, of a novel — сюжет. A plot twist — неожиданный поворот. Spoiler — когда кто-то раскрывает сюжет раньше времени.",
+      "examples": [
+        {
+          "en": "The plot is simple, but the acting is great.",
+          "ru": "Сюжет простой, но актёры играют отлично.",
+          "gap": "plot"
+        },
+        {
+          "en": "Don't tell me the plot, I haven't seen it yet.",
+          "ru": "Не рассказывай сюжет, я ещё не смотрел.",
+          "gap": "plot"
+        }
+      ]
+    },
+    {
+      "id": "w-episode",
+      "kind": "word",
+      "en": "episode",
+      "ru": "серия, эпизод (сериала, подкаста)",
+      "rank": 2067,
+      "note": "Одна серия сериала или выпуск подкаста — episode, сам сериал — series. The final episode of season two — последняя серия второго сезона.",
+      "examples": [
+        {
+          "en": "The last episode comes out next week.",
+          "ru": "Последняя серия выходит на следующей неделе.",
+          "gap": "episode"
+        },
+        {
+          "en": "I listened to three episodes on the train.",
+          "ru": "В поезде я послушал три выпуска.",
+          "gap": "episodes"
+        }
+      ]
+    },
+    {
+      "id": "w-album",
+      "kind": "word",
+      "en": "album",
+      "ru": "альбом (музыкальный)",
+      "rank": 2181,
+      "note": "Their new album, a live album — альбом группы. Record an album — записать, release an album — выпустить. Фотоальбом тоже album.",
+      "examples": [
+        {
+          "en": "Their new album is better than the last one.",
+          "ru": "Их новый альбом лучше предыдущего.",
+          "gap": "album"
+        },
+        {
+          "en": "I still listen to that album from my student years.",
+          "ru": "Я до сих пор слушаю тот альбом из студенческих лет.",
+          "gap": "album"
+        }
+      ]
+    },
+    {
+      "id": "w-entertain",
+      "kind": "word",
+      "en": "entertain",
+      "ru": "развлекать",
+      "rank": 2491,
+      "note": "Entertain the kids, entertain the guests — развлекать, занимать. Entertaining — увлекательный, entertainment — развлечения, индустрия развлечений.",
+      "examples": [
+        {
+          "en": "The band entertained the crowd for two hours.",
+          "ru": "Группа два часа развлекала публику.",
+          "gap": "entertained"
+        },
+        {
+          "en": "I need something to entertain the kids on the flight.",
+          "ru": "Мне нужно чем-то занять детей в самолёте.",
+          "gap": "entertain"
+        }
+      ]
+    },
+    {
+      "id": "w-skip",
+      "kind": "word",
+      "en": "skip",
+      "ru": "пропустить, промотать",
+      "note": "Skip a song, skip the intro, skip a chapter — пропустить, перемотать. Skip breakfast, skip a meeting — пропустить, не пойти.",
+      "examples": [
+        {
+          "en": "I always skip the intro of this series.",
+          "ru": "Я всегда проматываю заставку этого сериала.",
+          "gap": "skip"
+        },
+        {
+          "en": "He skipped two chapters and still understood the ending.",
+          "ru": "Он пропустил две главы и всё равно понял концовку.",
+          "gap": "skipped"
+        }
+      ]
+    },
+    {
+      "id": "w-subscribe",
+      "kind": "word",
+      "en": "subscribe",
+      "ru": "подписаться (на канал, сервис, журнал)",
+      "note": "Subscribe to a channel, to a streaming service, to a magazine — всегда с to. Subscription — подписка: cancel a subscription — отменить подписку.",
+      "examples": [
+        {
+          "en": "I subscribed to a music service last month.",
+          "ru": "В прошлом месяце я подписался на музыкальный сервис.",
+          "gap": "subscribed"
+        },
+        {
+          "en": "Do you really need to subscribe to three platforms?",
+          "ru": "Тебе правда нужна подписка на три платформы?",
+          "gap": "subscribe"
+        }
+      ]
+    },
+    {
+      "id": "w-lyrics",
+      "kind": "word",
+      "en": "lyrics",
+      "ru": "слова песни, текст песни",
+      "note": "Всегда во множественном числе: the lyrics are great. Слова песни — lyrics, а не words of the song. Write lyrics — писать тексты.",
+      "examples": [
+        {
+          "en": "I love the melody, but the lyrics are silly.",
+          "ru": "Мелодия мне нравится, а слова глупые.",
+          "gap": "lyrics"
+        },
+        {
+          "en": "She writes the lyrics for all their songs.",
+          "ru": "Она пишет тексты ко всем их песням.",
+          "gap": "lyrics"
+        }
+      ]
+    },
+    {
+      "id": "w-genre",
+      "kind": "word",
+      "en": "genre",
+      "ru": "жанр",
+      "note": "Читается по-французски: ЖАНра. What genre is it? — какой это жанр? My favourite genre is crime — любимый жанр: детективы.",
+      "examples": [
+        {
+          "en": "What genre of music do you listen to?",
+          "ru": "Какую музыку ты слушаешь?",
+          "gap": "genre"
+        },
+        {
+          "en": "Horror is not my genre at all.",
+          "ru": "Ужасы — совсем не мой жанр.",
+          "gap": "genre"
+        }
+      ]
+    },
+    {
+      "id": "w-soundtrack",
+      "kind": "word",
+      "en": "soundtrack",
+      "ru": "саундтрек, музыка к фильму",
+      "note": "The soundtrack to a film — музыка из фильма или игры. Одна песня из фильма — a song from the soundtrack.",
+      "examples": [
+        {
+          "en": "The soundtrack is better than the film itself.",
+          "ru": "Саундтрек лучше самого фильма.",
+          "gap": "soundtrack"
+        },
+        {
+          "en": "I added the soundtrack to my running playlist.",
+          "ru": "Я добавил саундтрек в плейлист для бега.",
+          "gap": "soundtrack"
+        }
+      ]
+    },
+    {
+      "id": "w-gripping",
+      "kind": "word",
+      "en": "gripping",
+      "ru": "захватывающий (не оторваться)",
+      "note": "Gripping — держит так, что не оторваться: a gripping novel, a gripping final episode. Похоже на exciting, но про сюжет и напряжение, а не про эмоции.",
+      "examples": [
+        {
+          "en": "The book was so gripping that I missed my stop.",
+          "ru": "Книга была такой захватывающей, что я проехал остановку.",
+          "gap": "gripping"
+        },
+        {
+          "en": "The final episode is really gripping.",
+          "ru": "Последняя серия по-настоящему захватывает.",
+          "gap": "gripping"
+        }
+      ]
+    },
+    {
+      "id": "w-dull",
+      "kind": "word",
+      "en": "dull",
+      "ru": "скучный, нудный",
+      "also": [
+        "boring"
+      ],
+      "note": "Dull — скучный, без искры: a dull film, a dull lecture. Чуть мягче и книжнее, чем boring. Ещё dull — тусклый: a dull colour, a dull day.",
+      "examples": [
+        {
+          "en": "The second half of the film was rather dull.",
+          "ru": "Вторая половина фильма была довольно нудной.",
+          "gap": "dull"
+        },
+        {
+          "en": "His new book is dull compared to the first one.",
+          "ru": "Его новая книга скучная по сравнению с первой.",
+          "gap": "dull"
+        }
+      ]
+    },
+    {
+      "id": "w-predictable",
+      "kind": "word",
+      "en": "predictable",
+      "ru": "предсказуемый",
+      "note": "A predictable ending, a predictable plot — ясно, чем кончится. Противоположность — unpredictable. Про людей тоже: he is so predictable.",
+      "examples": [
+        {
+          "en": "The ending was predictable, but I still cried.",
+          "ru": "Концовка была предсказуемой, но я всё равно плакала.",
+          "gap": "predictable"
+        },
+        {
+          "en": "Most comedies are predictable, and this one too.",
+          "ru": "Большинство комедий предсказуемы, и эта тоже.",
+          "gap": "predictable"
+        }
+      ]
+    },
+    {
+      "id": "w-moving",
+      "kind": "word",
+      "en": "moving",
+      "ru": "трогательный",
+      "also": [
+        "touching"
+      ],
+      "note": "A moving story, a moving scene — трогает до слёз. Не путать с глаголом move: the film moved me — фильм меня тронул. Синоним — touching.",
+      "examples": [
+        {
+          "en": "It is a moving story about two brothers.",
+          "ru": "Это трогательная история о двух братьях.",
+          "gap": "moving"
+        },
+        {
+          "en": "The last scene was so moving that nobody spoke.",
+          "ru": "Последняя сцена была такой трогательной, что все молчали.",
+          "gap": "moving"
+        }
+      ]
+    },
+    {
+      "id": "w-catchy",
+      "kind": "word",
+      "en": "catchy",
+      "ru": "запоминающийся, прилипчивый (о мелодии)",
+      "note": "A catchy tune, a catchy chorus — легко цепляется и крутится в голове. Только о музыке, слоганах и названиях, не о книгах.",
+      "examples": [
+        {
+          "en": "The chorus is so catchy that everyone sings along.",
+          "ru": "Припев такой прилипчивый, что все подпевают.",
+          "gap": "catchy"
+        },
+        {
+          "en": "I can't get that catchy tune out of my head.",
+          "ru": "Никак не могу выкинуть эту мелодию из головы.",
+          "gap": "catchy"
+        }
+      ]
+    },
+    {
+      "id": "w-hilarious",
+      "kind": "word",
+      "en": "hilarious",
+      "ru": "уморительный, очень смешной",
+      "note": "Hilarious — сильнее, чем funny: смеёшься в голос. A hilarious comedy, a hilarious scene. Very hilarious не говорят, hilarious уже «очень».",
+      "examples": [
+        {
+          "en": "The first season was hilarious, the second is just okay.",
+          "ru": "Первый сезон был уморительным, второй — так себе.",
+          "gap": "hilarious"
+        },
+        {
+          "en": "My colleagues found the show hilarious, I didn't.",
+          "ru": "Коллегам шоу показалось уморительным, мне — нет.",
+          "gap": "hilarious"
+        }
+      ]
+    },
+    {
+      "id": "c-come-out",
+      "kind": "phrase",
+      "en": "come out",
+      "ru": "выходить (о фильме, книге, альбоме)",
+      "note": "Come out — появиться в продаже или на экранах: the film comes out in June, when does the book come out? Прошедшее время — came out. Близко по смыслу к be released.",
+      "examples": [
+        {
+          "en": "Their new album comes out next Friday.",
+          "ru": "Их новый альбом выходит в следующую пятницу.",
+          "gap": "comes out"
+        },
+        {
+          "en": "The film came out when I was at university.",
+          "ru": "Фильм вышел, когда я учился в университете.",
+          "gap": "came out"
+        }
+      ]
+    },
+    {
+      "id": "c-turn-up",
+      "kind": "phrase",
+      "en": "turn up",
+      "ru": "сделать громче; прийти, появиться",
+      "note": "Turn up the music, turn the volume up — громче; turn down — тише. Второе значение — появиться: he turned up late — он явился с опозданием.",
+      "examples": [
+        {
+          "en": "Can you turn up the music a little?",
+          "ru": "Можешь сделать музыку чуть погромче?",
+          "gap": "turn up"
+        },
+        {
+          "en": "Half the guests turned up after the concert had started.",
+          "ru": "Половина гостей явилась, когда концерт уже начался.",
+          "gap": "turned up"
+        }
+      ]
+    }
+  ]
+}

@@ -5,8 +5,10 @@ import com.google.mlkit.genai.common.FeatureStatus
 import com.google.mlkit.genai.prompt.Generation
 import com.google.mlkit.genai.prompt.TextPart
 import com.google.mlkit.genai.prompt.generateContentRequest
+import com.jatta.study.judge.ChatTurn
 import com.jatta.study.judge.ModelState
 import com.jatta.study.judge.OnDeviceModel
+import com.jatta.study.judge.transcript
 import kotlin.coroutines.cancellation.CancellationException
 
 class GeminiNanoModel : OnDeviceModel {
@@ -40,6 +42,15 @@ class GeminiNanoModel : OnDeviceModel {
         val request = generateContentRequest(TextPart(prompt)) {
             temperature = 0f
             topK = 1
+            maxOutputTokens = 80
+        }
+        model.generateContent(request).candidates.firstOrNull()?.text
+    }
+
+    override suspend fun chat(system: String, turns: List<ChatTurn>): String? = guarded(null) {
+        val request = generateContentRequest(TextPart(transcript(system, turns))) {
+            temperature = 0.8f
+            topK = 40
             maxOutputTokens = 80
         }
         model.generateContent(request).candidates.firstOrNull()?.text

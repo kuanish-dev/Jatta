@@ -1,0 +1,511 @@
+{
+  "id": "sport-words",
+  "title": "Слова: спорт и отдых",
+  "intro": "Спортзал и пробежки, матчи и турниры, хобби и выходные на природе. Слова идут от частых к редким.",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "w-train",
+      "kind": "word",
+      "en": "train",
+      "ru": "тренироваться; обучать",
+      "rank": 289,
+      "note": "Train for a marathon — готовиться к марафону, train hard — усердно тренироваться. Второе значение — обучать: train new staff. Не путать с существительным train — поезд.",
+      "examples": [
+        {
+          "en": "She trains three times a week after work.",
+          "ru": "Она тренируется три раза в неделю после работы.",
+          "gap": "trains"
+        },
+        {
+          "en": "I'm training for my first half marathon.",
+          "ru": "Я готовлюсь к своему первому полумарафону.",
+          "gap": "training"
+        }
+      ]
+    },
+    {
+      "id": "w-race",
+      "kind": "word",
+      "en": "race",
+      "ru": "гонка, забег; раса",
+      "rank": 732,
+      "note": "Run a race — бежать забег, a 10k race — забег на десять километров, a bike race — велогонка. Race — ещё и раса; в спорте это гонка или забег.",
+      "examples": [
+        {
+          "en": "The race starts at eight in the morning.",
+          "ru": "Забег начинается в восемь утра.",
+          "gap": "race"
+        },
+        {
+          "en": "He finished the race in under two hours.",
+          "ru": "Он пробежал дистанцию быстрее чем за два часа.",
+          "gap": "race"
+        }
+      ]
+    },
+    {
+      "id": "w-match",
+      "kind": "word",
+      "en": "match",
+      "ru": "матч; подходить, сочетаться",
+      "also": [
+        "game"
+      ],
+      "rank": 850,
+      "note": "A football match, a tennis match — матч; в американском английском чаще game. Другое значение — подходить друг к другу: the shoes match the bag.",
+      "examples": [
+        {
+          "en": "We watched the match at a friend's place.",
+          "ru": "Мы смотрели матч у друга дома.",
+          "gap": "match"
+        },
+        {
+          "en": "The match ended in a draw.",
+          "ru": "Матч закончился вничью.",
+          "gap": "match"
+        }
+      ]
+    },
+    {
+      "id": "w-professional",
+      "kind": "word",
+      "en": "professional",
+      "ru": "профессиональный; профессионал",
+      "rank": 936,
+      "note": "A professional athlete — профессиональный спортсмен, turn professional — перейти в профессионалы; противоположность — amateur. Ещё — грамотный, по-деловому: a professional attitude.",
+      "examples": [
+        {
+          "en": "He played professional tennis for ten years.",
+          "ru": "Он десять лет играл в профессиональный теннис.",
+          "gap": "professional"
+        },
+        {
+          "en": "You don't need to be a professional to enjoy running.",
+          "ru": "Не обязательно быть профессионалом, чтобы любить бег.",
+          "gap": "professional"
+        }
+      ]
+    },
+    {
+      "id": "w-beat",
+      "kind": "word",
+      "en": "beat",
+      "ru": "обыграть, победить (кого-то); бить",
+      "rank": 1035,
+      "note": "Beat — обыграть кого-то: we beat them 3–1. Win — выиграть что-то: win the match, win the race; «win them» — ошибка. Формы: beat — beat — beaten. Beat a record — побить рекорд.",
+      "examples": [
+        {
+          "en": "Our team beat the champions last weekend.",
+          "ru": "В прошлые выходные наша команда обыграла чемпионов.",
+          "gap": "beat"
+        },
+        {
+          "en": "They have never been beaten at home.",
+          "ru": "Дома их ещё никто не обыгрывал.",
+          "gap": "beaten"
+        }
+      ]
+    },
+    {
+      "id": "w-fan",
+      "kind": "word",
+      "en": "fan",
+      "ru": "болельщик, поклонник; вентилятор",
+      "rank": 1306,
+      "note": "A football fan — болельщик, a big fan of — большой поклонник чего угодно: I'm a big fan of yoga. Второе значение — вентилятор.",
+      "examples": [
+        {
+          "en": "Thousands of fans came to the stadium.",
+          "ru": "На стадион пришли тысячи болельщиков.",
+          "gap": "fans"
+        },
+        {
+          "en": "I'm not a big fan of winter sports.",
+          "ru": "Я не большой любитель зимних видов спорта.",
+          "gap": "fan"
+        }
+      ]
+    },
+    {
+      "id": "w-coach",
+      "kind": "word",
+      "en": "coach",
+      "ru": "тренер; тренировать",
+      "rank": 1342,
+      "note": "Coach — тренер команды или спортсмена, a swimming coach; личный тренер в спортзале чаще trainer. Глагол — тренировать, наставлять: she coaches kids. Ещё — междугородний автобус.",
+      "examples": [
+        {
+          "en": "Our coach makes us run five kilometres before practice.",
+          "ru": "Наш тренер заставляет нас пробегать пять километров перед тренировкой.",
+          "gap": "coach"
+        },
+        {
+          "en": "He coaches a children's football team on Saturdays.",
+          "ru": "По субботам он тренирует детскую футбольную команду.",
+          "gap": "coaches"
+        }
+      ]
+    },
+    {
+      "id": "w-climb",
+      "kind": "word",
+      "en": "climb",
+      "ru": "подниматься, взбираться; лазать",
+      "rank": 1434,
+      "note": "Climb a mountain, climb the stairs — подняться на гору, по лестнице; go climbing — заниматься скалолазанием. Ещё — расти: prices are climbing. Произносится «клайм», b не читается.",
+      "examples": [
+        {
+          "en": "We climbed the hill to watch the sunset.",
+          "ru": "Мы поднялись на холм посмотреть закат.",
+          "gap": "climbed"
+        },
+        {
+          "en": "He goes climbing every weekend in summer.",
+          "ru": "Летом он каждые выходные ходит на скалолазание.",
+          "gap": "climbing"
+        }
+      ]
+    },
+    {
+      "id": "w-victory",
+      "kind": "word",
+      "en": "victory",
+      "ru": "победа",
+      "rank": 1776,
+      "note": "Victory — победа в матче, на выборах, в споре: a narrow victory — победа с минимальным перевесом. Противоположность — defeat. В разговоре чаще win: a big win.",
+      "examples": [
+        {
+          "en": "It was the team's first victory this season.",
+          "ru": "Это была первая победа команды в этом сезоне.",
+          "gap": "victory"
+        },
+        {
+          "en": "They celebrated the victory until late at night.",
+          "ru": "Они праздновали победу до поздней ночи.",
+          "gap": "victory"
+        }
+      ]
+    },
+    {
+      "id": "w-defeat",
+      "kind": "word",
+      "en": "defeat",
+      "ru": "поражение; победить, нанести поражение",
+      "rank": 1886,
+      "note": "Suffer a defeat — потерпеть поражение, admit defeat — признать поражение. Глагол defeat — победить кого-то, как beat, но официальнее: the champion was defeated.",
+      "examples": [
+        {
+          "en": "After the defeat, the coach left the club.",
+          "ru": "После поражения тренер ушёл из клуба.",
+          "gap": "defeat"
+        },
+        {
+          "en": "They were defeated in the final.",
+          "ru": "Они проиграли в финале.",
+          "gap": "defeated"
+        }
+      ]
+    },
+    {
+      "id": "w-trail",
+      "kind": "word",
+      "en": "trail",
+      "ru": "тропа, маршрут; след",
+      "rank": 2183,
+      "note": "A hiking trail — туристическая тропа, follow the trail — идти по маршруту, a bike trail — велодорожка. Trail — ещё и след: a trail of footprints.",
+      "examples": [
+        {
+          "en": "The trail goes along the river to the lake.",
+          "ru": "Тропа идёт вдоль реки к озеру.",
+          "gap": "trail"
+        },
+        {
+          "en": "We lost the trail and had to turn back.",
+          "ru": "Мы потеряли тропу, и пришлось повернуть назад.",
+          "gap": "trail"
+        }
+      ]
+    },
+    {
+      "id": "w-opponent",
+      "kind": "word",
+      "en": "opponent",
+      "ru": "соперник, противник",
+      "rank": 2395,
+      "note": "Opponent — тот, против кого играешь в матче или споришь. Rival — постоянный соперник, с кем соперничаешь долго. Competitor — участник соревнования или конкурент в бизнесе.",
+      "examples": [
+        {
+          "en": "Her opponent was much younger and faster.",
+          "ru": "Её соперница была гораздо моложе и быстрее.",
+          "gap": "opponent"
+        },
+        {
+          "en": "Respect your opponents, even when you win.",
+          "ru": "Уважайте соперников, даже когда побеждаете.",
+          "gap": "opponents"
+        }
+      ]
+    },
+    {
+      "id": "w-championship",
+      "kind": "word",
+      "en": "championship",
+      "ru": "чемпионат; титул чемпиона",
+      "rank": 2640,
+      "note": "The world championship — чемпионат мира, win the championship — выиграть чемпионат. В американском английском championship — ещё и финальный матч за титул.",
+      "examples": [
+        {
+          "en": "The championship takes place every four years.",
+          "ru": "Чемпионат проходит раз в четыре года.",
+          "gap": "championship"
+        },
+        {
+          "en": "She won her first national championship at nineteen.",
+          "ru": "Свой первый чемпионат страны она выиграла в девятнадцать.",
+          "gap": "championship"
+        }
+      ]
+    },
+    {
+      "id": "w-athlete",
+      "kind": "word",
+      "en": "athlete",
+      "ru": "спортсмен",
+      "rank": 2759,
+      "note": "Athlete — любой спортсмен, не только легкоатлет: a professional athlete. Sportsman встречается реже и звучит старомодно. Athletics — лёгкая атлетика (британское).",
+      "examples": [
+        {
+          "en": "Athletes need more sleep than other people.",
+          "ru": "Спортсменам нужно больше сна, чем остальным.",
+          "gap": "Athletes"
+        },
+        {
+          "en": "She trained like a professional athlete all year.",
+          "ru": "Весь год она тренировалась как профессиональная спортсменка.",
+          "gap": "athlete"
+        }
+      ]
+    },
+    {
+      "id": "w-tournament",
+      "kind": "word",
+      "en": "tournament",
+      "ru": "турнир",
+      "rank": 2782,
+      "note": "A tennis tournament, a chess tournament — турнир из нескольких матчей, проигравший обычно выбывает. Championship — чемпионат за титул, tournament — любой турнир, хоть любительский в офисе.",
+      "examples": [
+        {
+          "en": "Our office is holding a table tennis tournament.",
+          "ru": "У нас в офисе проводят турнир по настольному теннису.",
+          "gap": "tournament"
+        },
+        {
+          "en": "He was knocked out of the tournament early.",
+          "ru": "Он рано выбыл из турнира.",
+          "gap": "tournament"
+        }
+      ]
+    },
+    {
+      "id": "w-hike",
+      "kind": "word",
+      "en": "hike",
+      "ru": "поход; идти в поход, ходить по горам",
+      "note": "Go hiking, go for a hike — пойти в пеший поход на день. Hike — многочасовая прогулка по горам или лесу, walk — просто прогулка. Многодневный поход — trek.",
+      "examples": [
+        {
+          "en": "We hiked to the top of the hill before lunch.",
+          "ru": "До обеда мы поднялись пешком на вершину холма.",
+          "gap": "hiked"
+        },
+        {
+          "en": "A short hike in the mountains clears my head.",
+          "ru": "Короткий поход в горы прочищает мне голову.",
+          "gap": "hike"
+        }
+      ]
+    },
+    {
+      "id": "w-cheer",
+      "kind": "word",
+      "en": "cheer",
+      "ru": "болеть (за команду), подбадривать криками",
+      "note": "Cheer for a team — болеть за команду, cheer someone on — подбадривать криками. Cheer up — приободриться: Cheer up! — Не унывай!",
+      "examples": [
+        {
+          "en": "The whole family cheered when she crossed the line.",
+          "ru": "Вся семья закричала от радости, когда она пересекла финиш.",
+          "gap": "cheered"
+        },
+        {
+          "en": "Who do you cheer for in the final?",
+          "ru": "За кого ты болеешь в финале?",
+          "gap": "cheer"
+        }
+      ]
+    },
+    {
+      "id": "w-hobby",
+      "kind": "word",
+      "en": "hobby",
+      "ru": "хобби, увлечение",
+      "note": "Hobby — то, чем занимаешься в свободное время ради удовольствия: take up a hobby — завести хобби. Interest — интерес вообще; hobby — регулярное занятие.",
+      "examples": [
+        {
+          "en": "Photography started as a hobby and became my job.",
+          "ru": "Фотография начиналась как хобби, а стала моей работой.",
+          "gap": "hobby"
+        },
+        {
+          "en": "Do you have any hobbies besides work?",
+          "ru": "У тебя есть какие-нибудь увлечения помимо работы?",
+          "gap": "hobbies"
+        }
+      ]
+    },
+    {
+      "id": "w-leisure",
+      "kind": "word",
+      "en": "leisure",
+      "ru": "досуг, свободное время",
+      "also": [
+        "free time"
+      ],
+      "note": "Leisure time — свободное время, leisure activities — занятия для отдыха, a leisure centre — спортивно-оздоровительный центр (британское). В разговоре чаще free time; at your leisure — когда вам удобно.",
+      "examples": [
+        {
+          "en": "Most people spend their leisure time online.",
+          "ru": "Большинство людей проводят свободное время в интернете.",
+          "gap": "leisure"
+        },
+        {
+          "en": "The hotel has a leisure centre with a pool.",
+          "ru": "В отеле есть оздоровительный центр с бассейном.",
+          "gap": "leisure"
+        }
+      ]
+    },
+    {
+      "id": "w-outdoor",
+      "kind": "word",
+      "en": "outdoor",
+      "ru": "на открытом воздухе, уличный",
+      "note": "Outdoor activities — занятия на свежем воздухе, an outdoor pool — открытый бассейн. Outdoor стоит перед существительным; наречие — outdoors: let's eat outdoors. Противоположность — indoor.",
+      "examples": [
+        {
+          "en": "I prefer outdoor sports to the gym.",
+          "ru": "Я предпочитаю спорт на свежем воздухе спортзалу.",
+          "gap": "outdoor"
+        },
+        {
+          "en": "The outdoor pool is closed in winter.",
+          "ru": "Открытый бассейн зимой закрыт.",
+          "gap": "outdoor"
+        }
+      ]
+    },
+    {
+      "id": "w-amateur",
+      "kind": "word",
+      "en": "amateur",
+      "ru": "любитель; любительский",
+      "note": "An amateur player — игрок-любитель, спорт не его работа; противоположность — professional. Иногда с оттенком «неумелый»: amateur work — непрофессиональная работа.",
+      "examples": [
+        {
+          "en": "The race is open to amateur runners.",
+          "ru": "Забег открыт для бегунов-любителей.",
+          "gap": "amateur"
+        },
+        {
+          "en": "He is an amateur, but he plays really well.",
+          "ru": "Он любитель, но играет очень хорошо.",
+          "gap": "amateur"
+        }
+      ]
+    },
+    {
+      "id": "w-sore",
+      "kind": "word",
+      "en": "sore",
+      "ru": "больной, ноющий (о мышцах, горле)",
+      "note": "Sore muscles — ноющие мышцы после тренировки, a sore throat — больное горло. Sore — прилагательное, hurt — глагол: my legs hurt = my legs are sore.",
+      "examples": [
+        {
+          "en": "My legs are still sore after yesterday's workout.",
+          "ru": "У меня до сих пор ноют ноги после вчерашней тренировки.",
+          "gap": "sore"
+        },
+        {
+          "en": "I woke up with a sore back.",
+          "ru": "Я проснулся с больной спиной.",
+          "gap": "sore"
+        }
+      ]
+    },
+    {
+      "id": "c-work-out",
+      "kind": "phrase",
+      "en": "work out",
+      "ru": "тренироваться (в зале); получаться, складываться",
+      "also": [
+        "exercise"
+      ],
+      "note": "Work out — заниматься спортом, обычно в зале: I work out twice a week; a workout — тренировка. Второе значение — сложиться, получиться: it all worked out — всё сложилось; work out a plan — продумать план.",
+      "examples": [
+        {
+          "en": "I work out before breakfast three times a week.",
+          "ru": "Я тренируюсь до завтрака три раза в неделю.",
+          "gap": "work out"
+        },
+        {
+          "en": "She works out at a gym near the office.",
+          "ru": "Она занимается в спортзале рядом с офисом.",
+          "gap": "works out"
+        }
+      ]
+    },
+    {
+      "id": "c-give-up",
+      "kind": "phrase",
+      "en": "give up",
+      "ru": "бросить, перестать; сдаться",
+      "also": [
+        "quit"
+      ],
+      "note": "Give up smoking, give up running — бросить; после give up — существительное или -ing: gave up playing. Без дополнения — сдаться: don't give up! Quit — тоже бросить, а give up чаще про привычки и попытки.",
+      "examples": [
+        {
+          "en": "He gave up football after the injury.",
+          "ru": "После травмы он бросил футбол.",
+          "gap": "gave up"
+        },
+        {
+          "en": "Don't give up, you're almost at the top.",
+          "ru": "Не сдавайся, ты почти на вершине.",
+          "gap": "give up"
+        }
+      ]
+    },
+    {
+      "id": "c-take-up",
+      "kind": "phrase",
+      "en": "take up",
+      "ru": "начать заниматься (хобби, спортом); занимать (место, время)",
+      "note": "Take up yoga — начать заниматься йогой, take up a hobby — завести хобби. Второе значение — занимать место или время: the sofa takes up half the room.",
+      "examples": [
+        {
+          "en": "I took up swimming when I turned forty.",
+          "ru": "Я начал плавать, когда мне исполнилось сорок.",
+          "gap": "took up"
+        },
+        {
+          "en": "Running takes up most of my weekends.",
+          "ru": "Бег занимает большую часть моих выходных.",
+          "gap": "takes up"
+        }
+      ]
+    }
+  ]
+}

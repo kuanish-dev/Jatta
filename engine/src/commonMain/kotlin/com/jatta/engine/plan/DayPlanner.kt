@@ -28,8 +28,10 @@ class DayPlanner(
         return DayPlan(interleave(reviews), newItems, postponedReviews = due.size - reviews.size)
     }
 
-    fun topic(topicId: String, learner: Learner, today: Int): DayPlan {
-        val items = course.itemsOf(topicId)
+    fun topic(topicId: String, learner: Learner, today: Int): DayPlan = items(course.itemsOf(topicId).map { it.id }, learner, today)
+
+    fun items(itemIds: List<String>, learner: Learner, today: Int): DayPlan {
+        val items = itemIds.map { course.item(it) }
         val reviews = items.mapNotNull { learner.progress[it.id] }
             .sortedWith(compareBy<ItemProgress> { memory.recallOn(it, today) }.thenBy { it.itemId })
             .map { it.itemId }

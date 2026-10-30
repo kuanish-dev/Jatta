@@ -1,0 +1,276 @@
+<title>Jatta — заучивай</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: экран телефона в центре — одна колонка текста, как в приложении; скошенные углы и сетка из Theme.kt */
+:root {
+  --void: #07070d;
+  --panel: #0e0e19;
+  --panel-high: #161627;
+  --line: #26264a;
+  --cyan: #00e5ff;
+  --magenta: #ff2e88;
+  --acid: #f5e500;
+  --text: #e6e6f0;
+  --muted: #9a9ab8;
+  --grid: rgba(0, 229, 255, 0.045);
+  --glow: 0.7;
+  --on-accent: #00141a;
+  --display: "Exo 2", "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --void: #f2f4f8; --panel: #ffffff; --panel-high: #e3e6ef; --line: #c9cddd;
+    --cyan: #007c99; --magenta: #c8005f; --acid: #8a6d00; --text: #12121c; --muted: #555a75;
+    --grid: rgba(0, 124, 153, 0.07); --glow: 0.22; --on-accent: #ffffff;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --void: #f2f4f8; --panel: #ffffff; --panel-high: #e3e6ef; --line: #c9cddd;
+  --cyan: #007c99; --magenta: #c8005f; --acid: #8a6d00; --text: #12121c; --muted: #555a75;
+  --grid: rgba(0, 124, 153, 0.07); --glow: 0.22; --on-accent: #ffffff;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body {
+  margin: 0;
+  background: var(--void);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 17px;
+  line-height: 1.55;
+}
+a { color: var(--cyan); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--magenta); outline-offset: 3px; }
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+section.wrap { padding-block: 40px; display: grid; gap: 18px; }
+section.wrap + section.wrap { border-top: 1px solid var(--line); }
+
+h1, h2, h3 { margin: 0; text-wrap: balance; line-height: 1.12; font-weight: 700; }
+h1 { font-size: clamp(2rem, 7vw, 3.2rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.45rem, 4vw, 1.9rem); }
+h3 { font-size: 1.1rem; font-weight: 600; }
+p { margin: 0; max-width: 62ch; }
+.muted { color: var(--muted); }
+.label {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+.label.cyan { color: var(--cyan); }
+.label.magenta { color: var(--magenta); }
+.label.acid { color: var(--acid); }
+
+.hero { padding-block: 56px 40px; }
+.hero .lead { font-size: 1.15rem; }
+.glow { color: var(--cyan); text-shadow: 0 0 18px rgba(0, 229, 255, var(--glow)); }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-block; padding: 14px 22px; font-family: var(--display); font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  transition: transform 120ms ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn.primary { background: var(--cyan); color: var(--on-accent); }
+.btn.outline { color: var(--text); background: var(--panel); box-shadow: inset 0 0 0 1px var(--cyan); }
+.require { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+.panel {
+  background: var(--panel); border: 1px solid var(--line); padding: 16px 18px; display: grid; gap: 8px; min-width: 0;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+}
+.panel.cyan { border-color: rgba(0, 229, 255, 0.5); }
+.panel.magenta { border-color: rgba(255, 46, 136, 0.5); }
+.panel.acid { border-color: rgba(245, 229, 0, 0.45); }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.stat { background: var(--panel); border: 1px solid var(--line); padding: 14px 16px; display: grid; gap: 4px; }
+.stat b { font-family: var(--mono); font-size: 1.7rem; font-weight: 500; color: var(--cyan); line-height: 1.1; }
+
+ol.steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: step; }
+ol.steps li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: start; }
+ol.steps li::before {
+  counter-increment: step; content: counter(step, decimal-leading-zero);
+  font-family: var(--mono); color: var(--magenta); font-size: 1.2rem; padding-top: 2px;
+}
+ol.steps li > div { display: grid; gap: 2px; min-width: 0; }
+
+.bar { height: 10px; background: var(--panel-high); position: relative; overflow: hidden; }
+.bar span { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg, var(--cyan), var(--magenta)); }
+
+.chart { background: var(--panel); border: 1px solid var(--line); padding: 14px; }
+.chart svg { display: block; width: 100%; height: auto; }
+.chart .tick { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.chart .curve { fill: none; stroke: var(--cyan); stroke-width: 2.2; }
+.chart .target { stroke: var(--muted); stroke-dasharray: 4 4; stroke-width: 1; }
+.chart .review { fill: var(--magenta); }
+.chart .axis { stroke: var(--line); }
+
+ul.plain { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; max-width: 62ch; }
+dl { margin: 0; display: grid; gap: 10px; }
+dl div { display: grid; gap: 2px; }
+dt { font-weight: 600; }
+dd { margin: 0; color: var(--muted); max-width: 62ch; }
+
+footer.wrap { padding-block: 28px 48px; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 0.9rem; color: var(--muted); }
+</style>
+
+<section class="wrap hero">
+  <div class="label cyan">Jatta // заучивай</div>
+  <h1>Английский, который <span class="glow">держится</span> в памяти</h1>
+  <p class="lead">ИИ-учебник от B1 к B2 для Android. Повторы ставит модель памяти FSRS и подгоняет её под вас. Свободные ответы и разговор проверяет модель на самом телефоне. Без аккаунта, без подписки, без сервера.</p>
+  <div class="actions">
+    <a class="btn primary" href="https://github.com/kuanish-dev/Jatta/releases/latest">Скачать APK</a>
+    <a class="btn outline" href="#how">Как это работает</a>
+  </div>
+  <p class="require">Android 8+ · бесплатно · код открыт (GPL) · ИИ-проверка: 64-битный телефон, 5,5 ГБ памяти, модель 2,6 ГБ</p>
+</section>
+
+<section class="wrap" id="how">
+  <div class="label magenta">Одно занятие</div>
+  <h2>Что происходит за пятнадцать минут</h2>
+  <ol class="steps">
+    <li><div><h3>Сначала повторы</h3><p class="muted">Приложение знает, какие слова вот-вот забудутся, и спрашивает именно их. Отвечаете быстро — следующий повтор дальше, медленно или с ошибкой — ближе.</p></div></li>
+    <li><div><h3>Потом новое</h3><p class="muted">Не больше двенадцати единиц в день. Новое слово показывается, через несколько шагов спрашивается, и так до тех пор, пока не ответите верно.</p></div></li>
+    <li><div><h3>Ступень по памяти</h3><p class="muted">Чем крепче слово держится, тем труднее задание: узнать среди вариантов, вписать в пропуск, перевести, написать свою фразу, сказать вслух.</p></div></li>
+    <li><div><h3>Перевод и отдых</h3><p class="muted">В конце — четыре фразы на перевод. Устали — занятие само кончается раньше, после нового — несколько минут тишины, чтобы память успела записать.</p></div></li>
+  </ol>
+</section>
+
+<section class="wrap">
+  <div class="label cyan">Почему это работает</div>
+  <h2>Расписание считает код, с языком работает ИИ</h2>
+  <div class="chart" aria-label="Кривая забывания одного слова: после каждого повтора память слабеет медленнее">
+    <svg id="curve" viewBox="0 0 640 220" role="img"></svg>
+    <p class="muted" style="font-size:0.9rem">Так приложение видит одно слово. Вероятность вспомнить падает со временем, повтор (точка) ставится, когда она доходит до 90%, и после каждого повтора память слабеет медленнее.</p>
+  </div>
+  <div class="grid2">
+    <div class="panel cyan">
+      <div class="label cyan">Память</div>
+      <h3>Модель, которая отчитывается</h3>
+      <p class="muted">Каждый плановый повтор — проверка прогноза: перед ним приложение знает, с какой вероятностью вы вспомните, после — вспомнили ли. Экран «Точность прогноза» показывает, насколько модель права про вас.</p>
+    </div>
+    <div class="panel magenta">
+      <div class="label magenta">Подгонка</div>
+      <h3>Параметры под вас</h3>
+      <p class="muted">Когда наберётся несколько сотен повторов, параметры памяти подгоняются под ваш журнал тем же оптимизатором, что в FSRS. Принимаются, только если предсказывают лучше прежних.</p>
+    </div>
+    <div class="panel acid">
+      <div class="label acid">Усталость</div>
+      <h3>Занятие, которое вовремя кончается</h3>
+      <p class="muted">Падает точность, растёт время ответа — перерыв. Двадцать пять минут — перерыв по расписанию. Серию ради серии держать не надо: день без повторов — отдых, а не пропуск.</p>
+    </div>
+    <div class="panel cyan">
+      <div class="label cyan">ИИ</div>
+      <h3>Сначала экзамен, потом доверие</h3>
+      <p class="muted">Прежде чем модель на телефоне начнёт проверять ваши фразы, приложение гоняет её на ста двадцати ответах с известным вердиктом. Ниже 90% совпадений — сверяете с образцом сами.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="label magenta">Курс</div>
+  <h2>Половина учебника Intermediate, собранная по частотности</h2>
+  <div class="stats">
+    <div class="stat"><b>52</b><span class="label">темы</span></div>
+    <div class="stat"><b>1015</b><span class="label">единиц</span></div>
+    <div class="stat"><b>251</b><span class="label">фраза на слух</span></div>
+    <div class="stat"><b>17</b><span class="label">тем грамматики</span></div>
+  </div>
+  <ul class="plain">
+    <li><b>Слова по ситуациям</b>: деньги, поездки, техника, люди, чувства, здоровье, сочетания с предлогами. И частотные наборы NGSL с 1001-го по 2809-е слово — те, которых не хватает после первой тысячи.</li>
+    <li><b>Грамматика B1–B2</b>, сверенная с English Grammar Profile: времена, условные, модальные, пассив, косвенная речь, относительные предложения.</li>
+    <li><b>Фразы на слух</b> с записями носителей из Tatoeba: понять по звуку, поймать слово, записать диктант, сказать самому.</li>
+    <li><b>Чтение</b>: отрывки из Simple English Wikipedia и книг, где почти все слова уже знакомы. Появляется, когда вся грамматика курса держится в памяти.</li>
+    <li><b>Разговор с ИИ</b>: Alex из Манчестера поддерживает беседу на десять тем и разбирает ошибки под каждой вашей фразой.</li>
+  </ul>
+</section>
+
+<section class="wrap">
+  <div class="label cyan">Приватность</div>
+  <h2>Всё остаётся на телефоне</h2>
+  <dl>
+    <div><dt>Нет аккаунта и сервера</dt><dd>Интернет нужен один раз — скачать модель. Ответы, голос, разговор никуда не отправляются.</dd></div>
+    <div><dt>Голос распознаётся на устройстве</dt><dd>Ступень «Вслух» работает только с распознаванием на самом телефоне (Android 12+). Нет его — отвечаете и сверяете сами.</dd></div>
+    <div><dt>Журнал ответов — ваш</dt><dd>Обычные JSON-файлы, которые можно выгрузить, перенести на другой телефон или отдать на подгонку параметров.</dd></div>
+    <div><dt>Одно исключение</dt><dd>На телефонах с Gemini Nano работает Google ML Kit, а он отправляет Google служебную телеметрию. Это не ваши ответы, но мы считаем честным об этом сказать.</dd></div>
+  </dl>
+</section>
+
+<section class="wrap">
+  <div class="label acid">Честно</div>
+  <h2>Чего пока нет</h2>
+  <ul class="plain">
+    <li>iPhone. Код кроссплатформенный, но приложение для iOS ещё не собрано.</li>
+    <li>Вторая половина уровня. Курс рассчитан примерно на три месяца при двенадцати новых единицах в день; продолжение в работе.</li>
+    <li>Модель весит 2,6 ГБ и нужна только для проверки свободных ответов и разговора. Всё остальное работает без неё.</li>
+  </ul>
+</section>
+
+<footer class="wrap">
+  <div>Jatta — свободное ПО, GPL-3.0-or-later. <a href="https://github.com/kuanish-dev/Jatta">Код и контент на GitHub</a>.</div>
+  <div>Научная основа и все 28 механик: <a href="https://claude.ai/artifact/1rr8HKEgen5H7N3BP9XS3j">docs/mechanics.html</a>. Фразы Tatoeba (CC BY), частотный список NGSL (CC BY-SA), тексты Simple English Wikipedia и Project Gutenberg.</div>
+</footer>
+
+<script>
+(function () {
+  var svg = document.getElementById('curve');
+  var ns = 'http://www.w3.org/2000/svg';
+  var W = 640, H = 220, left = 44, right = 12, top = 14, bottom = 34;
+  var days = 40;
+  function x(d) { return left + (W - left - right) * d / days; }
+  function y(r) { return top + (H - top - bottom) * (1 - r); }
+  function el(name, attrs) {
+    var e = document.createElementNS(ns, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    svg.appendChild(e);
+    return e;
+  }
+  el('line', { x1: left, y1: y(0), x2: W - right, y2: y(0), 'class': 'axis' });
+  el('line', { x1: left, y1: y(1), x2: left, y2: y(0), 'class': 'axis' });
+  el('line', { x1: left, y1: y(0.9), x2: W - right, y2: y(0.9), 'class': 'target' });
+  [0.5, 0.9, 1].forEach(function (r) {
+    var t = el('text', { x: left - 6, y: y(r) + 4, 'text-anchor': 'end', 'class': 'tick' });
+    t.textContent = Math.round(r * 100) + '%';
+  });
+  [0, 10, 20, 30, 40].forEach(function (d) {
+    var t = el('text', { x: x(d), y: H - 12, 'text-anchor': 'middle', 'class': 'tick' });
+    t.textContent = d === 0 ? 'день 0' : d;
+  });
+  var stabilities = [1.9, 5.1, 12.5, 31];
+  var d = 0, path = '', first = true, dots = [];
+  for (var i = 0; i < stabilities.length; i++) {
+    var s = stabilities[i];
+    var until = Math.min(days, d + s);
+    for (var t = d; t <= until; t += 0.25) {
+      var r = Math.pow(1 + (19 / 81) * (t - d) / s, -0.5);
+      path += (first ? 'M' : 'L') + x(t).toFixed(1) + ' ' + y(r).toFixed(1) + ' ';
+      first = false;
+    }
+    if (until < days) dots.push(until);
+    d = until;
+  }
+  el('path', { d: path, 'class': 'curve' });
+  dots.forEach(function (day) { el('circle', { cx: x(day), cy: y(0.9), r: 4.5, 'class': 'review' }); });
+  var label = el('text', { x: W - right, y: y(0.9) - 6, 'text-anchor': 'end', 'class': 'tick' });
+  label.textContent = 'повтор при 90%';
+})();
+</script>

@@ -1,0 +1,503 @@
+{
+  "id": "shopping-words",
+  "title": "Слова: одежда и покупки",
+  "intro": "Магазин и онлайн-заказ: размер и примерка, ткань и фасон, касса, доставка и возврат. Слова идут от частых к редким.",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "w-stock",
+      "kind": "word",
+      "en": "stock",
+      "ru": "наличие (товара), запас",
+      "rank": 691,
+      "note": "In stock — есть в наличии, out of stock — закончился. Stock up on coffee — запастись кофе. Stock — ещё и акция компании.",
+      "examples": [
+        {
+          "en": "Sorry, this size is out of stock.",
+          "ru": "Извините, этого размера нет в наличии.",
+          "gap": "stock"
+        },
+        {
+          "en": "The website says the boots are back in stock.",
+          "ru": "На сайте написано, что ботинки снова в наличии.",
+          "gap": "stock"
+        }
+      ]
+    },
+    {
+      "id": "w-pattern",
+      "kind": "word",
+      "en": "pattern",
+      "ru": "узор, рисунок (на ткани); закономерность",
+      "rank": 883,
+      "note": "Узор на одежде: a floral pattern — цветочный узор, a plain shirt with no pattern — однотонная рубашка. Ещё pattern — закономерность: a pattern of behaviour.",
+      "examples": [
+        {
+          "en": "I like the pattern, but the colour is too bright.",
+          "ru": "Узор мне нравится, но цвет слишком яркий.",
+          "gap": "pattern"
+        },
+        {
+          "en": "Do you have this dress in other patterns?",
+          "ru": "У вас есть это платье с другими рисунками?",
+          "gap": "patterns"
+        }
+      ]
+    },
+    {
+      "id": "w-hang",
+      "kind": "word",
+      "en": "hang",
+      "ru": "вешать, висеть",
+      "rank": 1085,
+      "note": "Неправильный глагол: hang – hung – hung. Hang up your coat — повесь пальто; a hanger — вешалка-плечики. Hang on — подожди.",
+      "examples": [
+        {
+          "en": "Hang your jacket on the hook by the door.",
+          "ru": "Повесь куртку на крючок у двери.",
+          "gap": "Hang"
+        },
+        {
+          "en": "The new shirts are hanging next to the mirror.",
+          "ru": "Новые рубашки висят рядом с зеркалом.",
+          "gap": "hanging"
+        }
+      ]
+    },
+    {
+      "id": "w-fashion",
+      "kind": "word",
+      "en": "fashion",
+      "ru": "мода",
+      "rank": 1415,
+      "note": "In fashion — в моде, out of fashion — вышло из моды; old-fashioned — старомодный. Fashion — мода вообще, а style — стиль: her style of dressing.",
+      "examples": [
+        {
+          "en": "Wide trousers are back in fashion this year.",
+          "ru": "Широкие брюки в этом году снова в моде.",
+          "gap": "fashion"
+        },
+        {
+          "en": "My sister works for a fashion magazine.",
+          "ru": "Моя сестра работает в журнале о моде.",
+          "gap": "fashion"
+        }
+      ]
+    },
+    {
+      "id": "w-label",
+      "kind": "word",
+      "en": "label",
+      "ru": "этикетка, ярлык, бирка",
+      "rank": 1528,
+      "note": "Check the label — посмотри на этикетке (размер, состав, как стирать). Price label — ценник. Label ещё значит «марка»: a designer label.",
+      "examples": [
+        {
+          "en": "The label says you can't wash it in hot water.",
+          "ru": "На этикетке написано, что в горячей воде стирать нельзя.",
+          "gap": "label"
+        },
+        {
+          "en": "Keep the labels on until you decide.",
+          "ru": "Не срезай бирки, пока не решишь.",
+          "gap": "labels"
+        }
+      ]
+    },
+    {
+      "id": "w-stretch",
+      "kind": "word",
+      "en": "stretch",
+      "ru": "тянуться, растягиваться; растягивать",
+      "rank": 1633,
+      "note": "О ткани: these jeans stretch a bit — эти джинсы немного тянутся. Stretch out — вытянуться, stretch your legs — размять ноги.",
+      "examples": [
+        {
+          "en": "The fabric stretches, so take your usual size.",
+          "ru": "Ткань тянется, так что берите свой обычный размер.",
+          "gap": "stretches"
+        },
+        {
+          "en": "I stretched the sweater when I washed it.",
+          "ru": "Я растянул свитер, когда стирал.",
+          "gap": "stretched"
+        }
+      ]
+    },
+    {
+      "id": "w-pocket",
+      "kind": "word",
+      "en": "pocket",
+      "ru": "карман",
+      "rank": 1865,
+      "note": "Back pocket, inside pocket — задний, внутренний карман. Pocket money — карманные деньги; out of my own pocket — из своего кармана.",
+      "examples": [
+        {
+          "en": "I need a jacket with an inside pocket for my phone.",
+          "ru": "Мне нужна куртка с внутренним карманом для телефона.",
+          "gap": "pocket"
+        },
+        {
+          "en": "Check your pockets before you put it in the wash.",
+          "ru": "Проверь карманы, прежде чем класть в стирку.",
+          "gap": "pockets"
+        }
+      ]
+    },
+    {
+      "id": "w-plain",
+      "kind": "word",
+      "en": "plain",
+      "ru": "однотонный, простой, без украшений",
+      "rank": 1961,
+      "note": "A plain white T-shirt — простая белая футболка без рисунка. Plain — ещё «понятный, ясный»: in plain English — простыми словами.",
+      "examples": [
+        {
+          "en": "For the office I usually buy plain shirts.",
+          "ru": "Для офиса я обычно беру однотонные рубашки.",
+          "gap": "plain"
+        },
+        {
+          "en": "The dress is plain, but it looks expensive.",
+          "ru": "Платье простое, но выглядит дорого.",
+          "gap": "plain"
+        }
+      ]
+    },
+    {
+      "id": "w-loose",
+      "kind": "word",
+      "en": "loose",
+      "ru": "свободный, широкий (об одежде); незакреплённый",
+      "rank": 2185,
+      "note": "Противоположность tight: a loose sweater — свободный свитер. A loose button — болтающаяся пуговица. Не путать с глаголом lose — терять.",
+      "examples": [
+        {
+          "en": "These trousers are too loose at the waist.",
+          "ru": "Эти брюки слишком свободные в поясе.",
+          "gap": "loose"
+        },
+        {
+          "en": "I prefer loose clothes in summer.",
+          "ru": "Летом я предпочитаю свободную одежду.",
+          "gap": "loose"
+        }
+      ]
+    },
+    {
+      "id": "w-iron",
+      "kind": "word",
+      "en": "iron",
+      "ru": "гладить; утюг",
+      "rank": 2259,
+      "note": "Iron a shirt — погладить рубашку; an iron — утюг. Non-iron shirt — рубашка, которую не нужно гладить. Iron — ещё и железо.",
+      "examples": [
+        {
+          "en": "I never iron my T-shirts.",
+          "ru": "Я никогда не глажу футболки.",
+          "gap": "iron"
+        },
+        {
+          "en": "This shirt looks great even without ironing.",
+          "ru": "Эта рубашка отлично выглядит даже без глажки.",
+          "gap": "ironing"
+        }
+      ]
+    },
+    {
+      "id": "w-wrap",
+      "kind": "word",
+      "en": "wrap",
+      "ru": "заворачивать, упаковывать",
+      "rank": 2334,
+      "note": "Wrap a present — завернуть подарок; gift wrapping — подарочная упаковка. Wrap up warm — одеться потеплее.",
+      "examples": [
+        {
+          "en": "Could you wrap it as a gift, please?",
+          "ru": "Вы не могли бы упаковать это как подарок?",
+          "gap": "wrap"
+        },
+        {
+          "en": "The shoes came wrapped in paper.",
+          "ru": "Туфли пришли завёрнутыми в бумагу.",
+          "gap": "wrapped"
+        }
+      ]
+    },
+    {
+      "id": "w-fancy",
+      "kind": "word",
+      "en": "fancy",
+      "ru": "нарядный, модный, шикарный",
+      "rank": 2532,
+      "note": "A fancy restaurant, a fancy dress — дорогое и нарядное. В британском разговоре fancy — ещё глагол «хотеть»: Do you fancy a coffee?",
+      "examples": [
+        {
+          "en": "I don't need anything fancy, just a warm coat.",
+          "ru": "Мне не нужно ничего модного, просто тёплое пальто.",
+          "gap": "fancy"
+        },
+        {
+          "en": "She wore a fancy dress to the wedding.",
+          "ru": "На свадьбу она надела нарядное платье.",
+          "gap": "fancy"
+        }
+      ]
+    },
+    {
+      "id": "w-shelf",
+      "kind": "word",
+      "en": "shelf",
+      "ru": "полка",
+      "rank": 2538,
+      "note": "Множественное число — shelves. On the top shelf — на верхней полке. Off the shelf — готовое, не на заказ.",
+      "examples": [
+        {
+          "en": "The sweaters are on the shelf behind you.",
+          "ru": "Свитера на полке позади вас.",
+          "gap": "shelf"
+        },
+        {
+          "en": "The shelves were almost empty after the sale.",
+          "ru": "После распродажи полки были почти пустые.",
+          "gap": "shelves"
+        }
+      ]
+    },
+    {
+      "id": "w-fold",
+      "kind": "word",
+      "en": "fold",
+      "ru": "складывать (одежду, бумагу)",
+      "rank": 2555,
+      "note": "Fold the shirts — сложи рубашки; fold up a map — сложить карту. Противоположность — unfold.",
+      "examples": [
+        {
+          "en": "Fold the sweater instead of hanging it.",
+          "ru": "Свитер лучше сложить, а не вешать.",
+          "gap": "Fold"
+        },
+        {
+          "en": "The shop assistant folded the jeans neatly.",
+          "ru": "Продавец аккуратно сложил джинсы.",
+          "gap": "folded"
+        }
+      ]
+    },
+    {
+      "id": "w-leather",
+      "kind": "word",
+      "en": "leather",
+      "ru": "кожа (материал)",
+      "rank": 2733,
+      "note": "Leather — выделанная кожа для обуви и сумок: a leather jacket. Кожа человека — skin. Искусственная кожа — fake leather.",
+      "examples": [
+        {
+          "en": "Are these boots real leather?",
+          "ru": "Эти ботинки из натуральной кожи?",
+          "gap": "leather"
+        },
+        {
+          "en": "I bought a leather bag for work.",
+          "ru": "Я купила кожаную сумку для работы.",
+          "gap": "leather"
+        }
+      ]
+    },
+    {
+      "id": "w-stain",
+      "kind": "word",
+      "en": "stain",
+      "ru": "пятно",
+      "rank": 2758,
+      "note": "A coffee stain — пятно от кофе; remove a stain — вывести пятно. Stain — ещё глагол: red wine stains.",
+      "examples": [
+        {
+          "en": "There's a stain on the sleeve, can I get a discount?",
+          "ru": "На рукаве пятно, можно скидку?",
+          "gap": "stain"
+        },
+        {
+          "en": "I couldn't get the stains out of my white shirt.",
+          "ru": "Я не смог вывести пятна с белой рубашки.",
+          "gap": "stains"
+        }
+      ]
+    },
+    {
+      "id": "w-sleeve",
+      "kind": "word",
+      "en": "sleeve",
+      "ru": "рукав",
+      "note": "Long sleeves, short sleeves — длинный, короткий рукав. Roll up your sleeves — закатать рукава, в том числе «взяться за работу».",
+      "examples": [
+        {
+          "en": "The sleeves are a bit too long for me.",
+          "ru": "Рукава мне немного длинноваты.",
+          "gap": "sleeves"
+        },
+        {
+          "en": "I'd like the same shirt with a short sleeve.",
+          "ru": "Я бы хотел такую же рубашку с коротким рукавом.",
+          "gap": "sleeve"
+        }
+      ]
+    },
+    {
+      "id": "w-checkout",
+      "kind": "word",
+      "en": "checkout",
+      "ru": "касса; оформление заказа (онлайн)",
+      "note": "В магазине checkout — касса: at the checkout. На сайте — страница оформления заказа: go to checkout. Глагол пишется раздельно: check out.",
+      "examples": [
+        {
+          "en": "There was a long line at the checkout.",
+          "ru": "На кассе была длинная очередь.",
+          "gap": "checkout"
+        },
+        {
+          "en": "Enter the promo code at checkout.",
+          "ru": "Введите промокод при оформлении заказа.",
+          "gap": "checkout"
+        }
+      ]
+    },
+    {
+      "id": "w-queue",
+      "kind": "word",
+      "en": "queue",
+      "ru": "очередь; стоять в очереди",
+      "also": [
+        "line"
+      ],
+      "note": "Британское слово; в американском английском — line. Stand in a queue, queue up — стоять в очереди; jump the queue — пролезть без очереди.",
+      "examples": [
+        {
+          "en": "We waited in the queue for half an hour.",
+          "ru": "Мы простояли в очереди полчаса.",
+          "gap": "queue"
+        },
+        {
+          "en": "People were queuing outside the shop before it opened.",
+          "ru": "Люди стояли в очереди у магазина ещё до открытия.",
+          "gap": "queuing"
+        }
+      ]
+    },
+    {
+      "id": "w-casual",
+      "kind": "word",
+      "en": "casual",
+      "ru": "повседневный, неформальный (об одежде)",
+      "note": "Casual clothes — повседневная одежда, в отличие от formal. Smart casual — аккуратно, но без костюма. Casual — ещё «небрежный»: a casual remark.",
+      "examples": [
+        {
+          "en": "On Fridays we can wear casual clothes to work.",
+          "ru": "По пятницам на работу можно ходить в повседневной одежде.",
+          "gap": "casual"
+        },
+        {
+          "en": "The dress code for the party is smart casual.",
+          "ru": "Дресс-код вечеринки — аккуратно, но без костюма.",
+          "gap": "casual"
+        }
+      ]
+    },
+    {
+      "id": "w-striped",
+      "kind": "word",
+      "en": "striped",
+      "ru": "полосатый, в полоску",
+      "note": "A striped shirt — рубашка в полоску; a stripe — одна полоска. Похожие слова: checked — в клетку, spotted — в горошек.",
+      "examples": [
+        {
+          "en": "He always wears a striped tie to meetings.",
+          "ru": "На встречи он всегда надевает полосатый галстук.",
+          "gap": "striped"
+        },
+        {
+          "en": "I'm looking for a striped sweater for autumn.",
+          "ru": "Я ищу полосатый свитер на осень.",
+          "gap": "striped"
+        }
+      ]
+    },
+    {
+      "id": "w-warranty",
+      "kind": "word",
+      "en": "warranty",
+      "ru": "гарантия (на товар)",
+      "note": "Письменная гарантия продавца на вещь: a two-year warranty, under warranty — на гарантии. Guarantee — то же в более общем смысле и ещё обещание.",
+      "examples": [
+        {
+          "en": "The headphones come with a two-year warranty.",
+          "ru": "На наушники даётся гарантия два года.",
+          "gap": "warranty"
+        },
+        {
+          "en": "Your phone is still under warranty, so the repair is free.",
+          "ru": "Телефон ещё на гарантии, так что ремонт бесплатный.",
+          "gap": "warranty"
+        }
+      ]
+    },
+    {
+      "id": "w-outfit",
+      "kind": "word",
+      "en": "outfit",
+      "ru": "наряд, комплект одежды",
+      "note": "Всё, что надето вместе: a new outfit for the interview — новый комплект на собеседование. Clothes — одежда вообще, outfit — конкретный образ на случай.",
+      "examples": [
+        {
+          "en": "I need a new outfit for my sister's wedding.",
+          "ru": "Мне нужен новый наряд на свадьбу сестры.",
+          "gap": "outfit"
+        },
+        {
+          "en": "That outfit looks great on you.",
+          "ru": "Этот наряд тебе очень идёт.",
+          "gap": "outfit"
+        }
+      ]
+    },
+    {
+      "id": "c-try-on",
+      "kind": "phrase",
+      "en": "try on",
+      "ru": "примерить",
+      "note": "Try on a jacket, try it on — примерить куртку. Короткое дополнение ставится между: try it on, а не try on it. Fitting room — примерочная.",
+      "examples": [
+        {
+          "en": "Can I try on these jeans, please?",
+          "ru": "Можно примерить эти джинсы?",
+          "gap": "try on"
+        },
+        {
+          "en": "She tried on five dresses and bought none.",
+          "ru": "Она примерила пять платьев и ни одного не купила.",
+          "gap": "tried on"
+        }
+      ]
+    },
+    {
+      "id": "c-sell-out",
+      "kind": "phrase",
+      "en": "sell out",
+      "ru": "распродаться, закончиться (о товаре)",
+      "note": "The tickets sold out in an hour — билеты разобрали за час. Be sold out of something — у магазина что-то кончилось: We're sold out of size 42.",
+      "examples": [
+        {
+          "en": "The coats sold out on the first day of the sale.",
+          "ru": "Пальто разобрали в первый же день распродажи.",
+          "gap": "sold out"
+        },
+        {
+          "en": "Hurry up, the small sizes always sell out first.",
+          "ru": "Поторопись, маленькие размеры всегда разбирают первыми.",
+          "gap": "sell out"
+        }
+      ]
+    }
+  ]
+}

@@ -10,6 +10,8 @@ import com.jatta.study.chat.Change
 import com.jatta.study.chat.ChatTopic
 import com.jatta.study.chat.ChatTopicsFile
 import com.jatta.study.chat.Review
+import com.jatta.study.content.BasicWords
+import com.jatta.study.content.ContentLoader
 import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.TextSource
@@ -20,6 +22,7 @@ import com.jatta.study.judge.EvalCase
 import com.jatta.study.judge.JudgeEval
 import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.judge.TranslationCase
+import com.jatta.study.store.CustomTopicStore
 import com.jatta.study.store.LearnerStore
 import com.jatta.study.store.SavedProgress
 import com.jatta.study.store.SavedState
@@ -62,30 +65,64 @@ class StudyControllerTest {
         sentences: SentencesFile? = null,
         placement: PlacementFile? = null,
         chatTopics: List<ChatTopic> = emptyList(),
+        basicWords: BasicWords? = null,
+        topicStore: CustomTopicStore? = null,
         engineConfig: EngineConfig = EngineConfig(),
         config: StudyConfig = StudyConfig(),
     ) = StudyController(
         content, LearnerStore(dir.absolutePath), nowMs = { now }, utcOffsetMinutes = { almaty },
         scope = CoroutineScope(Dispatchers.Unconfined), model = model, evalCases = evalCases, translationCases = translationCases,
         texts = texts, sentences = sentences, reminders = reminders, placementFile = placement, chatTopics = chatTopics,
-        engineConfig = engineConfig, config = config, background = Dispatchers.Unconfined,
+        basicWords = basicWords, topicStore = topicStore, engineConfig = engineConfig, config = config, background = Dispatchers.Unconfined,
     )
 
     private val placementFile = PlacementFile.read(File(System.getProperty("contentDir"), "en/placement.json").readText())
 
     @Test
-    fun aNewLearnerIsOfferedThePlacementTestAndMaySkipIt() {
+    fun aNewLearnerStartsOnHomeWhereThePlacementTestIsOfferedUntilTakenOrDeclined() {
         val app = controller(placement = placementFile)
+        val home = app.screen.value as Screen.Home
+        assertTrue(home.placementOffered)
+        assertEquals(12, home.newItems, "the first session needs no test")
+        assertFalse(home.chatReady, "no talk before the first session")
+        app.openPlacement()
         assertTrue(app.screen.value is Screen.PlacementIntro)
+        app.goBack()
+        assertTrue((app.screen.value as Screen.Home).placementOffered)
         app.skipPlacement()
-        assertEquals(12, (app.screen.value as Screen.Home).newItems)
-        assertTrue(controller(placement = placementFile).screen.value is Screen.Home, "the test is offered once")
+        assertFalse((app.screen.value as Screen.Home).placementOffered)
+        assertFalse((controller(placement = placementFile).screen.value as Screen.Home).placementOffered, "the choice is kept")
+        app.openPlacement()
+        assertTrue(app.screen.value is Screen.Home, "a declined test does not open")
+    }
+
+    @Test
+    fun thePlacementTestAfterAFirstSessionLeavesStudiedItemsAlone() {
+        val app = controller(placement = placementFile)
+        app.startSession()
+        runSessionAnsweringRight(app)
+        app.openHome()
+        val studied = LearnerStore(dir.absolutePath).load().progress.associateBy { it.item }
+        app.openPlacement()
+        app.startPlacement()
+        while (true) {
+            when (val screen = app.screen.value) {
+                is Screen.PlacementWord -> app.answerPlacementWord(true)
+                is Screen.PlacementGrammar -> app.answerPlacementGrammar(screen.exercise.correctIndex)
+                else -> break
+            }
+        }
+        assertTrue(app.screen.value is Screen.PlacementDone)
+        val after = LearnerStore(dir.absolutePath).load().progress.associateBy { it.item }
+        studied.forEach { (id, before) -> assertEquals(before, after.getValue(id), "$id was studied today and keeps its memory") }
+        assertTrue(after.size > studied.size, "other known items are placed")
     }
 
     @Test
     fun backLeadsToTheStartOfWhatIsOpenAndHomeHasNoBack() {
         val app = controller(placement = placementFile)
         assertFalse(app.screen.value.canGoBack)
+        app.openPlacement()
         app.startPlacement()
         app.answerPlacementWord(true)
         app.goBack()
@@ -104,6 +141,7 @@ class StudyControllerTest {
     @Test
     fun whatThePlacementTestFindsKnownStartsInMemory() {
         val app = controller(placement = placementFile)
+        app.openPlacement()
         app.startPlacement()
         while (true) {
             when (val screen = app.screen.value) {
@@ -168,6 +206,102 @@ class StudyControllerTest {
         assertTrue(after.personal)
         assertEquals(check, after.last)
         assertEquals(check.reviews + studyConfig.refitAfterReviews, after.nextFitAt)
+    }
+
+    @Test
+    fun progressCanBeSavedToAFileAndLoadedOnAnotherPhone() {
+        val app = controller()
+        app.startSession()
+        runSessionAnsweringRight(app)
+        app.cycleLook()
+        val bundle = app.exportProgress()
+        val before = LearnerStore(dir.absolutePath)
+        val savedBefore = before.load()
+        val logBefore = before.readLog()
+
+        val other = createTempDirectory("jatta-other").toFile()
+        val fresh = StudyController(
+            content, LearnerStore(other.absolutePath), nowMs = { now }, utcOffsetMinutes = { almaty },
+            scope = CoroutineScope(Dispatchers.Unconfined), reminders = reminders, background = Dispatchers.Unconfined,
+        )
+        assertEquals(12, (fresh.screen.value as Screen.Home).newItems)
+        fresh.importProgress("not a bundle")
+        assertTrue((fresh.screen.value as Screen.Home).notice!!.startsWith("Это не выгрузка"))
+        fresh.importProgress(bundle)
+        val home = fresh.screen.value as Screen.Home
+        assertEquals(0, home.newItems, "today's new items were started on the first phone")
+        assertEquals(savedBefore.progress, LearnerStore(other.absolutePath).load().progress)
+        assertEquals(logBefore, LearnerStore(other.absolutePath).readLog())
+        assertEquals(Look.Calm, fresh.look.value)
+        assertTrue(home.notice!!.startsWith("Прогресс загружен"))
+        fresh.openHome()
+        assertNull((fresh.screen.value as Screen.Home).notice, "the notice is shown once")
+    }
+
+    private val customTopic = """
+        {"id": "my-kitchen", "title": "Моя кухня", "intro": "Своя тема.", "items": [
+          {"id": "w-kettle", "kind": "word", "en": "kettle", "ru": "чайник", "examples": [{"en": "The kettle is boiling.", "ru": "Чайник кипит.", "gap": "kettle"}]},
+          {"id": "w-spoon", "kind": "word", "en": "spoon", "ru": "ложка", "examples": [{"en": "Pass me a spoon, please.", "ru": "Передай ложку.", "gap": "spoon"}]},
+          {"id": "w-fork", "kind": "word", "en": "fork", "ru": "вилка", "examples": [{"en": "I need a clean fork.", "ru": "Мне нужна чистая вилка.", "gap": "fork"}]},
+          {"id": "w-bowl", "kind": "word", "en": "bowl", "ru": "миска", "examples": [{"en": "Put the salad in a bowl.", "ru": "Положи салат в миску.", "gap": "bowl"}]}
+        ]}
+    """.trimIndent()
+
+    @Test
+    fun aTopicFromAFileIsCheckedAndThenJoinsTheCourse() {
+        val topics = CustomTopicStore(dir.absolutePath)
+        val app = controller(topicStore = topics)
+        assertTrue(app.addTopic(customTopic.replace("w-kettle", "w-account"))!!.contains("w-account"), "an item id taken by the course is refused")
+        assertTrue(app.addTopic("{\"id\": \"x\"}")!!.isNotEmpty())
+        assertNull(app.addTopic(customTopic))
+        assertEquals(1, topics.list().size)
+
+        val withTopic = ContentLoader.load(RealContent.courseFile(), RealContent.topicTexts(), topics.list())
+        assertTrue("my-kitchen" in withTopic.customTopics)
+        assertEquals(content.items.size + 4, withTopic.items.size)
+        val reloaded = StudyController(
+            withTopic, LearnerStore(dir.absolutePath), nowMs = { now }, utcOffsetMinutes = { almaty },
+            scope = CoroutineScope(Dispatchers.Unconfined), reminders = reminders, topicStore = topics, background = Dispatchers.Unconfined,
+        )
+        val status = (reloaded.screen.value as Screen.Home).topics.last()
+        assertEquals("my-kitchen", status.id)
+        assertTrue(status.custom)
+        reloaded.openTopic("my-kitchen")
+        assertEquals(4, (reloaded.screen.value as Screen.Topic).newToday)
+        reloaded.startTopic()
+        runSessionAnsweringRight(reloaded)
+
+        val without = controller()
+        assertTrue((without.screen.value as Screen.Home).newItems > 0, "progress of a topic that is not loaded is ignored, not fatal")
+        without.startSession()
+        runSessionAnsweringRight(without)
+    }
+
+    @Test
+    fun anOwnTextIsAnalysedAndItsCourseWordsCanBeStudied() {
+        val basic = BasicWords.read(File(System.getProperty("contentDir"), "en/basic-words.json").readText())
+        val app = controller(basicWords = basic)
+        app.startSession()
+        runSessionAnsweringRight(app)
+        app.openHome()
+        app.openOwnText()
+        assertTrue(app.screen.value is Screen.OwnText)
+        app.analyzeText("My colleague Anna missed the deadline, so her salary review was postponed. The budget is a mess.")
+        val study = app.screen.value as Screen.TextStudy
+        val report = study.report
+        assertTrue("colleague" in report.courseWords && "deadline" in report.courseWords && "salary" in report.courseWords)
+        assertTrue("w-budget" in report.newItems, "budget is a course word not studied yet")
+        assertTrue("w-colleague" in report.metItems, "studied today: can be reviewed early")
+        assertFalse("anna" in report.otherWords, "a name is not an unknown word")
+        assertFalse("my" in report.otherWords, "basic words are known")
+        assertTrue("postponed" in report.otherWords)
+        assertTrue(report.metItems.size + report.newItems.size < 12, "recorded phrases do not count as vocabulary: ${report.newItems}")
+        assertTrue(report.knownShare > 0.7)
+        assertEquals(0, study.newToday, "today's new items are used up")
+        app.studyText()
+        assertTrue(app.screen.value !is Screen.TextStudy, "weak words of the text are reviewed")
+        val done = runSessionAnsweringRight(app)
+        assertEquals(report.metItems.size, done.answered)
     }
 
     @Test
@@ -287,6 +421,9 @@ class StudyControllerTest {
         app.cycleTheme()
         app.cycleTheme()
         assertEquals(ThemeChoice.System, app.theme.value)
+        assertEquals(Look.Neon, app.look.value)
+        app.cycleLook()
+        assertEquals(Look.Calm, controller().look.value, "the look survives a restart")
     }
 
     @Test
@@ -336,7 +473,7 @@ class StudyControllerTest {
     fun theModelChecksFreeAnswersOnlyAfterPassingTheAccuracyTest() {
         val cases = JudgeEval.readCases(File(System.getProperty("contentDir"), "eval/free-answers.json").readText())
         val model = ReplyingModel { prompt ->
-            val case = cases.firstOrNull { "Learner's sentence: ${it.response}" in prompt }
+            val case = cases.firstOrNull { "Learner's answer: ${it.response}" in prompt }
             when {
                 case == null -> "VERDICT: WRONG\nFIXED: The deadline is next Monday."
                 case.correct -> "VERDICT: CORRECT"
@@ -373,22 +510,33 @@ class StudyControllerTest {
     fun aTalkOpensAfterTheModelPassesItsTestAndEachMessageIsReviewedAtOnce() {
         val cases = JudgeEval.readCases(File(System.getProperty("contentDir"), "eval/free-answers.json").readText())
         val model = ReplyingModel { prompt ->
-            val case = cases.firstOrNull { "Learner's sentence: ${it.response}" in prompt }
+            val case = cases.firstOrNull { "Learner's answer: ${it.response}" in prompt }
             when {
                 case != null -> if (case.correct) "VERDICT: CORRECT" else "VERDICT: WRONG\nFIXED: X " + case.response.substringAfter(' ')
                 "Learner's message: I go to the office yesterday" in prompt -> "VERDICT: WRONG\nFIXED: I went to the office yesterday"
                 "Learner's message:" in prompt -> "VERDICT: CORRECT"
-                else -> "Alex: Hi! How was your day at work?\nLearner: fine"
+                else -> "You: Hi! How was your day at work? 😊\nFriend: fine"
             }
         }
         val topics = ChatTopicsFile.read(File(System.getProperty("contentDir"), "en/chat.json").readText())
         val app = controller(model, cases, chatTopics = topics)
-        assertFalse((app.screen.value as Screen.Home).chatReady, "no talk before the model passes its test")
+        assertFalse((app.screen.value as Screen.Home).chatReady, "no talk before the first session")
+        app.startSession()
+        runSessionAnsweringRight(app)
+        app.openHome()
+        val untested = app.screen.value as Screen.Home
+        assertTrue(untested.chatReady, "a ready model can talk before its test")
+        assertFalse(untested.chatReviewTrusted)
+        app.openChat()
+        assertFalse((app.screen.value as Screen.ChatTopics).reviewTrusted, "the review is marked approximate until the test")
+        app.openHome()
         app.testModel()
-        assertTrue((app.screen.value as Screen.Home).chatReady)
+        assertTrue((app.screen.value as Screen.Home).chatReviewTrusted)
 
         app.openChat()
-        assertEquals(topics, (app.screen.value as Screen.ChatTopics).topics)
+        val chatTopics = app.screen.value as Screen.ChatTopics
+        assertEquals(topics, chatTopics.topics)
+        assertTrue(chatTopics.reviewTrusted)
         app.startChat("work")
         assertEquals(listOf("Hi! How was your day at work?"), (app.screen.value as Screen.Chat).messages.map { it.text })
 
@@ -448,8 +596,8 @@ class StudyControllerTest {
         val cases = JudgeEval.readCases(File(dir, "free-answers.json").readText())
         val translationCases = JudgeEval.readTranslationCases(File(dir, "translations.json").readText())
         val model = ReplyingModel { prompt ->
-            val free = cases.firstOrNull { "Learner's sentence: ${it.response}" in prompt }
-            val translation = translationCases.firstOrNull { "Learner's translation: ${it.response}\n" in prompt }
+            val free = cases.firstOrNull { "Learner's answer: ${it.response}" in prompt }
+            val translation = translationCases.firstOrNull { "Learner's English: ${it.response}\n" in prompt }
             when {
                 free != null -> if (free.correct) "VERDICT: CORRECT" else "VERDICT: WRONG\nFIXED: X " + free.response.substringAfter(' ')
                 translation?.correct == false -> "MEANING: DIFFERENT"
@@ -613,7 +761,8 @@ class StudyControllerTest {
                 is Screen.Heard -> app.continueAfterHeard()
                 is Screen.Rest -> app.finishRest()
                 is Screen.Home -> error("Unexpected home screen in a session")
-                is Screen.Read, is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
+                is Screen.Read, is Screen.OwnText, is Screen.TextStudy,
+                is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
                 is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated, is Screen.Topic,
                 is Screen.ChatTopics, is Screen.Chat,
                 is Screen.DailySummary, is Screen.Progress ->

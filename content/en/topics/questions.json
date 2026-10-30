@@ -1,0 +1,180 @@
+{
+  "id": "questions",
+  "title": "Вопросы: косвенные, к подлежащему, с предлогом",
+  "intro": "Три ловушки английских вопросов. В вежливом косвенном вопросе порядок слов как в утверждении: Could you tell me where the station is? В вопросе к подлежащему нет do/did: Who called you? Предлог уходит в конец: What are you looking for?",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "qs-indirect",
+      "kind": "rule",
+      "en": "Could you tell me where the station is?",
+      "ru": "Косвенный вопрос после Could you tell me / Do you know / I wonder — порядок слов утверждения, без do/did; общий вопрос — через if или whether",
+      "note": "Where is the station? → Could you tell me where the station is? Does the shop open on Sunday? → Do you know if the shop opens on Sunday? Вспомогательный глагол не нужен, подлежащее идёт перед сказуемым. Так вопрос звучит вежливее — с незнакомыми людьми лучше спрашивать именно так.",
+      "examples": [
+        {
+          "en": "Could you tell me where the station is?",
+          "ru": "Не подскажете, где вокзал?",
+          "gap": "where the station is",
+          "cue": "Where is the station?",
+          "wrong": [
+            "where is the station",
+            "where the station it is",
+            "where does the station"
+          ]
+        },
+        {
+          "en": "Do you know if the bank is open today?",
+          "ru": "Вы не знаете, банк сегодня открыт?",
+          "gap": "if the bank is open",
+          "cue": "Is the bank open?",
+          "wrong": [
+            "if is the bank open",
+            "is the bank open",
+            "if does the bank open"
+          ],
+          "also": [
+            "Do you know whether the bank is open today?"
+          ]
+        },
+        {
+          "en": "I wonder what time the shop closes.",
+          "ru": "Интересно, во сколько закрывается магазин.",
+          "gap": "what time the shop closes",
+          "cue": "What time does the shop close?",
+          "wrong": [
+            "what time does the shop close",
+            "what time closes the shop",
+            "what time the shop close"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qs-subject",
+      "kind": "rule",
+      "en": "Who called you? What happened?",
+      "ru": "Вопрос к подлежащему (кто сделал? что случилось?) — без do/did, глагол в той же форме, что в утверждении",
+      "note": "Если who или what — само действующее лицо, вопрос строится как утверждение: Who called you? What happened? Somebody broke the window → Who broke the window? Сравните с вопросом к дополнению, где do/did нужен: Who did you call? — Кому ты звонил?",
+      "examples": [
+        {
+          "en": "Who called you last night?",
+          "ru": "Кто звонил тебе вчера вечером?",
+          "gap": "called",
+          "cue": "call",
+          "wrong": [
+            "did called",
+            "does called",
+            "do call"
+          ]
+        },
+        {
+          "en": "What happened at the meeting yesterday?",
+          "ru": "Что случилось вчера на встрече?",
+          "gap": "happened",
+          "cue": "happen",
+          "wrong": [
+            "did happened",
+            "was happen",
+            "has happen"
+          ]
+        },
+        {
+          "en": "Who did you invite to the party?",
+          "ru": "Кого ты пригласил на праздник?",
+          "gap": "did you invite",
+          "cue": "you / invite (кого?)",
+          "wrong": [
+            "invited you",
+            "you invited",
+            "did you invited"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qs-preposition",
+      "kind": "rule",
+      "en": "What are you looking for?",
+      "ru": "Предлог ставится в конец вопроса: What … for? Who … to? Where … from?",
+      "note": "What are you looking for? Who did you talk to? Where are you from? Предлог остаётся при глаголе и уходит в конец, а не вперёд. Вариант For what are you looking? по-английски не говорят. Who здесь обычное, whom — только в очень официальной речи: To whom did you speak?",
+      "examples": [
+        {
+          "en": "What are you looking for?",
+          "ru": "Что ты ищешь?",
+          "gap": "looking for",
+          "cue": "look for",
+          "wrong": [
+            "for looking",
+            "looking",
+            "looking to"
+          ]
+        },
+        {
+          "en": "Who did you go to the concert with?",
+          "ru": "С кем ты ходил на концерт?",
+          "gap": "go to the concert with",
+          "cue": "go with",
+          "wrong": [
+            "with go to the concert",
+            "go to the concert",
+            "go with to the concert"
+          ]
+        },
+        {
+          "en": "Which company does she work for?",
+          "ru": "В какой компании она работает?",
+          "gap": "work for",
+          "cue": "work for",
+          "wrong": [
+            "for work",
+            "work",
+            "works for"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qs-how",
+      "kind": "rule",
+      "en": "How long / how often / how far / how much",
+      "ru": "How long — как долго (сколько времени), how often — как часто, how far — как далеко, how much — сколько",
+      "note": "How long does it take? — It takes an hour. How often do you train? — Twice a week. How far is it? — About ten kilometres. How much does it cost? — Fifty dollars. How long — про время (сколько времени / как давно), не про длину расстояния: для расстояния — how far.",
+      "examples": [
+        {
+          "en": "How long does it take to get there?",
+          "ru": "Сколько времени туда добираться?",
+          "gap": "How long",
+          "cue": "сколько времени",
+          "wrong": [
+            "How far",
+            "How often",
+            "How much"
+          ]
+        },
+        {
+          "en": "How often do you go to the gym?",
+          "ru": "Как часто ты ходишь в спортзал?",
+          "gap": "How often",
+          "cue": "как часто",
+          "wrong": [
+            "How long",
+            "How far",
+            "How many"
+          ]
+        },
+        {
+          "en": "How far is it from here to the airport?",
+          "ru": "Как далеко отсюда до аэропорта?",
+          "gap": "How far",
+          "cue": "как далеко",
+          "wrong": [
+            "How long",
+            "How much",
+            "How often"
+          ]
+        }
+      ]
+    }
+  ]
+}

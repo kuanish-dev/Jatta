@@ -23,6 +23,8 @@ import com.jatta.study.calibration.PersonalFit
 import com.jatta.study.chat.ChatFlow
 import com.jatta.study.chat.ChatPartner
 import com.jatta.study.chat.ChatTopic
+import com.jatta.study.content.BasicWords
+import com.jatta.study.content.ContentLoader
 import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.StudyCourse
@@ -45,9 +47,11 @@ import com.jatta.study.progress.DayMark
 import com.jatta.study.progress.ProgressReport
 import com.jatta.study.progress.Streak
 import com.jatta.study.reading.ReadingPicker
+import com.jatta.study.reading.TextAnalyzer
 import com.jatta.study.remind.Reminder
 import com.jatta.study.remind.ReminderScheduler
 import com.jatta.study.store.AiCheck
+import com.jatta.study.store.CustomTopicStore
 import com.jatta.study.store.LearnerStore
 import com.jatta.study.store.LogEntry
 import com.jatta.study.store.RecentAnswer
@@ -70,7 +74,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
-import kotlin.random.Random
 
 private const val MS_PER_MINUTE = 60_000L
 
@@ -94,14 +97,17 @@ class StudyController(
     private val reminders: ReminderScheduler? = null,
     placementFile: PlacementFile? = null,
     private val chatTopics: List<ChatTopic> = emptyList(),
+    private val basicWords: BasicWords? = null,
+    private val topicStore: CustomTopicStore? = null,
     private val engineConfig: EngineConfig = EngineConfig(),
     private val config: StudyConfig = StudyConfig(),
     private val background: CoroutineDispatcher = Dispatchers.Default,
 ) {
-    private var saved = store.load().let { if (it.firstDaysRecorded) it else it.withFirstDays(LogReplay.firstStudyDays(store.readLog())) }
-    private var learner = saved.toLearner()
+    private var saved = loadSaved()
+    private var learner = saved.toLearner().known()
     private var engine = engineWith(saved.fsrsParameters)
     private var readingPicker = ReadingPicker(content, engine)
+    private var textAnalyzer = TextAnalyzer(content, engine, basicWords)
     private var translationPicker = sentences?.let { TranslationPicker(it, engine, config) }
     private val personalFit = PersonalFit(engineConfig, config)
     private var fitting = false
@@ -112,8 +118,11 @@ class StudyController(
     private val grammarTopics = content.topics.values.filter { topic -> topic.items.all { it.kind == KindFile.Rule } }.map { it.id }
 
     private val themeState = MutableStateFlow(saved.theme)
+    private val lookState = MutableStateFlow(saved.look)
 
     val theme: StateFlow<ThemeChoice> = themeState.asStateFlow()
+
+    val look: StateFlow<Look> = lookState.asStateFlow()
 
     private var modelState = ModelState.Unavailable
     private var downloadedBytes: Long? = null
@@ -143,9 +152,11 @@ class StudyController(
     private var chatToken = 0
 
     private var streakCache: Pair<Int, Streak>? = null
+    private var calibrationCache: Pair<Int, CalibrationSummary?>? = null
+    private var notice: String? = null
     private var streakBefore: Streak? = null
 
-    private val state = MutableStateFlow(if (needsPlacement()) placementIntro() else dailySummary() ?: home())
+    private val state = MutableStateFlow(dailySummary() ?: home())
     val screen: StateFlow<Screen> = state.asStateFlow()
 
     init {
@@ -167,8 +178,68 @@ class StudyController(
         coach = null
         exercise = null
         streakCache = null
+        calibrationCache = null
+        notice = null
         state.value = home()
         updateReminder()
+    }
+
+    fun showNotice(text: String) {
+        notice = text
+        refreshHome()
+    }
+
+    fun exportProgress(): String = store.export(nowMs())
+
+    fun importProgress(text: String) {
+        val summary = store.import(text)
+        if (summary == null) {
+            showNotice("Это не выгрузка прогресса Jatta: файл не загружен.")
+            return
+        }
+        saved = loadSaved()
+        learner = saved.toLearner().known()
+        engine = engineWith(saved.fsrsParameters)
+        readingPicker = ReadingPicker(content, engine)
+        textAnalyzer = TextAnalyzer(content, engine, basicWords)
+        translationPicker = sentences?.let { TranslationPicker(it, engine, config) }
+        themeState.value = saved.theme
+        lookState.value = saved.look
+        openHome()
+        showNotice("Прогресс загружен: единиц ${summary.items}, ответов ${summary.answers}, переводов ${summary.translations}.")
+    }
+
+    private fun loadSaved() = store.load().let { if (it.firstDaysRecorded) it else it.withFirstDays(LogReplay.firstStudyDays(store.readLog())) }
+
+    private fun Learner.known() = copy(progress = progress.filterKeys { it in content.items })
+
+    fun openOwnText() {
+        state.value = Screen.OwnText
+    }
+
+    fun analyzeText(text: String) {
+        if (text.isBlank()) return
+        today = currentDay()
+        val report = textAnalyzer.analyze(text.trim(), learner, today)
+        val plan = engine.planItems(learner, report.metItems + report.newItems, today)
+        state.value = Screen.TextStudy(report, newToday = plan.newItems.size)
+    }
+
+    fun studyText() {
+        val report = (state.value as? Screen.TextStudy)?.report ?: return
+        today = currentDay()
+        val plan = engine.planItems(learner, report.metItems + report.newItems, today)
+        if (plan.reviews.isEmpty() && plan.newItems.isEmpty()) return
+        begin(plan)
+    }
+
+    fun addTopic(text: String): String? {
+        val store = topicStore ?: return "Свои темы на этом устройстве не поддерживаются"
+        val problems = ContentLoader.checkCustom(content, text)
+        if (problems.isNotEmpty()) return problems.joinToString("\n")
+        val topic = ContentLoader.readTopic(text)!!
+        store.add(topic.id, text)
+        return null
     }
 
     fun startSession() {
@@ -411,14 +482,17 @@ class StudyController(
     fun stopSession() = openHome()
 
     fun openChat() {
-        if (chatReady()) state.value = Screen.ChatTopics(chatTopics)
+        if (chatReady()) state.value = Screen.ChatTopics(chatTopics, reviewTrusted = trustedJudge() != null)
     }
 
     fun startChat(topicId: String) {
         val topic = chatTopics.firstOrNull { it.id == topicId } ?: return
-        val judge = trustedJudge() ?: return
+        val judge = judge?.takeIf { chatReady() } ?: return
         val token = ++chatToken
-        val flow = ChatFlow(topic, chatWords(topic), ChatPartner(model!!), judge, config.chatTimeoutMs, config.chatTurnsKept) {
+        val flow = ChatFlow(
+            topic, metWords(), ChatPartner(model!!), judge, config.chatTimeoutMs, config.chatTurnsKept,
+            reviewTrusted = trustedJudge() != null,
+        ) {
             if (token == chatToken) state.value = it
         }
         chat = flow
@@ -430,15 +504,10 @@ class StudyController(
         scope.launch { flow.send(text) }
     }
 
-    private fun chatReady() = trustedJudge() != null && chatTopics.isNotEmpty()
+    private fun chatReady() = judge != null && modelState == ModelState.Ready && chatTopics.isNotEmpty() && learner.progress.isNotEmpty()
 
-    private fun chatWords(topic: ChatTopic): List<String> {
-        val pool = topic.words?.let { content.topics[it]?.items } ?: content.items.values
-        return pool.filter { it.id in learner.progress && it.kind != KindFile.Rule && it.audio == null }
-            .shuffled(Random(currentDay() + topic.id.hashCode()))
-            .take(config.chatWordsOffered)
-            .map { it.en }
-    }
+    private fun metWords(): List<String> =
+        content.items.values.filter { it.id in learner.progress && it.kind != KindFile.Rule && it.audio == null }.map { it.en }
 
     fun goBack() {
         val current = state.value
@@ -448,6 +517,10 @@ class StudyController(
             current is Screen.PlacementWord || current is Screen.PlacementGrammar -> state.value = placementIntro()
             else -> openHome()
         }
+    }
+
+    fun openPlacement() {
+        if (placementOffered()) state.value = placementIntro()
     }
 
     fun startPlacement() {
@@ -489,7 +562,7 @@ class StudyController(
     private fun finishPlacement(test: Placement): Screen {
         val result = test.result(placementWords, placementGrammar)
         val today = currentDay()
-        result.knownItems.forEach { item ->
+        result.knownItems.filterNot { it in learner.progress }.forEach { item ->
             learner = engine.placeKnown(learner, item, today)
             store.log(LogEntry(nowMs(), today, item, "Placement", true, 0, Grade.Good.name, false, CheckedBy.Placement.logName))
         }
@@ -499,11 +572,20 @@ class StudyController(
         return Screen.PlacementDone(result)
     }
 
-    private fun needsPlacement() = placement != null && saved.placement == null && learner.progress.isEmpty()
+    private fun placementOffered() = placement != null && saved.placement == null
 
     private fun placementIntro(): Screen {
         val test = placement ?: error("No placement test")
         return Screen.PlacementIntro(test.words.size, test.grammar.size)
+    }
+
+    private fun calibrationSummary(): CalibrationSummary? {
+        val day = currentDay()
+        calibrationCache?.let { (cached, summary) -> if (cached == day) return summary }
+        val report = Calibration.of(store.readLog(), engine.memory, config)
+        val summary = if (report.reviews == 0) null else CalibrationSummary(report.reviews, report.predicted, report.actual, report.verdict)
+        calibrationCache = day to summary
+        return summary
     }
 
     fun openCalibration() {
@@ -536,8 +618,9 @@ class StudyController(
             saved = saved.copy(fsrsParameters = parameters)
             engine = engineWith(parameters)
             readingPicker = ReadingPicker(content, engine)
+            textAnalyzer = TextAnalyzer(content, engine, basicWords)
             translationPicker = sentences?.let { TranslationPicker(it, engine, config) }
-            learner = learner.copy(progress = learner.progress + LogReplay.progress(store.readLog(), engine.memory))
+            learner = learner.copy(progress = learner.progress + LogReplay.progress(store.readLog(), engine.memory)).known()
         }
         save()
         updateReminder()
@@ -546,6 +629,13 @@ class StudyController(
 
     private fun engineWith(parameters: List<Double>?) =
         Engine(content.course, parameters?.let { engineConfig.copy(fsrsParameters = it) } ?: engineConfig)
+
+    fun cycleLook() {
+        val next = Look.entries[(saved.look.ordinal + 1) % Look.entries.size]
+        saved = saved.copy(look = next)
+        save()
+        lookState.value = next
+    }
 
     fun cycleTheme() {
         val next = ThemeChoice.entries[(saved.theme.ordinal + 1) % ThemeChoice.entries.size]
@@ -760,6 +850,7 @@ class StudyController(
 
     private fun showDone() {
         streakCache = null
+        calibrationCache = null
         val streak = currentStreak()
         state.value = Screen.Done(
             firstAnswers.size, firstAnswers.count { it }, endedEarly, translations.size, translatedRight,
@@ -834,6 +925,10 @@ class StudyController(
             content.title, plan.reviews.size, plan.newItems.size, plan.postponedReviews, topics, ai, progress, vocabulary, reading,
             streak = currentStreak(),
             chatReady = chatReady(),
+            chatReviewTrusted = trustedJudge() != null,
+            placementOffered = placementOffered(),
+            calibration = calibrationSummary(),
+            notice = notice,
         )
     }
 
@@ -844,7 +939,11 @@ class StudyController(
             engine.gate.isMastered(topic.id, learner, today) -> TopicState.Mastered
             else -> TopicState.Open
         }
-        TopicStatus(topic.id, topic.title, state, held = items.count { engine.gate.holds(learner.progress[it.id], today) }, total = items.size)
+        TopicStatus(
+            topic.id, topic.title, state,
+            held = items.count { engine.gate.holds(learner.progress[it.id], today) }, total = items.size,
+            custom = topic.id in content.customTopics,
+        )
     }
 
     private fun baseline(): Baseline {

@@ -122,3 +122,10 @@ keep their own license; they are not covered by the GPL.
 - ML Kit GenAI Prompt API (`com.google.mlkit:genai-prompt`, Gemini Nano on Android): proprietary,
   [ML Kit Terms of Service](https://developers.google.com/ml-kit/terms). Not covered by the GPL;
   the additional permission above allows conveying Android builds that include it.
+
+### NGSL forms in the app — CC BY-SA 4.0
+
+`content/en/basic-words.json` lists the inflected forms of the NGSL 1.2 lemmas ranked 1–1000 and the NGSL
+supplementary words, built by `scripts/build_basic_words.py` from `sources/ngsl/`. New General Service List 1.2 by
+Browne, C., Culligan, B., and Phillips, J. (https://www.newgeneralservicelist.com/), licensed under
+CC BY-SA 4.0. The app uses it to tell which words of a learner's own text are assumed known.

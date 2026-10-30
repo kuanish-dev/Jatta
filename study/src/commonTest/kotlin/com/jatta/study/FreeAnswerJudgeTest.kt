@@ -7,6 +7,8 @@ import com.jatta.study.judge.JudgeRequest
 import com.jatta.study.judge.Judgment
 import com.jatta.study.judge.ModelState
 import com.jatta.study.judge.OnDeviceModel
+import com.jatta.study.judge.transcript
+import com.jatta.study.judge.ChatTurn
 import com.jatta.study.judge.WordDiff
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
@@ -70,13 +72,15 @@ class FreeAnswerJudgeTest {
         val judge = FreeAnswerJudge(ReplyingModel { asked = it; reply }, StudyConfig())
         val request = JudgeRequest("Тому нужны были наличные.", "Tom needed some cash.", "Tom needs cash.")
         assertEquals(Judgment(true, null), judge.judgeTranslation(request))
-        assertTrue("Russian sentence: Тому нужны были наличные." in asked && "Ignore grammar" in asked)
+        assertTrue("Russian: Тому нужны были наличные." in asked && "only the meaning" in asked)
         reply = "MEANING: DIFFERENT"
         assertEquals(Judgment(false, null), judge.judgeTranslation(request))
+        reply = "**SAME**"
+        assertEquals(Judgment(true, null), judge.judgeTranslation(request), "a bare answer counts too")
         reply = "VERDICT: CORRECT"
         assertNull(judge.judgeTranslation(request), "a reply out of format is thrown away")
         judge.judge(JudgeRequest("Translate into English: «Ты отправил письмо?»", "Did you send the email?", "Did you sent the email?"))
-        assertTrue("Ignore grammar" !in asked)
+        assertTrue("only the meaning" !in asked)
     }
 
     @Test
@@ -104,4 +108,5 @@ class ReplyingModel(private val reply: (String) -> String?) : OnDeviceModel {
     override suspend fun state() = ModelState.Ready
     override suspend fun download(onProgress: (Long) -> Unit) = true
     override suspend fun generate(prompt: String) = reply(prompt)
+    override suspend fun chat(system: String, turns: List<ChatTurn>) = reply(transcript(system, turns))
 }

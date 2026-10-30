@@ -1,0 +1,177 @@
+{
+  "id": "adjectives-adverbs",
+  "title": "Прилагательные и наречия: -ed/-ing, hard/hardly",
+  "intro": "Bored — человеку скучно, boring — вещь скучная. Наречие образа действия — прилагательное + -ly (carefully), но well, fast, hard, late не меняются. Hardly и lately — другие слова: «едва» и «в последнее время». Quite, rather, pretty, a bit перед прилагательным смягчают или усиливают его.",
+  "requires": [],
+  "confusableWith": ["comparisons"],
+  "items": [
+    {
+      "id": "aa-ed-ing",
+      "kind": "rule",
+      "en": "bored / boring, interested / interesting",
+      "ru": "-ed — чувство человека (I'm bored), -ing — свойство того, что его вызывает (a boring film)",
+      "note": "Спросите, кто испытывает чувство: I was tired after a tiring day — я устал после утомительного дня. Про человека можно сказать и -ing: he is boring — он скучный, с ним скучно. Пары: interested / interesting, excited / exciting, surprised / surprising, confused / confusing, disappointed / disappointing.",
+      "examples": [
+        {
+          "en": "The lecture was so boring that I nearly fell asleep.",
+          "ru": "Лекция была такой скучной, что я чуть не уснул.",
+          "gap": "boring",
+          "cue": "bore",
+          "wrong": [
+            "bored",
+            "bore",
+            "boringly"
+          ]
+        },
+        {
+          "en": "I was really surprised by her answer.",
+          "ru": "Её ответ меня очень удивил.",
+          "gap": "surprised",
+          "cue": "surprise",
+          "wrong": [
+            "surprising",
+            "surprise",
+            "surprisingly"
+          ]
+        },
+        {
+          "en": "It has been a tiring week at work.",
+          "ru": "Неделя на работе выдалась утомительная.",
+          "gap": "tiring",
+          "cue": "tire",
+          "wrong": [
+            "tired",
+            "tire",
+            "tiredly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa-adverb-form",
+      "kind": "rule",
+      "en": "carefully, well, fast, hard, late",
+      "ru": "наречие образа действия = прилагательное + -ly (careful → carefully); особые: good → well, а fast, hard, late не меняются",
+      "note": "Прилагательное описывает предмет или человека (a careful driver), наречие — действие (drives carefully). Good → well: she speaks English well, не «good». Fast, hard, late — одна форма: a fast car — drives fast, hard work — works hard. После глаголов чувств и look, sound, seem — прилагательное: it smells good, you look tired. Прилагательные на -ly (friendly, lovely) наречия не образуют: in a friendly way.",
+      "examples": [
+        {
+          "en": "She drives very carefully in the snow.",
+          "ru": "Она очень осторожно ездит по снегу.",
+          "gap": "carefully",
+          "cue": "careful",
+          "wrong": [
+            "careful",
+            "carefull",
+            "carefulness"
+          ]
+        },
+        {
+          "en": "He speaks Spanish really well.",
+          "ru": "Он очень хорошо говорит по-испански.",
+          "gap": "well",
+          "cue": "good",
+          "wrong": [
+            "good",
+            "goodly",
+            "best"
+          ]
+        },
+        {
+          "en": "Don't drive so fast, the road is wet.",
+          "ru": "Не гони так, дорога мокрая.",
+          "gap": "fast",
+          "cue": "fast",
+          "wrong": [
+            "fastly",
+            "fastly so",
+            "faster so"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa-hard-hardly",
+      "kind": "rule",
+      "en": "hard / hardly, late / lately",
+      "ru": "hard — усердно, hardly — едва, почти не; late — поздно, lately — в последнее время: это разные слова",
+      "note": "Hardly — отрицание по смыслу: I hardly know him — я его почти не знаю; hardly ever — почти никогда. «Усердно» — только hard: works hard. Lately = recently: I've been busy lately, обычно с Present Perfect. «Опоздал» — late, не lately.",
+      "examples": [
+        {
+          "en": "I hardly know anyone in this town.",
+          "ru": "Я почти никого не знаю в этом городе.",
+          "gap": "hardly",
+          "cue": "hard",
+          "wrong": [
+            "hard",
+            "harder",
+            "hardy"
+          ]
+        },
+        {
+          "en": "She works hard and never misses a deadline.",
+          "ru": "Она много работает и никогда не срывает сроки.",
+          "gap": "hard",
+          "cue": "hard",
+          "wrong": [
+            "hardly",
+            "hardily",
+            "hardest"
+          ]
+        },
+        {
+          "en": "I haven't slept well lately.",
+          "ru": "В последнее время я плохо сплю.",
+          "gap": "lately",
+          "cue": "late",
+          "wrong": [
+            "late",
+            "later",
+            "latest"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa-degree",
+      "kind": "rule",
+      "en": "quite / rather / fairly / pretty / a bit + прилагательное",
+      "ru": "quite, rather, fairly, pretty — довольно (от слабого fairly к сильному pretty), a bit — немного; стоят перед прилагательным",
+      "note": "Fairly good — так себе, quite good — неплохо, pretty good и rather good — весьма хорошо; pretty — разговорное. A bit — только с неприятным: a bit tired, a bit expensive, но не «a bit good». С существительным quite стоит перед артиклем: quite a long day. Rather часто с плохим: rather cold.",
+      "examples": [
+        {
+          "en": "The hotel was quite expensive, but worth it.",
+          "ru": "Отель был довольно дорогой, но того стоил.",
+          "gap": "quite expensive",
+          "cue": "довольно дорогой",
+          "wrong": [
+            "expensive quite",
+            "quite expensiver",
+            "quite the expensive"
+          ]
+        },
+        {
+          "en": "I'm a bit tired, so let's finish early today.",
+          "ru": "Я немного устал, давай сегодня закончим пораньше.",
+          "gap": "a bit tired",
+          "cue": "немного уставший",
+          "wrong": [
+            "a bit tiring",
+            "bit tired",
+            "a bit of tired"
+          ]
+        },
+        {
+          "en": "The talk was pretty interesting, actually.",
+          "ru": "Доклад, кстати, был довольно интересным.",
+          "gap": "pretty interesting",
+          "cue": "довольно интересный",
+          "wrong": [
+            "pretty interested",
+            "interesting pretty",
+            "prettily interesting"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -27,6 +27,8 @@ class Engine(val course: Course, val config: EngineConfig = EngineConfig()) {
 
     fun planTopic(learner: Learner, topicId: String, today: Int): DayPlan = planner.topic(topicId, learner, today)
 
+    fun planItems(learner: Learner, itemIds: List<String>, today: Int): DayPlan = planner.items(itemIds, learner, today)
+
     fun startSession(plan: DayPlan): Session = Session(plan.reviews, plan.newItems, config)
 
     fun restCoach(baseline: Baseline, startMs: Long): RestCoach = RestCoach(config, baseline, startMs)

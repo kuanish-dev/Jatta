@@ -11,6 +11,7 @@ class StudyCourse(
     val course: Course,
     val topics: Map<String, TopicFile>,
     val items: Map<String, ItemFile>,
+    val customTopics: Set<String> = emptySet(),
 ) {
     fun topicOf(itemId: String): TopicFile = topics.getValue(course.item(itemId).topicId)
 }
@@ -23,12 +24,14 @@ object ContentLoader {
 
     fun readCourseFile(text: String): CourseFile = json.decodeFromString(text)
 
-    fun load(courseFile: CourseFile, topicTexts: Map<String, String>): StudyCourse {
-        val topics = courseFile.topics.map { id ->
+    fun load(courseFile: CourseFile, topicTexts: Map<String, String>, customTexts: List<String> = emptyList()): StudyCourse {
+        val builtIn = courseFile.topics.map { id ->
             val text = topicTexts[id] ?: throw ContentError(listOf("No file for topic $id"))
             json.decodeFromString<TopicFile>(text)
         }
-        val problems = problems(courseFile, topics)
+        val custom = customTexts.map { readTopic(it) ?: throw ContentError(listOf("A custom topic is not valid JSON")) }
+        val topics = builtIn + custom
+        val problems = problems(courseFile, builtIn) + custom.flatMap { customProblems(it, topics) }
         if (problems.isNotEmpty()) throw ContentError(problems)
 
         val course = Course(
@@ -40,7 +43,32 @@ object ContentLoader {
             course = course,
             topics = topics.associateBy { it.id },
             items = topics.flatMap { it.items }.associateBy { it.id },
+            customTopics = custom.mapTo(HashSet()) { it.id },
         )
+    }
+
+    fun readTopic(text: String): TopicFile? = runCatching { json.decodeFromString<TopicFile>(text) }.getOrNull()
+
+    fun checkCustom(content: StudyCourse, text: String): List<String> {
+        val topic = readTopic(text) ?: return listOf("Файл не похож на тему Jatta: см. docs/course-format.md")
+        return customProblems(topic, content.topics.values + topic)
+    }
+
+    private fun customProblems(topic: TopicFile, all: List<TopicFile>): List<String> = buildList {
+        if (topic.id.isBlank() || !topic.id.all { it.isLetterOrDigit() || it == '-' }) add("${topic.id}: id из латиницы, цифр и дефиса")
+        if (topic.title.isBlank()) add("${topic.id}: нет названия")
+        if (topic.items.isEmpty()) add("${topic.id}: нет единиц")
+        val others = all.filter { it !== topic }
+        if (others.any { it.id == topic.id }) add("${topic.id}: тема с таким id уже есть")
+        val taken = others.flatMap { it.items }.mapTo(HashSet()) { it.id }
+        topic.items.filter { it.id in taken }.forEach { add("${topic.id}/${it.id}: единица с таким id уже есть в курсе") }
+        topic.items.groupBy { it.id }.filterValues { it.size > 1 }.keys.forEach { add("${topic.id}/$it: id повторяется") }
+        val known = all.mapTo(HashSet()) { it.id }
+        (topic.requires + topic.confusableWith).filterNot { it in known }.forEach { add("${topic.id}: неизвестная тема $it") }
+        topic.items.filter { it.audio != null }.forEach { add("${topic.id}/${it.id}: у своей темы не может быть записей") }
+        val words = topic.items.count { it.kind != KindFile.Rule }
+        if (words in 1..3) add("${topic.id}: для выбора из вариантов нужно хотя бы 4 слова, найдено $words")
+        topic.items.forEach { addAll(itemProblems("${topic.id}/${it.id}", it)) }
     }
 
     private fun problems(courseFile: CourseFile, topics: List<TopicFile>): List<String> = buildList {

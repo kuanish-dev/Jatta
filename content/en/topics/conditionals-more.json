@@ -1,0 +1,129 @@
+{
+  "id": "conditionals-more",
+  "title": "Условные: zero, unless, in case, as long as",
+  "intro": "Нулевой тип — общая истина, настоящее в обеих частях: If you heat ice, it melts. Unless — «если не», in case — «на случай, если», as long as и provided that — «при условии, что». После всех этих слов — настоящее время, а не will.",
+  "requires": ["first-conditional"],
+  "confusableWith": ["first-conditional"],
+  "items": [
+    {
+      "id": "cm-zero",
+      "kind": "rule",
+      "en": "If + Present, Present",
+      "ru": "Нулевой тип: общая истина — настоящее время в обеих частях",
+      "note": "If you heat ice, it melts — так бывает всегда. Will здесь не нужен: это не прогноз, а закон или привычка. If можно заменить на when, смысл не меняется.",
+      "examples": [
+        {
+          "en": "If you heat ice, it melts.",
+          "ru": "Если нагреть лёд, он тает.",
+          "gap": "melts",
+          "cue": "melt",
+          "wrong": ["will melt", "melted", "would melt"]
+        },
+        {
+          "en": "If I drink coffee after six, I don't sleep.",
+          "ru": "Если я пью кофе после шести, я не сплю.",
+          "gap": "don't sleep",
+          "cue": "not sleep",
+          "wrong": ["won't sleep", "didn't sleep", "wouldn't sleep"]
+        },
+        {
+          "en": "The app crashes if you open too many tabs.",
+          "ru": "Приложение падает, если открыть слишком много вкладок.",
+          "gap": "crashes",
+          "cue": "crash",
+          "wrong": ["will crash", "crashed", "would crash"]
+        }
+      ]
+    },
+    {
+      "id": "cm-unless",
+      "kind": "rule",
+      "en": "unless + Present",
+      "ru": "Unless = if … not; после него настоящее время и без not",
+      "note": "I won't go unless you come = I won't go if you don't come. Ловушка: unless уже содержит «не», поэтому unless you don't come — ошибка. Unless не заменяет if в вопросах и в воображаемых ситуациях с would.",
+      "examples": [
+        {
+          "en": "I won't go to the party unless you come too.",
+          "ru": "Я не пойду на вечеринку, если ты тоже не пойдёшь.",
+          "gap": "come",
+          "cue": "come",
+          "wrong": ["don't come", "will come", "came"]
+        },
+        {
+          "en": "The shop doesn't deliver unless you order before noon.",
+          "ru": "Магазин не доставляет, если не заказать до полудня.",
+          "gap": "order",
+          "cue": "order",
+          "wrong": ["don't order", "will order", "ordered"]
+        },
+        {
+          "en": "Unless the weather changes, we'll have the picnic.",
+          "ru": "Если погода не изменится, пикник состоится.",
+          "gap": "changes",
+          "cue": "change",
+          "wrong": ["doesn't change", "will change", "changed"]
+        }
+      ]
+    },
+    {
+      "id": "cm-in-case",
+      "kind": "rule",
+      "en": "in case + Present",
+      "ru": "In case — «на случай, если»: делаем заранее, а событие может и не случиться",
+      "note": "Take an umbrella in case it rains — зонт берём сейчас, на всякий случай. If it rains, take an umbrella — зонт берём только когда пойдёт дождь. После in case — настоящее время. Just in case — на всякий случай.",
+      "examples": [
+        {
+          "en": "Take an umbrella in case it rains.",
+          "ru": "Возьми зонт на случай, если пойдёт дождь.",
+          "gap": "in case",
+          "cue": "на случай, если",
+          "wrong": ["if", "unless", "when"]
+        },
+        {
+          "en": "I'll leave my phone on in case the school calls.",
+          "ru": "Оставлю телефон включённым на случай, если позвонят из школы.",
+          "gap": "calls",
+          "cue": "call",
+          "wrong": ["will call", "called", "would call"]
+        },
+        {
+          "en": "Write down the address in case you forget it.",
+          "ru": "Запиши адрес на случай, если забудешь.",
+          "gap": "in case",
+          "cue": "на случай, если",
+          "wrong": ["if", "unless", "as long as"]
+        }
+      ]
+    },
+    {
+      "id": "cm-as-long-as",
+      "kind": "rule",
+      "en": "as long as / provided (that) + Present",
+      "ru": "As long as, provided (that) — «при условии, что», сильнее, чем if",
+      "note": "You can borrow my car as long as you fill it up — только при этом условии. Provided that — то же, но официальнее: We'll sign provided that the price stays the same. После них — настоящее время, не will.",
+      "examples": [
+        {
+          "en": "You can borrow my car as long as you return it tonight.",
+          "ru": "Можешь взять мою машину при условии, что вернёшь её сегодня вечером.",
+          "gap": "as long as",
+          "cue": "при условии, что",
+          "wrong": ["unless", "in case", "even if"]
+        },
+        {
+          "en": "We'll sign the contract provided that the price stays the same.",
+          "ru": "Мы подпишем договор при условии, что цена не изменится.",
+          "gap": "stays",
+          "cue": "stay",
+          "wrong": ["will stay", "stayed", "would stay"]
+        },
+        {
+          "en": "Kids can stay up late as long as they finish their homework.",
+          "ru": "Дети могут лечь попозже, если доделают уроки.",
+          "gap": "as long as",
+          "cue": "при условии, что",
+          "wrong": ["unless", "in case", "until"]
+        }
+      ]
+    }
+  ]
+}

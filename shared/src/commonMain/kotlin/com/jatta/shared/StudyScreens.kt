@@ -52,14 +52,17 @@ import androidx.compose.ui.unit.dp
 import com.jatta.engine.session.Rung
 import com.jatta.study.AiStatus
 import com.jatta.study.Banner
+import com.jatta.study.CalibrationSummary
 import com.jatta.study.CourseProgress
 import com.jatta.study.FitStatus
+import com.jatta.study.Look
 import com.jatta.study.RestKind
 import com.jatta.study.Screen
 import com.jatta.study.StudyController
 import com.jatta.study.ThemeChoice
 import com.jatta.study.TopicState
 import com.jatta.study.TopicStatus
+import com.jatta.study.calibration.CalibrationReport
 import com.jatta.study.calibration.CalibrationVerdict
 import com.jatta.study.content.AudioFile
 import com.jatta.study.content.KindFile
@@ -74,10 +77,12 @@ import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 @Composable
-internal fun ScreenContent(screen: Screen, controller: StudyController, nowMs: () -> Long) {
+internal fun ScreenContent(screen: Screen, controller: StudyController, nowMs: () -> Long, onReload: () -> Unit) {
     when (val s = screen) {
-        is Screen.Home -> HomeScreen(s, controller)
+        is Screen.Home -> HomeScreen(s, controller, onReload)
         is Screen.Read -> ReadScreen(s, controller)
+        is Screen.OwnText -> OwnTextScreen(controller)
+        is Screen.TextStudy -> TextStudyScreen(s, controller)
         is Screen.DailySummary -> DailySummaryScreen(s, controller::closeSummary)
         is Screen.Progress -> ProgressScreen(s.report, controller::openHome)
         is Screen.Topic -> TopicScreen(s, controller)
@@ -103,10 +108,14 @@ internal fun ScreenContent(screen: Screen, controller: StudyController, nowMs: (
 }
 
 @Composable
-private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
+private fun HomeScreen(home: Screen.Home, controller: StudyController, onReload: () -> Unit) = Page {
     val theme by controller.theme.collectAsState()
+    val look by controller.look.collectAsState()
     Row(verticalAlignment = Alignment.CenterVertically) {
         Label("Jatta // заучивай", color = Neon.Cyan, modifier = Modifier.weight(1f))
+        NeonTextButton(controller::cycleLook) {
+            RollingText(if (look == Look.Neon) "НЕОН" else "СПОКОЙНО", MaterialTheme.typography.labelMedium, Neon.Muted)
+        }
         NeonTextButton(controller::cycleTheme) {
             val name = when (theme) {
                 ThemeChoice.System -> "система"
@@ -134,19 +143,76 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController) = Page {
         Text(if (nothingToDo) "НА СЕГОДНЯ ВСЁ" else "НАЧАТЬ ЗАНЯТИЕ")
     }
     if (nothingToDo) Muted("Новые повторы появятся, когда память начнёт ослабевать.")
+    home.notice?.let { Label(it, color = Neon.Acid, modifier = Modifier.pop(origin = LeftCenter)) }
+    if (home.placementOffered) PlacementCard(controller::openPlacement, controller::skipPlacement)
     home.reading?.let { ReadingCard(it, controller::openReading) }
-    if (home.ai.model != ModelState.Unavailable) ChatCard(home.chatReady, controller::openChat)
+    val studied = home.progress.met > 0
+    if (studied && home.ai.model != ModelState.Unavailable) ChatCard(home.chatReady, home.chatReviewTrusted, controller::openChat)
+    if (studied) OwnTextCard(controller::openOwnText)
     Label("Темы · в памяти / всего", modifier = Modifier.padding(top = 8.dp))
     home.topics.forEachIndexed { index, topic -> TopicRow(topic, index) { controller.openTopic(topic.id) } }
     Muted("Любую тему можно пройти отдельно: нажмите на неё. Закрытые темы сами откроются, когда темы до них будут держаться в памяти.")
     NeonTextButton(controller::openProgress) { Label("Мой прогресс →", color = Neon.Cyan) }
-    NeonTextButton(controller::openCalibration) { Label("Точность прогноза памяти →", color = Neon.Cyan) }
-    AiSection(home.ai, controller)
+    NeonTextButton(controller::openCalibration) { Label(calibrationLine(home.calibration), color = Neon.Cyan) }
+    if (studied) AiSection(home.ai, controller)
+    DataSection(controller, onReload)
+}
+
+@Composable
+private fun OwnTextCard(onOpen: () -> Unit) {
+    Panel(Modifier.fillMaxWidth().appear(6), accent = Neon.Magenta.copy(alpha = 0.5f)) {
+        Label("Свой текст", color = Neon.Magenta)
+        Text("Учить слова из своей статьи или письма", style = MaterialTheme.typography.titleMedium)
+        Muted("Вставьте любой английский текст: приложение найдёт в нём слова курса и соберёт из них занятие.")
+        NeonOutlinedButton(onOpen) { Text("ВСТАВИТЬ ТЕКСТ") }
+    }
+}
+
+@Composable
+private fun DataSection(controller: StudyController, onReload: () -> Unit) {
+    val files = LocalFiles.current ?: return
+    val scope = rememberCoroutineScope()
+    Label("Данные", modifier = Modifier.padding(top = 8.dp))
+    Muted("Прогресс и журнал ответов — файл на вашем телефоне. Его можно сохранить и перенести на другой телефон.")
+    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        NeonOutlinedButton({
+            scope.launch {
+                if (files.save("jatta-progress.json", controller.exportProgress())) controller.showNotice("Прогресс сохранён в файл.")
+            }
+        }) { Text("СОХРАНИТЬ") }
+        NeonOutlinedButton({ scope.launch { files.open()?.let(controller::importProgress) } }) { Text("ЗАГРУЗИТЬ") }
+    }
+    Muted("Свою тему (JSON по формату из docs/course-format.md) можно добавить в конец курса.")
+    NeonOutlinedButton({
+        scope.launch {
+            val text = files.open() ?: return@launch
+            val problem = controller.addTopic(text)
+            if (problem == null) onReload() else controller.showNotice("Тема не добавлена: " + problem.lineSequence().first())
+        }
+    }) { Text("ТЕМА ИЗ ФАЙЛА") }
+}
+
+private fun calibrationLine(summary: CalibrationSummary?) = when {
+    summary == null -> "Точность прогноза памяти →"
+    summary.verdict == CalibrationVerdict.TooFewReviews -> "Точность прогноза памяти: пока ${summary.reviews} повт. →"
+    else -> "Прогноз памяти: обещала ${percent(summary.predicted)}, вы вспомнили ${percent(summary.actual)} →"
+}
+
+@Composable
+private fun PlacementCard(onStart: () -> Unit, onSkip: () -> Unit) {
+    Panel(Modifier.fillMaxWidth().appear(4), accent = Neon.Acid.copy(alpha = 0.5f)) {
+        Label("Уже знаете английский?", color = Neon.Acid)
+        Muted("Тест уровня за 5 минут отметит знакомые слова и грамматику: они не будут учиться заново, а придут на проверку через пару дней.")
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            NeonOutlinedButton(onStart) { Text("ПРОЙТИ ТЕСТ") }
+            NeonTextButton(onSkip) { Label("Начну с начала") }
+        }
+    }
 }
 
 @Composable
 private fun PlacementIntroScreen(intro: Screen.PlacementIntro, controller: StudyController) = Page {
-    Label("Jatta // уровень", color = Neon.Cyan)
+    BackBar("Уровень", Neon.Cyan, controller::openHome)
     Text("С чего начнём?", style = MaterialTheme.typography.headlineMedium)
     Text(
         "Короткий тест покажет, что вы уже знаете, и курс начнётся с вашего уровня: " +
@@ -255,7 +321,7 @@ private fun TopicRow(topic: TopicStatus, index: Int, onOpen: () -> Unit) {
         TopicState.Locked -> "закрыта" to Neon.Muted
         TopicState.Open -> "${topic.held}/${topic.total}" to Neon.Cyan
         TopicState.Mastered -> "✓ ${topic.held}/${topic.total}" to Neon.Acid
-    }
+    }.let { (text, color) -> (if (topic.custom) "своя · $text" else text) to color }
     Column(Modifier.fillMaxWidth().appear(index).pressable(onOpen), verticalArrangement = Arrangement.spacedBy(2.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(topic.title, Modifier.weight(1f), style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Medium)
@@ -279,16 +345,16 @@ private fun ReadingCard(reading: Reading, onOpen: () -> Unit) {
 }
 
 @Composable
-private fun ChatCard(ready: Boolean, onOpen: () -> Unit) {
+private fun ChatCard(ready: Boolean, trusted: Boolean, onOpen: () -> Unit) {
     Panel(Modifier.fillMaxWidth().appear(5), accent = Neon.Cyan.copy(alpha = 0.5f)) {
         Label("Разговор с ИИ", color = Neon.Cyan)
         Text("Поболтать по-английски", style = MaterialTheme.typography.titleMedium)
-        if (ready) {
-            Muted("Модель на телефоне ведёт беседу и сразу разбирает ошибки в каждой вашей фразе.")
-            NeonOutlinedButton(onOpen) { Text("ПОГОВОРИТЬ") }
-        } else {
-            Muted("Откроется, когда модель на телефоне пройдёт проверку точности: разбору ошибок нужно доверять.")
+        when {
+            ready && trusted -> Muted("Модель на телефоне ведёт беседу и сразу разбирает ошибки в каждой вашей фразе.")
+            ready -> Muted("Модель на телефоне ведёт беседу и разбирает ошибки. Пока она не прошла проверку точности, разбор приблизительный.")
+            else -> Muted("Откроется, когда модель на телефоне будет готова.")
         }
+        if (ready) NeonOutlinedButton(onOpen) { Text("ПОГОВОРИТЬ") }
     }
 }
 
@@ -690,7 +756,8 @@ private fun DoneScreen(done: Screen.Done, onHome: () -> Unit) = Page {
 private fun CalibrationScreen(screen: Screen.Calibration, onHome: () -> Unit) = Page {
     val report = screen.report
     BackBar("Точность прогноза", Neon.Cyan, onHome)
-    Text("Прогноз против факта", style = MaterialTheme.typography.headlineMedium)
+    Text(headlineOf(report), style = MaterialTheme.typography.headlineMedium)
+    Text(plainVerdict(report), style = MaterialTheme.typography.bodyLarge)
     if (report.reviews > 0) {
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Panel(Modifier.weight(1f).appear(1), accent = Neon.Cyan.copy(alpha = 0.45f)) {
@@ -705,15 +772,6 @@ private fun CalibrationScreen(screen: Screen.Calibration, onHome: () -> Unit) = 
         val reviews = plural(report.reviews, "повтору", "повторам", "повторам")
         Muted("По ${report.reviews} $reviews. С учётом случайности факт лежит между ${percent(report.low)} и ${percent(report.high)}.")
     }
-    Note(
-        when (report.verdict) {
-            CalibrationVerdict.TooFewReviews ->
-                "Повторов пока ${report.reviews} из ${report.minReviews}: на таком числе разница может быть случайной, вывода нет."
-            CalibrationVerdict.Accurate -> "Модель предсказывает вашу память точно: прогноз попадает в погрешность."
-            CalibrationVerdict.Overestimates -> "Вы вспоминаете реже, чем обещает модель: для вас интервалы между повторами длинноваты."
-            CalibrationVerdict.Underestimates -> "Вы вспоминаете чаще, чем обещает модель: для вас повторы можно ставить реже."
-        },
-    )
     if (report.bins.size > 1) {
         Label("По уровню прогноза · вспомнили · повторов", modifier = Modifier.padding(top = 8.dp))
         report.bins.forEachIndexed { index, bin ->
@@ -758,6 +816,28 @@ private fun FitPanel(fit: FitStatus) {
 }
 
 private fun percent(share: Double) = "${(share * 100).roundToInt()}%"
+
+private fun headlineOf(report: CalibrationReport) = when (report.verdict) {
+    CalibrationVerdict.TooFewReviews -> "Пока рано судить"
+    CalibrationVerdict.Accurate -> "Модель знает вашу память"
+    CalibrationVerdict.Overestimates -> "Модель переоценивает вашу память"
+    CalibrationVerdict.Underestimates -> "Вы помните лучше, чем думает модель"
+}
+
+private fun plainVerdict(report: CalibrationReport): String {
+    val promised = percent(report.predicted)
+    val recalled = percent(report.actual)
+    return when (report.verdict) {
+        CalibrationVerdict.TooFewReviews ->
+            "Модель проверяется на плановых повторах: прошло ${report.reviews} из ${report.minReviews}, нужных для вывода. Каждое занятие добавляет."
+        CalibrationVerdict.Accurate ->
+            "Она обещала, что вы вспомните $promised повторов, и вы вспомнили $recalled. Разница в пределах случайности: интервалы между повторами подобраны верно."
+        CalibrationVerdict.Overestimates ->
+            "Она обещала $promised, а вы вспомнили $recalled: интервалы для вас длинноваты. Подгонка параметров под ваш журнал это исправит."
+        CalibrationVerdict.Underestimates ->
+            "Она обещала $promised, а вы вспомнили $recalled: повторы можно ставить реже, и подгонка параметров это учтёт."
+    }
+}
 
 @Composable
 private fun countPercent(share: Double) = "${countUp((share * 100).roundToInt())}%"

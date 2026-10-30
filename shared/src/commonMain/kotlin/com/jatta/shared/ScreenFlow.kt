@@ -39,7 +39,7 @@ private const val SLIDE_MS = 340
 private data class Session(val counter: String, val steps: Steps, val stoppable: Boolean)
 
 @Composable
-fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
+fun StudyScreens(controller: StudyController, nowMs: () -> Long, onReload: () -> Unit = {}) {
     val screen by controller.screen.collectAsState()
     NavigationBackHandler(rememberNavigationEventState(NavigationEventInfo.None), isBackEnabled = screen.canGoBack) {
         controller.goBack()
@@ -58,7 +58,7 @@ fun StudyScreens(controller: StudyController, nowMs: () -> Long) {
             Modifier.weight(1f),
             contentKey = ::screenKey,
             transitionSpec = { slide(back = !targetState.canGoBack) },
-        ) { ScreenContent(it, controller, nowMs) }
+        ) { ScreenContent(it, controller, nowMs, onReload) }
     }
 }
 

@@ -1,0 +1,57 @@
+{
+  "id": "present-tenses",
+  "title": "Present Simple и Present Continuous",
+  "intro": "Present Simple — то, что делаем регулярно или всегда: I work in a bank. Present Continuous (am/is/are + -ing) — то, что происходит сейчас или временно: I'm working from home this week. Глаголы состояния (know, like, want) в Continuous не ставятся.",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "pt-habit-now",
+      "kind": "rule",
+      "en": "I work / I am working",
+      "ru": "Регулярно и всегда → Present Simple; сейчас и временно → Present Continuous",
+      "note": "Present Simple — привычки, расписание, факты: I usually drive to work, the shop opens at nine. Present Continuous — действие идёт прямо сейчас или в этот период: I'm driving, can I call you back? Сигналы: usually, every day, often — Simple; now, at the moment, today — Continuous.",
+      "examples": [
+        { "en": "She usually takes the bus to work.", "ru": "Она обычно ездит на работу на автобусе.", "gap": "takes", "cue": "take", "wrong": ["is taking", "take", "taking"], "also": ["Usually she takes the bus to work."] },
+        { "en": "Sorry, I'm driving, can I call you back?", "ru": "Извини, я за рулём, можно я перезвоню?", "gap": "I'm driving", "cue": "I / drive", "wrong": ["I drive", "I'm drive", "I driving"], "also": ["Sorry, I am driving, can I call you back?"] },
+        { "en": "The kids are sleeping, so speak quietly.", "ru": "Дети спят, так что говори тихо.", "gap": "are sleeping", "cue": "sleep", "wrong": ["sleep", "sleeps", "are sleep"] }
+      ]
+    },
+    {
+      "id": "pt-state-verbs",
+      "kind": "rule",
+      "en": "I know, I want, I like",
+      "ru": "Глаголы состояния — только Simple, даже про «сейчас»",
+      "note": "Know, like, want, need, believe, understand, own, seem, belong описывают состояние, а не действие, и в Continuous не ставятся: I want a coffee now, а не I'm wanting. Ловушка: часть глаголов бывает и тем, и другим — I think it's a good idea (мнение) и I'm thinking about the offer (процесс); have в значении «у меня есть» — Simple, have lunch — Continuous.",
+      "examples": [
+        { "en": "I need your answer by tonight.", "ru": "Мне нужен твой ответ до вечера.", "gap": "need", "cue": "need", "wrong": ["am needing", "needing", "needs"] },
+        { "en": "Do you know where the keys are?", "ru": "Ты знаешь, где ключи?", "gap": "Do you know", "cue": "you / know", "wrong": ["Are you knowing", "Do you knowing", "Are you know"] },
+        { "en": "This car belongs to my brother.", "ru": "Эта машина принадлежит моему брату.", "gap": "belongs", "cue": "belong", "wrong": ["is belonging", "belong", "belonging"] }
+      ]
+    },
+    {
+      "id": "pt-always",
+      "kind": "rule",
+      "en": "He's always losing his keys",
+      "ru": "Always + Continuous — раздражает, что это повторяется",
+      "note": "Обычно always идёт с Present Simple: he always loses his keys — просто факт. С Continuous (he's always losing his keys) говорящий жалуется: опять, постоянно, как же это надоело. Так же работают constantly и forever. Always стоит между am/is/are и глаголом.",
+      "examples": [
+        { "en": "My neighbour is always playing loud music at night.", "ru": "Мой сосед вечно включает громкую музыку по ночам.", "gap": "is always playing", "cue": "always / play", "wrong": ["is always play", "always playing", "are always playing"], "also": ["My neighbor is always playing loud music at night."] },
+        { "en": "You are always leaving the door open!", "ru": "Ты вечно оставляешь дверь открытой!", "gap": "are always leaving", "cue": "always / leave", "wrong": ["are always leave", "always leaving", "is always leaving"], "also": ["You're always leaving the door open!"] },
+        { "en": "She is constantly checking her phone during dinner.", "ru": "Она постоянно проверяет телефон за ужином.", "gap": "is constantly checking", "cue": "constantly / check", "wrong": ["is constantly check", "constantly checking", "are constantly checking"], "also": ["She's constantly checking her phone during dinner."] }
+      ]
+    },
+    {
+      "id": "pt-temporary",
+      "kind": "rule",
+      "en": "I'm staying with my parents this month",
+      "ru": "Временно, не как обычно → Present Continuous",
+      "note": "Continuous — не только «прямо сейчас», но и временное положение дел: I'm working from home this week, she's living in Berlin until June. Постоянное — Simple: I live in Astana. Сигналы: this week, this month, these days, at the moment, until.",
+      "examples": [
+        { "en": "I am working from home this week.", "ru": "На этой неделе я работаю из дома.", "gap": "am working", "cue": "work", "wrong": ["work", "works", "working"], "also": ["I'm working from home this week.", "This week I am working from home.", "This week I'm working from home."] },
+        { "en": "He is staying with his parents until he finds a flat.", "ru": "Он живёт у родителей, пока не найдёт квартиру.", "gap": "is staying", "cue": "stay", "wrong": ["stays", "stay", "staying"], "also": ["He's staying with his parents until he finds a flat."] },
+        { "en": "She is living in Berlin for a few months.", "ru": "Она несколько месяцев живёт в Берлине.", "gap": "is living", "cue": "live", "wrong": ["lives", "live", "living"], "also": ["She's living in Berlin for a few months."] }
+      ]
+    }
+  ]
+}

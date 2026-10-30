@@ -1,0 +1,186 @@
+{
+  "id": "pronouns",
+  "title": "Myself, each other, so do I",
+  "intro": "Местоимения на все случаи: myself — действие на себя или «сам», each other — друг друга, so do I и neither do I — «я тоже» и «я тоже нет», one / ones — вместо повтора существительного.",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "pr-reflexive",
+      "kind": "rule",
+      "en": "myself, yourself, himself, herself, itself, ourselves, yourselves, themselves",
+      "ru": "-self, когда действие направлено на себя или для усиления «сам»",
+      "note": "I cut myself — порезался; She fixed it herself — сама починила. By myself — один, без помощи. Ловушка: после feel, relax, concentrate, hurry -self не нужен: I feel great, not I feel myself great.",
+      "examples": [
+        {
+          "en": "I cut myself while I was chopping onions.",
+          "ru": "Я порезался, когда резал лук.",
+          "gap": "myself",
+          "cue": "self",
+          "wrong": [
+            "me",
+            "my",
+            "mine"
+          ]
+        },
+        {
+          "en": "She painted the whole flat herself.",
+          "ru": "Она сама покрасила всю квартиру.",
+          "gap": "herself",
+          "cue": "self, сама",
+          "wrong": [
+            "her",
+            "by her",
+            "himself"
+          ]
+        },
+        {
+          "en": "Did you enjoy yourselves at the party?",
+          "ru": "Вы хорошо провели время на вечеринке?",
+          "gap": "yourselves",
+          "cue": "self, вы (несколько)",
+          "wrong": [
+            "yourself",
+            "you",
+            "yours"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr-each-other",
+      "kind": "rule",
+      "en": "each other / one another",
+      "ru": "each other, one another — друг друга; themselves — себя самих",
+      "note": "They help each other — помогают друг другу; they blame themselves — винят себя. One another — то же, что each other, чуть формальнее. Притяжательное: each other's phones — телефоны друг друга.",
+      "examples": [
+        {
+          "en": "We help each other with the housework.",
+          "ru": "Мы помогаем друг другу по дому.",
+          "gap": "each other",
+          "cue": "друг другу",
+          "wrong": [
+            "ourselves",
+            "us",
+            "themselves"
+          ]
+        },
+        {
+          "en": "They haven't seen one another for ten years.",
+          "ru": "Они не виделись десять лет.",
+          "gap": "one another",
+          "cue": "друг друга",
+          "wrong": [
+            "themselves",
+            "them",
+            "each one"
+          ]
+        },
+        {
+          "en": "My colleagues respect each other a lot.",
+          "ru": "Мои коллеги очень уважают друг друга.",
+          "gap": "each other",
+          "cue": "друг друга",
+          "wrong": [
+            "themselves",
+            "each another",
+            "another"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr-so-neither",
+      "kind": "rule",
+      "en": "So do I. / Neither do I.",
+      "ru": "«Я тоже» — So + вспомогательный глагол + I; «я тоже нет» — Neither + вспомогательный + I",
+      "note": "Вспомогательный глагол берётся из реплики: I'm tired. — So am I. I've finished. — So have I. I can't swim. — Neither can I. С обычным глаголом — do / does / did: I love tea. — So do I. Порядок как в вопросе: So do I, а не So I do. Разговорно — Me too / Me neither.",
+      "examples": [
+        {
+          "en": "I love coffee in the morning. — So do I.",
+          "ru": "Я люблю кофе по утрам. — Я тоже.",
+          "gap": "So do I",
+          "cue": "so",
+          "wrong": [
+            "So I do",
+            "So am I",
+            "Neither do I"
+          ],
+          "also": [
+            "I love coffee in the morning. — Me too."
+          ]
+        },
+        {
+          "en": "I'm really tired today. — So am I.",
+          "ru": "Я сегодня очень устал. — Я тоже.",
+          "gap": "So am I",
+          "cue": "so",
+          "wrong": [
+            "So do I",
+            "So I am",
+            "Neither am I"
+          ],
+          "also": [
+            "I'm really tired today. — Me too."
+          ]
+        },
+        {
+          "en": "I haven't read the report yet. — Neither have I.",
+          "ru": "Я ещё не читал отчёт. — Я тоже.",
+          "gap": "Neither have I",
+          "cue": "neither",
+          "wrong": [
+            "Neither do I",
+            "So have I",
+            "Neither I have"
+          ],
+          "also": [
+            "I haven't read the report yet. — Me neither."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pr-one-ones",
+      "kind": "rule",
+      "en": "the blue one / the cheap ones",
+      "ru": "one / ones вместо повтора существительного: one — единственное число, ones — множественное",
+      "note": "I'll take the black bag, not the brown one — не повторяем bag. Which one? — Который? These shoes are small, do you have bigger ones? Только с исчисляемыми: о money, milk, advice так не скажешь.",
+      "examples": [
+        {
+          "en": "I don't like the red bag, I'll take the black one.",
+          "ru": "Красная сумка мне не нравится, возьму чёрную.",
+          "gap": "one",
+          "cue": "one",
+          "wrong": [
+            "ones",
+            "it",
+            "that"
+          ]
+        },
+        {
+          "en": "These shoes are too small. Do you have bigger ones?",
+          "ru": "Эти туфли малы. Есть побольше?",
+          "gap": "ones",
+          "cue": "one",
+          "wrong": [
+            "one",
+            "them",
+            "those"
+          ]
+        },
+        {
+          "en": "Which jacket is yours? — The grey one by the window.",
+          "ru": "Какая куртка твоя? — Серая, у окна.",
+          "gap": "one",
+          "cue": "one",
+          "wrong": [
+            "ones",
+            "it",
+            "this"
+          ]
+        }
+      ]
+    }
+  ]
+}

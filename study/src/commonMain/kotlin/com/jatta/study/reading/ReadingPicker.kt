@@ -2,7 +2,7 @@ package com.jatta.study.reading
 
 import com.jatta.engine.Engine
 import com.jatta.engine.learner.Learner
-import com.jatta.study.content.KindFile
+import com.jatta.study.content.WordForms
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.StudyCourse
 
@@ -13,12 +13,7 @@ data class Reading(
 )
 
 class ReadingPicker(content: StudyCourse, private val engine: Engine) {
-    private val forms: Map<String, Set<String>> = content.items.values
-        .filter { it.kind != KindFile.Rule }
-        .associate { item ->
-            val texts = listOf(item.en) + item.also + item.examples.mapNotNull { it.gap }
-            item.id to texts.flatMapTo(HashSet()) { engine.coverage.words(it) }
-        }
+    private val forms: Map<String, Set<String>> = WordForms.ofCourse(content, engine.coverage)
 
     fun pick(texts: List<ReadingText>, learner: Learner, today: Int, alreadyRead: Set<String>): Reading? {
         val held = forms.filterKeys { engine.gate.holds(learner.progress[it], today) }.values.flatten().toSet()

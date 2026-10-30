@@ -1,0 +1,502 @@
+{
+  "id": "study-words",
+  "title": "Слова: учёба и знания",
+  "intro": "Курсы и экзамены, навыки и память, язык и его изучение. Слова идут от частых к редким.",
+  "requires": [],
+  "confusableWith": [],
+  "items": [
+    {
+      "id": "w-term",
+      "kind": "word",
+      "en": "term",
+      "ru": "семестр, четверть; термин; срок",
+      "rank": 280,
+      "note": "Term — учебный период в школе или университете (в США чаще semester). Ещё термин (a technical term) и срок: in the long term — в долгосрочной перспективе, terms of the contract — условия договора.",
+      "examples": [
+        {
+          "en": "The new term starts in September.",
+          "ru": "Новый семестр начинается в сентябре.",
+          "gap": "term"
+        },
+        {
+          "en": "The lawyer explained every term in simple words.",
+          "ru": "Юрист объяснил каждый термин простыми словами.",
+          "gap": "term"
+        }
+      ]
+    },
+    {
+      "id": "w-pass",
+      "kind": "word",
+      "en": "pass",
+      "ru": "сдать (экзамен), пройти (тест)",
+      "rank": 416,
+      "note": "Pass an exam — сдать экзамен, то есть получить зачёт; «сдавать» в смысле «идти на экзамен» — take an exam. Pass — ещё и передать: pass me the salt.",
+      "examples": [
+        {
+          "en": "She passed her driving test on the second try.",
+          "ru": "Она сдала экзамен по вождению со второго раза.",
+          "gap": "passed"
+        },
+        {
+          "en": "You need 60 points to pass.",
+          "ru": "Чтобы сдать, нужно 60 баллов.",
+          "gap": "pass"
+        }
+      ]
+    },
+    {
+      "id": "w-research",
+      "kind": "word",
+      "en": "research",
+      "ru": "исследование; исследовать, изучать",
+      "rank": 423,
+      "note": "Неисчисляемое: a lot of research, a piece of research, но не «a research». Do research on something — изучать вопрос. Ударение в глаголе чаще на второй слог.",
+      "examples": [
+        {
+          "en": "Do some research before you buy a car.",
+          "ru": "Изучи вопрос, прежде чем покупать машину.",
+          "gap": "research"
+        },
+        {
+          "en": "Her research shows that short lessons work better.",
+          "ru": "Её исследование показывает, что короткие уроки работают лучше.",
+          "gap": "research"
+        }
+      ]
+    },
+    {
+      "id": "w-practice",
+      "kind": "word",
+      "en": "practice",
+      "ru": "практика, тренировка; практиковать, упражняться",
+      "rank": 484,
+      "also": ["practise"],
+      "note": "Practice makes perfect — без практики никуда. В британском написании глагол — practise, существительное — practice; в американском везде practice. Put into practice — применить на деле.",
+      "examples": [
+        {
+          "en": "Speaking gets easier with practice.",
+          "ru": "С практикой говорить становится легче.",
+          "gap": "practice"
+        },
+        {
+          "en": "I practice English with a colleague every lunch break.",
+          "ru": "Я практикую английский с коллегой каждый обед.",
+          "gap": "practice"
+        }
+      ]
+    },
+    {
+      "id": "w-knowledge",
+      "kind": "word",
+      "en": "knowledge",
+      "ru": "знания",
+      "rank": 619,
+      "note": "Всегда в единственном числе и без артикля a: knowledge of English, a good knowledge of the market. Ударение на первый слог, k не читается.",
+      "examples": [
+        {
+          "en": "The job requires a good knowledge of Excel.",
+          "ru": "Для этой работы нужно хорошо знать Excel.",
+          "gap": "knowledge"
+        },
+        {
+          "en": "My knowledge of French is a bit rusty.",
+          "ru": "Мой французский немного подзабылся.",
+          "gap": "knowledge"
+        }
+      ]
+    },
+    {
+      "id": "w-fail",
+      "kind": "word",
+      "en": "fail",
+      "ru": "провалить (экзамен); не суметь",
+      "rank": 711,
+      "note": "Fail an exam — провалить экзамен (противоположность pass). Fail to do something — не суметь, не сделать: he failed to call back. Without fail — обязательно.",
+      "examples": [
+        {
+          "en": "Half of the group failed the final exam.",
+          "ru": "Половина группы провалила итоговый экзамен.",
+          "gap": "failed"
+        },
+        {
+          "en": "If you fail, you can try again in a month.",
+          "ru": "Если провалишься, можно попробовать снова через месяц.",
+          "gap": "fail"
+        }
+      ]
+    },
+    {
+      "id": "w-ability",
+      "kind": "word",
+      "en": "ability",
+      "ru": "способность, умение",
+      "rank": 779,
+      "note": "The ability to do something — способность что-то делать. Skill — навык, который натренировали; ability — то, что человек в принципе может. Противоположность — inability.",
+      "examples": [
+        {
+          "en": "He has a rare ability to explain difficult things simply.",
+          "ru": "У него редкая способность объяснять сложное просто.",
+          "gap": "ability"
+        },
+        {
+          "en": "The course improved my ability to write emails.",
+          "ru": "Курс улучшил моё умение писать письма.",
+          "gap": "ability"
+        }
+      ]
+    },
+    {
+      "id": "w-degree",
+      "kind": "word",
+      "en": "degree",
+      "ru": "диплом, учёная степень; градус",
+      "rank": 798,
+      "note": "A degree in economics — диплом экономиста (bachelor's, master's degree). Ещё градус (30 degrees) и степень: to some degree — в какой-то мере.",
+      "examples": [
+        {
+          "en": "She has a degree in computer science.",
+          "ru": "У неё диплом по информатике.",
+          "gap": "degree"
+        },
+        {
+          "en": "You don't need a degree for this job.",
+          "ru": "Для этой работы диплом не нужен.",
+          "gap": "degree"
+        }
+      ]
+    },
+    {
+      "id": "w-score",
+      "kind": "word",
+      "en": "score",
+      "ru": "балл, результат (теста); набрать (баллы)",
+      "rank": 823,
+      "note": "A high score, a test score — балл за тест. Как глагол — набрать: she scored 90 out of 100. В спорте — счёт и забить гол.",
+      "examples": [
+        {
+          "en": "My score was just enough to get in.",
+          "ru": "Моего балла едва хватило, чтобы поступить.",
+          "gap": "score"
+        },
+        {
+          "en": "He scored 85 on the listening test.",
+          "ru": "Он набрал 85 баллов за аудирование.",
+          "gap": "scored"
+        }
+      ]
+    },
+    {
+      "id": "w-master",
+      "kind": "word",
+      "en": "master",
+      "ru": "овладеть, освоить в совершенстве; магистр",
+      "rank": 1556,
+      "note": "Master a language, master a skill — овладеть полностью, а не просто выучить. A master's (degree) — степень магистра.",
+      "examples": [
+        {
+          "en": "It took her years to master Japanese.",
+          "ru": "Ей понадобились годы, чтобы овладеть японским.",
+          "gap": "master"
+        },
+        {
+          "en": "He mastered the new software in a week.",
+          "ru": "Он освоил новую программу за неделю.",
+          "gap": "mastered"
+        }
+      ]
+    },
+    {
+      "id": "w-grade",
+      "kind": "word",
+      "en": "grade",
+      "ru": "оценка, отметка; класс (в школе)",
+      "rank": 1559,
+      "also": ["mark"],
+      "note": "Get a good grade — получить хорошую оценку; в Британии чаще mark. В американской школе grade — ещё и класс: in the fifth grade.",
+      "examples": [
+        {
+          "en": "What grade did you get for the essay?",
+          "ru": "Какую оценку ты получил за эссе?",
+          "gap": "grade"
+        },
+        {
+          "en": "Her grades improved after she found a tutor.",
+          "ru": "Её оценки улучшились после того, как она нашла репетитора.",
+          "gap": "grades"
+        }
+      ]
+    },
+    {
+      "id": "w-essay",
+      "kind": "word",
+      "en": "essay",
+      "ru": "эссе, сочинение",
+      "rank": 2161,
+      "note": "Write an essay on a topic — написать эссе на тему. Это и школьное сочинение, и письменная часть языкового экзамена.",
+      "examples": [
+        {
+          "en": "I have to write a 500-word essay by Friday.",
+          "ru": "Мне нужно написать эссе на 500 слов к пятнице.",
+          "gap": "essay"
+        },
+        {
+          "en": "Her essay was the best in the group.",
+          "ru": "Её эссе было лучшим в группе.",
+          "gap": "essay"
+        }
+      ]
+    },
+    {
+      "id": "w-exam",
+      "kind": "word",
+      "en": "exam",
+      "ru": "экзамен",
+      "rank": 2244,
+      "note": "Take или sit an exam — сдавать (идти на экзамен), pass — сдать, fail — провалить. Полная форма examination звучит официально.",
+      "examples": [
+        {
+          "en": "I'm taking my English exam next month.",
+          "ru": "В следующем месяце я сдаю экзамен по английскому.",
+          "gap": "exam"
+        },
+        {
+          "en": "The exam lasts three hours.",
+          "ru": "Экзамен длится три часа.",
+          "gap": "exam"
+        }
+      ]
+    },
+    {
+      "id": "w-grammar",
+      "kind": "word",
+      "en": "grammar",
+      "ru": "грамматика",
+      "rank": 2687,
+      "note": "Пишется с -ar на конце, хотя слышится -er. Grammar mistake — грамматическая ошибка, grammar rules — правила грамматики.",
+      "examples": [
+        {
+          "en": "His grammar is good, but he speaks slowly.",
+          "ru": "Грамматика у него хорошая, но говорит он медленно.",
+          "gap": "grammar"
+        },
+        {
+          "en": "I learned the grammar but forgot the words.",
+          "ru": "Грамматику я выучил, а слова забыл.",
+          "gap": "grammar"
+        }
+      ]
+    },
+    {
+      "id": "w-certificate",
+      "kind": "word",
+      "en": "certificate",
+      "ru": "сертификат, свидетельство",
+      "note": "Get a certificate — получить сертификат по окончании курса или экзамена. Birth certificate — свидетельство о рождении. Ударение на второй слог.",
+      "examples": [
+        {
+          "en": "You get a certificate at the end of the course.",
+          "ru": "В конце курса вы получаете сертификат.",
+          "gap": "certificate"
+        },
+        {
+          "en": "The employer asked for a copy of my certificate.",
+          "ru": "Работодатель попросил копию моего сертификата.",
+          "gap": "certificate"
+        }
+      ]
+    },
+    {
+      "id": "w-fluent",
+      "kind": "word",
+      "en": "fluent",
+      "ru": "свободно говорящий (на языке)",
+      "note": "Be fluent in English — свободно говорить по-английски. Fluently — бегло: she speaks fluently. Fluent — про речь, а не про знания: можно быть fluent и с ошибками.",
+      "examples": [
+        {
+          "en": "She is fluent in three languages.",
+          "ru": "Она свободно говорит на трёх языках.",
+          "gap": "fluent"
+        },
+        {
+          "en": "After a year abroad he became almost fluent.",
+          "ru": "После года за границей он стал говорить почти свободно.",
+          "gap": "fluent"
+        }
+      ]
+    },
+    {
+      "id": "w-advanced",
+      "kind": "word",
+      "en": "advanced",
+      "ru": "продвинутый (уровень); передовой",
+      "note": "Уровни курсов: beginner, intermediate, advanced. Advanced technology — передовая технология. At an advanced age — в преклонном возрасте.",
+      "examples": [
+        {
+          "en": "This course is for advanced students only.",
+          "ru": "Этот курс только для продвинутых учеников.",
+          "gap": "advanced"
+        },
+        {
+          "en": "The clinic uses the most advanced equipment.",
+          "ru": "Клиника использует самое передовое оборудование.",
+          "gap": "advanced"
+        }
+      ]
+    },
+    {
+      "id": "w-challenging",
+      "kind": "word",
+      "en": "challenging",
+      "ru": "трудный, но интересный; требующий усилий",
+      "note": "Challenging — трудность как вызов, в хорошем смысле: a challenging job. Difficult — просто трудный, без оттенка интереса. Challenge — вызов, сложная задача.",
+      "examples": [
+        {
+          "en": "The exam was challenging, but I enjoyed it.",
+          "ru": "Экзамен был непростым, но мне понравилось.",
+          "gap": "challenging"
+        },
+        {
+          "en": "I want a more challenging job.",
+          "ru": "Я хочу работу поинтереснее и посложнее.",
+          "gap": "challenging"
+        }
+      ]
+    },
+    {
+      "id": "w-memorize",
+      "kind": "word",
+      "en": "memorize",
+      "ru": "заучивать, запоминать наизусть",
+      "also": ["memorise"],
+      "note": "Memorize — выучить так, чтобы повторить без подсказки (британское написание memorise). Remember — помнить, learn by heart — выучить наизусть.",
+      "examples": [
+        {
+          "en": "I memorized twenty new words this morning.",
+          "ru": "Сегодня утром я заучил двадцать новых слов.",
+          "gap": "memorized"
+        },
+        {
+          "en": "Don't try to memorize the whole speech.",
+          "ru": "Не пытайся заучить всю речь наизусть.",
+          "gap": "memorize"
+        }
+      ]
+    },
+    {
+      "id": "w-cheat",
+      "kind": "word",
+      "en": "cheat",
+      "ru": "списывать, жульничать; обманывать",
+      "note": "Cheat in an exam — списывать на экзамене, cheat at cards — жульничать в картах. Cheat on someone — изменять партнёру. A cheat — обманщик.",
+      "examples": [
+        {
+          "en": "Two students were caught cheating in the test.",
+          "ru": "Двух студентов поймали на списывании во время теста.",
+          "gap": "cheating"
+        },
+        {
+          "en": "If you cheat, you only cheat yourself.",
+          "ru": "Списывая, ты обманываешь только себя.",
+          "gap": "cheat"
+        }
+      ]
+    },
+    {
+      "id": "w-tutor",
+      "kind": "word",
+      "en": "tutor",
+      "ru": "репетитор; заниматься с учеником",
+      "note": "A private tutor — репетитор, занятия один на один. В британских университетах tutor — ещё и преподаватель-куратор. Teacher — учитель в классе.",
+      "examples": [
+        {
+          "en": "I found an online tutor for Spanish.",
+          "ru": "Я нашёл онлайн-репетитора по испанскому.",
+          "gap": "tutor"
+        },
+        {
+          "en": "My tutor corrects my mistakes after every lesson.",
+          "ru": "Мой репетитор исправляет мои ошибки после каждого занятия.",
+          "gap": "tutor"
+        }
+      ]
+    },
+    {
+      "id": "w-vocabulary",
+      "kind": "word",
+      "en": "vocabulary",
+      "ru": "словарный запас, лексика",
+      "note": "Build или expand your vocabulary — расширять словарный запас. Словарь-книга — dictionary. Разговорное сокращение — vocab.",
+      "examples": [
+        {
+          "en": "Reading is the best way to build vocabulary.",
+          "ru": "Чтение — лучший способ набрать словарный запас.",
+          "gap": "vocabulary"
+        },
+        {
+          "en": "My vocabulary is fine, but my grammar is weak.",
+          "ru": "Словарный запас у меня нормальный, а вот грамматика слабая.",
+          "gap": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "w-feedback",
+      "kind": "word",
+      "en": "feedback",
+      "ru": "обратная связь, отзыв (о работе)",
+      "note": "Неисчисляемое: some feedback, a lot of feedback. Give feedback on something — дать обратную связь, get feedback from — получить отзыв. Positive, negative feedback.",
+      "examples": [
+        {
+          "en": "The teacher gave me useful feedback on my essay.",
+          "ru": "Преподаватель дал полезные замечания по моему эссе.",
+          "gap": "feedback"
+        },
+        {
+          "en": "We collect feedback after every workshop.",
+          "ru": "Мы собираем отзывы после каждого семинара.",
+          "gap": "feedback"
+        }
+      ]
+    },
+    {
+      "id": "c-take-notes",
+      "kind": "phrase",
+      "en": "take notes",
+      "ru": "делать записи, конспектировать",
+      "also": ["make notes"],
+      "note": "Take notes — записывать главное на лекции или встрече. Make a note of something — записать, чтобы не забыть: make a note of the date.",
+      "examples": [
+        {
+          "en": "I always take notes during meetings.",
+          "ru": "На встречах я всегда делаю записи.",
+          "gap": "take notes"
+        },
+        {
+          "en": "She took notes on her phone during the lecture.",
+          "ru": "Во время лекции она конспектировала в телефоне.",
+          "gap": "took notes"
+        }
+      ]
+    },
+    {
+      "id": "c-look-up",
+      "kind": "phrase",
+      "en": "look up",
+      "ru": "посмотреть (в словаре, в интернете), найти",
+      "note": "Look up a word — найти слово в словаре; look up the address — посмотреть адрес. Местоимение ставится между: look it up. Look up to someone — уважать, брать пример.",
+      "examples": [
+        {
+          "en": "I looked up the word in the dictionary.",
+          "ru": "Я посмотрел это слово в словаре.",
+          "gap": "looked up"
+        },
+        {
+          "en": "You can look up the schedule online.",
+          "ru": "Расписание можно посмотреть в интернете.",
+          "gap": "look up"
+        }
+      ]
+    }
+  ]
+}
