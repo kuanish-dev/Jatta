@@ -25,6 +25,7 @@ import com.jatta.study.chat.ChatPartner
 import com.jatta.study.chat.ChatTopic
 import com.jatta.study.content.BasicWords
 import com.jatta.study.content.ContentLoader
+import com.jatta.study.dictionary.Dictionary
 import com.jatta.study.content.KindFile
 import com.jatta.study.content.ReadingText
 import com.jatta.study.content.StudyCourse
@@ -147,6 +148,8 @@ class StudyController(
     private var translations = emptyList<TranslationTask>()
     private var translationIndex = 0
     private var translatedRight = 0
+    private var translatedTotal = 0
+    private var translationPractice = false
     private var pendingTranslation: PendingTranslation? = null
     private var chat: ChatFlow? = null
     private var chatToken = 0
@@ -155,6 +158,7 @@ class StudyController(
     private var calibrationCache: Pair<Int, CalibrationSummary?>? = null
     private var notice: String? = null
     private var streakBefore: Streak? = null
+    private var cardOrigin: Screen? = null
 
     private val state = MutableStateFlow(dailySummary() ?: home())
     val screen: StateFlow<Screen> = state.asStateFlow()
@@ -180,8 +184,33 @@ class StudyController(
         streakCache = null
         calibrationCache = null
         notice = null
+        cardOrigin = null
         state.value = home()
         updateReminder()
+    }
+
+    fun openDictionary() {
+        today = currentDay()
+        state.value = Screen.Dictionary(Dictionary.entries(content, engine, learner, today))
+    }
+
+    fun searchDictionary(query: String) {
+        val dictionary = state.value as? Screen.Dictionary ?: return
+        state.value = dictionary.copy(query = query)
+    }
+
+    fun openItem(itemId: String) {
+        val item = content.items[itemId] ?: return
+        today = currentDay()
+        val current = state.value
+        cardOrigin = current.takeIf { it is Screen.Dictionary || it is Screen.Topic }
+        val topic = content.topicOf(itemId)
+        state.value = Screen.ItemCard(item, topic.id, topic.title, Dictionary.status(learner.progress[itemId], engine, today))
+    }
+
+    fun closeItem() {
+        state.value = cardOrigin ?: home()
+        cardOrigin = null
     }
 
     fun showNotice(text: String) {
@@ -263,6 +292,7 @@ class StudyController(
             newToday = plan.newItems.size,
             newLater = items.count { it.id !in learner.progress } - plan.newItems.size,
             missing = missing,
+            entries = Dictionary.entriesOf(topicId, content, engine, learner, today),
         )
     }
 
@@ -334,7 +364,28 @@ class StudyController(
         pendingAdvice = Advice.Continue
         endedEarly = false
         translations = emptyList()
+        translationPractice = false
         showCurrent(banner = null)
+    }
+
+    fun startTranslation() {
+        today = currentDay()
+        val tasks = translationPicker?.practice(learner, today, store.readTranslations()).orEmpty()
+        if (tasks.isEmpty()) return
+        translations = tasks
+        translationIndex = 0
+        translatedRight = 0
+        translatedTotal = 0
+        translationPractice = true
+        showTranslation()
+    }
+
+    private fun endTranslation() {
+        val translated = translatedTotal
+        val right = translatedRight
+        translationPractice = false
+        openHome()
+        if (translated > 0) showNotice("Перевод: фраз $translated, верно $right.")
     }
 
     fun presented() {
@@ -426,12 +477,16 @@ class StudyController(
 
     fun nextTranslation() {
         translationIndex++
-        if (translationIndex < translations.size) showTranslation() else concludeSession()
+        when {
+            translationIndex < translations.size -> showTranslation()
+            translationPractice -> endTranslation()
+            else -> concludeSession()
+        }
     }
 
     private fun showTranslation() {
         shownAtMs = nowMs()
-        state.value = Screen.Translate(++questionCounter, translations[translationIndex], translationSteps())
+        state.value = Screen.Translate(++questionCounter, translations[translationIndex], translationSteps(), translationPractice)
     }
 
     private fun checkTranslation(judge: FreeAnswerJudge, task: TranslationTask, closest: String) {
@@ -463,12 +518,14 @@ class StudyController(
             diff = WordDiff.parts(pending.response, target),
             outcome = outcome,
             steps = translationSteps(),
+            practice = translationPractice,
         )
     }
 
     private fun recordTranslation(right: Boolean, checkedBy: CheckedBy) {
         val task = translations[translationIndex]
         val pending = pendingTranslation ?: error("No translation on screen")
+        translatedTotal++
         if (right) translatedRight++
         store.logTranslation(
             TranslationEntry(
@@ -479,7 +536,7 @@ class StudyController(
 
     private fun translationSteps() = Steps(translationIndex, translations.size - translationIndex)
 
-    fun stopSession() = openHome()
+    fun stopSession() = if (translationPractice) endTranslation() else openHome()
 
     fun openChat() {
         if (chatReady()) state.value = Screen.ChatTopics(chatTopics, reviewTrusted = trustedJudge() != null)
@@ -515,6 +572,8 @@ class StudyController(
             !current.canGoBack -> Unit
             current is Screen.DailySummary -> closeSummary()
             current is Screen.PlacementWord || current is Screen.PlacementGrammar -> state.value = placementIntro()
+            current is Screen.Translate || current is Screen.Translated -> stopSession()
+            current is Screen.ItemCard -> closeItem()
             else -> openHome()
         }
     }
@@ -836,6 +895,8 @@ class StudyController(
         translations = if (endedEarly) emptyList() else translationPicker?.pick(learner, today, store.readTranslations()).orEmpty()
         translationIndex = 0
         translatedRight = 0
+        translatedTotal = 0
+        translationPractice = false
         if (translations.isEmpty()) concludeSession() else showTranslation()
     }
 
@@ -929,6 +990,7 @@ class StudyController(
             placementOffered = placementOffered(),
             calibration = calibrationSummary(),
             notice = notice,
+            translationPractice = translationPicker != null,
         )
     }
 

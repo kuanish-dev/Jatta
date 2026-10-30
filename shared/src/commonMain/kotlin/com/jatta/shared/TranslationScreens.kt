@@ -28,7 +28,10 @@ internal fun TranslateScreen(screen: Screen.Translate, controller: StudyControll
         Label("Переведите на английский", color = Neon.Magenta)
         Text(screen.task.source, Modifier.pop(origin = LeftCenter), style = MaterialTheme.typography.headlineSmall)
         if (screen.steps.done == 0) {
-            Muted("Фразы из слов, которые вы держите в памяти. Засчитывается от 80% сходства с переводом человека или когда смысл передан.")
+            Muted(
+                if (screen.practice) "Сколько угодно фраз: сначала из слов, которые вы учите. Засчитывается от 80% сходства с переводом человека или когда смысл передан. Закончить — вверху."
+                else "Фразы из слов, которые вы держите в памяти. Засчитывается от 80% сходства с переводом человека или когда смысл передан.",
+            )
         }
         AnswerField(screen.id, singleLine = false, onSubmit = controller::submitTranslation)
     }

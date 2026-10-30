@@ -5,6 +5,8 @@ import com.jatta.study.calibration.CalibrationVerdict
 import com.jatta.study.chat.ChatMessage
 import com.jatta.study.chat.ChatTopic
 import com.jatta.study.content.ItemFile
+import com.jatta.study.dictionary.DictionaryEntry
+import com.jatta.study.dictionary.ItemStatus
 import com.jatta.study.exercise.Exercise
 import com.jatta.study.judge.DiffPart
 import com.jatta.study.judge.ModelState
@@ -35,6 +37,7 @@ sealed interface Screen {
         val placementOffered: Boolean = false,
         val calibration: CalibrationSummary? = null,
         val notice: String? = null,
+        val translationPractice: Boolean = false,
     ) : Screen
 
     data class DailySummary(val yesterday: DaySummary?, val restDay: Boolean, val streak: Streak) : Screen
@@ -57,7 +60,12 @@ sealed interface Screen {
         val newToday: Int,
         val newLater: Int,
         val missing: List<String>,
+        val entries: List<DictionaryEntry> = emptyList(),
     ) : Screen
+
+    data class Dictionary(val entries: List<DictionaryEntry>, val query: String = "") : Screen
+
+    data class ItemCard(val item: ItemFile, val topicId: String, val topicTitle: String, val status: ItemStatus) : Screen
 
     data class Read(val reading: Reading) : Screen
 
@@ -94,7 +102,7 @@ sealed interface Screen {
 
     data class Rest(val kind: RestKind, val minutes: Int, val untilMs: Long) : Screen
 
-    data class Translate(val id: Int, val task: TranslationTask, val steps: Steps) : Screen
+    data class Translate(val id: Int, val task: TranslationTask, val steps: Steps, val practice: Boolean = false) : Screen
 
     data class Translated(
         val task: TranslationTask,
@@ -104,6 +112,7 @@ sealed interface Screen {
         val diff: List<DiffPart>,
         val outcome: TranslationOutcome,
         val steps: Steps,
+        val practice: Boolean = false,
     ) : Screen
 
     data class Done(

@@ -48,6 +48,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.jatta.engine.session.Rung
 import com.jatta.study.AiStatus
@@ -86,6 +87,8 @@ internal fun ScreenContent(screen: Screen, controller: StudyController, nowMs: (
         is Screen.DailySummary -> DailySummaryScreen(s, controller::closeSummary)
         is Screen.Progress -> ProgressScreen(s.report, controller::openHome)
         is Screen.Topic -> TopicScreen(s, controller)
+        is Screen.Dictionary -> DictionaryScreen(s, controller)
+        is Screen.ItemCard -> ItemCardScreen(s, controller)
         is Screen.PlacementIntro -> PlacementIntroScreen(s, controller)
         is Screen.PlacementWord -> PlacementWordScreen(s, controller)
         is Screen.PlacementGrammar -> PlacementGrammarScreen(s, controller)
@@ -146,16 +149,30 @@ private fun HomeScreen(home: Screen.Home, controller: StudyController, onReload:
     home.notice?.let { Label(it, color = Neon.Acid, modifier = Modifier.pop(origin = LeftCenter)) }
     if (home.placementOffered) PlacementCard(controller::openPlacement, controller::skipPlacement)
     home.reading?.let { ReadingCard(it, controller::openReading) }
+    if (home.translationPractice) TranslationCard(controller::startTranslation)
     val studied = home.progress.met > 0
     if (studied && home.ai.model != ModelState.Unavailable) ChatCard(home.chatReady, home.chatReviewTrusted, controller::openChat)
     if (studied) OwnTextCard(controller::openOwnText)
-    Label("Темы · в памяти / всего", modifier = Modifier.padding(top = 8.dp))
+    Row(Modifier.padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+        Label("Темы · в памяти / всего", modifier = Modifier.weight(1f))
+        NeonTextButton(controller::openDictionary) { Label("Словарь →", color = Neon.Cyan) }
+    }
     home.topics.forEachIndexed { index, topic -> TopicRow(topic, index) { controller.openTopic(topic.id) } }
     Muted("Любую тему можно пройти отдельно: нажмите на неё. Закрытые темы сами откроются, когда темы до них будут держаться в памяти.")
     NeonTextButton(controller::openProgress) { Label("Мой прогресс →", color = Neon.Cyan) }
     NeonTextButton(controller::openCalibration) { Label(calibrationLine(home.calibration), color = Neon.Cyan) }
     if (studied) AiSection(home.ai, controller)
     DataSection(controller, onReload)
+}
+
+@Composable
+private fun TranslationCard(onStart: () -> Unit) {
+    Panel(Modifier.fillMaxWidth().appear(4), accent = Neon.Acid.copy(alpha = 0.5f)) {
+        Label("Перевод фраз", color = Neon.Acid)
+        Text("Переводить с русского на английский", style = MaterialTheme.typography.titleMedium)
+        Muted("Фразы Tatoeba в любое время и без лимита: сначала из слов, которые вы учите, потом остальные. Проверка та же, что в конце занятия.")
+        NeonOutlinedButton(onStart) { Text("ПЕРЕВОДИТЬ") }
+    }
 }
 
 @Composable
@@ -908,8 +925,11 @@ internal fun Note(text: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-internal fun Muted(text: String, modifier: Modifier = Modifier) {
-    Text(text, modifier, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+internal fun Muted(text: String, modifier: Modifier = Modifier, maxLines: Int = Int.MAX_VALUE) {
+    Text(
+        text, modifier, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant,
+        maxLines = maxLines, overflow = TextOverflow.Ellipsis,
+    )
 }
 
 private fun rungLabel(rung: Rung) = when (rung) {

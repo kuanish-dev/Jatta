@@ -1,6 +1,8 @@
 package com.jatta.shared
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.unit.dp
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,5 +35,10 @@ internal fun TopicScreen(screen: Screen.Topic, controller: StudyController) = Pa
         NeonButton(controller::startTopic, Modifier.fillMaxWidth().appear(3).pulse(scaleBy = 0.025f)) { Text("ПРОЙТИ ТЕМУ") }
     } else {
         Muted("Сегодня здесь нечего проходить: новое на сегодня закончилось.")
+    }
+    if (screen.entries.isNotEmpty()) {
+        Label("Содержание · ${screen.entries.size}", modifier = Modifier.padding(top = 8.dp))
+        Muted("Нажмите на слово или правило: перевод, объяснение, примеры и состояние памяти.")
+        screen.entries.forEachIndexed { index, entry -> EntryRow(entry, Modifier.appear(index)) { controller.openItem(entry.id) } }
     }
 }

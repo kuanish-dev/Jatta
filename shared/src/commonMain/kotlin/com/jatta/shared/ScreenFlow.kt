@@ -36,7 +36,7 @@ import com.jatta.study.canGoBack
 
 private const val SLIDE_MS = 340
 
-private data class Session(val counter: String, val steps: Steps, val stoppable: Boolean)
+private data class Session(val counter: String, val steps: Steps, val stoppable: Boolean, val endless: Boolean = false)
 
 @Composable
 fun StudyScreens(controller: StudyController, nowMs: () -> Long, onReload: () -> Unit = {}) {
@@ -69,11 +69,12 @@ private fun SessionHeader(session: Session, onStop: () -> Unit) {
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 Label(session.counter, color = Neon.Cyan)
                 val steps = session.steps
-                RollingText(" ${steps.done + 1}/${steps.done + steps.remaining}", MaterialTheme.typography.labelMedium, Neon.Cyan)
+                val counter = if (session.endless) " ${steps.done + 1}" else " ${steps.done + 1}/${steps.done + steps.remaining}"
+                RollingText(counter, MaterialTheme.typography.labelMedium, Neon.Cyan)
                 Spacer(Modifier.weight(1f))
                 if (session.stoppable) NeonTextButton(onStop) { Text("ЗАКОНЧИТЬ") }
             }
-            NeonBar(session.steps.fraction, height = 6.dp)
+            if (!session.endless) NeonBar(session.steps.fraction, height = 6.dp)
         }
     }
 }
@@ -81,8 +82,8 @@ private fun SessionHeader(session: Session, onStop: () -> Unit) {
 private fun sessionOf(screen: Screen): Session? = when (screen) {
     is Screen.PlacementWord -> Session("Тест уровня", screen.steps, stoppable = false)
     is Screen.PlacementGrammar -> Session("Тест уровня", screen.steps, stoppable = false)
-    is Screen.Translate -> Session("Перевод", screen.steps, stoppable = true)
-    is Screen.Translated -> Session("Перевод", screen.steps, stoppable = true)
+    is Screen.Translate -> Session("Перевод", screen.steps, stoppable = true, endless = screen.practice)
+    is Screen.Translated -> Session("Перевод", screen.steps, stoppable = true, endless = screen.practice)
     is Screen.Present -> Session("Шаг", screen.steps, stoppable = true)
     is Screen.Question -> Session("Шаг", screen.steps, stoppable = true)
     is Screen.Checking -> Session("Шаг", screen.steps, stoppable = true)
@@ -101,6 +102,7 @@ private fun screenKey(screen: Screen): Any = screen::class to when (screen) {
     is Screen.Translate -> screen.id
     is Screen.Translated -> screen.task.sentenceId
     is Screen.Topic -> screen.topic.id
+    is Screen.ItemCard -> screen.item.id
     else -> Unit
 }
 

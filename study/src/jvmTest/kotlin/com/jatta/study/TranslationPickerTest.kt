@@ -44,6 +44,27 @@ class TranslationPickerTest {
     }
 
     @Test
+    fun practiceOffersEverySentenceWithTheLearnersOwnWordsFirst() {
+        val sentences = file.sentences.associateBy { it.id }
+        val fresh = picker.practice(Learner(), today, emptyList())
+        assertEquals(file.sentences.size, fresh.size, "nothing studied yet, still every sentence is open")
+        val ranks = fresh.map { task -> sentences.getValue(task.sentenceId).items.mapNotNull { content.course.item(it).frequencyRank }.maxOrNull() ?: Int.MAX_VALUE }
+        assertEquals(ranks.sorted(), ranks, "easier words first")
+
+        val learner = holding(50)
+        val tasks = picker.practice(learner, today, emptyList())
+        assertEquals(file.sentences.size, tasks.size)
+        val met = tasks.map { task -> sentences.getValue(task.sentenceId).items.all { it in learner.progress } }
+        assertTrue(met.first() && !met.last())
+        assertEquals(met.sortedDescending(), met, "sentences from studied words come before the rest")
+
+        val allPassed = file.sentences.map { TranslationEntry(0, today, it.id, "", 1.0, true, 0, "code") }
+        assertEquals(file.sentences.size, picker.practice(learner, today, allPassed).size, "everything passed — start over")
+        val onePassed = listOf(allPassed.first())
+        assertEquals(file.sentences.size - 1, picker.practice(learner, today, onePassed).size)
+    }
+
+    @Test
     fun aSentenceDoneRightIsNotRepeatedAndOneDoneWrongReturnsAfterAFewDays() {
         val sentence = file.sentences.first()
         val one = TranslationPicker(file.copy(sentences = listOf(sentence)), engine, config)

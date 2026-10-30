@@ -22,6 +22,8 @@ import com.jatta.study.judge.EvalCase
 import com.jatta.study.judge.JudgeEval
 import com.jatta.study.judge.OnDeviceModel
 import com.jatta.study.judge.TranslationCase
+import com.jatta.study.dictionary.Dictionary
+import com.jatta.study.dictionary.ItemState
 import com.jatta.study.store.CustomTopicStore
 import com.jatta.study.store.LearnerStore
 import com.jatta.study.store.SavedProgress
@@ -591,6 +593,78 @@ class StudyControllerTest {
     }
 
     @Test
+    fun theDictionaryFindsAnyUnitAndTheTopicListsItsContents() {
+        val app = controller()
+        app.openDictionary()
+        val all = app.screen.value as Screen.Dictionary
+        assertEquals(content.course.items.size, all.entries.size)
+        assertTrue(all.entries.all { it.status.state == ItemState.New })
+        app.searchDictionary("заказ")
+        val found = Dictionary.search((app.screen.value as Screen.Dictionary).entries, "заказ")
+        assertEquals("w-order", found.first().id)
+
+        app.openItem("w-order")
+        val card = app.screen.value as Screen.ItemCard
+        assertEquals("order", card.item.en)
+        assertEquals(ItemState.New, card.status.state)
+        app.goBack()
+        assertEquals("заказ", (app.screen.value as Screen.Dictionary).query, "back returns to the same search")
+
+        app.openHome()
+        app.startSession()
+        runSessionAnsweringRight(app)
+        app.openHome()
+        val studied = (app.screen.value as Screen.Home).topics.first { it.held > 0 }
+        app.openTopic(studied.id)
+        val topic = app.screen.value as Screen.Topic
+        assertEquals(content.course.itemsOf(studied.id).map { it.id }, topic.entries.map { it.id })
+        val held = topic.entries.first { it.status.state == ItemState.Held }
+        app.openItem(held.id)
+        val heldCard = app.screen.value as Screen.ItemCard
+        assertEquals(ItemState.Held, heldCard.status.state)
+        assertTrue(heldCard.status.recallTomorrow!! >= 0.85)
+        assertTrue(heldCard.status.dueInDays!! >= 1)
+        assertEquals(studied.id, heldCard.topicId)
+        app.closeItem()
+        assertEquals(studied.id, (app.screen.value as Screen.Topic).topic.id)
+    }
+
+    @Test
+    fun translationsCanBePractisedFromHomeAnyTimeWithoutALimit() {
+        val app = controller(sentences = RealContent.sentences())
+        val home = app.screen.value as Screen.Home
+        assertTrue(home.translationPractice)
+        assertEquals(0, home.progress.met, "a learner who has not studied yet can translate")
+        app.startTranslation()
+        val config = StudyConfig()
+        repeat(config.translationsPerSession + 2) { index ->
+            val screen = app.screen.value as Screen.Translate
+            assertTrue(screen.practice)
+            assertEquals(index, screen.steps.done)
+            app.submitTranslation(screen.task.references.first())
+            assertEquals(TranslationOutcome.Close, (app.screen.value as Screen.Translated).outcome)
+            app.nextTranslation()
+        }
+        app.screen.value as Screen.Translate
+        app.submitTranslation("Something else entirely.")
+        app.judgeTranslation(right = false)
+        app.screen.value as Screen.Translate
+        app.goBack()
+        val back = app.screen.value as Screen.Home
+        assertEquals("Перевод: фраз ${config.translationsPerSession + 3}, верно ${config.translationsPerSession + 2}.", back.notice)
+        val store = LearnerStore(dir.absolutePath)
+        assertEquals(config.translationsPerSession + 3, store.readTranslations().size)
+        assertEquals(0, store.readLog().size, "practice stays out of the answer log")
+        assertEquals(0, (app.screen.value as Screen.Home).progress.met, "practice does not touch memory")
+
+        app.startTranslation()
+        val again = app.screen.value as Screen.Translate
+        assertTrue(store.readTranslations().none { it.passed && it.sentence == again.task.sentenceId }, "a sentence done right is not offered again")
+        app.stopSession()
+        assertEquals(null, (app.screen.value as Screen.Home).notice, "nothing translated, nothing to report")
+    }
+
+    @Test
     fun aModelChecksTranslationsLenientlyOnlyAfterItsOwnTest() {
         val dir = File(System.getProperty("contentDir"), "eval")
         val cases = JudgeEval.readCases(File(dir, "free-answers.json").readText())
@@ -764,6 +838,7 @@ class StudyControllerTest {
                 is Screen.Read, is Screen.OwnText, is Screen.TextStudy,
                 is Screen.PlacementIntro, is Screen.PlacementWord, is Screen.PlacementGrammar, is Screen.PlacementDone,
                 is Screen.Calibration, is Screen.Done, is Screen.Translate, is Screen.Translated, is Screen.Topic,
+                is Screen.Dictionary, is Screen.ItemCard,
                 is Screen.ChatTopics, is Screen.Chat,
                 is Screen.DailySummary, is Screen.Progress ->
                     error("Unexpected screen in a session: $screen")
